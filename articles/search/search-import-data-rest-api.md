@@ -1,25 +1,18 @@
 ---
 title: Carga de datos (API de REST - Azure Search) | Microsoft Docs
-description: "Aprenda cómo cargar datos en un índice de Azure Search con la API de REST."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 8d0749fb-6e08-4a17-8cd3-1a215138abc6
+description: Aprenda cómo cargar datos en un índice de Azure Search con la API de REST.
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 5322faf04d29643bba2d1371cef23ab224675adb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carga de datos en Azure Search con la API de REST
 > [!div class="op_single_selector"]
@@ -55,7 +48,7 @@ Al utilizar la API de REST, emitirá solicitudes HTTP POST con cuerpos de solici
 
 Cada objeto JSON de la matriz de "value" representa un documento que se va a indexar. Cada uno de estos objetos contiene la clave del documento y especifica la acción de indexación deseada (cargar, combinar, eliminar, etc.). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
 
-| @search.action | Description | Campos necesarios para cada documento | Notas |
+| @search.action | DESCRIPCIÓN | Campos necesarios para cada documento | Notas |
 | --- | --- | --- | --- |
 | `upload` |Una acción `upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. |la clave, además de cualquier otro campo que desee definir |Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo. |
 | `merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `Collection(Edm.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |

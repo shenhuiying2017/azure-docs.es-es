@@ -1,11 +1,11 @@
 ---
-title: "Configuración de BGP en Azure VPN Gateway: Resource Manager: PowerShell | Microsoft Docs"
-description: "Este artículo le guiará a la hora de configurar BGP con puertas de enlace de VPN de Azure por medio de Azure Resource Manager y PowerShell."
+title: 'Configuración de BGP en Azure VPN Gateway: Resource Manager: PowerShell | Microsoft Docs'
+description: Este artículo le guiará a la hora de configurar BGP con puertas de enlace de VPN de Azure por medio de Azure Resource Manager y PowerShell.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 905b11a7-1333-482c-820b-0fd0f44238e5
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: b00a3fe7ba4b12c2e9c486188c292cd6fafb60a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc9337188fd439082c4aa34f0cbebe3eb2da5d99
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configuración de BGP para Azure VPN Gateway con PowerShell
 Este artículo le guiará por los pasos para habilitar BGP en una conexión de VPN de sitio a sitio (S2S) entre locales y una conexión de red virtual a red virtual mediante el modelo de implementación de Resource Manager y PowerShell.
@@ -43,7 +43,7 @@ Cada parte de las instrucciones constituye un bloque de creación básico para h
 
 Puede combinar estos elementos juntos para crear una red de tránsito más compleja y de saltos múltiples que satisfaga sus necesidades.
 
-## <a name ="enablebgp"></a>Parte 1: Configurar BGP en la puerta de enlace de VPN de Azure
+## <a name ="enablebgp"></a>Parte 1: Configurar BGP en Azure VPN Gateway
 Los siguientes pasos de configuración permiten establecer los parámetros BGP de Azure VPN Gateway como se muestra en el diagrama siguiente:
 
 ![Puerta de enlace de BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
@@ -84,7 +84,7 @@ Para usar los cmdlets de Resource Manager, asegúrese de cambiar al modo de Powe
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -119,7 +119,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 ```
 
 #### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Obtenga la dirección IP del par BGP de Azure
-Una vez creada la puerta de enlace, debe obtener la dirección IP del par BGP en Azure VPN Gateway. Esta dirección es necesaria para configurar la puerta de enlace de VPN de Azure como par BGP para los dispositivos de VPN local.
+Una vez creada la puerta de enlace, debe obtener la dirección IP del par BGP en Azure VPN Gateway. Esta dirección es necesaria para configurar la instancia de Azure VPN Gateway como par BGP para los dispositivos de VPN local.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -192,7 +192,7 @@ $lng5gw  = Get-AzureRmLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG
 
 #### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Cree la conexión de TestVNet1 a Site5
 
-En este paso, creará la conexión de TestVNet1 a Site5. Debe especificar "-EnableBGP True" para habilitar BGP para esta conexión. Como se explicó anteriormente, es posible tener conexiones BGP y no BGP para la misma puerta de enlace de VPN de Azure. A menos que BGP esté habilitado en la propiedad de conexión, Azure no habilitará BGP para esta conexión, aunque los parámetros BGP ya estén configurados en ambas puertas de enlace.
+En este paso, creará la conexión de TestVNet1 a Site5. Debe especificar "-EnableBGP True" para habilitar BGP para esta conexión. Como se explicó anteriormente, es posible tener conexiones BGP y no BGP para la misma instancia de Azure VPN Gateway. A menos que BGP esté habilitado en la propiedad de conexión, Azure no habilitará BGP para esta conexión, aunque los parámetros BGP ya estén configurados en ambas puertas de enlace.
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $True
@@ -219,7 +219,7 @@ En esta sección se agrega una conexión de red virtual a red virtual con BGP, t
 
 ![BGP para conexiones de red virtual a red virtual](./media/vpn-gateway-bgp-resource-manager-ps/bgp-vnet2vnet.png)
 
-Las siguientes instrucciones son continuación de los pasos anteriores. Debe completar la [Parte 1](#enablebgp) para crear y configurar TestVNet1 y la puerta de enlace de VPN con BGP. 
+Las siguientes instrucciones son continuación de los pasos anteriores. Debe completar la [Parte 1](#enablebgp) para crear y configurar TestVNet1 y VPN Gateway con BGP. 
 
 ### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>Paso 1: cree TestVNet2 y la puerta de enlace de VPN
 

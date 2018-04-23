@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de rutas - PowerShell | Microsoft Docs"
-description: "Obtenga información acerca de cómo solucionar problemas de las rutas en el modelo de implementación de Azure Resource Manager utilizando Azure PowerShell."
+title: Solución de problemas de rutas - PowerShell | Microsoft Docs
+description: Obtenga información acerca de cómo solucionar problemas de las rutas en el modelo de implementación de Azure Resource Manager utilizando Azure PowerShell.
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bf7dc5e7-9399-460e-8e0d-8992dbed98a6
 ms.service: virtual-network
@@ -15,16 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2d501419dde633f89a5760af9f82604006de6b6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Solución de problemas de rutas mediante Azure PowerShell
 > [!div class="op_single_selector"]
-> * 
-            [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
+> * [Azure Portal](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 > 
 > 
@@ -58,7 +57,7 @@ Para ver las rutas agregadas que se aplican a una máquina virtual, complete los
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visualización de las rutas eficaces para una interfaz de red
 Para ver las rutas agregadas que se aplican a una NIC, complete los pasos siguientes:
 
-1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) . La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie una sesión de Azure PowerShell e inicie sesión en Azure. Si no está familiarizado con el uso de Azure PowerShell, lea el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) . La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. El siguiente comando devuelve todas las rutas aplicadas a una interfaz de red denominada *VM1-NIC1* en el grupo de recursos *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

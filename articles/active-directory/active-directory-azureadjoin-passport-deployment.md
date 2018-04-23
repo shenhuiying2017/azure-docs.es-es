@@ -1,9 +1,9 @@
 ---
-title: "Habilitación de Microsoft Windows Hello para empresas en la organización | Microsoft Docs"
-description: "Instrucciones de implementación para habilitar Microsoft Passport en su organización."
+title: Habilitación de Microsoft Windows Hello para empresas en la organización | Microsoft Docs
+description: Instrucciones de implementación para habilitar Microsoft Passport en su organización.
 services: active-directory
-documentationcenter: 
-keywords: "configurar Microsoft Passport, implementación de Windows Hello para empresas"
+documentationcenter: ''
+keywords: configurar Microsoft Passport, implementación de Windows Hello para empresas
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitación de Windows Hello para empresas en su organización
 Tras [conectar dispositivos con Windows 10 unidos a un dominio mediante Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md), lleve a cabo los siguientes pasos para habilitar Windows Hello para empresas en la organización.
@@ -105,7 +105,7 @@ Si utiliza la autenticación basada en certificados para la autenticación local
 
 En la página **Inscripción de SCEP** del perfil de certificado, tiene que seleccionar **Instalar en Passport for Work o generar un error** como valor de **Proveedor de almacenamiento de claves**.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Windows 10 para la empresa: formas de usar dispositivos para trabajar](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Ampliación de las capacidades de nube a dispositivos de Windows 10 a través de Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Autenticación sin contraseñas](active-directory-azureadjoin-passport.md)

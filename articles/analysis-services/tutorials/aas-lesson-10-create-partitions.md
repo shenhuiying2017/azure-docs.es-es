@@ -1,25 +1,18 @@
 ---
-title: "Lección 10 del tutorial de Azure Analysis Services: Creación de particiones | Microsoft Docs"
-description: "Describe cómo crear particiones en el proyecto del tutorial de Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 10 del tutorial de Azure Analysis Services: Creación de particiones | Microsoft Docs'
+description: Describe cómo crear particiones en el proyecto del tutorial de Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: a73836b784a5e86d01df51fb83d619890d56502a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 743eff21154502fc4ff651177abb8df91edb7494
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-partitions"></a>Creación de particiones
 
@@ -27,7 +20,7 @@ En esta lección creará particiones para dividir la tabla FactInternetSales en 
   
 Tiempo estimado para completar esta lección: **15 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de llevar a cabo las tareas de esta lección, debe haber finalizado la lección anterior: [Lección 9: Creación de jerarquías](../tutorials/aas-lesson-9-create-hierarchies.md).  
   
 ## <a name="create-partitions"></a>Creación de particiones  

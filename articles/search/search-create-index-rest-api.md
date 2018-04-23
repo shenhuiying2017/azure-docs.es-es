@@ -1,25 +1,19 @@
 ---
-title: "Creación de un índice (API de REST - Azure Search) | Microsoft Docs"
-description: "Creación de un índice en código con Azure Search y la API de REST de HTTP."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
-editor: 
+title: Creación de un índice (API de REST - Azure Search) | Microsoft Docs
+description: Creación de un índice en código con Azure Search y la API de REST de HTTP.
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
 tags: azure-portal
-ms.assetid: ac6c5fba-ad59-492d-b715-d25a7a7ae051
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 12/08/2016
-ms.author: ashmaka
-ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c03f3130dcdb2393d684b22b7ff728ae55f04e67
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creación de un índice de Azure Search con la API de REST
 > [!div class="op_single_selector"]

@@ -1,12 +1,12 @@
 ---
-title: "Introducción al acceso condicional en Azure Active Directory | Microsoft Docs"
-description: "Probar el acceso condicional con una condición de ubicación."
+title: Introducción al acceso condicional en Azure Active Directory | Microsoft Docs
+description: Probar el acceso condicional con una condición de ubicación.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c780efe92ec69ff692b42a586f55a1036d2ec952
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 04a7736e85c0b149cb627411f61fc147220769ad
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Introducción al acceso condicional en Azure Active Directory
 
@@ -30,7 +30,7 @@ En este tema se proporcionan instrucciones para probar un acceso condicional bas
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
-En muchas organizaciones, un requisito habitual es requerir solo autenticación multifactor para el acceso a las aplicaciones que no se realiza desde la intranet corporativa. Con Azure Active Directory, puede conseguir este objetivo fácilmente mediante la configuración de una directiva de acceso condicional basado en la ubicación. En este tema se proporcionan instrucciones detalladas para configurar esta directiva. La directiva aprovecha las [direcciones IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) para distinguir entre los intentos de acceso que se realizan desde la intranet corporativa y todas las demás ubicaciones.
+En muchas organizaciones, un requisito habitual es requerir solo autenticación multifactor para el acceso a las aplicaciones que no se realiza desde la intranet corporativa. Con Azure Active Directory, puede conseguir este objetivo fácilmente mediante la configuración de una directiva de acceso condicional basado en la ubicación. En este tema se proporcionan instrucciones detalladas para configurar esta directiva. La directiva aprovecha las [direcciones IP de confianza](authentication/howto-mfa-mfasettings.md#trusted-ips) para distinguir entre los intentos de acceso que se realizan desde la intranet corporativa y todas las demás ubicaciones.
 
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -47,7 +47,7 @@ Para probar este escenario, deberá:
 
 - Configurar direcciones IP de confianza
 
-Si necesita obtener más información acerca de las direcciones IP de confianza, consulte [Direcciones IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
+Si necesita obtener más información acerca de las direcciones IP de confianza, consulte [Direcciones IP de confianza](authentication/howto-mfa-mfasettings.md#trusted-ips).
 
 
 ## <a name="policy-configuration-steps"></a>Pasos de la configuración de la directiva

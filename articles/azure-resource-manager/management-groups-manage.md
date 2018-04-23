@@ -1,10 +1,10 @@
 ---
-title: "Cómo cambiar, eliminar o administrar los grupos de administración en Azure | Microsoft Docs"
-description: "Aprenda a mantener y actualizar la jerarquía de grupos de administración."
+title: Cómo cambiar, eliminar o administrar los grupos de administración en Azure | Microsoft Docs
+description: Aprenda a mantener y actualizar la jerarquía de grupos de administración.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración 
-Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../active-directory/role-based-access-control-what-is.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
+Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
 
 La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com); o puede usar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o la [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para administrar grupos de administración.
 
-Para realizar cambios en un grupo de administración, debe tener un rol de propietario o colaborador en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../active-directory/role-based-access-control-what-is.md).
+Para realizar cambios en un grupo de administración, debe tener un rol de propietario o colaborador en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Cambio del nombre de un grupo de administración 
 Puede cambiar el nombre del grupo de administración mediante el portal, PowerShell o la CLI de Azure.
@@ -64,7 +64,7 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración. 
     - Para mover una suscripción fuera de un grupo de administración, consulte [Mover la suscripción a otro grupo de administración](#Move-subscriptions-in-the-hierarchy). 
     - Para mover un grupo de administración a otro grupo de administración, consulte [Mover grupos de administración en la jerarquía](#Move-management-groups-in-the-hierarchy). 
-2. Tiene permisos de escritura sobre el rol de propietario o colaborador para grupos de administración en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../active-directory/role-based-access-control-what-is.md).  
+2. Tiene permisos de escritura sobre el rol de propietario o colaborador para grupos de administración en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Eliminar en el portal
 
@@ -139,7 +139,7 @@ Para mover la suscripción, hay dos permisos que debe tener:
 - Rol de "propietario" en la suscripción secundaria.
 - Rol de "propietario" o "colaborador" en el nuevo grupo de administración primario. 
 - Rol de "propietario" o "colaborador" en el grupo de administración primario anterior.
-Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../active-directory/role-based-access-control-what-is.md). 
+Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Mover las suscripciones en el portal
 

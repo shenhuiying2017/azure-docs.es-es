@@ -1,11 +1,11 @@
 ---
-title: "Visualización de registros de diagnóstico de Azure Data Lake Analytics | Microsoft Docs"
-description: "Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Analytics  "
+title: Visualización de registros de diagnóstico de Azure Data Lake Analytics | Microsoft Docs
+description: 'Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Analytics  '
 services: data-lake-analytics
-documentationcenter: 
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
-ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acceso a los registros de diagnóstico de Azure Data Lake Analytics
 
@@ -130,7 +129,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
@@ -144,7 +143,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
@@ -182,7 +181,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación |
@@ -200,7 +199,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | JobId |string |El identificador asignado al trabajo |
 | JobName |string |El nombre que se proporcionó para el trabajo |

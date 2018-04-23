@@ -11,6 +11,8 @@
   items:
     - name: 'Creación y conexión: portal'
       href: create-data-warehouse-portal.md
+    - name: 'Crear: PowerShell'
+      href: create-data-warehouse-powershell.md
     - name: Pausa y reanudación de proceso
       items:
         - name: Portal

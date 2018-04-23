@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 0c1c9364d6d7071e0aa454889417eeec3807f406
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a06374119851560d517704b817fb9bf18728059
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de Azure Database for MySQL mediante la CLI de Azure
 
@@ -48,30 +48,6 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado `myresourcegrou
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-## <a name="add-the-extension"></a>Adición de la extensión
-Agregue la extensión de administración de Azure Database for MySQL actualizada con el comando siguiente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Compruebe que tiene instalada la versión de la extensión correcta. 
-```azurecli-interactive
-az extension list
-```
-
-El JSON que se devuelva debe incluir lo siguiente: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Si no se devuelve la versión 0.0.5, ejecute el siguiente procedimiento para actualizar la extensión: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL

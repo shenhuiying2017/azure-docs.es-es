@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: a4cc2768f0d4217b2bd14938889e9b71c26009c9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1b836951bcb958d00fe846304cc1240ecfa01037
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Introducción a Spark Streaming
 
@@ -213,14 +211,14 @@ Para proporcionar resistencia y tolerancia a errores, Spark Streaming se basa en
 
 ## <a name="deploying-spark-streaming-applications"></a>Implementación de aplicaciones de Spark Streaming
 
-Normalmente, compilará su aplicación de Spark Streaming localmente en un archivo JAR y, luego, la implementará en Spark en HDInsight copiando el archivo JAR en el almacenamiento predeterminado asociado al clúster de HDInsight. Después, puede iniciar la aplicación mediante las API de REST de LIVY disponibles en el clúster con una operación POST. El cuerpo de la operación POST incluye un documento JSON que proporciona la ruta de acceso al archivo JAR, el nombre de la clase cuyo método principal define y ejecuta la aplicación de streaming y, opcionalmente, los requisitos de recursos del trabajo (por ejemplo, el número de ejecutores, memoria y núcleos) y los parámetros de configuración que requiere el código de la aplicación.
+Normalmente, las aplicaciones de Spark Streaming se compilan localmente en un archivo JAR y, luego, se implementan en Spark en HDInsight, para lo que se copia el archivo JAR en el almacenamiento predeterminado asociado al clúster de HDInsight. Después, puede iniciar la aplicación mediante las REST API de LIVY disponibles en el clúster mediante una operación POST. El cuerpo de la operación POST incluye un documento JSON que proporciona la ruta de acceso al archivo JAR, el nombre de la clase cuyo método principal define y ejecuta la aplicación de streaming y, opcionalmente, los requisitos de recursos del trabajo (por ejemplo, el número de ejecutores, la memoria y los núcleos) y los valores de configuración que requiere el código de la aplicación.
 
 ![Implementación de una aplicación de Spark Streaming](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-También se puede comprobar el estado de todas las aplicaciones con una solicitud GET en un punto de conexión de LIVY. Finalmente, puede finalizar una aplicación en ejecución emitiendo una solicitud DELETE en el punto de conexión de LIVY. Para obtener más información sobre la API de LIVY, consulte [Trabajos remotos con LIVY](apache-spark-livy-rest-interface.md).
+También se puede comprobar el estado de todas las aplicaciones con una solicitud GET en un punto de conexión de LIVY. Por último, para finalizar una aplicación en ejecución, emita una solicitud DELETE en el punto de conexión de LIVY. Para obtener más información sobre la API de LIVY, consulte [Trabajos remotos con LIVY](apache-spark-livy-rest-interface.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de un clúster de Apache Spark en HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
+* [Creación de un clúster de Apache Spark en Azure HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
 * [Guía de programación de streaming de Spark](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
 * [Inicio de trabajos de Spark de forma remota con LIVY](apache-spark-livy-rest-interface.md)

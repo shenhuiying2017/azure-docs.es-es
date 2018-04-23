@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
@@ -71,7 +71,7 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Roles RBAC personalizados y permisos de supervisión
-Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol RBAC personalizado](../active-directory/role-based-access-control-custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
+Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol RBAC personalizado](../role-based-access-control/custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
 
 | Operación | DESCRIPCIÓN |
 | --- | --- |
@@ -125,7 +125,7 @@ Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o t
 
 * Utilizar una cuenta de almacenamiento dedicada a datos de supervisión. Si necesita separar los datos de supervisión en varias cuentas de almacenamiento, nunca comparta el uso de una cuenta de almacenamiento entre los datos de supervisión ni de otro tipo, ya que se podría conceder acceso accidentalmente a datos no relacionados con la supervisión a aquellos que solo necesitan tener acceso a datos que no son de supervisión (por ejemplo, SIEM de terceros).
 * Utilizar un espacio de nombres exclusivo y dedicado de Service Bus o Event Hubs en toda la configuración de diagnóstico, por la misma razón anterior.
-* Limitar el acceso a las cuentas de almacenamiento o a centros de eventos relacionados con la supervisión, manteniéndolos en un grupo de recursos independiente y [utilizar el ámbito](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) en los roles de supervisión para limitar el acceso a ese grupo de recursos exclusivamente.
+* Limitar el acceso a las cuentas de almacenamiento o a centros de eventos relacionados con la supervisión, manteniéndolos en un grupo de recursos independiente y [utilizar el ámbito](../role-based-access-control/overview.md#basics-of-access-management-in-azure) en los roles de supervisión para limitar el acceso a ese grupo de recursos exclusivamente.
 * No conceder nunca el permiso ListKeys para las cuentas de almacenamiento o los centros de eventos en el ámbito de la suscripción cuando un usuario solo necesita acceso a los datos de supervisión. En su lugar, conceder estos permisos al usuario en un ámbito de recurso o grupo de recursos (si tiene un grupo de recursos de supervisión dedicado).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Restricción del acceso a cuentas de almacenamiento relacionadas con la supervisión
@@ -178,6 +178,6 @@ Se puede seguir un patrón similar con los centros de eventos, pero primero debe
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Consulte información sobre RBAC y permisos en Resource Manager](../active-directory/role-based-access-control-what-is.md)
+* [Consulte información sobre RBAC y permisos en Resource Manager](../role-based-access-control/overview.md)
 * [Lea la información general sobre supervisión en Azure](monitoring-overview.md)
 

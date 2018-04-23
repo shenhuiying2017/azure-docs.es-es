@@ -1,8 +1,8 @@
 ---
 title: Uso de Oozie de Hadoop en HDInsight | Microsoft Docs
-description: "Use Oozie de Hadoop en HDInsight, un servicio de big data. Aprenda a definir un flujo de trabajo de Oozie y envíe un trabajo de Oozie."
+description: Use Oozie de Hadoop en HDInsight, un servicio de big data. Aprenda a definir un flujo de trabajo de Oozie y envíe un trabajo de Oozie.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,18 +10,16 @@ editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 73d8a26945be05ac0131148b5c0ffdd5f8053bcd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: e9be2649421ca5280fc93199a7e6d2d81295d5d7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Uso de Oozie con Hadoop para definir y ejecutar un flujo de trabajo en HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -58,7 +56,7 @@ El flujo de trabajo que implementa siguiendo las instrucciones de este tutorial 
 > 
 > 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con el elemento siguiente:
 
 * **Una estación de trabajo con Azure PowerShell**. 
@@ -130,21 +128,21 @@ Existen dos acciones definidas en el flujo de trabajo. La acción de inicio es *
 RunHiveScript tiene distintas variables. Pasa los valores cuando envíe el trabajo de Oozie desde la estación de trabajo con Azure PowerShell.
 
 <table border = "1">
-<tr><th>Variables de flujo de trabajo</th><th>Description</th></tr>
+<tr><th>Variables de flujo de trabajo</th><th>DESCRIPCIÓN</th></tr>
 <tr><td>${jobTracker}</td><td>Especifica la dirección URL del seguimiento de trabajo de Hadoop. Use <strong>jobtrackerhost: 9010</strong> en HDInsight versión 3.0 y 2.1.</td></tr>
 <tr><td>${nameNode}</td><td>Especifica la dirección URL del nombre de nodo de Hadoop. Use la dirección del sistema de archivos predeterminado, por ejemplo, <i>wasb://&lt;nombreDeContenedor&gt;@&lt;nombreDeCuentaDeAlmacenamiento&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Especifica el nombre de cola al que se envía el trabajo. Use el <strong>valor predeterminado</strong>.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variable de acción de Hive</th><th>Description</th></tr>
+<tr><th>Variable de acción de Hive</th><th>DESCRIPCIÓN</th></tr>
 <tr><td>${hiveDataFolder}</td><td>Especifica el directorio de origen para el comando Create Table de Hive.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE.</td></tr>
 <tr><td>${hiveTableName}</td><td>Especifica el nombre de la tabla de Hive que hace referencia a los archivos de datos log4j.</td></tr>
 </table>
 
 <table border = "1">
-<tr><th>Variable de acción de Sqoop</th><th>Description</th></tr>
+<tr><th>Variable de acción de Sqoop</th><th>DESCRIPCIÓN</th></tr>
 <tr><td>${sqlDatabaseConnectionString}</td><td>Especifica la cadena de conexión de la base de datos SQL de Azure.</td></tr>
 <tr><td>${sqlDatabaseTableName}</td><td>Especifica la tabla de base de datos SQL de Azure donde se exportan los datos.</td></tr>
 <tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).</td></tr>
@@ -244,7 +242,7 @@ Este es el script.  Puede ejecutar el script desde Windows PowerShell ISE. Solo 
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion

@@ -1,11 +1,11 @@
 ---
 title: Azure ExpressRoute para proveedores de soluciones en la nube | Microsoft Docs
-description: "Este artículo proporciona información para los proveedores de servicios en la nube que deseen incorporar servicios de Azure y ExpressRoute en su oferta de servicios."
+description: Este artículo proporciona información para los proveedores de servicios en la nube que deseen incorporar servicios de Azure y ExpressRoute en su oferta de servicios.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para proveedores de soluciones en la nube (CSP)
 Microsoft proporciona servicios de hiperescala para que los revendedores y distribuidores tradicionales (CSP) puedan aprovisionar rápidamente nuevos servicios y soluciones para sus clientes, sin que sea preciso invertir en el desarrollo de dichos servicios nuevos. Para que el proveedor de soluciones en la nube (CSP) disponga de la capacidad para administrar directamente estos nuevos servicios, Microsoft proporciona programas y API que permiten que el CSP administre recursos de Microsoft Azure en nombre de sus clientes. Uno de esos recursos es ExpressRoute. ExpressRoute permite que el CSP conecte recursos existentes de clientes a servicios de Azure. ExpressRoute es un vínculo privado de comunicaciones a gran velocidad con los servicios de Azure. 
@@ -65,7 +65,7 @@ Este escenario de conectividad requiere que el cliente se conecte directamente a
 
 La elección entre ambas opciones se basa en los requisitos del cliente y la necesidad del proveedor de prestar servicios de Azure. Los detalles de estos modelos y los modelos de diseño asociados para el control de acceso basado en rol, las redes y las identidades se explican en los siguientes vínculos:
 
-* **Control de acceso basado en rol (RBAC)** : RBAC se basa en Azure Active Directory.  Para más información sobre RBAC en Azure, consulte [este artículo](../active-directory/role-based-access-control-configure.md).
+* **Control de acceso basado en rol (RBAC)** : RBAC se basa en Azure Active Directory.  Para más información sobre RBAC en Azure, consulte [este artículo](../role-based-access-control/role-assignments-portal.md).
 * **Redes** : se tratan los distintos temas de las redes en Microsoft Azure.
 * **Azure Active Directory (Azure AD)**: Azure AD proporciona la administración de identidades para Microsoft Azure y aplicaciones SaaS de terceros. Para más información sobre Azure AD, consulte [este artículo](https://azure.microsoft.com/documentation/services/active-directory/).  
 

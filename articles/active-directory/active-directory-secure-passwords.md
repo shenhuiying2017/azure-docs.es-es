@@ -1,11 +1,11 @@
 ---
-title: "Seguridad de contraseñas por niveles de Azure AD | Microsoft Docs"
-description: "Explica cómo Azure AD aplica contraseñas seguras y protege las contraseñas de los usuarios frente a los ciberdelincuentes."
+title: Seguridad de contraseñas por niveles de Azure AD | Microsoft Docs
+description: Explica cómo Azure AD aplica contraseñas seguras y protege las contraseñas de los usuarios frente a los ciberdelincuentes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 19c8d9084c9ce03d347e58b3359b65cdbcd80651
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
 
@@ -84,4 +84,4 @@ Para más información sobre el restablecimiento de contraseña en Azure Active 
 
 * [Actualización de la propia contraseña](active-directory-passwords-update-your-own-password.md)
 * [Aspectos básicos de la administración de identidades de Azure](fundamentals-identity.md)
-* [Informe sobre la actividad de restablecimiento de contraseña](active-directory-passwords-reporting.md)
+* [Informe sobre la actividad de restablecimiento de contraseña](authentication/howto-sspr-reporting.md)

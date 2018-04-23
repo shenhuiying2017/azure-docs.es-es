@@ -1,11 +1,11 @@
 ---
-title: "Conceptos, términos y entidades del programador | Microsoft Docs"
-description: "Conceptos del Programador de Azure, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos.  Proporciona un ejemplo completo de un trabajo programado."
+title: Conceptos, términos y entidades del programador | Microsoft Docs
+description: Conceptos de Azure Scheduler, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos.  Proporciona un ejemplo completo de un trabajo programado.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,23 +14,23 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Programador
-## <a name="scheduler-entity-hierarchy"></a>Jerarquía de entidades del Programador
-En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API del Programador:
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Scheduler
+## <a name="scheduler-entity-hierarchy"></a>Jerarquía de entidades de Scheduler
+En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API de Scheduler:
 
-| Recurso | Description |
+| Recurso | DESCRIPCIÓN |
 | --- | --- |
 | **Colección de trabajos** |Una colección de trabajos contiene un grupo de trabajos y mantiene configuraciones, cuotas y aceleradores compartidos por los trabajos de la colección. La colección de trabajos la crea el propietario de la suscripción y agrupa los trabajos en función de los límites de uso o de la aplicación. Está limitado a una región. También permite la aplicación de cuotas para restringir el uso de todos los trabajos de la colección. Las cuotas incluyen MaxJobs y MaxRecurrence. |
 | **Trabajo** |Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de almacenamiento, de cola de bus de servicio o de tema de bus de servicio. |
 | **Historial de trabajos** |Un historial de trabajos representa los detalles de una ejecución de un trabajo. Contiene los trabajos realizados correctamente y los errores, así como los detalles de las respuestas. |
 
-## <a name="scheduler-entity-management"></a>Administración de entidades de Programador
+## <a name="scheduler-entity-management"></a>Administración de entidades de Scheduler
 En un nivel superior, el Programador y la API de administración de servicio exponen las operaciones siguientes en los recursos:
 
 | Capacidad | Descripción y dirección URI |
@@ -119,7 +119,7 @@ Examinemos cada uno de ellos en detalle:
 "startTime" es la hora de inicio y permite al que llama especificar un desplazamiento de zona horaria en el cable en [formato ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
 ## <a name="action-and-erroraction"></a>action y errorAction
-"action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. El Programador admite acciones HTTP, de cola de almacenamiento, de cola de bus de servicio y de tema de bus de servicio.
+"action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. Scheduler admite acciones HTTP, de cola de almacenamiento, de cola de Service Bus y de tema de Service Bus.
 
 La acción en el ejemplo anterior es una acción http. A continuación se muestra un ejemplo de una acción de cola de almacenamiento:
 
@@ -167,33 +167,33 @@ La situación del trabajo es una de cuatro valores: habilitado, deshabilitado, c
 Los trabajos completados y con errores se eliminan después de 60 días.
 
 ## <a name="status"></a>status
-Una vez que se inició un trabajo de Programador, se devolverá información sobre el estado actual del trabajo. Este objeto no es configurable por el usuario: lo establece el sistema. Sin embargo, se incluye en el objeto de trabajo (en lugar de un recurso vinculado independiente) para que se pueda obtener fácilmente el estado de un trabajo.
+Una vez que se inició un trabajo de Scheduler, se devolverá información sobre el estado actual del trabajo. Este objeto no es configurable por el usuario: lo establece el sistema. Sin embargo, se incluye en el objeto de trabajo (en lugar de un recurso vinculado independiente) para que se pueda obtener fácilmente el estado de un trabajo.
 
 El estado del trabajo incluye el tiempo de la ejecución anterior (si hay alguna), el tiempo de la siguiente ejecución programada (para los trabajos en curso) y el recuento de la ejecución del trabajo.
 
 ## <a name="retrypolicy"></a>retryPolicy
-Si se produce un error en un trabajo de Programador, es posible especificar una directiva de reintentos para determinar cuándo y cómo se vuelve a intentar la acción. Esto viene determinado por el objeto **retryType**: está establecido en **none** si no hay ninguna directiva de reintentos, como se mostró anteriormente. Establézcalo en **fixed** si hay una directiva de reintentos.
+Si se produce un error en un trabajo de Scheduler, es posible especificar una directiva de reintentos para determinar cuándo y cómo se vuelve a intentar la acción. Esto viene determinado por el objeto **retryType**: está establecido en **none** si no hay ninguna directiva de reintentos, como se mostró anteriormente. Establézcalo en **fixed** si hay una directiva de reintentos.
 
 Para establecer una directiva de reintentos, se pueden especificar dos configuraciones adicionales: un intervalo de reintento (**retryInterval**) y el número de reintentos (**retryCount**).
 
-El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora.  Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4 y su valor máximo es 20\. Tanto **retryInterval** como **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
+El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4 y su valor máximo es 20\. Tanto **retryInterval** como **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
 
 ## <a name="see-also"></a>Consulte también
- [¿Qué es Programador?](scheduler-intro.md)
+ [¿Qué es Scheduler?](scheduler-intro.md)
 
- [Introducción al uso de Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
+ [Introducción a Azure Scheduler en Azure Portal](scheduler-get-started-portal.md)
 
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+ [Planes y facturación en Azure Scheduler](scheduler-plans-billing.md)
 
- [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
+ [Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST de Programador de Azure](https://msdn.microsoft.com/library/mt629143)
+ [Referencia de API de REST de Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
 
- [Referencia de cmdlets de PowerShell de Programador de Azure](scheduler-powershell-reference.md)
+ [Referencia de cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md)
 
- [Alta disponibilidad y confiabilidad de Programador de Azure](scheduler-high-availability-reliability.md)
+ [Alta disponibilidad y confiabilidad de Azure Scheduler](scheduler-high-availability-reliability.md)
 
- [Límites, valores predeterminados y códigos de error de Programador de Azure](scheduler-limits-defaults-errors.md)
+ [Límites, valores predeterminados y códigos de error de Azure Scheduler](scheduler-limits-defaults-errors.md)
 
- [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
+ [Autenticación de salida de Azure Scheduler](scheduler-outbound-authentication.md)
 

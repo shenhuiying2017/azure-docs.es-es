@@ -1,10 +1,10 @@
 ---
-title: "Solución de problemas de vistas de costos empresariales: Azure | Microsoft Docs"
-description: "Obtenga información para resolver los problemas que podría tener con vistas de costos de organización dentro de Azure Portal."
+title: 'Solución de problemas de vistas de costos empresariales: Azure | Microsoft Docs'
+description: Obtenga información para resolver los problemas que podría tener con vistas de costos de organización dentro de Azure Portal.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 527e12cdcc4eaebf98708c389dd21e8ac6ae4ac7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Solución de problemas de vistas de costos empresariales 
 
-Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  Estas configuraciones las administra el administrador de inscripciones o el asociado si la inscripción no se ha adquirido directamente con Microsoft.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas opciones son independientes de los [roles de RBAC de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Dentro de las inscripciones empresariales, hay varias configuraciones que podrían provocar que los usuarios de la inscripción no pudieran ver los costos.  Estas configuraciones las administra el administrador de inscripciones o el asociado si la inscripción no se ha adquirido directamente con Microsoft.  Este artículo le ayuda a comprender cuáles son las configuraciones y de qué manera pueden afectar a la inscripción. Estas opciones son independientes de los [roles de RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Habilitación del acceso a los costos
@@ -44,4 +44,4 @@ Si recibe el mensaje de error "Este recurso no está disponible" al intentar acc
 ![recurso no encontrado](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Póngase en contacto con el administrador de la suscripción o de los grupos de administración para conseguir acceso.  
-* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) para obtener ayuda sobre qué rol se necesita.
+* Para las suscripciones, consulte el documento [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para obtener ayuda sobre qué rol se necesita.

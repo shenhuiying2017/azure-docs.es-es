@@ -1,6 +1,6 @@
 ---
-title: "Lectura y escritura de archivos de datos de gran tamaño | Microsoft Docs"
-description: "Lea y escriba archivos de gran tamaño en experimentos de Azure Machine Learning."
+title: Lectura y escritura de archivos de datos de gran tamaño | Microsoft Docs
+description: Lea y escriba archivos de gran tamaño en experimentos de Azure Machine Learning.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
 ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Guardar los cambios y trabajar con archivos de gran tamaño
 Con el servicio Experimentación de Azure Machine Learning, puede configurar diversos destinos de ejecución. Algunos destinos son locales, como un equipo local o un contenedor de Docker en un equipo local. Otros son remotos, como un contenedor de Docker en un equipo remoto o un clúster de HDInsight. Para obtener más información, consulte [Overview of Azure Machine Learning experiment execution service](experimentation-service-configuration.md) (Introducción al servicio de ejecución de experimentos de Azure Machine Learning). 

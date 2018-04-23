@@ -1,11 +1,11 @@
 ---
-title: "Autorización de las cuentas de desarrollador mediante Azure Active Directory B2C - Azure API Management | Microsoft Docs"
+title: Autorización de las cuentas de desarrollador mediante Azure Active Directory B2C - Azure API Management | Microsoft Docs
 description: Aprenda a autorizar a los usuarios para que usen Azure Active Directory B2C en API Management.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: d843757c2ed63c4f8cff09d809c2de382b2aeb59
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 1268905d8a992d0cac65174142f6a3870f38f0d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/16/2018
 ---
 > [!WARNING]
 > La integración de Azure Active Directory B2C solo está disponible en los niveles [Desarrollador y Premium](https://azure.microsoft.com/en-us/pricing/details/api-management/).
@@ -108,7 +108,7 @@ Azure Active Directory B2C es una solución de administración de identidades en
    > [!NOTE]
    > Si Azure Active Directory B2C es la única opción habilitada en la pestaña **Identidades** del portal para editores, se le redirigirá a la directiva de registro de forma directa.
 
-   ![portal para desarrolladores][api-management-howto-aad-b2c-dev-portal-b2c-options]
+   ![Portal para desarrolladores][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
    Una vez completado el registro, se le redirigirá de nuevo al portal para desarrolladores. Ahora ya inició sesión en el portal para desarrolladores de la instancia del servicio API Management.
 

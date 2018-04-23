@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Desencadenadores y acciones para flujos de trabajo de aplicación lógica
 
@@ -116,7 +116,7 @@ Esta es la definición para este desencadenador:
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | frequency | Sí | string | La unidad de tiempo para la frecuencia con la que se activa el desencadenador. Use solo uno de estos valores: "second", "minute", "hour", "day", "week" o "month" | 
 | interval | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>Estos son los intervalos mínimo y máximo: <p>- Month: 1-16 meses </br>- Day: 1-500 días </br>- Hour: 1-12 000 horas </br>- Minute: 1-72 000 minutos </br>- Second: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
@@ -179,7 +179,7 @@ Este desencadenador actúa como un punto de conexión que se usa para llamar a l
 
 Este desencadenador tiene una propiedad opcional denominada `schema`:
   
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN |
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN |
 | ------------ | -------- | ---- | ----------- |
 | schema | Sin  | Objeto | Un esquema JSON que valida la solicitud entrante. Resulta útil para ayudar a los pasos de flujo de trabajo subsiguientes a los que las propiedades hacen referencia. | 
 ||||| 
@@ -190,7 +190,7 @@ Para invocar este punto de conexión, debe llamar a la API `listCallbackUrl`. Co
 
 Este desencadenador sondea un punto de conexión especificado y comprueba la respuesta para determinar si se debe ejecutar el flujo de trabajo o no. En este caso, el objeto `inputs` toma estos parámetros necesarios para construir una llamada HTTP: 
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
 | uri | Sí| string | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
@@ -233,7 +233,7 @@ Estos son algunos comportamientos de ejemplo para diferentes tipos de solicitude
 
 Estas son las salidas de desencadenador HTTP: 
   
-| Nombre del elemento | type | DESCRIPCIÓN |
+| Nombre del elemento | Escriba | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
 | Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
@@ -265,7 +265,7 @@ En la funcionalidad básica, este desencadenador funciona como el desencadenador
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | La puerta de enlace hospedada y el identificador de la aplicación API | 
 | estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
@@ -296,7 +296,7 @@ Una *directiva de reintentos* se aplica a errores intermitentes, caracterizados 
 
 Estas son las salidas para un desencadenador de conexión de API:
   
-| Nombre del elemento | type | DESCRIPCIÓN |
+| Nombre del elemento | Escriba | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
 | Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
@@ -363,7 +363,7 @@ Puede especificar límites sobre un desencadenador de webhook de la misma manera
 
 Estas son las salidas del desencadenador HTTPWebhook y el contenido de la solicitud entrante:
   
-| Nombre del elemento | type | DESCRIPCIÓN |
+| Nombre del elemento | Escriba | DESCRIPCIÓN |
 | ------------ | ---- | ----------- |
 | encabezados | Objeto | Los encabezados de la respuesta HTTP | 
 | Cuerpo | Objeto | El cuerpo de la respuesta HTTP | 
@@ -544,7 +544,7 @@ Una acción HTTP llama a un punto de conexión especificado y comprueba la respu
 
 En este caso, el objeto `inputs` toma estos parámetros necesarios para construir una llamada HTTP: 
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
 | uri | Sí| string | El punto de conexión HTTP o HTTPS que el desencadenador comprueba. Tamaño máximo de la cadena: 2 KB | 
@@ -647,7 +647,7 @@ Esta acción hace referencia a un conector administrado por Microsoft, que requi
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | Representa la información del conector, como `runtimeUrl` y la referencia al objeto connection. | 
 | estático | Sí | string | Usa uno de los siguientes métodos HTTP: "GET", "POST", "PUT", "DELETE", "PATCH" o "HEAD". | 
@@ -701,7 +701,7 @@ La acción APIConnectionWebhook hace referencia a un conector administrado por M
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | host | Sí | Objeto | Representa la información del conector, como `runtimeUrl` y la referencia al objeto connection. | 
 | path | Sí | string | La ruta de acceso para la operación de API. | 
@@ -790,7 +790,7 @@ Esta acción le permite representar una [función de Azure](../azure-functions/f
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- |  
 | function id | Sí | string | El identificador de recurso de la función de Azure que quiere llamar. | 
 | estático | Sin  | string | El método HTTP que se usa para llamar a la función. Si no se especifica, "POST" es el método predeterminado. | 
@@ -823,7 +823,7 @@ Esta acción permite proyectar cada elemento de una matriz en un nuevo valor. En
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen |
 | select | Sí | Cualquiera | Proyección aplicada a cada elemento de la matriz de origen |
@@ -850,7 +850,7 @@ Por ejemplo, para detener una ejecución que tiene el estado `Failed`:
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | runStatus | Sí | string | El estado de la ejecución de destino, que puede ser `Failed` o`Cancelled` |
 | runError | Sin  | Objeto | Los detalles del error. Compatible sólo cuando `runStatus` se establece en `Failed`. |
@@ -877,7 +877,7 @@ Por ejemplo, para seleccionar un número mayor que 2:
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen |
 | donde | Sí | string | La condición que se aplica a cada elemento de la matriz de origen. Si ningún valor satisface la condición `where`, el resultado es una matriz vacía. |
@@ -899,7 +899,7 @@ Esta acción permite convertir una matriz de elementos en una tabla CSV o HTML.
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | De | Sí | Matriz | La matriz de origen. Si el valor de la propiedad `from` es una matriz vacía, el resultado es una tabla vacía. | 
 | formato | Sí | string | El formato de tabla que desea, ya sea "CSV" o "HTML" | 
@@ -988,7 +988,7 @@ Como alternativa, para esperar hasta un momento específico en el tiempo, puede 
 > [!NOTE]  
 > Se puede especificar la duración de espera con el objeto `interval` o el objeto `until`, pero no ambos.
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- | 
 | until | Sin  | Objeto | La duración de espera se basa en un punto en el tiempo. | 
 | until timestamp | Sí | string | El punto en el tiempo en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) cuando la espera expira. | 
@@ -1025,7 +1025,7 @@ Esta acción le permite anidar un flujo de trabajo. El motor de Logic Apps reali
 }
 ```
 
-| Nombre del elemento | Obligatorio | type | DESCRIPCIÓN | 
+| Nombre del elemento | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ------------ | -------- | ---- | ----------- |  
 | host id | Sí | string| El identificador de recurso del flujo de trabajo que desea llamar | 
 | host triggerName | Sí | string | El nombre del desencadenador que desea invocar | 
@@ -1074,7 +1074,7 @@ Obtenga más información sobre [instrucciones condicionales en las aplicaciones
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se ejecutan cuando `expression` se evalúa como `true` | 
 | expresión | Sí | string | La expresión para evaluar. |
@@ -1121,7 +1121,7 @@ A continuación se muestran algunos ejemplos de cómo puede usar expresiones en 
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Admite funciones de comparación. En este ejemplo, la acción se ejecuta solo cuando la salida de la acción 1 es mayor que el valor del umbral. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | Admite las funciones lógicas para crear expresiones booleanas anidadas. En este ejemplo, la acción se ejecuta solo cuando la salida de la acción 1 es mayor que el valor del umbral o es menor que 100. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Para comprobar si una matriz tiene elementos, puede usar funciones de matriz. En este ejemplo, la acción se ejecuta cuando la matriz de errores está vacía. | 
-| `"expression": "parameters('hasSpecialAction')"` | Esta expresión produce un error y no es una condición válida. Las condiciones deben usar el símbolo \"\@\". | 
+| `"expression": "parameters('hasSpecialAction')"` | Esta expresión produce un error y no es una condición válida. Las condiciones deben usar el símbolo "@". | 
 ||| 
 
 ## <a name="switch-action"></a>Acción Switch
@@ -1155,7 +1155,7 @@ Esta acción, que es una instrucción de conmutación, lleva a cabo diferentes a
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | expresión | Sí | string | El objeto, expresión o token para evaluar. | 
 | cases | Sí | Objeto | Contiene los conjuntos de acciones internas que se ejecutan en función del resultado de la expresión. | 
@@ -1217,7 +1217,7 @@ Esta acción de bucle recorre en iteración una matriz y realiza acciones intern
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del bucle | 
 | foreach | Sí | string | La matriz para recorrer en iteración | 
@@ -1277,7 +1277,7 @@ Esta acción de bucle ejecuta acciones internas hasta que una condición se eval
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- | 
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del bucle | 
 | expresión | Sí | string | La expresión para evaluar después de cada iteración. | 
@@ -1330,7 +1330,7 @@ Esta acción le permite agrupar de forma lógica las acciones de un flujo de tra
 }
 ```
 
-| NOMBRE | Obligatorio | type | DESCRIPCIÓN | 
+| NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN | 
 | ---- | -------- | ---- | ----------- |  
 | actions | Sí | Objeto | Las acciones internas que se van a ejecutar dentro del ámbito interno |
 ||||| 

@@ -1,18 +1,17 @@
 ---
-title: "Búsqueda de datos semiestructurados en el almacenamiento en la nube de Azure"
-description: "Búsqueda de datos semiestructurados de blobs con Azure Search."
+title: Búsqueda de datos semiestructurados en el almacenamiento en la nube de Azure
+description: Búsqueda de datos semiestructurados de blobs con Azure Search.
 author: roygara
-manager: timlt
+manager: cgronlun
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: v-rogara
-ms.custom: mvc
-ms.openlocfilehash: a80ae99c2ada00885019ee93e4ef36821340d3a5
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f05e9dd12a838199b23deddb4f6c4fb4c2fced08
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Búsqueda de datos semiestructurados en el almacenamiento en la nube
 
@@ -30,7 +29,7 @@ La Parte 2 incluye información sobre cómo:
 > [!NOTE]
 > Este tutorial se basa en la compatibilidad de la matriz de JSON, que actualmente es una característica de versión preliminar de Azure Search. No está disponible en el portal. Por esta razón, estamos usando la versión preliminar de la API de REST, que proporciona esta característica, y una herramienta del cliente de REST para llamar a la API.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * Completar el [tutorial anterior](../storage/blobs/storage-unstructured-search.md) y proporcionar la cuenta de almacenamiento y el servicio de búsqueda creados en este.
 
@@ -54,7 +53,7 @@ Dispone de un conjunto de datos de ejemplo que se ha preparado para usted. **Des
 
 En esta muestra también se incluyen archivos JSON de ejemplo, que eran originalmente archivos de texto de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Los hemos convertido a JSON para su comodidad.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en [Azure Portal](http://portal.azure.com).
 

@@ -1,12 +1,12 @@
 ---
-title: "Transferencia de la propiedad de suscripción de Azure a otra cuenta | Microsoft Docs"
-description: "Transferencia de una suscripción de Azure a otro usuario y algunas preguntas frecuentes (P+F) sobre el proceso"
-keywords: "transferencia de la suscripción de Azure, suscripción de transferencia de Azure, traslado de la suscripción de Azure a otro propietario, cambio de propietario de la suscripción de Azure, transferencia de la suscripción de Azure a otra cuenta"
-services: 
-documentationcenter: 
+title: Transferencia de la propiedad de suscripción de Azure a otra cuenta | Microsoft Docs
+description: Transferencia de una suscripción de Azure a otro usuario y algunas preguntas frecuentes (P+F) sobre el proceso
+keywords: transferencia de la suscripción de Azure, suscripción de transferencia de Azure, traslado de la suscripción de Azure a otro propietario, cambio de propietario de la suscripción de Azure, transferencia de la suscripción de Azure a otra cuenta
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -29,7 +29,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 
 > [!IMPORTANT]
 > 
-> Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-what-is.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
+> Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferencia de la propiedad de una suscripción de Azure
 
@@ -51,7 +51,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 
    > [!IMPORTANT]
    > 
-   > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../active-directory/role-based-access-control-what-is.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
+   > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
 
    ![Cuadro de diálogo Transferir suscripción](./media/billing-subscription-transfer/image2.PNG)
 
@@ -75,7 +75,7 @@ El administrador de la empresa puede transferir la propiedad de las suscripcione
 
 1. Ahora es el administrador de cuenta. Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para más información, consulte [Adición o cambio de roles de administrador de Azure que administran la suscripción o servicios](billing-add-change-azure-subscription-administrator.md).
 1. Actualice las credenciales asociadas a los servicios de esta suscripción:
-   1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
+   1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Create and upload a management certificate for Azure](../cloud-services/cloud-services-certs-create.md)
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
    1. Credenciales de acceso remoto para servicios como Azure Virtual Machines. 
 1. [Actualice las alertas de facturación para esta suscripción](billing-set-up-alerts.md) en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions). 
@@ -115,7 +115,7 @@ El administrador de cuenta es la persona que se inscribió o que adquirió la su
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>¿Se transfiere todo? ¿Incluidos los grupos de recursos, las máquinas virtuales, los discos y otros servicios en ejecución?
 
-Todos los recursos, como las máquinas virtuales, los discos y los sitios web, se transfieren al nuevo propietario. Sin embargo, cualquier [rol de administrador](billing-add-change-azure-subscription-administrator.md) y directiva del [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md) que haya configurado no se transferirán entre los distintos directorios. Tampoco se transferirán los [registros de aplicaciones](../active-directory//develop/active-directory-integrating-applications.md) ni otros servicios específicos del inquilino.
+Todos los recursos, como las máquinas virtuales, los discos y los sitios web, se transfieren al nuevo propietario. Sin embargo, cualquier [rol de administrador](billing-add-change-azure-subscription-administrator.md) y directiva del [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) que haya configurado no se transferirán entre los distintos directorios. Tampoco se transferirán los [registros de aplicaciones](../active-directory//develop/active-directory-integrating-applications.md) ni otros servicios específicos del inquilino.
 
 ### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 
@@ -133,7 +133,7 @@ Se crea una suscripción de Azure en el directorio al que pertenece el administr
 
 Si la suscripción se transfiere a otro inquilino, los usuarios asociados al inquilino anterior perderán el acceso a la suscripción. Aunque un usuario deje de ser administrador o coadministrador de servicios, puede seguir teniendo acceso a la suscripción a través de otros mecanismos de seguridad, como los siguientes:
 
-* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md).
+* Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para más información, consulte [Create and Upload a Management Certificate for Azure](../cloud-services/cloud-services-certs-create.md) (Creación y actualización de un certificado de administración para Azure).
 * Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
 * Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 

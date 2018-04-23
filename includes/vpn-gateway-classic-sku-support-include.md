@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f135665b6fa7eb640526be513d2757c8e17ab8df
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 > [!NOTE]
 > Las nuevas SKU de puerta de enlace VPN Gateway (VpnGw1, VpnGw2 y VpnGw3) son compatibles únicamente con el modelo de implementación de Resource Manager. Las redes virtuales clásicas deben seguir utilizando las SKU antiguas (heredadas).

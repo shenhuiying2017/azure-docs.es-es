@@ -1,8 +1,8 @@
 ---
 title: Herramientas de Data Lake para Visual Studio con Sandbox de Hortonworks - Azure HDInsight | Microsoft Docs
-description: "Aprenda a usar las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks en ejecución en una máquina virtual local. Con estas herramientas puede crear y ejecutar trabajos de Hive y Pig en el espacio aislado, así como ver la salida de los trabajos y el historial."
+description: Aprenda a usar las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks en ejecución en una máquina virtual local. Con estas herramientas puede crear y ejecutar trabajos de Hive y Pig en el espacio aislado, así como ver la salida de los trabajos y el historial.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 7c79e66c6ee4d5aa3ffd052306f57666df866313
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 51438f70fa5ab4a3ee088033ec2da51697f8e273
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Uso de las herramientas de Azure Data Lake para Visual Studio con Sandbox de Hortonworks
 
@@ -53,13 +51,13 @@ Asegúrese de que Sandbox de Hortonworks se esté ejecutando. A continuación, s
 
     ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-ambari-password.png)
 
-    Seleccione **Siguiente** para continuar.
+    Seleccione **Next** (Siguiente) para continuar.
 
 4. Use el campo **Contraseña** para escribir la contraseña configurada para la cuenta `root`. Deje los demás campos con los valores predeterminados.
 
     ![Captura de pantalla del cuadro de diálogo, con el cuadro de texto de contraseña resaltado](./media/hdinsight-hadoop-emulator-visual-studio/enter-root-password.png)
 
-    Seleccione **Siguiente** para continuar.
+    Seleccione **Next** (Siguiente) para continuar.
 
 5. Espere a que finalice la validación de los servicios. En algunos casos, se puede producir un error de validación y se le pedirá que actualice la configuración. Si se produce un error de validación, seleccione **Actualizar** y espere a que finalicen la configuración y la comprobación del servicio.
 

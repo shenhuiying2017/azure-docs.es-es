@@ -1,10 +1,10 @@
 ---
-title: "Especificación de la configuración DNS en un archivo de configuración de servicio | Microsoft Docs"
-description: "Especificación de la configuración de DNS personalizada mediante un archivo de configuración de servicio para una red virtual"
+title: Especificación de la configuración DNS en un archivo de configuración de servicio | Microsoft Docs
+description: Especificación de la configuración de DNS personalizada mediante un archivo de configuración de servicio para una red virtual
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 467a4b99-8691-40b3-b640-e25e49675c71
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
-ms.author: jdial
-ms.openlocfilehash: 0fba2ea06827aff29a7a092933edb8120d668b29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 76e2e4736ed6d69946aa5f42312554e1a346e076
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificar la configuración DNS en un archivo de configuración de servicio
 ## <a name="dns-elements"></a>Elementos DNS
@@ -40,7 +40,7 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 ## <a name="see-also"></a>Otras referencias
 [Esquema de configuración del servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Esquema de configuración de red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Esquema de configuración de Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Configuración de una red virtual mediante un archivo de configuración de red](http://go.microsoft.com/fwlink/?LinkId=248094)
 

@@ -1,12 +1,12 @@
 ---
-title: "Collect Azure PaaS resource metrics with Log Analytics (Recopilación de métricas de recursos de PaaS de Azure con Log Analytics) | Microsoft Docs"
-description: "Aprenda a habilitar la recopilación de métricas de recursos de PaaS de Azure con PowerShell para la retención y el análisis en Log Analytics."
+title: Collect Azure PaaS resource metrics with Log Analytics (Recopilación de métricas de recursos de PaaS de Azure con Log Analytics) | Microsoft Docs
+description: Aprenda a habilitar la recopilación de métricas de recursos de PaaS de Azure con PowerShell para la retención y el análisis en Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 83491c4902dabc6bab1e222551298cfaffbaecf4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configuración de la recopilación de métricas de recursos de PaaS de Azure con Log Analytics
 
@@ -57,7 +57,7 @@ Siga estos pasos para descargar y ejecutar el script.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Ejecute `Login-AzureRmAccount` para crear una conexión con Azure.   
+3. Ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.   
 4. Ejecute el siguiente script `.\Enable-AzureRmDiagnostics.ps1` sin ningún parámetro para habilitar la recopilación de datos de un recurso específico en su suscripción o con el parámetro `-ResourceGroup <myResourceGroup>` para especificar un recurso en un grupo de recursos específico.   
 5. Seleccione la suscripción adecuada en la lista si tiene más de una especificando el valor correcto.<br><br> ![Seleccione la suscripción que devuelve el script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Se lo contrario, el script selecciona automáticamente la única suscripción disponible.
 6. A continuación, el script devuelve una lista de áreas de trabajo de Log Analytics registradas en la suscripción.  De la lista, seleccione la adecuada.<br><br> ![Seleccione el área de trabajo que devuelve el script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
@@ -79,7 +79,7 @@ Se le pedirá que responda a la misma información que cuando se ejecutó el scr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos. 
 
 * Use [Campos personalizados](log-analytics-custom-fields.md) para redistribuir los registros de eventos en campos individuales.
 

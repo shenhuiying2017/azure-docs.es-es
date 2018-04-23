@@ -1,11 +1,11 @@
 ---
-title: "Uso de la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services | Microsoft Docs"
-description: "En este tema se explica cómo usar la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services."
+title: Uso de la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services | Microsoft Docs
+description: En este tema se explica cómo usar la CLI 2.0 para crear una aplicación de Azure AD y configurarla para acceder a la API de Azure Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 205e554fa42b1c28ed78add3e84c046855875872
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b640455b151d0e5d4701b8c076ee1a587b92f5b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Uso de la CLI 2.0 para crear una aplicación de AAD y configurarla para acceder a la API de Azure Media Services
 
@@ -61,7 +61,7 @@ Por ejemplo, podría ser uno de los siguientes niveles:
 
 Para más información, vea [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Vea también [Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md). 
+Vea también [Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure](../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

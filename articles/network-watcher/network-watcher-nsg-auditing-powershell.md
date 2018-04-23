@@ -1,11 +1,11 @@
 ---
-title: "Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher | Documentos de Microsoft"
-description: "Esta página proporcionan instrucciones sobre cómo configurar la auditoría de un grupo de seguridad de red"
+title: Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher | Documentos de Microsoft
+description: Esta página proporcionan instrucciones sobre cómo configurar la auditoría de un grupo de seguridad de red
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 57f2200e541eeb629f72d60ffa0acb2d8233c018
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatización de la auditoría de grupos de seguridad de red con la vista de grupo de seguridad de Azure Network Watcher
 
@@ -30,13 +30,13 @@ Si no está familiarizado con los grupos de seguridad de red, acuda al artículo
 
 En este escenario, se compara una línea base buena conocida con los resultados de la vista de grupo de seguridad devueltos para una máquina virtual.
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
+En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
 
 ## <a name="scenario"></a>Escenario
 
 El escenario descrito en este artículo obtiene la vista de grupo de seguridad para una máquina virtual.
 
-En este escenario va a:
+En este escenario:
 
 - Recuperar un conjunto de buenas reglas conocidas
 - Recuperar una máquina virtual con una API de REST
@@ -187,7 +187,7 @@ SideIndicator            : <=
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si se cambió la configuración, consulte [Administración de grupos de seguridad de red](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para realizar un seguimiento de los grupos de seguridad de red y las reglas de seguridad que pueden estar afectados.
+Si se cambió la configuración, consulte [Administración de grupos de seguridad de red](../virtual-network/manage-network-security-group.md) para realizar un seguimiento de los grupos de seguridad de red y las reglas de seguridad que pueden estar afectados.
 
 
 

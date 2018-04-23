@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bdd7dbf4f39529ac76fb496f0d459577e6f929dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
@@ -79,14 +79,14 @@ La arquitectura fundamental consta de los siguientes componentes:
 ## <a name="roles"></a>Roles
 
 
-El proyecto define dos roles para los usuarios administrativos (operadores) y tres roles para los usuarios de administración del hospital y atención al paciente. Se define un sexto rol para que un auditor pueda evaluar el cumplimiento con HIPAA y otras normativas. El control de acceso basado en rol (RBAC) de Azure permite la administración de acceso con precisión para cada usuario de la solución a través de roles integrados y personalizados. Consulte [Introducción al control de acceso basado en rol en Azure Portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) y [Roles integrados para el control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) para obtener información detallada acerca de RBAC, los roles y los permisos.
+El proyecto define dos roles para los usuarios administrativos (operadores) y tres roles para los usuarios de administración del hospital y atención al paciente. Se define un sexto rol para que un auditor pueda evaluar el cumplimiento con HIPAA y otras normativas. El control de acceso basado en rol (RBAC) de Azure permite la administración de acceso con precisión para cada usuario de la solución a través de roles integrados y personalizados. Consulte [Introducción al control de acceso basado en rol en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview) y [Roles integrados para el control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) para obtener información detallada acerca de RBAC, los roles y los permisos.
 
 ### <a name="site-administrator"></a>Administrador del sitio
 
 
 El administrador del sitio es responsable de la suscripción de Azure del cliente. Controla la implementación completa, pero no tiene acceso a los historiales de los pacientes.
 
--   Asignaciones de roles predeterminadas: [Propietario](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Asignaciones de roles predeterminadas: [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Asignaciones de roles personalizados: N/D
 
@@ -97,7 +97,7 @@ El administrador del sitio es responsable de la suscripción de Azure del client
 El analista de base de datos administra la instancia de SQL Server y la base de datos.
 No tiene acceso a los historiales de los pacientes.
 
--   Asignaciones de roles integrados: [Colaborador de base de datos SQL](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [Colaborador de SQL Server](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Asignaciones de roles integrados: [Colaborador de base de datos SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Colaborador de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Asignaciones de roles personalizados: N/D
 
@@ -108,7 +108,7 @@ No tiene acceso a los historiales de los pacientes.
 
 Los científicos de datos operan el servicio Azure Machine Learning. Pueden importar, exportar y administrar los datos y ejecutar informes. Los científicos de datos tienen acceso a los datos del paciente, pero no tienen privilegios administrativos.
 
--   Asignaciones de roles integrados: [Colaborador de la cuenta de almacenamiento](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Asignaciones de roles integrados: [Colaborador de la cuenta de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Asignaciones de roles personalizados: N/D
 
@@ -138,7 +138,7 @@ Este rol requiere la supervisión del estado de cada paciente y asegurarse de qu
 
 El auditor evalúa el cumplimiento de la solución. No tienen ningún acceso directo a la red.
 
--   Asignaciones de roles integrados: [Lector](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Asignaciones de roles integrados: [Lector](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Asignaciones de roles personalizados: N/D
 
@@ -222,7 +222,7 @@ En esta sección se describen las configuraciones predeterminadas y las medidas 
 
 -   [Azure Active Directory Identity Protection](/azure/active-directory/active-directory-identityprotection) detecta posibles puntos vulnerables que afectan a las identidades de la organización, configura respuestas automatizadas si surgen acciones sospechosas relacionadas con esas identidades, investiga incidentes sospechosos y toma las medidas oportunas para resolverlos.
 
--   El [control de acceso basado en rol de Azure (RBAC)](/azure/active-directory/role-based-access-control-configure) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción está limitado al administrador de dicha suscripción y el acceso a Azure Key Vault está limitado al administrador del sitio. Se requieren contraseñas seguras (12 caracteres como mínimo con al menos una letra en mayúsculas y minúsculas, un número y un carácter especial).
+-   El [control de acceso basado en rol de Azure (RBAC)](/azure/role-based-access-control/role-assignments-portal) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción está limitado al administrador de dicha suscripción y el acceso a Azure Key Vault está limitado al administrador del sitio. Se requieren contraseñas seguras (12 caracteres como mínimo con al menos una letra en mayúsculas y minúsculas, un número y un carácter especial).
 
 -   Se admite la autenticación multifactor cuando el modificador -enableMFA está habilitado durante la implementación.
 
@@ -230,7 +230,7 @@ En esta sección se describen las configuraciones predeterminadas y las medidas 
 
 **Roles:**
 
--   La solución hace uso de los [roles integrados](/azure/active-directory/role-based-access-built-in-roles) para administrar el acceso a los recursos.
+-   La solución hace uso de los [roles integrados](/azure/role-based-access-control/built-in-roles) para administrar el acceso a los recursos.
 
 -   Se asignan roles integrados específicos de forma predeterminada a todos los usuarios.
 
@@ -356,7 +356,7 @@ La solución es compatible con Azure Event Grid, un único servicio para adminis
 
 
 -   [El registro está habilitado](/azure/machine-learning/studio/web-services-logging) para los servicios web de Machine Learning.
-- El uso de [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) Workbench requiere el desarrollo de experimentos, que proporciona la capacidad de predecir un conjunto de soluciones. [La integración con Workbench](/azure/machine-learning/preview/using-git-ml-project) puede ayudar a simplificar la administración de experimentos.
+- El uso de [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench requiere el desarrollo de experimentos, que proporciona la capacidad de predecir un conjunto de soluciones. [La integración con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) puede ayudar a simplificar la administración de experimentos.
 
 ## <a name="security"></a>SEGURIDAD
 

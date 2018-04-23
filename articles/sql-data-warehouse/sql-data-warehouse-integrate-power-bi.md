@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: mlee3gsd
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: b12bee87-2268-40c2-81bf-ab27588b32e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Uso de Power BI con SQL Data Warehouse
 De manera similar a lo que sucede con Azure SQL Database, Conexión directa de SQL Data Warehouse permite que el usuario aproveche la aplicación lógica y eficaz junto con las funcionalidades analíticas de Power BI.  Con Conexión directa, las consultas se envían de vuelta a la instancia de Azure SQL Data Warehouse en tiempo real mientras explora los datos.  Esto, en combinación con la escala de SQL Data Warehouse, permite que los usuarios creen, en minutos, informes dinámicos sobre terabytes de datos.  Además, la introducción del botón Abrir en Power BI permite que los usuarios conecten directamente Power BI a su instancia de SQL Data Warehouse sin recopilar información de otras partes de Azure.

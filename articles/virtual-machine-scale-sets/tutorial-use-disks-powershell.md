@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3ad8e9862a16efdab32aeb057045a0b5cee26ee
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fd28b7e1f7407b1d1ee08c2f5774d939852e57b5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y uso de discos con conjuntos de escalado de máquinas virtuales con Azure PowerShell
 Los conjuntos de escalado de máquinas virtuales usan discos para almacenar el sistema operativo, las aplicaciones y los datos de las máquinas virtuales. Al crear y administrar un conjunto de escalado, es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. Este tutorial explica cómo crear y administrar discos de máquina virtual. En este tutorial, aprenderá a:
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.6.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure. 
+Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.6.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure. 
 
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
@@ -47,7 +47,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 **Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la instancia de máquina virtual. Son discos de gran rendimiento y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la instancia de máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la instancia de máquina virtual. Los discos temporales llevan la etiqueta */dev/sdb* y tienen un punto de montaje de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
-| type | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
+| Escriba | Tamaños comunes | Tamaño máximo de disco temporal (GiB) |
 |----|----|----|
 | [Uso general](../virtual-machines/windows/sizes-general.md) | Series A, B y D | 1600 |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md) | Serie F | 576 |
@@ -61,7 +61,7 @@ Cuando se crea o se escala un conjunto de escalado, se conectan automáticamente
 Se pueden agregar discos de datos adicionales si necesita instalar aplicaciones y almacenar datos. Los discos de datos deben usarse en cualquier situación donde desee un almacenamiento de datos duradero y con capacidad de respuesta. Cada disco de datos tiene una capacidad máxima de 4 TB. El tamaño de la instancia de máquina virtual determina cuántos discos de datos se pueden conectar. Para cada vCPU de la máquina virtual, se pueden asociar dos discos de datos.
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
-| type | Tamaños comunes | Discos de datos máximos por máquina virtual |
+| Escriba | Tamaños comunes | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](../virtual-machines/windows/sizes-general.md) | Series A, B y D | 64 |
 | [Proceso optimizado](../virtual-machines/windows/sizes-compute.md) | Serie F | 64 |

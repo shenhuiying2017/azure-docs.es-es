@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -85,16 +85,16 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * Puede crear un informe de quién concedió/revocó qué tipo de acceso a quién y en qué ámbito con PowerShell o la CLI de Azure.
 
 #### <a name="resources"></a>Recursos
-* [Control de acceso basado en roles de Azure Active Directory](../../active-directory/role-based-access-control-configure.md)
+* [Control de acceso basado en roles de Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   En este artículo se explica el control de acceso basado en rol de Azure Active Directory y su funcionamiento.
-* [RBAC: Roles integrados](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Roles integrados](../../role-based-access-control/built-in-roles.md)
 
   En este artículo se detalla todas las funciones integradas disponibles en el control de acceso basado en rol.
 * [Descripción de la implementación de Resource Manager y la implementación clásica](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   En este artículo se explican los modelos de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos. Se explica cómo funcionan los proveedores de Azure Compute, Network y Storage en el modelo de Resource Manager.
-* [Administración del control de acceso basado en rol con la API de REST](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Administración del control de acceso basado en rol con la API de REST](../../role-based-access-control/role-assignments-rest.md)
 
   En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
 * [Referencia de API de REST de proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)

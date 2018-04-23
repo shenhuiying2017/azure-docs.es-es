@@ -1,6 +1,6 @@
 ---
-title: "Instalación y configuración de Administración de modelos de Azure Machine Learning| Microsoft Docs"
-description: "Este documento describe los pasos y conceptos implicados en la instalación y configuración de Administración de modelos de Azure Machine Learning."
+title: Instalación y configuración de Administración de modelos de Azure Machine Learning| Microsoft Docs
+description: Este documento describe los pasos y conceptos implicados en la instalación y configuración de Administración de modelos de Azure Machine Learning.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ms.openlocfilehash: 45ddd4dc6fb5559c020706e2784158b1319f9b52
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="model-management-setup"></a>Instalación de Administración de modelos
 
@@ -83,7 +83,7 @@ Comience con una implementación local, valide el funcionamiento del modelo y el
 Para empezar, tiene que configurar el entorno de implementación. La configuración del entorno es una tarea que se realiza una sola vez. Una vez completada la instalación, puede volver a usar el entorno para las implementaciones posteriores. Consulte la siguiente sección para más información.
 
 Cuando realice la configuración del entorno:
-- Se le pide que inicie sesión en Azure. Para iniciar sesión use un explorador web para abrir la página https://aka.ms/devicelogin y escriba el código que se le ha proporcionado para autenticarse.
+- Se le pide que inicie sesión en Azure. Para iniciar sesión, use un explorador web para abrir la página https://aka.ms/devicelogin y escriba el código proporcionado para autenticarse.
 - Durante el proceso de autenticación, el sistema solicita una cuenta con la que autenticar. Importante: seleccione una cuenta que tenga una suscripción válida de Azure y los permisos necesarios para crear recursos en la cuenta. Cuando se haya realizado el inicio de sesión, se presenta la información de suscripción y se le pregunta si desea continuar con la cuenta seleccionada.
 
 ### <a name="environment-setup"></a>Configuración del entorno

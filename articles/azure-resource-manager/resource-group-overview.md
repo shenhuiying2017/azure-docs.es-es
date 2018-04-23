@@ -1,6 +1,6 @@
 ---
-title: "Información general de Azure Resource Manager| Microsoft Docs"
-description: "Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure."
+title: Información general de Azure Resource Manager| Microsoft Docs
+description: Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 La infraestructura de la aplicación está constituida normalmente por varios componentes: quizás una máquina virtual, una cuenta de almacenamiento y una red virtual, o una aplicación web, una base de datos, un servidor de bases de datos y servicios de terceros. Estos componentes no se ven como entidades independientes, sino como partes de una sola entidad relacionadas e interdependientes. Desea implementarlos, administrarlos y supervisarlos como grupo. Azure Resource Manager permite trabajar con los recursos de la solución como un grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación. 
@@ -215,7 +215,7 @@ Azure también proporciona varios roles específicos de los recursos. Algunos co
 4. Colaborador de SQL Server: puede administrar bases de datos y servidores SQL, pero no las directivas relacionadas con la seguridad.
 5. Colaborador de sitio web: puede administrar sitios web, pero no los planes web a los que está conectado.
 
-Para ver la lista completa de los roles y las acciones permitidas, consulte [RBAC: roles integrados](../active-directory/role-based-access-built-in-roles.md). Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md). 
+Para ver la lista completa de los roles y las acciones permitidas, consulte [RBAC: roles integrados](../role-based-access-control/built-in-roles.md). Para más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md). 
 
 En algunos casos, desea ejecutar el código o script que accede a los recursos, pero no con las credenciales del usuario. En lugar de ello, desea crear una identidad que llama a la entidad de servicio de la aplicación y asignar el rol adecuado para la entidad de servicio. Resource Manager permite crear credenciales para la aplicación y autenticar la aplicación mediante programación. Para aprender más acerca de cómo crear entidades de servicio, consulte uno de los siguientes temas:
 

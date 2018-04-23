@@ -1,25 +1,18 @@
 ---
-title: "Lección 8 del tutorial de Azure Analysis Services: Creación de perspectivas | Microsoft Docs"
-description: "Se describe cómo crear perspectivas en el proyecto del tutorial de Analysis Services de Azure."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 8 del tutorial de Azure Analysis Services: Creación de perspectivas | Microsoft Docs'
+description: Se describe cómo crear perspectivas en el proyecto del tutorial de Analysis Services de Azure.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 190a9c998bceb97f8446265809b8d2c3bdc76abc
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb6599fefaa03e2ca0fec2788dca27240dbad8c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-perspectives"></a>Creación de perspectivas
 
@@ -31,7 +24,7 @@ Esta lección tiene como objetivo describir cómo se crean las perspectivas, as�
   
 Tiempo estimado para completar esta lección: **cinco minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas en esta lección, debe haber completado la lección anterior: [Lección 7: Creación de indicadores clave de rendimiento](../tutorials/aas-lesson-7-create-key-performance-indicators.md).  
   
 ## <a name="create-perspectives"></a>Creación de perspectivas  

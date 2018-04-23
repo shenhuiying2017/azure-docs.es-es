@@ -1,12 +1,12 @@
 ---
-title: "Introducción a un ejemplo"
-description: "En este artículo, ofreceremos el ejemplo introductorio de las colecciones de áreas de trabajo de Power BI."
+title: Introducción a un ejemplo
+description: En este artículo, ofreceremos el ejemplo introductorio de las colecciones de áreas de trabajo de Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introducción a un ejemplo de colecciones de áreas de trabajo de Power BI
 
@@ -141,7 +141,7 @@ En la **vista** se administra la presentación de los **informes** de Power BI y
 
 **Reports.cshtml**: recorre en iteración **Model.Reports** para crear un **ActionLink**. **ActionLink** se compone de los siguientes elementos:
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 | --- | --- |
 | Título |Nombre del informe. |
 | QueryString |Vínculo al identificador del informe. |
@@ -258,7 +258,7 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 [Escenarios comunes de Colección de áreas de trabajo de Microsoft Power BI](scenarios.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
-[Embed a report in Power BI Embedded](embed-report.md) (Inserción de un informe en Power BI Embedded)  
+[Inserción de un informe](embed-report.md)  
 [Creación de un nuevo informe a partir de un conjunto de datos](create-report-from-dataset.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  

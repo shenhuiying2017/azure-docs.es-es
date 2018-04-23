@@ -1,9 +1,9 @@
 ---
 title: Uso de ReportViewer en un sitio web | Microsoft Docs
-description: "En este tema se describe cómo crear un sitio web de Microsoft Azure con el control ReportViewer de Visual Studio que muestre un informe guardado en una máquina virtual de Microsoft Azure."
+description: En este tema se describe cómo crear un sitio web de Microsoft Azure con el control ReportViewer de Visual Studio que muestre un informe guardado en una máquina virtual de Microsoft Azure.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
-ms.author: asaxton
-ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Usar ReportViewer en un sitio web hospedado en Azure
 > [!IMPORTANT] 
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../../../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager.
 
 Puede crear un sitio web de Microsoft Azure con el control ReportViewer de Visual Studio que muestre un informe guardado en una máquina virtual de Microsoft Azure. El control ReportViewer se encuentra en una aplicación web que se crea con la plantilla de aplicación web ASP.NET.
 
@@ -36,8 +36,8 @@ Para incorporar ReportViewer en su sitio web de Microsoft Azure, debe completar 
 * **Configurar** autenticación y autorización
 * **Publicar** la aplicación web ASP.NET en Azure
 
-## <a name="prerequisites"></a>Requisitos previos
-Revise la sección "Recomendación general y procedimientos recomendados" de [SQL Server Business Intelligence en máquinas virtuales de Azure](../classic/ps-sql-bi.md).
+## <a name="prerequisites"></a>requisitos previos
+Revise la sección "Recomendación general y procedimientos recomendados" de [SQL Server Business Intelligence en Azure Virtual Machines](../classic/ps-sql-bi.md).
 
 > [!NOTE]
 > Los controles ReportViewer se incluyen con Visual Studio, Standard Edition o superior. Si usa Web Developer Express Edition, debe instalar el [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) para usar las características de tiempo de ejecución de ReportViewer.
@@ -77,7 +77,7 @@ En el modo de procesamiento remoto, el control ReportViewer usa los siguientes e
 El control ReportViewer debe usar las credenciales adecuadas para autenticarse con el servidor de informes y las credenciales deben estar autorizadas por el servidor de informes para obtener acceso a los informes que quiere. Para obtener información sobre la autenticación, vea las notas del producto [Control Visor de informes de Reporting Services y servidores de informes basados en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>Publicar la aplicación web ASP.NET en Azure
-Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a aplicaciones web y ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
+Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en Azure, consulte [Cómo migrar y publicar una aplicación web en Azure desde Visual Studio](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) e [Introducción a Web Apps y ASP.NET](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Si el comando Agregar proyecto de implementación de Azure o Agregar  proyecto de servicio de nube de Azure no aparece en el menú contextual del Explorador de soluciones, puede que necesite cambiar el marco de trabajo de destino del proyecto a .NET Framework 4.
@@ -89,7 +89,7 @@ Para obtener instrucciones sobre cómo publicar una aplicación web ASP.NET en A
 ## <a name="resources"></a>Recursos
 [Informes de Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
 
-[Business Intelligence de SQL Server en Máquinas virtuales de Azure](../classic/ps-sql-bi.md)
+[Business Intelligence de SQL Server en Azure Virtual Machines](../classic/ps-sql-bi.md)
 
 [Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo](../classic/ps-sql-report.md)
 

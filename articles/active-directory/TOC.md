@@ -134,24 +134,24 @@
 #### [Uso de certificados](active-directory-reporting-api-with-certificates.md)
 
 ## Administrar contraseñas
-### [Introducción a las contraseñas](active-directory-passwords-overview.md)
+### [Introducción a las contraseñas](authentication/active-directory-passwords-overview.md)
 ### Documentos de usuario
 #### [Restablecimiento o modificación de la contraseña](active-directory-passwords-update-your-own-password.md)
 #### [Procedimientos recomendados sobre las contraseñas](active-directory-secure-passwords.md)
 #### [Registro para el autoservicio de restablecimiento de contraseñas](active-directory-passwords-reset-register.md)
-### [Vea cómo funciona SSPR](active-directory-passwords-how-it-works.md)
-### [Guía de implementación de SSPR](active-directory-passwords-best-practices.md)
+### [Vea cómo funciona SSPR](authentication/concept-sspr-howitworks.md)
+### [Guía de implementación de SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR y Windows 10](active-directory-passwords-login.md)
-### [Directivas de SSPR](active-directory-passwords-policy.md)
-### [Personalización de SSPR](active-directory-passwords-customize.md)
-### [Requisitos de datos de SSPR](active-directory-passwords-data.md)
-### [Informes de SSPR](active-directory-passwords-reporting.md)
+### [Directivas de SSPR](authentication/concept-sspr-policy.md)
+### [Personalización de SSPR](authentication/concept-sspr-customization.md)
+### [Requisitos de datos de SSPR](authentication/howto-sspr-authenticationdata.md)
+### [Informes de SSPR](authentication/howto-sspr-reporting.md)
 ### Administradores de TI: Restablecimiento de contraseñas
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-### [Licencia de SSPR](active-directory-passwords-licensing.md)
+### [Licencia de SSPR](authentication/concept-sspr-licensing.md)
 ### [Escritura diferida de contraseñas](active-directory-passwords-writeback.md)
-### [Solución de problemas](active-directory-passwords-troubleshoot.md)
-### [P+F](active-directory-passwords-faq.md)
+### [Solución de problemas](authentication/active-directory-passwords-troubleshoot.md)
+### [P+F](authentication/active-directory-passwords-faq.md)
 
 
 ## Administración de dispositivos

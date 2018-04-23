@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -40,7 +40,7 @@ El portal representa la forma más sencilla de comprobar si su cuenta tiene los 
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Creación de una entidad de servicio con un certificado autofirmado
 
-En el ejemplo siguiente se trata un escenario sencillo. En él se usa [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para crear una entidad de servicio con un certificado autofirmado, y se utiliza[New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para asignar el rol [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor) a la entidad de servicio. La asignación de roles se limita a su suscripción de Azure seleccionada actualmente. Para seleccionar una suscripción diferente, use [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+En el ejemplo siguiente se trata un escenario sencillo. En él se usa [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) para crear una entidad de servicio con un certificado autofirmado, y se utiliza[New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para asignar el rol [Colaborador](../role-based-access-control/built-in-roles.md#contributor) a la entidad de servicio. La asignación de roles se limita a su suscripción de Azure seleccionada actualmente. Para seleccionar una suscripción diferente, use [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -58,7 +58,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "La entidad de seguridad {ID} no existe en el directorio {DIR-ID}". Para resolver este error, espere unos instantes y, a continuación, ejecute el comando **New-AzureRmRoleAssignment** de nuevo.
 
-El ejemplo siguiente es más complicado porque permite establecer un ámbito para la asignación de roles diferente de su suscripción de Azure actual. Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos. Si se produce un error durante la asignación de roles, vuelve a intentar la asignación. Debe tener Azure PowerShell 2.0 en Windows 10 o Windows Server 2016.
+El ejemplo siguiente es más complicado porque permite establecer un ámbito para la asignación de roles diferente de su suscripción de Azure actual. Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos. Si se produce un error durante la asignación de roles, vuelva a intentar la asignación. Debe tener Azure PowerShell 2.0 en Windows 10 o Windows Server 2016.
 
 ```powershell
 Param (
@@ -75,7 +75,7 @@ Param (
  [String] $ApplicationDisplayName
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
 
  if ($SubscriptionId -eq "") 
@@ -150,7 +150,7 @@ Param (
  )
 
  $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -170,7 +170,7 @@ Si necesita recuperar el identificador de la aplicación, use:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Creación de una entidad de servicio con un certificado de una entidad de certificación
 
-En el ejemplo siguiente se utiliza un certificado emitido por una entidad de certificación para crear una entidad de servicio. La asignación se limita a la suscripción de Azure especificada. Se agrega la entidad de servicio al rol [Colaborador](../active-directory/role-based-access-built-in-roles.md#contributor). Si se produce un error durante la asignación de roles, vuelva a intentar la asignación.
+En el ejemplo siguiente se utiliza un certificado emitido por una entidad de certificación para crear una entidad de servicio. La asignación se limita a la suscripción de Azure especificada. Se agrega la entidad de servicio al rol [Colaborador](../role-based-access-control/built-in-roles.md#contributor). Si se produce un error durante la asignación de roles, vuelva a intentar la asignación.
 
 ```powershell
 Param (
@@ -187,7 +187,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount
+ Connect-AzureRmAccount
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
  
@@ -239,7 +239,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -ServicePrincipal `
+ Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId

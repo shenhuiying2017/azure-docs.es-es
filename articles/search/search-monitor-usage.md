@@ -1,25 +1,19 @@
 ---
-title: "Supervisión del uso y estadísticas en un servicio Azure Search | Microsoft Docs"
-description: "Realice el seguimiento del consumo de recursos y el tamaño de índice para Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
-services: search
-documentationcenter: 
+title: Supervisión del uso y estadísticas en un servicio Azure Search | Microsoft Docs
+description: Realice el seguimiento del consumo de recursos y el tamaño de índice para Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: required
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: b8c07d5965876cba45f03fa8c5ffb473c6ca3bc2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitoring-an-azure-search-service"></a>Supervisión de un servicio de Azure Search
 
@@ -96,10 +90,10 @@ Los blobs de registros contienen los registros de tráfico del servicio de búsq
 Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro.
 Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la misma hora.
 
-| Nombre | Tipo | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| Twitter en tiempo |datetime |"2015-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
+| Twitter en tiempo |Datetime |"2015-12-07T00:00:43.6872559Z" |Marca de tiempo de la operación |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Su ResourceId |
 | operationName |string |"Query.Search" |El nombre de la operación |
 | operationVersion |string |"2015-02-28" |La versión de la API usada |
 | categoría |string |"OperationLogs" |constant |
@@ -109,19 +103,19 @@ Cada blob tiene registros en todas las operaciones que tuvieron lugar durante la
 | propiedades |objeto |consulte la tabla siguiente |Objeto que contiene datos específicos de la operación |
 
 **Esquema de propiedades**
-| Nombre | Tipo | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| Description |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
+| DESCRIPCIÓN |string |"GET /indexes('content')/docs" |Punto de conexión de la operación |
 | Consultar |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |Los parámetros de consulta |
 | Documentos |int |42 |Número de documentos procesados |
 | IndexName |string |"testindex" |Nombre del índice asociado a la operación |
 
 #### <a name="metrics-schema"></a>Esquema de métricas
-| Nombre | Tipo | Ejemplo | Notas |
+| NOMBRE | Escriba | Ejemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
+| ResourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
-| Twitter en tiempo |datetime |"2015-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
+| Twitter en tiempo |Datetime |"2015-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
 | average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |

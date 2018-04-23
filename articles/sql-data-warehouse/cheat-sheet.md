@@ -3,18 +3,18 @@ title: Hoja de referencia rápida de Azure SQL Data Warehouse | Microsoft Docs
 description: Encuentre vínculos y procedimientos recomendados para crear rápidamente soluciones de Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: acomet
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/17/2018
 ms.author: acomet
-ms.reviewer: mausher,igorstan,jrj
-ms.openlocfilehash: 1e09dc2f3c7e7aa4ae98ef98a8957454a1beee6b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: igorstan
+ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Hoja de referencia rápida de Azure SQL Data Warehouse
 En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure SQL Data Warehouse. Antes de empezar, consulte los detalles de cada paso en [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patrones y antipatrones de la carga de trabajo de Azure SQL Data Warehouse), que explica qué es y qué no es SQL Data Warehouse.
@@ -49,7 +49,7 @@ Obtenga más información sobre la [migración de datos], la [carga de datos] y 
 
 Use las siguientes estrategias, en función de las propiedades de tabla:
 
-| type | Muy adecuado para...| Esté atento a...|
+| Escriba | Muy adecuado para...| Esté atento a...|
 |:--- |:--- |:--- |
 | Replicado | • Tablas de pequeñas dimensiones en esquema de estrella con menos de 2 GB de almacenamiento tras la compresión (compresión ~5x) |•  Se producen muchas transacciones de escritura en la tabla (por ejemplo, insertar, upsert, eliminar, actualizar)<br></br>• Cambia frecuentemente el aprovisionamiento de las unidades de almacenamiento de datos (DWU)<br></br>• Solo usa 2 o 3 columnas, pero la tabla tiene muchas columnas<br></br>• Va a indexar una tabla replicada |
 | Round Robin (valor predeterminado) | • Tabla de almacenamiento provisional/temporal<br></br> • Sin clave de combinación obvia o columna buena candidata |•  El rendimiento es lento debido al movimiento de datos |
@@ -69,7 +69,7 @@ Aprenda más sobre las [tablas replicadas] y las [tablas distribuidas].
 
 La indexación es útil para leer rápidamente las tablas. Existe un conjunto único de tecnologías que puede usar en función de sus necesidades:
 
-| type | Muy adecuado para... | Esté atento a...|
+| Escriba | Muy adecuado para... | Esté atento a...|
 |:--- |:--- |:--- |
 | Montón | • Tabla de ensayo/temporal<br></br>• Tablas pequeñas con búsquedas pequeñas |• Cualquier búsqueda recorre la tabla completa |
 | Índice agrupado | • Tablas con hasta 100 millones de filas<br></br>• Tablas grandes (más de 100 millones de filas) con solo 1 o 2 columnas muy usadas |•  Se usa en tablas replicadas<br></br>•    Tiene consultas complejas que implican varias operaciones de combinación y Agrupar por<br></br>•  Realiza actualizaciones en las columnas indexadas, ya que consume memoria |

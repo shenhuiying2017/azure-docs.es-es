@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Ejemplos de implementación de plantillas scaffold empresariales de Azure
 En este tema se ofrecen ejemplos de cómo una empresa puede implementar las recomendaciones de una [plantilla scaffold empresarial de Azure](resource-manager-subscription-governance.md). Se usa una compañía ficticia denominada "Contoso" con el objetivo de ilustrar las prácticas recomendadas para escenarios comunes.
@@ -43,7 +43,7 @@ Contoso está creando un sistema de administración de código fuente (BitBucket
 ### <a name="naming-standards--resource-groups"></a>Estándares de nomenclatura y grupos de recursos
 David crea una suscripción para admitir las herramientas de desarrollo que son comunes a todas las unidades de negocio. Debe crear nombres descriptivos para la suscripción y los grupos de recursos (de la aplicación y las redes). Por tanto, genera la siguiente suscripción y estos grupos de recursos:
 
-| Elemento | Nombre | Descripción |
+| item | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
 | La suscripción |Contoso ETS DeveloperTools Production |Admite las herramientas de desarrollo comunes. |
 | Grupo de recursos |bitbucket-prod-rg |Contiene el servidor de aplicaciones web y el de bases de datos. |
@@ -54,12 +54,12 @@ Después de crear la suscripción, David quiere asegurarse de que los equipos y 
 
 David asigna los siguientes roles a la suscripción:
 
-| Rol | Asignado a | Descripción |
+| Rol | Asignado a | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Propietario](../active-directory/role-based-access-built-in-roles.md#owner) |Identificador administrado del servicio AD de Contoso |Este identificador se controla con acceso Just-In-Time (JIT) a través de la herramienta de administración de identidades de Contoso, y garantiza que se audite por completo el acceso del propietario de la suscripción |
-| [Administrador de seguridad](../active-directory/role-based-access-built-in-roles.md#security-manager) |Departamento de administración de riesgos y seguridad |Este rol permite a los usuarios ver Azure Security Center y el estado de los recursos |
-| [Colaborador de la red](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Equipo de red |Este rol permite al equipo de red de Contoso administrar la VPN de sitio a sitio y las redes virtuales |
-| *Rol personalizado* |Propietario de la aplicación |David crea un rol que concede la capacidad de modificar recursos en el grupo de recursos. Para obtener más información, vea el artículo [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-custom-roles.md). |
+| [Propietario](../role-based-access-control/built-in-roles.md#owner) |Identificador administrado del servicio AD de Contoso |Este identificador se controla con acceso Just-In-Time (JIT) a través de la herramienta de administración de identidades de Contoso, y garantiza que se audite por completo el acceso del propietario de la suscripción |
+| [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-manager) |Departamento de administración de riesgos y seguridad |Este rol permite a los usuarios ver Azure Security Center y el estado de los recursos |
+| [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) |Equipo de red |Este rol permite al equipo de red de Contoso administrar la VPN de sitio a sitio y las redes virtuales |
+| *Rol personalizado* |Propietario de la aplicación |David crea un rol que concede la capacidad de modificar recursos en el grupo de recursos. Para obtener más información, vea el artículo [Roles personalizados en RBAC de Azure](../role-based-access-control/custom-roles.md). |
 
 ### <a name="policies"></a>Directivas
 David tiene los siguientes requisitos para administrar recursos de la suscripción:
@@ -70,10 +70,10 @@ David tiene los siguientes requisitos para administrar recursos de la suscripci�
 
 Además, crea las siguientes [directivas de Azure](../azure-policy/azure-policy-introduction.md):
 
-| Campo | Efecto | Descripción |
+| Campo | Efecto | DESCRIPCIÓN |
 | --- | --- | --- |
 | location |audit |Audita la creación de los recursos en cualquier región. |
-| type |deny |Deniega la creación de máquinas virtuales de serie G. |
+| Tipo |deny |Deniega la creación de máquinas virtuales de serie G. |
 | etiquetas |deny |Exige la etiqueta de propietario de la aplicación. |
 | etiquetas |deny |Exige la etiqueta de centro de costos. |
 | etiquetas |append |Anexa el nombre de etiqueta **BusinessUnit** y el valor de etiqueta **ETS** a todos los recursos. |
@@ -94,7 +94,7 @@ El equipo de administración de riesgos y de seguridad de información de la uni
 
 Además, crea estos recursos:
 
-| Tipo de recurso | Nombre | Descripción |
+| Tipo de recurso | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
 | Virtual Network |red virtual interna |Se utiliza con la aplicación de BitBucket y se conecta a través de ExpressRoute a la red corporativa de Contoso.  Una subred (`bitbucket`) proporciona a la aplicación con un espacio de direcciones IP específico |
 | Virtual Network |red virtual externa |Está disponible para las aplicaciones futuras que requieran puntos de conexión orientados al público |
@@ -105,7 +105,7 @@ David identifica que la conectividad de la red corporativa de Contoso a la red v
 
 Para ello, crea los siguientes [bloqueos de recursos](resource-group-lock-resources.md):
 
-| Tipo de bloqueo | Recurso | Descripción |
+| Tipo de bloqueo | Recurso | DESCRIPCIÓN |
 | --- | --- | --- |
 | **CanNotDelete** |red virtual interna |Impide que los usuarios eliminen la red virtual o las subredes, pero no que se agreguen nuevas subredes |
 
@@ -123,7 +123,7 @@ Los responsables de la unidad de negocio de la cadena de suministro han identifi
 ### <a name="azure-subscriptions"></a>Suscripciones de Azure
 David inicia sesión en Azure Enterprise Portal y se percata de que el departamento de la cadena de suministro ya existe.  Sin embargo, como este proyecto es el primero de desarrollo del equipo de la cadena de suministro en Azure, David identifica la necesidad de que el equipo de desarrollo de Alicia tenga una nueva cuenta.  Por tanto, crea la cuenta I+D para su equipo y concede acceso a Alicia. Alicia inicia sesión mediante el portal de Azure y crea dos suscripciones: una para almacenar los servidores de desarrollo y otra donde se hospedarán los servidores de producción.  Además, sigue las normas de nomenclaturas establecidas previamente al crear las siguientes suscripciones:
 
-| Uso de la suscripción | Nombre |
+| Uso de la suscripción | NOMBRE |
 | --- | --- |
 | Desarrollo |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
 | Producción |Contoso SupplyChain Operations LoyaltyCard Production |
@@ -133,7 +133,7 @@ David y Alicia analizan la aplicación e identifican que solo la utilizan client
 
 Para la **suscripción de desarrollo**, crean la siguiente directiva:
 
-| Campo | Efecto | Descripción |
+| Campo | Efecto | DESCRIPCIÓN |
 | --- | --- | --- |
 | location |audit |Audita la creación de los recursos en cualquier región. |
 
@@ -141,7 +141,7 @@ No limitan el tipo de SKU que puede crear un usuario durante el desarrollo y no 
 
 Para la **suscripción de producción**, crean las siguientes directivas:
 
-| Campo | Efecto | Descripción |
+| Campo | Efecto | DESCRIPCIÓN |
 | --- | --- | --- |
 | location |deny |Deniega la creación de cualquier recurso fuera de los centros de datos de Estados Unidos |
 | etiquetas |deny |Exige la etiqueta de propietario de la aplicación. |
@@ -160,17 +160,17 @@ David es consciente de que debe tener información específica con el objetivo d
 | EnvironmentType |**Production** (aunque el nombre de la suscripción incluya **Production**, esta etiqueta permite facilitar su identificación al buscar recursos en el portal o en la factura) |
 
 ### <a name="core-networks"></a>Redes principales
-El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Quiere asegurarse de que la aplicación de tarjeta de fidelización está aislada y protegida en una red perimetral correctamente.  Para cumplir este requisito, Alicia y David crean una red virtual externa y un grupo de seguridad de red para aislar la aplicación de tarjeta de fidelización de la red corporativa de Contoso.  
+El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Quiere asegurarse de que la aplicación de tarjeta de fidelización está aislada y protegida en una red DMZ correctamente.  Para cumplir este requisito, Alicia y David crean una red virtual externa y un grupo de seguridad de red para aislar la aplicación de tarjeta de fidelización de la red corporativa de Contoso.  
 
 Para la **suscripción de desarrollo**, crean los siguientes recursos:
 
-| Tipo de recurso | Nombre | Descripción |
+| Tipo de recurso | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
 | Virtual Network |red virtual interna |Se utiliza con el entorno de desarrollo de la tarjeta de fidelización de Contoso y se conecta a través de ExpressRoute a la red corporativa de Contoso |
 
 Para la **suscripción de producción**, crean los siguientes recursos:
 
-| Tipo de recurso | Nombre | Descripción |
+| Tipo de recurso | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
 | Virtual Network |red virtual externa |Hospeda la aplicación de tarjeta de fidelización y no está conectada directamente a ExpressRoute de Contoso. El código se envía directamente a través de su sistema de código fuente a los servicios de PaaS |
 | Grupo de seguridad de red (NSG) |loyaltycard-nsg |Garantiza que se reduzca al máximo la superficie de ataque permitiendo solo las conexiones entrantes en el puerto TCP 443.  Contoso también está investigando el uso de un firewall de aplicación web para agregar más protección |
@@ -180,7 +180,7 @@ David y Alicia se reúnen y deciden agregar bloqueos de recursos en algunos de l
 
 Para ello, crean el bloqueo siguiente:
 
-| Tipo de bloqueo | Recurso | Descripción |
+| Tipo de bloqueo | Recurso | DESCRIPCIÓN |
 | --- | --- | --- |
 | **CanNotDelete** |red virtual externa |Se utiliza para evitar que los usuarios eliminen la red virtual o las subredes. El bloqueo no impide que se agreguen nuevas subredes |
 

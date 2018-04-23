@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Preparación de datos para Azure Machine Learning | Microsoft Docs"
-description: "Se trata de la guía de introducción de la sección de preparación de datos del área de trabajo de AML"
+title: Introducción a Preparación de datos para Azure Machine Learning | Microsoft Docs
+description: Se trata de la guía de introducción de la sección de preparación de datos del área de trabajo de AML
 services: machine-learning
 author: cforbe
 ms.author: cforbe
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
 ms.openlocfilehash: b0fbb0af433cfad6693b022d7a00373dc39533aa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="getting-started-with-data-preparation"></a>Introducción a Preparación de datos
 

@@ -1,11 +1,11 @@
 ---
-title: "Simulación de respuestas de API con Azure Portal | Microsoft Docs"
-description: "Este tutorial muestra cómo utilizar API Management (APIM) con el fin de establecer una directiva para una API para que devuelva una respuesta simulada. Este método permite a los desarrolladores continuar con la implementación y las pruebas de la instancia de API Management en caso de que el back-end no esté disponible para enviar respuestas reales."
+title: Simulación de respuestas de API con Azure Portal | Microsoft Docs
+description: Este tutorial muestra cómo utilizar API Management (APIM) con el fin de establecer una directiva para una API para que devuelva una respuesta simulada. Este método permite a los desarrolladores continuar con la implementación y las pruebas de la instancia de API Management en caso de que el back-end no esté disponible para enviar respuestas reales.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: e485071b026c52eb23532639546ad475fc92cde3
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: f3209edb23577d656e228aa0d75d852f35cd93ef
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="mock-api-responses"></a>Simulación de respuestas de API
 
@@ -30,18 +30,16 @@ Pueden importarse API de back-end en una API de APIM, o bien crearse o administr
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una API de prueba 
-> * Agregar una operación a la API de prueba
-> * Habilitar la simulación de respuesta
+> * Creación de una API de prueba 
+> * Adición de una operación a la API de prueba
+> * Habilitación de la simulación de respuesta
 > * Probar la API simulada
 
 ![Respuesta de la operación simulada](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="create-a-test-api"></a>Creación de una API de prueba 
 
@@ -56,12 +54,12 @@ Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. 
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adición de una operación a la API de prueba
 
-1. Seleccione API que creó en los pasos anteriores.
+1. Seleccione la API que creó en los pasos anteriores.
 2. Haga clic en **+ Agregar operación**.
 
     ![Respuesta de la operación simulada](./media/mock-api-responses/mock-api-responses02.png)
 
-    |Configuración|Valor|Descripción|
+    |Configuración|Valor|DESCRIPCIÓN|
     |---|---|---|
     |**URL** (verbo HTTP)|GET|Puede elegir uno de los verbos HTTP predefinidos.|
     |**URL** |*/test*|Una ruta de acceso URL de la API. |
@@ -108,7 +106,7 @@ Los pasos de esta sección muestran cómo crear una API en blanco sin back-end. 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha aprendido cómo:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de una API de prueba

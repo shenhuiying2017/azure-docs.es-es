@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuración de Azure Redis Cache
 En este tema se describe la configuración disponible para las instancias de Azure Redis Cache. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Redis Cache.
@@ -79,7 +79,7 @@ Haga clic en **Registro de auditoría** para ver las acciones realizadas en la m
 
 ### <a name="access-control-iam"></a>Control de acceso (IAM)
 
-En la sección **Control de acceso (IAM)** se proporciona soporte para el control de acceso basado en rol (RBAC) en Azure Portal. Esta configuración ayuda a las organizaciones a cumplir los requisitos de administración de acceso de forma sencilla y precisa. Para más información, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
+En la sección **Control de acceso (IAM)** se proporciona soporte para el control de acceso basado en rol (RBAC) en Azure Portal. Esta configuración ayuda a las organizaciones a cumplir los requisitos de administración de acceso de forma sencilla y precisa. Para más información, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Etiquetas
 

@@ -1,26 +1,24 @@
 ---
-title: "Solución de problemas de un clúster de HDInsight lento o con errores: Azure HDInsight | Microsoft Docs"
-description: "Diagnostique y solucione los problemas de un clúster de HDInsight lento o con errores."
+title: 'Solución de problemas de un clúster de HDInsight lento o con errores: Azure HDInsight | Microsoft Docs'
+description: Diagnostique y solucione los problemas de un clúster de HDInsight lento o con errores.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Solución de problemas de un clúster de HDInsight lento o con errores
 

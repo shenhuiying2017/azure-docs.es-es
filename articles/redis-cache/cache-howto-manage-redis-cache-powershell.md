@@ -1,11 +1,11 @@
 ---
-title: "Administración de Azure Redis Cache con Azure PowerShell | Microsoft Docs"
+title: Administración de Azure Redis Cache con Azure PowerShell | Microsoft Docs
 description: Aprenda a realizar tareas administrativas para Azure Redis Cache usando Azure PowerShell.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1136efe5-1e33-4d91-bb49-c8e2a6dca475
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 58f8601fa780ac86729f60e9e30f4c6a91c73deb
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Administración de Azure Redis Cache con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Si ya ha instalado Azure PowerShell, debe tener la versión 1.0.0 (o posterior) 
 
 En primer lugar, debe iniciar sesión en Azure con este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Especifique la dirección de correo electrónico de la cuenta de Azure y su contraseña en el cuadro de diálogo de inicio de sesión de Microsoft Azure.
 
@@ -66,18 +66,18 @@ Por ejemplo, para obtener ayuda para el cmdlet `New-AzureRmRedisCache` , escriba
     Get-Help New-AzureRmRedisCache -Detailed
 
 ### <a name="how-to-connect-to-other-clouds"></a>Conexión a otras nubes
-De forma predeterminada, el entorno de Azure es `AzureCloud`, que representa la instancia de nube de Azure global. Para conectarse a una instancia diferente, utilice el comando `Add-AzureRmAccount` con el conmutador de línea de comandos `-Environment` o -`EnvironmentName` con el nombre de entorno o el entorno deseado.
+De forma predeterminada, el entorno de Azure es `AzureCloud`, que representa la instancia de nube de Azure global. Para conectarse a una instancia diferente, utilice el comando `Connect-AzureRmAccount` con el conmutador de línea de comandos `-Environment` o -`EnvironmentName` con el nombre de entorno o el entorno deseado.
 
 Para ver la lista de entornos disponibles, ejecute el cmdlet `Get-AzureRmEnvironment` .
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Conexión a la nube de Azure Government
 Para conectarse a la nube de Azure Government, utilice uno de los siguientes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+    Connect-AzureRmAccount -EnvironmentName AzureUSGovernment
 
 o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
 Para crear una memoria caché en la nube de Azure Government, utilice una de las siguientes ubicaciones.
 
@@ -89,11 +89,11 @@ Para más información acerca de la nube de Azure Government, consulte [Microsof
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Para conectarse a la nube de China de Azure
 Para conectarse a la nube de China de Azure, use uno de los siguientes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 Para crear una caché en la nube de China de Azure, use una de las siguientes ubicaciones.
 
@@ -105,12 +105,12 @@ Para obtener más información acerca de la nube de China de Azure, consulte [Az
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Conexión a Microsoft Azure Alemania
 Para conectarse a Microsoft Azure Alemania, utilice uno de los siguientes comandos.
 
-    Add-AzureRMAccount -EnvironmentName AzureGermanCloud
+    Connect-AzureRmAccount -EnvironmentName AzureGermanCloud
 
 
 o
 
-    Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
+    Connect-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureGermanCloud)
 
 Para crear una memoria caché en Microsoft Azure Alemania, use una de las siguientes ubicaciones.
 
@@ -125,7 +125,7 @@ La tabla siguiente contiene las propiedades y las descripciones de los parámetr
 | . | DESCRIPCIÓN | Valor predeterminado |
 | --- | --- | --- |
 | NOMBRE |Nombre de la memoria caché | |
-| La ubicación |Ubicación de la memoria caché | |
+| Ubicación |Ubicación de la memoria caché | |
 | ResourceGroupName |Nombre del grupo de recursos en el que se va a crear la memoria caché | |
 | Tamaño |El tamaño de la memoria caché. Los valores válidos son: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |El número de particiones para crear durante la creación de una memoria caché premium con clúster habilitado. Los valores válidos son: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |

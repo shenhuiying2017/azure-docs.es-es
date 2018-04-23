@@ -12,15 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Instalación de aplicación publicada: Datameer
 
@@ -66,7 +64,7 @@ En los pasos siguientes aparece una demostración de "Hola mundo".
 
     ![Carga de archivos](./media/hdinsight-apps-install-datameer/upload.png)
 
-3. En el cuadro de diálogo de carga, examine y seleccione el archivo **Hello World.csv** que descargó. Asegúrese de que el **tipo de archivo** está establecido en CSV / TSV. Seleccione **Siguiente**. Haga clic en **Siguiente** hasta el final del asistente.
+3. En el cuadro de diálogo de carga, examine y seleccione el archivo **Hello World.csv** que descargó. Asegúrese de que el **tipo de archivo** está establecido en CSV / TSV. Seleccione **Next** (Siguiente). Haga clic en **Siguiente** hasta el final del asistente.
 
     ![Carga de archivos](./media/hdinsight-apps-install-datameer/upload-browse.png)
 

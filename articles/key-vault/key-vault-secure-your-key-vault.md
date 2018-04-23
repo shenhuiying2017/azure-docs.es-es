@@ -1,8 +1,8 @@
 ---
-title: "Protección de un almacén de claves | Microsoft Docs"
-description: "Administrar permisos de acceso al almacén de claves para la administración de almacenes y claves y secretos. Modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves"
+title: Protección de un almacén de claves | Microsoft Docs
+description: Administrar permisos de acceso al almacén de claves para la administración de almacenes y claves y secretos. Modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Protección de un almacén de claves
 Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos (como certificados, cadenas de conexión y contraseñas) de las aplicaciones en la nube. Dado que estos datos son confidenciales y críticos para la empresa, desea proteger el acceso a los almacenes de claves, por lo que solo pueden acceder a él las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general del modelo de acceso a un almacén de claves, se explican la autenticación y la autorización, y se describe cómo proteger el acceso a un almacén de claves de las aplicaciones en la nube con un ejemplo.
@@ -76,7 +76,7 @@ Cada una de las suscripciones de Azure está asociada a una instancia de Azure A
 
 Con el modelo de Azure Resource Manager, se crea una instancia de un almacén de claves en un grupo de recursos y se controla el acceso al plano de administración de dicho almacén de claves mediante Azure Active Directory. Por ejemplo, puede conceder a los usuarios o a un grupo la capacidad de administrar los almacenes de claves en un grupo de recursos específico.
 
-Puede conceder acceso a usuarios, grupos y aplicaciones de un ámbito concreto mediante la asignación de los roles de RBAC apropiados. Por ejemplo, para conceder acceso a un usuario para administrar los almacenes de claves se asignaría el rol predefinido 'Colaborador de almacén de claves' a este usuario en un ámbito específico. En este caso, el ámbito caso sería una suscripción, un grupo de recursos o simplemente un almacén de claves específico. Un rol asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción. Un rol asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos. Un rol asignado a un recurso concreto solo se aplica a dicho recurso. Hay varios roles predefinidos (consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)) y si los roles predefinidos no se ajustan a sus necesidades también puede definir sus propios roles.
+Puede conceder acceso a usuarios, grupos y aplicaciones de un ámbito concreto mediante la asignación de los roles de RBAC apropiados. Por ejemplo, para conceder acceso a un usuario para administrar los almacenes de claves se asignaría el rol predefinido 'Colaborador de almacén de claves' a este usuario en un ámbito específico. En este caso, el ámbito caso sería una suscripción, un grupo de recursos o simplemente un almacén de claves específico. Un rol asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción. Un rol asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos. Un rol asignado a un recurso concreto solo se aplica a dicho recurso. Hay varios roles predefinidos (consulte [RBAC: Roles integrados](../role-based-access-control/built-in-roles.md)) y si los roles predefinidos no se ajustan a sus necesidades también puede definir sus propios roles.
 
 > [!IMPORTANT]
 > Tenga en cuenta que si un usuario tiene permisos de Colaborador (RBAC) en un plano de administración de un almacén de claves, se puede conceder el mismo acceso al plano de datos estableciendo la directiva de acceso al almacén de claves, que controla el acceso al plano de datos. Por consiguiente, se recomienda controlar de forma estricta quién tiene acceso de 'colaborador' a los almacenes de claves, con el fin de garantizar que las personas autorizadas son las únicas que pueden acceder y administrar los almacenes de claves, las claves, los secretos y los certificados.
@@ -204,19 +204,19 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
 > 
 
 ## <a name="resources"></a>Recursos
-* [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md)
+* [Control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
   
   En este artículo se explica el control de acceso basado en rol de Azure Active Directory y su funcionamiento.
-* [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Roles integrados](../role-based-access-control/built-in-roles.md)
   
   En este artículo se proporciona información detallada de todos los roles integrados disponibles en RBAC.
 * [Descripción de la implementación del Administrador de recursos y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   En este artículo se explica el modelo de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos.
-* [Administración del control de acceso basado en rol con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Administración del control de acceso basado en rol con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
   
   En este artículo se explica cómo administrar el control de acceso basado en rol con Azure PowerShell
-* [Administración del control de acceso basado en rol con la API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Administración del control de acceso basado en rol con la API de REST](../role-based-access-control/role-assignments-rest.md)
   
   En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

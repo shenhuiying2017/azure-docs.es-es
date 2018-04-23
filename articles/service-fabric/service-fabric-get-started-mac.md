@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: 76bbe686d07ff83bff6271f62793713194938212
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f6813d98782d31dc780da21f78aafbbfdfc5e688
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configuración de su entorno de desarrollo en Mac OS X
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
     >
     >Cuando se prueben aplicaciones de gran tamaño, se recomienda aumentar los recursos asignados a Docker, para lo que se debe hacer clic en el **icono de Docker** y, después, seleccionar **Opciones avanzadas** para ajustar el número de núcleos y la memoria.
 
-2. En un directorio nuevo, cree un archivo denominado `.Dockerfile` para generar una imagen de Service Fabric:
+2. En un directorio nuevo, cree un archivo denominado `Dockerfile` para generar una imagen de Service Fabric:
 
     ```dockerfile
     FROM microsoft/service-fabric-onebox
@@ -86,7 +86,7 @@ Para configurar un contenedor local de Docker y hacer que un clúster de Service
     >[!TIP]
     > De forma predeterminada, se extraerá la imagen con la versión más reciente de Service Fabric. Para ver información acerca de revisiones concretas, visite la página de [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
 
-3. Para crear una imagen reutilizable a partir de `.Dockerfile`, abra una ventana de terminal y ejecute `cd` para cambiar al directorio donde se encuentra su `.Dockerfile` y, después, ejecute:
+3. Para crear una imagen reutilizable a partir de `Dockerfile`, abra una ventana de terminal y ejecute `cd` para cambiar al directorio donde se encuentra su `Dockerfile` y, después, ejecute:
 
     ```bash 
     docker build -t mysfcluster .

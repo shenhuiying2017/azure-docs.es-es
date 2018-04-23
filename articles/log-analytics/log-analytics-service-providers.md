@@ -1,11 +1,11 @@
 ---
-title: "Características de Log Analytics para proveedores de servicios | Microsoft Docs"
+title: Características de Log Analytics para proveedores de servicios | Microsoft Docs
 description: Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales en la nube del cliente.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 3910038e788352df45ab00c0f697d9a5426b3498
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Características de Log Analytics para proveedores de servicios
 Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales en la nube del cliente. 
@@ -40,7 +40,7 @@ Los *proveedores de soluciones en la nube* pueden realizar las siguientes tareas
 Para iniciar sesión en una suscripción de inquilino, debe especificar el identificador de este. A menudo, el identificador de inquilino es la última parte de la dirección de correo electrónico con la que se inicia sesión.
 
 * En el portal de OMS, agregue `?tenant=contoso.com` en la dirección URL del portal. Por ejemplo, `mms.microsoft.com/?tenant=contoso.com`
-* En PowerShell, use el parámetro `-Tenant contoso.com` al usar el cmdlet `Add-AzureRmAccount`.
+* En PowerShell, use el parámetro `-Tenant contoso.com` al usar el cmdlet `Connect-AzureRmAccount`.
 * El identificador de inquilino se agrega automáticamente al utilizar el vínculo `OMS portal` desde Azure Portal para abrir e iniciar sesión el portal de OMS del área de trabajo seleccionada.
 
 Los *clientes* de un proveedor de soluciones en la nube, puede realizar las siguientes tareas:

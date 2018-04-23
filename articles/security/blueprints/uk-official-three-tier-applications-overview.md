@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure Security and Compliance Blueprint: automatización de aplicaciones web de tres niveles para UK-OFFICAL
 
@@ -197,7 +197,7 @@ Estas redes virtuales se siguen administrando como recursos independientes, pero
 
 **Seguridad de administración**: este plano técnico permite a los administradores conectarse a la red virtual y el Jumpbox de administración con el RDP desde un origen de confianza. El tráfico de red para la red virtual de administración se controla mediante NSG. El acceso al puerto 3389 está restringido para el tráfico de un intervalo IP de confianza que puede tener acceso a la subred que contiene el Jumpbox.
 
-Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y red perimetral públicos/privados le ofrece más mejoras de seguridad.
+Los clientes también puede usar un [modelo administrativo de seguridad mejorada](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) para proteger el entorno al conectarse a la red virtual y Jumpbox de administración. Se recomienda que los clientes de seguridad mejorada usen una [estación de trabajo de acceso con privilegios](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) y la configuración de RDGateway. El uso de aplicaciones virtuales de red y DMZ públicos/privados le ofrece más mejoras de seguridad.
 
 **Protección de la red**: los [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) se recomiendan para que cada subred proporcione un segundo nivel de protección contra el tráfico entrante que omite una puerta de enlace configurada incorrectamente o deshabilitada. Ejemplo: [Plantilla de Resource Manager para implementar un NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
@@ -211,7 +211,7 @@ Los clientes también puede usar un [modelo administrativo de seguridad mejorada
 
 **Administración de recursos**: los recursos de Azure (como las máquinas virtuales, las redes virtuales y los equilibradores de carga) se administran agrupándolos en [grupos de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Después, pueden asignarse roles de control de acceso basado en recursos a cada grupo de recursos para restringir el acceso solo a usuarios autorizados.
 
-**Restricciones de control de acceso**: use el [control de acceso basado en rol](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
+**Restricciones de control de acceso**: use el [control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) para administrar los recursos de la aplicación mediante [roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). RBAC puede usarse para restringir las operaciones que DevOps puede realizar en cada nivel. Al conceder permisos, use el [principio de los privilegios mínimos](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registre todas las operaciones administrativas y realice auditorías periódicas para asegurarse de que los cambios de configuración se habían planeado.
 
 **Acceso a Internet**: esta arquitectura de referencia usa [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) como equilibrador de carga y puerta de enlace accesibles desde Internet. Algunos clientes pueden considerar la opción de usar aplicaciones virtuales de red de terceros para niveles adicionales de seguridad de red como alternativa a [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

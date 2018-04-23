@@ -1,8 +1,8 @@
 ---
-title: "Creación de una aplicación de Scala para su ejecución en clústeres de Spark - Azure HDInsight | Microsoft Docs"
-description: "Cree una aplicación de Spark escrita en Scala con Apache Maven como sistema de compilación y con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA."
+title: Creación de una aplicación de Scala para su ejecución en clústeres de Spark - Azure HDInsight | Microsoft Docs
+description: Cree una aplicación de Spark escrita en Scala con Apache Maven como sistema de compilación y con un arquetipo existente de Maven para Scala proporcionado por IntelliJ IDEA.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 24becbf5f539ac031d6f5b217a4c5a6b59f572f8
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d64d60112641992a5a56ee5d129e7cbe754bde9d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>Creación de una aplicación de Scala Maven para su ejecución en un clúster de Apache Spark en HDInsight
 
@@ -37,9 +35,9 @@ Obtenga información acerca de cómo crear una aplicación Spark escrita en Scal
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un clúster de Apache Spark en HDInsight. Para obtener instrucciones, vea [Creación de clústeres Apache Spark en HDInsight de Azure](apache-spark-jupyter-spark-sql.md).
 * Kit de desarrollo de Oracle Java. Se puede instalar desde [aquí](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Un IDE de Java. En este artículo se usa IntelliJ IDEA 15.0.1. Se puede instalar desde [aquí](https://www.jetbrains.com/idea/download/).
@@ -64,7 +62,7 @@ Si la instalación de IntelliJ IDEA no pide habilitar el complemento de Scala, i
    * Especifique un **SDK de proyecto**. Haga clic en New (Nuevo) y navegue hasta el directorio de instalación de Java, normalmente `C:\Program Files\Java\jdk1.8.0_66`.
    * Seleccione la opción **Create from archetype** (Crear desde arquetipo).
    * En la lista de arquetipos, seleccione **org.scala-tools.archetypes:scala-archetype-simple**. De esta forma, se creará la estructura de directorios adecuada y se descargarán las dependencias predeterminadas necesarias para escribir el programa con Scala.
-2. Proporcione los valores correspondientes para **GroupId**, **ArtifactId** y **Version**. Haga clic en **Siguiente**.
+2. Proporcione los valores correspondientes para **GroupId**, **ArtifactId** y **Version**. Haga clic en **Next**.
 3. En el cuadro de diálogo siguiente, donde puede especificar el directorio principal de Maven y otras configuraciones de usuario, acepte los valores predeterminados y haga clic en **Next**(Siguiente).
 4. En el último cuadro de diálogo, especifique un nombre de proyecto y una ubicación y luego haga clic en **Finish**(Finalizar).
 5. Elimine el archivo **MySpec.Scala** en **src\test\scala\com\microsoft\spark\example**. No es necesario para la aplicación.
@@ -151,5 +149,5 @@ Para ejecutar la aplicación en el clúster, debe hacer lo siguiente:
 En este artículo ha aprendido a crear una aplicación de Scala en Spark. Vaya al siguiente artículo para aprender a ejecutar esta aplicación en un clúster de HDInsight Spark con Livy.
 
 > [!div class="nextstepaction"]
->[Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
+>[Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
 

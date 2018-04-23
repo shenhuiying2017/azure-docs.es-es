@@ -1,12 +1,12 @@
 ---
-title: "Prácticas recomendadas de seguridad de las bases de datos de Azure | Microsoft Docs"
-description: "En este artículo se proporciona un conjunto de prácticas recomendadas para la reforzar la seguridad de las bases de datos de Azure."
+title: Prácticas recomendadas de seguridad de las bases de datos de Azure | Microsoft Docs
+description: En este artículo se proporciona un conjunto de prácticas recomendadas para la reforzar la seguridad de las bases de datos de Azure.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>Procedimientos recomendados para la seguridad de las bases de datos de Azure
 
@@ -112,7 +112,7 @@ Es importante comprender que los archivos relacionados con la [extensión del gr
 Ya que un usuario autorizado, como un administrador de seguridad o de base de datos, puede acceder a los datos incluso si la base de datos está cifrada con TDE, también se deben seguir estas recomendaciones:
 
 -   Habilite la autenticación de SQL en el nivel de base de datos.
--   Use la autenticación de Azure AD mediante [roles RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Use la autenticación de Azure AD mediante [roles RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Los usuarios y las aplicaciones deberían usar cuentas independientes para la autenticación. De este modo, puede limitar los permisos que se conceden a usuarios y aplicaciones, y reducir los riesgos causados por la actividad malintencionada.
 -   Implemente la seguridad de nivel de base de datos con roles fijos de base de datos (como db_datareader o db_datawriter). También puede crear roles personalizados para su aplicación con el fin de conceder permisos explícitos a determinados objetos de la base de datos.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 7a0104e68b07dbdff5483b771429fb9bc19a523f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 08a025acb89d3b35798688dc333038fb807284cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Crear un emparejamiento de redes virtuales de Azure: diferentes modelos de implementación y suscripciones
 
@@ -204,7 +204,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
     > [!WARNING]
     > Importar un archivo de configuración de red modificada puede producir cambios en las redes virtuales (clásicas) existentes en la suscripción. Asegúrese de agregar solo la red virtual anterior y que no cambia o quita ninguna red virtual existente de la suscripción. 
 
-5. Inicie sesión en la suscripción de UserB como UserB para usar los comandos de Resource Manager escribiendo el comando `login-azurermaccount`.
+5. Inicie sesión en la suscripción de UserB como UserB para usar los comandos de Resource Manager escribiendo el comando `Connect-AzureRmAccount`.
 6. Asigne los permisos de UserA a la red virtual B. Copie el script siguiente en un editor de texto en su PC y reemplace `<SubscriptionB-id>` con el Id. de suscripción B. Si no conoce el Id. de suscripción, escriba el comando `Get-AzureRmSubscription` para verlo. El valor de **id** en la salida devuelta es el Id. de suscripción. Azure creó la red virtual (clásica) que creó en el paso 4 en un grupo de recursos denominado *Default-Networking*. Para ejecutar el script, copie el script modificado, péguelo en PowerShell y después pulse `Enter`.
     
     ```powershell 
@@ -214,7 +214,7 @@ En este tutorial se usan cuentas diferentes para cada suscripción. Si está usa
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Cierre sesión en Azure como UserB e inicie sesión en la suscripción de UserA como UserA escribiendo el comando `login-azurermaccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
+7. Cierre sesión en Azure como UserB e inicie sesión en la suscripción de UserA como UserA escribiendo el comando `Connect-AzureRmAccount`. La cuenta con la que inicie sesión debe tener todos los permisos necesarios para crear un emparejamiento de redes virtuales. Para ver una lista de permisos, consulte [Permisos de emparejamiento de red virtual](virtual-network-manage-peering.md#permissions).
 8. Para crear la red virtual (Resource Manager) copie el siguiente script, péguelo en PowerShell y después presione `Enter`:
 
     ```powershell

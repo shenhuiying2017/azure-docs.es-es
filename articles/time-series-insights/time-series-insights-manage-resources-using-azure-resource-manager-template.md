@@ -1,6 +1,6 @@
 ---
-title: "Administración del entorno de Azure Time Series Insights mediante plantillas de Azure Resource Manager| Microsoft Docs"
-description: "En este artículo se describe cómo administrar el entorno de Azure Time Series Insights mediante programación con Azure Resource Manager."
+title: Administración del entorno de Azure Time Series Insights mediante plantillas de Azure Resource Manager| Microsoft Docs
+description: En este artículo se describe cómo administrar el entorno de Azure Time Series Insights mediante programación con Azure Resource Manager.
 services: time-series-insights
 ms.service: time-series-insights
 author: sandshadow
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 12/08/2017
-ms.openlocfilehash: b09d4a1aea56a4e306f80a1b43d519d313fd73ab
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Time Series Insights mediante plantillas de Azure Resource Manager
 
@@ -153,7 +153,7 @@ Para obtener más información, consulte el artículo [Parámetros](../azure-res
 En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles:
@@ -266,7 +266,8 @@ Outputs                 :
 
 La página principal de la plantilla de inicio rápido de GitHub incluye también un botón **Deploy to Azure** (Implementar en Azure). Al hacer clic en él se abre una página de implementación personalizado en Azure Portal. En esta página, puede definir o seleccionar valores para cada uno de los parámetros en las tablas de [parámetros obligatorios](time-series-insights-manage-resources-using-azure-resource-manager-template.md#required-parameters) o [parámetros opcionales](time-series-insights-manage-resources-using-azure-resource-manager-template.md#optional-parameters). Después de rellenar la configuración, al hacer clic en el botón **Purchase** (Comprar) se inicia la implementación de la plantilla.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="next-steps"></a>Pasos siguientes

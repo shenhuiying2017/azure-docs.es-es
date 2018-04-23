@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: bradsev
-ms.openlocfilehash: da09ab7daba115e570bb8b97549cc5f01e7496b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f0e0c04e48a551db6d7d7cd221a35e267dc0a63f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Ejecutar tareas de ciencia de datos: exploración, modelado e implementación
 
 Entre las tareas de ciencia de datos habituales se incluyen la implementación, el modelado y la exploración de datos. En este artículo se muestra cómo usar las utilidades **Interactive Data Exploration, Analysis, and Reporting (IDEAR)** y **Automated Modeling and Reporting (AMAR)** para completar varias tareas de ciencia de datos comunes como la exploración interactiva de datos, el análisis de datos, la creación de informes y la creación de modelos. Asimismo, se describen las opciones existentes para implementar un modelo en un entorno de producción mediante diversos kits de herramientas y plataformas de datos, como los siguientes:
 
-- [Azure Machine Learning](../preview/index.yml)
+- [Azure Machine Learning](../service/index.yml)
 - [SQL-Server con servicios de ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -32,7 +32,7 @@ Entre las tareas de ciencia de datos habituales se incluyen la implementación, 
 
 Un científico de datos puede realizar la exploración y los informes de diversas formas: mediante bibliotecas y paquetes disponibles para Python (matplotlib por ejemplo) o con R (ggplot o lattice por ejemplo). Los científicos de datos pueden personalizar dicho código para satisfacer las necesidades de exploración de datos para escenarios específicos. Las necesidades de lidiar con datos estructurados son distintas que en el caso de los datos no estructurados, como texto o imágenes. 
 
-Productos como Azure Machine Learning Workbench también proporcionan una [preparación avanzada de datos](../preview/tutorial-bikeshare-dataprep.md) para la exploración y la doma de datos (wrangling), incluida la creación de características. El usuario debe decidir sobre las herramientas, las bibliotecas y los paquetes que mejor se adapten a sus necesidades. 
+Productos como Azure Machine Learning Workbench también proporcionan una [preparación avanzada de datos](../desktop-workbench/tutorial-bikeshare-dataprep.md) para la exploración y la doma de datos (wrangling), incluida la creación de características. El usuario debe decidir sobre las herramientas, las bibliotecas y los paquetes que mejor se adapten a sus necesidades. 
 
 Al final de este fase debe entregarse un informe de exploración de datos. El informe debe proporcionar una vista bastante completa de los datos que se van a usar para el modelado y una evaluación de si los datos son adecuados para continuar con el paso de modelado. Las utilidades del Proceso de ciencia de los datos en equipos explicadas en las siguientes secciones para la exploración parcialmente automatizada, el modelado y la creación de informes también proporcionan informes de modelado y exploración de datos estandarizados. 
 
@@ -75,7 +75,7 @@ Para más información, consulte la [utilidad de modelado y servicio de informes
 ### <a name="model-management"></a>Administración de modelos
 Tras la creación de varios modelos, suele ser necesario tener un sistema para registrar y administrar los modelos. Normalmente, necesita una combinación de scripts o API y una base de datos back-end o un sistema de control de versiones. Algunas opciones que puede tener en cuenta para estas tareas de administración son:
 
-1. [Azure Machine Learning: servicio Administración de modelos](../preview/index.yml)
+1. [Azure Machine Learning: servicio Administración de modelos](../service/index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL-Server como sistema de administración de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
@@ -88,7 +88,7 @@ La implementación de producción permite que un modelo desempeñe un rol activo
 Hay varios enfoques y plataformas para poner los modelos en producción. Estas son algunas opciones:
 
 
-- [Implementación de modelos en Azure Machine Learning](../preview/model-management-overview.md)
+- [Implementación de modelos en Azure Machine Learning](../desktop-workbench/model-management-overview.md)
 - [Implementación de un modelo en SQL-Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Servidor de Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

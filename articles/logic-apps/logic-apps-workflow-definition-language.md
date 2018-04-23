@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema del lenguaje de definición de flujo de trabajo - Azure Logic Apps
 
@@ -126,14 +126,14 @@ Los valores JSON de la definición pueden ser literales o pueden ser expresiones
 > [!NOTE]
 > Algunas expresiones obtienen sus valores de acciones en tiempo de ejecución que pueden no existir al comienzo de la ejecución. Puede usar **funciones** para ayudar a recuperar algunos de estos valores.  
   
-Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Cuando se ha determinado que un valor JSON es una expresión, se extrae el cuerpo de la expresión quitando el signo de arroba (\@\). Si se necesita una cadena literal que empiece por \@\, debe convertirse mediante el uso de \@@. Los ejemplos siguientes muestran cómo se evalúan las expresiones.  
+Las expresiones pueden aparecer en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Cuando se ha determinado que un valor JSON es una expresión, se extrae el cuerpo de la expresión quitando el signo de arroba (@). Si se necesita una cadena literal que empiece por @, debe convertirse mediante el uso de @@. Los ejemplos siguientes muestran cómo se evalúan las expresiones.  
   
 |Valor JSON|Resultado|  
 |----------------|------------|  
 |"parameters"|Se devuelven los caracteres de "parameters".|  
 |"parameters[1]"|Se devuelven los caracteres de "parameters[1]".|  
-|"\@@\"|Se devuelve una cadena de 1 carácter que contiene \"\@\".|  
-|\" \@\"|Se devuelve una cadena de 2 caracteres que contienen  \" \@\".|  
+|"@@"|Se devuelve una cadena de 1 carácter que contiene \"\@\".|  
+|\" \@\"|Se devuelve una cadena de 2 caracteres que contienen  \" \@ \".|  
   
 Con la *interpolación de cadena*, las expresiones también pueden aparecer dentro de cadenas donde las expresiones se ajustan en `@{ ... }`. Por ejemplo:  <p>`"name" : "First Name: @{parameters('firstName')} Last Name: @{parameters('lastName')}"`
 

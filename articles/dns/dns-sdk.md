@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
-ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f10649670dac523289724603e2aecaf17fa67d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creación de conjuntos de registros y zonas DNS con el SDK de .NET
 
@@ -29,7 +29,7 @@ Normalmente, el acceso a recursos de Azure mediante programación se concede med
 
 1. Siga [estas instrucciones](../azure-resource-manager/resource-group-authenticate-service-principal.md) para crear una cuenta de entidad de servicio (en el proyecto de ejemplo del SDK de DNS de Azure se asume una autenticación basada en contraseña).
 2. Cree un grupo de recursos ([aquí se explica cómo](../azure-resource-manager/resource-group-template-deploy-portal.md)).
-3. Use RBAC de Azure para conceder a la cuenta de entidad de servicio permisos de 'Colaborador de zona DNS' al grupo de recursos ([aquí le decimos cómo](../active-directory/role-based-access-control-configure.md)).
+3. Use RBAC de Azure para conceder a la cuenta de entidad de servicio permisos de 'Colaborador de zona DNS' al grupo de recursos ([aquí le decimos cómo](../role-based-access-control/role-assignments-portal.md)).
 4. Si va a usar el proyecto de ejemplo del SDK de DNS de Azure, edite el archivo 'program.cs' de la manera siguiente:
 
    * Inserte los valores correctos para tenantId, clientId (también conocido como id. de cuenta), secret (contraseña de la cuenta de entidad de servicio) y subscriptionId usados en el paso 1.

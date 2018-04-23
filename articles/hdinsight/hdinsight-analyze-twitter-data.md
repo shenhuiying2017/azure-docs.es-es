@@ -1,25 +1,23 @@
 ---
-title: "Análisis de datos de Twitter con Hadoop en HDInsight: Azure | Microsoft Docs"
-description: "Vea cómo utilizar Hive para analizar datos de Twitter con Hadoop en HDInsight para saber la frecuencia de uso de una palabra determinada."
+title: 'Análisis de datos de Twitter con Hadoop en HDInsight: Azure | Microsoft Docs'
+description: Vea cómo utilizar Hive para analizar datos de Twitter con Hadoop en HDInsight para saber la frecuencia de uso de una palabra determinada.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Análisis de datos de Twitter con Hive en HDInsight
 Los sitios web de las redes sociales constituyen una de las principales fuerzas motrices para la adopción de Big Data. Las API públicas proporcionadas por sitios como Twitter constituyen un origen de datos muy útil para analizar y comprender las tendencias populares.
@@ -28,7 +26,7 @@ En este tutorial, obtendrá tweets mediante la API de streaming de Twitter y, a 
 > [!IMPORTANT]
 > Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obtener pasos específicos para un clúster basado en Linux, vea [Análisis de datos de Twitter con Hive en HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una estación de trabajo** con Powershell de Azure instalado y configurado.
@@ -38,7 +36,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
     Antes de ejecutar scripts de Windows PowerShell, asegúrese de estar conectado a su suscripción de Azure mediante el siguiente cmdlet:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Si tiene varias suscripciones a Azure, utilice el siguiente cmdlet para definir la suscripción actual:
@@ -56,7 +54,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 La siguiente tabla enumera los archivos utilizados en este tutorial:
 
-| Archivos | Description |
+| Archivos | DESCRIPCIÓN |
 | --- | --- |
 | /tutorials/twitter/data/tweets.txt |Los datos de origen para el trabajo de Hive. |
 | /tutorials/twitter/output |La carpeta de salida para el trabajo de Hive. El nombre predeterminado del archivo de salida del trabajo de Hive es **000000_0**. |
@@ -77,14 +75,14 @@ El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de
 
 **Para crear una aplicación de Twitter**
 
-1. Inicie sesión en [https://apps.twitter.com/](https://apps.twitter.com/). Haga clic en el vínculo **Sign up now** (Regístrese ahora) si no tiene una cuenta de Twitter.
+1. Inicie sesión en [https://apps.twitter.com/](https://apps.twitter.com/). Haga clic en el vínculo **Registrase ahora** si no tiene una cuenta de Twitter.
 2. Haga clic en **Crear nueva aplicación**.
 3. Especifique los campos **Name** (Nombre), **Description** (Descripción), **Website** (Sitio web). Puede conformar una dirección URL para el campo **Website** (Sitio web). La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
    | Campo | Valor |
    | --- | --- |
-   |  Nombre |MyHDInsightApp |
-   |  Description |MyHDInsightApp |
+   |  NOMBRE |MyHDInsightApp |
+   |  DESCRIPCIÓN |MyHDInsightApp |
    |  Website |http://www.myhdinsightapp.com |
 4. Active **Yes, I agree** (Acepto) y, a continuación, haga clic en **Create your Twitter application** (Crear la aplicación de Twitter).
 5. Haga clic en la pestaña **Permissions** (Permisos). El permiso predeterminado es **Read only**(Solo lectura). Esto es suficiente para este tutorial.
@@ -122,7 +120,7 @@ En este tutorial, usará Windows PowerShell para realizar una llamada de servici
 
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     #endregion
 
     #region - Create a block blob object for writing tweets into Blob storage
@@ -231,7 +229,7 @@ En este tutorial, usará Windows PowerShell para realizar una llamada de servici
 
 3. Establecen los primeros cinco a ocho variables en el script:
 
-    Variable|Description
+    Variable|DESCRIPCIÓN
     ---|---
     $clusterName|Este es el nombre del clúster de HDInsight donde desea ejecutar la aplicación.
     $oauth_consumer_key|Esta es la **clave de consumidor** de la aplicación de Twitter que anotó anteriormente al crear la aplicación de Twitter.
@@ -396,7 +394,7 @@ El script de HiveQL realizará lo siguiente:
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
 
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
@@ -440,7 +438,7 @@ El script de HiveQL realizará lo siguiente:
 
 3. Establezca las dos primeras variables en el script
 
-   | Variable | Description |
+   | Variable | DESCRIPCIÓN |
    | --- | --- |
    |  $clusterName |Escriba el nombre del clúster de HDInsight donde desea ejecutar la aplicación. |
    |  $subscriptionID |Especifique el identificador de su suscripción a Azure. |

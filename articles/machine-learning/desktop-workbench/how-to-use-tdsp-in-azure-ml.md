@@ -1,12 +1,12 @@
 ---
-title: "Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo | Microsoft Docs"
-description: "Creación de instancias de plantillas de Proceso de ciencia de datos en equipo (TDSP) en Azure Machine Learning que estructuren proyectos para colaboración"
+title: Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo | Microsoft Docs
+description: Creación de instancias de plantillas de Proceso de ciencia de datos en equipo (TDSP) en Azure Machine Learning que estructuren proyectos para colaboración
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/16/2017
 ms.author: bradsev
 ms.openlocfilehash: 0f7a6d0a58e2dcfd94e20a81ae12b42f238016c8
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo
 
@@ -59,7 +59,7 @@ Revise los siguientes elementos *antes* de crear un nuevo proyecto:
 ## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Creación de instancias de plantillas y de la estructura de TDSP desde la galería de plantillas de Machine Learning
 Para crear un nuevo proyecto con las plantillas de documentación y la estructura del Proceso de ciencia de datos en equipo, complete los siguientes procedimientos.
 
-### <a name="create-a-new-project"></a>Crear un nuevo proyecto
+### <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 Para crear un nuevo proyecto, abra Azure Machine Learning. En **Proyectos** en el panel superior izquierdo, seleccione el signo más (**+**) y, a continuación, seleccione **Nuevo proyecto**.
 
 ![Nuevo proyecto](./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png)
@@ -110,7 +110,7 @@ También proporcionamos una plantilla [ProjectLearnings](https://aka.ms/tdspamlg
 ### <a name="example-project-report"></a>Informe del proyecto de ejemplo
 Puede obtener un [informe del proyecto de ejemplo](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Este informe del [proyecto de ejemplo de clasificación de ingresos de EE. UU.](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) muestra la creación de instancias y el uso de la plantilla del TDSP para un proyecto de ciencia de datos.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para facilitar la comprensión acerca de cómo pueden usarse las plantillas y la estructura del TDSP en proyectos de Machine Learning, se proporcionan varios ejemplos de proyectos completados en la documentación de Azure Machine Learning:
 
 - Para ver un ejemplo que muestra cómo crear un proyecto de TDSP en Machine Learning, consulte el [Proyecto de ejemplo del proceso de ciencia de datos en equipo: Clasificación de ingresos a partir de los datos del censo de EE. UU. en Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).

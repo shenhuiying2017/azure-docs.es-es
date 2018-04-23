@@ -1,11 +1,11 @@
 ---
-title: "Recopilación de datos de Log Analytics con un runbook en Azure Automation | Microsoft Docs"
-description: "Tutorial paso a paso que le guía en la creación de un runbook en Azure Automation para recopilar datos en el repositorio de OMS y analizarlos en Log Analytics."
+title: Recopilación de datos de Log Analytics con un runbook en Azure Automation | Microsoft Docs
+description: Tutorial paso a paso que le guía en la creación de un runbook en Azure Automation para recopilar datos en el repositorio de OMS y analizarlos en Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: operations-management-suite
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 59f674c9c6404da7f5384539189f41a4ba1a939a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0784e2317fbc98561b486547654ca27bb30e76c3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recopilación de datos de Log Analytics con un runbook de Azure Automation
 Puede recopilar una cantidad significativa de datos en Log Analytics desde diversos orígenes como son los [orígenes de datos](../log-analytics/log-analytics-data-sources.md) de agentes y también los [datos recopilados de Azure](../log-analytics/log-analytics-azure-storage.md).  Sin embargo, hay un escenario en el que es necesario recopilar datos que no son accesibles a través de estos orígenes estándar.  Puede usar [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) para escribir los datos de Log Analytics desde cualquier cliente de API de REST.  Un método común para realizar esta recopilación de datos es usar un runbook en Azure Automation.   
@@ -26,7 +26,7 @@ Puede recopilar una cantidad significativa de datos en Log Analytics desde diver
 Este tutorial le guía a través del proceso para crear y programar un runbook en Azure Automation para escribir datos en Log Analytics.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Este escenario requiere los siguientes recursos configurados en su suscripción de Azure.  Ambos pueden ser una cuenta gratuita.
 
 - [Área de trabajo de Log Analytics](../log-analytics/log-analytics-get-started.md).
@@ -57,7 +57,7 @@ Sin embargo, la Galería de PowerShell le ofrece una opción rápida para implem
 ## <a name="2-create-automation-variables"></a>2. Creación de las variables de Automation
 [Las variables de Automation](..\automation\automation-variables.md) contienen valores que pueden usarse en todos los runbooks en su cuenta de Automation.  Hacen que los runbooks sean más flexibles, ya que permiten cambiar estos valores sin necesidad de modificar el runbook real. Cada solicitud de HTTP Data Collector API requiere el identificador y la clave del área de trabajo de OMS y los recursos de variable son ideales para almacenar esta información.  
 
-![Variables](media/operations-management-suite-runbook-datacollect/variables.png)
+![variables](media/operations-management-suite-runbook-datacollect/variables.png)
 
 1. En Azure Portal, vaya a su cuenta de Automation.
 2. Seleccione **Variables** en **Recursos compartidos**.
@@ -65,10 +65,10 @@ Sin embargo, la Galería de PowerShell le ofrece una opción rápida para implem
 
 | Propiedad | Valor de identificador de área de trabajo | Valor de clave de área de trabajo |
 |:--|:--|:--|
-| Nombre | WorkspaceId | WorkspaceKey |
-| Tipo | String | String |
+| NOMBRE | WorkspaceId | WorkspaceKey |
+| Escriba | string | string |
 | Valor | Pegue el identificador de área de trabajo de su área de trabajo de Log Analytics. | Pegue la clave secundaria o principal de su área de trabajo de Log Analytics. |
-| Cifrados | No | Sí |
+| Cifrados | Sin  | Sí |
 
 
 
@@ -97,7 +97,7 @@ Azure Automation tiene un editor en el portal donde puede editar y probar el run
         # Code copied from the runbook AzureAutomationTutorial.
         $connectionName = "AzureRunAsConnection"
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -171,7 +171,7 @@ Para la prueba, podía ver la [salida detallada](../automation/automation-runboo
 
 1. En las propiedades del runbook, seleccione **Registro y seguimiento** en **Configuración de runbook**.
 2. Cambie la configuración de **Registrar registros detallados** a **Activado**.
-3. Haga clic en **Guardar**.
+3. Haga clic en **Save**(Guardar).
 
 ## <a name="8-schedule-runbook"></a>8. Programación de un runbook
 La manera más común de iniciar un runbook que recopila datos de supervisión es programarlo para que se ejecute automáticamente.  Para ello, debe crear una [programación en Azure Automation](../automation/automation-schedules.md) y asociarla al runbook.
@@ -184,17 +184,17 @@ La manera más común de iniciar un runbook que recopila datos de supervisión e
 
 | Propiedad | Valor |
 |:--|:--|
-| Nombre | AutomationJobs-Hourly |
+| NOMBRE | AutomationJobs-Hourly |
 | Se inicia | Seleccione cualquier hora al menos 5 minutos después de la hora actual. |
 | Periodicidad | Periódica |
 | Repetir cada | 1 hora |
-| Configurar expiración | No |
+| Configurar expiración | Sin  |
 
 Una vez creada la programación, debe establecer los valores de los parámetros que se usarán cada vez que esta inicie el runbook.
 
 6. Haga clic en **Configurar parámetros y ejecutar configuraciones**.
 7. Rellene los valores de **ResourceGroupName** y **AutomationAccountName**.
-8. Haga clic en **Aceptar**. 
+8. Haga clic en **OK**. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Comprobación de que el runbook se inicia según la programación
 Siempre que se inicia un runbook, [se crea un trabajo](../automation/automation-runbook-execution.md) y se registran sus resultados.  De hecho, son los mismos trabajos que el runbook recopila.  Puede verificar que el runbook se inicia como se esperaba comprobando los trabajos del runbook una vez que haya pasado la hora de inicio de la programación.

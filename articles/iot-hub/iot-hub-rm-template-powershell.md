@@ -1,11 +1,11 @@
 ---
-title: "Creación de un centro de IoT de Azure mediante una plantilla (PowerShell) | Microsoft Docs"
-description: "Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT con PowerShell."
+title: Creación de un centro de IoT de Azure mediante una plantilla (PowerShell) | Microsoft Docs
+description: Describe cómo usar una plantilla de Azure Resource Manager para crear un centro de IoT con PowerShell.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 242c50b61b00bbf71b26e2aea1a66e2b2c55dbd5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0e5f95d98f772b226e162f601939bc94bf8fb78b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Creación de un centro de IoT con una plantilla de Azure Resource Manager (PowerShell)
 
@@ -42,7 +42,7 @@ Para completar este tutorial, necesitará lo siguiente:
 En un símbolo del sistema de PowerShell, escriba el siguiente comando para iniciar sesión en su suscripción de Azure:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Si tiene varias suscripciones de Azure, el inicio de sesión en Azure le concede acceso a todas las suscripciones de Azure asociadas a sus credenciales. Use el siguiente comando para mostrar las suscripciones de Azure que están disponibles para su uso:
@@ -152,7 +152,7 @@ Ahora que ha implementado un IoT Hub mediante una plantilla de Azure Resource Ma
 
 Para obtener más información sobre cómo desarrollar para IoT Hub, consulte los siguientes artículos:
 
-* [Introducción al SDK de C][lnk-c-sdk]
+* [Introducción a C SDK][lnk-c-sdk]
 * [SDK de IoT de Azure][lnk-sdks]
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:

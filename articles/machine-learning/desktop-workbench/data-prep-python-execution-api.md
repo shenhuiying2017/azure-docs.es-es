@@ -1,6 +1,6 @@
 ---
-title: "Guía completa sobre cómo usar la API de ejecución de preparación de datos de Azure Machine Learning | Microsoft Docs"
-description: "En este documento se proporciona información detallada sobre cómo ejecutar paquetes de preparación de datos y de orígenes de datos previamente diseñados"
+title: Guía completa sobre cómo usar la API de ejecución de preparación de datos de Azure Machine Learning | Microsoft Docs
+description: En este documento se proporciona información detallada sobre cómo ejecutar paquetes de preparación de datos y de orígenes de datos previamente diseñados
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 36814d238aabd12e7cc6947809c135130002eb46
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="execute-data-sources-and-data-preparations-packages-from-python"></a>Ejecución de paquetes de preparación de datos y de orígenes de datos desde Python
 

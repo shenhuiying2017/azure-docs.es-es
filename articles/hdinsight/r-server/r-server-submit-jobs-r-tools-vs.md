@@ -1,25 +1,23 @@
 ---
-title: "Envío de trabajos desde Herramientas de R para Visual Studio en Azure HDInsight | Microsoft Docs"
-description: "Envío de trabajos de R desde la máquina local de Visual Studio hasta un clúster de HDInsight."
+title: Envío de trabajos desde Herramientas de R para Visual Studio en Azure HDInsight | Microsoft Docs
+description: Envío de trabajos de R desde la máquina local de Visual Studio hasta un clúster de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 1a82ba7790f739768156a8bee33a74d7130e24e1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Envío de trabajos desde Herramientas de R para Visual Studio
 
@@ -131,7 +129,7 @@ Mediante una instancia de Microsoft R Server/Microsoft R Client desde un equipo 
 
     3. Seleccione **Contenedores** en el menú izquierdo del panel de la cuenta de almacenamiento.
 
-        ![Contenedores](./media/r-server-submit-jobs-r-tools-vs/containers.png)
+        ![Containers](./media/r-server-submit-jobs-r-tools-vs/containers.png)
 
     4. Seleccione el nombre del contenedor del clúster, vaya a la carpeta **user** (puede que tenga que hacer clic en *Cargar más* en la parte inferior de la lista), luego seleccione *RevoShare* y, a continuación, **newUser**. El archivo `people.json` se debe mostrar en la carpeta `newUser`.
 

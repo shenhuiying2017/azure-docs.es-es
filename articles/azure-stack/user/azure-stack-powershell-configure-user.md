@@ -1,11 +1,11 @@
 ---
-title: "Configuración del entorno de PowerShell del usuario de Azure Stack | Microsoft Docs"
-description: "Configuración del entorno de PowerShell del usuario de Azure Stack"
+title: Configuración del entorno de PowerShell del usuario de Azure Stack | Microsoft Docs
+description: Configuración del entorno de PowerShell del usuario de Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
 ms.workload: na
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: mabrigg
-ms.openlocfilehash: 0bd5b4a98fee7a5d914e53e49a9517f5d3682a88
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 44a5030bd9dfb694968a6b0f64ff9198ecccd84a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configuración del entorno de PowerShell del usuario de Azure Stack
 
-Como usuario de Azure Stack, puede configurar el entorno de PowerShell en Azure Stack Development Kit. Tras la configuración, puede usar PowerShell para administrar los recursos de Azure Stack como la suscripción a ofertas, la creación de máquinas virtuales, la implementación de plantillas de Azure Resource Manager, etcétera. Este tema está pensado para delimitarse únicamente a entornos de usuario, si desea configurar PowerShell para el entorno de operadores en la nube, consulte el artículo [Configuración del entorno de PowerShell del operador de Azure Stack](../azure-stack-powershell-configure-admin.md). 
+Como usuario de Azure Stack, puede configurar el entorno de PowerShell en el Kit de desarrollo de Azure Stack. Tras la configuración, puede usar PowerShell para administrar los recursos de Azure Stack como la suscripción a ofertas, la creación de máquinas virtuales, la implementación de plantillas de Azure Resource Manager, etcétera. Este tema está pensado para delimitarse únicamente a entornos de usuario, si desea configurar PowerShell para el entorno de operadores en la nube, consulte el artículo [Configuración del entorno de PowerShell del operador de Azure Stack](../azure-stack-powershell-configure-admin.md). 
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>requisitos previos 
 
 Implemente los siguientes requisitos previos desde el [kit de desarrollo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o desde un cliente externo basado en Windows, si está [conectado a través de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
@@ -64,7 +64,7 @@ Según el tipo de implementación (Azure AD o AD FS), ejecute uno de los siguien
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
    ```
@@ -99,7 +99,7 @@ Según el tipo de implementación (Azure AD o AD FS), ejecute uno de los siguien
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
   ```

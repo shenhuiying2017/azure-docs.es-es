@@ -2,23 +2,19 @@
 title: Mejora del rendimiento del índice de almacén de columnas - Azure SQL Data Warehouse | Microsoft Docs
 description: Reduzca los requisitos de memoria o aumente la memoria disponible para maximizar el número de filas que un índice de almacén de columnas comprime en cada grupo de filas.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: ''
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: be167e298a4c0e76d7cf3bb638838047d4e9bcee
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
@@ -139,7 +135,7 @@ OPTION (MAXDOP 1);
 Juntos, el tamaño de DWU y la clase de recursos de usuario, determinan cuánta memoria hay disponible para la consulta de un usuario. A fin de incrementar la concesión de memoria para una consulta de carga, puede aumentar el número de DWU o la clase de recursos.
 
 - Para aumentar las DWU, consulte [¿Cómo se realiza el escalado del rendimiento?](quickstart-scale-compute-portal.md)
-- Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Para cambiar la clase de recursos de una consulta, consulte [Cambio de ejemplo de clase de recursos de usuario](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Por ejemplo, con 100 DWU, un usuario de la clase de recursos smallrc puede usar 100 MB de memoria para cada distribución. Para obtener información más detallada, consulte el artículo sobre [simultaneidad en SQL Data Warehouse](resource-classes-for-workload-management.md).
 

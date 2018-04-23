@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0466b0e911736d2e1e7fc50649feda932c3163e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
 
@@ -46,7 +46,7 @@ Un servidor lógico de Azure Database:
 - Es el recurso primario para bases de datos, grupos elásticos y almacenamientos de datos.
 - Proporciona un espacio de nombres para bases de datos, grupos elásticos y almacenamientos de datos.
 - Es un contenedor lógico con semántica de duración segura. Si se elimina un servidor, se eliminan las bases de datos independientes, los grupos elásticos y los almacenamientos de datos.
-- Participa en el [control de acceso basado en rol (RBAC) de Azure](/active-directory/role-based-access-control-what-is). Las bases de datos, los grupos elásticos y los almacenamientos de datos dentro de un servidor heredan los derechos de acceso del servidor.
+- Participa en el [control de acceso basado en rol (RBAC) de Azure](/azure/role-based-access-control/overview). Las bases de datos, los grupos elásticos y los almacenamientos de datos dentro de un servidor heredan los derechos de acceso del servidor.
 - Es un elemento de orden superior de la identidad de las bases de datos, los grupos elásticos y los almacenamientos de datos con fines de administración de recursos de Azure (vea el esquema de direcciones URL para bases de datos y grupos).
 - Coloca recursos en una región.
 - Proporciona un punto de conexión para el acceso a la base de datos (<serverName>. database.windows.net).
@@ -79,9 +79,8 @@ Para crear una base de datos de Azure SQL Database en [Azure Portal](https://por
 
 > [!IMPORTANT]
 > Para obtener información sobre cómo seleccionar el plan de tarifa para la base de datos, consulte los [niveles de servicio](sql-database-service-tiers.md).
->
 
-Para crear una instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-tutorial-portal.md).
+Para crear una instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
 
 ### <a name="manage-an-existing-sql-server"></a>Administración de un servidor SQL Server existente
 

@@ -1,5 +1,5 @@
 - name: Servicios de Azure Machine Learning (versión preliminar)
-  href: preview/index.yml
+  href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Máquina virtual de ciencia de datos

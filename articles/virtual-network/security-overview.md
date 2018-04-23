@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Seguridad de las redes
 
@@ -35,7 +35,7 @@ La aplicación de los grupos de seguridad de red cuando alguno de ellos está as
 - **Tráfico entrante**: el grupo de seguridad de red asociado a la subred en la que la interfaz de red se encuentra se evalúa primero. Todo el tráfico permitido a través del grupo de seguridad de red asociado a la subred lo evalúa posteriormente el grupo de seguridad de red asociado a la interfaz de red. Por ejemplo, puede que necesite acceso entrante a una máquina virtual a través del puerto 80 de Internet. Si asocia un grupo de seguridad de red a la interfaz de red y a la subred en la que esta se encuentra, el grupo de seguridad de red asociado a la subred y la interfaz de red deberán permitir el puerto 80. Si solo permitió el puerto 80 a través del grupo de seguridad de red asociado a la subred o a la interfaz de red en la que esta se encuentra, la comunicación producirá un error debido a las reglas de seguridad predeterminadas. Consulte las [reglas de seguridad predeterminadas](#default-security-rules) para más información. Si solo se aplica un grupo de seguridad de red a la subred o la interfaz de red, y este contiene una regla que permite el tráfico entrante en el puerto 80, por ejemplo, la comunicación se realizará correctamente. 
 - **Tráfico saliente**: el grupo de seguridad de red asociado a la interfaz de red se evalúa primero. Todo el tráfico permitido a través del grupo de seguridad de red asociado a la interfaz de red lo evalúa posteriormente el grupo de seguridad de red asociado a la subred.
 
-Puede que no siempre sepa cuándo se aplican los grupos de seguridad de red a una interfaz de red y a una subred. Puede ver fácilmente las reglas agregadas que se aplican a una interfaz de red mediante la visualización de las [reglas de seguridad vigentes](virtual-network-nsg-troubleshoot-portal.md) de una interfaz de red. También puede usar la funcionalidad [Comprobación del flujo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure Network Watcher para determinar si se permite la comunicación hacia una interfaz de red o desde esta. La herramienta le indica si se permite la comunicación y qué regla de seguridad de red permite o deniega el tráfico.
+Puede que no siempre sepa cuándo se aplican los grupos de seguridad de red a una interfaz de red y a una subred. Puede ver fácilmente las reglas agregadas que se aplican a una interfaz de red mediante la visualización de las [reglas de seguridad vigentes](virtual-network-network-interface.md#view-effective-security-rules) de una interfaz de red. También puede usar la funcionalidad [Comprobación del flujo de IP](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure Network Watcher para determinar si se permite la comunicación hacia una interfaz de red o desde esta. La herramienta le indica si se permite la comunicación y qué regla de seguridad de red permite o deniega el tráfico.
  
 > [!NOTE]
 > Los grupos de seguridad de red se asocian a las subredes o a las máquinas virtuales y a los servicios en la nube que se implementan según el modelo de implementación clásica, en vez de a las interfaces de red del modelo de implementación de Resource Manager. Para más información sobre los modelos de implementación de Azure, consulte [Descripción de los modelos de implementación de Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

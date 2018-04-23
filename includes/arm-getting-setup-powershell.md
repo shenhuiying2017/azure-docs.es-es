@@ -26,7 +26,7 @@ Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de
 
 Abra un símbolo del sistema de Azure PowerShell e inicie sesión en Azure con este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Si tiene varias suscripciones de Azure, puede enumerarlas con este comando.
 

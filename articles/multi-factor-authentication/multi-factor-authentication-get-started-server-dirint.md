@@ -1,8 +1,8 @@
 ---
-title: "Integración de directorios entre Active Directory y Azure Multi-Factor Authentication"
-description: "Se trata de la página Azure Multi-Factor Authentication que describe cómo integrar Servidor Azure Multi-Factor Authentication con Active Directory para poder sincronizar los directorios."
+title: Integración de directorios entre Active Directory y Azure Multi-Factor Authentication
+description: Se trata de la página Azure Multi-Factor Authentication que describe cómo integrar Servidor Azure Multi-Factor Authentication con Active Directory para poder sincronizar los directorios.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
@@ -16,10 +16,10 @@ ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
 ms.openlocfilehash: 9d06da0d15bfeffb17da81e4b5ae4423d01ed770
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
 Utilice la sección Integración de directorios del Servidor Azure MFA para integrarlo con Active Directory u otro directorio LDAP. Puede configurar los atributos para que coincidan con el esquema de directorios, así como la sincronización automática de los usuarios.
@@ -29,7 +29,7 @@ De forma predeterminada, el Servidor Azure Multi-Factor Authentication (MFA) est
 
 ![Settings](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
 
-| Característica | Description |
+| Característica | DESCRIPCIÓN |
 | --- | --- |
 | Usar Active Directory |Seleccione la opción Usar Active Directory para usar Active Directory para la importación y sincronización.  Esta es la configuración predeterminada. <br>Nota: Para que la integración de Active Directory funcione correctamente, una el equipo a un dominio e inicie sesión con una cuenta de dominio. |
 | Incluir dominios de confianza |Active **Incluir dominios de confianza** para que el agente intente conectarse a dominios de confianza para el dominio actual, otro dominio del bosque o dominios implicados en una confianza de bosque.  Si no está importando o sincronizando usuarios desde los dominios de confianza, desactive la casilla para mejorar el rendimiento.  El valor predeterminado es activado. |
@@ -39,7 +39,7 @@ De forma predeterminada, el Servidor Azure Multi-Factor Authentication (MFA) est
 
 En la tabla siguiente se describen las opciones de configuración LDAP.
 
-| Característica | Description |
+| Característica | DESCRIPCIÓN |
 | --- | --- |
 | Server |Escriba el nombre de host o dirección IP del servidor que ejecuta el directorio LDAP.  También puede especificar un servidor de copia de seguridad separado por un punto y coma. <br>Nota: Cuando Tipo de enlace es SSL, se requiere un nombre de host completo. |
 | DN base |Escriba el nombre distintivo del objeto de directorio base desde el que se iniciarán todas las consultas del directorio.  Por ejemplo, dc=abc,dc=com. |
@@ -61,14 +61,14 @@ Azure Multi-Factor Authentication incluye las tres opciones siguientes:
 * **Filtro de grupo de seguridad** : especifique los criterios de filtro que se utilizan para calificar los registros de grupo de seguridad al realizar una búsqueda de directorio.  Para Active Directory y ADAM, se suele usar (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  Para otros directorios LDAP, utilice criterios de filtro que califiquen cada tipo de objeto del grupo de seguridad en función del esquema de directorios.  <br>Nota: Si se deja en blanco, se usa (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) de forma predeterminada.
 * **Filtro de usuarios** : especifique los criterios de filtro que se utilizan para calificar los registros de usuario al realizar una búsqueda de directorio.  Para Active Directory y ADAM, se suele utilizar (&(objectClass=user)(objectCategory=person)).  Para otros directorios LDAP, utilice (objectClass=inetOrgPerson), o similar, en función del esquema de directorios. <br>Nota: Si se deja en blanco, se usa (&(objectCategory=person)(objectClass=user)) de forma predeterminada.
 
-## <a name="attributes"></a>Attributes
+## <a name="attributes"></a>Atributos
 Puede personalizar los atributos según sea necesario para un determinado directorio.  Esto permite agregar atributos personalizados y ajustar la sincronización solo para los atributos que necesite. Utilice el nombre del atributo tal como se define en el esquema de directorios para el valor de cada campo de atributo. En la tabla siguiente se proporciona información adicional acerca de cada característica.
 
 Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir con un atributo de la lista de atributos.
 
-![Attributes](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
+![Atributos](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
 
-| Característica | Description |
+| Característica | DESCRIPCIÓN |
 | --- | --- |
 | Identificador único |Escriba el nombre del atributo que actúa como identificador único de los registros de contenedor, de grupo de seguridad y de usuario.  En Active Directory, suele ser objectGUID. Otras implementaciones LDAP pueden usar entryUUID o similar.  El valor predeterminado es objectGUID. |
 | Tipo de identificador único |Seleccione el tipo de atributo de identificador único.  En Active Directory, el atributo objectGUID es de tipo GUID. Otras implementaciones LDAP pueden usar el tipo Matriz de bytes ASCII o Cadena.  El valor predeterminado es GUID. <br><br>Es importante establecer este tipo correctamente, ya que se hace referencia a Elementos de sincronización mediante su Identificador único. El tipo de identificador único se usa para buscar directamente el objeto en el directorio.  Si se establece este tipo en Cadena cuando el directorio almacena realmente el valor como matriz de bytes de caracteres ASCII, la sincronización no funcionará correctamente. |
@@ -80,7 +80,7 @@ Nota: Los atributos pueden especificarse manualmente y no tienen que coincidir c
 | Apellidos |Escriba el nombre del atributo que contiene los apellidos en un registro de usuario.  El valor predeterminado es sn. |
 | Dirección de correo electrónico |Escriba el nombre del atributo que contiene la dirección de correo electrónico en un registro de usuario.  La dirección de correo electrónico se usa para enviar al usuario mensajes de correo electrónico de bienvenida y de actualización.  El valor predeterminado es mail. |
 | Grupo de usuarios |Escriba el nombre del atributo que contiene el grupo de usuarios en un registro de usuario.  Se pueden usar un grupo de usuarios para filtrar usuarios en el agente y en informes en el Portal de administración de Servidor Multi-Factor Authentication. |
-| Description |Escriba el nombre del atributo que contiene la descripción en un registro de usuario.  La descripción solo se utiliza para realizar búsquedas.  El valor predeterminado es description. |
+| DESCRIPCIÓN |Escriba el nombre del atributo que contiene la descripción en un registro de usuario.  La descripción solo se utiliza para realizar búsquedas.  El valor predeterminado es description. |
 | Idioma de llamadas de teléfono |Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para llamadas de voz para el usuario. |
 | Idioma de mensajes de texto |Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para los mensajes de texto de SMS para el usuario. |
 | Idioma de aplicaciones móviles |Escriba el nombre del atributo que contiene el nombre abreviado del idioma que se utilizará para los mensajes de texto de la aplicación de teléfono para el usuario. |
@@ -112,7 +112,7 @@ Si se admite LDAP y se ha configurado para DirSync, la realización de un sondeo
 
 La tabla siguiente contiene información adicional sobre las opciones de la pestaña Sincronización.
 
-| Característica | Description |
+| Característica | DESCRIPCIÓN |
 | --- | --- |
 | Habilitar sincronización con Active Directory |Cuando está activada, el servicio Servidor Multi-Factor Authentication sondea periódicamente los cambios en Active Directory. <br><br>Nota: se debe agregar al menos un elemento de sincronización y ejecutar Sincronizar ahora antes de que el servicio Servidor Multi-Factor Authentication empiece a procesar los cambios. |
 | Sincronizar cada |Especifique el intervalo de tiempo que el servicio Servidor Multi-Factor Authentication esperará entre el sondeo y el procesamiento de los cambios. <br><br> Nota: el intervalo especificado es el tiempo entre el inicio de cada ciclo.  Si los cambios en el tiempo de procesamiento superan el intervalo, el servicio volverá a realizar un sondeo de inmediato. |

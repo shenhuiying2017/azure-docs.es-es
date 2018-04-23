@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Inicio de sesión del usuario con la autenticación de paso a través de Azure Active Directory
 
@@ -39,7 +39,7 @@ Puede combinar la autenticación de paso a través con la característica de [in
 - *Mejor experiencia del usuario*
   - Los usuarios usan las mismas contraseñas para iniciar sesión tanto en las aplicaciones basadas en la nube como en las locales.
   - Los usuarios dedican menos tiempo a hablar con el departamento de soporte técnico de TI para que resuelvan problemas relacionados con las contraseñas.
-  - Los usuarios pueden realizar las tareas de [administración de contraseñas de autoservicio](../active-directory-passwords-overview.md) en la nube.
+  - Los usuarios pueden realizar las tareas de [administración de contraseñas de autoservicio](../authentication/active-directory-passwords-overview.md) en la nube.
 - *Es fácil de implementar y administrar*
   - No se requieren complejas implementaciones locales ni la configuración de la red.
   - Solo necesita instalar en local un agente ligero.
@@ -56,7 +56,7 @@ Puede combinar la autenticación de paso a través con la característica de [in
 - Admite el inicio de sesión de usuario en todas las aplicaciones basadas en explorador web y en las aplicaciones cliente de Microsoft Office que usan la [autenticación moderna](https://aka.ms/modernauthga).
 - Los nombres de usuario de inicio de sesión pueden ser el predeterminado local (`userPrincipalName`) u otro atributo (conocido como `Alternate ID`) configurado en Azure AD Connect.
 - La característica funciona sin problemas con características de [acceso condicional](../active-directory-conditional-access-azure-portal.md), como Multi-Factor Authentication (MFA), para ayudar a proteger a los usuarios.
-- Se integra con la [administración de contraseñas de autoservicio](../active-directory-passwords-overview.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
+- Se integra con la [administración de contraseñas de autoservicio](../authentication/active-directory-passwords-overview.md) basada en la nube, incluida la escritura diferida de contraseñas en Active Directory local y la protección con contraseña mediante la prohibición de contraseñas usadas habitualmente.
 - Se admiten entornos de varios bosques si hay relaciones de confianza de bosque entre los bosques de AD y si el enrutamiento de sufijos de nombre está configurado correctamente.
 - Es una característica gratuita y no es necesario usar ninguna versión de pago de Azure AD para usarla.
 - Puede habilitarse a través de [Azure AD Connect](active-directory-aadconnect.md).

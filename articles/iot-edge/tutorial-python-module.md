@@ -10,10 +10,10 @@ ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
 ms.openlocfilehash: d5bad277e6a54b23f0e3ef7321e82d212ae885d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Desarrollo e implementación de un módulo de Python de IoT Edge en su dispositivo simulado: versión preliminar
 
@@ -63,7 +63,7 @@ En los siguientes pasos, puede ver cómo crear un módulo de Python de IoT Edge 
     pip install -U cookiecutter
     ```
 
-3. Cree un proyecto para el nuevo módulo. El comando siguiente crea la carpeta del proyecto, **FilterModule**, con el repositorio del contenedor. Si usa Azure Container Registry, el parámetro de `image_repository` debe tener el formato de `<your container registry name>.azurecr.io/filtermodule`. Escriba el siguiente comando en la carpeta de trabajo actual:
+3. Cree un proyecto para el nuevo módulo. El comando siguiente crea la carpeta del proyecto, **FilterModule**, con el repositorio de contenedores. Si usa Azure Container Registry, el parámetro de `image_repository` debe tener el formato de `<your container registry name>.azurecr.io/filtermodule`. Escriba el siguiente comando en la carpeta de trabajo actual:
 
     ```cmd/sh
     cookiecutter --no-input https://github.com/Azure/cookiecutter-azure-iot-edge-module module_name=FilterModule image_repository=<your container registry address>/filtermodule
@@ -150,7 +150,7 @@ En los siguientes pasos, puede ver cómo crear un módulo de Python de IoT Edge 
 
 2. En el explorador de VS Code, haga clic con el botón derecho en el archivo **module.json** y haga clic en **Build and Push IoT Edge module Docker image** (Compilar e insertar la imagen de Docker del módulo de IoT Edge). En el cuadro de la lista desplegable emergente situado en la parte superior de la ventana de VS Code, seleccione la plataforma de contenedor, por ejemplo, **amd64** para el contenedor de Linux. Ponga en contenedores de VS Code `main.py` y las dependencias necesarias y, a continuación, insértelo en el registro de contenedor especificado. La imagen puede tardar varios minutos en compilarse por primera vez.
 
-3. Puede obtener la dirección de la imagen de contenedor completa con la etiqueta en la terminal integrada de VS Code. Para obtener más información acerca de la definición de compilación y de inserción, puede hacer referencia al archivo `module.json`.
+3. Puede obtener la dirección de la imagen de contenedor completa con la etiqueta en la terminal integrada de VS Code. Para obtener más información acerca de la definición de compilación y de inserción, puede consultar el archivo `module.json`.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Agregar las credenciales del Registro al runtime de Edge
 Agregue las credenciales del Registro al runtime de Edge en el equipo en que ejecuta el dispositivo de Edge. Estas credenciales proporcionan acceso al runtime para extraer el contenedor. 

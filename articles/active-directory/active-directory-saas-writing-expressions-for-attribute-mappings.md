@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -46,7 +46,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
 | **suffix** |Obligatorio |string |La cadena que se va a anexar al final del valor de origen. |
@@ -59,7 +59,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -75,7 +75,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **separator** |Obligatorio |string |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
 | **origen1  … origenN ** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
@@ -88,7 +88,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
@@ -102,7 +102,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
@@ -129,7 +129,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** |Opcional |string |Valor que se va a reemplazar en **source** o **template**. |
@@ -147,7 +147,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatorio |string |Objeto **[appRoleAssignments]**. |
 
@@ -159,7 +159,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |**de origen** que se actualiza. |
 
@@ -171,7 +171,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | type | Notas |
+| NOMBRE | Obligatorio/Repetición | Escriba | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |**Source** que se actualiza. |
 | **defaultValue** |Opcional |string |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |

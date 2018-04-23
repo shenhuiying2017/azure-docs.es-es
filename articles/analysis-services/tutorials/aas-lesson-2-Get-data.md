@@ -1,25 +1,18 @@
 ---
-title: "Lección 2 del tutorial de Azure Analysis Services: Obtención de datos | Microsoft Docs"
-description: "Describe cómo obtener e importar datos en el proyecto del tutorial de Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 2 del tutorial de Azure Analysis Services: Obtención de datos | Microsoft Docs'
+description: Describe cómo obtener e importar datos en el proyecto del tutorial de Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 138f9f6e85d5e206c8b09d5c93822cfef5dd1246
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: be3368b5207669d7cc5b03e7eeb6953b757c786d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-data"></a>Obtener los datos
 
@@ -32,7 +25,7 @@ Al usar Obtención de datos, puede importar datos de diversos de orígenes: Azur
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 1: Creación de un proyecto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Crear una conexión  

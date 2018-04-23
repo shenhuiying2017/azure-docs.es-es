@@ -1,24 +1,17 @@
 ---
 title: Protección de datos y operaciones en Azure Search | Microsoft Docs
 description: La seguridad de Azure Search se basa en el cumplimiento de SOC 2, el cifrado, la autenticación y el acceso a identidades mediante identificadores de seguridad de usuarios y grupos en los filtros de Azure Search.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
-ms.assetid: ''
 ms.service: search
-ms.devlang: ''
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: heidist
-ms.openlocfilehash: 35f875e5f6345b9ebb9abc4deb71b7bf9c78907d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3985e4fff5eb1eb0c80b267dd8983488d10cb4e5
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-and-controlled-access-in-azure-search"></a>Seguridad y acceso controlado en Azure Search
 
@@ -51,7 +44,7 @@ El cifrado en reposo se anunció el 24 de enero de 2018 y se aplica a todos los 
 Hay disponibles varios mecanismos de seguridad en Azure Stack que, por tanto, están disponibles automáticamente para los recursos de Azure Search que cree.
 
 + [Bloqueos en el nivel de suscripción y recurso para evitar la eliminación](../azure-resource-manager/resource-group-lock-resources.md)
-+ [Control de acceso basado en roles (RBAC) para controlar el acceso a la información y las operaciones administrativas](../active-directory/role-based-access-control-what-is.md)
++ [Control de acceso basado en roles (RBAC) para controlar el acceso a la información y las operaciones administrativas](../role-based-access-control/overview.md)
 
 Todos los servicios de Azure admiten controles de acceso basado en roles (RBAC) para establecer niveles de acceso de forma coherente en todos los servicios. Por ejemplo, ver información confidencial como la clave de administración está restringido a los roles de Colaborador y Propietario, mientras que la visualización del estado del servicio está disponible para los miembros de cualquier rol. RBAC proporciona los roles de Propietario, Colaborador y Lector. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario.
 

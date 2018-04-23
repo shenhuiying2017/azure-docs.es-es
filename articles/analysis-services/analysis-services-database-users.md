@@ -1,25 +1,18 @@
 ---
-title: "Administración de usuarios y roles de base de datos en Azure Analysis Services | Microsoft Docs"
-description: "Obtenga información sobre cómo administrar usuarios y roles de base de datos en un servidor de Analysis Services en Azure."
-services: analysis-services
-documentationcenter: 
+title: Administración de usuarios y roles de base de datos en Azure Analysis Services | Microsoft Docs
+description: Obtenga información sobre cómo administrar usuarios y roles de base de datos en un servidor de Analysis Services en Azure.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 38bad0641d97028b435e05458d597bda378a8363
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
 

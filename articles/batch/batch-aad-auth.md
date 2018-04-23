@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e67ae32902c989f74cee0c1d223dacc770c0d387
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticación de soluciones de servicio de Batch con Active Directory
 
@@ -139,7 +139,7 @@ Para autenticarse con una entidad de servicio, debe asignar un rol RBAC a la apl
 1. En Azure Portal, vaya a la cuenta de Batch utilizada por la aplicación.
 2. En la hoja **Configuración** de la cuenta de Batch, seleccione **Control de acceso (IAM)**.
 3. Haga clic en el botón **Agregar**. 
-4. En el menú desplegable **Rol**, elija el rol _Colaborador_ o _Lector_ para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../active-directory/role-based-access-control-what-is.md).  
+4. En el menú desplegable **Rol**, elija el rol _Colaborador_ o _Lector_ para la aplicación. Para más información sobre estos roles, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).  
 5. Escriba el nombre de la aplicación en el campo **Seleccionar**. Seleccione la aplicación de la lista y haga clic en **Guardar**.
 
 La aplicación debe aparecer ahora en la configuración de control de acceso con un rol RBAC asignado. 

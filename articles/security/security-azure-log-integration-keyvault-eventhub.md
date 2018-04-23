@@ -1,21 +1,21 @@
 ---
 title: Integrar registros de Azure Key Vault mediante Event Hubs | Microsoft Docs
-description: "Tutorial en el que se proporcionan los pasos necesarios para que los registros de Key Vault estén disponibles para un SIEM mediante la integración de registros de Azure"
+description: Tutorial en el que se proporcionan los pasos necesarios para que los registros de Key Vault estén disponibles para un SIEM mediante la integración de registros de Azure
 services: security
 author: barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: e5bd27c94569228693d1a9c80c6e5362b50c4a44
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9b3ae914774d2d6a66c5732f1d63f09926bb48fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integración de registros de Azure: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
@@ -81,14 +81,14 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
    ![Lista de módulos cargados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-3. Escriba el comando `Login-AzureRmAccount`. En la ventana de inicio de sesión, escriba la información de credenciales de la suscripción que va a usar para este tutorial.
+3. Escriba el comando `Connect-AzureRmAccount`. En la ventana de inicio de sesión, escriba la información de credenciales de la suscripción que va a usar para este tutorial.
 
    >[!NOTE]
    >Si se trata de la primera vez que inicia sesión en Azure desde este equipo, verá un mensaje que le pregunta si quiere permitir a Microsoft recopilar datos de uso de PowerShell. Es recomendable que habilite esta recopilación de datos ya que se usará para mejorar Azure PowerShell.
 
 4. Tras la autenticación correcta, iniciará sesión y verá la información de la captura de pantalla siguiente. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
-   ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
+   ![Ventana de PowerShell](./media/security-azure-log-integration-keyvault-eventhub/Connect-AzureRmAccount.png)
 5. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
     - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
     - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).

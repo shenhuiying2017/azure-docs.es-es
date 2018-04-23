@@ -1,11 +1,11 @@
 ---
 title: Uso de Azure Machine Learning con SQL Data Warehouse | Microsoft Docs
-description: "Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
+description: Tutorial para usar Azure Machine Learning con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,24 +16,24 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
-Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
+# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Uso de Azure Machine Learning con Almacenamiento de datos SQL
+Azure Machine Learning es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Machine Learning en Azure][Introduction to Machine Learning on Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
 
 En este artículo, aprenderá cómo hacer lo siguiente utilizando [Azure Machine Learning Studio][Azure Machine Learning Studio]:
 
 * Leer datos de la base de datos para crear, entrenar y puntuar un modelo predictivo
 * Escribir datos en la base de datos
 
-## <a name="read-data-from-sql-data-warehouse"></a>Lectura de datos desde Almacenamiento de datos SQL
+## <a name="read-data-from-sql-data-warehouse"></a>Lectura de datos desde SQL Data Warehouse
 Leeremos datos desde la tabla Producto en la base de datos AdventureWorksDW.
 
 ### <a name="step-1"></a>Paso 1
-Inicie un experimento nuevo haciendo clic en +NUEVO en la parte inferior de la ventana de Estudio de aprendizaje automático, seleccione EXPERIMENTO y luego Experimento en blanco. Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, Predicción del precio de bicicletas.
+Inicie un experimento nuevo haciendo clic en +NUEVO en la parte inferior de la ventana de Machine Learning Studio, seleccione EXPERIMENTO y luego Experimento en blanco. Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, Predicción del precio de bicicletas.
 
 ### <a name="step-2"></a>Paso 2
 Busque el módulo Lector en la paleta de conjuntos de datos y módulos que aparece a la izquierda del lienzo de experimentos. Arrastre el módulo al lienzo de experimentos.
@@ -42,7 +42,7 @@ Busque el módulo Lector en la paleta de conjuntos de datos y módulos que apare
 ### <a name="step-3"></a>Paso 3
 Seleccione el módulo Lector y rellene el panel de propiedades.
 
-1. Seleccione Base de datos SQL de Azure como el origen de datos.
+1. Seleccione Azure SQL Database como el origen de datos.
 2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Azure Portal][Azure portal].
 
 ![][server_name]
@@ -81,7 +81,7 @@ Ahora puede utilizar este conjunto de datos para:
 
 Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Create experiment tutorial].
 
-## <a name="write-data-to-azure-sql-data-warehouse"></a>Escritura de datos en Almacenamiento de datos SQL de Azure
+## <a name="write-data-to-azure-sql-data-warehouse"></a>Escritura de datos en Azure SQL Data Warehouse
 Escribiremos el conjunto de resultados en la tabla ProductPriceForecast de la base de datos AdventureWorksDW.
 
 ### <a name="step-1"></a>Paso 1
@@ -92,7 +92,7 @@ Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que apa
 ### <a name="step-2"></a>Paso 2
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
-1. Seleccione Base de datos SQL de Azure como el destino de los datos.
+1. Seleccione Azure SQL Database como el destino de los datos.
 2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Azure Portal][Azure portal].
 3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
 4. Nombre de la cuenta de usuario del servidor: escriba el nombre de usuario de una cuenta con permisos de escritura para la base de datos.
@@ -110,7 +110,7 @@ Seleccione el módulo Redactor y rellene el panel de propiedades.
 2. Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han implementado correctamente.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][SQL Data Warehouse development overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bf01cf4fe5d7c7219fa7c53e54db60cd4bafb928
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 Azure API Management utiliza el control de acceso basado en rol (RBAC) de Azure para permitir que pueda hacerse una administración de acceso detallada en servicios y entidades de API Management (por ejemplo, API y directivas). En este artículo se proporciona información general de los roles integrados y personalizados en API Management. Para más información sobre la administración de acceso en Azure Portal, consulte la [introducción sobre la administración de acceso en Azure Portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -26,7 +26,7 @@ Azure API Management utiliza el control de acceso basado en rol (RBAC) de Azure 
 ## <a name="built-in-roles"></a>Roles integrados
 Actualmente, API Management cuenta con tres roles integrados y próximamente agregará otros dos. Estos roles pueden asignarse en distintos ámbitos, como la suscripción, el grupo de recursos y la instancia concreta de API Management. Por ejemplo, si el rol "Azure API Management Service Reader" se asigna a un usuario en el nivel de grupo de recursos, el usuario tendrá acceso de lectura a todas las instancias de API Management incluidas en el grupo de recursos. 
 
-En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Estos roles se pueden asignar a través de Azure Portal u otras herramientas, como Azure [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) y la [API de REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Para obtener detalles sobre la asignación de roles integrados, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
+En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Estos roles se pueden asignar a través de Azure Portal u otras herramientas, como Azure [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) y la [API de REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Para obtener detalles sobre la asignación de roles integrados, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 | Rol          | Acceso de lectura<sup>[1]</sup> | Acceso de escritura<sup>[2]</sup> | Creación, eliminación y escalado del servicio, VPN y configuración personalizada de dominios | Acceso al portal del editor heredado | DESCRIPCIÓN
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -43,7 +43,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 <sup>\* El rol Service Editor estará disponible cuando se realice la migración de toda la interfaz de usuario de administración desde el portal del editor existente a Azure Portal. El rol Content Manager estará disponible después de que el portal del editor se refactorice, de modo que solo contenga funcionalidades relacionadas con la administración del portal del desarrollador.</sup>  
 
 ## <a name="custom-roles"></a>Roles personalizados
-Si ninguno de los roles integrados satisface sus necesidades específicas, se pueden crear roles personalizados para proporcionar administración de acceso más pormenorizada para entidades de API Management. Por ejemplo, puede crear un rol personalizado que tenga acceso de solo lectura a un servicio de API Management, pero que tenga acceso de escritura solamente a una API específica. Para más información sobre los roles personalizados, consulte [Roles personalizados para RBAC de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). 
+Si ninguno de los roles integrados satisface sus necesidades específicas, se pueden crear roles personalizados para proporcionar administración de acceso más pormenorizada para entidades de API Management. Por ejemplo, puede crear un rol personalizado que tenga acceso de solo lectura a un servicio de API Management, pero que tenga acceso de escritura solamente a una API específica. Para más información sobre los roles personalizados, consulte [Roles personalizados para RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 A la hora de crear un rol personalizado, es más fácil comenzar con uno de los roles integrados. Edite los atributos para agregar los elementos **Actions**, **NotActions** o **AssignableScopes** y guarde los cambios como un nuevo rol. El ejemplo siguiente comienza con el rol "Azure API Management Service Reader" y crea un rol personalizado denominado "Calculator API Editor". Puede asignar el rol personalizado a una API concreta. De ese modo, el rol solamente tendrá acceso a esa API. 
 
@@ -59,7 +59,7 @@ New-AzureRmRoleDefinition -Role $role
 New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
 ```
 
-El artículo [Operaciones del proveedor de recursos de Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) contiene la lista de permisos que se pueden conceder en el nivel de API Management.
+El artículo [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) contiene la lista de permisos que se pueden conceder en el nivel de API Management.
 
 ## <a name="video"></a>Vídeo
 
@@ -71,8 +71,8 @@ El artículo [Operaciones del proveedor de recursos de Azure Resource Manager](.
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre el control de acceso basado en rol de Azure, consulte los siguientes artículos:
-  * [Introducción a la administración de acceso en Azure Portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)
-  * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)
-  * [Roles personalizados para RBAC de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)
-  * [Operaciones del proveedor de recursos de Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement)
+  * [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md)
+  * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md)
+  * [Roles personalizados para RBAC de Azure](../role-based-access-control/custom-roles.md)
+  * [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
 

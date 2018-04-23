@@ -1,12 +1,12 @@
 ---
-title: "Protección de aplicaciones PaaS con Azure Storage | Microsoft Docs"
+title: Protección de aplicaciones PaaS con Azure Storage | Microsoft Docs
 description: " Obtenga información sobre los procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.
@@ -30,7 +30,7 @@ Azure permite implementar y usar el almacenamiento de formas inauditas con un en
 
 Azure Storage proporciona los cuatro servicios siguientes: Blob Storage, Table Storage, Queue Storage y File Storage. Para obtener más información, consulte [Introducción a Microsoft Azure Storage](../storage/storage-introduction.md).
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 En este artículo se explican los siguientes procedimientos recomendados:
 
 - Protección de acceso:
@@ -75,7 +75,7 @@ Para obtener más información, consulte [Frequently Asked Questions about manag
 
 Antes, explicamos cómo utilizar la firma de acceso compartido (SAS) para conceder acceso limitado a los objetos de la cuenta de almacenamiento a otros clientes sin poner en riesgo la clave de cuenta de almacenamiento. En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS. A veces, es más sencillo administrar el acceso de otras formas.
 
-Otra forma administrar el acceso es usando la funcionalidad [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-what-is.md) (RBAC). Gracias a RBAC, podrá centrarse en proporcionar a los empleados los permisos exactos que necesiten, según la necesidad de información y los principios de seguridad de privilegios mínimos. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. RBAC ayuda a abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. Esto es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos.
+Otra forma administrar el acceso es usando la funcionalidad [Control de acceso basado en rol de Azure](../role-based-access-control/overview.md) (RBAC). Gracias a RBAC, podrá centrarse en proporcionar a los empleados los permisos exactos que necesiten, según la necesidad de información y los principios de seguridad de privilegios mínimos. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. RBAC ayuda a abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. Esto es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos.
 
 Puede aprovechar los roles de RBAC integrados en Azure para asignar privilegios a los usuarios. Plantéese usar Colaborador de la cuenta de almacenamiento para los operadores en la nube que necesiten administrar cuentas de almacenamiento, y el rol Colaborador de la cuenta de almacenamiento clásica para administrar cuentas de almacenamiento clásicas. En lo que respecta a los operadores en la nube que necesitan administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas, plantéese agregarlos al rol Colaborador de la máquina virtual.
 
@@ -83,8 +83,8 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 
 Para obtener más información sobre RBAC, consulte los siguientes artículos:
 
-- [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md)
-- [Roles integrados para el control de acceso basado en rol de Azure](../active-directory/role-based-access-built-in-roles.md)
+- [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md)
+- [Roles integrados para el control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 - [Guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md) (para obtener información detallada sobre cómo proteger una cuenta de almacenamiento con RBAC)
 
 ## <a name="storage-encryption"></a>Cifrado de almacenamiento

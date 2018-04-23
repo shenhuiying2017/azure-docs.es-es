@@ -1,11 +1,11 @@
 ---
-title: "Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell | Microsoft Docs"
+title: Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell | Microsoft Docs
 description: Aprenda a crear un sondeo personalizado para Puerta de enlace de aplicaciones mediante PowerShell en el Administrador de recursos
 services: application-gateway
 documentationcenter: na
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68feb660-7fa4-4f69-a7e4-bdd7bdc474db
 ms.service: application-gateway
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 344d6922d1649449e26f2500e538b5a0b440476d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5d17a05f964367ff12a58c3e301a1741181003fc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones de Azure mediante PowerShell en el Administrador de recursos de Azure
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-probe-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-probe-ps.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente con PowerShell. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
@@ -39,10 +39,10 @@ En este artículo, agregará un sondeo personalizado a una puerta de enlace de a
 
 ### <a name="sign-in-and-create-resource-group"></a>Inicio de sesión y creación de un grupo de recursos
 
-1. Use `Login-AzureRmAccount` para autenticar.
+1. Use `Connect-AzureRmAccount` para autenticar.
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
 1. Obtenga las suscripciones para la cuenta.

@@ -1,14 +1,30 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory-b2c
+author: davidmu1
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: davidmu
+ms.custom: include file
+ms.openlocfilehash: 8363d023e89c77aabc0d123f19264c9a0758a656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/18/2018
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Para registrar su aplicación móvil o nativa, use la configuración especificada en la tabla.
 
 ![Ejemplo de configuración de registro para la nueva aplicación móvil o nativa](./media/active-directory-b2c-register-mobile-native-app/b2c-new-mobile-native-app-settings.png)
 
-| Configuración      | Valor de ejemplo  | Descripción                                        |
+| Configuración      | Valor de ejemplo  | DESCRIPCIÓN                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Name** | Aplicación B2C de Contoso | Escriba un **Nombre** para la aplicación que la describa a los consumidores. |
 | **Cliente nativo** | Sí | Seleccione **Sí** para una aplicación móvil o nativa. |
-| **URI de redireccionamiento personalizado** | `com.onmicrosoft.contoso.appname://redirect/path` | Escriba un URI de redirección con un esquema personalizado. Asegúrese de elegir un [buen identificador URI de redireccionamiento](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-native-application-redirect-uri) y no incluya caracteres especiales, como caracteres de subrayado. |
+| **URI de redireccionamiento personalizado** | `com.onmicrosoft.contoso.appname://redirect/path` | Escriba un URI de redirección con un esquema personalizado. Asegúrese de elegir un [buen identificador URI de redireccionamiento](../articles/active-directory-b2c/active-directory-b2c-app-registration.md) y no incluya caracteres especiales, como caracteres de subrayado. |
 
 Haga clic en **Crear** para registrar la aplicación.
 

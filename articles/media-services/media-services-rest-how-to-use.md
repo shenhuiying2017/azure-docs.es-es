@@ -1,11 +1,11 @@
 ---
-title: "Información general sobre la API de REST de operaciones de Media Services | Microsoft Docs"
-description: "Información general de la API de REST de Media Services"
+title: Información general sobre la API de REST de operaciones de Media Services | Microsoft Docs
+description: Información general de la API de REST de Media Services
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: juliako;johndeu
-ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 472408f1c367984d5f4e0e435366c4a0af2e5b34
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -42,7 +42,7 @@ Las siguientes consideraciones se aplican al usar REST.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {
@@ -54,12 +54,12 @@ Las siguientes consideraciones se aplican al usar REST.
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Encabezados de solicitud HTTP estándar compatibles con los Media Services
 Para cada llamada que realice en los Media Services, hay un conjunto de encabezados necesarios que debe incluir en la solicitud y también un conjunto de encabezados opcionales que puede incluir si lo desea. En la tabla siguiente se enumeran los encabezados necesarios:
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Escriba | Valor |
 | --- | --- | --- |
 | Autorización |Portador |El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por Azure Active Directory. |
-| x-ms-version |Decimal |2.17 (o una versión más reciente)|
-| DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| x-ms-version |DECIMAL |2.17 (o una versión más reciente)|
+| DataServiceVersion |DECIMAL |3.0 |
+| MaxDataServiceVersion |DECIMAL |3.0 |
 
 > [!NOTE]
 > Dado que Media Services usa OData para exponer sus API de REST, los encabezados DataServiceVersion y MaxDataServiceVersion deben incluirse en todas las solicitudes; sin embargo, si no se incluyen, Media Services supone que el valor de DataServiceVersion en uso es 3.0.
@@ -68,7 +68,7 @@ Para cada llamada que realice en los Media Services, hay un conjunto de encabeza
 
 A continuación se muestra un conjunto de encabezados opcionales:
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Escriba | Valor |
 | --- | --- | --- |
 | Date |Fecha RFC 1123 |Marca de tiempo de la solicitud |
 | Accept |Tipo de contenido |El tipo de contenido solicitado para la respuesta, por ejemplo, el siguiente:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Las respuestas pueden tener distintos tipos de contenido, como una captura de blob, donde una respuesta correcta contenga la secuencia de blob como la carga. |
@@ -77,15 +77,15 @@ A continuación se muestra un conjunto de encabezados opcionales:
 | Accept-Charset |Tipo de juego de caracteres como "UTF-8" |El valor predeterminado es UTF-8. |
 | X-HTTP-Method |Método HTTP |Permite a los clientes o firewalls que no admiten métodos HTTP como PUT o DELETE usar estos métodos mediante túnel a través de una llamada GET. |
 | Content-Type |Tipo de contenido |Tipo de contenido del cuerpo de la solicitud en solicitudes PUT o POST. |
-| client-request-id |String |Valor definido por el autor de la llamada que identifica la solicitud determinada. Si se especifica, este valor se incluirá en el mensaje de respuesta como una manera de asignar la solicitud. <p><p>**Importante**<p>Los valores deben estar limitados a 2096b (2k). |
+| client-request-id |string |Valor definido por el autor de la llamada que identifica la solicitud determinada. Si se especifica, este valor se incluirá en el mensaje de respuesta como una manera de asignar la solicitud. <p><p>**Importante**<p>Los valores deben estar limitados a 2096b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Encabezados de respuesta HTTP estándar compatibles con los Media Services
 A continuación se muestra un conjunto de encabezados que pueden devolverse según el recurso que estuviera solicitando y la acción que deseara realizar.
 
-| Encabezado | Tipo | Valor |
+| Encabezado | Escriba | Valor |
 | --- | --- | --- |
-| request-id |String |Identificador único de la operación o servicio actual generado. |
-| client-request-id |String |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |
+| request-id |string |Identificador único de la operación o servicio actual generado. |
+| client-request-id |string |Identificador especificado por el autor de la llamada en la solicitud original, si está presente. |
 | Date |Fecha RFC 1123 |Fecha y hora en que se procesó la solicitud. |
 | Content-Type |Varía |Tipo de contenido del cuerpo de respuesta. |
 | Content-Encoding |Varía |Gzip o deflate, según corresponda. |
@@ -93,7 +93,7 @@ A continuación se muestra un conjunto de encabezados que pueden devolverse seg�
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbos HTTP estándar compatibles con los Media Services
 A continuación se muestra una lista completa de verbos HTTP que se pueden usar al realizar solicitudes HTTP:
 
-| Verbo | Description |
+| Verbo | DESCRIPCIÓN |
 | --- | --- |
 | GET |Devuelve el valor actual de un objeto. |
 | POST |Crea un objeto basado en los datos proporcionados o envía un comando. |

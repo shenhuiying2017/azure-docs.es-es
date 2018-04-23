@@ -1,12 +1,12 @@
 ---
-title: "Novedades de las colección de áreas de trabajo de Power BI"
-description: "Obtenga la información más reciente sobre las novedades en las colecciones de áreas de trabajo de Power BI."
+title: Novedades de las colección de áreas de trabajo de Power BI
+description: Obtenga la información más reciente sobre las novedades en las colecciones de áreas de trabajo de Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: a2faf610ca50acdb54353ade7c7a4ecabd314347
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 647b571fc05dca12ab9d4db45236962e4794ef4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Novedades de las colección de áreas de trabajo de Power BI
 
@@ -48,7 +48,7 @@ De forma periódica se publican actualizaciones a las **colecciones de áreas de
 * Clonación de informe y conjunto de datos
 * Enlace de un informe a otro conjunto de datos
 
-**Ejemplos**
+**Muestras**
 
 * Actualización del [ejemplo de inserción de informe de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 

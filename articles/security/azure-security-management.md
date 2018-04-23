@@ -1,6 +1,6 @@
 ---
-title: "Mejora de la seguridad de administración remota en Azure | Microsoft Docs"
-description: "En este artículo se describen los pasos para mejorar la seguridad en la administración remota de entornos de Microsoft Azure, incluidos servicios en la nube, Virtual Machines y aplicaciones personalizadas."
+title: Mejora de la seguridad de administración remota en Azure | Microsoft Docs
+description: En este artículo se describen los pasos para mejorar la seguridad en la administración remota de entornos de Microsoft Azure, incluidos servicios en la nube, Virtual Machines y aplicaciones personalizadas.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Administración de la seguridad en Azure
 Los suscriptores de Azure pueden administrar sus entornos de nube desde diversos dispositivos, incluidas estaciones de trabajo de administración, equipos de desarrollador e incluso dispositivos de usuario final con privilegios que tengan permisos específicos para la tarea. En algunos casos, las funciones administrativas se realizan mediante consolas web tales como [Azure Portal](https://azure.microsoft.com/features/azure-portal/). En otros casos, puede haber conexiones directas a Azure desde sistemas locales a través de redes privadas virtuales (VPN), Terminal Services, protocolos de aplicación de cliente o Azure Service Management API (SMAPI). Además, los puntos de conexión de cliente pueden estar unidos a un dominio o aislados y no administrados, como tabletas o smartphones.
@@ -64,7 +64,7 @@ La consolidación de los recursos de acceso y la eliminación de puntos de conex
 ### <a name="providing-security-for-azure-remote-management"></a>Seguridad para la administración remota de Azure
 Azure proporciona mecanismos de seguridad para ayudar a los administradores que administran servicios en la nube y máquinas virtuales de Azure. Estos mecanismos incluyen:
 
-* Autenticación y [control de acceso basado en rol](../active-directory/role-based-access-control-configure.md).
+* Autenticación y [control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md).
 * Supervisión, registro y auditoría.
 * Certificados y comunicación cifrada.
 * Un portal de administración web.
@@ -178,7 +178,7 @@ En la ilustración siguiente, la imagen portátil es un sistema unido a un domin
 
 Es importante tener en cuenta que las unidades flash USB se pierden más fácilmente que un equipo de escritorio promedio. Si se utiliza BitLocker para cifrar todo el volumen junto con una contraseña segura, se reducen las probabilidades de que un atacante pueda usar la imagen de la unidad con fines malintencionados. Además, si se pierde la unidad flash USB, puede revocar y [emitir un nuevo certificado de administración](https://technet.microsoft.com/library/hh831574.aspx), y restablecer la contraseña rápidamente, para reducir la exposición. Los registros de auditoría administrativa residen en Azure, no en el cliente, lo que reduce aún más las posibles pérdida de datos.
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 Tenga en cuenta las siguientes directrices adicionales cuando administre aplicaciones y datos en Azure.
 
 ### <a name="dos-and-donts"></a>Consejos

@@ -1,32 +1,26 @@
 ---
-title: "Paginación de los resultados de Azure Search | Microsoft Docs"
-description: "Paginación de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
-services: search
-documentationcenter: 
+title: Paginación de los resultados de Azure Search | Microsoft Docs
+description: Paginación de Azure Search, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
+manager: cgronlun
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 1054e15a2751c53aad5dbc8054c4cec41102dee9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 066358241b79f8bc0fb40e5e5b5989e561d9c909
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="how-to-page-search-results-in-azure-search"></a>Cómo paginar los resultados de la búsqueda en Búsqueda de Azure
-Este artículo proporciona orientación sobre la forma de usar la API de REST del servicio Búsqueda de Azure para implementar los elementos habituales de una página de resultados de búsqueda, como recuentos totales, recuperación de documentos, criterios de ordenación y navegación.
+# <a name="how-to-page-search-results-in-azure-search"></a>Cómo paginar los resultados de la búsqueda en Azure Search
+Este artículo proporciona orientación sobre la forma de usar la API de REST del servicio Azure Search para implementar los elementos habituales de una página de resultados de búsqueda, como recuentos totales, recuperación de documentos, criterios de ordenación y navegación.
 
-En todos los casos que se mencionan a continuación, las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) que se envían a su servicio Búsqueda de Azure. Las solicitudes incluyen un comando GET, ruta de acceso y parámetros de consulta que informan el servicio de lo que se solicita y de cómo formular la respuesta.
+En todos los casos que se mencionan a continuación, las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) que se envían a su servicio Azure Search. Las solicitudes incluyen un comando GET, ruta de acceso y parámetros de consulta que informan el servicio de lo que se solicita y de cómo formular la respuesta.
 
 > [!NOTE]
-> Una solicitud válida incluye una serie de elementos, como una dirección URL del servicio y la ruta de acceso, el verbo HTTP, `api-version`, etc. Para mayor brevedad, hemos acortado los ejemplos para resaltar solo la sintaxis que resulta relevante para la paginación. Consulte la documentación de [API de REST del Servicio de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de la sintaxis de solicitud.
+> Una solicitud válida incluye una serie de elementos, como una dirección URL del servicio y la ruta de acceso, el verbo HTTP, `api-version`, etc. Para mayor brevedad, hemos acortado los ejemplos para resaltar solo la sintaxis que resulta relevante para la paginación. Consulte la documentación de [API de REST del servicio Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de la sintaxis de solicitud.
 > 
 > 
 
@@ -35,7 +29,7 @@ Muestra el número total de resultados devueltos por una consulta y, a continuac
 
 ![][1]
 
-En Búsqueda de Azure se utilizan los parámetros `$count`, `$top` y `$skip` para devolver esos valores. En el ejemplo siguiente se muestra un ejemplo de solicitud del total de resultados, que se devuelve como `@OData.count`:
+En Azure Search se utilizan los parámetros `$count`, `$top` y `$skip` para devolver esos valores. En el ejemplo siguiente se muestra un ejemplo de solicitud del total de resultados, que se devuelve como `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
@@ -56,7 +50,7 @@ En una página de resultados de búsqueda, puede ser deseable mostrar una imagen
 
  ![][2]
 
-En Búsqueda de Azure se utiliza `$select` y un comando de búsqueda para implementar esta experiencia.
+En Azure Search se utiliza `$select` y un comando de búsqueda para implementar esta experiencia.
 
 Para devolver un subconjunto de campos con un diseño en mosaico:
 
@@ -73,7 +67,7 @@ A menudo, el orden predeterminado se basa en la relevancia, pero es habitual pon
 
  ![][3]
 
-En Búsqueda de Azure, la ordenación se basa en la expresión `$orderby` para todos los campos que se indizan como `"Sortable": true.`
+En Azure Search, la ordenación se basa en la expresión `$orderby` para todos los campos que se indizan como `"Sortable": true.`
 
 La relevancia está estrechamente asociada con perfiles de puntuación. Puede utilizar la puntuación predeterminada, que se basa en el análisis de texto y las estadísticas para ordenar todos los resultados, con las puntuaciones más altas destinadas a documentos con más coincidencias de un término de búsqueda o con coincidencias más importantes.
 
@@ -91,7 +85,7 @@ Deberá crear un método que acepte la opción de ordenación seleccionada como 
 > 
 
 ## <a name="faceted-navigation"></a>Navegación por facetas
-La navegación de búsqueda es habitual en una página de resultados; a menudo se encuentra en un lado o en la parte superior de una página. En Búsqueda de Azure, la navegación por facetas proporciona una búsqueda autodirigida basándose en filtros predefinidos. Consulte [Navegación por facetas en Búsqueda de Azure](search-faceted-navigation.md) para obtener más detalles
+La navegación de búsqueda es habitual en una página de resultados; a menudo se encuentra en un lado o en la parte superior de una página. En Azure Search, la navegación por facetas proporciona una búsqueda autodirigida basándose en filtros predefinidos. Consulte [Navegación por facetas en Azure Search](search-faceted-navigation.md) para obtener más detalles
 
 ## <a name="filters-at-the-page-level"></a>Filtros en el nivel de página
 Si el diseño de la solución incluye páginas de búsqueda dedicadas para determinados tipos de contenido (por ejemplo, una aplicación comercial en línea que enumera los departamentos en la parte superior de la página), puede insertar una expresión de filtro junto con un evento **onClick** para abrir una página en un estado prefiltrado. 
@@ -103,11 +97,11 @@ Puede enviar un filtro con o sin expresión de búsqueda. Por ejemplo, la siguie
 Consulte [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) (Búsqueda de documentos [API de Azure Search]) para más información sobre las expresiones `$filter`.
 
 ## <a name="see-also"></a>Otras referencias
-* [API de REST del Servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
+* [API de REST del Servicio Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 * [Operaciones de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 * [Operaciones del documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-* [Vídeo y tutoriales acerca de Búsqueda de Azure](search-video-demo-tutorial-list.md)
-* [Navegación por facetas en Búsqueda de Azure](search-faceted-navigation.md)
+* [Vídeo y tutoriales acerca de Azure Search](search-video-demo-tutorial-list.md)
+* [Navegación por facetas en Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

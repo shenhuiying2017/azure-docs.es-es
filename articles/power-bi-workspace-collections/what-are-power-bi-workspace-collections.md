@@ -1,12 +1,12 @@
 ---
-title: "¿Qué son las colecciones de áreas de trabajo de Power BI?"
-description: "Power BI Embedded le permite integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para compilar soluciones personalizadas."
+title: ¿Qué son las colecciones de áreas de trabajo de Power BI?
+description: Power BI Embedded le permite integrar informes de Power BI en las aplicaciones web o móviles, por lo que no necesita crear soluciones personalizadas para compilar soluciones personalizadas.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 7df172895bb926f1715370b941964e2c29ab393d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>¿Qué son las colecciones de áreas de trabajo de Power BI?
 
@@ -86,7 +86,7 @@ Ahora se pueden editar los informes existente o crear nuevos informes directamen
 [Escenarios comunes de las colecciones de áreas de trabajo de Power BI](scenarios.md)  
 [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)  
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
-[Embed a report in Power BI Embedded](embed-report.md) (Inserción de un informe en Power BI Embedded)  
+[Inserción de un informe](embed-report.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 [Repositorio GIT PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  

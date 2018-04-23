@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 2c1a4a1931bc2e38b0bee5f90518b01fdf4767a1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 Si está trabajando con el modelo de implementación de Resource Manager, puede cambiar a las nuevas SKU de puerta de enlace. Al cambiar de una SKU de puerta de enlace heredada a una nueva SKU, se elimina la puerta de enlace de la red virtual existente y se crea una nueva.
 

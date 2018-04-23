@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 67e5a67d7cd5caf6bd4d2625969b139411d62696
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fd5a8afe82bab5ca4e735a2483d90b84e234b8dc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adición de inquilinos en Azure Stack para uso y facturación
 
@@ -58,7 +58,7 @@ Actualice el registro con la suscripción del nuevo cliente. Azure informa del u
 > Para realizar este paso, debe tener [Azure Stack registrado](azure-stack-register.md).
 
 1. Abra Windows PowerShell con un símbolo del sistema con privilegios elevados y ejecute:  
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Escriba sus credenciales de Azure.
 3. En la sesión de PowerShell, ejecute:
 

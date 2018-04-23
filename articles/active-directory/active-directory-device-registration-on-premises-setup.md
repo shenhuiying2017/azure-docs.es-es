@@ -1,11 +1,11 @@
 ---
-title: "Configuración del acceso condicional local en Azure Active Directory | Microsoft Docs"
-description: "Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2."
+title: Configuración del acceso condicional local en Azure Active Directory | Microsoft Docs
+description: Guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 466cd564f08b07d443db7cb1de59c5778682ed73
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 Cuando se requiera que los usuarios unan sus dispositivos personales al área de trabajo en el servicio de registro de dispositivos de Azure Active Directory (Azure AD), los dispositivos deben estar marcados como conocidos para la organización. A continuación aparece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
@@ -89,7 +89,7 @@ Siga los pasos que aparecen en la lista de comprobación para habilitar y config
 | Complete la parte 2 de "Habilitación de escritura diferida de dispositivos en Azure AD Connect". Cuando lo haga, vuelva a esta guía. |[Habilitación de escritura diferida de dispositivos en Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: habilitación de Multi-Factor Authentication
-Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea exigir Multi-Factor Authentication, consulte [Elección de la solución de seguridad Multi-Factor Authentication más adecuada](../multi-factor-authentication/multi-factor-authentication-get-started.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.
+Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea exigir Multi-Factor Authentication, consulte [Elección de la solución de seguridad Multi-Factor Authentication más adecuada](authentication/concept-mfa-whichversion.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.
 
 ## <a name="part-5-verification"></a>Parte 5: verificación
 La implementación se completó y puede probar algunos escenarios. Siga los vínculos siguientes para probar con el servicio y familiarizarse con sus características.

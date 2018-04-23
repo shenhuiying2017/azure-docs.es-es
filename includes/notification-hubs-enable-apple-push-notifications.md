@@ -37,7 +37,7 @@ Para poder enviar notificaciones push a una aplicación iOS, debe registrar su a
      
       De esta forma, se genera el identificador de la aplicación y se solicita que confirme la información. Haga clic en **Register** (Registrar) para confirmar el nuevo identificador de aplicación.
      
-      Cuando haga clic en **Register** (Registrar), verá la pantalla **Registration complete** (Registro completado), como se muestra a continuación. Haga clic en **Done**.
+      Cuando haga clic en **Register** (Registrar), verá la pantalla **Registration complete** (Registro completado), como se muestra a continuación. Haga clic en **Done**(Listo).
       
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 

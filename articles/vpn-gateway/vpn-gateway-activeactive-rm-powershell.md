@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: yushwang
-ms.openlocfilehash: 41cca764335f21bed60fe968288bc8b8274f3215
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: c09abe97d34b7220d76481a403165f1b7e07fcaa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway
 
@@ -94,7 +94,7 @@ Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Adminis
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -384,7 +384,7 @@ En el ejemplo siguiente se convierte una puerta de enlace de activo-en espera en
 
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 
-Reemplace los siguientes parámetros utilizados para los ejemplos con la configuración que necesita para su propia configuración y, a continuación, declare estas variables.
+Reemplace los siguientes parámetros utilizados para los ejemplos con los valores que necesita para su propia configuración y, a continuación, declare estas variables.
 
 ```powershell
 $GWName = "TestVNetAA1GW"

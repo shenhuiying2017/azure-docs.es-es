@@ -1,11 +1,11 @@
 ---
-title: "¿Qué es una lista de control de acceso de red de Azure?"
-description: "Más información sobre las listas de control de acceso de Azure"
+title: ¿Qué es una lista de control de acceso de red de Azure?
+description: Más información sobre las listas de control de acceso de Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: 83d66c84-8f6b-4388-8767-cd2de3e72d76
 ms.service: virtual-network
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
-ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: b2239ae6393e74a518522594d36f7b9c30d2a6f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>¿Qué es una lista de control de acceso de puntos de conexión?
 
@@ -47,7 +47,7 @@ Cuando se crea una máquina virtual, se coloca una ACL predeterminada para bloqu
 
 **Ejemplo de tabla de ACL predeterminada**
 
-| **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
+| **Nº de regla** | **Subred remota** | **Punto de conexión** | **Permitir o denegar** |
 | --- | --- | --- | --- |
 | 100 |0.0.0.0/0 |3389 |Permitir |
 
@@ -69,7 +69,7 @@ En el ejemplo siguiente, si desea permitir el acceso al extremo RDP solo desde d
 
 **Ejemplo: varias reglas**
 
-| **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
+| **Nº de regla** | **Subred remota** | **Punto de conexión** | **Permitir o denegar** |
 | --- | --- | --- | --- |
 | 100 |65.0.0.0/8 |3389 |Permitir |
 | 200 |159.0.0.0/8 |3389 |Permitir |
@@ -79,7 +79,7 @@ Dado que se pueden especificar varias reglas para un extremo, debe haber una man
 
 **Ejemplo: precedencia de reglas**
 
-| **Nº de regla** | **Subred remota** | **Extremo** | **Permitir o denegar** |
+| **Nº de regla** | **Subred remota** | **Punto de conexión** | **Permitir o denegar** |
 | --- | --- | --- | --- |
 | 100 |175.1.0.1/24 |80 |Denegar |
 | 200 |175.0.0.0/8 |80 |Permitir |

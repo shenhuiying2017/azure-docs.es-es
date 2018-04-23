@@ -61,11 +61,11 @@ No hay que hacer nada nuevo. La actividad de copia ejecutó el script de limpiez
 
 ### <a name="mechanism-2"></a>Mecanismo 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName no se admite en este momento para Almacenamiento de datos SQL de Azure. 
+> sliceIdentifierColumnName no se admite en este momento para Azure SQL Data Warehouse. 
 
-Otro mecanismo para lograr la repetibilidad es tener una columna dedicada (**sliceIdentifierColumnName**) en la tabla de destino. Esta columna debe usarla Factoría de datos de Azure para asegurarse de que el origen y el destino estén sincronizados. Este enfoque funciona cuando hay flexibilidad para cambiar o definir el esquema de la tabla SQL de destino. 
+Otro mecanismo para lograr la repetibilidad es tener una columna dedicada (**sliceIdentifierColumnName**) en la tabla de destino. Esta columna debe usarAzure Data Factory para asegurarse de que el origen y el destino estén sincronizados. Este enfoque funciona cuando hay flexibilidad para cambiar o definir el esquema de la tabla SQL de destino. 
 
-Esta columna debe usarla la Factoría de datos de Azure con fines de repetibilidad y en el proceso la Factoría de datos de Azure no realizará ningún cambio de esquema en la tabla. Forma de usar este enfoque:
+Esta columna debe usarla Azure Data Factory con fines de repetibilidad y en el proceso Azure Data Factory no realizará ningún cambio de esquema en la tabla. Forma de usar este enfoque:
 
 1. Defina una columna de tipo binario (32) en la tabla SQL de destino. No debería haber ninguna restricción en esta columna. Llamemos a esta columna 'ColumnForADFuseOnly' para este ejemplo.
 2. Úselo en la actividad de copia de la forma siguiente:
@@ -79,7 +79,7 @@ Esta columna debe usarla la Factoría de datos de Azure con fines de repetibilid
     }
     ```
 
-Factoría de datos de Azure rellenará esta columna según sus necesidades para asegurarse de que el origen y el destino estén sincronizados. Los valores de esta columna no deben usarse fuera de este contexto por el usuario. 
+Azure Data Factory rellenará esta columna según sus necesidades para asegurarse de que el origen y el destino estén sincronizados. Los valores de esta columna no deben usarse fuera de este contexto por el usuario. 
 
 De manera similar al mecanismo 1, la actividad de copia limpiará primero automáticamente los datos para el segmento especificado del tabla SQL de destino y después ejecutará la actividad de copia normalmente para insertar los datos del origen al destino para dicho segmento. 
 

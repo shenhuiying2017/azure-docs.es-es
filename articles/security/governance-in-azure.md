@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Sistema de gobierno en Azure
 
@@ -147,7 +147,7 @@ Cuando se publicó inicialmente Azure, los controles de acceso a una suscripció
 
 Esta proliferación de suscripciones ya no es necesaria. Gracias al control de acceso basado en rol, puede asignar usuarios a roles estándares (por ejemplo, los tipos de roles comunes de lectura y escritura). También se pueden definir reglas personalizadas.
 
-El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) permite realizar una administración detallada del acceso en Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos. Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos provocará que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. RBAC ayuda a repartir las tareas entre el equipo y a conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
+El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) permite realizar una administración detallada del acceso en Azure. Con RBAC, puede conceder únicamente el grado de acceso que los usuarios necesiten para realizar sus trabajos. Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos provocará que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al control de acceso basado en roles (RBAC) de Azure, podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure. RBAC ayuda a repartir las tareas entre el equipo y a conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
 
 Por ejemplo, utilice RBAC para dejar que un empleado administre máquinas virtuales en una suscripción, y que otro pueda administrar bases de datos SQL en la misma suscripción.
 
@@ -161,7 +161,7 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la red virtual ni a la subred a las que se conecta la máquina virtual.
 
-[Roles RBAC integrados](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) muestra los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios.
+[Roles RBAC integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) muestra los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios.
 
 Conceda acceso asignando el rol RBAC adecuado a usuarios, grupos y aplicaciones de un determinado ámbito. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso. Un rol asignado en un ámbito principal también concede acceso a los elementos secundarios dentro del mismo.
 
@@ -169,9 +169,9 @@ Por ejemplo, un usuario con acceso a un grupo de recursos puede administrar todo
 
 RBAC de Azure solo es compatible con operaciones de administración de los recursos de Azure del Portal de Azure y de las API de Azure Resource Manager. No todas las operaciones de nivel de datos para recursos de Azure pueden autorizarse. Por ejemplo, puede autorizar a un empleado que administre las cuentas de almacenamiento, pero no los blobs o las tablas de una cuenta de almacenamiento. De igual forma, una base de datos SQL se puede administrar, pero no las tablas que contiene.
 
-Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en rol?](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)
+Si desea más detalles sobre cómo RBAC ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en rol?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-También puede [crear un rol personalizado](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) en RBAC de Azure si ninguno de los roles integrados responde a sus necesidades de acceso específicas. Se pueden crear roles personalizados con [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli) y la [API de REST](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos.
+También puede [crear un rol personalizado](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) en RBAC de Azure si ninguno de los roles integrados responde a sus necesidades de acceso específicas. Se pueden crear roles personalizados con [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), la [interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) y la [API de REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Igual que los roles integrados, los roles personalizados pueden asignarse a usuarios, grupos y aplicaciones en ámbitos de suscripciones, grupos de recursos y recursos.
 
 Dentro de cada suscripción, puede conceder hasta 2000 asignaciones de roles.
 
@@ -271,7 +271,7 @@ Al aplicar **ReadOnly**, pueden producirse resultados inesperados, ya que alguna
 
 Otro ejemplo: al colocar un bloqueo ReadOnly en un recurso de App Service, se evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
 
-Al diferencia del control de acceso basado en rol, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para obtener información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Al diferencia del control de acceso basado en rol, los bloqueos de administración se usan para aplicar una restricción a todos los usuarios y roles. Para obtener información sobre cómo establecer permisos para usuarios y roles, vea [Control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Cuando se aplica un bloqueo en un ámbito primario, todos los recursos heredan el mismo bloqueo. Incluso los recursos que agregue posteriormente heredan el bloqueo del elemento primario. El bloqueo más restrictivo de toda la herencia tiene prioridad.
 

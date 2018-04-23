@@ -1,12 +1,12 @@
 ---
-title: "Guía de introducción para desarrolladores en Azure | Microsoft Docs"
-description: "En este tema se proporciona información esencial para los desarrolladores que desean comenzar a usar la plataforma Microsoft Azure para sus necesidades de desarrollo."
-services: 
-cloud: 
-documentationcenter: 
+title: Guía de introducción para desarrolladores en Azure | Microsoft Docs
+description: En este tema se proporciona información esencial para los desarrolladores que desean comenzar a usar la plataforma Microsoft Azure para sus necesidades de desarrollo.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -295,7 +295,7 @@ Al permitir el acceso a los recursos de Azure, siempre es recomendable proporcio
 
     >**Cuándo se usa**: cuando se necesitan una administración personalizada del acceso para usuarios y grupos.
 
-    >**Para empezar**: para más información, consulte [Introducción a la administración de acceso en Azure Portal](../../active-directory/role-based-access-control-what-is.md).
+    >**Para empezar**: para más información, consulte [Introducción a la administración de acceso en Azure Portal](../../role-based-access-control/overview.md).
 
 -   **Objetos de entidad de servicio**: además de proporcionar acceso a las entidades de seguridad de usuarios y grupos, puede conceder el mismo acceso a una entidad de servicio.
 

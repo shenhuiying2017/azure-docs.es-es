@@ -1,11 +1,11 @@
 ---
-title: "Procedimientos recomendados de seguridad de las máquinas virtuales de Azure"
-description: "En este artículo se proporcionan varios procedimientos recomendados de seguridad para usarlos en máquinas virtuales ubicadas en Azure."
+title: Procedimientos recomendados de seguridad de las máquinas virtuales de Azure
+description: En este artículo se proporcionan varios procedimientos recomendados de seguridad para usarlos en máquinas virtuales ubicadas en Azure.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -49,14 +49,14 @@ En el artículo se examinan los siguientes de seguridad para las máquinas virtu
 
 El primer paso para proteger la máquina virtual es garantizar que solo los usuarios autorizados puedan aprovisionar nuevas máquinas virtuales. Puede usar las [directivas de Azure](../azure-policy/azure-policy-introduction.md) con el fin de establecer convenciones para los recursos de su organización, crear directivas personalizadas y aplicarlas a recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
 
-Las máquinas virtuales que pertenecen a un grupo de recursos heredan de forma natural sus directivas. Aunque se recomienda este enfoque para administrar las máquinas virtuales, también puede controlar el acceso a directivas de máquinas virtuales individuales mediante el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md).
+Las máquinas virtuales que pertenecen a un grupo de recursos heredan de forma natural sus directivas. Aunque se recomienda este enfoque para administrar las máquinas virtuales, también puede controlar el acceso a directivas de máquinas virtuales individuales mediante el [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Al habilitar las directivas de Resource Manager y RBAC para controlar el acceso a la máquina virtual, se ayuda a mejorar la seguridad general de la máquina virtual. Se recomienda consolidar las máquinas virtuales con el mismo ciclo de vida en el mismo grupo de recursos. Mediante los grupos de recursos, puede implementar, supervisar y acumular los costos para sus recursos. Para permitir a los usuarios acceder y configurar máquinas virtuales, use un [enfoque de privilegios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Y al asignar privilegios a los usuarios, planee utilizar los siguientes roles integrados de Azure:
 
-- [Colaborador de la máquina virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
-- [Colaborador de la máquina virtual clásica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
-- [Administrador de seguridad](../active-directory/role-based-access-built-in-roles.md#security-manager): puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales.
-- [Usuario de DevTest Labs](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
+- [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
+- [Colaborador de la máquina virtual clásica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
+- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-manager): puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales.
+- [Usuario de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
 
 No comparta cuentas ni contraseñas entre los administradores ni reutilice contraseñas en diferentes cuentas de usuario o servicios, especialmente las de las redes sociales u otras actividades no administrativas. Lo ideal es usar las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar las máquinas virtuales de forma segura. Con este enfoque puede reforzar las opciones de implementación y aplicar la configuración de seguridad a lo largo de la implementación.
 

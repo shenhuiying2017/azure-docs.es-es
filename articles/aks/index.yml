@@ -14,13 +14,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
-  ms.openlocfilehash: a381697e27a2d85d99fcbb1eb54bd7c0ab7d743a
-  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+  ms.openlocfilehash: 7b18da63a74059e48d41f9e0a068a4f7618aa97a
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: Azure Container Service (AKS) permite administrar el entorno hospedado de Kubernetes, lo que hace que sea fácil y rápido implementar y administrar aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.
+  description: Azure Container Service (AKS) permite administrar el entorno hospedado de Kubernetes, lo que hace que sea fácil y rápido implementar y administrar aplicaciones en contenedores sin necesidad de tener conocimientos de orquestación de contenedores. También permite eliminar la carga de las operaciones en curso y las de mantenimiento mediante el aprovisionamiento, actualización y escalado de los recursos a petición, sin tener que desconectar las aplicaciones.<div class="IMPORTANT alert"><p>Importante</p><p>Azure Container Service (AKS) está actualmente en <strong>versión preliminar</strong>. Las versiones preliminares están a su disposición con la condición de que acepte los <a href="https://azure.microsoft.com/support/legal/preview-supplemental-terms/">términos de uso adicionales</a>. Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.</p></div>
 sections:
 - title: Inicios rápidos en 5 minutos
   items:

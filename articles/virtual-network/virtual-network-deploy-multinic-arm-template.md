@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual con varias NIC (plantilla de Azure Resource Manager) | Microsoft Docs"
-description: "Cree una máquina virtual con varias NIC mediante una plantilla de Azure Resource Manager."
+title: Creación de una máquina virtual con varias NIC (plantilla de Azure Resource Manager) | Microsoft Docs
+description: Cree una máquina virtual con varias NIC mediante una plantilla de Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 486f7dd5-cf2f-434c-85d1-b3e85c427def
 ms.service: virtual-network
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 85bfa264c6cf2b0586816a47b3ab72f3aee8ec96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-multiple-nics-using-a-template"></a>Crear una VM con varias NIC mediante una plantilla
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
@@ -35,7 +35,7 @@ ms.lasthandoff: 10/11/2017
 
 En los pasos siguientes se usa un grupo de recursos denominado *IaaSStory* para los servidores web y un grupo de recursos denominado *IaaSStory-BackEnd* para los servidores de base de datos.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de crear los servidores de base de datos, necesita crear el grupo de recursos *IaaSStory* con todos los recursos necesarios para este escenario. Para crear estos recursos, complete los siguientes pasos:
 
 1. Vaya a [la página de plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).

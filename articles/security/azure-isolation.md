@@ -1,12 +1,12 @@
 ---
-title: "Aislamiento en la nube pública de Azure | Microsoft Docs"
-description: "Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa."
+title: Aislamiento en la nube pública de Azure | Microsoft Docs
+description: Obtenga información acerca de los servicios de computación en la nube que incluyen una amplia selección de instancias y servicios de proceso, que se pueden escalar tanto vertical como horizontalmente para satisfacer las necesidades de su aplicación o de su empresa.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Aislamiento en la nube pública de Azure
 ##  <a name="introduction"></a>Introducción
@@ -52,7 +52,7 @@ En un área de trabajo habilitada en la nube, un inquilino puede definirse como 
 Cada directorio de Azure AD es distinto e independiente de otros directorios de Azure AD. Del mismo modo que un edificio de oficinas para empresas es un activo seguro dedicado específicamente a su organización, un directorio de Azure AD se ha diseñado también para ser un activo seguro para el uso exclusivo de su organización. La arquitectura de Azure AD aísla los datos del cliente y la información de identidad para evitar contactos cruzados. Esto significa que los usuarios y los administradores de un directorio de Azure AD no tendrán acceso a los datos de otro directorio, ya sea de manera involuntaria o malintencionada.
 
 ### <a name="azure-tenancy"></a>Inquilinato de Azure
-El inquilinato de Azure (suscripción de Azure) hace referencia a una relación "cliente/facturación" y a un único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) en [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). El aislamiento en el nivel de inquilino en Microsoft Azure se logra con Azure Active Directory y los [controles basados en roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) que ofrece. Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD).
+El inquilinato de Azure (suscripción de Azure) hace referencia a una relación "cliente/facturación" y a un único [inquilino](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) en [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). El aislamiento en el nivel de inquilino en Microsoft Azure se logra con Azure Active Directory y los [controles basados en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) que ofrece. Cada suscripción de Azure está asociada a un directorio de Azure Active Directory (AD).
 
 Los usuarios, grupos y aplicaciones de ese directorio pueden administrar los recursos en la suscripción de Azure. Puede asignar estos derechos de acceso con Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure. Un inquilino de Azure está aislado lógicamente mediante límites de seguridad de forma que ningún cliente puede acceder o poner en riesgo los coinquilinos, ya sea de forma malintencionada o por accidente. Azure AD se ejecuta en servidores sin sistema operativo, aislados en un segmento de red separado donde el filtrado de paquetes de nivel de host y Firewall de Windows bloquean el tráfico y las conexiones no deseadas.
 
@@ -80,7 +80,7 @@ El concepto de contenedores de inquilino está profundamente relacionado con el 
 Aunque se almacenan metadatos de varios inquilinos de Azure Active Directory en el mismo disco físico, no hay relación entre los contenedores salvo la que se define en el servicio de directorio, que a su vez viene determinada por el administrador del inquilino.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC) de Azure
-El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
+El [control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) ayuda a compartir varios componentes disponibles dentro de una suscripción de Azure, y proporciona una administración de acceso detallada en Azure. RBAC de Azure le permite separar las tareas dentro de su organización y conceder acceso en función de lo que los usuarios necesitan para realizar sus tareas. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, puede permitir solo determinadas acciones.
 
 RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de recurso:
 
@@ -94,7 +94,7 @@ RBAC de Azure cuenta con tres roles básicos que se aplican a todos los tipos de
 
 El resto de los roles RBAC de Azure permiten la administración de recursos específicos de Azure. Por ejemplo, el rol de colaborador de máquina virtual permite al usuario crear y administrar máquinas virtuales. No otorga acceso a la instancia de Azure Virtual Network ni a la subred a la que se conecta la máquina virtual.
 
-[Roles integrados para el control de acceso basado en rol](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles)(Roles personalizados en RBAC de Azure).
+[Roles integrados para el control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) enumera los roles disponibles en Azure. Especifica las operaciones y el ámbito de cada rol integrado que se concede a los usuarios. Si quiere definir sus propios roles para tener un mayor control, consulte [Custom Roles in Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)(Roles personalizados en RBAC de Azure).
 
 Otras funcionalidades de Azure Active Directory incluyen:
 - Azure AD habilita SSO para las aplicaciones SaaS, independientemente de donde estén hospedadas. Algunas aplicaciones están federadas con Azure AD y otras usan SSO con contraseña. Las aplicaciones federadas también pueden admitir aprovisionamiento de usuarios y [almacén de contraseñas](https://www.techopedia.com/definition/31415/password-vault).

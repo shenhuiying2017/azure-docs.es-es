@@ -1,12 +1,12 @@
 ---
-title: "Conexión a un origen de datos en Colecciones de áreas de trabajo de Power BI | Microsoft Docs"
-description: "Obtenga información sobre cómo conectarse a un origen de datos en Colecciones de áreas de trabajo de Power BI."
+title: Conexión a un origen de datos en Colecciones de áreas de trabajo de Power BI | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a un origen de datos en Colecciones de áreas de trabajo de Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 24600c4343e3bfebe14f25020c5a7ba02d15af64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5a154c4899db974645bb7ade028d8bd8f267aad7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-a-data-source"></a>Conectarse a un origen de datos
 
 Con **Colecciones de áreas de trabajo de Power BI**, puede insertar informes en su propia aplicación. Cuando inserta un informe de Power BI en su aplicación, el informe se conecta a los datos subyacentes **importando** una copia de los datos o **conectándose directamente** al origen de datos mediante **DirectQuery**.
 
 > [!IMPORTANT]
-> Colecciones de áreas de trabajo de Power BI está en desuso y estará disponible hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para obtener más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de la colección de áreas de trabajo de Power BI Embedded a Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Estas son las diferencias entre usar **Importación** y **DirectQuery**.
 
@@ -44,7 +44,7 @@ En estos momentos, con Colecciones de áreas de trabajo de Power BI, se puede us
 
 **DirectQuery**
 * Base de datos SQL de Azure
-* Almacenamiento de datos SQL de Azure
+* Azure SQL Data Warehouse
 
 **Importaciónación**
 
@@ -74,7 +74,7 @@ Para asegurarse de que las consultas que se envían al origen de datos subyacent
 
 ## <a name="see-also"></a>Otras referencias
 
-* [Introducción a Colecciones de áreas de trabajo de Power BI](get-started.md)
+* [Introducción a las colecciones de áreas de trabajo de Power BI](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 ¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)

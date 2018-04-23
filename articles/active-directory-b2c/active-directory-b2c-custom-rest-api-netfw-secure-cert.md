@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.openlocfilehash: f1b9ef9a78715c08c5361e4bab6a31384c5c98d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fb5c8a48a676a2909cce3c4d126218e48a4c8ce2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteja los servicios REST mediante certificados de cliente
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 En un artículo relacionado se [crea un servicio REST](active-directory-b2c-custom-rest-api-netfw.md) que interactúa con Azure Active Directory B2C (Azure AD B2C).
 
 En este artículo, aprenderá a restringir el acceso a la aplicación web de Azure (API RESTful ) mediante el uso de un certificado de cliente. Este mecanismo se denomina autenticación mutua de TLS o *autenticación de certificado de cliente*. Solo pueden acceder al servicio los servicios que tienen certificados adecuados, como Azure AD B2C.

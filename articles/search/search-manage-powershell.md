@@ -1,25 +1,19 @@
 ---
-title: "Administración de Azure Search con scripts de PowerShell | Microsoft Docs"
-description: "Administre el servicio Azure Search con scripts de PowerShell. Creación o actualización del servicio Azure Search y administración de las claves de administración de Azure Search"
-services: search
-documentationcenter: 
-author: seansaleh
-manager: mblythe
-editor: 
+title: Administración de Azure Search con scripts de PowerShell | Microsoft Docs
+description: Administre el servicio Azure Search con scripts de PowerShell. Creación o actualización del servicio Azure Search y administración de las claves de administración de Azure Search
+author: HeidiSteen
+manager: cgronlun
 tags: azure-resource-manager
-ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: powershell
+ms.devlang: powershell
+ms.topic: conceptual
 ms.date: 08/15/2016
-ms.author: seasa
-ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: heidist
+ms.openlocfilehash: fc9d23b0c11484c7fec575c411f32522b6e46e28
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]
@@ -31,13 +25,13 @@ ms.lasthandoff: 12/21/2017
 En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Azure Search. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API.
 Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Debe tener Azure PowerShell 1.0 o versiones posteriores. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * Debe iniciar sesión en su suscripción de Azure en PowerShell, tal y como se describe a continuación.
 
 En primer lugar, debe iniciar sesión en Azure con este comando.
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Especifique la dirección de correo electrónico de la cuenta de Azure y su contraseña en el cuadro de diálogo de inicio de sesión de Microsoft Azure.
 

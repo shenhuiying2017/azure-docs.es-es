@@ -1,26 +1,24 @@
 ---
-title: "Administración de clústeres de Hadoop mediante la CLI de Azure: Azure HDInsight | Microsoft Docs"
-description: "Aprenda a usar la interfaz de la línea de comandos de Azure para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure funciona en Windows, Mac y Linux."
+title: 'Administración de clústeres de Hadoop mediante la CLI de Azure: Azure HDInsight | Microsoft Docs'
+description: Aprenda a usar la interfaz de la línea de comandos de Azure para administrar clústeres de Hadoop en Azure HDInsight. La CLI de Azure funciona en Windows, Mac y Linux.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: a6103c85747b2e76db7253de59b20f8b5d5a9433
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d8e5d0f09fc5149134370fe8ba48faf256d3688e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]

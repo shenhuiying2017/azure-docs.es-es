@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb4ebe0b1c0e4799aea6401b068d881e5aa47026
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8af5c124332fcc0c919b419f68235c52456c01cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo usar Azure PowerShell con plantillas de Resou
 
 La plantilla de Resource Manager que ha implementado puede ser un archivo local en su equipo, o un archivo externo ubicado en un repositorio como GitHub. La plantilla que se implementa en este artículo está disponible en la sección [Plantilla de ejemplo](#sample-template), o como [plantilla de la cuenta de almacenamiento en GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Si es necesario, instale el módulo Azure PowerShell con las instrucciones de la [guía de Azure PowerShell](/powershell/azure/overview) y ejecute `Login-AzureRmAccount` para crear una conexión con Azure.
+Si es necesario, instale el módulo Azure PowerShell con las instrucciones de la [guía de Azure PowerShell](/powershell/azure/overview) y ejecute `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 <a id="deploy-local-template" />
 
@@ -43,7 +43,7 @@ Una plantilla puede incluir parámetros que le permiten personalizar la implemen
 En el ejemplo siguiente se crea un grupo de recursos y se implementa una plantilla desde la máquina local:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

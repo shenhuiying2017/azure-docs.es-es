@@ -1,11 +1,11 @@
 ---
-title: "P+F sobre configuración y problemas de administración de Microsoft Azure Cloud Services | Microsoft Docs"
-description: "En este artículo se enumeran las preguntas frecuentes sobre la configuración y administración de Microsoft Azure Cloud Services."
+title: P+F sobre configuración y problemas de administración de Microsoft Azure Cloud Services | Microsoft Docs
+description: En este artículo se enumeran las preguntas frecuentes sobre la configuración y administración de Microsoft Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -201,7 +201,7 @@ Para más información, vea [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>¿Cómo se puede implementar el acceso basado en roles para Cloud Services?
 Cloud Services no es compatible con el modelo de control de acceso basado en roles (RBAC), ya que no es un servicio basado en Azure Resource Manager.
 
-Consulte [RBAC de Azure frente a administradores de la suscripción clásica](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+Consulte [RBAC de Azure frente a administradores de la suscripción clásica](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
 
 ## <a name="remote-desktop"></a>Escritorio remoto
 
@@ -213,7 +213,7 @@ Microsoft sigue un proceso estricto que no permite a los ingenieros internos eje
 Este error puede producirse si usa el archivo RDP desde un equipo replicado en Azure Active Directory. Para resolver el problema, siga estos pasos:
 
 1. Haga clic en el archivo RDP que ha descargado y seleccione **Editar**.
-2. Agregue "&#92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
+2. Agregue "& #92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
 
 ## <a name="scaling"></a>Escalado
 

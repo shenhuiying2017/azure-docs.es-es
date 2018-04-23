@@ -1,22 +1,17 @@
 ---
-title: "Tutorial de la versión preliminar de sinónimos en Azure Search | Microsoft Docs"
-description: "Incorporación de la característica de versión preliminar de sinónimos a un índice de Azure Search."
-services: search
-manager: jhubbard
-documentationcenter: 
+title: Tutorial de la versión preliminar de sinónimos en Azure Search | Microsoft Docs
+description: Incorporación de la característica de versión preliminar de sinónimos a un índice de Azure Search.
+manager: cgronlun
 author: HeidiSteen
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 03/31/2017
 ms.author: heidist
-ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5614b0253b43938b5079515899590c7c560d232c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Tutorial C# de sinónimos (versión preliminar) para Azure Search
 
@@ -27,7 +22,7 @@ En Azure Search, los sinónimos se definen en un *mapa de sinónimos* a través 
 > [!NOTE]
 > La característica de sinónimos está actualmente en versión preliminar y solo se admite en las versiones preliminares más recientes de API y SDK (api-version=2016-09-01-Preview, SDK version 4.x-preview). En este momento no hay compatibilidad con Azure Portal. La versión preliminar de las API no se someten a las condiciones del Acuerdo de Nivel de Servicio y sus características pueden cambiar, por lo que no se recomienda su uso en aplicaciones de producción.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Los requisitos del tutorial incluyen los siguientes:
 

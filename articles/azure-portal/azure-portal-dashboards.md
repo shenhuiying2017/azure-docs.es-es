@@ -1,8 +1,8 @@
 ---
-title: "Creación y uso compartido de paneles en Azure Portal | Microsoft Docs"
-description: "En este artículo se explica cómo crear y editar paneles en el Portal de Azure."
+title: Creación y uso compartido de paneles en Azure Portal | Microsoft Docs
+description: En este artículo se explica cómo crear y editar paneles en el Portal de Azure.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
 Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En este artículo se explican los aspectos básicos de la administración del acceso a los paneles, así como de su creación, edición y publicación.
@@ -75,7 +75,7 @@ Al crear un panel, será privado de forma predeterminada, lo que significa que u
 
 ![compartir panel](./media/azure-portal-dashboards/share-dashboard.png)
 
-Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para integrar sin problemas paneles en el ecosistema, hemos implementado los paneles compartidos como recursos de Azure (por lo que no se pueden compartir escribiendo una dirección de correo electrónico).  El acceso a la información que muestra la mayoría de los iconos del portal lo rige el [control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md). Desde una perspectiva de control de acceso, los paneles compartidos no son distintos de una máquina virtual o de una cuenta de almacenamiento.  
+Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para integrar sin problemas paneles en el ecosistema, hemos implementado los paneles compartidos como recursos de Azure (por lo que no se pueden compartir escribiendo una dirección de correo electrónico).  El acceso a la información que muestra la mayoría de los iconos del portal lo rige el [control de acceso basado en rol de Azure](../role-based-access-control/role-assignments-portal.md). Desde una perspectiva de control de acceso, los paneles compartidos no son distintos de una máquina virtual o de una cuenta de almacenamiento.  
 
 Supongamos que tiene una suscripción de Azure y que a los miembros del equipo se les han asignado los roles de **propietario**, **colaborador** o **lector** de la suscripción.  Los usuarios que son propietarios o colaboradores pueden enumerar, ver, crear, modificar o eliminar paneles dentro de la suscripción.  Los usuarios que sean lectores pueden enumerar y ver los paneles, pero no pueden modificarlos ni eliminarlos.  Los usuarios con acceso de lectura pueden realizar modificaciones locales en un panel compartido, pero no tienen la opción de volver a publicar esos cambios en el servidor.  Sin embargo, pueden realizar una copia privada del panel para utilizarlo con fines privados.  Como siempre, los iconos individuales del panel tendrán sus propias reglas de control de acceso en función de los recursos a los que correspondan.  
 

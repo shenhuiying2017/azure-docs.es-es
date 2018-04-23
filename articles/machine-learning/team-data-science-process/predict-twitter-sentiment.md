@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: bradsev
-ms.openlocfilehash: f22da892868a10ac18fdcd703249eaa172f8bf65
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47c8b9c9d364a7959066132a873b93c2bb001e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="predict-twitter-sentiment-with-word-embeddings-by-using-the-team-data-science-process"></a>Predicción de las opiniones de Twitter con inserciones de palabras mediante el proceso de ciencia de datos en equipo
 
-Este artículo muestra cómo colaborar de forma eficaz mediante el uso del algoritmo de inserción de palabras _Word2Vec_ y el algoritmo _Sentiment-Specific Word Embedding (SSWE)_ para predecir las opiniones de Twitter con [Azure Machine Learning](../preview/index.yml). Para más información sobre predicción de la polaridad de opiniones de Twitter, consulte el [repositorio MachineLearningSamples TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) en GitHub. La normalización de la estructura y la documentación de los proyectos con un ciclo de vida de ciencia de datos establecido es fundamental para facilitar una colaboración eficaz entre los equipos en los proyectos de ciencia de datos. El [Proceso de ciencia de datos en equipo (TDSP)](overview.md) proporciona este tipo de [ciclo de vida](lifecycle.md) estructurado. 
+Este artículo muestra cómo colaborar de forma eficaz mediante el uso del algoritmo de inserción de palabras _Word2Vec_ y el algoritmo _Sentiment-Specific Word Embedding (SSWE)_ para predecir las opiniones de Twitter con [Azure Machine Learning](../service/index.yml). Para más información sobre predicción de la polaridad de opiniones de Twitter, consulte el [repositorio MachineLearningSamples TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction) en GitHub. La normalización de la estructura y la documentación de los proyectos con un ciclo de vida de ciencia de datos establecido es fundamental para facilitar una colaboración eficaz entre los equipos en los proyectos de ciencia de datos. El [Proceso de ciencia de datos en equipo (TDSP)](overview.md) proporciona este tipo de [ciclo de vida](lifecycle.md) estructurado. 
 
-La creación de proyectos de ciencia de datos con la _plantilla TDSP_ proporciona una plataforma estandarizada para los proyectos de Azure Machine Learning. Previamente el equipo TDSP presentó un [repositorio de GitHub para las plantillas y la estructura del proyecto de TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Ahora los proyectos de Machine Learning que crean instancias con [plantillas TDSP para Azure Machine Learning](https://github.com/amlsamples/tdsp) están habilitados. Para obtener instrucciones, consulte cómo usar la [Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo](../preview/how-to-use-tdsp-in-azure-ml.md) en Azure Machine Learning. 
+La creación de proyectos de ciencia de datos con la _plantilla TDSP_ proporciona una plataforma estandarizada para los proyectos de Azure Machine Learning. Previamente el equipo TDSP presentó un [repositorio de GitHub para las plantillas y la estructura del proyecto de TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate). Ahora los proyectos de Machine Learning que crean instancias con [plantillas TDSP para Azure Machine Learning](https://github.com/amlsamples/tdsp) están habilitados. Para obtener instrucciones, consulte cómo usar la [Estructuración de proyectos con la plantilla de Proceso de ciencia de datos en equipo](../desktop-workbench/how-to-use-tdsp-in-azure-ml.md) en Azure Machine Learning. 
 
 
 ## <a name="twitter-sentiment-polarity-sample"></a>Ejemplo de polaridad de opiniones de Twitter
@@ -131,7 +131,7 @@ El paso final es la implementación del modelo de predicción de opiniones entre
 
 ![Panel de Kubernetes](./media/predict-twitter-sentiment/kubernetes-dashboard.PNG)
 
-Para más información sobre el proceso de operacionalización, consulte [Implementación de un modelo de Azure Machine Learning como un servicio web](../preview/model-management-service-deploy.md).
+Para más información sobre el proceso de operacionalización, consulte [Implementación de un modelo de Azure Machine Learning como un servicio web](../desktop-workbench/model-management-service-deploy.md).
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -143,8 +143,8 @@ En este artículo, ha aprendido a entrenar un modelo de inserción de palabras u
 * [Proceso de ciencia de datos en equipo (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) 
 * [Uso del proceso de ciencia de datos en equipo (TDSP) en Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Plantillas de proyecto TDSP para Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
-* [Azure Machine Learning Workbench](../preview/index.yml)
+* [Azure Machine Learning Workbench](../service/index.yml)
 * [Conjunto de datos de ingresos de EE. UU. obtenido del repositorio de aprendizaje automático de UCI](https://archive.ics.uci.edu/ml/datasets/adult)
-* [Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)](../preview/scenario-tdsp-biomedical-recognition.md)
+* [Reconocimiento de entidades biomédicas mediante la plantilla del proceso de ciencia de los datos en equipos (TDSP)](../desktop-workbench/scenario-tdsp-biomedical-recognition.md)
 * [Mikolov, Tomas y otros "Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems" (Representaciones distribuidas de palabras y frases y su composicionalidad. Avances en los sistemas de procesamiento de información neuronal). 2013.](https://arxiv.org/abs/1310.4546)
 * [Tang, Duyu y otros "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification" (Aprendizaje de inserción de palabras específicas de opinión para la clasificación de opiniones de Twitter). ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)

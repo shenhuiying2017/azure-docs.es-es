@@ -1,11 +1,11 @@
 ---
 title: Servicios Azure Security Center y Azure SQL Database | Microsoft Docs
-description: "En este artículo se explica cómo Security Center puede ayudarle a proteger bases de datos en Azure SQL Database."
+description: En este artículo se explica cómo Security Center puede ayudarle a proteger bases de datos en Azure SQL Database.
 services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Servicios Azure Security Center y Azure SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) ayuda a evita y a detectar las amenazas, además de a responder a ellas. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
-En este artículo se explica cómo Security Center puede ayudarlo a proteger bases de datos en Azure SQL Database.
+En este artículo se explica cómo Security Center puede ayudarle a proteger bases de datos en Azure SQL Database.
 
 ## <a name="why-use-security-center"></a>Razones para usar Security Center
 Security Center ayuda a proteger los datos de SQL Database ofreciendo visibilidad de la seguridad en todos los servidores y bases de datos. Con Security Center puede realizar estas tareas:
@@ -35,10 +35,10 @@ Security Center ayuda a proteger los datos de SQL Database ofreciendo visibilida
 
 Además de ayudarlo a proteger los recursos de SQL Database, Security Center también proporciona funcionalidades de administración y supervisión de seguridad de máquinas virtuales de Azure, Cloud Services, App Services, redes virtuales y mucho más. Obtenga más información sobre Security Center [aquí](security-center-intro.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. El nivel Gratis de Security Center se habilita con su suscripción. Para obtener más información sobre los niveles Gratis y Estándar de Security Center, consulte [Centro de seguridad Precios](https://azure.microsoft.com/pricing/details/security-center/).
 
-El Centro de seguridad admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md). Las P+F de Security Center proporcionan información sobre [cómo se controlan los permisos en Security Center](security-center-faq.md#permissions).
+El Centro de seguridad admite el acceso basado en rol. Para obtener más información sobre el control de acceso basado en rol (RBAC) de Azure, consulte [Control de acceso basado en roles de Azure Active Directory](../role-based-access-control/role-assignments-portal.md). Las P+F de Security Center proporcionan información sobre [cómo se controlan los permisos en Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Acceso al Centro de seguridad
 Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). [Inicie sesión en el portal](https://portal.azure.com/) y seleccione la **opción de Security Center**.
@@ -66,7 +66,7 @@ El Centro de seguridad analiza periódicamente el estado de seguridad de los rec
 
 Después de establecer una directiva de seguridad, Security Center analiza el estado de seguridad de los recursos para identificar posibles vulnerabilidades. Las recomendaciones aparecen en un formato de tabla, donde cada línea representa una recomendación determinada. Utilice la tabla siguiente como referencia para entender las recomendaciones que hay disponibles para Azure SQL Database y lo que hacen cada una de ellas si se aplican. Al seleccionar una recomendación, se le redirigirá a un artículo donde se explica cómo implementar la recomendación en Security Center.
 
-| Recomendación | Description |
+| Recomendación | DESCRIPCIÓN |
 | --- | --- |
 | [Habilitar la auditoría y la detección de amenazas en los servidores SQL](security-center-enable-auditing-on-sql-servers.md) |Recomienda activar la detección de amenazas y la auditoría en los servidores de SQL Database. (Solo disponible para el servicio SQL Database. Se excluyen las instancias de Microsoft SQL Server que se ejecutan en las máquinas virtuales). |
 | [Habilitar la auditoría y la detección de amenazas en las bases de datos SQL](security-center-enable-auditing-on-sql-databases.md) |Recomienda activar la detección de amenazas y la auditoría en las bases de datos de SQL Database. (Solo disponible para el servicio SQL Database. Se excluyen las instancias de Microsoft SQL Server que se ejecutan en las máquinas virtuales). |
@@ -83,7 +83,7 @@ Siga los pasos de [SQL Database Threat Detection in the Azure portal](../sql-dat
 
 Para obtener más información sobre las recomendaciones, consulte el artículo sobre cómo [administrar recomendaciones de seguridad](security-center-recommendations.md).
 
-## <a name="monitor-security-health"></a>Supervisión del estado de seguridad
+## <a name="monitor-security-health"></a>Supervisión del estado de la seguridad
 Después de habilitar las [directivas de seguridad](security-center-policies.md) para los recursos de una suscripción, Security Center analizará la seguridad de los recursos para identificar vulnerabilidades potenciales.  Puede consultar el estado de seguridad de sus recursos en el icono de **Estado de seguridad del recurso**. Al hacer clic en la opción **Datos** del icono de **Estado de seguridad del recurso**, se abrirá la hoja de **recursos de datos** con recomendaciones de SQL para problemas como que no estén habilitados la auditoría ni el cifrado de datos transparente. También tiene las recomendaciones sobre el estado general de la base de datos.
 ![Estado de seguridad de los recursos][6]
 

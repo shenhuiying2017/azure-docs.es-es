@@ -1,24 +1,18 @@
 ---
-title: "Actualización de API de REST del servicio Azure Search versión 2016-09-01 | Microsoft Docs"
-description: "Actualización de API de REST del Servicio Azure Search versión 2016-09-01"
-services: search
-documentationcenter: 
+title: Actualización de API de REST del servicio Azure Search versión 2016-09-01 | Microsoft Docs
+description: Actualización de API de REST del Servicio Azure Search versión 2016-09-01
 author: brjohnstmsft
-manager: pablocas
-editor: 
-ms.assetid: 6183fa6c-48bb-4af7-adae-4be3bc43c3ed
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
-ms.openlocfilehash: f6a189c2e314b91c490583a86d8bacca8ec78a0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2e8d5dd7f54e3435d1d94f34a5d4556690bfba8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrading-to-the-azure-search-service-rest-api-version-2016-09-01"></a>Actualización de API de REST del Servicio Azure Search versión 2016-09-01
 Si usa la versión 2015-02-28 o 2015-02-28-Preview de [API de REST del servicio Azure Search](https://msdn.microsoft.com/library/azure/dn798935.aspx), este artículo le ayudará a actualizar la aplicación para que use la siguiente versión de API disponible con carácter general, 2016-09-01.
@@ -66,5 +60,5 @@ Si necesita más información sobre el uso de API de REST del servicio Azure Sea
 
 Agradecemos sus comentarios sobre Azure Search. Si tiene algún problema, no dude en pedirnos ayuda en el [foro de MSDN sobre Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) o [StackOverflow](http://stackoverflow.com/). Si va a hacer una pregunta sobre Azure Search en StackOverflow, asegúrese de etiquetarla con `azure-search`.
 
-Gracias por usar Búsqueda de Azure.
+Gracias por usar Azure Search.
 

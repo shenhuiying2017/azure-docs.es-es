@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Introducción a las plantillas privadas de Azure Portal
 Las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) son plantillas declarativas que se utilizan para definir la implementación. Puede definir los recursos que se van a implementar en una solución y especificar parámetros y variables que le permitan especificar valores de entrada para diferentes entornos. La plantilla consta de código JSON y expresiones que puede usar para generar valores para su implementación.
@@ -103,7 +103,7 @@ Puede implementar cualquier **plantilla** en la que tenga permisos de **lectura*
 ![Implementar plantilla](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Uso compartido de un recurso de plantilla
-Puede compartir con sus compañeros los recursos de **plantilla** . El proceso de uso compartido es similar a la [asignación de roles en recursos de Azure](../active-directory/role-based-access-control-configure.md). El propietario de la **plantilla** proporciona permisos a otros usuarios para que puedan interactuar con el recurso de plantilla. La persona o el grupo de personas con los que se comparte la **plantilla** pueden ver la plantilla de Resource Manager y las propiedades de la galería.
+Puede compartir con sus compañeros los recursos de **plantilla** . El proceso de uso compartido es similar a la [asignación de roles en recursos de Azure](../role-based-access-control/role-assignments-portal.md). El propietario de la **plantilla** proporciona permisos a otros usuarios para que puedan interactuar con el recurso de plantilla. La persona o el grupo de personas con los que se comparte la **plantilla** pueden ver la plantilla de Resource Manager y las propiedades de la galería.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Control de acceso en los recursos de Microsoft.Gallery
 | Rol | Permisos |

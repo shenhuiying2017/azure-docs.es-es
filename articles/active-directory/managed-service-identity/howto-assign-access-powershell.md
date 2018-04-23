@@ -1,11 +1,11 @@
 ---
-title: "Asignación de un acceso de MSI a un recurso de Azure mediante PowerShell"
+title: Asignación de un acceso de MSI a un recurso de Azure mediante PowerShell
 description: Instrucciones paso a paso para asignar una identidad de servicio administrada (MSI) en un recurso y acceso a otro recurso, mediante PowerShell.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 36b95a1de64fe49a1225bd647ca963c8957fe160
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7074aeddaf5ff3e64c4ccb12c3bfbb53b54eea33
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Asignación de un acceso de Managed Service Identity (MSI) a un recurso mediante PowerShell
 
@@ -35,10 +35,10 @@ A continuación, instale [Azure PowerShell versión 4.3.1](https://www.powershel
 
 Después de habilitar MSI en un recurso de Azure, [como una máquina virtual de Azure](qs-configure-powershell-windows-vm.md):
 
-1. Inicie sesión en Azure mediante el cmdlet `Login-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure en la que haya configurado la identidad de servicio administrada:
+1. Inicie sesión en Azure mediante el cmdlet `Connect-AzureRmAccount`. Use una cuenta asociada a la suscripción de Azure en la que haya configurado la identidad de servicio administrada:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 2. En este ejemplo, vamos a dar a una máquina virtual de Azure acceso a una cuenta de almacenamiento. En primer lugar, se usa [Get- AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) para obtener la entidad de servicio para la máquina virtual denominada "myVM", que se creó cuando se habilitó MSI. A continuación, usamos [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) para conceder a la máquina virtual acceso de "Lectura" a una cuenta de almacenamiento denominada "myStorageAcct":
 

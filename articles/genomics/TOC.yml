@@ -23,6 +23,8 @@
   items:
     - name: Preguntas frecuentes
       href: frequently-asked-questions-genomics.md
+    - name: Guía de solución de problemas
+      href: troubleshooting-guide-genomics.md
     - name: Historial de lanzamiento de versiones
       href: version-release-history-genomics.md
     - name: Continuidad del negocio

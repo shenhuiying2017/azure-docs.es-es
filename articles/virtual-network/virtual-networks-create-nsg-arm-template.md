@@ -1,6 +1,6 @@
 ---
-title: "Creación de grupos de seguridad de red (plantilla de Azure Resource Manager) | Microsoft Docs"
-description: "Obtenga información sobre cómo crear e implementar grupos de seguridad de red mediante una plantilla de Azure Resource Manager."
+title: Creación de grupos de seguridad de red (plantilla de Azure Resource Manager) | Microsoft Docs
+description: Obtenga información sobre cómo crear e implementar grupos de seguridad de red mediante una plantilla de Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Creación de grupos de seguridad de red mediante una plantilla de Azure Resource Manager
 
@@ -162,7 +162,7 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
         info:    New mode is arm
 
-3. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
+3. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual con la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'

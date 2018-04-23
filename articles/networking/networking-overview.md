@@ -1,13 +1,13 @@
 ---
 title: Redes de Azure | Microsoft Docs
-description: "Obtenga información sobre servicios de redes y funcionalidades de Azure ."
+description: Obtenga información sobre servicios de redes y funcionalidades de Azure .
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Redes de Azure
 
@@ -138,7 +138,7 @@ Azure proporciona las siguientes herramientas para supervisar y administrar las 
 - **Registros de diagnóstico:** los recursos de red crean eventos periódicos y espontáneos y estos se registran en las cuentas de almacenamiento de Azure, se envían a un centro de eventos de Azure o a Azure Log Analytics. Estos registros de diagnóstico proporcionan información acerca del estado de un recurso. Los registros de diagnóstico se proporcionan para Load Balancer (con conexión a Internet), los grupos de seguridad de red, las rutas y Application Gateway. Para más información acerca de los registros de diagnóstico, consulte el artículo [Introducción a los registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Métricas:** las métricas son medidas de rendimiento y contadores recopilados durante un período de tiempo en los recursos. Las métricas se pueden utilizar para desencadenar alertas basadas en umbrales. Las métricas están disponibles actualmente en Application Gateway. Para más información sobre las métricas, consulte el artículo de [introducción a las métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solución de problemas:** se puede acceder directamente a la información para solucionar problemas en Azure Portal. Esta información ayuda a diagnosticar los problemas comunes con ExpressRoute, VPN Gateway, Application Gateway, registros de seguridad de red, rutas, DNS, Load Balancer y Traffic Manager.
-- **Control de acceso basado en rol (RBAC):** controle quién puede crear y administrar recursos de red con el control de acceso basado en rol (RBAC). Obtenga más información sobre RBAC en el artículo [Introducción al control de acceso basado en roles en Azure Portal](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json). 
+- **Control de acceso basado en rol (RBAC):** controle quién puede crear y administrar recursos de red con el control de acceso basado en rol (RBAC). Obtenga más información sobre RBAC en el artículo [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json). 
 - **Captura de paquetes:** el servicio Azure Network Watcher proporciona la capacidad de ejecutar una captura de paquetes en una máquina virtual a través de una extensión en la máquina virtual. La funcionalidad está disponible para máquinas virtuales Linux y Windows. Para más información sobre la captura de paquetes, consulte el artículo [Introducción a la captura de paquetes](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Comprobar flujos de IP:** Network Watcher le permite comprobar los flujos de IP entre una máquina virtual de Azure y un recurso remoto para determinar si los paquetes se permiten o deniegan. Esta funcionalidad proporciona a los administradores la capacidad de diagnosticar rápidamente problemas de conectividad. Para más información sobre cómo comprobar los flujos de IP, consulte el artículo [Introducción a la comprobación de flujo de IP de Azure Network Watcher](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Solucionar problemas de conectividad VPN:** la funcionalidad del solucionador de problemas de VPN de Network Watcher proporciona la capacidad de consultar una conexión o puerta de enlace y comprobar el estado de los recursos. Para más información sobre la solución de problemas de conexiones VPN, consulte la [Introducción a la solución de problemas de conectividad VPN](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).

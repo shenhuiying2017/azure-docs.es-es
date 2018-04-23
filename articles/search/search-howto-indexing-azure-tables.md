@@ -1,24 +1,18 @@
 ---
-title: "Indexación de Azure Table Storage con Azure Search | Microsoft Docs"
+title: Indexación de Azure Table Storage con Azure Search | Microsoft Docs
 description: Aprenda a indexar datos almacenados en tablas de Azure Table Storage con Azure Search
-services: search
-documentationcenter: 
 author: chaosrealm
-manager: pablocas
-editor: 
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 317b76809bb7dc47f607687efe2311727859214a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
 En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
@@ -27,7 +21,7 @@ En este artículo se muestra cómo usar Azure Search para indexar datos almacena
 
 Puede configurar un indexador de Azure Table Storage mediante estos recursos:
 
-* [Portal de Azure](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * [API de REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Azure Search
 * [SDK de .NET de Azure Search](https://aka.ms/search-sdk)
 
@@ -122,7 +116,7 @@ Para más información sobre la API de creación de indexador, consulte [Create 
 A veces, los nombres de los campos de un índice existente no coincidirán con los nombres de las propiedades de la tabla. Puede usar asignaciones de campos para asignar los nombres de propiedad procedentes de la tabla a los nombres de campo del índice de búsqueda. Para aprender más sobre las asignaciones de campos, consulte [Las asignaciones de campos de indexador de Azure Search salvan las diferencias entre los orígenes de datos y los índices de búsqueda](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Trabajo con claves de documento
-En Búsqueda de Azure, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. El campo de clave es necesario para cada documento que se agrega al índice (de hecho, es el único campo obligatorio).
+En Azure Search, la clave del documento identifica de forma exclusiva a un documento. Cada índice de búsqueda debe tener exactamente un campo clave de tipo `Edm.String`. El campo de clave es necesario para cada documento que se agrega al índice (de hecho, es el único campo obligatorio).
 
 Como las filas de tablas tienen una clave compuesta, Azure Search genera un campo sintético llamado `Key`, que es una concatenación de valores de clave de partición y clave de fila. Por ejemplo, si el valor PartitionKey de una fila es `PK1` y el valor RowKey es `RK1`, el valor del campo `Key` es `PK1RK1`.
 
@@ -167,5 +161,5 @@ Aquí hay dos posibles enfoques para mejorar el rendimiento de la indexación de
     - Con este enfoque, si tiene que desencadenar un reindexado completo, tendrá que restablecer la consulta del origen de datos, además de restablecer el indexador. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Búsqueda de Azure
+## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Azure Search
 Si tiene solicitudes o ideas para mejorar las características, envíelas en el [sitio de UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

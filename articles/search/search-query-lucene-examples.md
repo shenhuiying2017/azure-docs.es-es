@@ -1,27 +1,20 @@
 ---
 title: Ejemplos de consultas de Lucene para Azure Search | Microsoft Docs
-description: "Sintaxis de consulta de Lucene para la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos, la búsqueda de expresiones regulares y la búsqueda con caracteres comodín"
-services: search
-documentationcenter: 
+description: Sintaxis de consulta de Lucene para la búsqueda aproximada, la búsqueda de proximidad, la priorización de términos, la búsqueda de expresiones regulares y la búsqueda con caracteres comodín
 author: LiamCa
-manager: pablocas
-editor: 
+manager: jlembicz
 tags: Lucene query analyzer syntax
-ms.assetid: 147f360d-a5ce-4d7b-a909-c8b65bfb748c
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: liamca
-ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bf033d7549f3a1213d7a2b2c3694ae7415643eb
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Búsqueda de Azure
+# <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search
 Al construir consultas para Azure Search, puede usar la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminada o el [analizador de consultas Lucene alternativo de Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). El Analizador de consultas de Lucene admite las construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda por proximidad, la priorización de términos y las expresiones regulares.
 
 En este artículo, puede ir a través de ejemplos de operaciones de consulta disponibles cuando se usa la sintaxis completa.
@@ -131,8 +124,8 @@ Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres co
 ## <a name="next-steps"></a>Pasos siguientes
 Intente especificar el Analizador de consultas de Lucene en el código. Los vínculos siguientes explican cómo configurar las consultas de búsqueda para la API de REST y .NET. Los vínculos usan la sintaxis simple de forma predeterminada, por lo que deberá aplicar lo aprendido en este artículo para especificar el valor de **queryType**.
 
-* [Consultas del índice de Búsqueda de Azure con el SDK de .NET](search-query-dotnet.md)
-* [Realización de una consulta al índice de Búsqueda de Azure con la API de REST](search-query-rest-api.md)
+* [Consultas del índice de Azure Search con el SDK de .NET](search-query-dotnet.md)
+* [Realización de una consulta al índice de Azure Search con la API de REST](search-query-rest-api.md)
 
 ## <a name="see-also"></a>Otras referencias
 

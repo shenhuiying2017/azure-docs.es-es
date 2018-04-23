@@ -1,30 +1,30 @@
 ---
-title: "Creación de un desencadenador HTTP con un enlace de entrada de Azure Cosmos DB | Microsoft Docs"
+title: Creación de un desencadenador HTTP con un enlace de entrada de Azure Cosmos DB | Microsoft Docs
 description: Aprenda a utilizar Azure Functions con desencadenadores HTTP para realizar consultas en Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: 
-author: mimig1
-manager: jhubbard
-ms.assetid: 
+documentationcenter: ''
+author: SnehaGunda
+manager: kfile
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creación de un desencadenador HTTP de Azure Functions con un enlace de entrada de Azure Cosmos DB
 
 Azure Cosmos DB es una base de datos de varios modelos distribuida globalmente que no tiene esquema ni servidor. Azure Functions es un servicio de procesos sin servidor que le permite ejecutar código a petición. Empareje estos dos servicios de Azure y tendrá la base de una arquitectura sin servidor que le permite centrarse en la creación de aplicaciones fantásticas y no preocuparse acerca del aprovisionamiento y el mantenimiento de servidores que cubran las necesidades del proceso y de la base de datos necesita.
 
-Este tutorial se basa en el código creado en el artículo [Azure Cosmos DB: Compilar una aplicación de .NET mediante API Graph](create-graph-dotnet.md). Este tutorial agrega una función de Azure que contiene un [desencadenador HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). El desencadenador HTTP utiliza un [enlace de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) de Azure Cosmos DB para recuperar datos de la base de datos de grafos creada en la guía de inicio rápido. Este desencadenador HTTP concreto consulta los datos de Azure Cosmos DB, pero los enlaces de entrada de Azure Cosmos DB se pueden usar para recuperar los valores de entrada de datos de todo aquello que la función requiera.
+Este tutorial se basa en el código creado en el artículo [Azure Cosmos DB: Compilar una aplicación de .NET mediante Graph API](create-graph-dotnet.md). Este tutorial agrega una función de Azure que contiene un [desencadenador HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). El desencadenador HTTP utiliza un [enlace de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) de Azure Cosmos DB para recuperar datos de la base de datos de grafos creada en la guía de inicio rápido. Este desencadenador HTTP concreto consulta los datos de Azure Cosmos DB, pero los enlaces de entrada de Azure Cosmos DB se pueden usar para recuperar los valores de entrada de datos de todo aquello que la función requiera.
 
 En este tutorial se describen las tareas siguientes:
 
@@ -34,7 +34,7 @@ En este tutorial se describen las tareas siguientes:
 > * Publicación de la función de Azure
 > * Conexión de la función de Azure con la base de datos de Azure Cosmos DB
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 - [Versión 15.3 de Visual Studio 2017](https://www.visualstudio.com/vs/preview/), con la carga de trabajo **Desarrollo de Azure**.
 
@@ -42,7 +42,7 @@ En este tutorial se describen las tareas siguientes:
     
 - Después de instalar Visual Studio 2017 versión 15.3 o actualizar a esta versión, también debe actualizar manualmente las herramientas de Visual Studio 2017 para Azure Functions. Puede actualizar las herramientas del menú **Herramientas** situado bajo **Extensiones y actualizaciones...**  > **Actualizaciones** > **Visual Studio Marketplace** > **Herramientas de Azure Functions y Web Jobs** > **Actualizar**.
 
-- Complete el tutorial [Azure Cosmos DB: desarrollo con API Graph en .NET](tutorial-develop-graph-dotnet.md) u obtenga el código de ejemplo del repositorio de GitHub [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) y compile el proyecto.
+- Complete el tutorial [Azure Cosmos DB: desarrollo con Graph API en .NET](tutorial-develop-graph-dotnet.md) u obtenga el código de ejemplo del repositorio de GitHub [azure-cosmos-db-graph-dotnet-getting-started](https://github.com/Azure-Samples/azure-cosmos-db-graph-dotnet-getting-started) y compile el proyecto.
  
 ## <a name="build-a-function-in-visual-studio"></a>Compilación de una función en Visual Studio
 
@@ -56,9 +56,9 @@ En este tutorial se describen las tareas siguientes:
 
    ![Administración de paquetes NuGet](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. En la pestaña **Examinar**, escriba **azure.graphs** para buscar el paquete **Microsoft.Azure.Graphs** y haga clic en **Instalar**. Este paquete contiene el SDK de cliente .NET de API Graph.
+    b. En la pestaña **Examinar**, escriba **azure.graphs** para buscar el paquete **Microsoft.Azure.Graphs** y haga clic en **Instalar**. Este paquete contiene el SDK de cliente .NET de Graph API.
 
-   ![Instalar la API Graph](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
+   ![Instalar Graph API](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
     c. En la pestaña **Examinar**, escriba **mono.csharp** para buscar el paquete **Mono.CSharp** y. después, haga clic en **Instalar**.
 
@@ -75,7 +75,7 @@ En este tutorial se describen las tareas siguientes:
 
 4. La función de Azure responderá a las solicitudes HTTP, por lo que la plantilla de desencadenador de Http es adecuada aquí.
    
-   En el cuadro **Nueva función de Azure**, seleccione **Desencadenador HTTP**. También deseamos que esta función de Azure esté "totalmente abierta", por lo que en **Derechos de acceso** seleccionamos **Anónimo**, lo que permite pasar a todos los usuarios. Haga clic en **Aceptar**.
+   En el cuadro **Nueva función de Azure**, seleccione **Desencadenador HTTP**. También deseamos que esta función de Azure esté "totalmente abierta", por lo que en **Derechos de acceso** seleccionamos **Anónimo**, lo que permite pasar a todos los usuarios. Haga clic en **OK**.
 
    ![Establecer derechos de acceso en anónimo](./media/tutorial-functions-http-trigger/06-http-trigger.png)
 
@@ -98,7 +98,7 @@ En este tutorial se describen las tareas siguientes:
    using System.Threading.Tasks;
    ```
 
-6. A continuación, reemplace el código de clase de la función de Azure por el código siguiente. El código busca en la base de datos de Azure Cosmos DB mediante la API Graph todas las personas o la persona específica identificado por el parámetro de la cadena de consulta `name` .
+6. A continuación, reemplace el código de clase de la función de Azure por el código siguiente. El código busca en la base de datos de Azure Cosmos DB mediante Graph API todas las personas o la persona específica identificado por el parámetro de la cadena de consulta `name`.
 
    ```csharp
    public static class Search

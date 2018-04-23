@@ -5,7 +5,7 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 
@@ -106,7 +106,7 @@ En la tabla siguiente se muestran los grupos Diffie-Hellman admitidos en la dire
 | 2                         | DHGroup2                 | PFS2         | MODP de 1024 bits  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP de 2048 bits  |
 | 19                        | ECP256                   | ECP256       | ECP de 256 bits    |
-| 20                         | ECP384                   | ECP284       | ECP de 384 bits    |
+| 20                        | ECP384                   | ECP284       | ECP de 384 bits    |
 | 24                        | DHGroup24                | PFS24        | MODP de 2048 bits  |
 
 Consulte [RFC3526](https://tools.ietf.org/html/rfc3526) y [RFC5114](https://tools.ietf.org/html/rfc5114) para ver información más detallada.
@@ -162,7 +162,7 @@ Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Adminis
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```

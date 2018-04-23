@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de distribución global de Azure Cosmos DB para API Graph | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con la API Graph."
+title: Tutorial de distribución global de Azure Cosmos DB para Graph API | Microsoft Docs
+description: Obtenga información sobre cómo configurar la distribución global de Azure Cosmos DB con Graph API.
 services: cosmos-db
-keywords: "distribución global, graph, gremlin"
-documentationcenter: 
+keywords: distribución global, graph, gremlin
+documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 1806bde383f04747f1f0fef46e5cf4d38de1e939
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.openlocfilehash: 273b5aeafbf67016259da787f4dfef078ec0a669
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Configuración de la distribución global de Azure Cosmos DB con la API Graph
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-graph-api"></a>Configuración de la distribución global de Azure Cosmos DB con Graph API
 
 En este artículo se muestra cómo usar Azure Portal para configurar la distribución global de Azure Cosmos DB y luego conectarse con Graph API.
 
@@ -35,7 +35,7 @@ En este artículo se tratan las tareas siguientes:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Conexión a una región de preferencia con la API Graph mediante el SDK de .NET
+## <a name="connecting-to-a-preferred-region-using-the-graph-api-using-the-net-sdk"></a>Conexión a una región de preferencia con Graph API mediante el SDK de .NET
 
 Graph API se expone como una biblioteca de extensiones sobre SQL API.
 

@@ -1,25 +1,18 @@
 ---
-title: "Tutorial de Azure Search sobre indexación, consulta y filtrado mediante el portal | Microsoft Docs"
-description: "En Azure Portal, use datos de ejemplo predefinidos para generar un índice en Azure Search. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más."
-services: search
-documentationcenter: 
+title: Tutorial de Azure Search sobre indexación, consulta y filtrado mediante el portal | Microsoft Docs
+description: En Azure Portal, use datos de ejemplo predefinidos para generar un índice en Azure Search. Explore la búsqueda de texto completo, los filtros, las facetas, la búsqueda aproximada, la búsqueda geográfica y más.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: azure-portal
-ms.assetid: 
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 12/04/2017
 ms.author: heidist
-ms.openlocfilehash: 528fd6e82079f37c1e9f907e081a1e918abd241e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0dbc4ca0b3ca5ce59fb81e1a241982bca099aab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Creación, consulta y filtro de un índice en el portal de Azure Search
 

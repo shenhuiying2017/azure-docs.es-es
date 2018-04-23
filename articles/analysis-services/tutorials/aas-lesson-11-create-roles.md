@@ -1,25 +1,18 @@
 ---
-title: "Lección 11 del tutorial de Azure Analysis Services: Creación de roles | Microsoft Docs"
-description: "Describe cómo crear roles en el proyecto del tutorial de Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 11 del tutorial de Azure Analysis Services: Creación de roles | Microsoft Docs'
+description: Describe cómo crear roles en el proyecto del tutorial de Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 7a34884482a53a9b96dac87dc30803be08fdc806
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-roles"></a>Creación de roles
 
@@ -40,7 +33,7 @@ Dado que las cuentas de usuario y de grupo de Windows de la organización son ú
   
 Tiempo estimado para completar esta lección: **15 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 10: Creación de particiones](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Creación de roles  

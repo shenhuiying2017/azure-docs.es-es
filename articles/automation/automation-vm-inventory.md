@@ -2,17 +2,18 @@
 title: Administración de una máquina virtual de Azure con la recopilación de inventario | Microsoft Docs
 description: Administración de una máquina virtual con la recopilación de inventario
 services: automation
+ms.service: automation
 keywords: inventario, automatización, cambio, seguimiento
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6eb1a77613c6f7784e251bb99a03e6ca7e1f7017
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0b744911d37e2d54f88ebeac3ec64a309bab22b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Administración de una máquina virtual de Azure con la recopilación de inventario
 

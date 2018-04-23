@@ -1,12 +1,12 @@
 ---
-title: "Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI"
-description: "Información sobre seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI"
+title: Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
+description: Información sobre seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 8c3ce8bc69a098d3133f27a2604f9d564693ea54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI
 
@@ -28,7 +28,7 @@ Seguridad de nivel de fila (RLS) puede utilizarse para restringir el acceso de u
 ![Flujo de seguridad de nivel de fila de Colecciones de áreas de trabajo de Power BI](media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> Colecciones de áreas de trabajo de Power BI está en desuso y estará disponible hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para obtener más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de la colección de áreas de trabajo de Power BI Embedded a Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Para sacar el máximo partido de RLS, es importante comprender tres conceptos principales: usuarios, roles y reglas. Profundicemos en cada uno de ellos:
 
@@ -89,7 +89,7 @@ Ahora, los filtros también pueden fluir de la tabla Sales a la tabla **Items** 
 > [!NOTE]
 > Si utiliza el modo DirectQuery para los datos, tendrá que habilitar el filtrado cruzado bidireccional seleccionando estas dos opciones:
 
-1. **Archivo** ->  **Opciones y configuración** -> **Características de vista previa** -> **Enable cross filtering in both directions for DirectQuery** (Habilitar filtrado cruzado en ambas direcciones para DirectQuery).
+1. **Archivo** -> **Opciones y configuración** -> **Características de vista previa** -> **Enable cross filtering in both directions for DirectQuery** (Habilitar filtrado cruzado en ambas direcciones para DirectQuery).
 2. **Archivo** -> **Opciones y configuración** -> **DirectQuery** -> **Allow unrestricted measure in DirectQuery mode** (Permitir medida sin restricciones en el modo DirectQuery).
 
 Para más información acerca de filtrado cruzado bidireccional, descargue el documento [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) ([Filtrado cruzado bidireccional en SQL Server Analysis Services 2016 y Power BI Desktop]).
@@ -120,7 +120,7 @@ Ahora, con todas las piezas juntas, cuando un usuario inicie sesión en nuestra 
 ## <a name="see-also"></a>Otras referencias
 
 [Seguridad de nivel de fila](https://powerbi.microsoft.com/documentation/powerbi-admin-rls/)  
-[Autenticación y autorización con Colecciones de áreas de trabajo de Power BI](app-token-flow.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 

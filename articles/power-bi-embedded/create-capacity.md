@@ -1,24 +1,24 @@
 ---
-title: "Creación de una capacidad de Power BI Embedded en Azure Portal | Microsoft Docs"
-description: "Este artículo lo guía por el proceso de creación de una capacidad de Power BI Embedded en Microsoft Azure."
+title: Creación de una capacidad de Power BI Embedded en Azure Portal | Microsoft Docs
+description: Este artículo lo guía por el proceso de creación de una capacidad de Power BI Embedded en Microsoft Azure.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: bf7eb967760338626cd7e0465b16dc570e5f582a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: maghan
+ms.openlocfilehash: 2fadfde13aee3aaf965c6ba30188544a8a075b9d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>Creación de una capacidad de Power BI Embedded en Azure Portal
 
@@ -33,7 +33,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para completar este inicio rápido necesita instalar:
 
 * **Suscripción de Azure**: visite [Evaluación gratuita de Azure](https://azure.microsoft.com/free/) para crear una cuenta.
-* **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory (AAD). Además, ***debe estar conectado a Azure con una cuenta en ese inquilino***. No se admiten cuentas de Microsoft. Para obtener más información, consulte Permisos de usuario y autenticación.
+* **Azure Active Directory**: la suscripción debe estar asociada a un inquilino de Azure Active Directory (AAD). Además, ***debe estar conectado a Azure con una cuenta en ese inquilino***. No se admiten cuentas de Microsoft. Para más información, consulte [Permisos de usuario y autenticación](../analysis-services/analysis-services-manage-users.md).
 * **Inquilino de Power BI**: debe haber registrada, al menos, una cuenta en su inquilino de AAD para Power BI.
 * **Grupo de recursos**: use un grupo de recursos que ya tenga o [cree uno](../azure-resource-manager/resource-group-overview.md).
 

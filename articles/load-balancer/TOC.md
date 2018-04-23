@@ -12,15 +12,15 @@
 ## [Diagnósticos y métrica de Load Balancer estándar](load-balancer-standard-diagnostics.md)
 
 # Introducción
-## [Creación de Load Balancer básico](load-balancer-get-started-internet-portal.md)
-### [Creación de Load Balancer básico (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Creación de Load Balancer básico (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-## [Creación de Load Balancer estándar](load-balancer-standard-public-portal.md)
-### [Creación de Load Balancer estándar (CLI)](load-balancer-standard-public-cli.md)
+## [Creación de Load Balancer básico](quickstart-create-basic-load-balancer-portal.md)
+### [Creación de Load Balancer básico (CLI)](quickstart-create-basic-load-balancer-cli.md)
+### [Creación de Load Balancer básico (PowerShell)](quickstart-create-basic-load-balancer-powershell.md)
+## [Creación de Load Balancer estándar](quickstart-load-balancer-standard-public-portal.md)
+### [Creación de Load Balancer estándar (CLI)](quickstart-load-balancer-standard-public-cli.md)
 
 # Procedimientos
 
-## [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas](load-balancer-get-started-internet-az-portal.md)
+## [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Creación de una instancia de Load Balancer Estándar pública con redundancia de zonas (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Creación de una instancia de Load Balancer Estándar pública zonal](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

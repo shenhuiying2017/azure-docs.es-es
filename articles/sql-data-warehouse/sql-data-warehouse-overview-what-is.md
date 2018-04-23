@@ -1,25 +1,20 @@
 ---
-title: "¿Qué es Azure SQL Data Warehouse? | Microsoft Docs"
-description: "Base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos."
+title: ¿Qué es Azure SQL Data Warehouse? | Microsoft Docs
+description: Base de datos distribuida de clase empresarial, capaz de procesar volúmenes de petabytes de datos relacionales y no relacionales. Es el primer almacenamiento de datos en la nube de la industria que aumenta, reduce y hace una pausa en segundos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>¿Qué es Azure SQL Data Warehouse?
 
@@ -37,13 +32,6 @@ SQL Data Warehouse almacena los datos en tablas relacionales con almacenamiento 
 
 Los resultados del análisis pueden ir a aplicaciones o bases de datos de informes mundiales. En ellas, los analistas empresariales pueden obtener información útil para tomar decisiones empresariales bien informadas.
 
-## <a name="optimization-choices"></a>Opciones de optimización
-
-SQL Data Warehouse ofrece [niveles de rendimiento](performance-tiers.md) diseñados para proporcionar la flexibilidad necesaria para satisfacer sus necesidades de datos, independientemente de que sean grandes o pequeñas. Puede elegir un almacén de datos que esté optimizado para proporcionar mayor elasticidad o para el proceso. 
-
-- El **nivel de rendimiento optimizado para elasticidad** separa las capas de proceso y almacenamiento en la arquitectura. Esta opción resulta muy útil para las cargas de trabajo que pueden aprovechar al máximo la separación entre proceso y almacenamiento, ya que se escala frecuentemente para admitir periodos breves de máxima actividad. Este nivel de proceso tiene el precio de venta al público de entrada más bajo y se puede escalar para admitir la mayoría de las cargas de trabajo del cliente.
-
-- El **nivel de rendimiento Optimizado para Compute** usa el hardware de Azure más reciente para introducir una nueva memoria caché de disco de estado sólido NVMe que mantiene los datos a los que se accede con mayor frecuencia cerca de las CPU, es decir, exactamente donde deben estar. Al organizar automáticamente el almacenamiento en niveles, este nivel de rendimiento resulta muy útil para las consultas complejas, ya que todas las E/S se mantienen de forma local en la capa de proceso. Además, el almacén de columnas se ha mejorado para almacenar una cantidad ilimitada de datos en SQL Data Warehouse. El nivel de rendimiento Optimizado para Compute proporciona un mayor nivel de escalabilidad y permite escalar hasta 30,000 unidades de almacenamiento de datos de proceso (cDWU). Elija este nivel para las cargas de trabajo que requieren un rendimiento continuo e increíblemente rápido.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] y [cargar datos de ejemplo de manera rápida][load sample data]. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de SQL Data Warehouse.  

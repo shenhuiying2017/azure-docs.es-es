@@ -1,25 +1,18 @@
 ---
-title: "Lección 5 del tutorial de Azure Analysis Services: Creación de columnas calculadas | Microsoft Docs"
-description: "Describe cómo crear columnas calculadas en el proyecto del tutorial de Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 5 del tutorial de Azure Analysis Services: Creación de columnas calculadas | Microsoft Docs'
+description: Describe cómo crear columnas calculadas en el proyecto del tutorial de Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 9b491af1e5c9da03f48335f5793ed71ddaf644fb
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: fa4a092fd811572136bf355de3545a2c847a5ed9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-calculated-columns"></a>Crear columnas calculadas
 
@@ -31,7 +24,7 @@ En esta lección también usará por primera vez Expresiones de análisis de dat
   
 Tiempo estimado para completar esta lección: **15 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 4: Creación de relaciones](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Crear columnas calculadas  

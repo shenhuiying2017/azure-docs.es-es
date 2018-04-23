@@ -1,23 +1,18 @@
 ---
-title: "Actualización a la versión 3 del SDK de .NET para Azure Search | Microsoft Docs"
-description: "Actualización a la versión 3 del SDK de .NET para Azure Search"
-services: search
-documentationcenter: 
+title: Actualización a la versión 3 del SDK de .NET para Azure Search | Microsoft Docs
+description: Actualización a la versión 3 del SDK de .NET para Azure Search
 author: brjohnstmsft
-manager: pablocas
-editor: 
+manager: jlembicz
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-ms.openlocfilehash: 48238788e06057ccaba41d1d3f500b5c10c93cb7
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 287b587badc0b1b6029ab0601ea19a734d56acd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Actualización a la versión 3 del SDK de .NET para Azure Search
 Si usa la versión preliminar 2.0 o posterior del [SDK de .NET para Azure Search](https://aka.ms/search-sdk), este artículo le ayudará a actualizar la aplicación para que use la versión 3.

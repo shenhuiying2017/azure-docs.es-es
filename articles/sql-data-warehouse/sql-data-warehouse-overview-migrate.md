@@ -1,25 +1,20 @@
 ---
-title: "Migración de la solución a SQL Data Warehouse | Microsoft Docs"
-description: "Guía de migración para llevar una solución a la plataforma Almacenamiento de datos SQL de Azure."
+title: Migración de la solución a SQL Data Warehouse | Microsoft Docs
+description: Guía de migración para llevar una solución a la plataforma Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 198365eb-7451-4222-b99c-d1d9ef687f1b
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/27/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 771b9456e66b8a1e41f72340b695b19e2adaf793
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: 5a609fb2da1f9dba1247358f64b284fc3e3ef5bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>Migración de una solución a Azure SQL Data Warehouse
 Vea lo que supone migrar una solución de base de datos existente a Azure SQL Data Warehouse. 

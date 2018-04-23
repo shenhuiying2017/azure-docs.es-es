@@ -1,11 +1,11 @@
 ---
-title: "Creación y uso compartido de paneles de datos de Azure Log Analytics | Microsoft Docs"
-description: "Con este tutorial le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista."
+title: Creación y uso compartido de paneles de datos de Azure Log Analytics | Microsoft Docs
+description: Con este tutorial le resultará más fácil comprender cómo los paneles de Log Analytics pueden mostrar todas las búsquedas de registros guardadas, lo que le permite ver su entorno en una sola vista.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f6a70f33b143a5b9354411af9717d2a21e24af0c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Creación y uso compartido de paneles de datos de Log Analytics
 
@@ -34,7 +34,7 @@ Los paneles de Log Analytics todas permiten visualizar todas las búsquedas de r
 Para completar el ejemplo en este tutorial, debe disponer de una máquina virtual existente [conectada al área de trabajo de Log Analytics](log-analytics-quick-collect-azurevm.md).  
  
 ## <a name="log-in-to-azure-portal"></a>Iniciar sesión en Azure Portal
-Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com). 
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-shared-dashboard"></a>Creación de un panel compartido
 
@@ -48,7 +48,7 @@ Esta acción crea un panel nuevo, vacío y privado, y activa el modo de personal
 
 Al crear un panel, será privado de forma predeterminada, lo que significa que usted será la única persona que puede verlo. Para que puedan verlo otros usuarios, utilice el botón **Compartir** que aparece junto al resto de los comandos del panel.<br> ![Uso compartido de un nuevo panel en Azure Portal](media/log-analytics-tutorial-dashboards/log-analytics-share-dashboard.png) 
 
-Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado " **paneles**".  Compruebe la suscripción seleccionada y, después, haga clic en **Publicar**.  El acceso a la información mostrada en el panel se controla con el [control de acceso basado en recursos de Azure](../active-directory/role-based-access-control-configure.md).   
+Se le pedirá que elija una suscripción y un grupo de recursos en el que se vaya a publicar el panel. Para mayor comodidad, la experiencia de publicación del portal lo guiará por un patrón donde colocará paneles en un grupo de recursos denominado " **paneles**".  Compruebe la suscripción seleccionada y, después, haga clic en **Publicar**.  El acceso a la información mostrada en el panel se controla con el [control de acceso basado en recursos de Azure](../role-based-access-control/role-assignments-portal.md).   
 
 ## <a name="visualize-a-log-search"></a>Visualización de una búsqueda de registros
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 ## <a name="introduction"></a>Introducción
@@ -101,7 +101,7 @@ Escenarios de integración
 
 -   Exportar el registro de actividad con perfiles de registro a [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-Puede usar una cuenta de almacenamiento o un [espacio de nombres de centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) adecuado a ambas suscripciones.
+Puede usar una cuenta de almacenamiento o un [espacio de nombres de centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) adecuado a ambas suscripciones.
 ### <a name="azure-diagnostic-logs"></a>Registros de diagnóstico de Azure
 Un recurso emite registros de diagnóstico de Azure que proporcionan datos exhaustivos y frecuentes acerca del funcionamiento de ese recurso. El contenido de estos registros varía según el tipo de recurso (por ejemplo, los [registros del sistema de eventos de Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) son una categoría de registro de diagnóstico para máquinas virtuales, mientras que los [registros de blob, tabla y cola](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) son categorías para cuentas de almacenamiento). Se diferencian del registro de actividad en que proporcionan información sobre las operaciones realizadas en recursos de su suscripción.
 
@@ -114,7 +114,7 @@ Los registros de diagnóstico de Azure ofrecen varias opciones de configuración
 
 -   [Transmitirlos Event Hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para la ingestión en un servicio de terceros o una solución de análisis personalizado como [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
--   Analizarlos con [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Analícelos con [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Servicios admitidos, esquema para registros de diagnóstico y categorías de registro admitidas por tipo de recurso**
 

@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="logging-api-reference"></a>Referencia de API de registro
 
@@ -39,7 +39,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-De manera predeterminada, todas las métricas se envían de forma asíncrona para que el envío no impida la ejecución del programa. Esto puede causar problemas de ordenación cuando se envían varias métricas en casos extremos. Un ejemplo de esto sería dos métricas que se registran al mismo tiempo, pero que, por alguna razón, el usuario prefiere que se conserve su orden exacto. Otro caso es cuando se debe realizar el seguimiento de la métrica antes de ejecutar algún código que se sabe que puede producir potencialmente errores inmediatos. En ambos casos, la solución consiste en _esperar_ hasta que la métrica se registre por completo antes de continuar:
+De manera predeterminada, todas las métricas se envían de forma asíncrona para que el envío no impida la ejecución del programa. Esto puede causar problemas de ordenación cuando se envían varias métricas en casos extremos. Un ejemplo de esto sería dos métricas que se registran al mismo tiempo, pero que, por alguna razón, el usuario prefiere que se conserve su orden exacto. Otro caso es cuando se debe realizar el seguimiento de la métrica antes de ejecutar algún código que se sabe que podría fracasar para responder rápido a los errores. En ambos casos, la solución consiste en _esperar_ hasta que la métrica se registre por completo antes de continuar:
 
 ```python
 # blocking call

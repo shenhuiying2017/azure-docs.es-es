@@ -1,25 +1,18 @@
 ---
 title: Actualización asincrónica de modelos de Azure Analysis Services | Microsoft Docs
 description: Obtenga información sobre cómo escribir el código de actualización asincrónica mediante el uso de la API de REST.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: bb3e50c3e481bcedc436b8382fb55d6402d058b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 74ef8ae45215badf2b5a83cc2d82c3db1eef8980
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualización asincrónica con la API de REST
 Mediante el uso de cualquier lenguaje de programación que admita llamadas REST, puede realizar operaciones de actualización de datos asincrónicas en los modelos tabulares de Azure Analysis Services. Esto incluye la sincronización de réplicas de solo lectura para la escalabilidad horizontal de consultas. 
@@ -102,9 +95,9 @@ El cuerpo debe ser similar al siguiente:
 ### <a name="parameters"></a>Parámetros
 No es necesario especificar parámetros. Se aplica el valor predeterminado.
 
-|NOMBRE  |type  |DESCRIPCIÓN  |Valor predeterminado  |
+|NOMBRE  |Escriba  |DESCRIPCIÓN  |Valor predeterminado  |
 |---------|---------|---------|---------|
-|type     |  Enum       |  El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic, add y defragment.       |   automatic      |
+|Escriba     |  Enum       |  El tipo de procesamiento que desea realizar. Los tipos se alinean con los tipos de [comandos de actualización ](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) de TMSL: full, clearValues, calculate, dataOnly, automatic, add y defragment.       |   automatic      |
 |CommitMode     |  Enum       |  Determina si los objetos se confirmarán en lotes o solo cuando hayan finalizado. Los modos incluyen: default, transactional y partialBatch.  |  transactional       |
 |MaxParallelism     |   int      |  Este valor determina el número máximo de subprocesos en los que ejecutar los comandos de procesamiento en paralelo. Este valor se alinea con la propiedad MaxParallelism que se puede establecer en el [comando de secuencia](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) de TMSL o mediante otros métodos.       | 10        |
 |RetryCount    |    int     |   Indica el número de veces que se volverá a intentar la operación antes de un error.      |     0    |

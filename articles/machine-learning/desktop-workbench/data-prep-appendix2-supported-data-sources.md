@@ -1,6 +1,6 @@
 ---
-title: "Orígenes de datos admitidos disponibles con la preparación de datos de Azure Machine Learning | Microsoft Docs"
-description: "En este documento se proporciona una lista completa de los orígenes de datos admitidos disponibles para la preparación de datos de Azure Machine Learning."
+title: Orígenes de datos admitidos disponibles con la preparación de datos de Azure Machine Learning | Microsoft Docs
+description: En este documento se proporciona una lista completa de los orígenes de datos admitidos disponibles para la preparación de datos de Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
@@ -8,15 +8,15 @@ manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
-ms.custom: 
-ms.devlang: 
+ms.custom: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ms.openlocfilehash: 7b42080ea4bf9a9e49f2695ab8746d9ead7348bd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Orígenes de datos admitidos para la preparación de datos de Azure Machine Learning 
 En este artículo se describen los orígenes de datos admitidos actualmente en la preparación de datos de Azure Machine Learning.
