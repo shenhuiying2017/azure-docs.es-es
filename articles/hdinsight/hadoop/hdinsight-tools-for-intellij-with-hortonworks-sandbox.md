@@ -3,7 +3,7 @@ title: Uso del kit de herramientas de Azure para IntelliJ con Hortonworks Sandbo
 description: Aprenda a usar las herramientas de HDInsight del kit de herramientas de Azure para IntelliJ con Hortonworks Sandbox.
 keywords: herramientas de hadoop,consulte de hive,intellij,hortonworks sandbox,kit de herramientas de azure para intellij
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -12,16 +12,14 @@ ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox
 
@@ -64,7 +62,7 @@ En esta sección, creará un proyecto de Scala de ejemplo con IntelliJ IDEA. En 
 
    ![Cuadro de diálogo Nuevo proyecto](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Seleccione **Siguiente**.
+2. Seleccione **Next** (Siguiente).
 3. En el cuadro de diálogo **New Project** (Nuevo proyecto), siga estos pasos:
 
     1. En el cuadro **Nombre del proyecto**, escriba un nombre de proyecto.

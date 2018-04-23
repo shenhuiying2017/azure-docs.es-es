@@ -3,18 +3,18 @@ title: Configuración de red virtual con Instancia administrada de Azure SQL Dat
 description: En este tema se describen las opciones de configuración para una red virtual con Instancia administrada de Azure SQL Database.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1a839a9bb2355da9451816828f6f9f0e99f43f5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -33,7 +33,7 @@ Planee cómo va a implementar Instancia administrada en una red virtual utilizan
 
    Si piensa usar una red virtual existente, tiene que modificar la configuración de red para dar cabida a Instancia administrada. Para más información, consulte [Modificación de una red virtual existente para Instancia administrada](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Si piensa crear una nueva red virtual, consulte la sección [Creación de una nueva red virtual para Instancia administrada](#create-new-virtual-network-for-managed-instances).
+   Si piensa crear una nueva red virtual, consulte la sección [Creación de una nueva red virtual para Instancia administrada](#create-a-new-virtual-network-for-managed-instances).
 
 ## <a name="requirements"></a>Requisitos
 
@@ -145,5 +145,5 @@ Si es así consulte [Configuración de un DNS personalizado](sql-database-manage
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información general, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md)
-- Para obtener un tutorial que muestre cómo crear una red virtual, crear una instancia administrada y restaurar una base de datos desde una copia de seguridad de base de datos, consulte [Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-tutorial-portal.md).
+- Para obtener un tutorial que muestre cómo crear una red virtual, crear una instancia administrada y restaurar una base de datos desde una copia de seguridad de base de datos, consulte [Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-create-tutorial-portal.md).
 - Para problemas DNS, consulte [Configuración de un DNS personalizado](sql-database-managed-instance-custom-dns.md)

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Protección de los datos almacenados en el Almacén de Azure Data Lake
 Para proteger los datos en el Almacén de Azure Data Lake, se adopta un enfoque de tres pasos.  Es necesario que esté configurado tanto el control de acceso basado en rol como las listas de control de acceso para permitir un acceso total a los datos para los usuarios y los grupos de seguridad.
 
-1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en Azure Portal. Para más información, vea [Control de acceso basado en roles en Microsoft Azure](../active-directory/role-based-access-control-configure.md).
+1. Comience creando grupos de seguridad en Azure Active Directory (AAD). Estos grupos de seguridad se usan para implementar el control de acceso basado en roles (RBAC) en Azure Portal. Para más información, vea [Control de acceso basado en roles en Microsoft Azure](../role-based-access-control/role-assignments-portal.md).
 2. Asigne los grupos de seguridad de AAD a la cuenta de Almacén de Azure Data Lake. Esto controla el acceso a la cuenta de Almacén de Data Lake desde el portal y las operaciones de administración desde el portal o las API.
 3. Asigne los grupos de seguridad de AAD como listas de control de acceso (ACL) en el sistema de archivos del Almacén de Data Lake.
 4. Además, también puede establecer un intervalo de direcciones IP para los clientes que pueden acceder a los datos en el Almacén de Data Lake.

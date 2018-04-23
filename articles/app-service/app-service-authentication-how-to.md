@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 10decbd5291e2054e373bfef266b64eae36ea1cf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalización de la autenticación y autorización en Azure App Service
 
@@ -25,7 +25,7 @@ En este artículo se muestra cómo personalizar la [autenticación y autorizaci�
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md) (Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service)
+* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](app-service-web-tutorial-auth-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -44,7 +44,7 @@ En la página de inicio de sesión, en la barra de navegación o en cualquier ot
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
-<a href="/.auth/login/microsoft">Log in with Microsoft Account</a> 
+<a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
 <a href="/.auth/login/twitter">Log in with Twitter</a>

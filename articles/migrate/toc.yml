@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Guías de procedimientos
   items:
+    - name: Migración de los recursos locales a Azure
+      items:
+        - name: 'Información general de escenario: Migración de los recursos locales a Azure'
+          href: migrate-scenarios-overview.md
+        - name: 'Escenario 1: Evaluación de los recursos locales para la migración a Azure'
+          href: migrate-scenarios-assessment.md
     - name: Detección y evaluación de un entorno grande
       href: how-to-scale-assessment.md
     - name: Agrupación de máquinas

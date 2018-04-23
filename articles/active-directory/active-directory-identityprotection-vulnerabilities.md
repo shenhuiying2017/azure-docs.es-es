@@ -1,9 +1,9 @@
 ---
 title: Vulnerabilidades detectadas por Azure Active Directory Identity Protection | Microsoft Docs
-description: "Información general de las vulnerabilidades detectadas por Azure Active Directory Identity Protection."
+description: Información general de las vulnerabilidades detectadas por Azure Active Directory Identity Protection.
 services: active-directory
-keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
-documentationcenter: 
+keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 65b1ae76794c812f9fcf2955d09e023195ef6342
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovechados por un atacante. Se recomienda solucionar estas vulnerabilidades para mejorar la posición de seguridad de su organización y evitar que los atacantes se aprovechen de ellas.
@@ -38,7 +38,7 @@ Azure Multi-Factor Authentication proporciona una segunda capa de seguridad a la
 
 Se recomienda pedir Azure Multi-Factor Authentication para los inicios de sesión de usuario. La autenticación multifactor desempeña un papel clave en las directivas de acceso condicional basadas en riesgos disponibles mediante Identity Protection.
 
-Para obtener más información, consulte [Qué es Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+Para obtener más información, consulte [Qué es Azure Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicaciones en la nube no administradas
 Este punto vulnerable ayuda a identificar aplicaciones en la nube no administradas en su organización.

@@ -1,24 +1,18 @@
 ---
 title: Incorporación de una entidad de seguridad de servicio al rol de administrador del servidor de Azure Analysis Services | Microsoft Docs
 description: Aprenda a agregar una entidad de seguridad de servicio de automatización al rol de administrador del servidor
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 8e51b80e184b2b1ff24b1051b55088fbc54c271c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: minewiskan
+ms.openlocfilehash: 9c6417e069bbed38b1f6e9317636a10834ce7197
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-a-service-principle-to-the-server-administrator-role"></a>Incorporación de una entidad de servicio al rol de administrador del servidor 
 
@@ -47,7 +41,7 @@ Para completar esta tarea, debe tener permisos de [administrador del servidor](a
 
 
 > [!NOTE]
-> Para las operaciones del servidor que usan cmdlets de AzureRm, la entidad de seguridad del servicio que ejecuta el programador también debe pertenecer al rol **Propietario** para el recurso en [Control de acceso basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md). 
+> Para las operaciones del servidor que usan cmdlets de AzureRm, la entidad de seguridad del servicio que ejecuta el programador también debe pertenecer al rol **Propietario** para el recurso en [Control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Información relacionada
 

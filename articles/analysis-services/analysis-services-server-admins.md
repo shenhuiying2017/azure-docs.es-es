@@ -1,25 +1,18 @@
 ---
-title: "Administración de administradores de servidor en Azure Analysis Services | Microsoft Docs"
+title: Administración de administradores de servidor en Azure Analysis Services | Microsoft Docs
 description: Aprenda a administrar administradores de servidor de Analysis Services en Azure.
-services: analysis-services
-documentationcenter: 
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: d90f1e3df8f5934d5c334ec72b5726f105842ca1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-server-administrators"></a>Administración de administradores de servidor
 Los administradores del servidor deben ser un usuario o grupo válido en Azure Active Directory (Azure AD) para el inquilino en el que reside el servidor. Puede usar **Administradores de Analysis Services** en el servidor de Azure Portal o Propiedades del servidor en SSMS para administrar los administradores del servidor. 
@@ -41,5 +34,5 @@ Los administradores del servidor deben ser un usuario o grupo válido en Azure A
 ## <a name="next-steps"></a>Pasos siguientes 
 [Permisos de usuario y autenticación](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md) (Administración de roles y usuarios de una base de datos)  
-[Control de acceso basado en roles](../active-directory/role-based-access-control-what-is.md)  
+[Control de acceso basado en roles](../role-based-access-control/overview.md)  
 

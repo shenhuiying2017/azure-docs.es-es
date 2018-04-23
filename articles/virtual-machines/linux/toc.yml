@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: Errores de asignación
           href: allocation-failure.md
+        - name: Errores de asignación de máquina virtual clásica
+          href: allocation-failure-classic.md
         - name: Problemas de implementación
           href: troubleshoot-deploy-vm.md
         - name: Creación de una máquina virtual

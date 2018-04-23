@@ -1,6 +1,8 @@
 # [Documentación sobre Azure Marketplace](index.md)
 ## [Guía del anunciante de Azure Marketplace y AppSource](marketplace-publishers-guide.md)
 ## [Desarrollo de un negocio con Azure Marketplace](grow-your-business-azure-marketplace.md)
+## [¿Qué es Appsource?](marketplace-what-is-appsource.md)
+## [Haga crecer su negocio con AppSource](marketplace-grow-your-business-with-appsource.md)
 ## [Servicios de consultoría de Azure Marketplace](consulting-services.md)
 ## [Guía de publicación técnica de aplicaciones de SaaS de Azure Marketplace](marketplace-saas-applications-technical-publishing-guide.md)
 ## [Cloud Partner Portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

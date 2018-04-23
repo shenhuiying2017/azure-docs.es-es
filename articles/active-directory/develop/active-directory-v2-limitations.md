@@ -1,11 +1,11 @@
 ---
-title: "Limitaciones y restricciones del punto de conexión de Azure Active Directory v2.0 | Microsoft Docs"
-description: "Una lista de las limitaciones y restricciones del punto de conexión de Azure AD v2.0."
+title: Limitaciones y restricciones del punto de conexión de Azure Active Directory v2.0 | Microsoft Docs
+description: Una lista de las limitaciones y restricciones del punto de conexión de Azure AD v2.0.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a99289c0-e6ce-410c-94f6-c279387b4f66
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: a81f505c189da31edb91d1b522d9f3140f821cb4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a36f55c57a75f671b3e5eeae3d91ff60483afd37
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>¿Debo usar el punto de conexión v2.0?
 Cuando compile aplicaciones que se integren con Azure Active Directory, debe decidir si los protocolos de autenticación y el punto de conexión v2.0 cumplen con sus necesidades. El punto de conexión original de Azure Active Directory sigue siendo totalmente compatible y, en algunos aspectos, ofrece más características que el v2.0. Sin embargo, el punto de conexión v2.0 [presenta ventajas importantes](active-directory-v2-compare.md) para los desarrolladores.
@@ -84,15 +84,6 @@ Puede agregar los dos últimos porque son subdominios del primero URI de redirec
 Tenga en cuenta también que solo puede tener 20 direcciones URL de respuesta para una aplicación concreta.
 
 Para información sobre cómo registrar una aplicación en el portal de registro de aplicaciones, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md).
-
-## <a name="restrictions-on-services-and-apis"></a>Restricciones en los servicios y API
-Actualmente, el punto de conexión v2.0 admite el inicio de sesión en cualquier aplicación registrada en el portal de registro de aplicaciones que se encuentre en la lista de [flujos de autenticación admitidos](active-directory-v2-flows.md). Sin embargo, estas aplicaciones pueden adquirir tokens de acceso OAuth 2.0 para un conjunto de recursos muy limitado. El punto de conexión v2.0 emite tokens de acceso solo para:
-
-* La aplicación que solicita el token. Una aplicación puede adquirir un token de acceso por sí misma si la aplicación lógica se compone de varios componentes o niveles diferentes. Para ver este escenario en acción, consulte nuestros tutoriales de [Introducción](active-directory-appmodel-v2-overview.md#getting-started) .
-* Las API de REST de Correo, Calendario y Contactos de Outlook, que se encuentran en https://outlook.office.com. Para información sobre cómo escribir una aplicación que tenga acceso a estas API, consulte los tutoriales de [Introducción a Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
-* Las API de Microsoft Graph. Puede obtener más información sobre [Microsoft Graph](https://graph.microsoft.io) y los datos que tiene a su disposición.
-
-No hay otros servicios compatibles en este momento. En el futuro se agregarán más Microsoft Online Services, además de la compatibilidad con sus propios servicios y API web personalizados.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restricciones en las bibliotecas y SDK
 En este momento, la compatibilidad del punto de conexión v2.0 con las bibliotecas es limitada. Si desea usar el punto de conexión v2.0 en una aplicación de producción, tiene las opciones siguientes:

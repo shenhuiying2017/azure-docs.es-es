@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -63,7 +61,7 @@ Debe especificar una suscripción de Azure cuando cree un clúster de HDInsight.
     1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
     2. Haga clic en **Suscripción** en el menú izquierdo. Tiene un icono amarillo de una llave amarilla. Verá una lista de suscripciones.
     3. Haga clic en la suscripción que usa para crear clústeres. 
-    4. Haga clic en **Mis permisos**.  Muestra el [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
+    4. Haga clic en **Mis permisos**.  Muestra el [rol](../role-based-access-control/overview.md#built-in-roles) en la suscripción. Debe tener al menos acceso de colaborador para crear un clúster de HDInsight.
 
 - Para usar un grupo de recursos existente:
 
@@ -89,7 +87,7 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
 
     **Menú de la izquierda:**
     * **Registros de actividad**: consultar y mostrar registros de actividad.
-    * **Access Control (IAM)**: usar las asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../active-directory/role-based-access-control-configure.md).
+    * **Access Control (IAM)**: usar las asignaciones de roles.  Vea [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).
     * **Etiquetas**: las etiquetas permiten establecer pares clave-valor para definir una taxonomía personalizada de Cloud Services. Por ejemplo, puede crear una clave denominada **proyecto**y luego usar un valor común para todos los servicios asociados a un proyecto específico.
     * **Diagnosticar y solucionar problemas**: mostrar información sobre solución de problemas.
     * **Bloqueos**: agregar bloqueos para evitar la modificación o eliminación del clúster.

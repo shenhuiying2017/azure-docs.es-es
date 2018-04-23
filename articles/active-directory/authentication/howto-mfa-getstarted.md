@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: joflore
-ms.openlocfilehash: e6210cf7ece0aa0cdeec8f95b74910893c22b1bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7ae9ad5429c9bdfe8fba2648f8b7a3390705b23
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Introducción a Azure Multi-Factor Authentication en la nube
 En este artículo aprenderá a usar Azure Multi-Factor Authentication en la nube.
@@ -41,7 +41,7 @@ Si no dispone una de estas tres licencias o no tiene suficientes licencias para 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Activación de la verificación en dos pasos para los usuarios
 
-Utilice uno de los procedimientos enumerados en el artículo sobre la [exigencia de verificación en dos pasos para un usuario o un grupo](../../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) para empezar a usar Azure MFA. Puede elegir exigir la verificación en dos pasos para todos los inicios de sesión o crear directivas de acceso condicional para exigir la verificación en dos pasos únicamente cuando usted lo necesite.
+Utilice uno de los procedimientos enumerados en el artículo sobre la [exigencia de verificación en dos pasos para un usuario o un grupo](howto-mfa-userstates.md) para empezar a usar Azure MFA. Puede elegir exigir la verificación en dos pasos para todos los inicios de sesión o crear directivas de acceso condicional para exigir la verificación en dos pasos únicamente cuando usted lo necesite.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha configurado Azure Multi-Factor Authentication en la nube, puede configurar la implementación. Consulte [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md) para conocer más detalles.

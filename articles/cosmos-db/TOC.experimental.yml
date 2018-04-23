@@ -71,14 +71,12 @@ items:
     items:
       - name: Distribución global
         href: distribute-data-globally.md
-      - name: Coherencia
-        href: consistency-levels.md
       - name: Creación de particiones
         href: partition-data.md
       - name: Throughput
         href: request-units.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
+      - name: Coherencia
+        href: consistency-levels.md
       - name: Base de datos sin servidor
         href: serverless-computing-database.md
       - name: Seguridad
@@ -86,10 +84,10 @@ items:
         items:
           - name: Cifrado en reposo
             href: database-encryption-at-rest.md
-          - name: Funcionalidad de firewall
-            href: firewall-support.md
           - name: Protección del acceso a los datos
             href: secure-access-to-data.md
+      - name: TCO
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casos de uso
         href: use-cases.md
         items:
@@ -180,7 +178,7 @@ items:
                     href: sql-api-sql-query-metrics.md
               - name: Índice
                 href: indexing-policies.md
-              - name: Partición de datos
+              - name: Creación de particiones de datos de SQL
                 href: sql-api-partition-data.md
               - name: 'procedimientos almacenados, desencadenadores y UDF'
                 href: programming.md
@@ -233,7 +231,7 @@ items:
                   - name: Aprovechamiento del controlador ODBC para la visualización de datos
                     href: odbc-driver.md
                   - name: Uso de Spring Boot Starter con las API de SQL
-                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+                    href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           - name: Referencia
             items:
               - name: Async Java
@@ -346,6 +344,8 @@ items:
                 href: tutorial-global-distribution-graph.md
           - name: Guías de procedimientos
             items:
+              - name: Creación de particiones de Graph
+                href: graph-partitioning.md
               - name: Integrate
                 items:
                   - name: Conexión a Spark GraphX
@@ -434,6 +434,8 @@ items:
         href: manage-account.md
       - name: Throughput
         href: set-throughput.md
+      - name: Funcionalidad de firewall
+        href: firewall-support.md
       - name: Métricas
         href: use-metrics.md
       - name: Supervisión del Acuerdo de Nivel de Servicio
@@ -466,5 +468,3 @@ items:
         href: faq.md
       - name: Coherencia de los datos explicada a través del béisbol
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: Solución de problemas de Azure Cosmos DB
-        href: troubleshoot-azure-cosmosdb.md

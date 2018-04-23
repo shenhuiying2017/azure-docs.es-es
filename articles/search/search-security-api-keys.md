@@ -1,25 +1,19 @@
 ---
 title: Crear, administrar y proteger las claves de API de consulta para Azure Search | Microsoft Docs
 description: Las claves de API controlan el acceso al punto de conexión de servicio. Las claves de administración conceden acceso de escritura. Las claves de consulta se pueden crear para el acceso de solo lectura.
-services: search
-documentationcenter: ''
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 tags: azure-portal
-ms.assetid: ''
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: ab04214dc02f337afdf8268b7d05b5e0896efc73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6e2201778fe9cc75701fdb6a89cde268d1481994
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
 
@@ -65,7 +59,7 @@ La seguridad de las claves se garantiza mediante la restricción del acceso a tr
 
 + En el panel de servicio, haga clic en **Control de acceso (IAM)** para ver las asignaciones de roles para su servicio.
 
-Los miembros de los roles siguientes pueden ver y regenerar las claves: Propietario, Colaborador, [Colaboradores de Search Service](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
+Los miembros de los roles siguientes pueden ver y regenerar las claves: Propietario, Colaborador, [Colaboradores de Search Service](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Para tener acceso basado en la identidad a través de los resultados de búsqueda, puede crear filtros de seguridad para recortar los resultados según la identidad y quitar los documentos para los que el solicitante no debe tener acceso. Para obtener más información, consulte [Filtros de seguridad](search-security-trimming-for-azure-search.md) y [Seguridad con Active Directory](search-security-trimming-for-azure-search-with-aad.md).

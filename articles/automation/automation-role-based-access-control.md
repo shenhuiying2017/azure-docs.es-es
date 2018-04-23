@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
-El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. Con [RBAC](../active-directory/role-based-access-control-configure.md), se pueden separar los deberes del equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo. El acceso basado en rol se puede conceder a los usuarios que utilicen Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
+El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. Con [RBAC](../role-based-access-control/role-assignments-portal.md), se pueden separar los deberes del equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo. El acceso basado en rol se puede conceder a los usuarios que utilicen Azure Portal, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Roles en cuentas de Automation
 En Azure Automation, el acceso se concede mediante la asignación de rol de RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito de las cuentas de Automation. Estos son los roles integrados compatibles que admiten las cuentas de Automation:
@@ -307,7 +307,7 @@ Este usuario tampoco tiene acceso para ver los Webhooks asociados a un Runbook
 ![Sin acceso a Webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Configuración de RBAC para una cuenta de Automation mediante Azure PowerShell
-El acceso basado en rol también se puede configurar en una cuenta de Automation mediante los siguientes [cmdlets de Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md):
+El acceso basado en rol también se puede configurar en una cuenta de Automation mediante los siguientes [cmdlets de Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 • [Get AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) enumera todos los roles RBAC disponibles en Azure Active Directory. Este comando se puede usar con la propiedad **Name** para enumerar todas las acciones que un rol concreto puede llevar a cabo.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 En los ejemplos anteriores, reemplace el **nombre de inicio de sesión**, el **identificador de suscripción**, el **nombre del grupo de recursos** y el **nombre de la cuenta de Automation** por los detalles de su cuenta. Elija **Sí** cuando se le pida que confirme antes de procederse a quitar la asignación de roles de usuario.   
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las diferentes formas de configurar RBAC para Azure Automation, consulte [Administración del control de acceso basado en rol con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Para más información sobre las diferentes formas de configurar RBAC para Azure Automation, consulte [Administración del control de acceso basado en rol con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para ver detalles sobre las distintas maneras de iniciar un Runbook, consulte [Inicio de un Runbook en Automatización de Azure](automation-starting-a-runbook.md)
 * Para más información acerca de distintos tipos de Runbook, consulte [Tipos de Runbooks de Azure Automation](automation-runbook-types.md)
 

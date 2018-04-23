@@ -65,6 +65,8 @@
     - name: Administración de identidades
       href: security-identity-management-overview.md
       items:
+        - name: Elección de la autenticación de Azure AD
+          href: azure-ad-choose-authn.md
         - name: Procedimientos recomendados
           href: azure-security-identity-management-best-practices.md
         - name: Aplicación de MFA a administradores de suscripción
@@ -74,6 +76,8 @@
       items:
         - name: Procedimientos recomendados
           href: azure-security-network-security-best-practices.md
+        - name: Protección contra DDOS
+          href: azure-ddos-best-practices.md
         - name: Seguridad en los límites
           href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Application

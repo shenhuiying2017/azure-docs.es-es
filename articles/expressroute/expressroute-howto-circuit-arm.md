@@ -1,11 +1,11 @@
 ---
-title: "Creación y modificación de un circuito ExpressRoute mediante Powershell y Azure Resource Manager | Microsoft Docs"
-description: "Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute."
+title: Creación y modificación de un circuito ExpressRoute mediante Powershell y Azure Resource Manager | Microsoft Docs
+description: Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0d45e97cc42826375a99df16a73c9a7b0c359224
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creación y modificación de un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
-> * [Portal de Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI de Azure](howto-circuit-cli.md)
 > * [Vídeo: Azure Portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -42,7 +42,7 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute mediant
 Para empezar la configuración, inicie sesión en la cuenta de Azure. Use los siguientes ejemplos para conectarse:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Compruebe las suscripciones para la cuenta:
@@ -68,7 +68,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 Compruebe si aparece su proveedor de conectividad. Tome nota de la información siguiente, ya que la va a necesitar para crear un circuito:
 
-* Nombre
+* NOMBRE
 * PeeringLocations
 * BandwidthsOffered
 

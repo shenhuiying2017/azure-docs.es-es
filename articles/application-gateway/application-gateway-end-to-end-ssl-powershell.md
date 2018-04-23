@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/27/2018
 ms.author: victorh
-ms.openlocfilehash: f4552960cf16e8f7cb89868a03e4b4699eba2540
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 08d31bb15b7bd710a51858f2100fb52219314673
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -58,7 +58,7 @@ Esta sección le explica cómo crear un grupo de recursos que contiene la puerta
    1. Inicie sesión en la cuenta de Azure.
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 

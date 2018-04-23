@@ -1,0 +1,96 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure Active Directory B2C
+metadata:
+  title: Documentación de Azure Active Directory B2C
+  meta.description: Learn how to use Azure Active Directory B2C to customize and control how customers sign up, sign in, and manage their profiles when using your applications.
+  services: active-directory-b2c
+  author: davidmu1
+  manager: mtillman
+  ms.service: active-directory-b2c
+  ms.topic: landing-page
+  ms.date: 03/29/2018
+  ms.author: davidmu
+  ms.openlocfilehash: 5ca78abe01132ec557b4722d457f7b76684ce3c0
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 04/18/2018
+abstract:
+  description: Azure Active Directory (Azure AD) B2C es un servicio de administración de identidades que le permite personalizar y controlar la manera en que los clientes se registran, inician sesión y administran sus perfiles al usar las aplicaciones. Esto incluye las aplicaciones desarrolladas para iOS, Android y. NET, entre otros. Azure AD B2C permite estas acciones y, al mismo tiempo, protege las identidades de los clientes. Aprenda a usar Azure AD B2C con nuestras guías de inicio rápido, tutoriales y ejemplos.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      width: 250
+    title: Administración de identidades de negocio a consumidor con Azure Active Directory B2C (12:56)
+    href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
+    width: 250
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Aprenda a configurar la administración de identidades de los clientes que usan su aplicación:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
+      text: .NET
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+      text: Escritorio
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
+    - image:
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
+      text: Página única
+      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a administrar el registro, inicio de sesión y los perfiles de los clientes en las aplicaciones de ASP.NET, de escritorio o de Node.js de página única.
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: ASP.NET
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registro de una aplicación</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Autenticación de usuarios</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Concesión de acceso de API</a></p>
+    - title: Escritorio
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registro de una aplicación</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Autenticación de usuarios</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Concesión de acceso de API</a></p>
+    - title: Página única
+      html: <p>1. <a href="/azure/active-directory-b2c/tutorial-register-applications">Registro de una aplicación</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Autenticación de usuarios</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Concesión de acceso de API</a></p>
+- title: Vídeo gratuito de aprendizaje de PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsF
+    items:
+    - title: Administración de identidades, aplicaciones y servicios de red
+      href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
+      html: <p>En el módulo 6, consulte la creación de un inquilino, el registro de una aplicación y la creación de directivas.</p>
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-identity-application-network-services
+    - title: Protección de una aplicación sin servidor
+      href: https://www.pluralsight.com/courses/azure-serverless-applications
+      html: <p>En el módulo 6, vea por qué debería usar Azure AD B2C para proteger una aplicación sin servidor.</p>
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/azure-serverless-applications
+    - title: ASP.NET Core 2 y Azure AD B2C
+      href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
+      html: <p>En el módulo 8, consulte cómo agregar el registro, el inicio de sesión y la edición de perfiles a una aplicación de ASP.NET Core 2.</p>
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/aspnet-core-identity-management-playbook
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: Vea estos ejemplos que le muestran cómo administrar las identidades de los clientes en su aplicación.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/active-directory-b2c/code-samples">Aplicaciones para dispositivos móviles, de escritorio, web y de página única</a>

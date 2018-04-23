@@ -1,9 +1,9 @@
 ---
-title: "Ejecución de ejemplos de MapReduce de Hadoop en HDInsight y Azure | Microsoft Docs"
-description: "Introducción al uso de ejemplos de MapReduce en archivos jar incluidos en HDInsight. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo."
+title: Ejecución de ejemplos de MapReduce de Hadoop en HDInsight y Azure | Microsoft Docs
+description: Introducción al uso de ejemplos de MapReduce en archivos jar incluidos en HDInsight. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo.
 keywords: jar de ejemplo de hadoop, jar de ejemplos de hadoop, ejemplos de mapreduce de hadoop, ejemplos de mapreduce
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 1882412236e630322d52cb1875060798fef6c017
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 71283f74242db8ea8811300e38ef0a6c22e9e541
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Ejecución de los ejemplos de MapReduce incluidos en HDInsight
 

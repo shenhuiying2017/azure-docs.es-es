@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Integración de los directorios locales con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
@@ -97,7 +97,7 @@ Azure AD Connect incluye varias características que puede activar de manera opc
 
 [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md) sincroniza el hash de contraseña de Active Directory con Azure AD. El usuario final puede usar la misma contraseña de forma local y en la nube, pero solo puede administrarla en una ubicación. Como se usa su Active Directory local como autoridad, también podrá usar su propia directiva de contraseñas.
 
-[escritura diferida de contraseñas](../active-directory-passwords-getting-started.md) permite a los usuarios cambiar y restablecer sus contraseñas en la nube y aplicar su directiva local de contraseñas.
+[escritura diferida de contraseñas](../authentication/quickstart-sspr.md) permite a los usuarios cambiar y restablecer sus contraseñas en la nube y aplicar su directiva local de contraseñas.
 
 [reescritura de dispositivos](active-directory-aadconnect-feature-device-writeback.md) permite que un dispositivo registrado en Azure AD se reescriba en Active Directory local para que se pueda usar para el acceso condicional.
 
@@ -110,7 +110,7 @@ La característica para [evitar eliminaciones accidentales](active-directory-aad
 | --- | --- |
 |Configuración del filtrado | [Azure AD Connect Sync: configuración del filtrado](active-directory-aadconnectsync-configure-filtering.md)|
 |Sincronización de hash de contraseña | [Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|escritura diferida de contraseñas | [Introducción a la administración de contraseñas](../active-directory-passwords-getting-started.md)|
+|escritura diferida de contraseñas | [Introducción a la administración de contraseñas](../authentication/quickstart-sspr.md)|
 |Escritura diferida de dispositivos | [Habilitación de escritura diferida de dispositivos en Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |evitar eliminaciones accidentales | [Sincronización de Azure AD Connect: cómo evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Actualización automática | [Azure AD Connect: Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md)|

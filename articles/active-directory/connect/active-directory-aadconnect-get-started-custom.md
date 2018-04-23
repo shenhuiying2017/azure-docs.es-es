@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 14d2a29e65bf2f3a974f2713f36d9b9fa497ee1c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalación personalizada de Azure AD Connect
 Se utiliza **Configuración personalizada** de Azure AD Connect cuando se desea contar con más opciones para la instalación. Se utiliza si tiene varios bosques o si desea configurar características opcionales que no se incluyen en la instalación rápida. Se usa en todos aquellos casos en que la opción [**Instalación rápida**](active-directory-aadconnect-get-started-express.md) no vale para su implementación o topología.
@@ -166,7 +166,7 @@ Esta pantalla le permite seleccionar las características opcionales para situac
 | Carpetas públicas de correo de Exchange | La característica Carpetas públicas de correo de Exchange permite sincronizar objetos de carpeta pública habilitada para correo desde su instancia local de Active Directory con Azure AD. |
 | Aplicación Azure AD y filtro de atributos |Al habilitar la aplicación Azure AD y el filtro de atributos, se puede adaptar el conjunto de atributos sincronizados. Esta opción agrega dos páginas más de configuración al asistente. Para más información, consulte [Aplicación Azure AD y filtro de atributos](#azure-ad-app-and-attribute-filtering). |
 | Sincronización de hash de contraseña |Si seleccionó la federación como solución de inicio de sesión. puede habilitar esta solución. La sincronización de hash de contraseñas se puede usar como opción de copia de seguridad. Para más información, consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Si seleccionó la autenticación de paso a través, esta opción también se puede habilitar para garantizar la compatibilidad a los clientes heredados y como opción de respaldo. Para más información, consulte [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
-| escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../active-directory-passwords-getting-started.md). |
+| escritura diferida de contraseñas |Al habilitar la escritura diferida de contraseñas, los cambios de contraseña que se originan en Azure AD se escriben en su directorio local. Para más información, consulte [Introducción a la administración de contraseñas](../authentication/quickstart-sspr.md). |
 | Escritura diferida de grupos |Si utiliza la característica **Grupos de Office 365** , estos grupos pueden estar representados en su instancia de Active Directory local. Esta opción solo está disponible si dispone de Exchange en su Active Directory local. Para más información, consulte [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Escritura diferida de dispositivos |Permite realizar una escritura diferida de objetos de dispositivo en Azure AD para su Active Directory local para escenarios de acceso condicional. Para más información, consulte [Habilitación de la escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md). |
 | Sincronización de atributos de las extensiones de directorios |Al habilitar la sincronización de atributos de las extensiones de directorios, los atributos especificados se sincronizan con Azure AD. Para más información, consulte [Sincronización de Azure AD Connect: Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md). |

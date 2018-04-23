@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -90,7 +90,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Sincronización de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
-| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../active-directory-passwords-writeback.md) para los usuarios. |
+| escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |
 | Escritura diferida de dispositivos |Los permisos concedidos con un script de PowerShell como se describe en [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md). |
 | Escritura diferida de grupos |Objetos de grupo Leer, Crear, Actualizar y Eliminar para **grupos de Office 365** sincronizados.  Para más información, vea [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback).|
 

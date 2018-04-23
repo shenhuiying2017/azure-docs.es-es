@@ -14,8 +14,12 @@
     - name: Configuración de directivas Hive
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Administración de clústeres unidos a un dominio
-      href: apache-domain-joined-manage.md
+    - name: Uso de VSCode para vincular a un clúster unido a un dominio
+      href: ../hdinsight-for-vscode.md
+    - name: Uso de IntelliJ para vincular a un clúster unido a un dominio
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Uso de Eclipse para vincular a un clúster unido a un dominio
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Protección de datos
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

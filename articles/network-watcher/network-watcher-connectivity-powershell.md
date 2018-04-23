@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 5b22da43fe36a4e048483bb558a7705a3a670a9f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eecdd9f169b5b61262f4e3121337c730700f0757
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Solución de problemas de conexiones con Azure Network Watcher mediante PowerShell
 
@@ -306,4 +306,4 @@ Hops             : [
 
 Para determinar si se permite cierto tráfico hacia o desde la máquina virtual, sepa cómo [consultar la comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md).
 
-Si se está bloqueando el tráfico y no debería ser así, vea [Administración de grupos de seguridad de red](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para realizar un seguimiento de las reglas del grupo de seguridad de red y de seguridad definidas.
+Si se está bloqueando el tráfico y no debería ser así, vea [Administración de grupos de seguridad de red](../virtual-network/manage-network-security-group.md) para realizar un seguimiento de las reglas del grupo de seguridad de red y de seguridad definidas.

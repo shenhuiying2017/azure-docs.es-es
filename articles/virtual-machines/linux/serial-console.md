@@ -1,6 +1,6 @@
 ---
-title: Consola de serie de máquinas virtuales de Azure | Microsoft Docs
-description: Consola de serie bidireccional para máquinas virtuales de Azure.
+title: Consola serie de máquina virtual de Azure | Microsoft Docs
+description: Consola serie bidireccional para máquinas virtuales de Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: harijay
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Consola de serie de máquinas virtuales de Azure (versión preliminar) 
+# <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
 
-La consola de serie de máquinas virtuales en Azure ofrece acceso a una consola basada en texto para máquinas virtuales de Linux y Windows. Esta conexión de serie va al puerto de serie COM1 de la máquina virtual y ofrece acceso a la máquina virtual, sin estar relacionada con el estado del sistema operativo o la red de la máquina virtual. En este momento, el acceso a la consola de serie para una máquina virtual solo es posible a través de Azure Portal, y se permite únicamente a los usuarios que tengan acceso de colaborador de VM o superior en relación con la máquina virtual. 
+La consola serie de máquina virtual en Azure ofrece acceso a una consola basada en texto para máquinas virtuales Linux y Windows. Esta conexión de serie es al puerto de serie COM1 de la máquina virtual y ofrece acceso a la misma, sin estar relacionada con el estado del sistema operativo o la red de la máquina virtual. En este momento, el acceso a la consola serie para una máquina virtual solo es posible mediante Azure Portal, y se permite únicamente a los usuarios que tengan acceso de colaborador o superior a la máquina virtual. 
 
 > [!Note] 
-> Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para obtener más información, consulte [Términos de uso complementarios de las Vistas Previas de Microsoft Azure] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Actualmente este servicio está en **versión preliminar pública** y el acceso a la consola de serie para las máquinas virtuales está disponible para varias regiones de Azure. En este momento, la consola de serie no está disponible en la nube Azure Government, Azure Alemania y Azure China.
+> Las versiones preliminares están a su disposición con la condición de que acepte los términos de uso. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Actualmente este servicio está en **versión preliminar pública** y el acceso a la consola serie para las máquinas virtuales está disponible para las regiones globales de Azure. En este momento, la consola serie no está disponible en las nubes Azure Government, Azure Alemania y Azure China.
 
 
 ## <a name="prerequisites"></a>requisitos previos 
 
-* La máquina virtual DEBE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados. 
-* La cuenta que utilice la de serie debe tener el [rol Colaborador](../../active-directory/role-based-access-built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
+* La máquina virtual TIENE QUE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados 
+* La cuenta que utilice la de serie debe tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
 * Para conocer valores específicos de distribución de Linux, consulte [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Acceso a la consola de serie para Linux).
 
 
@@ -51,27 +51,27 @@ La consola de serie para las máquinas virtuales solo es accesible a través de 
 > La consola de serie requiere un usuario local con una contraseña configurada. En este momento, las máquinas virtuales configuradas solo con la clave pública SSH no tendrán acceso a la consola de serie. Para crear un usuario local con contraseña, siga [Extensión VMAccess](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) y cree un usuario local con contraseña.
 
 ### <a name="disable-feature"></a>Deshabilitación de la característica
-La funcionalidad de la consola de serie puede desactivarse para determinadas máquinas virtuales con la deshabilitación de ese parámetro de diagnósticos de arranque de la VM.
+La funcionalidad de la consola serie puede desactivarse para determinadas máquinas virtuales deshabilitando el valor de ese parámetro de diagnósticos de arranque de la máquina virtual específica.
 
-## <a name="serial-console-security"></a>Seguridad de la consola de serie 
+## <a name="serial-console-security"></a>Seguridad de la consola serie 
 
 ### <a name="access-security"></a>Seguridad de acceso 
-El acceso a la consola de serie está limitado a los usuarios que tienen un acceso de [colaborador de la VM](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) o superior en relación con la máquina virtual. Si su inquilino de AAD requiere Multi-Factor Authentication, el acceso a la consola de serie también necesitará MFA para acceder a través de [Azure Portal](https://portal.azure.com).
+El acceso a la consola serie está limitado a los usuarios que tienen un acceso de [colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superior en relación con la máquina virtual. Si su inquilino de AAD requiere Multi-Factor Authentication, el acceso a la consola serie también necesitará MFA para acceder mediante [Azure Portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Seguridad del canal
-Todos los datos enviados y recibidos están cifrados con la conexión.
+Todos los datos enviados y recibidos se cifran en la conexión.
 
 ### <a name="audit-logs"></a>Registros de auditoría
-Todo el acceso a la consola de serie queda registrado en los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la máquina virtual. El administrador de la VM de Azure es quien tiene y controla el acceso a estos registros.  
+Todo el acceso a la consola serie queda registrado en los registros de los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la máquina virtual. El administrador de la máquina virtual de Azure es el propietario y el que controla el acceso a estos registros.  
 
 >[!CAUTION] 
 Si bien no se registra ninguna contraseña de acceso para la consola, si los comandos ejecutados en la consola contienen o producen contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, estos se escribirán en los registros de diagnósticos de arranque de la máquina virtual, junto con todo el demás texto visible, como parte de la aplicación de la funcionalidad de desplazamiento de la consola de serie. Estos registros son circulares y solo aquellas personas con permisos de lectura para la cuenta de almacenamiento de diagnósticos tienen acceso a ellos; sin embargo, se recomienda seguir la práctica recomendada de usar la consola SSH para cualquier elemento que pueda implicar secretos o información de identificación personal. 
 
 ### <a name="concurrent-usage"></a>Uso simultáneo
-Si un usuario se conecta a la consola de serie y otro usuario solicita correctamente el acceso a esa misma máquina virtual, el primer usuario se desconectará y el segundo usuario se conectará de una forma que se asemejaría a un proceso por el cual el primer usuario se levanta y abandona la consola física y un nuevo usuario ocupa su plaza.
+Si un usuario se conecta a la consola serie y otro usuario solicita correctamente el acceso a esa misma máquina virtual, se desconectará al primer usuario y se conectará al segundo de una forma similar a la acción del primer usuario levantándose y abandonando la consola física y el nuevo usuario sentándose a ocupar su sitio.
 
 >[!CAUTION] 
-Esto quiere decir que no se cerrará la sesión del usuario que se desconecta. La posibilidad de forzar el cierre de sesión con la desconexión (mediante SIGHUP u otro mecanismo similar) sigue en la hoja de ruta. Para Windows hay un tiempo de espera automático habilitado en SAC, sin embargo para Linux puede configurar el parámetro de tiempo de espera terminal. Basta con agregar `export TMOUT=600` en .bash_profile o .profile para el usuario con el que inicia sesión en la consola para que el tiempo de espera de la sesión finalice una vez transcurridos 10 minutos.
+Esto quiere decir que no se cerrará la sesión del usuario que se desconecta. La posibilidad de forzar el cierre de sesión con la desconexión (mediante SIGHUP u otro mecanismo similar) sigue en proceso de valoración. Para Windows hay un tiempo de espera automático habilitado en SAC, sin embargo para Linux puede configurar el parámetro de tiempo de espera terminal. Basta con agregar `export TMOUT=600` en .bash_profile o .profile para el usuario con el que inicia sesión en la consola para que el tiempo de espera de la sesión finalice una vez transcurridos 10 minutos.
 
 ### <a name="disable-feature"></a>Deshabilitación de la característica
 La funcionalidad de la consola de serie puede desactivarse para determinadas máquinas virtuales con la deshabilitación de ese parámetro de diagnósticos de arranque de la VM.
@@ -124,36 +124,36 @@ Para habilitar la consola de serie para la imagen de VM de Linux personalizada, 
 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102` 
 
 ## <a name="errors"></a>Errors
-La mayoría de errores son transitorios por naturaleza, y basta con intentar establecer la conexión de nuevo para solucionarlos. La tabla siguiente muestra una lista de errores y su solución. 
+La mayoría de errores son transitorios por naturaleza, y basta con intentar establecer la conexión de nuevo para solucionarlos. La tabla siguiente muestra una lista de errores y su solución 
 
 Error                            |   Mitigación 
 :---------------------------------|:--------------------------------------------|
-No se puede recuperar la configuración de diagnóstico de arranque para "<VMNAME>". Para usar la consola de serie, asegúrese de que los diagnósticos de arranque están habilitados para esta máquina virtual. | Asegúrese de que la máquina virtual tiene los [diagnósticos de arranque](boot-diagnostics.md) habilitados. 
-La máquina virtual se encuentra en un estado desasignado detenido. Inicie la máquina virtual y vuelva a intentar la conexión de la consola de serie. | La máquina virtual debe estar en un estado iniciado para tener acceso a la consola de serie.
-No tiene los permisos necesarios para usar esta máquina virtual como consola de serie. Asegúrese de tener al menos permisos del rol de colaborador de la VM.| El acceso a la consola de serie requiere cierto nivel de permiso. Vea los [requisitos de acceso](#prerequisites) para obtener más información.
+No se puede recuperar la configuración de diagnóstico de arranque para "<VMNAME>". Para usar la consola serie, asegúrese de que el diagnóstico de arranque está habilitado para esta máquina virtual. | Asegúrese de que la máquina virtual tiene los [diagnósticos de arranque](boot-diagnostics.md) habilitados. 
+La máquina virtual se encuentra en un estado desasignado detenido. Inicie la máquina virtual y vuelva a intentar la conexión de la consola serie. | La máquina virtual debe estar en un estado iniciado para tener acceso a la consola de serie.
+No tiene los permisos necesarios para usar esta máquina virtual como consola de serie. Asegúrese de tener al menos permisos del rol de colaborador de la VM.| El acceso a la consola serie requiere cierto nivel de permiso. Consulte los [requisitos de acceso](#prerequisites) para más información
 No se puede determinar el grupo de recursos para la cuenta de almacenamiento de diagnósticos de arranque "<STORAGEACCOUNTNAME>". Compruebe que los diagnósticos de arranque están habilitados para esta máquina virtual y acceda a esta cuenta de almacenamiento. | El acceso a la consola de serie requiere cierto nivel de permiso. Consulte los [requisitos de acceso](#prerequisites) para obtener más información.
 
 ## <a name="known-issues"></a>Problemas conocidos 
-Como nos encontramos aún en las etapas preliminares para el acceso a la consola de serie, estamos trabajando en algunos problemas conocidos. Presentamos aquí la lista con algunas posibles soluciones. 
+Como nos encontramos aún en las etapas de versión preliminar para el acceso a la consola serie, estamos trabajando en algunos problemas conocidos. Presentamos aquí la lista con algunas posibles soluciones 
 
 Problema                           |   Mitigación 
 :---------------------------------|:--------------------------------------------|
-No hay opción para la consola de serie con la instancia de conjunto de escalado de máquinas virtuales. |  Con esta versión preliminar, no se admite el acceso a la consola de serie para las instancias del conjunto de escalado de máquinas virtuales.
-Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión. | [Pulsar entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+No hay opción para la consola serie con la instancia de conjunto de escalado de máquinas virtuales |  Con esta versión preliminar, no se admite el acceso a la consola serie para las instancias del conjunto de escalado de máquinas virtuales.
+Al pulsar Entrar tras un banner de conexión no aparece la solicitud de inicio de sesión | [Pulsar Entrar no hace nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes 
 **P. ¿Cómo puedo enviar comentarios?**
 
-A. Envíe los comentarios que tenga acerca de, por ejemplo, problemas, en https://aka.ms/serialconsolefeedback. También tiene la posibilidad (aunque se prefiere menos) de enviar comentarios a través de azserialhelp@microsoft.com o en la categoría de máquinas virtuales en http://feedback.azure.com.
+A. Envíe comentarios como problemas que tenga acudiendo a https://aka.ms/serialconsolefeedback. También tiene la posibilidad (aunque se prefiere menos) de enviar comentarios a través de azserialhelp@microsoft.com o en la categoría de máquinas virtuales en http://feedback.azure.com.
 
 **P. Aparece el error "La consola existente tiene el tipo de SO en conflicto 'Windows' con el tipo de SO solicitado de Linux"**.
 
 A. Se trata de un problema conocido; para solucionarlo, basta con abrir [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) en modo Bash e intentarlo de nuevo.
 
-**P. No puedo acceder a la consola de serie, ¿dónde puedo presentar un caso de soporte técnico?**
+**P. No puedo acceder a la consola serie, ¿dónde puedo presentar un caso de soporte técnico?**
 
-A. Esta característica de la versión preliminar viene recogida en los términos de las versiones preliminares de Azure. La mejor manera de obtener soporte es recurrir a los canales mencionados anteriormente. 
+A. Esta característica de versión preliminar viene recogida en los términos de las versiones preliminares de Azure. La mejor manera de obtener soporte técnico es recurrir a los canales mencionados anteriormente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * La consola de serie también está disponible para máquinas virtuales con [Windows](../windows/serial-console.md).

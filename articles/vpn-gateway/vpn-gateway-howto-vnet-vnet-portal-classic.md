@@ -1,13 +1,13 @@
 ---
-title: "Creación de una conexión entre redes virtuales: Clásico: Azure Portal | Microsoft Docs"
-description: "Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal."
+title: 'Creación de una conexión entre redes virtuales: Clásico: Azure Portal | Microsoft Docs'
+description: Conexión entre sí de las redes virtuales de Azure mediante PowerShell y Azure Portal.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9e0c96d0d2c321869f7dc90e18f8dd25d58edc8f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d9766afefa793baf66ea5218843f06031b1b364c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/21/2018
 Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre las redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos de este artículo se corresponden al modelo de implementación clásica y a Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -218,7 +218,7 @@ En los pasos siguientes, se conectará a la cuenta de Azure y descargará y ver�
 2. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount
   ```
 
   Compruebe las suscripciones para la cuenta.

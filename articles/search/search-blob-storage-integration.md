@@ -1,19 +1,17 @@
 ---
 title: Agregar Azure Search a Blob Storage | Microsoft Docs
-description: "Creación de un índice en código con Búsqueda de Azure y la API de REST de HTTP."
-services: search
-documentationcenter: 
-author: ashmaka
-manager: jhubbard
+description: Creación de un índice en código con Azure Search y la API de REST de HTTP.
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2017
-ms.author: ashmaka
-ms.openlocfilehash: 15469e8a2d28bdf00d6e8d8c9f823c51975ee90e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+author: chaosrealm
+manager: jlembicz
+ms.author: eugenesh
+ms.openlocfilehash: 64032f59bad05746a07faadae6b0275eb4921b92
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Búsqueda en Blob Storage con Azure Search
 

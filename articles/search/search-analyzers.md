@@ -1,22 +1,17 @@
 ---
 title: Analizadores en Azure Search | Microsoft Docs
-description: "Asigne analizadores a los campos de texto que permiten búsquedas de un índice para reemplazar la API Lucene estándar personalizada por otras alternativas personalizadas, predefinidas o específicas del lenguaje."
-services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: 
+description: Asigne analizadores a los campos de texto que permiten búsquedas de un índice para reemplazar la API Lucene estándar personalizada por otras alternativas personalizadas, predefinidas o específicas del lenguaje.
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+manager: cgronlun
+author: HeidiSteen
+ms.openlocfilehash: ef578d880c832ed5f853275f9194e15eefecfcaa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="analyzers-in-azure-search"></a>Analizadores de Azure Search
 
@@ -35,7 +30,7 @@ Azure Search usa el [analizador Estándar Lucene](https://lucene.apache.org/core
 
 En la lista siguiente se describen los analizadores compatibles con Azure Search.
 
-| Categoría | Descripción |
+| Categoría | DESCRIPCIÓN |
 |----------|-------------|
 | [Analizador Lucene estándar](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Predeterminada. No se requieren ninguna especificación ni configuración. Este analizador de uso general funciona bien en la mayoría de lenguajes y escenarios.|
 | Analizadores predefinidos | Se ofrece como un producto acabado diseñado para utilizarse tal cuál, con una poca personalización. <br/>Hay dos tipos: especializados y de lenguaje. Lo que hace que sean "predefinidos" es que se hace referencia a ellos por su nombre, sin personalización alguna. <br/><br/>Los [analizadores especializados (independientes del lenguaje)](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) se usan cuando las entradas de texto requieren procesamiento especializado o un procesamiento mínimo. Los analizadores predefinidos sin lenguaje incluyen **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop** y **Whitespace**.<br/><br/>Los [analizadores de lenguaje](https://docs.microsoft.com/rest/api/searchservice/language-support) se utilizan cuando se necesita compatibilidad lingüística enriquecida con lenguajes individuales. Azure Search admite 35 analizadores de lenguaje de Lucene y 50 analizadores de procesamiento de lenguaje natural de Microsoft. |

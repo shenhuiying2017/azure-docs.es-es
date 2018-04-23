@@ -1,8 +1,8 @@
 ---
-title: "Administración de soluciones de Azure con PowerShell | Microsoft Docs"
+title: Administración de soluciones de Azure con PowerShell | Microsoft Docs
 description: Uso de Azure PowerShell y Resource Manager para administrar recursos.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a3dcbfe09d47388b80cee15ff0e46f8b75b474a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Administración de recursos con Azure PowerShell
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/08/2018
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, consulte el [módulo sobre la instalación de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, consulte el [módulo sobre la instalación de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="understand-scope"></a>Descripción del ámbito
 
@@ -51,9 +51,9 @@ Actualmente, el grupo de recursos está vacío.
 
 En este artículo, implementará una máquina virtual y su red virtual relacionada. Para administrar las soluciones de máquina virtual, hay tres roles específicos a los recursos, que normalmente proporcionan el acceso necesario:
 
-* [Colaborador de la máquina virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Colaborador de la red](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Colaborador de la cuenta de almacenamiento](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Colaborador de la cuenta de almacenamiento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 En lugar de asignar roles a usuarios individuales, a menudo resulta más fácil [crear un grupo de Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) para los usuarios que tienen que realizar acciones similares. A continuación, asigne a ese grupo el rol apropiado. Para simplificar este artículo, cree un grupo de Azure Active Directory sin miembros. Todavía puede asignar a este grupo un rol para un ámbito. 
 

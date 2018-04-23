@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: integración de Azure Active Directory con Amazon Web Service (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS)
 
 En este tutorial, obtendrá información sobre cómo integrar Amazon Web Services (AWS) con Azure Active Directory (Azure AD).
 
@@ -202,9 +202,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     b. En el cuadro de texto **Role description**, escriba la descripción.
 
-    a. Haga clic en **Crear rol**.
+    c. Haga clic en **Crear rol**.
 
-    b. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
+    d. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
 
 18. Use credenciales de cuenta de servicio de AWS para obtener los roles de cuenta de AWS en aprovisionamiento de usuarios de Azure AD. Para ello, abra la página principal de la consola de AWS.
 
@@ -270,16 +270,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. Haga clic en el botón **"Crear directiva"**.
 
-24. En el cuadro de diálogo **Revisar** , realice los pasos siguientes:   
-    
-    ![Configurar revisión de inicio de sesión único][34] 
-
-    a. Haga clic en **Crear rol**.
-
-    b. Cree tantos roles como sea necesario y asígnelos al proveedor de identidades.
-
-
-25. Cree una nueva cuenta de usuario en el servicio IAM de AWS mediante los pasos siguientes:
+24. Cree una nueva cuenta de usuario en el servicio IAM de AWS mediante los pasos siguientes:
 
     a. Haga clic en el panel de navegación **Users** (Usuarios) en la consola de IAM de AWS.
 
@@ -299,7 +290,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     * Haga clic en el botón **Next Permissions** (Permisos siguientes) en la esquina inferior derecha.
 
-26. Ahora cree una nueva directiva para este usuario mediante los pasos siguientes:
+25. Ahora cree una nueva directiva para este usuario mediante los pasos siguientes:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -309,7 +300,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. Seleccione la **directiva** y, a continuación, haga clic en el botón **Next: Review** (Siguiente: Revisión).
 
-27. Revise la directiva del usuario asociado mediante los pasos siguientes:
+26. Revise la directiva del usuario asociado mediante los pasos siguientes:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -317,7 +308,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     b. Haga clic en el botón **Create user** (Crear usuario) situado en la esquina inferior derecha para crear el usuario.
 
-28. Descargue las credenciales de usuario de un usuario mediante estos pasos:
+27. Descargue las credenciales de usuario de un usuario mediante estos pasos:
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -327,11 +318,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     c. Haga clic en el botón **Close** (Cerrar) en la parte inferior.
 
-29. Vaya a la sección **Aprovisionamiento de usuarios** de la aplicación Amazon Web Services en el Portal de administración de Azure AD.
+28. Vaya a la sección **Aprovisionamiento de usuarios** de la aplicación Amazon Web Services en el Portal de administración de Azure AD.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. Escriba la **clave de acceso** y la **clave secreta** en los campos **Secreto de cliente** y **Token secreto** respectivamente.
+29. Escriba la **clave de acceso** y la **clave secreta** en los campos **Secreto de cliente** y **Token secreto** respectivamente.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -343,7 +334,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. Haga clic en el botón **Guardar** situado en la parte superior para guardar la configuración.
  
-31. Ahora, asegúrese de establecer el estado de aprovisionamiento en **Activado** en la sección de configuración, para lo que debe activar el conmutador y, a continuación, hacer clic en el botón **Guardar** situado en la parte superior.
+30. Ahora, asegúrese de establecer el estado de aprovisionamiento en **Activado** en la sección de configuración, para lo que debe activar el conmutador y, a continuación, hacer clic en el botón **Guardar** situado en la parte superior.
 
     ![Agregar usuario](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

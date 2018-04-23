@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Habilitación de un proveedor de servicios en la nube para administrar la suscripción de Azure Stack
 
@@ -41,7 +41,7 @@ Si está utilizando Azure Stack con un proveedor de servicios en la nube (CSP), 
 Agregue el CSP como propietario a su suscripción. 
 
 1. Agregue el CSP como usuario invitado, con el rol de propietario en el directorio de inquilino.  Para conocer los pasos sobre cómo agregar un usuario, consulte [Adición de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
-2. Agregue el rol de propietario al usuario invitado de CSP. Para conocer los pasos para agregar el usuario de CSP a la suscripción, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+2. Agregue el rol de propietario al usuario invitado de CSP. Para conocer los pasos para agregar el usuario de CSP a la suscripción, consulte [Uso del control de acceso basado en rol para administrar el acceso a los recursos de la suscripción de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 3. El CSP, a continuación, creará automáticamente la suscripción local de Azure Stack.
 4. Está listo para empezar a usar Azure Stack.
 5. El CSP debe entonces crear un recurso en la suscripción para comprobar que puede administrar sus recursos. 

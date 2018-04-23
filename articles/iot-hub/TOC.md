@@ -5,7 +5,7 @@
 ## [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Introducción a la administración de dispositivos](iot-hub-device-management-overview.md)
 
-# [Introducción](iot-hub-get-started.md)
+# [Primeros pasos](iot-hub-get-started.md)
 
 ## Configuración del dispositivo
 ### [Simulación de un dispositivo en su PC](iot-hub-get-started-simulated.md)
@@ -121,7 +121,7 @@
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Back-end de Java/Dispositivo de Java](iot-hub-java-java-twin-how-to-configure.md)
 #### [Back-end de Python o dispositivo de Python](iot-hub-python-python-twin-how-to-configure.md)
-### Uso de trabajos de dispositivos para actualizar el firmware del dispositivo
+### Uso de dispositivos gemelos para actualizar el firmware del dispositivo
 #### [Back-end de Node/Dispositivo de Node](iot-hub-node-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo de Node.js](iot-hub-csharp-node-firmware-update.md)
 #### [Back-end de .NET/Dispositivo de .NET](iot-hub-csharp-csharp-firmware-update.md)

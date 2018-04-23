@@ -8,6 +8,7 @@
 ## [Preguntas más frecuentes sobre DNS](dns-faq.md)
 ## [Uso de zonas DNS privadas](private-dns-overview.md)
 ## [Escenarios de DNS privada](private-dns-scenarios.md)
+## [Métricas y alertas de DNS](dns-alerts-metrics.md)
 
 
 # Introducción

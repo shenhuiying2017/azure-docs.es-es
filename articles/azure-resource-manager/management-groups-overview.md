@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure 
 
@@ -32,7 +32,7 @@ Puede compilar una estructura flexible de grupos de administración y suscripcio
 
 ![árbol](media/management-groups/MG_overview.png)
 
-Al crear una jerarquía agrupada por departamentos, es posible asignar roles de [control de acceso basado en rol (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md) que *hereden* en los departamentos de ese grupo de administración. Gracias a los grupos de administración, se reduce la carga de trabajo y el riesgo de errores, ya que el rol solo se asigna una vez. 
+Al crear una jerarquía agrupada por departamentos, es posible asignar roles de [control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md) que *hereden* en los departamentos de ese grupo de administración. Gracias a los grupos de administración, se reduce la carga de trabajo y el riesgo de errores, ya que el rol solo se asigna una vez. 
 
 ### <a name="important-facts-about-management-groups"></a>Hechos importantes acerca de los grupos de administración
 - Se admiten 10 000 grupos de administración en un único directorio. 
@@ -55,7 +55,7 @@ Se está trabajando en este elemento y se resolverá antes de que los grupos de 
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 
-Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol se apliquen en el nivel de directorio. Los [administradores de directorio necesitan elevar sus privilegios](../active-directory/role-based-access-control-tenant-admin-access.md) para ser inicialmente el propietario del grupo raíz. Una vez que el administrador es el propietario del grupo, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía.  
+Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol se apliquen en el nivel de directorio. Los [administradores de directorio necesitan elevar sus privilegios](../role-based-access-control/elevate-access-global-admin.md) para ser inicialmente el propietario del grupo raíz. Una vez que el administrador es el propietario del grupo, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 - El nombre y el identificador del grupo de administración raíz tienen el identificador de Azure Active Directory de forma predeterminada. El nombre para mostrar se puede actualizar en cualquier momento para mostrarse diferente en Azure Portal. 
@@ -67,9 +67,9 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
   
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 
-Los grupos de administración de Azure admiten el [control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-what-is.md) para todos los accesos a recursos y las definiciones de roles. Estos permisos se heredan en los recursos secundarios que existen en la jerarquía.   
+Los grupos de administración de Azure admiten el [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md) para todos los accesos a recursos y las definiciones de roles. Estos permisos se heredan en los recursos secundarios que existen en la jerarquía.   
 
-Aunque cualquier [rol de control de acceso basado en rol integrado](../active-directory/role-based-access-control-what-is.md#built-in-roles) puede asignarse a un grupo de administración, existen cuatro roles que se usan con frecuencia: 
+Aunque cualquier [rol de control de acceso basado en rol integrado](../role-based-access-control/overview.md#built-in-roles) puede asignarse a un grupo de administración, existen cuatro roles que se usan con frecuencia: 
 - **propietario** tiene acceso completo a todos los recursos y cuenta con el derecho a delegar este acceso a otros. 
 - **Colaborador**: puede crear y administrar todos los tipos de recursos de Azure, pero no puede conceder acceso a otros.
 - **Colaborador de la directiva de recursos**: puede crear y administrar las directivas del directorio de los recursos.     

@@ -17,11 +17,11 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrado del tráfico de red con un grupo de seguridad de red mediante la CLI de Azure
 
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un grupo de seguridad de red y lo ha asociado a una subred de una red virtual. Para más información acerca de los grupos de seguridad de red, consulte [Introducción a los grupos de seguridad de red](security-overview.md) y [Administración de un grupo de seguridad de red](virtual-network-manage-nsg-arm-ps.md).
+En este artículo, ha creado un grupo de seguridad de red y lo ha asociado a una subred de una red virtual. Para más información acerca de los grupos de seguridad de red, consulte [Introducción a los grupos de seguridad de red](security-overview.md) y [Administración de un grupo de seguridad de red](manage-network-security-group.md).
 
 De forma predeterminada, Azure enruta el tráfico entre subredes. En su lugar, puede elegir enrutar el tráfico entre subredes a través de una máquina virtual, que actúa como un firewall, por ejemplo. Para obtener información sobre cómo hacerlo, consulte [Creación de una tabla de rutas](tutorial-create-route-table-cli.md).

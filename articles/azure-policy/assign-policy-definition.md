@@ -1,19 +1,19 @@
 ---
-title: "Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure | Microsoft Docs"
-description: "Este artículo lo guiará por los pasos para crear una definición de directiva para identificar los recursos no compatibles."
+title: Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure | Microsoft Docs
+description: Este artículo lo guiará por los pasos para crear una definición de directiva para identificar los recursos no compatibles.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/10/2018
+ms.date: 04/18/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: e5b27bdc2aef15b619022d1c08fa3e6dccaa5736
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure
 El primer paso para entender el cumplimiento en Azure es identificar el estado de sus recursos. Este inicio rápido lo guiará por el proceso de creación de una asignación de directiva para identificar máquinas virtuales que no están usando discos administrados.
@@ -71,15 +71,14 @@ Si hay algún recurso existente no compatible con esta nueva asignación, aparec
 
 Si una condición se evalúa en todos los recursos existentes y el valor obtenido es true, estos recursos se marcarán como no compatibles con la directiva. La imagen del ejemplo anterior muestra los recursos no compatibles. En la tabla siguiente se muestra cómo funcionan las diferentes acciones de la directiva con la evaluación de la condición para el estado de cumplimiento resultante. Aunque no se ve la lógica de evaluación en Azure Portal, se muestran los resultados del estado de cumplimiento. El resultado del estado de cumplimiento puede ser compatible o no compatible.
 
-|Recurso  |Si la condición de la directiva se evalúa como  |Acción en la directiva   |Estado de cumplimiento  |
-|-----------|---------|---------|---------|
-|Exists     |True     |Denegar     |Incompatible |
-|Exists     |False    |Denegar     |Compatible     |
-|Exists     |True     |Append   |Incompatible |
-|Exists     |False    |Append   |Compatible     |
-|Exists     |True     |Auditoría    |Incompatible |
-|Exists     |False    |Auditoría    |Incompatible |
+| **Estado del recurso** | **Acción** | **Evaluación de directiva** | **Estado de cumplimiento** |
+| --- | --- | --- | --- |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | No compatible |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatible |
+| Nuevo | Audit, AuditIfNotExist\* | True | No compatible |
+| Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
 
+\* Las acciones Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE. Las acciones también requieren que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Otras guías de esta colección se basan en esta guía de inicio rápido. Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en esta guía de inicio rápido. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 810c585e104f6b7bc63222594375527c45c6082d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI
 
@@ -42,7 +42,7 @@ El autoservicio de restablecimiento de contraseña de Azure AD le ayuda a:
 * **Impulsar la movilidad**: los usuarios pueden restablecer sus contraseñas desde cualquier lugar en que se encuentren.
 * **Mantener el control** de la directiva de seguridad. Los administradores pueden seguir aplicando las directivas que tienen hoy en día.
 
-Si está listo, puede empezar a usar el autoservicio de restablecimiento de contraseña de Azure AD con nuestra [guía de inicio rápido](../active-directory-passwords-getting-started.md). Podrá proporcionar rápidamente a sus usuarios la capacidad de restablecer sus propias contraseñas.
+Si está listo, puede empezar a usar el autoservicio de restablecimiento de contraseña de Azure AD con nuestra [guía de inicio rápido](quickstart-sspr.md). Podrá proporcionar rápidamente a sus usuarios la capacidad de restablecer sus propias contraseñas.
 
 ## <a name="azure-ad-sspr-availability"></a>Disponibilidad del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -65,7 +65,7 @@ Encontrará más información sobre licencias, precios y futuros planes en los s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* ¿Está listo para empezar a trabajar con SSPR? [Configure el autoservicio de restablecimiento de contraseña de Azure AD](../active-directory-passwords-getting-started.md).
+* ¿Está listo para empezar a trabajar con SSPR? [Configure el autoservicio de restablecimiento de contraseña de Azure AD](quickstart-sspr.md).
 * Planee una implementación correcta del autoservicio de restablecimiento de contraseña para los usuarios mediante las directrices que aparecen en nuestra [guía de implementación](howto-sspr-deployment.md).
 * [Restablecimiento o modificación de la contraseña](../active-directory-passwords-update-your-own-password.md).
 * [Registro para el autoservicio de restablecimiento de contraseñas](../active-directory-passwords-reset-register.md).

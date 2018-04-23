@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual (clásica) con varias NIC: CLI de Azure 1.0 | Microsoft Docs"
-description: "Aprenda a crear una máquina virtual (clásica) con varias NIC mediante la interfaz de la línea de comandos (CLI) de Azure 1.0."
+title: 'Creación de una máquina virtual (clásica) con varias NIC: CLI de Azure 1.0 | Microsoft Docs'
+description: Aprenda a crear una máquina virtual (clásica) con varias NIC mediante la interfaz de la línea de comandos (CLI) de Azure 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: genli
+manager: cshepard
+editor: ''
 tags: azure-service-management
 ms.assetid: b436e41e-866c-439f-a7c7-7b4b041725ef
 ms.service: virtual-network
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: d2631e531368df4f00d7ffd8fef585038658797b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Creación de una máquina virtual (clásica) con varias NIC mediante la CLI de Azure 1.0
 

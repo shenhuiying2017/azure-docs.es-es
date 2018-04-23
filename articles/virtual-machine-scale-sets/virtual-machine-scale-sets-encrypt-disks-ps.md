@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 856d4bc7dd636b3a2f3d072a10989cafd7efd6a6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d24189e94cade36eca3349c1f46810ee6daa2a49
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set"></a>Cifrado de discos de datos conectados y de SO en un conjunto de escalado de máquinas virtuales
 Para proteger los datos en reposo mediante la tecnología de cifrado estándar del sector, Virtual Machine Scale Sets admite Azure Disk Encryption (ADE). El cifrado se puede habilitar para Virtual Machine Scale Sets de Windows y Linux. Para más información, consulte [Azure Disk Encryption para Windows y Linux](../security/azure-security-disk-encryption.md).
@@ -41,7 +41,7 @@ En este artículo se requiere la versión 5.3.0 del módulo de Azure PowerShell,
 Registre la suscripción de Azure para obtener la versión preliminar del cifrado de discos para Virtual Machine Scale Sets con [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

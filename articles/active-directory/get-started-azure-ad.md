@@ -1,25 +1,25 @@
 ---
-title: "Introducción a Azure Active Directory | Microsoft Docs"
-description: "Obtener licencias, añadir el nombre del dominio, crear una página de inicio de sesión personalizada y añadir el autoservicio de restablecimiento de contraseña en Azure Active Directory"
-keywords: 
+title: Introducción a Azure Active Directory | Microsoft Docs
+description: Obtener licencias, añadir el nombre del dominio, crear una página de inicio de sesión personalizada y añadir el autoservicio de restablecimiento de contraseña en Azure Active Directory
+keywords: ''
 author: curtand
 manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: active-directory
 ms.workload: identity
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: eedcb80038179cf74666880816cb0b5416ac63fd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introducción a Azure AD
 La administración de identidades moderna requiere confiabilidad escalable y coherente para garantizar la disponibilidad de las aplicaciones y servicios solo para los usuarios autenticados. Para admitir adecuadamente las necesidades de administración de identidad de los usuarios, el departamento de TI necesita una manera para proporcionar acceso a aplicaciones de software como servicio (SaaS) aprobadas y públicas, una manera de hospedar aplicaciones internas de línea de negocio e incluso formas de mejorar el desarrollo y uso de aplicaciones locales. Todos estos requisitos apuntan a la necesidad de una solución de administración de identidad basada en la nube.      
@@ -81,7 +81,7 @@ Puede usar asignación de licencias basada en grupos para configurar reglas como
 Revise las licencias asignadas y disponibles en **Azure Active Directory** > **Licencias** > **Todos los productos**.
 
 ## <a name="configure-self-service-password-reset"></a>Configuración del autoservicio de restablecimiento de contraseña
-El [autoservicio de restablecimiento de contraseña (SSPR)](active-directory-passwords-getting-started.md) ofrece un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan o desbloqueen sus cuentas o contraseñas. El sistema incluye informes detallados para realizar un seguimiento de cuándo usan los usuarios el sistema, además de notificaciones para alertar de posibles abusos o usos indebidos.
+El [autoservicio de restablecimiento de contraseña (SSPR)](authentication/quickstart-sspr.md) ofrece un medio sencillo con el que los administradores de TI pueden permitir que los usuarios restablezcan o desbloqueen sus cuentas o contraseñas. El sistema incluye informes detallados para realizar un seguimiento de cuándo usan los usuarios el sistema, además de notificaciones para alertar de posibles abusos o usos indebidos.
 
 ### <a name="verification-step"></a>Paso de comprobación
 Revise las propiedades de SSPR habilitadas en **Azure Active Directory** > **Restablecimiento de contraseña** para asegurarse de que se han efectuado las asignaciones de grupo y usuario adecuadas. 

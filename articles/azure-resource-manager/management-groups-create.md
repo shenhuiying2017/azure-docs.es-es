@@ -1,10 +1,10 @@
 ---
-title: "Creación de grupos de administración para organizar los recursos de Azure | Microsoft Docs"
-description: "Aprenda a crear grupos de administración de Azure para administrar varios recursos."
+title: Creación de grupos de administración para organizar los recursos de Azure | Microsoft Docs
+description: Aprenda a crear grupos de administración de Azure para administrar varios recursos.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: ae91ad29b867ad4ab00831ee40102bcec2fc890c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 48af0bd566f8250e47e03ae45c8ba1c06e5a6792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
-Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Cree estos contenedores para construir una jerarquía eficaz y eficiente que pueda usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basados en roles de Azure](../active-directory/role-based-access-control-what-is.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md). 
+Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Cree estos contenedores para construir una jerarquía eficaz y eficiente que pueda usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basados en roles de Azure](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md). 
 
 La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com); o puede usar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o la [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para crear grupos de administración.   
 

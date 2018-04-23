@@ -1,10 +1,10 @@
 ---
-title: "Administración de direcciones IP reservadas (clásico) de Azure mediante PowerShell | Microsoft Docs"
-description: "Conozca las direcciones IP reservadas (clásico) y cómo administrarlas mediante PowerShell."
+title: Administración de direcciones IP reservadas (clásico) de Azure mediante PowerShell | Microsoft Docs
+description: Conozca las direcciones IP reservadas (clásico) y cómo administrarlas mediante PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: carmonm
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 34652a55-3ab8-4c2d-8fb2-43684033b191
 ms.service: virtual-network
@@ -13,20 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: genli
+ms.openlocfilehash: fafb2566d1b58a37dd1d0e4bab129d7fb01a9f89
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="reserved-ip-addresses-classic"></a>Direcciones IP reservadas (clásico)
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI de Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Plantilla](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (clásico)](virtual-networks-reserved-public-ip.md)
 
 Las direcciones IP en Azure se dividen en dos categorías: dinámicas y reservadas. Las direcciones IP públicas administradas por Azure son dinámicas de forma predeterminada. Esto significa que la dirección IP usada para un determinado servicio en la nube (VIP) o para tener acceso a una máquina virtual o instancia de rol directamente (ILPIP) puede cambiar de vez en cuando, cuando los recursos se cierran o detienen (desasignan).
@@ -34,7 +33,7 @@ Las direcciones IP en Azure se dividen en dos categorías: dinámicas y reservad
 Para impedir que cambien las direcciones IP, puede reservar una dirección IP. La IP reservadas únicamente puede usarse como una VIP, lo que garantiza que la dirección IP para el servicio en la nube siga siendo la misma incluso cuando se cierran o detienen (desasignan) recursos. Además, se puede convertir direcciones IP dinámicas existentes utilizadas como una VIP en una IP reservada.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo reservar una dirección IP pública estática con el [modelo de implementación de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). Este artículo trata del modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Obtenga información sobre cómo reservar una dirección IP pública estática con el [modelo de implementación de Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Para más información sobre las direcciones IP en Azure, lea el artículo sobre [direcciones IP](virtual-network-ip-addresses-overview-classic.md).
 
@@ -43,9 +42,9 @@ Para más información sobre las direcciones IP en Azure, lea el artículo sobre
 * **Desea que su IP permanezca con el servicio en la nube incluso en el estado detenido o desasignado (máquina virtual)**. Si desea tener acceso al servicio mediante una dirección IP que no cambia incluso cuando las máquinas virtuales en el servicio en la nube se cierran o detienen (desasignan).
 * **Desea estar seguro de que el tráfico saliente de Azure usa una dirección IP predecible**. Es posible que haya configurado un firewall local para permitir solo tráfico procedente de direcciones IP específicas. Al reservar una dirección IP, sabe la dirección IP de origen y no tiene que actualizar las reglas de firewall debido a un cambio de dirección IP.
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 1. ¿Puedo usar una IP reservada para todos los servicios de Azure? <br>
-    No. Las IP reservadas solo pueden usarse para máquinas virtuales y roles de instancia del servicio en la nube que se hayan expuesto a través de una VIP.
+    Nº Las IP reservadas solo pueden usarse para máquinas virtuales y roles de instancia del servicio en la nube que se hayan expuesto a través de una VIP.
 2. ¿Cuántas direcciones IP reservadas puedo tener? <br>
     Para detalles, vea el artículo sobre [límites de Azure](../azure-subscription-service-limits.md#networking-limits).
 3. ¿Hay un cargo por las IP reservadas? <br>
@@ -53,7 +52,7 @@ Para más información sobre las direcciones IP en Azure, lea el artículo sobre
 4. ¿Cómo se reserva una dirección IP? <br>
     Puede usar PowerShell, la [API de REST de administración de Azure Management](https://msdn.microsoft.com/library/azure/dn722420.aspx) o [Azure Portal](https://portal.azure.com) para reservar una dirección IP de una región de Azure. Hay una dirección IP reservada asociada a su suscripción.
 5. ¿Puedo usar una IP reservada con redes virtuales basadas en grupos de afinidad? <br>
-    No. Las IP reservadas solo se admiten en redes virtuales regionales. Las IP reservadas no se admiten para redes virtuales asociadas a grupos de afinidad. Para más información sobre cómo asociar una red virtual a una región o un grupo de afinidad, consulte el artículo [Redes virtuales regionales y grupos de afinidad](virtual-networks-migrate-to-regional-vnet.md).
+    Nº Las IP reservadas solo se admiten en redes virtuales regionales. Las IP reservadas no se admiten para redes virtuales asociadas a grupos de afinidad. Para más información sobre cómo asociar una red virtual a una región o un grupo de afinidad, consulte el artículo [Redes virtuales regionales y grupos de afinidad](virtual-networks-migrate-to-regional-vnet.md).
 
 ## <a name="manage-reserved-vips"></a>Administración de VIP reservadas
 

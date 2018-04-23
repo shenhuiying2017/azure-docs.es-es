@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cd5adf8e78fd6a1a39e41896502185fbadd936cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
 
@@ -154,7 +154,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](../active-directory-passwords-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)

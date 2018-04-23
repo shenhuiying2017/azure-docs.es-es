@@ -1,12 +1,12 @@
 ---
 title: Table API de Azure Cosmos DB para Node.js | Microsoft Docs
-description: "Infórmese acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
+description: Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión.
 services: cosmos-db
 documentationcenter: nodejs
 author: yarong
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: yaronyg
-ms.custom: 
-ms.openlocfilehash: 1097b853ca0f461300f294e9f5baabf2ae4e15a1
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: ''
+ms.openlocfilehash: 8858d7145f1f4434b9e09ea017389339f30f67c2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Table API de Azure Cosmos DB para Node.js: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -53,9 +53,9 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de noviembre de 2017 |--- |
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planeación y diseño de Azure Virtual Network
 Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Si aplica cierta planeación y diseño, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. Si no conoce las redes virtuales, le recomendamos que [obtenga información sobre ellas](virtual-networks-overview.md) y aprenda [a implementar](quick-create-portal.md) una antes de continuar.
@@ -87,12 +87,12 @@ De manera predeterminada, la red virtual usa la [resolución de nombres proporci
 Revise los límites de red en el artículo sobre [límites de Azure](../azure-subscription-service-limits.md#networking-limits) para asegurarse de que su diseño no entra en conflicto con cualquiera de los límites. Algunos límites se pueden aumentar con la apertura de una incidencia de soporte técnico.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede usar el [RBAC de Azure](../active-directory/role-based-access-built-in-roles.md) para controlar el nivel de acceso que distintos usuarios pueden tener a los diferentes recursos de Azure. De esta forma, puede separar el trabajo que realiza su equipo según sus necesidades.
+Puede usar el [RBAC de Azure](../role-based-access-control/built-in-roles.md) para controlar el nivel de acceso que distintos usuarios pueden tener a los diferentes recursos de Azure. De esta forma, puede separar el trabajo que realiza su equipo según sus necesidades.
 
 En lo que respecta a las redes virtuales, los usuarios que cuentan con el rol **Colaborador de la red** tienen el control total sobre los recursos de la red virtual del Administrador de recursos de Azure. De manera similar, los usuarios que cuentan con el rol **Colaborador de la red clásica** tienen el control total sobre los recursos de la red virtual clásica.
 
 > [!NOTE]
-> También puede [crear sus propios roles](../active-directory/role-based-access-control-configure.md) para separar sus necesidades de administración.
+> También puede [crear sus propios roles](../role-based-access-control/role-assignments-portal.md) para separar sus necesidades de administración.
 >
 >
 

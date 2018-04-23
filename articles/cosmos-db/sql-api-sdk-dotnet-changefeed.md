@@ -4,8 +4,7 @@ description: Aprenda todo lo necesario sobre el SDK y la API para los procesador
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 43ba189332cf012a80c309a0dc0f383e38a0915c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -37,7 +36,7 @@ ms.lasthandoff: 03/30/2018
 |---|---|
 |**Descarga del SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentación de la API**|[Documentación de referencia de la API de biblioteca de procesadores de fuente de cambios](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Introducción**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
+|**Primeros pasos**|[Primeros pasos con el SDL para los procesadores de fuente de cambios de .NET](change-feed.md)|
 |**Plataforma admitida actualmente**| [Microsoft .NET 4.5 Framework](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de la versión

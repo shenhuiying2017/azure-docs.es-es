@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 6a72cc1829b7b8a5c7c588543d0b5c91f9f36bf5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2c41b2c297d8d89554950e8c77201ff5bedf743e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutorial: Integración de Azure Active Directory con Elium
 
@@ -117,7 +117,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: ` https://<platform-domain>.elium.com/login/saml2/login`.
      
     > [!NOTE] 
-    > Estos valores no son reales. Los obtendrá del **archivo de metadatos de SP** que se puede descargar en `https://<platform-domain>/login/saml2/metadata`. Esto se explica más adelante en este tutorial.
+    > Estos valores no son reales. Los obtendrá del **archivo de metadatos de SP** que se puede descargar en `https://<platform-domain>.elium.com/login/saml2/metadata`. Esto se explica más adelante en este tutorial.
 
 5. La aplicación Elium espera las aserciones de SAML en un formato específico, lo que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones.
 

@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: aa56c1e2f1f506be51f449a1cf10b4f0bc57a152
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: ca4a248e9da2c0d50aaf320370b1f3050a0ff263
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Información general acerca de Spark Structured Streaming
 

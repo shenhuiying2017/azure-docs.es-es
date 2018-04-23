@@ -1,23 +1,23 @@
 ---
-title: "Información acerca de la identidad en Azure | Microsoft Docs"
-description: "Obtenga un conocimiento básico de los términos, los conceptos y las recomendaciones de las soluciones de identidad de Microsoft Azure para tomar la mejor decisión de regulación de las identidades para la organización."
-keywords: 
+title: Información acerca de la identidad en Azure | Microsoft Docs
+description: Obtenga un conocimiento básico de los términos, los conceptos y las recomendaciones de las soluciones de identidad de Microsoft Azure para tomar la mejor decisión de regulación de las identidades para la organización.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Información acerca de las soluciones de identidad de Azure
 Microsoft Azure Active Directory (Azure AD) es una solución en la nube de administración de identidades y acceso que proporciona servicios de directorio, control de identidad y administración del acceso a las aplicaciones. Azure AD [habilita rápidamente el inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) en miles de aplicaciones comerciales y personalizadas preintegradas de la [galería de aplicaciones de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Probablemente ya use muchas de estas aplicaciones, como Office 365, Salesforce.com, Box, ServiceNow y Workday.
@@ -32,7 +32,7 @@ Microsoft Azure ofrece varias maneras de aprovechar la identidad como un servici
 
 Antes de poder tomar una decisión sobre una solución de identidad de Azure, debe tener un conocimiento básico de los términos usados habitualmente al hablar sobre los servicios de identidad de Azure.
 
-|Término| Descripción|
+|Término| DESCRIPCIÓN|
 |-----|-----|
 |Suscripción de Azure |Las suscripciones se usan para pagar los servicios en la nube de Azure y normalmente están vinculadas a una tarjeta de crédito. Puede tener varias suscripciones, pero puede ser difícil compartir recursos entre suscripciones.|
 |Inquilino de Azure | Un inquilino de Azure AD es representativo de una sola organización. Es una instancia dedicada y de confianza de Azure AD que se crear automáticamente cuando una organización se suscribe a un servicio en la nube, como Azure, Intune u Office 365. Los inquilinos pueden obtener acceso a servicios en un entorno dedicado (un solo inquilino) o en un entorno compartido con otras organizaciones (multiinquilino).|
@@ -49,11 +49,11 @@ Antes de poder tomar una decisión sobre una solución de identidad de Azure, de
 
 Ahora que conoce los términos básicos de la identidad de Azure, debería aprender más sobre ellos, ya que le ayudará a tomar una decisión informada sobre los servicios de identidad de Azure.
 
-|Concepto |Descripción|
+|Concepto |DESCRIPCIÓN|
 |-----|-----|
 |[Asociación de las suscripciones de Azure con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Cada suscripción de Azure tiene una relación de confianza con un directorio de Azure AD para autenticar usuarios, servicios y dispositivos. *Varias suscripciones pueden confiar en el mismo directorio de Azure AD, pero una suscripción solo confiará en un único directorio de Azure AD*. Esta relación de confianza es diferente que la relación que tiene una suscripción con otros recursos de Azure (sitio web, bases de datos, etc.), que son más parecidos a los recursos secundarios de una suscripción. Si una suscripción expira, también se detiene el acceso a los recursos asociados a la suscripción distintos a Azure AD. Sin embargo, el directorio de Azure AD permanece en Azure, para que pueda asociar otras suscripciones a ese directorio y continuar con la administración de los recursos del inquilino.|
 |[Cómo funcionan las licencias de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Cuando compra o activa Enterprise Mobility Suite, Azure AD Premium o Azure AD Basic, el directorio se actualiza con la suscripción, incluido el período de validez y las licencias de prepago. Una vez activa la suscripción, los administradores globales de Azure AD pueden administrar el servicio y los usuarios con licencia pueden usarlo. La información de suscripción, incluido el número de licencias asignadas o disponibles, se encuentra en Azure Portal en la hoja **Azure Active Directory** > **Licencias**. Es también el mejor lugar para administrar de las asignaciones de licencia.|
-|[Control de acceso basado en roles en Azure Portal](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|El control de acceso basado en roles (RBAC) de Azure ayuda a proporcionar una administración de acceso detallada de los recursos de Azure. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Con RBAC, puede dar a los empleados los permisos exactos que necesitan en función de los tres roles básicos que se aplican a todos los grupos de recursos: propietario, colaborador, lector. También puede crear hasta 2000 [roles personalizados de RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) propios para satisfacer sus necesidades específicas. |
+|[Control de acceso basado en roles en Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/overview)|El control de acceso basado en roles (RBAC) de Azure ayuda a proporcionar una administración de acceso detallada de los recursos de Azure. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Con RBAC, puede dar a los empleados los permisos exactos que necesitan en función de los tres roles básicos que se aplican a todos los grupos de recursos: propietario, colaborador, lector. También puede crear hasta 2000 [roles personalizados de RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) propios para satisfacer sus necesidades específicas. |
 |[Identidad híbrida](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|La identidad híbrida se consigue mediante la integración de su Windows Server Active Directory (AD DS) local con directorio de Azure AD mediante [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y aplicaciones locales o SaaS integradas con Azure AD. Con la identidad híbrida, su entorno local se extiende de una manera eficaz a la nube para identidad y acceso.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Diferencia entre Windows Server AD DS y Azure AD
@@ -65,7 +65,7 @@ AD DS es un rol del servidor en Windows Server, lo que significa que se pueden i
 
 Los departamentos de TI han protegido el perímetro de seguridad durante años con AD DS, pero las empresas modernas, sin perímetro definido y con necesidades de identidad para empleados, clientes y asociados requieren un plano de control nuevo. Azure AD es ese plano de control de identidad. La seguridad se ha trasladado más allá del firewall corporativo a la nube, donde Azure AD protege los recursos y el acceso de la empresa al proporcionar una identidad común para los usuarios (tanto local como en la nube). Esto ofrece a los usuarios flexibilidad para acceder de forma segura a las aplicaciones que necesitan para realizar su trabajo desde casi cualquier dispositivo. También se proporcionan controles continuos de protección de datos basados en riesgo, respaldados por funcionalidades de aprendizaje automático e informes exhaustivos, que el departamento de TI necesita para proteger los datos de la empresa.
 
-Azure AD es un servicio de directorio público de varios clientes, lo que significa que en Azure AD puede crear un inquilino para los servidores de la nube y aplicaciones como Office 365. Los usuarios y los grupos se crean en una estructura plana sin unidades organizativas ni objetos de directiva de grupo. La autenticación se realiza mediante protocolos como SAML, WS-Federation y OAuth. Es posible consultar Azure AD, pero en lugar de usar LDAP debe usar una API de REST denominada API Graph de AD. Todos funcionan mediante HTTP y HTTPS.
+Azure AD es un servicio de directorio público de varios clientes, lo que significa que en Azure AD puede crear un inquilino para los servidores de la nube y aplicaciones como Office 365. Los usuarios y los grupos se crean en una estructura plana sin unidades organizativas ni objetos de directiva de grupo. La autenticación se realiza mediante protocolos como SAML, WS-Federation y OAuth. Es posible consultar Azure AD, pero en lugar de usar LDAP debe usar una API de REST denominada Graph API de AD. Todos funcionan mediante HTTP y HTTPS.
 
 ### <a name="extend-office-365-management-and-security-capabilities"></a>Ampliar las funcionalidades de seguridad y administración de Office 365
 ¿Ya usa Office 365? Acelere la transformación digital mediante la extensión de las funcionalidades integradas de Office 365 con Azure AD para proteger todos los recursos y permitir la productividad segura de todos los recursos. Cuando usa Azure AD, además de las funcionalidades de Office 365, puede proteger toda su cartera de aplicaciones con una identidad que permite el inicio de sesión único en todas las aplicaciones. Puede expandir las funcionalidades de acceso condicional en función no solo del estado del dispositivo, sino también del usuario, la ubicación, la aplicación y el riesgo. Las funcionalidades de autenticación multifactor (MFA) proporcionan aún mayor protección cuando lo necesite. Podrá obtener una supervisión adicional de los privilegios de los usuarios y proporcionar acceso administrativo bajo petición, en el momento preciso. Los usuarios serán más productivos y se crearán menos incidencias de soporte técnico, gracias a las funcionalidades de autoservicio que proporciona Azure AD, como el restablecimiento de contraseñas olvidadas, las solicitudes de acceso a las aplicaciones y la creación y administración de grupos.

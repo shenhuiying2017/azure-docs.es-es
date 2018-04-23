@@ -1,25 +1,20 @@
 ---
-title: "Información sobre las operaciones de Azure SQL Data Warehouse | Microsoft Docs"
-description: "La elasticidad del servicio Almacenamiento de datos SQL permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU. "
+title: Información sobre las operaciones de Azure SQL Data Warehouse | Microsoft Docs
+description: 'La elasticidad del servicio SQL Data Warehouse permite aumentar, reducir o pausar la capacidad de proceso mediante el uso de una escala móvil de unidades de almacenamiento de datos (DWU). En este artículo se explican las métricas de almacenamiento de datos y cómo se relacionan con las DWU. '
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: cadffa9c-589d-4db7-888a-1f202a753bc5
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: e48d0a3028d5ebcb5d1bc0afbfc96a391bf4c076
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="data-warehouse-workload"></a>Carga de trabajo del almacenamiento de datos
 Una carga de trabajo de almacenamiento de datos hace referencia a todas las operaciones que tienen lugar en un almacenamiento de datos. La carga de trabajo del almacenamiento de datos abarca todo el proceso de carga de datos en el almacén, la realización de análisis e informes, la administración de los datos y la exportación de los mismos. La profundidad y amplitud de estos componentes suelen ir en paralelo con el nivel de madurez del almacenamiento de datos.
@@ -41,7 +36,7 @@ Los almacenamientos de datos se caracterizan por consultas que analizan un mayor
 ## <a name="data-loading"></a>Carga de datos
 La carga de datos es una parte importante de la carga de trabajo del almacenamiento de datos. Las compañías suelen tener un sistema OLTP ocupado que hace el seguimiento de los cambios a lo largo del día, cuando los clientes están generando transacciones comerciales. Periódicamente, en general por la noche durante un período de mantenimiento, las transacciones se mueven o copian en el almacenamiento de datos. Una vez que los datos están en el almacenamiento de datos, se pueden hacer análisis y tomar decisiones empresariales sobre los datos.
 
-* Tradicionalmente, el proceso de carga se denomina ETL (extracción, transformación y carga). Normalmente, los datos deben transformarse para mantener la coherencia con otros datos del almacenamiento de datos. Anteriormente, las empresas usaban servidores dedicados de ETL para estas transformaciones. Ahora, gracias al rápido procesamiento masivo paralelo, es posible cargar datos en Almacenamiento de datos SQL en primer lugar y, a continuación, hacer las transformaciones. Este proceso se denomina extraer, cargar y transformar (ELT) y se está convirtiendo en un nuevo estándar para la carga de trabajo de almacenamiento de datos.
+* Tradicionalmente, el proceso de carga se denomina ETL (extracción, transformación y carga). Normalmente, los datos deben transformarse para mantener la coherencia con otros datos del almacenamiento de datos. Anteriormente, las empresas usaban servidores dedicados de ETL para estas transformaciones. Ahora, gracias al rápido procesamiento masivo paralelo, es posible cargar datos en SQL Data Warehouse en primer lugar y, a continuación, hacer las transformaciones. Este proceso se denomina extraer, cargar y transformar (ELT) y se está convirtiendo en un nuevo estándar para la carga de trabajo de almacenamiento de datos.
 
 > [!NOTE]
 > Con SQL Server 2016, ahora es posible realizar análisis en tiempo real en una tabla OLTP. Esto no reemplaza la necesidad de un almacenamiento de datos para almacenar y analizar datos, pero ofrece un modo de hacer el análisis en tiempo real.
@@ -51,7 +46,7 @@ La carga de datos es una parte importante de la carga de trabajo del almacenamie
 ### <a name="reporting-and-analysis-queries"></a>Consultas de informes y análisis
 Las consultas de informes y análisis a menudo se clasifican como pequeñas, medianas y grandes en función de diversos criterios, pero normalmente están basadas en el tiempo. En la mayoría de los almacenamientos de datos, hay una carga de trabajo mixta de ejecución rápida frente a consultas de larga ejecución. En cada caso, es importante determinar esta mezcla y determinar su frecuencia (cada hora, diariamente, a fin de mes, al final del trimestre, etcétera). Es importante comprender que la carga de trabajo de consulta mixta, junto con la simultaneidad, lleva al planeamiento de un almacenamiento de datos con la capacidad adecuada.
 
-* El planeamiento de la capacidad puede ser una tarea compleja para una carga de trabajo de consulta mixta, especialmente cuando se necesita mucho tiempo para agregar capacidad al almacenamiento de datos. Almacenamiento de datos SQL elimina la urgencia del planeamiento de capacidad, ya que es posible aumentar y reducir la capacidad de proceso en cualquier momento, puesto que el tamaño del almacenamiento y la capacidad de proceso se ajustan de forma independiente.
+* El planeamiento de la capacidad puede ser una tarea compleja para una carga de trabajo de consulta mixta, especialmente cuando se necesita mucho tiempo para agregar capacidad al almacenamiento de datos. SQL Data Warehouse elimina la urgencia del planeamiento de capacidad, ya que es posible aumentar y reducir la capacidad de proceso en cualquier momento, puesto que el tamaño del almacenamiento y la capacidad de proceso se ajustan de forma independiente.
 
 ### <a name="data-management"></a>Administración de datos
 La administración de datos es importante, sobre todo cuando se sabe que es posible agotar el espacio en disco en un futuro próximo. Normalmente, los almacenamientos de datos dividen los datos en intervalos significativos que se almacenan como particiones en una tabla. Todos los productos basados en SQL Server permiten mover particiones dentro y fuera de la tabla. Esta conmutación de las particiones permite mover los datos más antiguos a un almacenamiento menos costoso y mantener los datos más recientes disponibles en el almacenamiento en línea.

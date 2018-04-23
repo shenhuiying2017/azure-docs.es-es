@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: Errores de asignación
           href: allocation-failure.md
+        - name: Errores de asignación de máquina virtual clásica
+          href: allocation-failure-classic.md
         - name: Reimplementación de una máquina virtual
           href: redeploy-to-new-node.md
         - name: Mensajes comunes de error

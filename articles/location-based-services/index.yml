@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación de Azure Location Based Services (versión preliminar)"
+title: Documentación de Azure Location Based Services (versión preliminar)
 metadata:
   document_id: 
-  title: "Documentación de Azure Location Based Services (versión preliminar) | Microsoft Docs"
+  title: Documentación de Azure Location Based Services (versión preliminar) | Microsoft Docs
   meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
@@ -14,34 +14,34 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
-  ms.openlocfilehash: 0b9146284f12cdb39edb870779d911053d1f233a
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.openlocfilehash: afd5a0c6167e89b1c4657ef1211a02d1a0807782
+  ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/18/2018
 abstract:
-  description: "Azure Location Based Services (versión preliminar) ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con unos nuevos datos de asignación que son necesarios para proporcionar contexto geográfico a aplicaciones web y móviles. Este servicio es un conjunto de API de REST compatible con One API de Azure, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios."
+  description: Azure Location Based Services (versión preliminar) ofrece a los desarrolladores de todos los sectores unas potentes funcionalidades geoespaciales, integradas con unos nuevos datos de asignación que son necesarios para proporcionar contexto geográfico a aplicaciones web y móviles. Este servicio es un conjunto de API de REST compatible con OneAPI de Azure, acompañado de un control de JavaScript basado en web que hace que el desarrollo sea sencillo, flexible y portátil en varios medios.
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: "Inicie una aplicación de búsqueda de mapas mediante Azure Location Based Services (versión preliminar)."
+    text: Inicie una aplicación de búsqueda de mapas mediante Azure Location Based Services (versión preliminar).
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/sql-database/media/index/portal.svg
-      text: "Iniciar demostración de aplicación de mapas"
+      text: Iniciar demostración de aplicación de mapas
       href: /azure/location-based-services/quick-demo-map-app
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: "Compile una aplicación web geoespacial que busque puntos de interés y rutas a ubicaciones mediante Azure Location Based Services (versión preliminar)."
+    text: Compile una aplicación web geoespacial que busque puntos de interés y rutas a ubicaciones mediante Azure Location Based Services (versión preliminar).
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/location-based-services/tutorial-search-location\">Búsqueda de puntos de interés</a>"
-    - html: "<a href=\"/azure/location-based-services/tutorial-route-location\">Ruta a un punto de interés</a>"
+    - html: <a href="/azure/location-based-services/tutorial-search-location">Búsqueda de puntos de interés</a>
+    - html: <a href="/azure/location-based-services/tutorial-route-location">Ruta a un punto de interés</a>
     - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rutas por modo de viaje</a>
 - title: Referencia
   items:

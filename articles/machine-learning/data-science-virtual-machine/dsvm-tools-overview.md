@@ -4,22 +4,22 @@ description: Información general sobre las herramientas de Data Science Virtual
 keywords: herramientas de ciencia de datos, máquina virtual de ciencia de datos, herramientas para la ciencia de datos, ciencia de datos de linux
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 9ce99577d57179e641b86385fd1b543e327d7474
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: gokuma
+ms.openlocfilehash: 9f10c30c8619a32e65063bbc83fd885aee93a4fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conozca Data Science Virtual Machine
 

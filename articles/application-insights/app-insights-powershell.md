@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 56a2b95aa11a7cea3c7b60bd1d3f2835e7dd17a8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
 Este artículo muestra cómo automatizar la creación y actualización de los recursos de [Application Insights](app-insights-overview.md) automáticamente mediante Azure Resource Management. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md), [configurar alertas](app-insights-alerts.md), establecer el [esquema de precios](app-insights-pricing.md) y crear otros recursos de Azure.
@@ -155,7 +155,7 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
 ## <a name="create-application-insights-resources"></a>Creación de recursos de Application Insights
 1. En PowerShell, inicie sesión en Azure:
    
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Ejecute un comando similar al siguiente:
    
     ```PS

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
 ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
 Antes de que se inicie el ejecutable de un servicio de Service Fabric, puede ser necesario llevar a cabo algún trabajo de configuración o instalación.  Por ejemplo, configurar las variables de entorno. Antes de que se inicie el ejecutable del servicio, puede especificar que se ejecute un script en el manifiesto del servicio. Mediante la configuración de una directiva RunAs para el punto de entrada del programa de instalación del servicio, puede cambiar la cuenta con la que se ejecuta el ejecutable de instalación.  Un punto de entrada del programa de instalación independiente le permite ejecutar una configuración con privilegios elevados durante un corto período de tiempo, de forma que no hay necesidad de ejecutar el ejecutable del host de servicios con privilegios elevados durante períodos de tiempo prolongados.

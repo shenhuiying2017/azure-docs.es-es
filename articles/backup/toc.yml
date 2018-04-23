@@ -100,7 +100,7 @@
         - name: Copia de seguridad de máquinas virtuales
           items:
             - name: Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
-              href: backup-azure-arm-vms.md
+              href: backup-azure-vms-first-look-arm.md
             - name: Copia de seguridad de máquinas virtuales cifradas
               href: backup-azure-vms-encryption.md
             - name: Habilitar copia de seguridad de máquinas virtuales durante la creación de estas
@@ -179,9 +179,9 @@
           href: backup-azure-delete-vault.md
     - name: Solución de problemas
       items:
-        - name: Mensajes de error de copia de seguridad de máquinas virtuales de IaaS
+        - name: MV de Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: El agente de Azure Backup (MARS) o la extensión de máquina virtual han agotado el tiempo de espera
+        - name: El agente de Azure Backup o la extensión de máquina virtual han agotado el tiempo de espera
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Lentitud en la copia de seguridad de archivos y carpetas
           href: backup-azure-troubleshoot-slow-backup-performance-issue.md
@@ -189,16 +189,22 @@
           href: backup-azure-mabs-troubleshoot.md
         - name: System Center DPM
           href: backup-azure-scdpm-troubleshooting.md
-        - name: Agente de Azure Backup (MARS)
+        - name: Agente de Azure Backup
           href: backup-azure-mars-troubleshoot.md
-        - name: Copia de seguridad de recursos compartidos de archivos de Azure
+        - name: Recurso compartido de archivos de Azure
           href: troubleshoot-azure-files.md
 - name: Referencia
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.recoveryservices.backup
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
+    - name: CLI de Azure 2.0
+      href: /cli/azure/backup?view=azure-cli-latest
+    - name: PowerShell
+      href: /powershell/module/azurerm.recoveryservices.backup
+    - name: 'REST: Backup'
+      href: /rest/api/backup/
+    - name: 'REST: Almacén de Recovery Services'
+      href: /rest/api/recoveryservices/
 - name: Recursos
   items:
     - name: Azure Roadmap

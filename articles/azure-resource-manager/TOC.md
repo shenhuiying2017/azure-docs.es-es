@@ -47,6 +47,7 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [Uso de etiquetas para organizar los recursos](resource-group-using-tags.md)
 ### [Traslado de recursos a una suscripción o grupo nuevo](resource-group-move-resources.md)
+### [Creación mediante programación de suscripciones de EA](programmatically-create-subscription.md)
 ### [Creación de grupos de administración](management-groups-create.md)
 ### [Administración de grupos de administración](management-groups-manage.md)
 ### [Ejemplos de gobierno](resource-manager-subscription-examples.md)

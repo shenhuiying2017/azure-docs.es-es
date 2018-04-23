@@ -1,8 +1,8 @@
 ---
 title: Uso de Hive en Hadoop y Escritorio remoto en HDInsight (Azure) | Microsoft Docs
-description: "Aprenda a conectarse a un clúster de Hadoop en HDInsight mediante Escritorio remoto y, a continuación, ejecute consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive."
+description: Aprenda a conectarse a un clúster de Hadoop en HDInsight mediante Escritorio remoto y, a continuación, ejecute consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: ded90b0f94e545b4066a0220afffae26f1cd15ee
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 70eab088ce87d8a62d3f258b70aaec5e2e147d0e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uso de Hive con Hadoop en HDInsight con el escritorio remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -111,8 +109,8 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Tez UI on Windows-based HDInsight (Uso de la IU de Tez en HDInsight basado en Windows)](../hdinsight-debug-tez-ui.md)
+* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

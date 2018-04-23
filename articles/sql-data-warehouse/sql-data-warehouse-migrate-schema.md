@@ -1,25 +1,20 @@
 ---
-title: "Migración del esquema a SQL Data Warehouse | Microsoft Docs"
-description: Sugerencias para migrar el esquema a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones.
+title: Migración del esquema a SQL Data Warehouse | Microsoft Docs
+description: Sugerencias para migrar el esquema a Azure SQL Data Warehouse a fin de desarrollar soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 538b60c9-a07f-49bf-9ea3-1082ed6699fb
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 10/31/2016
-ms.author: joeyong;barbkess
-ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: fb1085450a16acb0f9a06a9dea9d91fc5ca23363
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>Migración de esquemas a SQL Data Warehouse
 Guía para migrar esquemas SQL a SQL Data Warehouse. 
@@ -32,7 +27,7 @@ Cuando planee una migración, consulte la [información general de tablas][table
 
 Probablemente, su carga de trabajo existente tiene más de una base de datos. Por ejemplo, un almacenamiento de datos de SQL Server podría incluir una base de datos provisional, una de almacenamiento de datos y algunas de tipo data mart. En esta topología, cada base de datos se ejecuta como una carga de trabajo independiente con directivas de seguridad distintas.
 
-Por el contrario, el Almacenamiento de datos SQL ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, SQL Data Warehouse espera que todas las tablas utilizadas por el almacenamiento de datos se almacenen en una única base de datos.
+Por el contrario, SQL Data Warehouse ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, SQL Data Warehouse espera que todas las tablas utilizadas por el almacenamiento de datos se almacenen en una única base de datos.
 
 Se recomienda usar esquemas definidos por el usuario para consolidar la carga de trabajo existente en una sola base de datos. Para ver ejemplos, consulte [Esquemas definidos por el usuario](sql-data-warehouse-develop-user-defined-schemas.md).
 
@@ -62,7 +57,7 @@ Para elegir la mejor opción de distribución para cada tabla, consulte [Tablas 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez migrado correctamente el esquema de base de datos al Almacenamiento de datos SQL, continúe con uno de los siguientes artículos:
+Una vez migrado correctamente el esquema de base de datos al SQL Data Warehouse, continúe con uno de los siguientes artículos:
 
 * [Migración de los datos][Migrate your data]
 * [Migración del código][Migrate your code]

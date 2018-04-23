@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: 730a59aab76140159536c3d564d8bd66e0466899
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a7c86ab78704baf4048bc0415d89c1ab826e16bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: creación una base de datos de grafos mediante Java y Azure Portal
 
@@ -47,24 +47,7 @@ Para poder crear una base de datos de grafos, debe crear una cuenta de base de d
 
 ## <a name="add-a-graph"></a>Agregar un grafo
 
-Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos de grafos. 
-
-1. Haga clic en **Explorador de datos** > **Nuevo gráfico**.
-
-    El área **Agregar gráfico** se muestra en el extremo derecho, pero es posible que haya que desplazarse hacia la derecha para verlo.
-
-    ![Explorador de datos en Azure Portal, página Agregar gráfico](./media/create-graph-java/azure-cosmosdb-data-explorer-graph.png)
-
-2. En la página **Agregar gráfico**, especifique la configuración del nuevo gráfico.
-
-    Configuración|Valor sugerido|DESCRIPCIÓN
-    ---|---|---
-    Identificador de base de datos|sample-database|Escriba *sample-database* como nombre de la nueva base de datos. Los nombres de bases de datos deben tener entre 1 y 255 caracteres y no pueden contener `/ \ # ?` o un espacio al final.
-    Identificador de grafo|sample-graph|Escriba *sample-graph* como nombre de la nueva colección. Los nombres de grafo tienen los mismos requisitos de caracteres que los identificadores de base de datos.
-    Capacidad de almacenamiento|Fija (10 GB)|Deje el valor predeterminado **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
-    Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante.
-
-3. Una vez que haya rellenado el formulario, haga clic en **Aceptar**.
+[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 

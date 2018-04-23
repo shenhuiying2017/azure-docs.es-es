@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Movimiento de servicio
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Servicios de escalado automático
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Supervisión y diagnóstico
       items:
         - name: Información general de la supervisión
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Informes de eventos de mantenimiento
           href: service-fabric-report-health.md
-        - name: Supervisión con OMS
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: Integración con API Management
       href: service-fabric-api-management-overview.md
 - name: Guías de procedimientos
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Configuración de gMSA para contenedores de Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Configuración de copias de seguridad periódicas (clústeres en Azure)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Configuración de copias de seguridad periódicas (clústeres independientes)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Migración de la aplicación Java anterior para que sea compatible con Maven
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Trabajo en un entorno de desarrollo de Windows o VS
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: Incorporación del agente de OMS
               href: service-fabric-diagnostics-oms-agent.md
+            - name: Supervisión con OMS
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Supervisión de contenedores
               href: service-fabric-diagnostics-oms-containers.md
         - name: Análisis con Application Insights

@@ -1,24 +1,20 @@
 ---
 title: 'Guía de inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (T-SQL) | Microsoft Docs'
-description: Comandos de T-SQL para escalar recursos de proceso mediante el ajuste de las DWU.
+description: Escale procesos en Azure SQL Data Warehouse con T-SQL y SQL Server Management Studio (SSMS). Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Guía de inicio rápido: Escalabilidad de procesos en Azure SQL Data Warehouse mediante T-SQL
 

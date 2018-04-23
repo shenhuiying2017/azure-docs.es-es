@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -33,7 +33,7 @@ La consola serie de máquina virtual en Azure ofrece acceso a una consola basada
 ## <a name="prerequisites"></a>requisitos previos 
 
 * La máquina virtual TIENE QUE tener los [diagnósticos de arranque](boot-diagnostics.md) habilitados 
-* La cuenta que utilice la consola serie tiene que tener el [rol Colaborador](../../active-directory/role-based-access-built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
+* La cuenta que utilice la consola serie tiene que tener el [rol Colaborador](../../role-based-access-control/built-in-roles.md) para la máquina virtual y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md). 
 
 ## <a name="open-the-serial-console"></a>Apertura de la consola serie
 La consola serie para las máquinas virtuales solo es accesible mediante [Azure Portal](https://portal.azure.com). A continuación se muestran los pasos requeridos para acceder a la consola serie para las máquinas virtuales en el portal 
@@ -51,7 +51,7 @@ La funcionalidad de la consola serie puede desactivarse para determinadas máqui
 ## <a name="serial-console-security"></a>Seguridad de la consola serie 
 
 ### <a name="access-security"></a>Seguridad de acceso 
-El acceso a la consola serie está limitado a los usuarios que tienen un acceso de [colaborador de la máquina virtual](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) o superior en relación con la máquina virtual. Si su inquilino de AAD requiere Multi-Factor Authentication, el acceso a la consola serie también necesitará MFA para acceder mediante [Azure Portal](https://portal.azure.com).
+El acceso a la consola serie está limitado a los usuarios que tienen un acceso de [colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) o superior en relación con la máquina virtual. Si su inquilino de AAD requiere Multi-Factor Authentication, el acceso a la consola serie también necesitará MFA para acceder mediante [Azure Portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Seguridad del canal
 Todos los datos enviados y recibidos se cifran en la conexión.

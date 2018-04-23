@@ -1,5 +1,5 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure PowerShell| Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure PowerShell| Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure PowerShell.
 services: application-gateway
 author: davidmu1
@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: davidmu
-ms.openlocfilehash: fe36076988e65837340ec70982de788e532c455d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 662e8bc8b1119022cf88bf40108bb8d1e680f122
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure PowerShell
 
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -270,4 +270,4 @@ En este tutorial aprendió lo siguiente:
 > * Crear un conjunto de escalado de máquinas virtuales
 > * Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-Para más información sobre las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

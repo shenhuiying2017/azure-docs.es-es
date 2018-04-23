@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 0f560a02a51239cff0a7d4057ec7beb2f0f5c5c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f439c65d9b4fbeb78623312c426767f89dfd9fab
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: habilitación de Multi-Factor Authentication en las aplicaciones orientadas al consumidor
-Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para que pueda agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones orientadas al consumidor. Y todo esto sin necesidad de escribir una sola línea de código. Actualmente se admite la comprobación mediante llamadas de teléfono y mensajes de texto. Aunque ya haya creado directivas de registro e inicio de sesión, puede habilitar Multi-Factor Authentication.
+Azure Active Directory (Azure AD) B2C se integra directamente con [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) para que pueda agregar una segunda capa de seguridad a las experiencias de registro e inicio de sesión en las aplicaciones orientadas al consumidor. Y todo esto sin necesidad de escribir una sola línea de código. Actualmente se admite la comprobación mediante llamadas de teléfono y mensajes de texto. Aunque ya haya creado directivas de registro e inicio de sesión, puede habilitar Multi-Factor Authentication.
 
 > [!NOTE]
 > También se puede habilitar Multi-Factor Authentication al crear directivas de registro e inicio de sesión, no solo mediante la edición de las directivas existentes.

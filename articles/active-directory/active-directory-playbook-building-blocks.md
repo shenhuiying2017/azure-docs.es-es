@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -457,7 +457,7 @@ Tiempo aproximado para completarlo: 10 minutos
 
 ### <a name="considerations"></a>Consideraciones
 
-Si está utilizando la federación, puede usar el proveedor de identidades (IdP) local para comunicar el estado de la red corporativa interna/externa con notificaciones. Puede usar esta técnica sin tener que administrar la lista de direcciones IP, lo que puede ser complejo, para evaluar y administrar grandes organizaciones. En esa configuración, necesita la cuenta para el escenario "itinerancia de red" (un inicio de sesión del usuario desde la red interna y, mientras está conectado, cambia la ubicación, como una cafetería) y asegúrese de comprender las implicaciones. Obtener más información: [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS: Direcciones IP de confianza para usuarios federados](../multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud.md#trusted-ips-for-federated-users)
+Si está utilizando la federación, puede usar el proveedor de identidades (IdP) local para comunicar el estado de la red corporativa interna/externa con notificaciones. Puede usar esta técnica sin tener que administrar la lista de direcciones IP, lo que puede ser complejo, para evaluar y administrar grandes organizaciones. En esa configuración, necesita la cuenta para el escenario "itinerancia de red" (un inicio de sesión del usuario desde la red interna y, mientras está conectado, cambia la ubicación, como una cafetería) y asegúrese de comprender las implicaciones. Obtener más información: [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS: Direcciones IP de confianza para usuarios federados](authentication/howto-mfa-adfs.md#trusted-ips-for-federated-users)
 
 ## <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 

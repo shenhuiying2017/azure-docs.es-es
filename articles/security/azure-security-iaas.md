@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -83,7 +83,7 @@ Puede usar [Privileged Identity Management](../active-directory/active-directory
 
 El uso de Azure en entornos de desarrollo y laboratorio permite a las organizaciones agilizar el desarrollo y las pruebas, ya que elimina los retrasos que introduce la adquisición de hardware. Por desgracia, existe el riesgo de que la falta de familiaridad con Azure o el deseo de ayudar a que se empiece a usar los antes posible puedan provocar que el administrador sea excesivamente permisivo con la asignación de derechos, Este riesgo puede exponer involuntariamente la organización a ataques internos. A algunos usuarios se les puede otorgar mucho más acceso del que deberían tener.
 
-El servicio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) usa el [control de acceso basado en rol de Azure](../active-directory/role-based-access-control-what-is.md) (RBAC). RBAC le permite segregar los deberes del equipo en roles que solo conceden el nivel de acceso necesario para que los usuarios realicen su trabajo. Incluye roles predefinidos (propietario, usuario de laboratorio y colaborador). Estos roles se pueden usar incluso para asignar derechos a asociados externos, lo que simplifica considerablemente la colaboración.
+El servicio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) usa el [control de acceso basado en rol de Azure](../role-based-access-control/overview.md) (RBAC). RBAC le permite segregar los deberes del equipo en roles que solo conceden el nivel de acceso necesario para que los usuarios realicen su trabajo. Incluye roles predefinidos (propietario, usuario de laboratorio y colaborador). Estos roles se pueden usar incluso para asignar derechos a asociados externos, lo que simplifica considerablemente la colaboración.
 
 Como DevTest Labs usa RBAC, es posible crear [roles personalizados](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) adicionales. DevTest Labs no solo simplifica la administración de permisos, simplifica el proceso de aprovisionar los entornos. También le ayuda resolver otros desafíos típicos de los equipos que trabajan en entornos de desarrollo y pruebas. Requiere cierta preparación, pero a largo plazo facilitará las cosas a su equipo.
 
