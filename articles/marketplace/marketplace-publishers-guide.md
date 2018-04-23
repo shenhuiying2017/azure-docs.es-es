@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource
 
@@ -121,8 +121,7 @@ Cada escaparate admite varias opciones de publicación y tipos de oferta. Selecc
 Use la opción de contacto cuando no sea posible un nivel de participación de evaluación o transacción. La ventaja de este enfoque es que permite que los anunciantes con una solución en el mercado comiencen a recibir inmediatamente clientes potenciales que se pueden educar en las ventas de base para hacer rodar el engranaje empresarial. Sin embargo, el inconveniente es que la implicación del cliente es limitada, en comparación con otros tipos de ofertas.
 
 >[!IMPORTANT]
-<<<<<<< HEAD La implicación del cliente es mejor con las ofertas de evaluación y transacción. El valor que aporta Ponerse en contacto conmigo es el cliente potencial que recibe. Por tanto, si elige este tipo de anuncio, asegúrese de que el destino del cliente potencial está configurado y de que tiene todo listo para aprovechar al máximo ese cliente potencial. ======= No se recomienda el tipo de anuncio Ponerse en contacto conmigo. Solo se debe usar en situaciones donde no hay ninguna manera de establecer una experiencia de evaluación. La participación del cliente es mejor con ofertas de evaluación y transacción. Si tiene algún tipo de experiencia de evaluación, nuestro proceso de incorporación le llevará a una de esas opciones, según el escenario.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Customer Engagement es mejor con ofertas de evaluación y transacción. El valor que aporta Ponerse en contacto conmigo es el cliente potencial que recibe. Por tanto, si elige este tipo de anuncio, asegúrese de que el destino del cliente potencial está configurado y de que tiene todo listo para aprovechar al máximo ese cliente potencial. 
 
 Cuando la oferta consista principalmente en servicios profesionales (por ejemplo, evaluaciones, implementaciones, talleres), use el tipo de oferta Servicios de consultoría. Se debe fijar el ámbito de la oferta, la duración y el precio para un solo cliente y se debe realizar in situ.
 
@@ -440,7 +439,7 @@ Después de enviar el formulario, el equipo de Marketplace revisará la aplicaci
 
 #### <a name="register-in-the-developer-center"></a>Registro en el Centro para desarrolladores
 
-El [Centro para desarrolladores de Microsoft](https://developer.microsoft.com/) es necesario para publicar aplicaciones que tendrán funcionalidades de transacción, como Virtual Machines, plantillas de solución y aplicaciones administradas de Azure. Este requisito permitirá a Microsoft validar la información fiscal, legal y bancaria de la empresa. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal para validar su identidad. La persona que se inscriba debe usar un identificador de Microsoft que se comparta en la empresa, y esa misma cuenta debe usarse en [Cloud Partner Portal.](https://cloudpartner.azure.com/). 
+El [Centro para desarrolladores de Microsoft](https://developer.microsoft.com/) es necesario para publicar aplicaciones que tendrán funcionalidades de transacción, como Virtual Machines, plantillas de solución y aplicaciones administradas de Azure. Este requisito permitirá a Microsoft validar la información fiscal, legal y bancaria de la empresa. El usuario inscrito debe ser un representante válido de la compañía y debe proporcionar su información personal para validar su identidad. La persona que se inscriba debe usar un identificador de Microsoft que se comparta en la empresa, y esa misma cuenta debe usarse en [Cloud Partner Portal](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Antes de intentar crear una cuenta del Centro para desarrolladores de Microsoft, asegúrese de que su empresa no tenga ya una.
@@ -493,7 +492,6 @@ Esta es la lista de las opciones de soporte técnico de Azure Marketplace:
 
 |Canal de soporte técnico  |DESCRIPCIÓN  |
 |---------|---------|
-|Slack: [Únase a Marketplace Slack](https://join.marketplace.azure.com)    |   Entorno de Slack para ayudar a los asociados con problemas técnicos. Actualmente hay más de 350 asociados trabajando en este entorno.        |
 |Foros de MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Foro de Microsoft Developer Network.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Entorno de Stack Overflow para obtener soluciones y formular preguntas acerca de todo lo relacionado con Azure y Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

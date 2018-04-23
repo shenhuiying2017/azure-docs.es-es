@@ -110,8 +110,8 @@ ms.lasthandoff: 04/16/2018
                                                     <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
                                                     <li><a class="barLink" href="/azure/cost-management/">Azure Cost Management</a></li>
-                                                    <li><a class="barLink" href="/azure/backup/">Copia de seguridad de Azure</a></li>
-                                                    <li><a class="barLink" href="/azure/site-recovery/">Documentación de Recuperación de sitios</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/">Azure Backup</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
                                                     <li><a class="barLink" href="/azure/migrate/">Azure Migrate</a></li>
                                                     <li><a class="barLink" href="/azure/azure-policy/">Azure Policy</a></li>
                                                 </ul>
@@ -173,9 +173,9 @@ Go</a>
                                                 </ul></td></tr></table>
                                                <h4>Modelos de aplicaciones</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Aplicaciones web</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funciones sin servidor</a></li>
-                                                    <li><a class="barLink" href="/azure/containers/">Containers</a></li>
+                                                    <li><a class="barLink" href="/azure/containers/">Contenedores</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservicios con Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -447,7 +447,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Enterprise Integration</h3>
+                                    <h3>Integración empresarial</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -577,7 +577,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
-                                                <p>DNS de Azure</p>
+                                                <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
@@ -628,25 +628,25 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/batch-ai/">
                                                 <img src="media/index/Azure_batch_ai.svg" alt="" />
-                                                <p>Inteligencia artificial de Azure Batch</p>
+                                                <p>Azure Batch AI</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/API_Custom_Decision_Service.svg" alt="" />
-                                                <p>Servicio de decisión personalizado</p>
+                                                <p>Custom Decision Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
-                                                <p>Vinculación de entidades</p>
+                                                <p>Entity Linking</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/kes/overview">
                                                 <img src="media/index/API_KnowledgeExploration.svg" alt="" />
-                                                <p>Servicio Knowledge Exploration (KES)</p>
+                                                <p>Knowledge Exploration Service (KES)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -670,19 +670,19 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
-                                                <p>Comprensión del lenguaje (LUIS)</p>
+                                                <p>Language Understanding (LUIS)</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/linguisticanalysisapi/home">
                                                 <img src="media/index/API_LinguisticAnalysis.svg" alt="" />
-                                                <p>Análisis lingüístico</p>
+                                                <p>Linguistic Analysis</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/text-analytics/">
                                                 <img src="media/index/API_TextAnalytics.svg" alt="" />
-                                                <p>Análisis de texto</p>
+                                                <p>Text Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -700,7 +700,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_WebLanguageModel.svg" alt="" />
-                                                <p>Modelo de lenguaje web</p>
+                                                <p>Web Language Model</p>
                                             </a>
                                         </li>
                                         <li>
@@ -748,13 +748,13 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/speech/home">
                                                 <img src="media/index/API_Bing_Speech.svg" alt="" />
-                                                <p>Servicio de voz de Bing</p>
+                                                <p>Bing Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Custom_Speech.svg" alt="" />
-                                                <p>Servicio de voz personalizado</p>
+                                                <p>Custom Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -778,7 +778,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/API_Custom_Vision.svg" alt="" />
-                                                <p>Servicio de visión personalizada</p>
+                                                <p>Custom Vision Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -796,7 +796,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
                                                 <img src="media/index/API_VideoIndexer.svg" alt="" />
-                                                <p>Indexador de vídeo</p>
+                                                <p>Video Indexer</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -821,7 +821,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                                 <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>Almacenamiento en disco</p>
+                                                <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -839,7 +839,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Almacén de Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -926,7 +926,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Almacén de Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1105,7 +1105,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>Búsqueda de Azure</p>
+                                                <p>Azure Search</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1315,8 +1315,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Conjuntos de escalado de máquina virtual</h3>
-                                                    <p>Administrar y escalar verticalmente hasta miles de máquinas virtuales Linux y Windows</p>
+                                                    <h3>Virtual Machine Scale Sets</h3>
+                                                    <p>Administre y escale verticalmente hasta miles de máquinas virtuales Linux y Windows</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1354,7 +1354,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>App Service</h3>
-                                                    <p>Creación de aplicaciones eficaces en la nube con rapidez para la web y móviles</p>
+                                                    <p>Cree aplicaciones eficaces en la nube con rapidez para la web y móviles</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1392,7 +1392,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Simplificación de la implementación, la administración y las operaciones de Kubernetes</p>
+                                                    <p>Simplifique la implementación, la administración y las operaciones de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1411,7 +1411,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Instances</h3>
-                                                    <p>Ejecución fácil de contenedores con un solo comando</p>
+                                                    <p>Ejecute contenedores fácilmente con un único comando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1430,7 +1430,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Programación de trabajos y administración de procesos en la nube</p>
+                                                    <p>Habilite la nube para la programación de trabajos y la administración de procesos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1449,7 +1449,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <p>Desarrolle microservicios y organice contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1468,7 +1468,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cloud Services</h3>
-                                                    <p>Creación de aplicaciones en la nube y API de alta disponibilidad y escalabilidad infinita</p>
+                                                    <p>Cree aplicaciones en la nube y API de alta disponibilidad y escalabilidad infinita</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1586,7 +1586,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DNS de Azure</h3>
+                                                    <h3>Azure DNS</h3>
                                                     <p>Hospede su dominio DNS en Azure</p>
                                                 </div>
                                             </div>
@@ -1743,7 +1743,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacenamiento en disco</h3>
+                                                    <h3>Disk Storage</h3>
                                                     <p>Opciones de almacenamiento en disco seguro y permanente para máquinas virtuales</p>
                                                 </div>
                                             </div>
@@ -1800,7 +1800,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacén de Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -2058,7 +2058,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Service (AKS)</h3>
-                                                    <p>Simplificación de la implementación, la administración y las operaciones de Kubernetes</p>
+                                                    <p>Simplifique la implementación, la administración y las operaciones de Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2077,7 +2077,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Container Instances</h3>
-                                                    <p>Ejecución fácil de contenedores con un solo comando</p>
+                                                    <p>Ejecute contenedores fácilmente con un único comando</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2115,7 +2115,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <p>Desarrolle microservicios y organice contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2153,7 +2153,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Batch</h3>
-                                                    <p>Programación de trabajos y administración de procesos en la nube</p>
+                                                    <p>Habilite la nube para la programación de trabajos y la administración de procesos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2523,7 +2523,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacén de Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -2607,7 +2607,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Inteligencia artificial de Azure Batch</h3>
+                                                    <h3>Azure Batch AI</h3>
                                                     <p>Experimentación y entrenamiento fácil de los modelos de aprendizaje en profundidad e inteligencia artificial, en paralelo y a escala</p>
                                                 </div>
                                             </div>
@@ -4146,7 +4146,7 @@ CLI de Azure 2.0 </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Azure CLI </h3>
+CLI de Azure </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
@@ -4234,7 +4234,7 @@ Azure CLI </h3>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Herramientas de PowerShell para Visual Studio</a>
+                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Descargar</a>

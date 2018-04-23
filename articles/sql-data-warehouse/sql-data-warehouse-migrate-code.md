@@ -1,28 +1,23 @@
 ---
-title: "Migración del código SQL a SQL Data Warehouse | Microsoft Docs"
-description: "Sugerencias para migrar el código SQL a Almacenamiento de datos SQL de Azure a fin de desarrollar soluciones."
+title: Migración del código SQL a SQL Data Warehouse | Microsoft Docs
+description: Sugerencias para migrar el código SQL a Azure SQL Data Warehouse a fin de desarrollar soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
+author: jrowlandjones
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-ms.date: 06/23/2017
-ms.author: joeyong;barbkess
-ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: jrj
+ms.reviewer: igorstan
+ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migración del código SQL a Almacenamiento de datos SQL
-En este artículo se explican los cambios de código que probablemente tenga que realizar al migrar el código desde otra base de datos a SQL Data Warehouse. Algunas características de Almacenamiento de datos SQL pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migración del código SQL a SQL Data Warehouse
+En este artículo se explican los cambios de código que probablemente tenga que realizar al migrar el código desde otra base de datos a SQL Data Warehouse. Algunas características de SQL Data Warehouse pueden mejorar significativamente el rendimiento, ya que están diseñadas para trabajar directamente en un modo distribuido. Sin embargo, para mantener el rendimiento y la escala, también hay algunas características que no están disponibles.
 
 ## <a name="common-t-sql-limitations"></a>Limitaciones comunes de T-SQL
 En la lista siguiente se resumen las características más comunes que SQL Data Warehouse no admite. Los vínculos le llevan a soluciones alternativas para la característica no admitida:
@@ -55,7 +50,7 @@ En la lista siguiente se resumen las características más comunes que SQL Data 
 Afortunadamente, la mayoría de estas limitaciones se puede solucionar. Los artículos de desarrollo correspondientes antes mencionados incluyen explicaciones.
 
 ## <a name="supported-cte-features"></a>Características admitidas de las CTE
-Las expresiones de tabla común (CTE) se admiten parcialmente en Almacenamiento de datos SQL.  Actualmente se admiten las siguientes características de CTE:
+Las expresiones de tabla común (CTE) se admiten parcialmente en SQL Data Warehouse.  Actualmente se admiten las siguientes características de CTE:
 
 * Se puede especificar una CTE en una instrucción SELECT.
 * Se puede especificar una CTE en una instrucción CREATE VIEW.
@@ -67,7 +62,7 @@ Las expresiones de tabla común (CTE) se admiten parcialmente en Almacenamiento 
 * Se pueden incluir varias definiciones de consulta CTE en una CTE.
 
 ## <a name="cte-limitations"></a>Limitaciones de las CTE
-Estas son algunas de las limitaciones de las expresiones de tabla comunes en Almacenamiento de datos SQL:
+Estas son algunas de las limitaciones de las expresiones de tabla comunes en SQL Data Warehouse:
 
 * Una CTE debe ir seguida de una sola instrucción SELECT. No se admiten las instrucciones INSERT, UPDATE, DELETE y MERGE.
 * No se admite una expresión de tabla común que incluya referencias a sí misma (una expresión de tabla común recursiva). Consulte la sección siguiente.
@@ -77,7 +72,7 @@ Estas son algunas de las limitaciones de las expresiones de tabla comunes en Alm
 * Cuando se usa en instrucciones preparadas por sp_prepare, las CTE comportarán del mismo modo que otras instrucciones SELECT en PDW. Sin embargo, si las CTE se usan como parte de las CETAS preparadas por sp_prepare, el comportamiento puede diferir de SQL Server y de otras instrucciones PDW debido a la manera en que se implementa el enlace para sp_prepare. Si SELECT que hace referencia a la CTE está usando una columna incorrecta que no existe en la CTE, sp_prepare pasará sin detectar el error, pero el error se generará durante sp_execute en su lugar.
 
 ## <a name="recursive-ctes"></a>CTE recursivas
-Las CTE recursivas no se admiten en Almacenamiento de datos SQL.  La migración de CTE recursivas puede ser bastante compleja y el mejor proceso es dividirla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options].
+Las CTE recursivas no se admiten en SQL Data Warehouse.  La migración de CTE recursivas puede ser bastante compleja y el mejor proceso es dividirla en varios pasos. Normalmente puede usar un bucle y rellenar una tabla temporal conforme se recorren en iteración las consultas provisionales recursivas. Cuando se rellene la tabla temporal, puede devolver los datos como un conjunto único de resultados. Se ha usado un enfoque similar para resolver `GROUP BY WITH CUBE` en el artículo [cláusula GROUP BY con opciones ROLLUP/CUBE/GROUPING SETS][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funciones de sistema no compatibles
 También hay algunas funciones del sistema que no son compatibles. Algunas de las principales que normalmente se usan en almacenamiento de datos son:
