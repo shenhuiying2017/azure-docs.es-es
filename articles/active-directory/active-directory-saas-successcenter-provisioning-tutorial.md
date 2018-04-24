@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configuración de Cornerstone OnDemand para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar Azure Active Directory para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de Cornerstone OnDemand automáticamente."
+title: 'Tutorial: Configuración de Cornerstone OnDemand para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de Cornerstone OnDemand automáticamente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.openlocfilehash: 8aed9bdcdd54f2f0ef3cd81f979635e5716f0b5f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cornerstone OnDemand para el aprovisionamiento automático de usuarios
 
@@ -29,7 +29,7 @@ El objetivo de este tutorial es mostrar los pasos que se DAN en Cornerstone OnDe
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -100,7 +100,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Cornerstone OnDemand](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningTab.png)
 
-4. En **Modo de aprovisionamiento**, elija **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Aprovisionamiento de Cornerstone OnDemand](./media/active-directory-saas-successcenter-provisioning-tutorial/ProvisioningCredentials.png)
 
@@ -120,7 +120,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Cornerstone OnDemand](./media/active-directory-saas-successcenter-provisioning-tutorial/EmailNotification.png)
 
-8. Haga clic en **Guardar**.
+8. Haga clic en **Save**(Guardar).
 
 9. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Cornerstone OnDemand (Sincronizar usuarios de Azure Active Directory con Cornerstone OnDemand)**.
 
