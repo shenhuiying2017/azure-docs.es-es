@@ -59,6 +59,8 @@
       href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Entorno de App Service
       href: ../environment/intro.md
+    - name: Direcciones IP de entrada y salida
+      href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Autenticación y autorización
       href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Elección del tipo de implementación

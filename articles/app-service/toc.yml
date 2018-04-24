@@ -29,7 +29,7 @@
       href: app-service-web-get-started-html.md
 - name: Tutoriales
   items:
-    - name: '1: Aplicación con base de datos'
+    - name: Aplicación con base de datos
       items:
         - name: .NET Core con SQL Database
           href: app-service-web-tutorial-dotnetcore-sqldb.md
@@ -43,15 +43,17 @@
           href: app-service-web-tutorial-java-mysql.md
         - name: Python con PostgreSQL
           href: app-service-web-tutorial-python-postgresql.md
-    - name: 1 - Hospedaje de API de RESTful
+    - name: Acceso seguro a SQL Database
+      href: app-service-web-tutorial-connect-msi.md
+    - name: Hospedaje de API de RESTful
       href: app-service-web-tutorial-rest-api.md
-    - name: 2 - Asignación de dominios personalizados
+    - name: Asignación de un dominio personalizado
       href: app-service-web-tutorial-custom-domain.md
-    - name: 3 - Enlace de certificado SSL
+    - name: Enlazar certificado SSL
       href: app-service-web-tutorial-custom-ssl.md
-    - name: 4 - Incorporación de CDN
+    - name: Incorporación de CDN
       href: app-service-web-tutorial-content-delivery-network.md
-    - name: 5 - Autenticación de usuarios
+    - name: usuarios
       href: app-service-web-tutorial-auth-aad.md
 - name: Ejemplos
   items:
@@ -69,6 +71,8 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funcionalidad del sistema operativo
       href: web-sites-available-operating-system-functionality.md
+    - name: Direcciones IP de entrada y salida
+      href: app-service-ip-addresses.md
     - name: Autenticación y autorización
       href: app-service-authentication-overview.md
     - name: Conexiones híbridas
@@ -143,6 +147,8 @@
               href: app-service-mobile-how-to-configure-twitter-authentication.md
         - name: Personalización de la autenticación
           href: app-service-authentication-how-to.md
+        - name: Restricción de direcciones IP
+          href: app-service-ip-restrictions.md
         - name: Uso de la identidad de servicio administrada
           href: app-service-managed-service-identity.md
         - name: Uso de un certificado SSL en el código de la aplicación

@@ -43,6 +43,8 @@
       href: batch-apis-tools.md
     - name: Cuotas y límites
       href: batch-quota-limit.md
+    - name: Tamaños de máquinas virtuales que se admiten
+      href: batch-pool-vm-sizes.md
 - name: Guías de procedimientos
   items:
     - name: Administración de cuentas de Batch
@@ -108,10 +110,13 @@
           href: batch-rendering-service.md
         - name: Procesamiento de datos con Batch y Data Factory
           href: ../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json
-    - name: Supervisión de recursos
+    - name: Supervisión de soluciones de Batch
+      href: monitoring-overview.md
       items:
-        - name: Registro de diagnósticos
+        - name: Uso de métricas y registros de diagnóstico
           href: batch-diagnostics.md
+        - name: Supervisión con Application Insights
+          href: monitor-application-insights.md
         - name: Consultas de listas eficaces
           href: batch-efficient-list-queries.md
     - name: Uso de herramientas de desarrollo

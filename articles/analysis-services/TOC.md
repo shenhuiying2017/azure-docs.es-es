@@ -31,6 +31,7 @@
 ### [Administración de administradores de servidor](analysis-services-server-admins.md)
 ### [Supervisión de las métricas del servidor](analysis-services-monitor.md)
 ### [Configuración del registro de diagnósticos](analysis-services-logging.md)
+### [Uso de una puerta de enlace para orígenes de datos en la red virtual](analysis-services-vnet-gateway.md)
 ## Conectar
 ### [Obtención de bibliotecas de clientes](analysis-services-data-providers.md)
 ### [Conexión con Excel](analysis-services-connect-excel.md)

@@ -47,6 +47,8 @@
           href: sql-data-warehouse-auditing-overview.md
         - name: Límites de capacidad
           href: sql-data-warehouse-service-capacity-limits.md
+        - name: 'Mantenimiento '
+          href: service-maintenance.md
         - name: Preguntas más frecuentes
           href: sql-data-warehouse-overview-faq.md
     - name: Seguridad
@@ -93,6 +95,8 @@
           href: sql-data-warehouse-overview-develop.md
         - name: Componentes de almacenamiento de datos
           href: sql-data-warehouse-overview-workload.md
+        - name: Procedimientos recomendados
+          href: sql-data-warehouse-best-practices.md
         - name: Tablas
           items:
             - name: Información general
@@ -143,6 +147,20 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Guías de procedimientos
   items:
+    - name: Conexión y consulta
+      items:
+        - name: Información general
+          href: sql-data-warehouse-connect-overview.md
+        - name: Cadenas de conexión
+          href: sql-data-warehouse-connection-strings.md
+        - name: sqlcmd
+          href: sql-data-warehouse-get-started-connect-sqlcmd.md
+        - name: Consulta con SSMS
+          href: sql-data-warehouse-query-ssms.md
+        - name: Consulta con Visual Studio
+          href: sql-data-warehouse-query-visual-studio.md
+        - name: Instalación de Visual Studio
+          href: sql-data-warehouse-install-visual-studio.md
     - name: Actualizar
       href: upgrade-to-latest-generation.md
     - name: Restore
@@ -171,12 +189,8 @@
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Azure Databricks
           href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
-        - name: BCP
-          href: sql-data-warehouse-load-with-bcp.md
         - name: Data Factory
           href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
-        - name: RedGate
-          href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS
           href: /sql/integration-services/load-data-to-sql-data-warehouse
     - name: Integrate
