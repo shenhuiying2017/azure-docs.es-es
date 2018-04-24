@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Acerca del almacenamiento de discos para máquinas virtuales Windows en Azure
 Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen al menos dos discos: un disco de sistema operativo Windows y un disco temporal. El disco de sistema operativo se crea a partir de una imagen, y tanto el disco de sistema operativo como la imagen son discos duros virtuales (VHD) almacenados en una cuenta de Azure Storage. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales. 

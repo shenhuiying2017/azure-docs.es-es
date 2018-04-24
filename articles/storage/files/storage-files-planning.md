@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: wgries
 ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 [Azure Files](storage-files-introduction.md) ofrece recursos compartidos de archivos en la nube totalmente administrados a los que se puede acceder mediante el protocolo SMB estándar. Dado que Azure Files está totalmente administrado, su implementación en escenarios de producción resulta mucho más sencilla que la implementación y administración de un servidor de archivos o un dispositivo NAS. En este artículo se tratan las cuestiones que deben tenerse en cuenta al implementar un recurso compartido de Azure Files para su uso en producción dentro de la organización.

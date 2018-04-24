@@ -9,10 +9,10 @@ ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/24/2018
 ---
 Los tamaños de máquina virtual optimizada para GPU son máquinas virtuales especializadas con GPU de NVIDIA. Estos tamaños están diseñados para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización. En este artículo, se proporciona información acerca del número y tipo de GPU, vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
