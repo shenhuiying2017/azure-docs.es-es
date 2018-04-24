@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d78b6934e276c53b65f3c171ed980f86458c3a93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 019785ae0bde58b33cc4b09e2e2746f3fd474b70
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -380,8 +380,8 @@ Tiempo aproximado para completarlo: 15 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | Habilitar la administración de contraseñas de autoservicio en el inquilino. | [Restablecimiento de contraseña de Azure Active Directory para administradores de TI](active-directory-passwords-update-your-own-password.md) |
-| Habilitar la reescritura de contraseñas para administrar contraseñas localmente. Tenga en cuenta que esto requiere versiones específicas de Azure AD Connect | [Requisitos previos de escritura diferida de contraseñas](active-directory-passwords-writeback.md) |
-| Identificar a los usuarios de prueba de concepto que usarán esta funcionalidad y asegurarse de que son miembros de un grupo de seguridad. Los usuarios no deben ser administradores para mostrar completamente la funcionalidad. | [Personalización de la administración de contraseñas de Azure AD: Restringir acceso para restablecer la contraseña](active-directory-passwords-writeback.md) |
+| Habilitar la reescritura de contraseñas para administrar contraseñas localmente. Tenga en cuenta que esto requiere versiones específicas de Azure AD Connect | [Requisitos previos de escritura diferida de contraseñas](authentication/howto-sspr-writeback.md) |
+| Identificar a los usuarios de prueba de concepto que usarán esta funcionalidad y asegurarse de que son miembros de un grupo de seguridad. Los usuarios no deben ser administradores para mostrar completamente la funcionalidad. | [Personalización de la administración de contraseñas de Azure AD: Restringir acceso para restablecer la contraseña](authentication/howto-sspr-writeback.md) |
 
 
 ### <a name="steps"></a>Pasos
@@ -412,7 +412,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Requisito previo | Recursos |
 | --- | --- |
 | Identificar a los usuarios de prueba de concepto que usarán MFA  |  |
-| Teléfono con una buena cobertura de el desafío de MFA  | [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Teléfono con una buena cobertura de el desafío de MFA  | [¿Qué es Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Pasos
 
@@ -421,7 +421,7 @@ Tiempo aproximado para completarlo: 10 minutos
 | Vaya a la hoja "Usuarios y grupos" en el Portal de administración de Azure AD. | [Portal de administración de Azure AD: Usuarios y grupos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Elija la hoja "Todos los usuarios". |  |
 | En la barra superior, elija el botón "Multi-Factor Authentication". | Dirección URL directa para el portal de Azure MFA: https://aka.ms/mfaportal |
-| En la configuración de "Usuario", seleccione los usuarios de prueba de concepto y habilítelas para MFA. | [Estados de usuario en Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| En la configuración de "Usuario", seleccione los usuarios de prueba de concepto y habilítelas para MFA. | [Estados de usuario en Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Inicie sesión como usuario de prueba de concepto y recorra el proceso de prueba.  |  |
 
 ### <a name="considerations"></a>Consideraciones
