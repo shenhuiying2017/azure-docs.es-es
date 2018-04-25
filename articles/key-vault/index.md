@@ -1,11 +1,11 @@
 ---
-title: "Documentación sobre Azure Key Vault: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a usar Key Vault para crear y mantener las claves usadas para el acceso y el cifrado de sus recursos en la nube, aplicaciones y soluciones. Tutoriales, referencias de API y mucho más."
+title: 'Documentación sobre Azure Key Vault: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a usar Key Vault para crear y mantener las claves usadas para el acceso y el cifrado de sus recursos en la nube, aplicaciones y soluciones. Tutoriales, referencias de API y mucho más.
 services: key-vault
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: key-vault
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,10 +13,10 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 ms.openlocfilehash: 86ac748d1c4a253b26cab426a72eb9f29545d86a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="key-vault-documentation"></a>Documentación de Key Vault
 

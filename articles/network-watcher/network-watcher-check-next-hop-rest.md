@@ -1,11 +1,11 @@
 ---
-title: "Búsqueda de Next Hop con Azure Network Watcher (REST) | Microsoft Docs"
-description: "En este artículo se describe cómo encontrar el tipo del próximo salto y la dirección IP usando la funcionalidad Next Hop con la API de REST de Azure."
+title: Búsqueda de Next Hop con Azure Network Watcher (REST) | Microsoft Docs
+description: En este artículo se describe cómo encontrar el tipo del próximo salto y la dirección IP usando la funcionalidad Next Hop con la API de REST de Azure.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2216c059-45ba-4214-8304-e56769b779a6
 ms.service: network-watcher
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Descubra cuál es el tipo del próximo salto que usa la funcionalidad Next Hop en Azure Network Watcher mediante la API de REST de Azure.
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-check-next-hop-portal.md)
+> - [Azure Portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -35,7 +35,7 @@ Next Hop es una característica de Network Watcher que permite obtener el tipo d
 
 ARMclient se usa para llamar a la API de REST con PowerShell. ARMClient se encuentra en Chocolatey en [ARMClient en Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher.
+En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red.
 
 ## <a name="scenario"></a>Escenario
 

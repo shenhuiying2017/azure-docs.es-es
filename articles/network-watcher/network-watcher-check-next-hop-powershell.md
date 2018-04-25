@@ -1,11 +1,11 @@
 ---
-title: "Búsqueda del próximo salto con Próximo salto de Azure Network Watcher (PowerShell) | Microsoft Docs"
-description: "En este artículo se describe cómo encontrar el tipo del próximo salto y la dirección IP mediante la funcionalidad Próximo salto con PowerShell."
+title: Búsqueda del próximo salto con Próximo salto de Azure Network Watcher (PowerShell) | Microsoft Docs
+description: En este artículo se describe cómo encontrar el tipo del próximo salto y la dirección IP mediante la funcionalidad Próximo salto con PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6a656c55-17bd-40f1-905d-90659087639c
 ms.service: network-watcher
 ms.devlang: na
@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/24/2018
 ---
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>Obtenga más información sobre el tipo del próximo salto con la funcionalidad Próximo salto de Azure Network Watcher mediante PowerShell.
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-check-next-hop-portal.md)
+> - [Azure Portal](network-watcher-check-next-hop-portal.md)
 > - [PowerShell](network-watcher-check-next-hop-powershell.md)
 > - [CLI 1.0](network-watcher-check-next-hop-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-next-hop-cli.md)
@@ -35,7 +35,7 @@ Próximo salto es una característica de Network Watcher que permite obtener el 
 
 En este escenario, se usa Azure Portal para averiguar el tipo de próximo salto y la dirección IP.
 
-En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Create an Azure Network Watcher instance](network-watcher-create.md) (Creación de una instancia de Azure Network Watcher) para crear una instancia de Network Watcher. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
+En este escenario, se da por hecho que ya ha seguido los pasos descritos en [Creación de una instancia de Network Watcher](network-watcher-create.md) para crear un monitor de red. En este escenario también se da por hecho que existe un grupo de recursos con una máquina virtual válida.
 
 ## <a name="scenario"></a>Escenario
 
