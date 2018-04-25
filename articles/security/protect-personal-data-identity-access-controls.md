@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
 ms.custom: ''
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 08c26942294d7027ffdcd3fcaa0ff0831e95509f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory y Multi-Factor Authentication: protección de datos personales con controles de identidad y acceso
 
@@ -39,7 +39,7 @@ La empresa debe proteger la privacidad de los datos personales de los clientes y
 
 ## <a name="company-goal"></a>Objetivo de la empresa
 
-El objetivo de la empresa es garantizar que el acceso a los datos personales esté estrictamente controlado. Es fundamental que las identidades de los usuarios con acceso a los datos personales estén protegidas mediante una autenticación sólida. Una directiva de [privilegios mínimos] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) debe aplicarse para que los usuarios legítimos tengan solo el nivel de acceso que necesitan, no más.
+El objetivo de la empresa es garantizar que el acceso a los datos personales esté estrictamente controlado. Es fundamental que las identidades de los usuarios con acceso a los datos personales estén protegidas mediante una autenticación sólida. Debe aplicarse una directiva de [privilegios mínimos] (https://en.wikipedia.org/wiki/Principle_of_least_privilege)) para que los usuarios legítimos solo tengan el nivel de acceso que necesitan, no más.
 
 ## <a name="solutions"></a>Soluciones
 
@@ -83,11 +83,11 @@ Para obtener más información e instrucciones sobre cómo empezar a trabajar co
 
 ### <a name="azure-role-based-access-control"></a>Control de acceso basado en rol de Azure
 
-[Control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) ayuda a los administradores de Azure a administrar el acceso a recursos de Azure habilitando la concesión de acceso en función del rol asignado del usuario. Puede separar los deberes de un equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo.
+[Control de acceso basado en rol de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) ayuda a los administradores de Azure a administrar el acceso a recursos de Azure habilitando la concesión de acceso en función del rol asignado del usuario. Puede separar los deberes de un equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo.
 
 El acceso basado en rol se puede conceder a los usuarios que utilicen el Portal de Azure, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
-Para obtener más información sobre los aspectos básicos de RBAC de Azure, consulte [Introducción al control de acceso basado en rol en Azure Portal.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Para obtener más información sobre los aspectos básicos de RBAC de Azure, consulte [Introducción al control de acceso basado en rol en Azure Portal.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>¿Cómo se puede administrar RBAC de Azure con PowerShell?
 
@@ -111,7 +111,7 @@ Puede usar cmdlets de PowerShell para administrar RBAC de Azure, incluidas las s
 
 - Lista de roles personalizados
 
-Para obtener instrucciones sobre cómo administrar RBAC de Azure con PowerShell, consulte [Administración del acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+Para obtener instrucciones sobre cómo administrar RBAC de Azure con PowerShell, consulte [Administración del acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -125,7 +125,7 @@ Si los usuarios tienen licencias que incluyen Azure Multi-Factor Authentication,
 
 ![Usuarios con MFA habilitado](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-Si actualmente no tiene licencias, debe pasar por el proceso de determinar el tipo de implementación más adecuado para su escenario. Para comenzar, puede examinar el artículo titulado [Elección de la solución de Azure Multi-Factor Authentication más adecuada](../multi-factor-authentication/multi-factor-authentication-get-started.md). Si decide que necesita crear un servidor de Multi-Factor Authentication, puede seguir estos pasos:
+Si actualmente no tiene licencias, debe pasar por el proceso de determinar el tipo de implementación más adecuado para su escenario. Para comenzar, puede examinar el artículo titulado [Elección de la solución de Azure Multi-Factor Authentication más adecuada](../active-directory/authentication/concept-mfa-whichversion.md). Si decide que necesita crear un servidor de Multi-Factor Authentication, puede seguir estos pasos:
 
 1. Seleccione **Active Directory** en Azure Portal (conectado como administrador).
 
@@ -184,6 +184,6 @@ Para obtener información sobre cómo establecer la configuración de Azure MFA 
 
 - [Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Solución de problemas del control de acceso basado en rol](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Solución de problemas del control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

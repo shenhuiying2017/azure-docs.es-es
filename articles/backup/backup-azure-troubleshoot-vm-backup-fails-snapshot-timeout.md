@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e2bd041bd5848ceb5f04f06601190fb0508aca1c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -29,9 +29,10 @@ En este artículo se proporcionan los pasos de solución de problemas que pueden
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>El agente de máquina virtual no se puede comunicar con Azure Backup
 
-Mensaje de error: "El agente de máquina virtual no se puede comunicar con Azure Backup"
+Mensaje de error: "El agente de máquina virtual no se puede comunicar con Azure Backup"<br>
+Código de error: "UserErrorGuestAgentStatusUnavailable"
 
-Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio se comunica con el agente de la máquina virtual para sacar una instantánea de un momento dado e inicia el trabajo. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:
+Después de registrar y programar una máquina virtual para el servicio Backup, dicho servicio inicia el trabajo comunicándose con el agente de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Cuando una instantánea no se desencadena, se puede producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:
 
 **Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**  
 **Causa 2: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
@@ -41,7 +42,8 @@ Después de registrar y programar una máquina virtual para el servicio Backup, 
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Se produce un error en la operación de instantánea porque la máquina virtual no está conectada a la red
 
-Mensaje de error: "Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual"
+Mensaje de error: "Error de la operación de instantánea debido a que no hay conectividad de red en la máquina virtual"<br>
+Código de error: "ExtensionSnapshotFailedNoNetwork"
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:    
 **Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>Se produce un error en la operación de la extensión VMSnapshot
 
-Mensaje de error: "Error en la operación de extensión VMSnapshot".
+Mensaje de error: "Error en la operación de extensión VMSnapshot".<br>
+Código de error: "ExtentionOperationFailed"
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [No se puede recuperar el estado de las instantáneas o no se pueden tomar instantáneas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,8 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Se produce un error en la copia de seguridad porque el agente de máquina virtual no responde
 
-Mensaje de error: "No se puede realizar la operación: el agente de máquina virtual no responde"
+Mensaje de error: "No se puede realizar la operación: el agente de máquina virtual no responde" <br>
+Código de error: "GuestAgentSnapshotTaskStatusError"
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -69,7 +73,8 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 
 ## <a name="backup-fails-with-an-internal-error"></a>Se produce un error interno en la copia de seguridad
 
-Mensaje de error: "Error interno al realizar la copia de seguridad. Intente volver a realizar la operación en unos minutos"
+Mensaje de error: "Error interno al realizar la copia de seguridad. Intente volver a realizar la operación en unos minutos" <br>
+Código de error: "BackUpOperationFailed"/ "BackUpOperationFailedV2"
 
 Después de registrar y programar una máquina virtual para el servicio de Azure Backup, Backup inicia el trabajo al comunicarse con la extensión de copia de seguridad de la máquina virtual para sacar una instantánea de un momento dado. Cualquiera de las condiciones siguientes puede impedir que la instantánea se desencadene. Si la instantánea no se desencadena, se podría producir un error en la copia de seguridad. Realice los pasos de solución de problemas siguientes en el orden indicado y, a continuación, vuelva a intentar la operación:  
 **Causa 1: [La máquina virtual no tiene acceso a Internet](#the-vm-has-no-internet-access)**  
@@ -84,7 +89,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 ### <a name="the-vm-has-no-internet-access"></a>La máquina virtual no tiene acceso a Internet.
 Según el requisito de implementación, la máquina virtual no tiene acceso a Internet. O bien, podría tener restricciones que impiden el acceso a la infraestructura de Azure.
 
-Para poder funcionar correctamente, la extensión de Backup requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTP) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
+Para poder funcionar correctamente, la extensión de copia de seguridad requiere conectividad a las direcciones IP públicas de Azure. La extensión envía comandos a un punto de conexión de Azure Storage (dirección URL de HTTP) para administrar las instantáneas de la máquina virtual. Si la extensión no tiene acceso a la red Internet pública, se produce un error en la copia de seguridad.
 
 ####  <a name="solution"></a>Solución
 Para solucionar este problema, pruebe uno de los métodos siguientes:
@@ -105,7 +110,7 @@ Puede usar [etiquetas de servicio](../virtual-network/security-overview.md#servi
 
 Para aprender a cómo configurar un proxy HTTP para las copias de seguridad de la máquina virtual, consulte [Preparación del entorno de copia de seguridad de Azure Virtual Machines](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-Si usa discos administrados de Azure, necesitará abrir otro puerto (8443) en los firewalls.
+Si usa Azure Managed Disks, necesitará abrir otro puerto (8443) en los firewalls.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>El agente está instalado en la máquina virtual, pero no responde (en máquinas virtuales Windows)
 
@@ -113,12 +118,12 @@ Si usa discos administrados de Azure, necesitará abrir otro puerto (8443) en lo
 Es posible que el agente de máquina virtual se haya dañado o que el servicio se haya detenido. Puede intentar volver a instalar al agente de máquina virtual para obtener la versión más reciente. O bien, intente restablecer la comunicación con el servicio.
 
 1. Determine si el servicio Windows Guest Agent se ejecuta en los servicios de máquina virtual (services.msc). Intente reiniciar el servicio Windows Guest Agent e inicie la copia de seguridad.    
-2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya a Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
+2. Si el servicio Windows Guest Agent no se muestra en los servicios, vaya al Panel de control y seleccione **Programas y características** para determinar si dicho servicio está instalado.
 4. Si aparece en **Programas y características**, desinstálelo.
 5. Descargue e instale la [versión más reciente del MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Debe tener derechos de administrador para completar la instalación.
 6. Compruebe que el servicio Windows Guest Agent aparece en los servicios.
 7. Ejecute un trabajo de copia de seguridad a petición: 
-    * En el portal, seleccione **Realizar copia de seguridad ahora**.
+    * En el portal, seleccione **Crear copia de seguridad ahora**.
 
 Además, compruebe que [Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) está instalado en la máquina virtual, ya que se requiere para que el agente de máquina virtual se comunique con el servicio.
 
@@ -177,6 +182,8 @@ Para desinstalar la extensión, siga estos pasos:
 3. Seleccione **Extensiones**.
 4. Seleccione **Extensión Vmsnapshot**.
 5. Seleccione **Desinstalar**.
+
+Para las VM de Linux, si la extensión VMSnapshot no aparece en Azure Portal, [actualice el agente Linux de Azure](../virtual-machines/linux/update-agent.md) y, a continuación, ejecute la copia de seguridad. 
 
 La realización de estos pasos hace que se vuelva a instalar la extensión durante la siguiente copia de seguridad.
 

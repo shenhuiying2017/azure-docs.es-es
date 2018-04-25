@@ -2,24 +2,25 @@
 title: 'Analizar la carga de trabajo: Azure SQL Data Warehouse | Microsoft Docs'
 description: Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: sqlmojo
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
-ms.author: joeyong
-ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: c2f6e1092b9375a90eb1909696a196c9ab4b5dad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="analyze-your-workload"></a>Análisis de la carga de trabajo
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Análisis de la carga de trabajo en Azure SQL Data Warehouse
 Técnicas para analizar la priorización de consultas para la carga de trabajo en Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Grupos de carga de trabajo 
-SQL Data Warehouse implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, SQL Data Warehouse solo usa cuatro de los ocho grupos de cargas de trabajo. Esto tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
+SQL Data Warehouse implementa las clases de recursos mediante el uso de grupos de cargas de trabajo. Hay un total de ocho grupos de cargas de trabajo que controlan el comportamiento de las clases de recursos en los distintos tamaños de DWU. Para cualquier DWU, SQL Data Warehouse solo usa cuatro de los ocho grupos de cargas de trabajo. Este enfoque tiene sentido porque cada grupo de cargas de trabajo está asignado a una de las cuatro clases de recursos: smallrc, mediumrc, largerc o xlargerc. La importancia de comprender los grupos de cargas de trabajo es que algunos de estos grupos se establecen con un nivel de *importancia*más alto. El nivel de importancia se usa para la programación de la CPU. Las consultas que se ejecutan con importancia alta obtendrán tres veces más ciclos de CPU que aquellas con importancia media. Por lo tanto, las asignaciones de espacio de simultaneidad también determinan la prioridad en la CPU. Si una consulta utiliza 16 o más espacios, se ejecuta con importancia alta.
 
 La tabla siguiente muestra las asignaciones de importancia para cada grupo de cargas de trabajo.
 
@@ -38,7 +39,7 @@ La tabla siguiente muestra las asignaciones de importancia para cada grupo de ca
 | SloDWGroupC08   | 256                      | 25.600                         | 64 000                      | Alto               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-Desde el gráfico **Asignación y consumo de espacios de simultaneidad** , es posible ver que un DW500 usa 1, 4, 8 o 16 espacios de simultaneidad para smallrc, mediumrc, largerc y xlargerc, respectivamente. Puede buscar estos valores en el gráfico anterior para encontrar la importancia de cada clase de recursos.
+Desde el gráfico **Asignación y consumo de espacios de simultaneidad**, es posible ver que un DW500 usa 1, 4, 8 o 16 espacios de simultaneidad para smallrc, mediumrc, largerc y xlargerc, respectivamente. Puede buscar estos valores en el gráfico anterior para encontrar la importancia de cada clase de recursos.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Asignación de DW500 de las clases de recursos a importancia
 | clase de recursos | Grupo de cargas de trabajo | Espacios de simultaneidad usados | MB/Distribución | importancia |
@@ -57,7 +58,7 @@ Desde el gráfico **Asignación y consumo de espacios de simultaneidad** , es po
 | staticrc80     | SloDWGroupC03  | 16                     | 1600             | Alto       |
 
 ## <a name="view-workload-groups"></a>Vista de grupos de carga de trabajo
-Puede usar la siguiente consulta DMV para ver las diferencias en la asignación de recursos de memoria en detalle desde la perspectiva del regulador de recursos, o bien para analizar el uso activo e histórico de los grupos de cargas de trabajo en el momento de solucionar problemas.
+La consulta siguiente muestra los detalles de la asignación de recursos de memoria desde la perspectiva del regulador de recursos. Esto es útil para analizar el uso de activo e histórico de los grupos de carga de trabajo a la hora solucionar problemas.
 
 ```sql
 WITH rg

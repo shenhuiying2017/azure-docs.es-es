@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4df404bbf56efbc3bb68f006f8aa0c7cdf0e86ac
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ac23d0f9b8f6899df6941791b22ec384ea0f3977
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 
@@ -51,7 +51,7 @@ El script siguiente muestra cómo:
 2. Llamar a Azure Resource Manager y obtener el identificador de entidad de servicio de la máquina virtual. La CLI se ocupa de administrar la adquisición y el uso del token automáticamente. Asegúrese de sustituir el nombre de máquina virtual por `<VM-NAME>`.  
 
    ```azurecli
-   az login --msi
+   az login --identity
    
    spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The MSI service principal ID is $spID
@@ -74,7 +74,7 @@ El script siguiente muestra cómo:
    echo "The MSI access token is $access_token"
 
    # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Login-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -91,7 +91,7 @@ Consulte [Servicios de Azure que admiten la autenticación de Azure AD](overview
 Respuestas como las siguientes pueden indicar que la MSI en la máquina virtual no se ha configurado correctamente:
 
 - PowerShell: *Invoke-WebRequest: no se puede conectar con el servidor remoto*
-- CLI: *MSI: No se pudo recuperar un token de "http://localhost:50342/oauth2/token" con un error de "HTTPConnectionPool(host='localhost", puerto=50342)* 
+- CLI: *MSI: No se pudo recuperar un token de "http://localhost:50342/oauth2/token" con un error de "HTTPConnectionPool(host='localhost'"puerto=50342)* 
 
 Si recibe uno de estos errores, vuelva a la máquina virtual de Azure en [Azure Portal](https://portal.azure.com) y:
 

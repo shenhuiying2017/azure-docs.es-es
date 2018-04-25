@@ -1,6 +1,6 @@
 ---
-title: 'Azure Service Fabric: configuración de la supervisión con Log Analytics de OMS | Microsoft Docs'
-description: Aprenda cómo configurar Operations Management Suite para visualizar y analizar los eventos con el fin de supervisar los clústeres de Azure Service Fabric.
+title: 'Azure Service Fabric: configuración de la supervisión con Log Analytics | Microsoft Docs'
+description: Aprenda a configurar Log Analytics para visualizar y analizar los eventos con el fin de supervisar los clústeres de Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Configuración de Operations Management Suite Log Analytics para un clúster
+# <a name="set-up-log-analytics-for-a-cluster"></a>Configuración de Log Analytics para un clúster
 
-Puede configurar un área de trabajo de Operations Management Suite (OMS) mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si realiza el mantenimiento de una plantilla actualizada de Resource Manager de su implementación para usarla en un futuro, use la misma plantilla para configurar el entorno de OMS. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar OMS, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
+Puede configurar un área de trabajo de Log Analytics mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si realiza el mantenimiento de una plantilla actualizada de Resource Manager de su implementación para usarla en un futuro, use la misma plantilla para configurar el entorno de OMS. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar OMS, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
 
 > [!NOTE]
-> Para configurar OMS para supervisar el clúster, debe tener habilitado Diagnostics para ver los eventos de nivel de plataforma o de clúster.
+> Para configurar Log Analytics con el fin de supervisar el clúster, debe haber habilitado los diagnósticos para ver los eventos de nivel de plataforma o de clúster.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Implementación de OMS mediante Azure Marketplace
 
@@ -200,7 +200,7 @@ $WorkspaceName = "<OMS Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionId $SubID 
 
 # Create the resource group if needed

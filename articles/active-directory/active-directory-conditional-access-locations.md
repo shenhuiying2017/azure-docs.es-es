@@ -1,26 +1,26 @@
 ---
-title: "Condiciones de ubicación del acceso condicional de Azure Active Directory | Microsoft Docs"
-description: "Obtenga información sobre el uso de la condición de ubicación para controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red del usuario."
+title: Condiciones de ubicación del acceso condicional de Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre el uso de la condición de ubicación para controlar el acceso a las aplicaciones en la nube en función de la ubicación de la red del usuario.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2018
+ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c9712cf0cf20bbcfc089eb18896370f9e02eb571
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 687f3c4a5f70154b6335563d65443c12463b0b74
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="location-conditions-in-azure-active-directory-conditional-access"></a>Condiciones de ubicación del acceso condicional de Azure Active Directory 
 
@@ -43,7 +43,14 @@ Una ubicación es una etiqueta para una ubicación de red que representa una ubi
 
 Gracias a las ubicaciones con nombre, puede crear agrupaciones lógicas de intervalos de direcciones IP, países y regiones. 
 
- Una ubicación con nombre tiene los siguientes componentes:
+Puede obtener acceso a sus ubicaciones con nombre en la sección **Administrar** de la página Acceso condicional.
+
+![Ubicaciones](./media/active-directory-conditional-access-locations/02.png)
+
+ 
+
+
+Una ubicación con nombre tiene los siguientes componentes:
 
 ![Ubicaciones](./media/active-directory-conditional-access-locations/42.png)
 
@@ -68,13 +75,13 @@ El número de ubicaciones con nombre que se pueden configurar está restringido 
 
 ## <a name="trusted-ips"></a>IP de confianza
 
-También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para más información, vea [IP de confianza](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+También puede configurar los intervalos de direcciones IP que representen a la intranet local de su organización en la [configuración del servicio de la autenticación multifactor](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta función le permite configurar hasta 50 intervalos de direcciones IP. Los intervalos de direcciones IP están en formato CIDR. Para más información, vea [IP de confianza](authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 Si ha configurado IP de confianza, se mostrarán como **IP de confianza de MFA** en la lista de ubicaciones de la condición de ubicación.   
 
 ### <a name="skipping-multi-factor-authentication"></a>Omisión de la autenticación multifactor
 
-En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, consulte [Enable the Trusted IPs feature by using conditional access](../multi-factor-authentication/multi-factor-authentication-whats-next.md#enable-the-trusted-ips-feature-by-using-conditional-access) (Habilitar la función de direcciones IP de confianza utilizando el acceso condicional).
+En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, consulte [Enable the Trusted IPs feature by using conditional access](authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access) (Habilitar la función de direcciones IP de confianza utilizando el acceso condicional).
 
 Tras activar esta opción, incluida la ubicación con nombre, las **IP de confianza de MFA** se aplicarán a todas las directivas que tengan esta casilla activada.
 

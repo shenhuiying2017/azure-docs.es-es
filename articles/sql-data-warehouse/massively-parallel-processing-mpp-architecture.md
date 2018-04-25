@@ -1,30 +1,26 @@
 ---
-title: 'Arquitectura MPP: Azure SQL Data Warehouse | Microsoft Docs'
-description: "Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr un alto rendimiento y escalabilidad."
+title: 'Azure SQL Data Warehouse: arquitectura de MPP | Microsoft Docs'
+description: Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr un alto rendimiento y escalabilidad.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: dd148b8fdf6a816233f7adc0a8a22f87c417a156
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse: Arquitectura de procesamiento paralelo masivo (MPP)
 Obtenga información acerca de cómo Azure SQL Data Warehouse combina procesamiento paralelo masivo (MPP) con el almacenamiento de Azure para lograr un alto rendimiento y escalabilidad. 
 
 ## <a name="mpp-architecture-components"></a>Componentes de la arquitectura de MPP
-SQL Data Warehouse aprovecha una arquitectura de escalado horizontal para distribuir el procesamiento de cálculo de datos en varios nodos. La unidad de escalado es una abstracción de la eficacia del proceso que se conoce como una unidad de almacenamiento de datos. SQL Data Warehouse separa los procesos del almacenamiento, lo que permite escalar los procesos independientemente de los datos en el sistema.
+SQL Data Warehouse aprovecha una arquitectura de escalado horizontal para distribuir el procesamiento de cálculo de datos en varios nodos. La unidad de escalado es una abstracción de la eficacia del proceso que se conoce como una unidad de almacenamiento de datos. SQL Data Warehouse separa el proceso del almacenamiento, lo que permite escalar los procesos independientemente de los datos en el sistema.
 
 ![Arquitectura de SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
