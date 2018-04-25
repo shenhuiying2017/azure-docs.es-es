@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 9a19ac74cd8f7ed6ae680b2acb743101bbcaed44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -207,7 +207,7 @@ Ejemplo: hay cuatro administradores en un entorno. El administrador A restablece
 
 ## <a name="on-premises-integration"></a>Integración local
 
-Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionales siguientes para integraciones locales. Si estas opciones están atenuadas, significa que la escritura diferida no se ha configurado correctamente. Para obtener más información, consulte [Configuración de la escritura diferida de contraseñas](../active-directory-passwords-writeback.md#configure-password-writeback).
+Si instala, configura y habilita Azure AD Connect, tiene las opciones adicionales siguientes para integraciones locales. Si estas opciones están atenuadas, significa que la escritura diferida no se ha configurado correctamente. Para obtener más información, consulte [Configuración de la escritura diferida de contraseñas](howto-sspr-writeback.md#configure-password-writeback).
 
 ![Escritura diferida][Writeback]
 
@@ -217,7 +217,7 @@ Esta página proporciona un estado rápido del cliente de escritura diferida con
 * Azure AD está en línea y conectado al cliente de escritura diferida local. Sin embargo, parece que la versión instalada de Azure AD Connect no está actualizada. Considere la posibilidad de [actualizar Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para asegurarse de que tiene las características de conectividad más recientes y las correcciones de errores importantes.
 * Desafortunadamente, de momento no podemos comprobar el estado del cliente de escritura diferida local porque la versión instalada de Azure AD Connect no está actualizada. [Actualice Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) para poder comprobar su estado de conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. [Solucione problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.
-* Desafortunadamente, no podemos conectarnos a su cliente de escritura diferida local porque la escritura diferida de contraseñas no se ha configurado correctamente. [Configure la escritura diferida de contraseñas](../active-directory-passwords-writeback.md#configure-password-writeback) para restaurar la conexión.
+* Desafortunadamente, no podemos conectarnos a su cliente de escritura diferida local porque la escritura diferida de contraseñas no se ha configurado correctamente. [Configure la escritura diferida de contraseñas](howto-sspr-writeback.md#configure-password-writeback) para restaurar la conexión.
 * Desafortunadamente, parece que no podemos conectarnos a su cliente de escritura diferida local ahora mismo. Esto puede deberse a problemas temporales por nuestra parte. Si el problema persiste, [solucione los problemas de Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar la conexión.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Escritura diferida de contraseñas en un directorio local
@@ -257,7 +257,7 @@ En los siguientes artículos se proporciona información adicional sobre el rest
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](../active-directory-passwords-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)

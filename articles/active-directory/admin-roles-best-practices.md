@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -118,7 +118,7 @@ Evalúe las cuentas que están asignadas al rol de administrador global o que so
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Activación de la autenticación multifactor y registro de las restantes cuentas de administrador no federadas de usuario único con privilegios elevados 
 
-Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos los usuarios individuales a los que se haya asignado permanentemente uno o varios de los roles de administrador de Azure AD: Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetuphttps://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Requiera Azure Multi-Factor Authentication (MFA) en el inicio de sesión a todos los usuarios individuales a los que se haya asignado permanentemente uno o varios de los roles de administrador de Azure AD: Administrador global, Administrador de rol con privilegios, Administrador de Exchange Online y Administrador de SharePoint Online. Use la guía para habilitar [Multi-Factor Authentication (MFA) en sus cuentas de administrador](authentication/howto-mfa-userstates.md) y asegúrese de que todos esos usuarios se hayan registrado en [https://aka.ms/mfasetuphttps://aka.ms/mfasetup](https://aka.ms/mfasetup). Puede encontrar más información en los pasos 2 y 3 de [Protección del acceso a datos y servicios de Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>Fase 2: mitigar las técnicas de ataque que se usan con más frecuencia
 
@@ -164,8 +164,8 @@ Azure AD recomienda que requiera la autenticación multifactor (MFA) a todos los
 
 Active:
 
-* [MFA en cuentas de alto riesgo](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) como las cuentas de los directores corporativos de una organización 
-* [MFA para todas las cuentas de administrador asociadas a un usuario individual](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) para otras aplicaciones de SaaS conectadas 
+* [MFA en cuentas de alto riesgo](authentication/multi-factor-authentication-security-best-practices.md) como las cuentas de los directores corporativos de una organización 
+* [MFA para todas las cuentas de administrador asociadas a un usuario individual](authentication/howto-mfa-userstates.md) para otras aplicaciones de SaaS conectadas 
 * MFA para todos los administradores de aplicaciones SaaS de Microsoft, incluidos los administradores en roles que se administran en Exchange Online y el Portal de Office
 
 Si usa Windows Hello for Business, el requisito de MFA se puede cumplir con la experiencia de inicio de sesión de Windows Hello. Para más información, consulte [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 

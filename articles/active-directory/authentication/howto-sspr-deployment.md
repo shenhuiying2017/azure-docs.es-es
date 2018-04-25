@@ -16,19 +16,19 @@ ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 22086a0d9fc774b75e1b0873188b16fc548d0791
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
 Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento de contraseña de autoservicio (SSPR) de Azure Active Directory (Azure AD), la mayoría de los clientes completan los pasos siguientes:
 
-1. [Habilitación del restablecimiento de contraseña en el directorio](../active-directory-passwords-getting-started.md).
-2. [Configuración de los permisos de Active Directory local para la escritura diferida de contraseñas](../active-directory-passwords-writeback.md#active-directory-permissions).
-3. [Configuración de la escritura diferida de contraseñas](../active-directory-passwords-writeback.md#configure-password-writeback) para escribir contraseñas de Azure AD en su directorio local.
+1. [Habilitación del restablecimiento de contraseña en el directorio](quickstart-sspr.md).
+2. [Configuración de los permisos de Active Directory local para la escritura diferida de contraseñas](howto-sspr-writeback.md#active-directory-permissions).
+3. [Configuración de la escritura diferida de contraseñas](howto-sspr-writeback.md#configure-password-writeback) para escribir contraseñas de Azure AD en su directorio local.
 4. [Asignación y comprobación de las licencias necesarias](concept-sspr-licensing.md).
 5. Determine si desea realizar un lanzamiento gradual. Si desea lanzar SSPR gradualmente, puede limitar el acceso a un grupo de usuarios para probar el programa con un grupo concreto. Para lanzárselo a un grupo concreto, establezca **Se habilitó el restablecimiento de contraseña del autoservicio** en **Seleccionado** y seleccione el grupo de seguridad que quiere que pueda usar el restablecimiento de contraseña. 
 6. Rellene los [Datos de autenticación](howto-sspr-authenticationdata.md) necesarios para que los usuarios se registren, como el teléfono del trabajo, el teléfono móvil y la dirección de correo electrónico alternativa.
@@ -41,7 +41,7 @@ Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento d
    > [!NOTE]
    > Cambiar esta opción de un grupo seleccionado a todos los usuarios no invalida los datos de autenticación existentes que un usuario haya registrado como parte de un grupo de prueba. Los usuarios que están configurados y tienen datos de autenticación válidos registrados pueden continuar funcionando.
 
-12. [Permitir que los usuarios de Windows 10 restablezcan su contraseña en la pantalla de inicio de sesión](../active-directory-passwords-login.md).
+12. [Permitir que los usuarios de Windows 10 restablezcan su contraseña en la pantalla de inicio de sesión](tutorial-sspr-windows.md).
 
    > [!IMPORTANT]
    > Pruebe SSPR con un usuario en lugar de con un administrador, ya que Microsoft impone requisitos de autenticación estrictos para las cuentas de administrador de Azure. Para más información acerca de la directiva de contraseñas de administrador, consulte nuestro artículo sobre la [directiva de contraseñas](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -90,7 +90,7 @@ Deshabilitar el autoservicio de restablecimiento de contraseña es fácil. Abra 
 * [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](../active-directory-passwords-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)

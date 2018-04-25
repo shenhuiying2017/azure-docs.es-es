@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: 34f014c98d9333598c10e85d100251e62685c476
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7500b456296dc69c70cd1b5500d40f7e007569b1
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -249,7 +249,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
 * **P: ¿Cómo funciona la escritura diferida de contraseñas en segundo plano?**
 
-  > **R:** Vea el artículo [Funcionamiento de la escritura diferida de contraseñas](../active-directory-passwords-writeback.md) para obtener una explicación de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local.
+  > **R:** Vea el artículo [Funcionamiento de la escritura diferida de contraseñas](howto-sspr-writeback.md) para obtener una explicación de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo fluyen los datos por el sistema para volver al entorno local.
   >
   >
 * **P: ¿Cuánto tarda en funcionar la escritura diferida de contraseñas? ¿Existe un retraso en la sincronización como ocurre con la sincronización de hash de contraseñas?**
@@ -279,7 +279,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P: ¿Es segura la escritura diferida de contraseñas?  ¿Cómo puedo estar seguro de no ser víctima del ataque de un hacker?**
 
-  > **R:** Sí, la escritura diferida de contraseñas es segura. Para obtener más información sobre los cuatro niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Modelo de seguridad de la escritura diferida de contraseñas](../active-directory-passwords-writeback.md#password-writeback-security-model) en el artículo [Información general sobre la escritura diferida de contraseñas](../active-directory-passwords-writeback.md).
+  > **R:** Sí, la escritura diferida de contraseñas es segura. Para obtener más información sobre los cuatro niveles de seguridad que implementa el servicio de escritura diferida de contraseñas, consulte la sección [Modelo de seguridad de la escritura diferida de contraseñas](howto-sspr-writeback.md#password-writeback-security-model) en el artículo [Información general sobre la escritura diferida de contraseñas](howto-sspr-writeback.md).
   >
   >
 
@@ -292,7 +292,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
 * [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](../active-directory-passwords-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
 * [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
 * [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)

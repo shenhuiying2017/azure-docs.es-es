@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 5233d65df4c6a0908a2f7a8726041dd5b9ab1e01
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Cosmos DB 
 
@@ -28,14 +28,14 @@ Este tutorial le muestra cómo crear y utilizar una identidad de servicio admini
 
 > [!div class="checklist"]
 > * Crear una máquina virtual Linux con una MSI habilitada
-> * Crear una cuenta de Cosmos DB
-> * Crear una colección en la cuenta de Cosmos DB
+> * Creación de una cuenta de Cosmos DB
+> * Creación de una colección en la cuenta de Cosmos DB
 > * Conceder el acceso MSI a una instancia de Azure Cosmos DB
 > * Recuperar el `principalID` de la identidad de servicio administrada de la máquina virtual Linux
 > * Obtener un token de acceso y su uso para llamar a Azure Resource Manager
-> * Obtener las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
+> * Obtención de las claves de acceso desde Azure Resource Manager para realizar llamadas a Cosmos DB
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com) antes de continuar.
 
@@ -149,7 +149,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
 4. Utilice CURL para obtener un token de acceso para Azure Resource Manager: 
      
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

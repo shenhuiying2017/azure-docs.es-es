@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -112,7 +112,7 @@ Para más información, consulte [Supervisión de la infraestructura de identida
 
 **R:** La escritura diferida de contraseñas funciona en tiempo real.
 
-Para más información, consulte [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md).
+Para más información, consulte [Introducción a la administración de contraseñas](authentication/quickstart-sspr.md).
 
 - - -
 **P: ¿Puedo usar la escritura diferida de contraseñas con las que administra un administrador?**

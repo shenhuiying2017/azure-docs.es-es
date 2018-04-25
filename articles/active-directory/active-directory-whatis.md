@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: 003ce2edda3e2069eb7e05f58ecc2e208c818946
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01183a2c85b748d593146f6b52a7d4dbd34524cb
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-active-directory"></a>¿Qué es Azure Active Directory?
 Azure Active Directory (Azure AD) es un servicio multiinquilino de administración de identidades y de directorios basado en la nube que combina los servicios de directorio principales, la administración del acceso de las aplicaciones y la protección de identidades en una única solución. Azure AD ofrece también una plataforma muy completa basada en estándares que permite a los desarrolladores proporcionar control de acceso a sus aplicaciones, en función de una directiva y reglas centralizadas.
@@ -55,7 +55,7 @@ Para mejorar su instancia de Azure Active Directory, puede agregar funcionalidad
 > Hay varias funcionalidades de Azure Active Directory disponibles mediante las ediciones de "pago por uso":
 >
 > * Active Directory B2C es la solución de administración de identidades y acceso para las aplicaciones orientados al consumidor. Para más información, consulte [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/).
-> * Azure Multi-Factor Authentication se puede usar a través de proveedores por usuario o por autenticación. Para más información, consulte [¿Qué es Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+> * Azure Multi-Factor Authentication se puede usar a través de proveedores por usuario o por autenticación. Para más información, consulte [¿Qué es Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 >
 
 ## <a name="how-can-i-get-started"></a>¿Cómo puedo comenzar?
