@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 660f75440d7d93562a3a17f646d5d284196e073d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -78,7 +78,7 @@ El conjunto de escalado y los recursos de apoyo, como la dirección IP pública 
 
 ## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
 
-El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-cli.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible y haberse [registrado para obtener la versión preliminar de las Zonas de disponibilidad](http://aka.ms/azenroll).
+El proceso para crear un conjunto de escalado que usa una zona de disponibilidad es igual al que se detalla en el [artículo de introducción](quick-create-cli.md). Para usar las Zonas de disponibilidad, debe crear el conjunto de escalado en una región de Azure compatible.
 
 Agregue el parámetro `--zones` al comando [az vmss create](/cli/azure/vmss#az_vmss_create) y especifique qué zona se usará (como la zona *1*, *2* o *3*). En el ejemplo siguiente se crea un conjunto de escalado de una sola zona denominado *myScaleSet* en la zona *1*:
 

@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d47a8a3d8343aaa17346cd63c055e8687f25f812
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="my-first-graphical-runbook"></a>Mi primer runbook gráfico
 
@@ -122,7 +122,7 @@ Ahora que tiene una variable que contiene el identificador de suscripción, pued
 1. En el lienzo, seleccione **Connect-AzureRmAccount** y, en el panel Control de configuración, escriba **Login to Azure** (Iniciar sesión en Azure) en el cuadro de texto **Etiqueta**.
 1. Haga clic en **Parámetros**; aparece la página Configuración de parámetros de la actividad.
 1. **Connect-AzureRmAccount** tiene varios conjuntos de parámetros, por lo que hay que seleccionar uno para poder especificar los valores de parámetro. Haga clic en **Conjunto de parámetros** y seleccione el conjunto de parámetros **ServicePrincipalCertificate**.
-1. Una vez seleccionado el conjunto de parámetros, estos se muestran en la página Configuración de parámetros de la actividad. Haga clic en **APPLICATIONID**.<br> ![Agregar parámetros de cuenta de Azure Resource Manager](media/automation-first-runbook-graphical/Connect-AzureRmAccount-params.png)
+1. Una vez seleccionado el conjunto de parámetros, estos se muestran en la página Configuración de parámetros de la actividad. Haga clic en **APPLICATIONID**.<br> ![Agregar parámetros de cuenta de Azure Resource Manager](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. En la página Valor de parámetro, seleccione **Resultado de la actividad** en **Origen de datos**, seleccione **Get Run As Connection** (Obtener conexión de ejecución) en la lista, en el cuadro de texto **Field path** (Ruta de acceso de campo), escriba **ApplicationId** y, finalmente, haga clic en **Aceptar**. Está especificando el nombre de la propiedad para la ruta de acceso del campo porque la actividad genera un objeto con varias propiedades.
 1. Haga clic en **CERTIFICATETHUMBPRINT** y, en la página Valor de parámetro, seleccione **Resultado de la actividad** en **Origen de datos**. Seleccione **Get Run As Connection** (Obtener conexión de ejecución) en la lista; en el cuadro de texto **Field path** (Ruta de acceso de campo), escriba **CertificateThumbprint** y haga clic en **Aceptar**.
 1. Haga clic en **SERVICEPRINCIPAL** y, en la página Valor de parámetro, seleccione **ConstantValue** en **Origen de datos**, haga clic en la opción **True** y en **Aceptar**.

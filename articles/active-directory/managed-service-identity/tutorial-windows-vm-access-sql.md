@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: aaec2fe989c4b0ae1867e629f6b46ab29297cb41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5459739e9d3469adc7dbf65c8dcc0de918ea0c73
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure SQL
 
@@ -230,7 +230,7 @@ Como alternativa, un método rápido para probar la configuración de extremo a 
 4.  Mediante `Invoke-WebRequest` de PowerShell, realice una solicitud al punto de conexión de la identidad MSI local para obtener un token de acceso para Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Convierta la respuesta de un objeto JSON a un objeto de PowerShell. 

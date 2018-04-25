@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: ab2da4e372759fb26d50daf519faecd1810c084d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8937be0e3f18d58d4cdd909de0ca2c455cc46c1f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publicación de contenido de Azure Media Services con REST
 > [!div class="op_single_selector"]
@@ -28,7 +28,6 @@ ms.lasthandoff: 04/19/2018
 > 
 > 
 
-## <a name="overview"></a>Información general
 Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El artículo [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Si el contenido está cifrado, configure la directiva de entrega de recursos (como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) artículo) antes de crear un localizador. 
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.  

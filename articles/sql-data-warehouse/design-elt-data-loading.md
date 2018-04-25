@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3cea41a7c129ee5a691226097d087539f943bec6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Diseñar un proceso de extracción, carga y transformación (ELT) para Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Para cargar datos con PolyBase, puede utilizar cualquiera de estas opciones de c
 PolyBase carga los datos de los archivos de texto delimitados que están codificados mediante UTF-8 y UTF-16. Además de los archivos de texto delimitados, también carga datos desde formatos de archivos Hadoop como RC File, ORC y Parquet. Asimismo, PolyBase puede cargar datos desde Gzip y archivos comprimidos de Snappy. Hay que tener en cuenta que actualmente PolyBase no admite el formato ASCII extendido, el formato de ancho fijo y formatos anidados como WinZip, JSON y XML.
 
 ### <a name="non-polybase-loading-options"></a>Opciones de carga que no pertenecen a PolyBase
-Si los datos no son compatibles con PolyBase, puede usar [bcp](sql-data-warehouse-load-with-bcp.md) o [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). El formato bcp carga datos directamente a SQL Data Warehouse sin tener que pasar por Azure Blob Storage y está diseñado únicamente para cargas pequeñas. Tenga en cuenta que el rendimiento de la carga de estas opciones es mucho más lento que PolyBase. 
+Si los datos no son compatibles con PolyBase, puede usar [bcp](/sql/tools/bcp-utility) o [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). El formato bcp carga datos directamente a SQL Data Warehouse sin tener que pasar por Azure Blob Storage y está diseñado únicamente para cargas pequeñas. Tenga en cuenta que el rendimiento de la carga de estas opciones es mucho más lento que PolyBase. 
 
 
 ## <a name="extract-source-data"></a>Extraer datos de origen

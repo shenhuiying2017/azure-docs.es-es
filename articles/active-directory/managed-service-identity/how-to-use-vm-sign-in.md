@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ac23d0f9b8f6899df6941791b22ec384ea0f3977
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bae2d1c823c606cdb3202f2af1bdc4d577126868
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Uso de una identidad de servicio administrada (MSI) en una máquina virtual de Azure para el inicio de sesión 
 
@@ -61,20 +61,11 @@ El script siguiente muestra cómo:
 
 El script siguiente muestra cómo:
 
-1. Adquirir un token de acceso de MSI para la máquina virtual  
-2. Usar el token de acceso para iniciar sesión en Azure AD con la entidad de servicio de MSI correspondiente   
-3. Llamar a un cmdlet de Azure Resource Manager para obtener información acerca de la máquina virtual PowerShell se encarga de administrar el uso del token automáticamente.  
+1. Iniciar sesión en Azure AD con la entidad de servicio de MSI de la máquina virtual  
+2. Llamar a un cmdlet de Azure Resource Manager para obtener información acerca de la máquina virtual PowerShell se encarga de administrar el uso del token automáticamente.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>

@@ -1,4 +1,19 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/24/2018
+---
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
 Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Para más información sobre Premium Storage, consulte [Premium Storage de alto rendimiento y máquinas virtuales de Azure](../articles/virtual-machines/windows/premium-storage.md).
@@ -10,10 +25,10 @@ Todos los archivos .vhd de Azure que quiera usar como origen para crear discos o
 Cuando se crea una máquina virtual desde una imagen, Azure crea un disco para la máquina virtual que es una copia del archivo .vhd de origen. Para proteger contra la eliminación accidental, Azure coloca una concesión en cada archivo .vhd de origen que se usa para crear una imagen, un disco del sistema operativo o un disco de datos.
 
 Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión eliminando el disco o la imagen. Para eliminar un archivo .vhd que está siendo usado por una máquina virtual como disco del sistema operativo, puede eliminar la máquina virtual, el disco del sistema operativo y el archivo .vhd de origen a la vez, eliminando la máquina virtual y todos los discos asociados. Sin embargo, para eliminar un archivo .vhd que es el origen de un disco de datos es necesario realizar varios pasos en un orden determinado. Primero, desasocie el disco de la máquina virtual y, a continuación, elimine el disco y el archivo .vhd.
-
 > [!WARNING]
 > Si elimina un archivo .vhd de origen del almacenamiento o elimina la cuenta de almacenamiento, Microsoft no puede recuperar esos datos por usted.
 > 
+> Los blobs en páginas en Premium Storage están diseñados para su uso exclusivo como discos duros virtuales. Microsoft no recomienda almacenar otros tipos de datos en blobs en páginas en Premium Storage, ya que el costo puede ser mucho mayor. Use los blobs en bloques para almacenar datos que no se encuentren en un disco duro virtual.
 
 ## <a name="types-of-disks"></a>Tipos de discos 
 
@@ -30,7 +45,7 @@ Para más información sobre el uso de Standard Storage con discos de máquina v
 
 ### <a name="premium-storage"></a>Premium Storage 
 
-Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Puede usar Premium Storage con máquinas virtuales de Azure de las series DS, DSv2, GS, Ls o FS. Para más información, consulte [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
+Premium Storage está respaldado por discos SSD y ofrece compatibilidad con discos de alto rendimiento y baja latencia para máquinas virtuales con cargas de trabajo intensivas de E/S. Normalmente se utiliza Premium Storage con tamaños que incluyen una "s" en el nombre de la serie. Por ejemplo, está la serie Dv3 y la serie Dsv3; por tanto, la serie Dsv3 se puede utilizar con Premium Storage.  Para más información, consulte [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Discos no administrados
 

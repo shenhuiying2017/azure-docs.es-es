@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3839f02d8e083ed384f0d01fccee6ad951477f3b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ca467ae5fbe784399e4e046c47c920ff7dec638e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="migrate-your-data"></a>Migración de los datos
 Se pueden mover datos de distintos orígenes a SQL Data Warehouse con diversas herramientas.  Puede usarse Copia de ADF, SSIS y bcp para lograr este objetivo. Sin embargo, a medida que la cantidad de datos aumente debería pensar en descomponer en pasos el proceso de migración de datos. Esto le ofrece la posibilidad de optimizar cada paso en cuanto a rendimiento y resistencia para garantizar una migración de datos sin problemas.
@@ -188,7 +188,7 @@ Para más sugerencias sobre desarrollo, consulte la [información general sobre 
 [Migración del esquema]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
+[Use bcp to load data into SQL Data Warehouse]: /sql/tools/bcp-utility
 [Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
