@@ -53,7 +53,7 @@ Los participantes de la competición usan Azure Machine Learning Studio, un serv
 
 **¿Es necesario ser un experto en datos para participar?**
 
-Nº De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. El público de destino es el siguiente:
+No, De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. El público de destino es el siguiente:
 
 * **Desarrolladores de datos**, **científicos de datos**, **profesionales de BI** y **de análisis**: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
 * **Administradores de datos**: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
@@ -104,7 +104,7 @@ La hora de envío es el factor de desempate. La entrada que se haya enviado ante
 
 **¿Puedo participar usando el área de trabajo de invitado?**
 
-Nº Debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
+No debe utilizar un área de trabajo gratuito o estándar para participar. Puede abrir el experimento de inicio de la competición en un área de trabajo de invitado, pero no podrá crear una participación válida para su envío desde dicha área. 
 
 **¿Puedo participar mediante un área de trabajo de cualquier región de Azure?**
 
