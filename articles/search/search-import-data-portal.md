@@ -1,25 +1,18 @@
 ---
-title: "Importación de datos en Azure Search en el portal | Microsoft Docs"
-description: "Utilice el Asistente para la importación de datos de Azure Search en Azure Portal para rastrear datos de Azure desde Azure Cosmos DB NoSQL, Blob Storage, Table Storage, SQL Database y SQL Server en máquinas virtuales de Azure."
-services: search
-documentationcenter: 
+title: Importación de datos en Azure Search en el portal | Microsoft Docs
+description: Utilice el Asistente para la importación de datos de Azure Search en Azure Portal para rastrear datos de Azure desde Azure Cosmos DB NoSQL, Blob Storage, Table Storage, SQL Database y SQL Server en máquinas virtuales de Azure.
 author: HeidiSteen
-manager: jhubbard
-editor: 
+manager: cgronlun
 tags: Azure Portal
-ms.assetid: f40fe07a-0536-485d-8dfa-8226eb72e2cd
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: quickstart
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 286408fb0c3aa2b83cf17a4646f6f7420b6884f4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b651ccaa59e40b9d8d1c682fc8c266bf95b62a2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="import-data-to-azure-search-using-the-portal"></a>Importación de datos en Azure Search con el Portal
 Azure Portal incluye un asistente para **importar datos** en el panel de Azure Search que le permite cargar datos en un índice. 
@@ -94,7 +87,7 @@ El índice está listo para que se realicen consultas en cuanto se cargan todos 
 
 El portal incluye el **Explorador de búsqueda**, con el fin de que pueda consultar un índice sin tener que escribir código. El [Explorador de búsqueda](search-explorer.md) se puede usar en todos los índices.
 
-La búsqueda se basa en los valores predeterminados, como la [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el parámetro de consulta searchMode predeterminado (https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+La búsqueda se basa en la configuración predeterminada, como la [sintaxis simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) y el parámetro de consulta searchMode predeterminado (https://docs.microsoft.com/rest/api/searchservice/search-documents)). 
 
 Los resultados se devuelven en formato JSON detallado, con el fin de que pueda revisar todo el documento.
 

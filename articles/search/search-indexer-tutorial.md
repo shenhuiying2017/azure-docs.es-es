@@ -1,25 +1,18 @@
 ---
-title: "Tutorial para la indexación de bases de datos SQL de Azure en Azure Search | Microsoft Docs"
-description: "Rastree Azure SQL Database para extraer los datos que permiten búsqueda y rellenar un índice de Azure Search."
-services: search
-documentationcenter: 
+title: Tutorial para la indexación de bases de datos SQL de Azure en Azure Search | Microsoft Docs
+description: Rastree Azure SQL Database para extraer los datos que permiten búsqueda y rellenar un índice de Azure Search.
 author: HeidiSteen
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: cgronlun
 ms.service: search
 ms.devlang: na
-ms.workload: search
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.topic: tutorial
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: 22eeccfd692cca74bc0cf12c3400d717c103332f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f123b4f5d0a51a4ab5015a2a0008a76fbfa0318e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 

@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: e8decbe2c8ed4bed6cfb71308510d031fc242faa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e6f925f325dff74544464d8a888aa6c3ed092d5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configuración y administración de la autenticación de Azure Active Directory con SQL Database, Instancia administrada o SQL Data Warehouse
 
@@ -127,7 +127,7 @@ Para ejecutar los cmdlets de PowerShell, necesitará tener Azure PowerShell inst
 
 Para aprovisionar un administrador de Azure AD, debe ejecutar los siguientes comandos de Azure PowerShell:
 
-* Add-AzureRmAccount
+* Connect-AzureRmAccount
 * Select-AzureRmSubscription
 
 Cmdlets que se usan para aprovisionar y administrar administradores de Azure AD:

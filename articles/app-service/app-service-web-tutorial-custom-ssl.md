@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
 
@@ -149,7 +149,7 @@ Si usó IIS o _Certreq.exe_ para generar la solicitud de certificado, instale el
 
 ### <a name="upload-your-ssl-certificate"></a>Cargar el certificado SSL
 
-Para cargar el certificado SSL, haga clic en **Certificados SSL** en el panel de navegación izquierdo de la aplicación web.
+Para cargar el certificado SSL, haga clic en **Configuración de SSL** en el panel de navegación izquierdo de la aplicación web.
 
 Haga clic en **Cargar certificado**. 
 
@@ -159,7 +159,7 @@ Haga clic en **Cargar**.
 
 ![Carga del certificado](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-Cuando App Service termina de cargar el certificado, este aparece en la página **Certificados SSL**.
+Cuando App Service termina de cargar el certificado, este aparece en la página **Configuración de SSL**.
 
 ![Certificado cargado](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el do
 
 De forma predeterminada, cualquier usuario puede acceder todavía a su aplicación web mediante HTTP. Puede redirigir todas las solicitudes HTTP al puerto HTTPS.
 
-En la página de la aplicación web, en el panel de navegación izquierdo, seleccione **Dominios personalizados**. A continuación, en **Solo HTTPS**, seleccione **On**.
+En la página de la aplicación web, en el panel de navegación izquierdo, seleccione **Configuración de SSL**. A continuación, en **Solo HTTPS**, seleccione **On**.
 
 ![Aplicación de HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ Una vez completada la operación, vaya a cualquiera de las direcciones URL HTTP 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>Aplicación de TLS 1.1 y 1.2
+
+La aplicación permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 de forma predeterminada que, según los estándares del sector, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard), ya no se considera seguro. Para aplicar las versiones posteriores de TLS, siga estos pasos:
+
+En la página de la aplicación web, en el panel de navegación izquierdo, seleccione **Configuración de SSL**. A continuación, en **TLS version** (Versión de TLS), seleccione la versión mínima de TLS que desee.
+
+![Aplicación de HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+Una vez completada la operación, la aplicación rechaza todas las conexiones con versiones inferiores de TLS.
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

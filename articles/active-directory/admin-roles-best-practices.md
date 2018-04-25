@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -154,9 +154,9 @@ Si aún no lo ha hecho, cree cuentas independientes para que los usuarios realic
 
 Asegúrese de que todos los usuarios han iniciado sesión en sus cuentas administrativas y han cambiado sus contraseñas al menos una vez en los últimos 90 días. Además, asegúrese de que todas las cuentas compartidas en las que varios usuarios conozcan la contraseña se han sincronizado las contraseñas recientemente.
 
-#### <a name="turn-on-password-synchronization"></a>Active la sincronización de contraseña
+#### <a name="turn-on-password-hash-synchronization"></a>Activación de la sincronización de hashes de contraseñas
 
-La sincronización de contraseña es una característica que se usa para sincronizar los algoritmos hash de la contraseña de usuario de una instancia de Active Directory local con una instancia de Azure AD basado en la nube. Incluso si decide usar federación con los Servicios de federación de Active Directory (AD FS) u otros proveedores de identidades, tiene la opción de configurar la sincronización de contraseña como una copia de seguridad en caso de que se produzca un error en la infraestructura local como AD o servidores de ADFS o deje de estar disponible temporalmente. Esto permite que los usuarios inicien sesión en el servicio con la misma contraseña que usan para iniciar sesión en su instancia local de Active Directory. Además, permite que Identity Protection detecte las credenciales que están en peligro mediante la comparación de los algoritmos hash de dichas contraseñas con contraseñas que se sepa que están en peligro, si un usuario ha usado su misma dirección de correo electrónico y contraseña en otros servicios que no estén conectados a Azure AD.  Para más información, consulte [Implement password hash synchronization with Azure AD Connect sync](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) (Implementación de la sincronización de hash de contraseñas mediante la sincronización de Azure AD Connect).
+La sincronización de hashes de contraseñas es una característica que se utiliza para sincronizar los hashes de los hashes de las contraseñas de los usuarios desde una instancia de Active Directory local con una instancia de Azure AD en la nube. Aunque decida usar la federación con Active Directory Federation Services (AD FS) u otros proveedores de identidades, opcionalmente puede configurar la sincronización de hashes de contraseñas de respaldo, por si su infraestructura local, como los servidores de AD o ADFS, sufre un error o deja de estar disponible temporalmente. Esto permite que los usuarios inicien sesión en el servicio con la misma contraseña que usan para iniciar sesión en su instancia local de Active Directory. Además, permite que Identity Protection detecte las credenciales que están en peligro mediante la comparación de los algoritmos hash de dichas contraseñas con contraseñas que se sepa que están en peligro, si un usuario ha usado su misma dirección de correo electrónico y contraseña en otros servicios que no estén conectados a Azure AD.  Para más información, consulte [Implement password hash synchronization with Azure AD Connect sync](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) (Implementación de la sincronización de hash de contraseñas mediante la sincronización de Azure AD Connect).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Requiera la autenticación multifactor (MFA) a los usuarios de todos los roles con privilegios, así como a los usuarios expuestos
 
@@ -282,11 +282,11 @@ Si Azure Active Directory está conectado con la instancia local de Active Direc
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Realice un inventario de sus cuentas con privilegios en las máquinas virtuales hospedadas
 
-En la mayoría de los casos, no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Puede usar los roles de administrador de Azure AD para segregar las tareas en su organización y conceder únicamente la cantidad de acceso precisa a los usuarios que necesitan realizar tareas específicas. Por ejemplo, utilice los roles de administrador de Azure AD para permitir que un administrador administre solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL en la misma suscripción. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](role-based-access-control-what-is.md).
+En la mayoría de los casos, no es necesario conceder a los usuarios permisos sin restricciones a todas las suscripciones o recursos de Azure. Puede usar los roles de administrador de Azure AD para segregar las tareas en su organización y conceder únicamente la cantidad de acceso precisa a los usuarios que necesitan realizar tareas específicas. Por ejemplo, utilice los roles de administrador de Azure AD para permitir que un administrador administre solo las máquinas virtuales de una suscripción, mientras que otro pueda administrar las bases de datos SQL en la misma suscripción. Para más información, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implemente PIM para los roles de administrador de Azure AD
 
-Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege las cuentas con privilegios frente a ciberataques mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [Administración del acceso a los recursos de Azure con Privileged Identity Management](pim-azure-resource.md).
+Use Privileged Identity Management con los roles de administrador de Azure AD para administrar, controlar y supervisar el acceso a los recursos de Azure. El uso de PIM protege las cuentas con privilegios frente a ciberataques mediante la reducción del tiempo de exposición de los privilegios y el aumento de la visibilidad de su uso mediante alertas e informes. Para más información, consulte [Administración del acceso a los recursos de Azure con Privileged Identity Management](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Use las integraciones de registros de Azure para enviar los registros de Azure relevantes a los sistemas de SIEM 
 

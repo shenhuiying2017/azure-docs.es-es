@@ -1,10 +1,10 @@
 ---
-title: "Configuración de direcciones IP privadas para máquinas virtuales (implementación clásica) en la CLI de Azure 1.0 | Microsoft Docs"
-description: "Aprenda a configurar direcciones IP privadas para máquinas virtuales (implementación clásica) mediante la interfaz de línea de comandos (CLI) de Azure 1.0."
+title: Configuración de direcciones IP privadas para máquinas virtuales (implementación clásica) en la CLI de Azure 1.0 | Microsoft Docs
+description: Aprenda a configurar direcciones IP privadas para máquinas virtuales (implementación clásica) mediante la interfaz de línea de comandos (CLI) de Azure 1.0.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure 1.0
 
@@ -67,7 +67,7 @@ Para crear una máquina virtual denominada *DNS01* en un nuevo servicio en la nu
         info:    OK
         info:    vm create command OK
    
-   * **-l (o --location)**. La región de Azure donde se creará la VM. En este escenario, *centralus*.
+   * **-l (or --location)**. La región de Azure donde se creará la VM. En este escenario, *centralus*.
    * **-n (o --vm-name)**. Nombre de la VM que se va a crear.
    * **-w (o --virtual-network-name)**. Nombre de la red virtual donde se creará la VM. 
    * **-S (o --static-ip)**. Dirección IP privada estática para la VM.
@@ -114,6 +114,10 @@ Resultado esperado:
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>Configuración de direcciones IP en el sistema operativo
+
+Se recomienda no asignar estáticamente la dirección IP privada asignada a la máquina virtual de Azure en el sistema operativo de una máquina virtual, a menos que sea necesario. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la dirección IP privada asignada a la máquina virtual de Azure, de lo contrario, perderá la conectividad a la máquina virtual. No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .

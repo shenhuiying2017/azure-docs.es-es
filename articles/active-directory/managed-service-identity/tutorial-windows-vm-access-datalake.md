@@ -1,11 +1,11 @@
 ---
-title: "Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store"
-description: "En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store."
+title: Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
+description: En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: be76fa089003a7e881bcddcfeeb628e4a704ce21
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 5f410b6c0c1f24a9f9d453c833074cbd515f46b2
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Uso de Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Data Lake Store
 
@@ -55,9 +55,9 @@ En este tutorial, se crea una nueva máquina virtual Windows.  También puede ha
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual 
 
-Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que poner las credenciales en el código. Al habilitar MSI se indica a Azure que cree una identidad administrada para la máquina virtual. Al habilitar MSI suceden dos cosas en segundo plano: se instala la extensión MSI en la máquina virtual y se habilita MSI en Azure Resource Manager.
+Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que poner las credenciales en el código. Al habilitar MSI se indica a Azure que cree una identidad administrada para la máquina virtual. En un segundo plano, la habilitación de MSI permite hacer dos cosas: registrar la máquina virtual con Azure Active Directory para crear su identidad administrada y configurar la identidad en la máquina virtual.
 
-1. Seleccione la **máquina virtual** en la que quiera habilitar MSI.  
+1. Seleccione la **máquina virtual** en la que desee habilitar MSI.  
 2. En la barra de navegación de la izquierda, haga clic en **Configuración**. 
 3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**; si desea deshabilitarla, elija No. 
 4. No olvide hacer clic en **Guardar** para guardar la configuración.  
@@ -102,7 +102,7 @@ En este tutorial, se autenticará en la API de REST del sistema de archivos de D
 4. Mediante el comando `Invoke-WebRequest` de PowerShell, realice una solicitud al punto de conexión de MSI local para obtener un token de acceso para Azure Data Lake Store.  El identificador de recurso de Data Lake Store es "https://datalake.azure.net/".  Data Lake busca una coincidencia exacta en el identificador del recurso y la barra diagonal final es importante.
 
    ```powershell
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://datalake.azure.net/"} -Headers @{Metadata="true"}
+   $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -Method GET -Headers @{Metadata="true"}
    ```
     
    Convierta la respuesta de un objeto JSON a un objeto de PowerShell. 

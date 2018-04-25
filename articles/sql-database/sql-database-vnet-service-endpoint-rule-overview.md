@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -129,8 +129,8 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 
 - Las reglas de red virtual solo se aplican a las redes virtuales de Azure Resource Manager, y no a las redes del [modelo de implementación clásico][arm-deployment-model-568f].
 
-- La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostGres de Azure. Sin embargo, con los puntos de conexión activados, se producirá un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o Postgres.
-    - El motivo subyacente es que MySQL y PostGres no admiten ACLing actualmente.
+- La activación de puntos de conexión de servicio de red virtual en Azure SQL Database también habilita los puntos de conexión para los servicios MySQL y PostgreSQL de Azure. Sin embargo, con los puntos de conexión activados, se producirá un error al intentar conectarse desde los puntos de conexión con las instancias de MySQL o PostgreSQL.
+    - El motivo subyacente es que MySQL y PostgreSQL no admiten ACLing actualmente.
 
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
@@ -226,6 +226,10 @@ Se puede encontrar información de una lista de varios mensajes de error de SQL 
 
 En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en su instancia de Azure SQL Database. La regla indica a su instancia de SQL Database que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión del servicio de Virtual Network*.
 
+> [!NOTE]
+> Asegúrese de que los puntos de conexión de servicio están activados para la red virtual o subred que quiere agregar a las reglas de firewall de red virtual del servidor.
+> Si los puntos de conexión de servicio no están activados para la red virtual o subred, se le pedirá que los habilite en el portal. Haga clic en Habilitar en la hoja en la que va a agregar la regla.
+
 #### <a name="powershell-alternative"></a>Alternativa de PowerShell
 
 Un script de PowerShell también puede crear reglas de red virtual. El cmdlet fundamental es **New-AzureRmSqlServerVirtualNetworkRule**. Si le interesa, consulte [PowerShell to create a Virtual Network service endpoint and rule for Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d] (PowerShell para crear una regla y un punto de conexión del servicio de Virtual Network para Azure SQL Database).
@@ -315,7 +319,7 @@ La característica de la regla de red virtual de Azure SQL Database empezó a es
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

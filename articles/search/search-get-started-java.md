@@ -1,24 +1,17 @@
 ---
-title: "Introducción a Azure Search en Java | Microsoft Docs"
-description: "Cómo crear una aplicación de búsqueda hospedada en la nube en Azure con Java como lenguaje de programación."
-services: search
-documentationcenter: 
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-ms.assetid: 8b4df3c9-3ae5-4e3a-b4bb-74b516a91c8e
+title: Introducción a Azure Search en Java | Microsoft Docs
+description: Cómo crear una aplicación de búsqueda hospedada en la nube en Azure con Java como lenguaje de programación.
+author: jj09
+manager: jlembicz
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 07/14/2016
-ms.author: evboyle
-ms.openlocfilehash: 8b253ef1eccfbc6ca703657b124d17d1482c2eed
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.author: jjed
+ms.openlocfilehash: 73e18b91412fd93897f9596077948fd7ea459e71
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Introducción a Azure Search en Java
 > [!div class="op_single_selector"]
@@ -91,7 +84,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 ## <a name="configure-the-service-url-and-api-key"></a>Configuración de la dirección URL del servicio y api-key
 1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
 2. Consulte los pasos anteriores de este artículo, donde encontró la dirección URL del servicio y la clave de API en el [Azure Portal](https://portal.azure.com), para obtener los valores que va a especificar en **config.properties**.
-3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) para reemplazar "service name" en el mismo archivo.
+3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) reemplaza "nombre de servicio" en el mismo archivo.
    
     ![][5]
 

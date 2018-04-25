@@ -11,14 +11,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c0db53a8eadefe661837ab0dbc84fd2eb4bf6057
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service
 
@@ -46,8 +46,8 @@ Aprenderá a:
 
 Para completar este tutorial:
 
-1. [Instalación de Git](https://git-scm.com/)
-1. [Instalación del SDK 1.1.2 de .NET Core](https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.2-download.md)
+* [Instalación de Git](https://git-scm.com/)
+* [Instalación de .NET Core](https://www.microsoft.com/net/core/)
 
 ## <a name="create-local-net-core-app"></a>Creación de una aplicación .NET Core local
 
@@ -146,7 +146,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 Reemplace la cadena siguiente por el valor de *\<server_name>*, *\<db_username>* y *\<db_password>* que usó anteriormente.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persist Security Info=False;User ID=<db_username>;Password=<db_password>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Esta es la cadena de conexión de la aplicación .NET Core. Cópiela para usarla más adelante.
@@ -201,7 +201,7 @@ if(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
             options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 else
     services.AddDbContext<MyDatabaseContext>(options =>
-            options.UseSqlite("Data Source=MvcMovie.db"));
+            options.UseSqlite("Data Source=localdatabase.db"));
 
 // Automatically perform database migration
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
@@ -214,7 +214,8 @@ La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque c
 Guarde los cambios y confírmelos en el repositorio de Git. 
 
 ```bash
-git commit -am "connect to SQLDB in Azure"
+git add .
+git commit -m "connect to SQLDB in Azure"
 ```
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
@@ -293,7 +294,7 @@ Realice algunos cambios en el código para usar la propiedad `Done`. Para simpli
 
 Abra _Controllers\TodosController.cs_.
 
-Busque el método `Create()` y agregue `Done` a la lista de propiedades en el atributo `Bind`. Cuando haya terminado, la firma del método `Create()` se parecerá al código siguiente:
+Busque el método `Create([Bind("ID,Description,CreatedDate")] Todo todo)` y agregue `Done` a la lista de propiedades en el atributo `Bind`. Cuando haya terminado, la firma del método `Create()` se parecerá al código siguiente:
 
 ```csharp
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
@@ -346,7 +347,8 @@ Abra el explorador y vaya a `http://localhost:5000/`. Ahora puede agregar una ta
 ### <a name="publish-changes-to-azure"></a>Publicación de los cambios en Azure
 
 ```bash
-git commit -am "added done field"
+git add .
+git commit -m "added done field"
 git push azure master
 ```
 

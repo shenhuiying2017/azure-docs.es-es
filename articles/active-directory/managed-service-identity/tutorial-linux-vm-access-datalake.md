@@ -1,11 +1,11 @@
 ---
-title: "Uso de Managed Service Identity en una máquina virtual Linux para acceder a Azure Data Lake Store"
-description: "En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Data Lake Store."
+title: Uso de Managed Service Identity en una máquina virtual Linux para acceder a Azure Data Lake Store
+description: En este tutorial se muestra cómo usar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Data Lake Store.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: bef549a0cb8a876bbf8fbf281a6c2d1d489736af
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f9dc1e87dee83aa3f10d5319ac3df3933b7d96a9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Uso de Managed Service Identity en una máquina virtual Linux para acceder a Azure Data Lake Store
 
@@ -58,16 +58,13 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual
 
-Puede utilizar la identidad MSI de la máquina virtual para obtener tokens de acceso de Azure AD sin necesidad de incluir las credenciales en el código. Al habilitar MSI se instala la extensión MSI en la máquina virtual y se habilita MSI en Azure Resource Manager.  
+Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que poner las credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual.
 
 1. En **Máquina virtual**, seleccione la máquina virtual en la que desea habilitar MSI.
 2. En el panel izquierdo, seleccione **Configuración**.
 3. Verá **Managed Service Identity**. Para registrar y habilitar MSI, seleccione **Sí**. Si desea deshabilitarlo, seleccione **No**.
    ![Selección de "Registrar con Azure Active Directory"](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Seleccione **Guardar**.
-5. Si desea comprobar las extensiones que hay en esta máquina virtual Linux, seleccione **Extensiones**. Si MSI está habilitado, aparece **ManagedIdentityExtensionforLinux** en la lista.
-
-   ![Lista de extensiones](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concesión a una máquina virtual del acceso a Azure Data Lake Store
 
@@ -105,7 +102,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
 3. En la ventana del terminal, con cURL, realice una solicitud al punto de conexión local de MSI para obtener un token de acceso para el sistema de archivos de Data Lake Store. El identificador de recurso de Data Lake Store es "https://datalake.azure.net/".  Es importante incluir la barra diagonal final en el identificador del recurso.
     
    ```bash
-   curl http://localhost:50342/oauth2/token --data "resource=https://datalake.azure.net/" -H Metadata:true   
+   curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F -H Metadata:true   
    ```
     
    Una respuesta correcta devuelve el token de acceso que se utiliza para autenticarse en Data Lake Store:

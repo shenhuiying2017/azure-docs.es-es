@@ -1,11 +1,11 @@
 ---
 title: P+F de Azure Active Directory | Microsoft Docs
-description: "En las preguntas frecuentes de Azure Active Directory se pueden encontrar respuestas a preguntas relativas a Azure y Azure Active Directory, la administración de contraseñas y el acceso a las aplicaciones."
+description: En las preguntas frecuentes de Azure Active Directory se pueden encontrar respuestas a preguntas relativas a Azure y Azure Active Directory, la administración de contraseñas y el acceso a las aplicaciones.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 80df81f365ac884bc1f44268e615975407f485f0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -29,7 +29,7 @@ Para más información, consulte [¿Qué es Azure Active Directory?](active-dire
 ## <a name="access-azure-and-azure-active-directory"></a>Acceso a Azure y a Azure Active Directory
 **P: ¿Por qué veo "No se encontraron suscripciones" cuando intento acceder a Azure AD en Azure Portal?**
 
-**R:** Para acceder a Azure Portal, los usuarios necesitan permiso con una suscripción de Azure. Si tiene una suscripción de pago a Office 365 o Azure AD, vaya a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) para la activación por única vez. En caso contrario, deberá activar una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) gratis o una suscripción de pago.
+**R:** Para acceder a Azure Portal, los usuarios necesitan permiso con una suscripción de Azure. Si tiene una suscripción de pago a Office 365 o Azure AD, vaya a [https://aka.ms/accessAAD](https://aka.ms/accessAAD) para realizar el paso de la activación única. En caso contrario, deberá activar una [cuenta de Azure](https://azure.microsoft.com/pricing/free-trial/) gratis o una suscripción de pago.
 
 Para más información, consulte:
 
@@ -61,7 +61,7 @@ Además, los servicios de pago de Azure AD, como Enterprise Mobility + Security,
 - - -
 **P: ¿Existe un informe que muestra cuándo expirarán mis licencias de usuario de Azure AD?**
 
-**R**: No.  No está disponible actualmente.
+**R:** No.  No está disponible actualmente.
 
 - - -
 
@@ -119,11 +119,11 @@ Para más información, consulte [Introducción a la administración de contrase
 
 **R:** Sí, si tiene la escritura diferida de contraseñas habilitada, las operaciones de contraseña realizadas por un administrador se escriben de manera diferida en el entorno local.  
 
-Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md).
+Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](authentication/active-directory-passwords-faq.md).
 - - -
 **P: ¿Qué hago si no recuerdo mi contraseña de Office 365 o Azure AD cuando intento cambiarla?**
 
-**R:** En este tipo de situaciones, dispone de un par de opciones.  Use el restablecimiento de la contraseña de autoservicio (SSPR), si está disponible.  El funcionamiento de SSPR dependerá de cómo esté configurado.  Para más información, consulte la sección [¿Cómo funciona el portal de restablecimiento de contraseñas?](active-directory-passwords-best-practices.md)
+**R:** En este tipo de situaciones, dispone de un par de opciones.  Use el restablecimiento de la contraseña de autoservicio (SSPR), si está disponible.  El funcionamiento de SSPR dependerá de cómo esté configurado.  Para más información, consulte la sección [¿Cómo funciona el portal de restablecimiento de contraseñas?](authentication/howto-sspr-deployment.md)
 
 Para los usuarios de Office 365, el administrador puede restablecer la contraseña mediante los pasos que se describen en [Administradores: restablecer contraseñas de usuario](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 

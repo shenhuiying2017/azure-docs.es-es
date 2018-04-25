@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -191,11 +191,11 @@ La manera más sencilla de configurar la ubicación en que las bases de datos re
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Instalación de la solución SQL Analytics desde la galería
 
-1. Una vez que el recurso Log Analytics se ha creado y que los datos están llegando a él, instale la solución SQL Analytics. En la página principal de Operations Management Suite, en el menú lateral, seleccione **Galería de soluciones**. En la galería, seleccione la solución **Azure SQL Analytics** y luego **Agregar**.
+1. Una vez que el recurso Log Analytics se ha creado y que los datos están llegando a él, instale la solución SQL Analytics. En la página principal, en el menú lateral, seleccione **Galería de soluciones**. En la galería, seleccione la solución **Azure SQL Analytics** y luego **Agregar**.
 
    ![Solución de supervisión](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. En la página principal de Operations Management Suite, aparece el icono **Azure SQL Analytics**. Seleccione este icono para abrir el panel de SQL Analytics.
+2. En la página principal aparece el icono **Azure SQL Analytics**. Seleccione este icono para abrir el panel de SQL Analytics.
 
 ### <a name="use-the-sql-analytics-solution"></a>Uso de la solución SQL Analytics
 
@@ -271,7 +271,7 @@ Aprenda a [descargar métricas y registros de diagnóstico desde Storage](../sto
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreRuntimeStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreRuntimeStatisticsEvent|
@@ -322,7 +322,7 @@ Obtenga más información sobre los [datos de estadísticas de tiempo de ejecuci
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: QueryStoreWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: QueryStoreWaitStatisticsEvent|
@@ -360,7 +360,7 @@ Obtenga más información sobre los [datos de estadísticas de espera del Almac�
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Errors|
 |nombreOperación|Nombre de la operación. Siempre: ErrorEvent|
@@ -389,7 +389,7 @@ Obtenga más información sobre [mensajes de error de SQL Server](https://msdn.m
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: DatabaseWaitStatistics|
 |nombreOperación|Nombre de la operación. Siempre: DatabaseWaitStatisticsEvent|
@@ -418,7 +418,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Timeouts|
 |nombreOperación|Nombre de la operación. Siempre: TimeoutEvent|
@@ -441,7 +441,7 @@ Obtenga más información sobre las [estadísticas de espera de la base de datos
 |TenantId|El identificador de inquilino.|
 |SourceSystem|Siempre: Azure|
 |TimeGenerated [UTC]|Marca de tiempo de cuándo se registró el registro.|
-|type|Siempre: AzureDiagnostics|
+|Escriba|Siempre: AzureDiagnostics|
 |ResourceProvider|Nombre del proveedor de recursos Siempre: MICROSOFT.SQL|
 |Categoría|Nombre de la categoría Siempre: Blocks|
 |nombreOperación|Nombre de la operación. Siempre: BlockEvent|

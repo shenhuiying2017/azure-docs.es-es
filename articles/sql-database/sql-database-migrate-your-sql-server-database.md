@@ -1,23 +1,28 @@
 ---
-title: Migración de una BD de SQL Server a Azure SQL Database | Microsoft Docs
-description: Aprenda a migrar una base de datos SQL Server a Azure SQL Database.
+title: Migración de una base de datos SQL Server a Azure SQL Database mediante DMS | Microsoft Docs
+description: Aprenda a migrar una base de datos SQL Server a Azure SQL Database mediante DMS.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>Migración de su base de datos SQL Server a Azure SQL Database
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>Migración de una base de datos SQL Server a Azure SQL Database mediante DMS
 
-Mover la base de datos de SQL Server a Azure SQL Database es tan sencillo como crear una base de datos SQL vacía en Azure y, después, usar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) para importar la base de datos en Azure. En este tutorial, aprenderá a:
+Mover una base de datos SQL Server a Azure SQL Database es tan sencillo como crear una base de datos SQL vacía en Azure y, después, usar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) para importar la base de datos en Azure. Para conocer opciones de migración adicionales, consulte [Migración de su base de datos a Azure SQL Database](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Para migrar a Instancia administrada de Azure SQL Database, consulte [Migración desde SQL Server a Instancia administrada](sql-database-managed-instance-migrate.md).
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una instancia de Azure SQL Database vacía en Azure Portal (mediante un servidor de Azure SQL Database nuevo o existente)

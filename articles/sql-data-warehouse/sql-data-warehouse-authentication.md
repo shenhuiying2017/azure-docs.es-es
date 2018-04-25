@@ -1,35 +1,23 @@
 ---
-title: "Autenticación a Azure SQL Data Warehouse | Microsoft Docs"
-description: "Autenticación de Azure Active Directory (AAD) y SQL Server a Azure SQL Data Warehouse"
+title: Autenticación en Azure SQL Data Warehouse | Microsoft Docs
+description: Aprenda sobre la autenticación en Azure SQL Data Warehouse mediante Azure Active Directory (AAD) o SQL Server.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2340168e736c13b5d911a987d36b0224d3c3b1ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticación a Azure SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
-> * [Autenticación](sql-data-warehouse-authentication.md)
-> * [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticación en Azure SQL Data Warehouse
+Aprenda sobre la autenticación en Azure SQL Data Warehouse mediante Azure Active Directory (AAD) o SQL Server.
 
 Para conectarse a SQL Data Warehouse, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
 

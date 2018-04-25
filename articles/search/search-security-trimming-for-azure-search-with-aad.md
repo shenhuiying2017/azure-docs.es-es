@@ -1,18 +1,17 @@
 ---
 title: Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory | Microsoft Docs
 description: Control de acceso al contenido de Azure Search mediante filtros de seguridad e identidades de Active Directory.
-services: search
 author: revitalbarletz
 manager: jlembicz
 ms.service: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 2113b59d6fec15067acbef8b4d4c1fc34c141e62
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: d7df9ede1851680fb6327cac7eed0a479928cea0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de seguridad para limitar los resultados de Azure Search mediante las identidades de Active Directory
 
@@ -52,13 +51,13 @@ Este paso integra la solicitud con AAD con el fin de aceptar inicios de sesión 
    + **Group.ReadWrite.All**
    + **User.ReadWrite.All**
 
-Microsoft Graph proporciona una API que permite el acceso mediante programación a AAD a través de una API de REST. El ejemplo de código para este tutorial usa los permisos para llamar a la API de Microsoft Graph para la creación de grupos, usuarios y asociaciones. Las API también se usan para almacenar en caché identificadores de grupo de caché para filtrar con mayor rapidez.
+Microsoft Graph proporciona una API que permite el acceso mediante programación a AAD a través de una API de REST. El ejemplo de código para este tutorial usa los permisos para llamar a Microsoft Graph API para la creación de grupos, usuarios y asociaciones. Las API también se usan para almacenar en caché identificadores de grupo de caché para filtrar con mayor rapidez.
 
 ## <a name="create-users-and-groups"></a>Creación de usuarios y grupos
 
 Si va a agregar la búsqueda a una solicitud establecida, podría tener identificadores de grupo y usuarios existentes en AAD. En este caso, puede omitir los tres pasos siguientes. 
 
-Sin embargo, si no tiene usuarios existentes, puede utilizar las API de Microsoft Graph para crear las entidades de seguridad. Los siguientes fragmentos de código muestran cómo generar identificadores, que se convierten en valores de datos para el campo de seguridad en el índice de Azure Search. En nuestra hipotética solicitud de admisión de la universidad, esto serían los identificadores de seguridad para el personal de admisión.
+Sin embargo, si no tiene usuarios existentes, puede utilizar Microsoft Graph API para crear las entidades de seguridad. Los siguientes fragmentos de código muestran cómo generar identificadores, que se convierten en valores de datos para el campo de seguridad en el índice de Azure Search. En nuestra hipotética solicitud de admisión de la universidad, esto serían los identificadores de seguridad para el personal de admisión.
 
 La pertenencia de usuarios y grupos podría ser muy fluida, especialmente en grandes organizaciones. El código que crea identidades de usuario y grupo debe ejecutarse con la frecuencia suficiente como para recoger los cambios en la pertenencia de la organización. Del mismo modo, el índice de Azure Search requiere una programación de actualización similar para reflejar el estado actual de recursos y usuarios permitidos.
 
@@ -97,7 +96,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Paso 4: Almacenar los identificadores de grupos en caché
-Si lo desea, para reducir la latencia de red, puede almacenar en caché las asociaciones entre usuarios y grupos para que cuando se emita una solicitud de búsqueda, los grupos se devuelven desde la memoria caché, ahorrando un ida y vuelta a AAD. Puede usar (API de lotes de AAD)[https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar una solicitud Http única con varios usuarios y crear la memoria caché.
+Si lo desea, para reducir la latencia de red, puede almacenar en caché las asociaciones entre usuarios y grupos para que cuando se emita una solicitud de búsqueda, los grupos se devuelven desde la memoria caché, ahorrando un ida y vuelta a AAD. Puede usar (API de Batch de AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar una solicitud Http única con varios usuarios y crear la caché.
 
 Microsoft Graph se ha diseñado para controlar un alto volumen de solicitudes. Si se produce un número excesivo de solicitudes, Microsoft Graph produce un error en la solicitud con el código de estado HTTP 429. Para más información, consulte [Guía de limitación de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 
@@ -187,6 +186,6 @@ En este tutorial, ha aprendido técnicas para usar inicios de sesión de AAD par
 
 ## <a name="see-also"></a>Otras referencias
 
-+ [Control de acceso basado en la identidad mediante los filtros de Azure Search](search-security-trimming-for-azure-search.md)
++ [Control de acceso basado en identidades mediante filtros de Azure Search](search-security-trimming-for-azure-search.md)
 + [Filtros de Azure Search](search-filters.md)
 + [Control de acceso y seguridad de datos en las operaciones de Azure Search](search-security-overview.md)

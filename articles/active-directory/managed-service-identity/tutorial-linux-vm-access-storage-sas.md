@@ -1,8 +1,8 @@
 ---
-title: "Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Storage con una credencial SAS"
-description: "Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento."
+title: Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Storage con una credencial SAS
+description: Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a3edf58d1e2429d15b599f75e7f9382afd94bb7b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ed3b7b86f6170b9bfbae1194d189b3d258e24d45
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage a través de una credencial SAS
 
@@ -59,7 +59,7 @@ En este tutorial, vamos a crear una nueva máquina virtual Linux. También puede
 
 ## <a name="enable-msi-on-your-vm"></a>Habilitación de MSI en la máquina virtual
 
-Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. Al habilitar MSI, se hacen dos cosas en segundo plano: se instala la extensión MSI en la máquina virtual y se habilita Managed Service Identity para la máquina virtual.  
+Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azure AD sin tener que incluir las credenciales en el código. Al habilitar Managed Service Identity se realizan dos acciones: por una parte, se registra la máquina virtual en Azure Active Directory para crear su identidad administrada y por otra, se configura la identidad en la máquina virtual. 
 
 1. Desplácese hasta el grupo de recursos de la nueva máquina virtual y seleccione la máquina virtual que creó en el paso anterior.
 2. En la configuración de máquina virtual, a la izquierda, haga clic en **Configuración**.
@@ -67,10 +67,6 @@ Una identidad MSI de máquina virtual le permite obtener tokens de acceso de Azu
 4. No olvide hacer clic en **Guardar** para guardar la configuración.
 
     ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Si desea comprobar las extensiones que hay en la máquina virtual, haga clic en **Extensiones**. Si MSI está habilitado, **ManagedIdentityExtensionforLinux** aparece en la lista.
-
-    ![Texto alternativo de imagen](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
 
@@ -124,7 +120,7 @@ Para completar estos pasos, necesitará un cliente SSH. Si usa Windows, puede us
     La solicitud CURL y la respuesta para el token de acceso están a continuación:
     
     ```bash
-    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true    
+    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true    
     ```
     
     > [!NOTE]

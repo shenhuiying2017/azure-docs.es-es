@@ -1,27 +1,23 @@
 ---
 title: Procedimientos recomendados para Azure SQL Data Warehouse | Microsoft Docs
-description: Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Azure SQL Data Warehouse. Esto le ayudará a tener éxito.
+description: Recomendaciones y procedimientos recomendados que debe saber para desarrollar soluciones de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 03/15/2018
-ms.author: barbkess
-ms.openlocfilehash: 53ad9f654c498f562d66de461a2a489895d0a46b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 7c5eb4d2176e12874a4fd7be8c29f4ce6ffe17ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Procedimientos recomendados para Azure SQL Data Warehouse
-Este artículo es una colección de muchos procedimientos recomendados que le permitirá conseguir un óptimo rendimiento para su instancia de Azure SQL Data Warehouse.  Algunos de los conceptos son básicos y fáciles de explicar, otros son más avanzados y solo se pueden ver por encima en este artículo.  El objetivo de este artículo es proporcionarle algunos consejos básicos y mostrarle los aspectos importantes que debe considerar al crear almacenamiento de datos.  En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
+Este artículo es una colección de procedimientos recomendados que le ayudará a conseguir un rendimiento óptimo de la instancia de Azure SQL Data Warehouse.  Algunos de los conceptos son básicos y fáciles de explicar, otros son más avanzados y solo se pueden ver por encima en este artículo.  El objetivo de este artículo es proporcionarle algunos consejos básicos y mostrarle los aspectos importantes que debe considerar al crear almacenamiento de datos.  En cada sección se presenta un concepto y se le indican artículos que lo desarrollan más en detalle.
 
 Si acaba de empezar con Azure SQL Data Warehouse, no se preocupe por la amplitud del contenido de este artículo.  Los temas se van desarrollando básicamente en orden de importancia.  Un buen comienzo es centrarse en los primeros conceptos.  Según se vaya familiarizando y se sienta cómodo con SQL Date Warehouse, vuelva y eche un vistazo a los demás temas.  No tardará mucho en darle sentido a todo.
 
@@ -77,7 +73,7 @@ Cuando almacene datos temporalmente en SQL Data Warehouse, las tablas de apilami
 Consulte también [Tablas temporales en SQL Data Warehouse][Temporary tables], [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 
 ## <a name="optimize-clustered-columnstore-tables"></a>Optimización de tablas de almacén de columnas agrupadas
-Los índices de almacén de columnas agrupadas son una de las maneras más eficaces para almacenar datos en SQL Data Warehouse.  De forma predeterminada, las tablas de SQL Data Warehouse se crean como almacén de columnas agrupadas.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  La calidad de segmento se puede medir por el número de filas de un grupo de filas comprimido.  Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas][Causes of poor columnstore index quality] del artículo [Indexación de tablas en SQL Data Warehouse][Table indexes].  Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar id. de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [niveles de servicio](performance-tiers.md#service-levels) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
+Los índices de almacén de columnas agrupadas son una de las maneras más eficaces para almacenar datos en SQL Data Warehouse.  De forma predeterminada, las tablas de SQL Data Warehouse se crean como almacén de columnas agrupadas.  Para conseguir el máximo rendimiento de las consultas en las tablas de almacén de columnas, es importante la calidad de los segmentos.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  La calidad de segmento se puede medir por el número de filas de un grupo de filas comprimido.  Para obtener instrucciones detalladas acerca de la detección y mejora de la calidad de los segmentos en las tablas de almacén de columnas agrupadas, consulte la sección [Causas de una calidad deficiente del índice de almacén de columnas][Causes of poor columnstore index quality] del artículo [Indexación de tablas en SQL Data Warehouse][Table indexes].  Como es importante que los segmentos de almacén de columnas sean de una buena calidad, es conveniente usar identificadores de usuario que se encuentren en la clase de recursos grande o mediana para cargar los datos. El uso de [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) inferiores significa que desea asignar una clase de recurso mayor para el usuario que realiza la carga.
 
 Dado que las tablas de almacén de columnas generalmente no insertan datos en un segmento del almacén de columnas comprimido hasta que hay más de 1 millón de filas por tabla y cada tabla de SQL Data Warehouse se divide en 60 partes, como norma general, las tablas de almacén de columnas no serán útiles para las consultas a menos que la tabla tenga más de 60 millones de filas.  Para las tablas con menos de 60 millones de filas, podría no tener sentido el índice de almacén de columnas.  Pero tampoco molesta.  Además, si divide los datos, recuerde que cada parte deberá tener 1 millón de filas para beneficiarse de un índice de almacén de columnas agrupadas.  Si una tabla tiene 100 particiones, deberá tener al menos 6 mil millones de filas para beneficiarse del almacén de columnas agrupadas (60 distribuciones * 100 particiones * 1 millón de filas).  Si la tabla no tiene 6 mil millones de filas en este ejemplo, reduzca el número de particiones o considere la posibilidad de usar una tabla de apilamiento en su lugar.  También puede experimentar para ver si consigue un mejor rendimiento con una tabla de apilamiento con índices secundarios, en lugar de con una tabla de almacén de columnas.
 
@@ -103,7 +99,7 @@ Consulte también [Supervisión de la carga de trabajo mediante DMV][Monitor you
 ## <a name="other-resources"></a>Otros recursos:
 Consulte también el artículo [Solución de problemas de Azure SQL Data Warehouse][Troubleshooting] para conocer los problemas comunes y sus soluciones.
 
-Si no encuentra lo que buscaba en este artículo, pruebe a usar la "búsqueda de documentos" en la parte izquierda de esta página para buscar todos los documentos de Azure SQL Data Warehouse.  El [foro de MSDN de Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN Forum] se creó como un lugar para formular preguntas a otros usuarios y al grupo de productos de SQL Data Warehouse.  Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow acerca de Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
+Si no encuentra lo que buscaba en este artículo, pruebe a usar la "búsqueda de documentos" en la parte izquierda de esta página para buscar todos los documentos de Azure SQL Data Warehouse.  El [foro de Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN Forum] es un lugar para formular preguntas a otros usuarios y al grupo de productos de SQL Data Warehouse.  Supervisamos continuamente este foro para garantizar que sus preguntas las responde otro usuario o alguno de nosotros.  Si prefiere formular sus preguntas en Stack Overflow, también tenemos un [foro de Stack Overflow acerca de Azure SQL Data Warehouse][Azure SQL Data Warehouse Stack Overflow Forum].
 
 Por último, use la página [de comentarios de Azure SQL Data Warehouse][Azure SQL Data Warehouse Feedback] para realizar solicitudes de características.  Añadir sus solicitudes o valoraciones positivas sobre otras solicitudes realmente nos ayuda a priorizar las características.
 
@@ -124,9 +120,9 @@ Por último, use la página [de comentarios de Azure SQL Data Warehouse][Azure S
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md
-[Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md
+[Load data with Azure Data Factory]: ../data-factory/load-azure-sql-data-warehouse.md
 [Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with PolyBase]: ./load-data-wideworldimportersdw.md
 [Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
 [Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
 [Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk

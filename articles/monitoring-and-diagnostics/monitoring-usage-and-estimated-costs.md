@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Supervisión del uso y costos estimados
 
@@ -61,12 +61,16 @@ Aquí verá un conjunto diferente de medidores: los medidores que se corresponde
 3. Application Insights\Datos por encima del límite básico
 4. Application Insights\Datos incluidos
 
-se combinan para crear un nuevo medidor de ingesta de datos común llamado **Servicios compartidos\Ingesta de datos** ya que el nuevo modelo de precios no tiene asignaciones de datos basadas en nodos.
+se combinan para crear un nuevo medidor de ingesta de datos común llamado **Shared Services\Data Ingestion** ya que el nuevo modelo de precios no incluye derechos de datos según los nodos.
 
 Otro cambio que verá es que los datos ingeridos en Log Analytics o Application Insights en regiones con mayor costo se mostrarán con los nuevos medidores regionales para reflejarlo correctamente, por ejemplo **"Ingesta de datos (Centro-oeste de EE. UU.)"**.
 
 > [!NOTE]
-> Si tiene una suscripción de Operations Management Suite (OMS), recibirá asignaciones de ingesta de datos de Application Insights y Log Analytics por cada nodo comprado. Puesto que esto se aplica en el nivel de cuenta (no en la suscripción), este cálculo no puede mostrar el efecto de estas asignaciones. Consulte con su representante de cuentas para obtener una explicación más detallada del nuevo modelo de precios en este caso.
+> Los costos estimados según la suscripción no gestionan los derechos por nodo del nivel de cuenta de la suscripción de Operations Management Suite (OMS). Consulte con su representante de cuentas para obtener una explicación más detallada del nuevo modelo de precios en este caso.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nuevo modelo de precios y derechos de suscripción de Operations Management Suite
+
+Los clientes que compraron Microsoft Operations Management Suite E1 y E2 son aptos para los derechos de ingesta de datos por nodo para [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) y [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Para recibir estos derechos para las áreas de trabajo de Log Analytics o los recursos de Application Insights en una suscripción determinada, el modelo de precios de esta debe ser de antes de abril de 2018, ya que son los que ofrecen el plan de tarifa por nodo (OMS) de Log Analytics y Enterprise de Application Insights. En función del número de nodos de Suite que adquiriera la organización, mover alguna suscripción al nuevo modelo de precios puede ser ventajoso, pero debe considerarse con atención. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Cambios en el traslado al nuevo modelo de precios
 

@@ -1,10 +1,10 @@
 ---
-title: "Direcciones IP públicas a nivel de instancia (clásica) de Azure mediante | Microsoft Docs"
-description: "Comprenda las direcciones públicas de nivel de instancia (ILPIP) y cómo administrarlas con PowerShell."
+title: Direcciones IP públicas a nivel de instancia (clásica) de Azure mediante | Microsoft Docs
+description: Comprenda las direcciones públicas de nivel de instancia (ILPIP) y cómo administrarlas con PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Introducción a las direcciones IP públicas a nivel de instancia (clásica)
 Una IP pública de nivel de instancia (ILPIP) es una dirección IP pública que se puede asignar directamente a la máquina virtual o a la instancia de rol de Cloud Services, en lugar de a un servicio en la nube en el que reside la máquina virtual o la instancia de rol. Un ILPIP no reemplaza a la dirección IP virtual (VIP) que está asignada al servicio en la nube. Es más bien una dirección IP adicional que puede usar para conectarse directamente a la máquina virtual o instancia de rol.
@@ -43,7 +43,7 @@ Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspon
 ## <a name="why-would-i-request-an-ilpip"></a>¿Por qué debo solicitar una ILPIP?
 Si desea poder conectarse a la máquina virtual o a la instancia de rol mediante una dirección IP asignada directamente a ella, en lugar de usar la VIP:&lt;número de puerto&gt; del servicio en la nube, solicite una ILPIP para la máquina virtual o la instancia de rol.
 
-* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte la información general que se da en (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] sobre el protocolo FTP para conocer los detalles sobre este último.
+* **FTP activo**: mediante la asignación de una ILPIP a una máquina virtual, puede recibir tráfico en cualquier puerto. Los puntos de conexión no son necesarios para que la máquina virtual reciba tráfico.  Consulte (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[Introducción al protocolo de FTP] para más información sobre el protocolo FTP.
 * **IP de salida**: el tráfico de salida procedente de la máquina virtual se asigna a la ILPIP como origen y, de esta forma, esta última identifica de forma exclusiva la máquina virtual ante entidades externas.
 
 > [!NOTE]
