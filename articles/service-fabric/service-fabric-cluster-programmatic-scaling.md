@@ -1,12 +1,12 @@
 ---
-title: "Escalado mediante programación de Azure Service Fabric | Microsoft Docs"
-description: "Escalar o reducir horizontalmente mediante programación un clúster de Azure Service Fabric, de acuerdo a desencadenadores personalizados"
+title: Escalado mediante programación de Azure Service Fabric | Microsoft Docs
+description: Escalar o reducir horizontalmente mediante programación un clúster de Azure Service Fabric, de acuerdo a desencadenadores personalizados
 services: service-fabric
 documentationcenter: .net
 author: mjrousos
 manager: jonjung
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,38 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: bfa020e29a9bb67f0634d220725bc11279e1565c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b875351ef80050687fcf85e35da132cf37bab83b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
-Los aspectos básicos del escalado de un clúster de Service Fabric en Azure se tratan en la documentación sobre [escalado de clústeres](./service-fabric-cluster-scale-up-down.md). Ese artículo trata sobre como los clústeres de Service Fabric se basan en conjuntos de escalado de máquinas virtuales y se pueden escalar de forma manual o mediante reglas de escalado automático. En este documento se examinan los métodos programáticos de coordinación de operaciones de escalado de Azure para escenarios más avanzados. 
+Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos de escalado de máquinas virtuales.  En el artículo de [escalado de clústeres](./service-fabric-cluster-scale-up-down.md) se describe la manera de escalar los clústeres de Service Fabric, ya sea manualmente o con reglas de escalado automático. En este artículo se describe cómo administrar las credenciales y reducir o escalar horizontalmente un clúster en mediante el SDK de proceso fluido de Azure, que es un escenario más avanzado. Para una introducción, lea la sección de [métodos de programación para coordinar las operaciones de escalado de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
-## <a name="reasons-for-programmatic-scaling"></a>Motivos para el escalado mediante programación
-En muchos escenarios, el escalado de forma manual o mediante reglas de escalado automático son buenas soluciones. Sin embargo, en otros escenarios, pueden no ser la mejor opción. Entre las desventajas potenciales de estos métodos se incluyen:
-
-- El escalado manual requiere que inicie sesión y solicite de forma explícita las operaciones de escalado. Si las operaciones de escalado se requieren con frecuencia o en momentos imprevisibles, este enfoque puede no ser una buena solución.
-- Cuando las reglas de escalado automático quitan una instancia de un conjunto de escalado de máquinas virtuales, no quitan automáticamente el conocimiento de ese nodo desde el clúster de Service Fabric asociado, a menos que el tipo de nodo tenga un nivel de durabilidad Silver o Gold. Dado que las reglas de escalado automático funcionan a nivel de conjunto de escalado (en lugar de al nivel de Service Fabric), las reglas de escalado automático pueden quitar nodos de Service Fabric sin cerrarlos correctamente. Esta eliminación forzada de un nodo dejará un estado de nodo de Service Fabric "fantasma" después de operaciones de escalado. Es necesario que una persona (o un servicio) limpie periódicamente el estado de los nodos eliminados en el clúster de Service Fabric.
-  - Un tipo de nodo con un nivel de durabilidad Gold o Silver limpia automáticamente los nodos eliminados, por lo que no se requiere una limpieza adicional.
-- Aunque hay [muchas métricas](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md) compatibles con las reglas de escalado automático, se trata aún de un conjunto limitado. Si su escenario requiere un escalado automático basado en alguna métrica que no se trata en ese conjunto, es posible que las reglas de escalado automático no sean una buena opción.
-
-En función de estas limitaciones, puede que desee implementar más modelos de escalado automático personalizados. 
-
-## <a name="scaling-apis"></a>API de escalado
-Hay algunas API de Azure que permiten que las aplicaciones trabajen de forma programática con conjuntos de escalado de máquinas virtuales y clústeres de Service Fabric. Si las opciones existentes de escalado automático no funcionan para su escenario, estas API permiten implementar una lógica de escalado personalizada. 
-
-Un enfoque para implementar esta funcionalidad de escalado automático "casero" consiste en agregar un nuevo servicio sin estado a la aplicación de Service Fabric para administrar las operaciones de escalado. Dentro del método `RunAsync` del servicio, un conjunto de desencadenadores puede determinar si es necesario el escalado (incluyendo la comprobación de parámetros como el tamaño máximo del clúster y las recuperaciones de escalado).   
-
-La API que se utiliza para las interacciones de conjunto de escalado de máquinas virtuales (tanto para comprobar el número actual de instancias de máquina virtual como para modificarlo) es la fluida [Azure Compute Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Compute.Fluent/). Esta biblioteca de proceso fluida proporciona una API fácil de usar para interactuar con los conjuntos de escalado de máquinas virtuales.
-
-Para interactuar con el clúster de Service Fabric propiamente dicho, utilice [System.Fabric.FabricClient](/dotnet/api/system.fabric.fabricclient).
-
-Por supuesto, el código de escalado no tiene que ejecutarse como un servicio en el clúster que se va a escalar. Ambos `IAzure` y `FabricClient` pueden conectarse a sus recursos asociados de Azure de forma remota, por lo que el servicio de escalado podría ser fácilmente una aplicación de consola o el servicio de Windows que se ejecuta desde fuera de la aplicación de Service Fabric. 
-
-## <a name="credential-management"></a>Administración de credenciales
+## <a name="manage-credentials"></a>Administración de credenciales
 Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar un [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creada con la [CLI de Azure 2.0](https://github.com/azure/azure-cli).
 
 Una entidad de servicio se puede crear con los pasos siguientes:
@@ -140,12 +119,6 @@ Como con el escalado, los cmdlets de PowerShell para la capacidad de modificaci�
 ```csharp
 await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 ```
-
-## <a name="potential-drawbacks"></a>Desventajas potenciales
-
-Como se muestra en los fragmentos de código anterior, crear su propio servicio de escalado proporciona el mayor grado de control y personalización sobre el comportamiento de escalado de su aplicación. Esto puede ser útil para escenarios que requieren un control preciso sobre cuándo y cómo una aplicación se escala o reduce horizontalmente. Sin embargo, este control acarrea el inconveniente de la complejidad del código. Para usar este enfoque tiene que tener en propiedad código de escalado, lo que no es fácil.
-
-La forma en la que debe enfocar el escalado de Service Fabric depende de su escenario. Si el escalado no es común, la capacidad de agregar o quitar nodos de forma manual es probablemente suficiente. Para escenarios más complejos, las reglas de escalado automático y los SDK con la capacidad de escalar mediante programación ofrecen unas eficaces alternativas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

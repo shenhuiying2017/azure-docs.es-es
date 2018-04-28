@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: aeda1184610398c0445238ea2e7ccbea866ed418
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d8484a4c30fdd17cbb4773e6ff822b73efd5c4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scaling-in-service-fabric"></a>Reducción horizontalmente de Service Fabric
 Azure Service Fabric facilita la creación de aplicaciones escalables, al administrar los servicios, particiones y réplicas en los nodos de un clúster. La ejecución de muchas cargas de trabajo en el mismo hardware permite el uso máximo de recursos, pero también proporciona flexibilidad en cuanto a cómo elegir escalar las cargas de trabajo. Este vídeo de Channel 9 describe cómo puede crear aplicaciones de microservicios escalables:
@@ -117,12 +117,7 @@ Las [métricas](service-fabric-cluster-resource-manager-metrics.md) son cómo lo
 ## <a name="scaling-by-adding-and-removing-nodes-from-the-cluster"></a>Escalado mediante la adición o eliminación de nodos desde el clúster 
 Otra opción para el escalado con Service Fabric es cambiar el tamaño del clúster. Cambiar el tamaño del clúster significa agregar o quitar nodos en uno o varios de los tipos de nodos del clúster. Por ejemplo, considere un caso en el que todos los nodos del clúster estén activos. Esto significa que se han consumido casi todos los recursos del clúster. En este caso, agregar más nodos al clúster es la mejor forma de escalar. Una vez que los nuevos nodos se unan al clúster, Cluster Resource Manager de Service Fabric mueve servicios a ellos, lo que genera una carga total inferior en los nodos existentes. Para servicios sin estado con un recuento de instancias = -1, se crean automáticamente más instancias de servicio. Esto permite que algunas llamadas se muevan de los nodos existentes a los nuevos. 
 
-La adición y eliminación de nodos en el clúster pueden realizarse a través del módulo de Azure Resource Manager PowerShell de Service Fabric.
-
-```posh
-Add-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName  -NumberOfNodesToAdd 5 
-Remove-AzureRmServiceFabricNode -ResourceGroupName $resourceGroupName -Name $clusterResourceName -NodeType $nodeTypeName -NumberOfNodesToRemove 5
-```
+Para más información, consulte el artículo sobre el [escalado de clústeres](service-fabric-cluster-scaling.md).
 
 ## <a name="putting-it-all-together"></a>Resumen
 Tomemos todas las ideas que analizamos aquí y hablemos sobre un ejemplo. Considere el servicio siguiente: intenta crear un servicio que actúe como libreta de direcciones con nombres e información de contacto. 

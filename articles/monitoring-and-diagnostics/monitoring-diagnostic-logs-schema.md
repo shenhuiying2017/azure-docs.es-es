@@ -1,9 +1,9 @@
 ---
-title: "Servicios y esquemas admitidos de los registros de diagnóstico de Azure | Microsoft Docs"
-description: "Conozca el esquema de los eventos y servicios admitidos para los registros de diagnóstico de Azure."
+title: Servicios y esquemas admitidos de los registros de diagnóstico de Azure | Microsoft Docs
+description: Conozca el esquema de los eventos y servicios admitidos para los registros de diagnóstico de Azure.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -73,6 +73,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.DataLakeAnalytics/accounts|Solicitudes|Registros de solicitud|
 |Microsoft.DataLakeStore/accounts|Auditoría|Registros de auditoría|
 |Microsoft.DataLakeStore/accounts|Requests|Registros de solicitud|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Registros del servidor PostgreSQL|
 |Microsoft.Devices/IotHubs|Conexiones|Conexiones|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetría de dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2D|
@@ -84,6 +85,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Devices/IotHubs|TwinQueries|Consultas gemelas|
 |Microsoft.Devices/IotHubs|JobsOperations|Operaciones de trabajos|
 |Microsoft.Devices/IotHubs|DirectMethods|Métodos directos|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnóstico de E2E (versión preliminar)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operaciones de dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operaciones del servicio|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Eventos de seguimiento de la cuenta de integración|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Evento de grupo de seguridad de red|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de reglas de grupo de seguridad de red|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de flujo de reglas de grupo de seguridad de red|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta de equilibrador de carga|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Estado de mantenimiento de sondeo de equilibrador de carga|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificaciones de protección contra DDoS|
@@ -107,6 +108,8 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registros de diagnóstico de puerta de enlace|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registros de diagnóstico de túnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registros de diagnóstico de ruta|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Registros de IKE Diagnostic|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Registros de P2S Diagnostic|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de resultados de estado de sondeo de Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabla de contadores GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Datos de informes de Azure Backup|
@@ -127,6 +130,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 |Microsoft.Sql/servers/databases|Blocks|Blocks|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.Sql/servers/databases|Auditoría|Registros de auditoría|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de auditoría de seguridad de SQL|
 |Microsoft.StreamAnalytics/streamingjobs|Ejecución|Ejecución|
 |Microsoft.StreamAnalytics/streamingjobs|Creación|Creación|
 

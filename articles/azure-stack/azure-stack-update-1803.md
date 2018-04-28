@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-stack-1803-update"></a>Actualización de Azure Stack 1803
 
@@ -44,10 +44,11 @@ El número de compilación de la actualización de Azure Stack 1803 es **2018032
 
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
-Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
+- Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
 
-- [KB 4103348 - Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4103348 - Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/en-us/help/4103348)
 
+- Después de instalar esta actualización, revise la configuración del firewall para asegurarse de que están abiertos los [puertos necesarios](azure-stack-integrate-endpoints.md). Por ejemplo, esta actualización presenta Azure Monitor, que incluye un cambio de los registros de auditoría en los registros de actividad. Con este cambio, el puerto 13012 ahora se usa y también debe estar abierto.  
 
 ### <a name="new-features"></a>Nuevas características 
 Esta actualización incluye las siguientes correcciones y mejoras para Azure Stack.
@@ -169,7 +170,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
     - *Permitir:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -199,7 +200,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

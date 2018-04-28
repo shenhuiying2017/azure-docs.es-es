@@ -1,12 +1,12 @@
 ---
-title: "Guía de solución de problemas del Explorador de Azure Storage | Microsoft Docs"
-description: "Información general sobre las dos funciones de depuración de Azure"
+title: Guía de solución de problemas del Explorador de Azure Storage | Microsoft Docs
+description: Información general sobre las dos funciones de depuración de Azure
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,141 +14,107 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: 2f62de428d1915b1e070350a2837f24c3486f8c7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c409788ef68ab41a23e2991ea0ea1effce841a82
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
-El Explorador de Microsoft Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. La aplicación puede conectarse a las cuentas de Storage hospedadas en Azure, nubes nacionales y Azure Stack.
+Explorador de Microsoft Azure Storage es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux. La aplicación puede conectarse a las cuentas de Storage hospedadas en Azure, nubes nacionales y Azure Stack.
 
 Esta guía resume las soluciones para problemas comunes en el Explorador de Storage.
 
-## <a name="sign-in-issues"></a>Problemas de inicio de sesión
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: Certificado autofirmado de cadena de certificados (y errores similares)
 
-Solo se admiten las cuentas de Azure Active Directory (AAD). Si usa una cuenta de AD FS, se espera que el inicio de sesión en el Explorador de Storage no funcione. Antes de continuar, pruebe a reiniciar la aplicación para ver si se pueden corregir los problemas.
-
-### <a name="error-self-signed-certificate-in-certificate-chain"></a>Error: Certificado autofirmado de cadena de certificados
-
-Hay varias razones por las puede encontrar este error, y las dos causas más comunes son los siguientes:
+Los errores de certificado están causados por una de las dos situaciones siguientes:
 
 1. La aplicación se conecta a través de un "proxy transparente", lo que significa que un servidor (por ejemplo, el servidor de la compañía) intercepta el tráfico HTTPS, lo descifra y, luego, lo cifrar mediante un certificado autofirmado.
+2. Ejecuta una aplicación que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe. Ejemplos de aplicaciones que insertan certificados incluyen software antivirus y de inspección de tráfico de red.
 
-2. Ejecuta una aplicación, como software antivirus, que inserta un certificado SSL autofirmado en los mensajes HTTPS que recibe.
+Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no podrá saber si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar que el Explorador de Storage confíe en él con los pasos siguientes:
 
-Cuando el Explorador de Storage se encuentra uno de estos problemas, no puede saber si se alteró el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede dejar que el Explorador de Storage confíe en él. Si no está seguro de quién insertó el certificado, siga estos pasos para descubrirlo:
+1. Obtención de una copia X.509 (.cer) codificada en Base-64 del certificado
+2. Haga clic en **Editar** > **Certificados SSL** > **Importar certificados** y, luego, utilice el selector de archivos para encontrar, seleccionar y abrir el archivo .cer.
+
+Este problema también puede ser el resultado de varios certificados (raíz e intermedio). Ambos certificados deben agregarse para solucionar el error.
+
+Si no está seguro de dónde procede el certificado, puede intentar estos pasos para encontrarlo:
 
 1. Instale Open SSL.
 
-    - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (cualquiera de las versiones ligeras debería ser suficiente).
-
-    - Mac y Linux: debe estar incluido con el sistema operativo.
-
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (cualquiera de las versiones ligeras debería ser suficiente).
+    * Mac y Linux: debe estar incluido con el sistema operativo.
 2. Ejecute Open SSL.
 
-    - Windows: abra el directorio de instalación, haga clic en **/bin/**y, luego, haga doble clic en **openssl.exe**.
-    - Mac y Linux: ejecute **openssl** desde un terminal.
-
-3. Ejecute s_client -showcerts -connect microsoft.com:443.
-
-4. Busque certificados autofirmados. Si no está seguro de cuáles son autofirmados, busque cualquier lugar en el que el asunto ("s:") y el emisor ("i:") sean el mismo.
-
+    * Windows: abra el directorio de instalación, haga clic en **/bin/** y, luego, haga doble clic en **openssl.exe**.
+    * Mac y Linux: ejecute **openssl** desde un terminal.
+3. Ejecute `s_client -showcerts -connect microsoft.com:443`
+4. Busque certificados autofirmados. Si no está seguro de cuáles son autofirmados, busque cualquier lugar en el que el asunto `("s:")` y el emisor `("i:")` sean el mismo.
 5. Cuando haya encontrado cualquier certificado autofirmado, para cada uno, copie y pegue todo el contenido desde **---BEGIN CERTIFICATE---** a **---END CERTIFICATE---** (inclusive) a un archivo .cer nuevo.
-
 6. Abra el Explorador de Storage, haga clic en **Editar** > **Certificados SSL** > **Importar certificados** y, luego, utilice el selector de archivos para encontrar, seleccionar y abrir los archivos .cer que ha creado.
 
-Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriores, póngase en contacto con nosotros mediante la herramienta de comentarios para más ayuda.
+Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriores, póngase en contacto con nosotros mediante la herramienta de comentarios para más ayuda. Como alternativa, puede elegir iniciar el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se inicia con esta marca, el Explorador de Storage pasará por alto los errores de certificado.
 
-### <a name="unable-to-retrieve-subscriptions"></a>No se pueden recuperar las suscripciones
+## <a name="sign-in-issues"></a>Problemas de inicio de sesión
 
-Si no puede recuperar las suscripciones después de iniciar la sesión correctamente, siga estos pasos para solucionar este problema:
+Si no puede iniciar sesión en, pruebe los siguientes métodos de solución de problemas:
 
-- Verifique que la cuenta tiene acceso a las suscripciones al iniciar sesión en Azure Portal.
+* Reinicio de Explorador de Storage
+* Si la ventana de autenticación está en blanco, espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
+* Asegúrese de que el servidor proxy y el certificado está configurado correctamente para la máquina como para el Explorador de Storage.
+* Si está en Windows y tiene acceso a Visual Studio 2017 en la misma máquina e inicia sesión, intente iniciar sesión en Visual Studio 2017.
 
-- Asegúrese de que ha iniciado sesión usando el entorno correcto (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
+Si ninguno de estos métodos funciona, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-- Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
+## <a name="unable-to-retrieve-subscriptions"></a>No se pueden recuperar las suscripciones
 
-- Pruebe a quitar la cuenta y volver a agregarla.
+Si no puede recuperar las suscripciones después de iniciar sesión correctamente, siga los métodos siguientes de solución de problemas:
 
-- Intente eliminar los siguientes archivos del directorio raíz (es decir, C:\Users\ContosoUser) y, luego, intente volver a agregar la cuenta:
+* Compruebe que la cuenta tiene acceso a las que espera. Para comprobar que tiene acceso, inicie sesión en el portal para el entorno de Azure que está intentando usar.
+* Asegúrese de que ha iniciado sesión con el entorno correcto de Azure (Azure, Azure China, Azure Alemania, Azure US Government, o entorno personalizado o Azure Stack).
+* Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
+* Pruebe a quitar la cuenta y volver a agregarla.
+* Observe la consola de herramientas para desarrolladores (Ayuda > Alternar herramientas de desarrollo) mientras el Explorador de Storage carga las suscripciones. Busque mensajes de error (texto rojo) o cualquier mensaje que contenga un texto que indique que no se pueden cargar suscripciones para el inquilino. Si ve algún mensaje preocupante, [abra una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-    - .adalcache
+## <a name="cannot-remove-attached-account-or-storage-resource"></a>No se puede quitar la cuenta adjunta o el recurso de almacenamiento
 
-    - .devaccounts
+Si no puede quitar una cuenta adjunta o un recurso de almacenamiento a través de la interfaz de usuario, puede eliminar manualmente todos los recursos adjuntos mediante la eliminación de las siguientes carpetas:
 
-    - .extaccounts
-
-- Revise la consola de las herramientas de desarrollo (presionando F12) cuando se inicie sesión por si aparecieran mensajes de error:
-
-![herramientas de desarrollo](./media/storage-explorer-troubleshooting/4022501_en_2.png)
-
-### <a name="unable-to-see-the-authentication-page"></a>No se puede ver la página de autenticación
-
-Si no puede ver la página de autenticación, siga estos pasos para solucionar este problema:
-
-- Según la velocidad de la conexión, la página de inicio de sesión puede tardar unos instantes en cargar; espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
-
-- Si está detrás de un proxy, asegúrese de que ha configurado correctamente el proxy del Explorador de Storage.
-
-- Consulte la consola del desarrollador presionando la tecla F12. Revise las respuestas de la consola del desarrollador y vea si puede encontrar alguna pista para saber por qué no funciona la autenticación.
-
-### <a name="cannot-remove-account"></a>No se puede quitar la cuenta
-
-Si no puede quitar una cuenta, o si el vínculo para volver a autenticar no hace nada, siga estos pasos para solucionar este problema:
-
-- Intente eliminar los siguientes archivos del directorio raíz y, luego, intente volver a agregar la cuenta:
-
-    - .adalcache
-
-    - .devaccounts
-
-    - .extaccounts
-
-- Si desea quitar recursos de Storage conectados a SAS, elimine los siguientes archivos:
-
-    - Carpeta %AppData%/StorageExplorer para Windows
-
-    - /Users/<su_nombre>/Library/Applicaiton SUpport/StorageExplorer para Mac
-
-    - ~/.config/StorageExplorer para Linux
+* Windows: `%AppData%/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Después de eliminar los archivos anteriores, debe iniciar sesión en sus cuentas.
+>  Cierre el Explorador de Storage antes de eliminar las carpetas anteriores.
+
+> [!NOTE]
+>  Si alguna vez ha importado un certificado SSL, haga una copia de seguridad del contenido del directorio `certs`. Después, puede utilizar la copia de seguridad para volver a importar los certificados SSL.
 
 ## <a name="proxy-issues"></a>Problemas de proxy
 
 En primer lugar, asegúrese de que la siguiente información que especificó sea correcta:
 
-- La dirección URL del proxy y el número de puerto
-
-- El nombre de usuario y la contraseña si los exige el proxy
+*Dirección URL del proxy y número de puerto *Nombre de usuario y contraseña si lo requiere el proxy
 
 ### <a name="common-solutions"></a>Soluciones comunes
 
-Si sigue experimentando problemas, siga estos pasos para solucionarlos:
+Si todavía tiene problemas, pruebe los siguientes métodos de solución de problemas:
 
-- Si puede conectarse a Internet sin usar el proxy, compruebe que el Explorador de Storage funciona sin la configuración del proxy habilitada. Si este es así, puede haber un problema con la configuración de proxy. Trabaje con el administrador del servidor proxy para identificar los problemas.
-
-- Compruebe que otras aplicaciones que utilicen el servidor proxy funcionen según lo esperado.
-
-- Compruebe que pueda conectarse a Microsoft Azure Portal mediante el explorador web.
-
-- Compruebe que puede recibir las respuestas de los puntos de conexión de servicio. Especifique una de las direcciones URL de punto de conexión en el explorador. Si puede conectarse, debería recibir un InvalidQueryParameterValue o una respuesta XML similar.
-
-- Si otra persona también usa el Explorador de Storage con el servidor proxy, compruebe que pueda conectarse. Si se puede conectar, quizá deba ponerse en contacto con el administrador del servidor proxy.
+* Si puede conectarse a Internet sin usar el proxy, compruebe que el Explorador de Storage funciona sin la configuración del proxy habilitada. Si este es así, puede haber un problema con la configuración de proxy. Trabaje con el administrador del servidor proxy para identificar los problemas.
+* Compruebe que otras aplicaciones que utilicen el servidor proxy funcionen según lo esperado.
+* Compruebe que puede conectarse al portal del entorno de Azure que está intentando usar
+* Compruebe que puede recibir las respuestas de los puntos de conexión de servicio. Especifique una de las direcciones URL de punto de conexión en el explorador. Si puede conectarse, debería recibir un InvalidQueryParameterValue o una respuesta XML similar.
+* Si otra persona también usa el Explorador de Storage con el servidor proxy, compruebe que pueda conectarse. Si se puede conectar, quizá deba ponerse en contacto con el administrador del servidor proxy.
 
 ### <a name="tools-for-diagnosing-issues"></a>Herramientas para el diagnóstico de problemas
 
 Si dispone de herramientas de red, como Fiddler para Windows, es posible que pueda diagnosticar los problemas como se indica a continuación:
 
-- Si tiene que trabajar a través del proxy, es posible que tenga que configurar la herramienta de red para conectarse a través del proxy.
-
-- Compruebe el número de puerto utilizado por la herramienta de red.
-
-- Escriba la dirección URL del host local y el número de puerto de la herramienta de red como configuración de proxy en el Explorador de Storage. Si se hace correctamente, la herramienta de red inicia el registro de las solicitudes de red realizadas por el Explorador de Storage para puntos de conexión de servicio y administración. Por ejemplo, escriba https://cawablobgrs.blob.core.windows.net/ para el punto de conexión de blob en un explorador y recibirá una respuesta similar a la siguiente, lo que sugiere que el recurso existe, aunque no se puede obtener acceso a él.
+* Si tiene que trabajar a través del proxy, es posible que tenga que configurar la herramienta de red para conectarse a través del proxy.
+* Compruebe el número de puerto utilizado por la herramienta de red.
+* Escriba la dirección URL del host local y el número de puerto de la herramienta de red como configuración de proxy en el Explorador de Storage. Cuando lo haya hecho correctamente, la herramienta de red inicia el registro de las solicitudes de red realizadas por el Explorador de Storage para puntos de conexión de servicio y administración. Por ejemplo, escriba https://cawablobgrs.blob.core.windows.net/ para el punto de conexión de blob en un explorador y recibirá una respuesta similar a la siguiente, lo que sugiere que el recurso existe, aunque no se puede obtener acceso a él.
 
 ![ejemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -156,9 +122,8 @@ Si dispone de herramientas de red, como Fiddler para Windows, es posible que pue
 
 Si es correcta la configuración de proxy, tendrá que ponerse en contacto con el administrador del servidor proxy y, además, deberá hacer lo siguiente:
 
-- Asegúrese de que el proxy no bloquee el tráfico a los puntos de conexión de administración de Azure o de los recursos.
-
-- Compruebe el protocolo de autenticación utilizado por el servidor proxy. En estos momentos, el Explorador de Storage no admite los servidores proxy NTLM.
+* Asegúrese de que el proxy no bloquee el tráfico a los puntos de conexión de administración de Azure o de los recursos.
+* Compruebe el protocolo de autenticación utilizado por el servidor proxy. En estos momentos, el Explorador de Storage no admite los servidores proxy NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensaje de error "No se pueden recuperar los elementos secundarios"
 
@@ -167,11 +132,9 @@ Si está conectado a Azure a través de un servidor proxy, compruebe que la conf
 ### <a name="issues-with-sas-url"></a>Problemas con la URL de SAS
 Si se conecta a un servicio mediante una dirección URL de SAS y se produce este error:
 
-- Compruebe que la dirección URL proporciona los permisos necesarios para leer o enumerar los recursos.
-
-- Compruebe que la dirección URL no haya expirado.
-
-- Si la dirección URL de SAS se basa en una directiva de acceso, compruebe que la directiva de acceso no haya sido revocada.
+* Compruebe que la dirección URL proporciona los permisos necesarios para leer o enumerar los recursos.
+* Compruebe que la dirección URL no haya expirado.
+* Si la dirección URL de SAS se basa en una directiva de acceso, compruebe que la directiva de acceso no haya sido revocada.
 
 Si asoció accidentalmente una dirección URL de SAS no válida y no se puede desasociar, siga estos pasos:
 1.  Cuando se ejecute el Explorador de Storage, presione F12 para abrir la ventana de herramientas de desarrollador.
@@ -183,16 +146,15 @@ Si asoció accidentalmente una dirección URL de SAS no válida y no se puede de
 ## <a name="linux-dependencies"></a>Dependencias de Linux
 
 En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
-* libgconf-2-4
-* libsecret
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* `libsecret`
+* `libgconf-2-4`
 * GCC actualizado
 
 Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si ninguna de las soluciones funciona, envíe su problema mediante la herramienta de comentarios con su dirección de correo electrónico y todos los detalles sobre el problema como sea posible, para que podemos ponernos en contacto con usted para corregir el problema.
+Si ninguna de las soluciones funciona, [abrir una incidencia en GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). También puede acceder rápidamente a GitHub con el botón "Notificar problema a GitHub" en la esquina inferior izquierda.
 
-Para ello, haga clic en el menú **Ayuda** y, luego, haga clic en **Enviar comentarios**.
-
-![Comentarios](./media/storage-explorer-troubleshooting/4022503_en_1.png)
+![Comentarios](./media/storage-explorer-troubleshooting/feedback-button.PNG)

@@ -1,28 +1,28 @@
 ---
-title: "Administración del acceso de dispositivos para el servicio Azure IoT Hub Device Provisioning | Microsoft Docs"
-description: "Cómo revocar el acceso de los dispositivos a su servicio de DPS en Azure Portal"
+title: Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
+description: Baja del servicio Azure IoT Hub Device Provisioning para evitar el aprovisionamiento de un dispositivo
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Revocación del acceso de los dispositivos a su servicio de aprovisionamiento en Azure Portal
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo
 
-La administración adecuada de las credenciales del dispositivo es fundamental para los sistemas de alto perfil como las soluciones de IoT. Un procedimiento recomendado para estos sistemas es tener un plan claro de cómo revocar el acceso de los dispositivos en los casos en que sus credenciales, tanto un token de firmas de acceso compartido (SAS) como un certificado X.509, puedan suponer un riesgo. En este artículo se describe cómo revocar el acceso de dispositivo en el paso de aprovisionamiento.
+La administración adecuada de las credenciales del dispositivo es fundamental para los sistemas de alto perfil como las soluciones de IoT. Un procedimiento recomendado para estos sistemas es tener un plan claro de cómo revocar el acceso de los dispositivos en los casos en que sus credenciales, tanto un token de firmas de acceso compartido (SAS) como un certificado X.509, puedan suponer un riesgo. 
 
-Para obtener información sobre cómo revocar el acceso de los dispositivos a una instancia de IoT Hub después de aprovisionar el dispositivo, vea [Deshabilitar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+La inscripción en el servicio Device Provisioning habilita el [aprovisionamiento automático](concepts-auto-provisioning.md) en los dispositivos. Al aprovisionar un dispositivo, se registra en IoT Hub, lo cual le permite recibir el estado del [dispositivo gemelo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial y empezar a informar de los datos de telemetría. En este artículo se describe cómo dar de baja un dispositivo de la instancia del servicio de aprovisionamiento y evitar así que se vuelva a aprovisionar en el futuro.
 
 > [!NOTE] 
 > Tenga en cuenta la directiva de reintentos de los dispositivos para los que se revoca el acceso. Por ejemplo, un dispositivo que tiene una directiva de reintentos infinitos puede reintentar continuamente registrarse en el servicio de aprovisionamiento. Esta situación consume recursos del servicio y posiblemente afecta al rendimiento.
@@ -37,10 +37,10 @@ Para colocar el dispositivo temporalmente en la lista negra, deshabilite su entr
 2. En la lista de recursos, seleccione el servicio de aprovisionamiento para el que desee incluir en la lista negra a su dispositivo.
 3. En el servicio de aprovisionamiento, seleccione **Administrar inscripciones** y después, la pestaña **Inscripciones individuales**.
 4. Seleccione la entrada de inscripción del dispositivo que desee colocar en la lista negra. 
-5. Seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después seleccione **Guardar**.  
+5. Desplácese a la parte inferior, seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y, después, seleccione **Guardar**.  
 
-   ![Deshabilitación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Deshabilitación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Para incluir el dispositivo de forma permanente en la lista negra, elimine su entrada de inscripción:
 
 1. Inicie sesión en Azure Portal y seleccione **Todos los recursos** en el menú a la izquierda.
@@ -64,9 +64,8 @@ Para colocar al certificado temporalmente en la lista negra, deshabilite su grup
 1. Inicie sesión en Azure Portal y seleccione **Todos los recursos** en el menú a la izquierda.
 2. En la lista de recursos, seleccione el servicio de aprovisionamiento para el que desee inscribir en la lista negra el certificado de firma.
 3. En el servicio de aprovisionamiento, seleccione **Administrar inscripciones** y después, la pestaña **Grupos de inscripción**.
-4. Seleccione el grupo de inscripción del certificado que desee colocar en la lista negra.
-5. En la entrada del grupo de inscripción, seleccione **Editar grupo**.
-6. Seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después seleccione **Guardar**.  
+4. Seleccione el grupo de inscripción con el certificado que desee colocar en la lista negra.
+5. Seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después seleccione **Guardar**.  
 
    ![Deshabilitación de entrada de grupo de inscripción en el portal](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Para incluir en una lista negra a un dispositivo individual en un grupo de inscr
 2. En la lista de recursos, seleccione el servicio de aprovisionamiento que contiene el grupo de inscripción para el dispositivo que desee colocar en la lista negra.
 3. En el servicio de aprovisionamiento, seleccione **Administrar inscripciones** y después, la pestaña **Inscripciones individuales**.
 4. Seleccione el botón **Agregar** de la parte superior. 
-5. Seleccione **X.509** como el mecanismo de seguridad para el dispositivo y cargue el certificado del dispositivo. Este es el certificado de entidad final firmado instalado en el dispositivo. El dispositivo lo usa para generar certificados para la autenticación.
+5. Seleccione **X.509** como mecanismo de atestación para el dispositivo y cargue el certificado del dispositivo. Este es el certificado de entidad final firmado instalado en el dispositivo. El dispositivo lo usa para generar certificados para la autenticación.
 6. En **Id. de dispositivo de IoT Hub**, escriba el identificador del dispositivo. 
 7. Seleccione **Deshabilitar** en el conmutador **Habilitar entrada** y después seleccione **Guardar**. 
 
-   ![Deshabilitación de una entrada de inscripción individual en el portal](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Uso de la deshabilitación de una entrada de inscripción individual para deshabilitar en el portal la inscripción en grupo del dispositivo](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Si la inscripción se crea correctamente, verá que el dispositivo aparece en la pestaña **Inscripciones individuales**.
 
+## <a name="next-steps"></a>Pasos siguientes
+
+La baja también forma parte del proceso global de desaprovisionamiento. El desaprovisionamiento de un dispositivo incluye tanto la baja del servicio de aprovisionamiento como la cancelación del registro en IoT Hub. Para información sobre el proceso completo, consulte [Desaprovisionamiento de dispositivos aprovisionados automáticamente](how-to-unprovision-devices.md) 
 

@@ -1,11 +1,11 @@
 ---
-title: "Automated Backup de máquinas virtuales SQL Server (modelo clásico) | Microsoft Docs"
-description: "Explica la característica Automated Backup para SQL Server que se ejecuta en Azure Virtual Machines mediante Resource Manager. "
+title: Automated Backup de máquinas virtuales SQL Server (modelo clásico) | Microsoft Docs
+description: 'Explica la característica Automated Backup para SQL Server que se ejecuta en Azure Virtual Machines mediante Resource Manager. '
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 3333e830-8a60-42f5-9f44-8e02e9868d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/23/2018
 ms.author: jroth
-ms.openlocfilehash: 05f5ec690fbf1ea2f4f6a6d927685d7a34ac9273
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3bca1c6c357527a32de499ac9207b1bb734dad7b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="automated-backup-for-sql-server-in-azure-virtual-machines-classic"></a>Automated Backup para SQL Server en Azure Virtual Machines (implementación clásica)
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Para utilizar Automated Backup, tenga en cuenta los siguientes requisitos previo
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Automated Backup para SQL Server 2016 es compatible con las máquinas virtuales de Resource Manager. Para más información, consulte [Automated Backup v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Automated Backup para SQL Server 2016 es compatible con las máquinas virtuales de Resource Manager. Para más información, consulte [Automated Backup v2 para Azure Virtual Machines con SQL Server 2016 (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Configuración de base de datos**:
 

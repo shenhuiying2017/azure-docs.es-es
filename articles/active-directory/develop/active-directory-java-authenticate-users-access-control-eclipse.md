@@ -1,25 +1,24 @@
 ---
-title: Uso de Access Control (Java) | Microsoft Docs
+title: Uso de Access Control (Java)
 description: Obtenga información acerca de cómo desarrollar y usar el Control de acceso con Java en Azure.
 services: active-directory
 documentationcenter: java
 author: rmcmurray
-manager: mtillman
-editor: ''
+manager: mbaldwin
 ms.assetid: 247dfd59-0221-4193-97ec-4f3ebe01d3c7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b555ef40fae8156d2957643697d6450ef22b215a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bd65da490bf3d7e17bf6ff36e76e306842d50653
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>Autenticación de usuarios web con Azure Access Control Service mediante Eclipse
 Esta guía le mostrará cómo usar Azure Access Control Service (ACS) dentro del Kit de herramientas de Azure para Eclipse. Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps) .
@@ -119,11 +118,11 @@ En esta tarea, configurará ACS para reconocer la aplicación web de Java como u
    3. En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**.
       ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator]
    4. En **Dirección URL de retorno** , escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp**
-      ![, que es la dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator].
+      ![Dirección URL de retorno de usuario de confianza para su uso en el emulador de proceso][relying_party_return_url_emulator]
    5. Acepte los valores predeterminados en el resto de los campos.
 4. Haga clic en **Save**(Guardar).
 
-Ha configurado correctamente su aplicación web de Java para que cuando se ejecute en el emulador de proceso de Azure (en http://localhost:8080/) sea un RP en su espacio de nombres de ACS. A continuación, cree las reglas que ACS utiliza para procesar notificaciones para el RP.
+Ha configurado correctamente su aplicación web de Java para que cuando se ejecute en el emulador de proceso de Azure (en http://localhost:8080/)) sea un RP en su espacio de nombres de ACS. A continuación, cree las reglas que ACS utiliza para procesar notificaciones para el RP.
 
 ## <a name="create-rules"></a>Creación de reglas
 En esta tarea, definirá las reglas que controlan la manera en que las notificaciones se transmiten desde los IP a su RP. En lo que respecta a esta guía, simplemente configuraremos ACS para que copie los valores y tipos de notificación de introducción directamente en el token de salida, sin filtrarlos ni modificarlos.

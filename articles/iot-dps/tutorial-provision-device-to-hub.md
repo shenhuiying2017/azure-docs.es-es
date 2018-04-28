@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 03/28/2018
+ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Aprovisionamiento del dispositivo en una instancia de IoT Hub mediante el servicio Azure IoT Hub Device Provisioning
 
-En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante **_listas de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
+En el tutorial anterior, aprendió a configurar un dispositivo para conectarse al servicio Device Provisioning. En este tutorial, aprenderá a usar este servicio para aprovisionar el dispositivo en una única instancia de IoT Hub mediante el aprovisionamiento automático y las **_listas de inscripción_**. En este tutorial se muestra cómo realizar las siguientes acciones:
 
 > [!div class="checklist"]
 > * Inscribir el dispositivo
@@ -42,18 +42,18 @@ Este paso incluye la incorporación de artefactos de seguridad únicos del dispo
     - La *clave de aprobación* que es exclusiva de cada chip TPM o simulación y que se obtiene del fabricante.  Consulte [Descripción de la clave de aprobación de TPM](https://technet.microsoft.com/library/cc770443.aspx) para más información.
     - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este identificador puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. En el caso de los dispositivos basados en TPM, el identificador de registro puede derivarse del propio TPM, por ejemplo, un hash SHA-256 de la clave de aprobación del TPM.
 
-    ![Información de inscripción del TPM en el portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    [![Información de inscripción del TPM en el portal](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Para dispositivos basados en X.509 necesita:
     - El [certificado emitido para el chip o simulación X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado del firmante* de cada dispositivo para su sistema X.509, mientras que para la inscripción de grupos, debe usar el *certificado raíz*. 
 
-    ![Información de inscripción del dispositivo X.509 en el portal](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    [![Agregar inscripción individual para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Hay dos maneras de inscribir el dispositivo en el servicio Device Provisioning:
 
 - **Grupos de inscripción**: esta representa un grupo de dispositivos que comparten un mecanismo de atestación específico. Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino.
 
-    ![Grupos de inscripción para X.509 en el portal](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+    [![Agregar inscripción de grupo para la atestación X.509 en el portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
 - **Inscripciones individuales**: esta representa una entrada de un único dispositivo que se puede registrar con el servicio Device Provisioning. Las inscripciones individuales pueden usar certificados X.509 o tokens de SAS (en un módulo de plataforma segura real o virtual) como mecanismos de atestación. Se recomiendan las inscripciones individuales para los dispositivos que requieran configuraciones iniciales únicas y los dispositivos que solo puedan utilizar tokens de SAS a través de módulos de plataforma segura reales o virtuales como mecanismo de atestación. En las inscripciones individuales se puede especificar el identificador de dispositivo del centro de IoT deseado.
 

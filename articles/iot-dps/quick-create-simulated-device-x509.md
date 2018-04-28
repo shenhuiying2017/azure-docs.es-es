@@ -5,25 +5,25 @@ services: iot-dps
 keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 12/20/2017
+ms.date: 04/16/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 484b82b79d796536a2c9a527b42e90f4e37c7bda
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5fe9282dd10bd6bdc41c63718a884a92da4d7c6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos C para el servicio IoT Hub Device Provisioning
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 Estos pasos muestran cómo simular un dispositivo X.509 en la máquina de desarrollo en la que se ejecuta el sistema operativo Windows, y usar un ejemplo de código para conectar este dispositivo simulado con el servicio Device Provisioning y IoT Hub. 
 
-Asegúrese de completar los pasos descritos en [Configuración de un servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar.
+Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 
@@ -51,7 +51,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
     cd cmake
     ```
 
-6. Ejecute el siguiente comando para crear la solución de Visual Studio para el cliente de aprovisionamiento.
+6. El código de ejemplo usa un certificado X.509 para proporcionar atestación mediante la autenticación de X.509. Ejecute el siguiente comando para compilar una versión del SDK específica para su plataforma de cliente de desarrollo y el [mecanismo de atestación](concepts-security.md#attestation-mechanism) (certificado X.509). También genera una solución de Visual Studio para el dispositivo simulado. 
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
@@ -62,7 +62,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 <a id="portalenroll"></a>
 
-## <a name="create-a-device-enrollment-entry-in-the-device-provisioning-service"></a>Creación de una entrada de inscripción de dispositivos en el servicio Device Provisioning
+## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Creación de un certificado de dispositivo X.509 autofirmado y una entrada de inscripción individual
 
 1. Abra la solución generada en la carpeta *cmake* denominada `azure_iot_sdks.sln` y compílela en Visual Studio.
 
@@ -72,18 +72,18 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 4. Inicie sesión en Azure Portal, haga clic en el botón **Todos los recursos** situado en el menú izquierdo y abra el servicio de aprovisionamiento.
 
-4. Abra la hoja **Administrar inscripciones** del servicio. Seleccione la pestaña **Inscripciones individuales** y haga clic en el botón **Agregar** de la parte superior. 
+5. En la hoja de resumen del servicio Device Provisioning, seleccione **Manage enrollments** (Administrar inscripciones). Seleccione la pestaña **Individual Enrollments** (Inscripciones individuales) y haga clic en el botón **Add** (Agregar) de la parte superior. 
 
-5. En **Agregar entrada de la lista de inscripción**, escriba la siguiente información:
+6. En el panel **Agregar inscripción**, escriba la siguiente información:
     - Seleccione **X.509** como *Mecanismo* de atestación de identidad.
-    - En el *archivo de certificado .pem o .cer*, seleccione el archivo de certificado **_X509testcert.pem_** creado en los pasos anteriores con el widget *Explorador de archivos*.
+    - En el *Archivo .pem o .cer de certificado principal*, haga clic en *Seleccionar un archivo* para seleccionar el archivo de certificado **X509testcert.pem** creado en los pasos anteriores.
     - De forma opcional, puede proporcionar la siguiente información:
-        - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
-        - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo. 
-        - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
+      - Seleccione un centro de IoT vinculado con el servicio de aprovisionamiento.
+      - Escriba un identificador de dispositivo único. Asegúrese de evitar datos confidenciales al asignar nombre al dispositivo. 
+      - Actualice el **Estado inicial del dispositivo gemelo** con la configuración inicial deseada para el dispositivo.
     - Una vez completado, haga clic en el botón **Guardar**. 
 
-    ![Escriba la información de inscripción del dispositivo X.509 en la hoja del portal](./media/quick-create-simulated-device-x509/enter-device-enrollment.png)  
+    [![Agregar inscripción individual para la atestación X.509 en el portal](./media/quick-create-simulated-device-x509/individual-enrollment.png)](./media/quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
 
    Al inscribir el dispositivo correctamente, el dispositivo X.509 aparece como **riot-device-cert** en la columna *Id. de registro* de la pestaña *Individual Enrollments* (Inscripciones individuales). 
 

@@ -1,6 +1,6 @@
 ---
-title: "Supervisión y reducción de la limitación en Azure Time Series Insights | Microsoft Docs"
-description: "En este artículo se describe cómo supervisar, diagnosticar y mitigar los problemas de rendimiento que causan la latencia y la limitación en Azure Time Series Insights."
+title: Supervisión y reducción de la limitación en Azure Time Series Insights | Microsoft Docs
+description: En este artículo se describe cómo supervisar, diagnosticar y mitigar los problemas de rendimiento que causan la latencia y la limitación en Azure Time Series Insights.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ec16f20723e4a613c953363da6cf6b463de829a9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
 Si la cantidad de datos de entrada supera la configuración del entorno, puede experimentar latencia o limitación en Azure Time Series Insights.
@@ -45,17 +45,24 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia c
 
 Desde allí, puede configurar alertas mediante las siguientes métricas:
 
-|Métrica  |Descripción  |
+|Métrica  |DESCRIPCIÓN  |
 |---------|---------|
 |**Bytes de entrada recibidos**     | Número de bytes sin procesar leídos desde los orígenes de eventos. El número sin procesar normalmente incluye el nombre y el valor de la propiedad.  |  
 |**Mensajes no válidos de entrada recibidos**     | Número de mensajes no válidos leídos desde todos los orígenes de eventos de Azure Event Hubs o Azure IoT Hub.      |
 |**Mensajes de entrada recibidos**   | Número de mensajes leídos desde todos los orígenes de eventos de Event Hubs o IoT Hub.        |
 |**Bytes de entrada almacenados**     | Tamaño total de los eventos almacenados y disponibles para su consulta. Se calcula el tamaño solo sobre el valor de propiedad.        |
 |**Eventos de entrada almacenados**     |   Número de eventos planos almacenados y disponibles para su consulta.      |
+|**Ingress Recieved Message Time Lag** (Tiempo transcurrido hasta la recepción del mensaje de entrada)    |  Diferencia entre el momento en el que el mensaje se pone en la cola en el origen del evento y el momento del procesamiento en la entrada.      |
+|**Ingress Recieved Message Count Lag** (Recuento hasta la recepción del mensaje de entrada)    |  Diferencia entre el número de secuencia del último mensaje en cola en la partición del origen del evento y el del mensaje que se está procesando en la entrada.      |
+
 
 ![Latency](media/environment-mitigate-latency/latency.png)
 
-Una de estas técnicas consiste en establecer una alerta de **eventos de entrada almacenados** >= un umbral ligeramente por debajo de la capacidad total del entorno durante un período de 2 horas.  Esta alerta le ayudará a conocer si se encuentra continuamente en el límite de la capacidad, lo cual indica una alta probabilidad de latencia.  
+Si está experimentando alguna limitación, verá un valor en *Ingress Recieved Message Time Lag* (Tiempo transcurrido hasta la recepción del mensaje de entrada) que indica cuántos minutos de retraso tiene TSI respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  *Ingress Received Message Count Lag* (Recuento hasta la recepción del mensaje de entrada) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
+
+Por ejemplo, si tiene un entorno único S1 de unidad y comprueba que hay un retraso de cinco millones de mensajes, puede aumentar el tamaño del entorno a seis unidades durante un día aproximadamente para la actualización.  Podría aumentarlo más para ponerse al día más rápidamente.  Esto suele pasar al aprovisionar inicialmente un entorno, en particular al conectarlo a un origen de eventos que no esté vacío o con la carga masiva de numerosos datos históricos.
+
+Otra de estas técnicas consiste en establecer una alerta de **eventos de entrada almacenados** >= un umbral ligeramente por debajo de la capacidad total del entorno durante un período de 2 horas.  Esta alerta le ayudará a conocer si se encuentra continuamente en el límite de la capacidad, lo cual indica una alta probabilidad de latencia.  
 
 Por ejemplo, si tiene tres unidades de nivel S1 aprovisionadas (o una capacidad de entrada de 2100 eventos por minuto), puede establecer una alerta de **eventos de entrada almacenados** >= 1900 eventos durante 2 horas. Si continuamente supera este umbral y, como consecuencia, se desencadena la alerta, es posible que necesite un mayor aprovisionamiento.  
 

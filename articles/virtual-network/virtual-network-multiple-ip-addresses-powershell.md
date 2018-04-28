@@ -1,11 +1,11 @@
 ---
-title: "Varias direcciones IP para máquinas virtuales de Azure: PowerShell | Microsoft Docs"
-description: "Aprenda a asignar varias direcciones IP a una máquina virtual con PowerShell | Resource Manager."
+title: 'Varias direcciones IP para máquinas virtuales de Azure: PowerShell | Microsoft Docs'
+description: Aprenda a asignar varias direcciones IP a una máquina virtual con PowerShell | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 4c74833933642ec67bdd2a77d073b083d54a3038
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/13/2017
 
 En este artículo se describe cómo crear una máquina virtual (VM) con el modelo de implementación de Azure Resource Manager mediante PowerShell. No se pueden asignar varias direcciones IP a los recursos creados mediante el modelo de implementación clásica. Para información acerca de los modelos de implementación de Azure, lea el artículo [Understand deployment models](../resource-manager-deployment-model.md) (Descripción de los modelos de implementación).
 
-[!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
 En los pasos siguientes se explica cómo crear una VM de ejemplo con varias direcciones IP, tal como se describe en el escenario. Cambie los valores de variable según sea necesario para la implementación.
 
 1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
-2. Inicie sesión en la cuenta con el comando `login-azurermaccount`.
+2. Inicie sesión en la cuenta con el comando `Connect-AzureRmAccount`.
 3. Reemplace *myResourceGroup* y *westus* por un nombre y una ubicación de su elección. Cree un grupo de recursos. Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
     ```powershell
@@ -194,7 +194,7 @@ En los pasos siguientes se explica cómo crear una VM de ejemplo con varias dire
 
 ## <a name="add"></a>Incorporación de direcciones IP a una VM
 
-Puede agregar direcciones IP públicas y privadas a una NIC completando los pasos siguientes. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#Scenario) de este artículo, pero no es necesario que lo haga.
+Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure mediante los pasos que se indican a continuación. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#Scenario) de este artículo, pero no es necesario que lo haga.
 
 1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. Cambie los "valores" de los elementos $Variables siguientes al nombre de la NIC a la que desee agregar una dirección IP y al grupo de recursos y la ubicación donde existe la NIC:

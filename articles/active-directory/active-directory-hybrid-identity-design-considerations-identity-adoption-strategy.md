@@ -1,11 +1,11 @@
 ---
-title: "Diseño de identidades híbridas: estrategia de adopción en Azure | Microsoft Docs"
-description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
-documentationcenter: 
+title: 'Diseño de identidades híbridas: estrategia de adopción en Azure | Microsoft Docs'
+description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e6c9cbc4f158e62092c7a9e401e618880e5ea3b6
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
 En esta tarea, define la estrategia de adopción de identidades híbridas para que una solución de identidad híbrida cumpla los requisitos empresariales que se trataron en:
@@ -196,7 +196,7 @@ Aunque puede que eligiera una solución para su estrategia, será preciso que us
 | AD local |Servidor Multi-Factor Authentication |
 
 > [!NOTE]
-> También debe asegurarse de que la opción de diseño de Multi-Factor Authentication que seleccionó admite las características necesarias para el diseño.  Para obtener más información, consulte [Selección de la solución de seguridad multifactor más adecuada](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure)
+> También debe asegurarse de que la opción de diseño de Multi-Factor Authentication que seleccionó admite las características necesarias para el diseño.  Para obtener más información, consulte [Selección de la solución de seguridad multifactor más adecuada](authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure)
 > 
 > 
 

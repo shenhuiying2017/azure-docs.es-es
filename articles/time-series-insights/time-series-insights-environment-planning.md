@@ -1,6 +1,6 @@
 ---
 title: Planeamiento de la escala del entorno Azure Time Series Insights | Microsoft Docs
-description: "En este artículo se describe cómo seguir los procedimientos recomendados cuando se planea un entorno de Azure Time Series Insights, incluida la capacidad de almacenamiento, la retención de datos, la capacidad de entrada y la supervisión."
+description: En este artículo se describe cómo seguir los procedimientos recomendados cuando se planea un entorno de Azure Time Series Insights, incluida la capacidad de almacenamiento, la retención de datos, la capacidad de entrada y la supervisión.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,17 +12,17 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 5fb158ba162dd199f419f9568de08a7a18c833dd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 991db58db1bb07f338c0f80aa4db69ddb868dcab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Planee el entorno de Azure Time Series Insights
 
 En este artículo se describe cómo planear el entorno de Azure Time Series Insights según la velocidad de entrada esperada y los requisitos de retención de datos.
 
-## <a name="best-practices"></a>Prácticas recomendadas
+## <a name="best-practices"></a>Procedimientos recomendados
 
 Para empezar a trabajar con Time Series Insights, se recomienda saber cuántos datos espera insertar por minuto, así como también durante cuánto tiempo debe almacenar los datos.  
 
@@ -32,6 +32,8 @@ Considere estos atributos para planear mejor el entorno para el éxito a largo p
 - Capacidad de almacenamiento
 - Período de retención de datos
 - Capacidad de entrada 
+- Eventos con forma
+- Confirmación de la presencia de datos de referencia
 
 ## <a name="understand-storage-capacity"></a>Descripción de la capacidad de almacenamiento
 De manera predeterminada, Time Series Insights conserva los datos en función de la cantidad de almacenamiento que aprovisionó (unidades por la cantidad de almacenamiento por unidad) y la entrada.
@@ -74,15 +76,26 @@ Por ejemplo, si tiene una sola SKU S1 y datos de entrada a una velocidad de 700 
 
 Es posible que no sepa de antemano cuántos datos espera insertar. En este caso, puede encontrar la telemetría de datos para [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) y [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) en Azure Portal. Esta telemetría puede ayudar a determinar cómo aprovisionar el entorno. Use la página **Métricas** del origen del evento correspondiente en Azure Portal para ver su telemetría. Si comprende las métricas de origen del evento, puede planea de manera más eficaz y aprovisionar el entorno de Time Series Insights.
 
-## <a name="calculate-ingress-requirements"></a>Cálculo de los requisitos de entrada
+### <a name="calculate-ingress-requirements"></a>Cálculo de los requisitos de entrada
 
 - Confirme que la capacidad de entrada está por encima de la velocidad promedio por minuto y que el entorno es suficientemente grande para controlar la entrada anticipada equivalente al doble de la capacidad durante menos de una hora.
 
 - Si los incrementos de entrada se producen durante más de una hora, use la velocidad del incremento como promedio y aprovisione un entorno con la capacidad de controlar esta velocidad.
  
-## <a name="mitigate-throttling-and-latency"></a>Mitigación de la limitación y la latencia
+### <a name="mitigate-throttling-and-latency"></a>Mitigación de la limitación y la latencia
 
 Para información sobre cómo prevenir la limitación y la latencia, consulte el artículo sobre la [mitigación de la limitación y la latencia](time-series-insights-environment-mitigate-latency.md). 
+
+## <a name="shaping-your-events"></a>Eventos con forma
+Es importante asegurarse de que el método de envío de eventos a TSI es compatible con el tamaño del entorno que se aprovisiona (de otra manera, puede asignar el tamaño del entorno a la cantidad de eventos que TSI lea y al tamaño de cada evento).  Del mismo modo, es importante pensar en los atributos que desea segmentar y usar de filtro al consultar los datos.  Teniendo esto en cuenta, se recomienda revisar la sección sobre formas de JSON en nuestra [documentación] sobre el *envío de eventos* (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-send-events).  Se encuentra en la parte inferior de la página.  
+
+## <a name="ensuring-you-have-reference-data-in-place"></a>Confirmación de la presencia de datos de referencia
+Un conjunto de datos de referencia es una colección de elementos que aumentan los eventos de un origen de eventos. El motor de entrada de Time Series Insights combina cada evento del origen de eventos con la fila de datos correspondiente en el conjunto de datos de referencia. A partir de ese momento, este evento aumentado está disponible para consultas. Esta combinación se basa en las columnas de clave principal definidas en el conjunto de datos de referencia.
+
+Tenga en cuenta que los datos de referencia no se combinan de manera retroactiva. Esto significa que solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se configuran y cargan.  Si va a enviar una gran cantidad de datos históricos a TSI y no cargar ni crea primero datos de referencia en TSI, deberá volver a realizar el trabajo (sugerencia, esto no es agradable).  
+
+Para más información sobre cómo crear, cargar y administrar los datos de referencia en TSI, diríjase a nuestra [documentación] sobre los *datos de referencia* (https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Adición de un origen de eventos de Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md)

@@ -1,8 +1,8 @@
 ---
-title: "Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight | Microsoft Docs"
-description: "En este artículo se muestran instrucciones paso a paso sobre cómo compilar aplicaciones de aprendizaje automático de Apache Spark en clústeres Spark de HDInsight utilizando Jupyter Notebook."
+title: Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight | Microsoft Docs
+description: En este artículo se muestran instrucciones paso a paso sobre cómo compilar aplicaciones de aprendizaje automático de Apache Spark en clústeres Spark de HDInsight utilizando Jupyter Notebook.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: jgao
-ms.openlocfilehash: 2f7dcb9bea05a79a6647b549896c8107f9e830af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 95daab2bd7bc57d01bc9e3c05404958edd71eecc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight
 
@@ -185,7 +183,7 @@ En esta aplicación se usa una [canalización ML](https://spark.apache.org/docs/
 10. Cierre el cuaderno para liberar los recursos. Para ello, en el menú **Archivo** del cuaderno, haga clic en **Cerrar y detener**. De esta manera se apaga y se cierra el cuaderno.
 
 ## <a name="anaconda"></a>Uso de la biblioteca scikit-learn de Anaconda para el aprendizaje automático de Spark
-Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, Entre ellas, está la biblioteca **scikit-learn** para aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para ver ejemplos sobre el uso de la biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Los clústeres Apache Spark en HDInsight incluyen bibliotecas de Anaconda, Entre ellas, está la biblioteca **scikit-learn** para aprendizaje automático. La biblioteca también contiene diversos conjuntos de datos que puede usar para crear aplicaciones de ejemplo directamente a partir de un cuaderno de Jupyter. Para obtener ejemplos sobre el uso de la biblioteca scikit-learn, consulte [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="seealso"></a>Consulte también
 * [Introducción a Apache Spark en HDInsight de Azure](apache-spark-overview.md)

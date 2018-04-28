@@ -1,8 +1,8 @@
 ---
-title: "Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux | Microsoft Docs"
-description: "Aprenda a implementar, supervisar y administrar topologías de Apache Storm mediante el panel de Storm en HDInsight basado en Linux. Utilice herramientas de Hadoop para Visual Studio"
+title: Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux | Microsoft Docs
+description: Aprenda a implementar, supervisar y administrar topologías de Apache Storm mediante el panel de Storm en HDInsight basado en Linux. Utilice herramientas de Hadoop para Visual Studio
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Implementación y administración de topologías de Apache Storm en HDInsight
 
@@ -95,7 +93,7 @@ Las herramientas de HDInsight puede utilizarse para enviar las topologías de C#
 
 ## <a name="submit-a-topology-programmatically"></a>Envío de una topología: de manera programática
 
-Puede implementar mediante programación una topología con el servicio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) proporciona un ejemplo de aplicación de Java que muestra cómo implementar e iniciar una topología a través del servicio Nimbus.
+Puede implementar mediante programación una topología con el servicio Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) proporciona un ejemplo de aplicación Java que muestra cómo implementar e iniciar una topología a través del servicio Nimbus.
 
 ## <a name="monitor-and-manage-visual-studio"></a>Supervisión y administración: Visual Studio
 

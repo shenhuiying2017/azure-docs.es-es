@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: e765c5b0240eb1b0311210dc466d1bc0a43ae58f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cac7ba6f538a8efbd09b27888bd5f1059c2290bd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copia de datos con un sistema de archivos como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,11 @@ Las siguientes propiedades son compatibles con el servicio vinculado de sistema 
 
 | Escenario | "host" en definición de servicio vinculado | "folderPath" en definición de conjunto de datos |
 |:--- |:--- |:--- |
-| Carpeta local en máquina Integration Runtime: <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\\* |D:\\\\ |.\\\\ o carpeta\\\\subcarpeta |
-| Carpeta compartida remota:  <br/><br/>Ejemplos: \\\\myserver\\share\\\* o \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\ |.\\\\ o carpeta\\\\subcarpeta |
+| Carpeta local en máquina Integration Runtime: <br/><br/>Ejemplos: D:\\\* o D:\folder\subfolder\\\* |En JSON: `D:\\`<br/>En la interfaz de usuario: `D:\` |En JSON: `.\\` o `folder\\subfolder`<br>En la interfaz de usuario: `.\` o `folder\subfolder` |
+| Carpeta compartida remota:  <br/><br/>Ejemplos: \\\\myserver\\share\\\* o \\\\myserver\\share\\folder\\subfolder\\\* |En JSON: `\\\\myserver\\share`<br/>En la interfaz de usuario: `\\myserver\share` |En JSON: `.\\` o `folder\\subfolder`<br/>En la interfaz de usuario: `.\` o `folder\subfolder` |
+
+>[!NOTE]
+>Cuando se crean a través de la interfaz de usuario, no es necesario escribir dos barras diagonales (`\\`) de escape como a través de JSON, solo una barra diagonal inversa.
 
 **Ejemplo:**
 

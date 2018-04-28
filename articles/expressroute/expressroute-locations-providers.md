@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 04/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: 4750898b138a726cac15aa7a0e2b8863c46d4ee8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6ea9c64f8363821eb3e61c2979f249816675bf7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -46,7 +46,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **Europa** |Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
 | **Asia** |Este de Asia y Sudeste de Asia |Hong Kong, Singapur, Singapur2 |
 | **Japón** |Oeste de Japón y Este de Japón |Osaka, Tokyo |
-| **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
+| **Australia** |Sudeste de Australia, Este de Australia, Centro de Australia, Centro de Australia 2 |Melbourne, Sidney |
 | **India** |India occidental, India central, India del Sur |Chennai, Mumbai |
 | **Corea del Sur** |Corea Central, Corea del Sur |Busan, Seúl |
 
@@ -150,9 +150,9 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 ## <a name="c1partners"></a>Conectividad a través de proveedores de servicios
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
-| **Ámsterdam** | Equinix y Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet y Telia |
+| **Ámsterdam** | Equinix y Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telia |
 | **Chicago** | Equinix | Lightower, Windstream |
-| **Dallas** | Equinix, Megaport | C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
+| **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Fráncfort** | Telecity | BICS, Nianet y QSC AG |
 | **Hong Kong** | Equinix | Macroview Telecom |
 | **Londres** | Equinix, euNetworks y Telecity | Bezeq International Ltd., Epsilon, Exponential E, HSO, NexGen Networks, Tamares Telecom, Zain |

@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b6701cdc4dd25c0a46193a73d1edd022388bc5ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -219,7 +219,7 @@ Algunos ejemplos comunes de instancias protegidas son máquinas virtuales, servi
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>¿Qué es un almacén de Recovery Services?
-Un almacén de Recovery Services es una entidad de almacenamiento en línea en Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de servicios de Azure, y de servidores y estaciones de trabajo locales. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. En cada suscripción de Azure, es posible crear un máximo de 25 almacenes de Recovery Services por región de Azure. Al pensar en dónde almacenar los datos, no todas las regiones son iguales. Para obtener información acerca de los emparejamientos de regiones y ver otras consideraciones de almacenamiento, consulte [Almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
+Un almacén de Recovery Services es una entidad de almacenamiento en línea en Azure que se usa para contener datos, como copias de seguridad, puntos de recuperación y directivas de copia de seguridad. Puede usar almacenes de Recovery Services para almacenar datos de copia de seguridad de servicios de Azure, y de servidores y estaciones de trabajo locales. Los almacenes de Recovery Services facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reduce al mínimo su sobrecarga administrativa. En cada suscripción de Azure, es posible crear un máximo de 500 almacenes de Recovery Services por región de Azure. Al pensar en dónde almacenar los datos, no todas las regiones son iguales. Para obtener información acerca de los emparejamientos de regiones y ver otras consideraciones de almacenamiento, consulte [Almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
 
 Los almacenes de Backup, que se basaban en Azure Service Manager, fueron la primera versión del almacén. Los almacenes de Recovery Services, que agregan características del modelo de Azure Resource Manager, son la segunda versión del almacén. Consulte el [artículo de introducción al almacén de Recovery Services](backup-azure-recovery-services-vault-overview.md) para una descripción completa de las diferencias en cuanto a características. Ya no se pueden crear almacenes de Backup y todos los almacenes de Backup existentes se han actualizado a almacenes de Recovery Services. Puede usar Azure Portal para administrar los almacenes que se actualizaron a almacenes de Recovery Services.
 

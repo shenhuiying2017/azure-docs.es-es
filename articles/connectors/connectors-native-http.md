@@ -1,11 +1,11 @@
 ---
-title: "Comunicación con cualquier punto de conexión a través de HTTP: Azure Logic Apps | Microsoft Docs"
-description: "Creación de aplicaciones lógicas que se comuniquen con cualquier punto de conexión a través de HTTP"
+title: 'Comunicación con cualquier punto de conexión a través de HTTP: Azure Logic Apps | Microsoft Docs'
+description: Creación de aplicaciones lógicas que se comuniquen con cualquier punto de conexión a través de HTTP
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 3eae7a4a47680fc36849fd413b76a80865cf3c9f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-the-http-action"></a>Introducción a la acción HTTP
 
@@ -145,12 +145,12 @@ Un * significa que es un campo obligatorio.
 | Nombre de propiedad | Tipo de datos | DESCRIPCIÓN |
 | --- | --- | --- |
 | Type* |Tipo |Tipo de autenticación (debe ser `Basic` para la autenticación básica) |
-| Username* |Nombre de usuario |Nombre de usuario que se va a autenticar |
+| Username* |nombre de usuario |Nombre de usuario que se va a autenticar |
 | Password* |contraseña |Contraseña para autenticar. |
 
 > [!TIP]
 > Si quiere usar una contraseña que no se pueda recuperar de la definición, use un parámetro `securestring` y la  
-> [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
+> [función de definición de flujo de trabajo](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()`.
 
 Por ejemplo: 
 
@@ -174,7 +174,7 @@ Se requiere el siguiente objeto de autenticación para la autenticación de cert
 
 > [!TIP]
 > Para usar un parámetro que no se pueda leer en la definición después de guardar la aplicación lógica puede usar un parámetro `securestring` y la  
-> [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
+> [función de definición de flujo de trabajo](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()`.
 
 Por ejemplo: 
 
@@ -198,7 +198,7 @@ Se requiere el siguiente objeto de autenticación para la autenticación de OAut
 | Secret* |secret |El secreto del cliente que solicita el token |
 
 > [!TIP]
-> Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardarse.
+> Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardarse.
 > 
 > 
 

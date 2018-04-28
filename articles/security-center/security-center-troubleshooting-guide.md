@@ -1,11 +1,11 @@
 ---
-title: "Guía de solución de problemas de Azure Security Center | Microsoft Docs"
+title: Guía de solución de problemas de Azure Security Center | Microsoft Docs
 description: Este documento ayuda a solucionar problemas en Azure Security Center.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: yurid
-ms.openlocfilehash: e2e8b16bf720e2be8b8bc8ae81fc944af79dddab
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0c5f7a932cef904abbca25b63cf8e0d96db73c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guía de solución de problemas de Azure Security Center
 Esta guía está destinada a profesionales de tecnologías de la información (TI), analistas de seguridad de la información y administradores de la nube cuyas organizaciones utilizan Azure Security Center y necesitan solucionar problemas relacionados con Security Center.
@@ -39,7 +39,7 @@ Esta guía explica cómo solucionar problemas relacionados con Security Center. 
 El registro de auditoría contiene todas las operaciones de escritura (PUT, POST, DELETE) realizadas en los recursos, pero no incluye las operaciones de lectura (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usan la solución Operations Management Suite y el servicio Log Analytics, para recopilar datos de seguridad de las máquinas virtuales de Azure. Una vez que se ha habilitado la recopilación de datos y se ha instalado correctamente el agente en la máquina de destino, los siguientes procesos deben estar en ejecución:
+Security Center usa Microsoft Monitoring Agent, que es el mismo agente que usa el servicio Log Analytics, para recopilar datos de seguridad de las máquinas virtuales de Azure. Una vez que se ha habilitado la recopilación de datos y se ha instalado correctamente el agente en la máquina de destino, los siguientes procesos deben estar en ejecución:
 
 * HealthService.exe
 
@@ -84,7 +84,7 @@ Existen dos escenarios de instalación que pueden producir resultados diferentes
 Para que los agentes se puedan conectar a Security Center y registrarse ahí, deben tener acceso a los recursos de red, lo que incluye los números de puerto y las direcciones URL de dominio.
 
 - Para los servidores proxy, debe asegurarse de que los recursos de servidor proxy adecuados están configurados en la configuración del agente. Lea este artículo para más información sobre [cómo cambiar la configuración del servidor proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso a OMS. No es necesario realizar ninguna acción en la configuración del agente.
+- Si usa un firewall para restringir el acceso a Internet, debe configurarlo para permitir el acceso a Log Analytics. No es necesario realizar ninguna acción en la configuración del agente.
 
 En la siguiente tabla se muestran los recursos necesarios para la comunicación.
 

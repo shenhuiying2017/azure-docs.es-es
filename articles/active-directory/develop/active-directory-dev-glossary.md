@@ -1,11 +1,11 @@
 ---
 title: Glosario del desarrollador de Azure Active Directory | Microsoft Docs
-description: "Una lista de términos con las características y conceptos normalmente utilizados por los desarrolladores de Azure Active Directory."
+description: Una lista de términos con las características y conceptos normalmente utilizados por los desarrolladores de Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: bryanla
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Guía del desarrollador de Azure Active Directory
 En este artículo se incluyen definiciones de algunos de los conceptos básicos para el desarrollador de Azure Active Directory (AD), que son útiles para obtener información sobre el desarrollo de aplicaciones para Azure AD.
@@ -54,7 +54,7 @@ Para permitir que una aplicación integre y delegue las funciones de administrac
 
 Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
 
-## <a name="authentication"></a>authentication
+## <a name="authentication"></a>Autenticación
 El acto de solicitar a un usuario credenciales legítimas, que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. Por ejemplo, durante una [concesión de autorización de OAuth2](#authorization-grant), el usuario que se autentica está cumpliendo el rol de [propietario del recurso](#resource-owner) o de [aplicación cliente](#client-application), en función de la concesión usada.
 
 ## <a name="authorization"></a>authorization
@@ -77,7 +77,7 @@ Una credencial que representa la [autorización](#authorization) del [propietari
 ## <a name="authorization-server"></a>servidor de autorización
 Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], el servidor responsable de emitir los tokens de acceso al [cliente](#client-application) después de autenticar correctamente al [propietario del recurso](#resource-owner) y obtener su autorización. Un [aplicación cliente](#client-application) interactúa con el servidor de autorización en tiempo de ejecución por medio de sus puntos de conexión de [autorización](#authorization-endpoint) y [token](#token-endpoint), con arreglo a las [concesiones de autorización](#authorization-grant) definidas en OAuth2.
 
-En el caso de la integración de aplicaciones de Azure AD, Azure AD implementa el rol del servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo [API Graph de Microsoft][Microsoft-Graph].
+En el caso de la integración de aplicaciones de Azure AD, Azure AD implementa el rol del servidor de autorización para aplicaciones de Azure AD y las API de servicio de Microsoft, por ejemplo [Microsoft Graph API][Microsoft-Graph].
 
 ## <a name="claim"></a>notificación
 Un [token de seguridad](#security-token) contiene notificaciones, que proporcionan aserciones acerca de una entidad (como una [aplicación cliente](#client-application) o un [propietario del recurso](#resource-owner)) a otra entidad (como el [servidor de recursos](#resource-server)). Las notificaciones son pares de nombre/valor que retransmiten datos sobre el asunto del token (por ejemplo, la entidad de seguridad que autenticó el [servidor de autorización](#authorization-server)). Las notificaciones presentes en cualquier token dependen de varias variables, como el tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación, entre otras.
@@ -116,28 +116,28 @@ También se revelan durante el proceso de [consentimiento](#consent) , ya que pr
 Las solicitudes de permisos se configuran en la pestaña "Aplicaciones"/"Configuración" de [Azure Portal][AZURE-portal], bajo "Permisos necesarios", al seleccionar los "Permisos delegados" y "Permisos de la aplicación" deseados (el último requiere la pertenencia al rol de administrador global). Dado que un [cliente público](#client-application) no puede mantener credenciales con seguridad, solo puede solicitar permisos delegados, mientras que un [cliente confidencial](#client-application) tiene la capacidad de solicitar permisos tanto delegados como de aplicación. El [objeto de aplicación](#application-object) de cliente almacena los permisos declarados en su [propiedad requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>propietario del recurso
-De acuerdo con la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una entidad capaz de conceder acceso a un recurso protegido. Cuando el propietario del recurso es una persona, se conoce como usuario final. Por ejemplo, cuando una [aplicación cliente](#client-application) desea acceder al buzón del usuario a través de la [API Graph de Microsoft][Microsoft-Graph], requiere el permiso del propietario de los recursos del buzón de correo.
+De acuerdo con la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una entidad capaz de conceder acceso a un recurso protegido. Cuando el propietario del recurso es una persona, se conoce como usuario final. Por ejemplo, cuando una [aplicación cliente](#client-application) desea acceder al buzón del usuario a través de [Microsoft Graph API][Microsoft-Graph], requiere el permiso del propietario de los recursos del buzón de correo.
 
 ## <a name="resource-server"></a>servidor de recursos
 Tal como se ha definido por la [plataforma de autorización de OAuth2][OAuth2-Role-Def], un servidor que hospeda recursos protegidos, capaz de aceptar y responder a las solicitudes de recursos protegidos de las [aplicaciones cliente](#client-application) que presentan un [token de acceso](#access-token). También se conoce como servidor de recursos protegidos, o aplicación de recursos.
 
-Un servidor de recursos expone las API y exige el acceso a sus recursos protegidos mediante [ámbitos](#scopes) y [roles](#roles), con el marco de autorización de OAuth 2.0. Por ejemplo, la API Azure AD Graph que proporciona acceso a los datos del inquilino de Azure AD y las API de Office 365 que proporcionan acceso a datos, como el correo electrónico y el calendario. Ambos también son accesibles a través de la [API Graph de Microsoft][Microsoft-Graph].  
+Un servidor de recursos expone las API y exige el acceso a sus recursos protegidos mediante [ámbitos](#scopes) y [roles](#roles), con el marco de autorización de OAuth 2.0. Por ejemplo, Graph API de Azure AD que proporciona acceso a los datos del inquilino de Azure AD y las API de Office 365 que proporcionan acceso a datos, como el correo electrónico y el calendario. Ambos también son accesibles a través de [Microsoft Graph API][Microsoft-Graph].  
 
-Al igual que una aplicación cliente, se establece la configuración de la identidad de la aplicación de recursos a través de [Registro](#application-registration) en un inquilino de Azure AD, que proporciona tanto el objeto de aplicación y como el de entidad de servicio. Algunas API proporcionadas por Microsoft, como la API de Azure AD Graph, han registrado previamente entidades de servicio, que están disponibles en todos los inquilinos durante el aprovisionamiento.
+Al igual que una aplicación cliente, se establece la configuración de la identidad de la aplicación de recursos a través de [Registro](#application-registration) en un inquilino de Azure AD, que proporciona tanto el objeto de aplicación y como el de entidad de servicio. Algunas API proporcionadas por Microsoft, como Graph API de Azure AD, han registrado previamente entidades de servicio, que están disponibles en todos los inquilinos durante el aprovisionamiento.
 
 ## <a name="roles"></a>roles
 Como los [ámbitos](#scopes), los roles proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Hay dos tipos: un rol de "usuario" implementa el control de acceso basado en roles para usuarios o grupos que requieren acceso al recurso, mientras que un rol de "aplicación" implementa lo mismo para las [aplicaciones cliente](#client-application) que requieren acceso.
 
 Los roles son cadenas definidas por recursos (por ejemplo, "Aprobador de gastos", "Solo lectura", "Directory.ReadWrite.All"), administradas en [Azure Portal][AZURE-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad appRoles][AAD-Graph-Sp-Entity] del recurso. Azure Portal también se usa para asignar usuarios a roles de "usuario" y configurar los [permisos de la aplicación](#permissions) del cliente para acceder a un rol de "aplicación".
 
-Para ver una explicación detallada de los roles de aplicación expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para ver un ejemplo de implementación paso a paso, consulte [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] (Control de acceso basado en rol en aplicaciones en la nube con Azure AD).
+Para ver una explicación detallada de los roles de aplicación expuestos por Graph API de Azure AD, consulte los [ámbitos de permisos de Graph API][AAD-Graph-Perm-Scopes]. Para ver un ejemplo de implementación paso a paso, consulte [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] (Control de acceso basado en rol en aplicaciones en la nube con Azure AD).
 
 ## <a name="scopes"></a>ámbitos
 Como los [roles](#roles), los ámbitos proporcionan una forma para que un [servidor de recursos](#resource-server) controle el acceso a los recursos protegidos. Los ámbitos se utilizan para implementar el control de acceso [basado en ámbitos][OAuth2-Access-Token-Scopes] para una [aplicación cliente](#client-application) a la que el propietario haya otorgado acceso delegado al recurso.
 
 Los ámbitos son cadenas definidas por recursos (por ejemplo, "Mail.Read" o "Directory.ReadWrite.All"), administradas en [Azure Portal][AZURE-portal] mediante el [manifiesto de aplicación](#application-manifest) del recurso, y almacenadas en la [propiedad oauth2Permissions][AAD-Graph-Sp-Entity] del recurso. Azure Portal también se utiliza para configurar los [permisos delegados](#permissions) de la aplicación cliente para acceder a un ámbito.
 
-Como procedimiento recomendado para la convención de nomenclatura, utilice un formato "resource.operation.constraint". Para ver una explicación detallada de los ámbitos expuestos por la API Azure AD Graph, consulte los [ámbitos de permisos de API Graph][AAD-Graph-Perm-Scopes]. Para los ámbitos expuestos por los servicios de Office 365, consulte [Office 365 API permissions reference][O365-Perm-Ref] (Referencia a los permisos de la API de Office 365).
+Como procedimiento recomendado para la convención de nomenclatura, utilice un formato "resource.operation.constraint". Para ver una explicación detallada de los ámbitos expuestos por Graph API de Azure AD, consulte los [ámbitos de permisos de Graph API][AAD-Graph-Perm-Scopes]. Para los ámbitos expuestos por los servicios de Office 365, consulte [Office 365 API permissions reference][O365-Perm-Ref] (Referencia a los permisos de la API de Office 365).
 
 ## <a name="security-token"></a>token de seguridad
 Un documento firmado con notificaciones, como un token OAuth2 o una aserción SAML 2.0. En el caso de una [concesión de autorización](#authorization-grant) de OAuth2, un [token de acceso](#access-token) (OAuth2) y un [token de identificador](http://openid.net/specs/openid-connect-core-1_0.html#IDToken) son tipos de token de seguridad, que se implementan como un [JSON Web Token (JWT)][JWT].
@@ -203,7 +203,7 @@ Use la siguiente sección de comentarios para proporcionar comentarios y nos ayu
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

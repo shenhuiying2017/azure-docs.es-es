@@ -1,11 +1,11 @@
 ---
-title: "Creación de una cuenta de Batch en Azure Portal | Microsoft Docs"
+title: Creación de una cuenta de Batch en Azure Portal | Microsoft Docs
 description: Aprenda a crear una cuenta de Azure Batch en Azure Portal para ejecutar cargas de trabajo paralelas a gran escala en la nube
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efe804806cb9c14a483e7393f0e8202897d53d6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
 > [!div class="op_single_selector"]
-> * [portal de Azure](batch-account-create-portal.md)
+> * [Azure Portal](batch-account-create-portal.md)
 > * [Batch Management .NET](batch-management-dotnet.md)
 >
 >
@@ -58,7 +58,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
     d. **Ubicación**: la región de Azure en la que se va a crear la cuenta de Batch. Solo se muestran como opciones las regiones admitidas por su suscripción y grupo de recursos.
 
-    e. **Cuenta de almacenamiento** (opcional): cuenta de Azure Storage de uso general que se asocia a la cuenta de Batch. Se recomienda su uso para la mayoría de las cuentas de Batch. Para más información, consulte [Cuenta de Azure Storage vinculada](#linked-azure-storage-account) en este mismo artículo.
+    e. **Cuenta de almacenamiento** (opcional): cuenta de Azure Storage que se asocia a la cuenta de Batch. Se recomienda su uso para la mayoría de las cuentas de Batch. Para más información, consulte [Cuenta de Azure Storage vinculada](#linked-azure-storage-account) en este mismo artículo.
 
 4. Haga clic en **Crear** para crear la cuenta.
 
@@ -85,11 +85,11 @@ Una vez creada la cuenta, haga clic en ella para acceder a su configuración y p
 
 ## <a name="linked-azure-storage-account"></a>Cuenta de Azure Storage vinculada
 
-Puede vincular una cuenta de Azure Storage de uso general a su cuenta de Batch, algo que resulta muy útil en muchos escenarios. La característica de [paquetes de aplicación](batch-application-packages.md) de Batch usa Azure Blob Storage, tal como hace la biblioteca [Batch File Conventions .NET](batch-task-output.md). Estas características opcionales le ayudan a implementar las aplicaciones que ejecutan las tareas de Batch y a conservar los datos que generan.
+Puede vincular una cuenta de Azure Storage a su cuenta de Batch, algo que resulta muy útil en muchos escenarios. La característica de [paquetes de aplicación](batch-application-packages.md) de Batch usa Azure Blob Storage, tal como hace la biblioteca [Batch File Conventions .NET](batch-task-output.md). Estas características opcionales le ayudan a implementar las aplicaciones que ejecutan las tareas de Batch y a conservar los datos que generan.
 
-Se recomienda crear una cuenta de Storage nueva para que la use exclusivamente su cuenta de Batch. En la actualidad, Azure Batch solo admite el tipo de cuenta de Storage de uso general. Este tipo de cuenta se describe en el paso 5, [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+Para conocer las opciones de cuenta de almacenamiento de Batch, consulte la [introducción a la característica de Batch](batch-api-basics.md#azure-storage-account).
 
-![Creación de una cuenta de almacenamiento de uso general][storage_account]
+![Creación de una cuenta de almacenamiento][storage_account]
 
 > [!NOTE]
 > Tenga cuidado al volver a generar las claves de acceso de una cuenta de Storage vinculada. Vuelva a generar solo una clave de la cuenta de almacenamiento y haga clic en **Sincronizar claves** en la página de la cuenta de almacenamiento vinculada. Espere cinco minutos para que las claves se propaguen a los nodos de proceso de los grupos, y después vuelva a generar y sincronizar la otra clave si es necesario. Si vuelve a generar las dos claves al mismo tiempo, los nodos de proceso no podrán sincronizar ninguna de las claves y perderán el acceso a la cuenta de Almacenamiento.

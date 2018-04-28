@@ -1,33 +1,33 @@
 ---
-title: "Inserción de un informe en Colecciones de áreas de trabajo de Azure Power BI | Microsoft Docs"
-description: "Aprenda a insertar en una aplicación un informe que se encuentre en Power BI Embedded."
+title: Inserción de un informe en Colecciones de áreas de trabajo de Azure Power BI | Microsoft Docs
+description: Aprenda a insertar en una aplicación un informe que se encuentre en Power BI Embedded.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: 56e7ca90132527c0ef9d4bd478e99b75ca055272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserción de un informe en Colecciones de áreas de trabajo de Azure Power BI
 
 Aprenda a insertar en una aplicación un informe que se encuentre en Power BI Embedded.
 
 > [!IMPORTANT]
-> Colecciones de áreas de trabajo de Power BI está en desuso y estará disponible hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para obtener más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de la colección de áreas de trabajo de Power BI Embedded a Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 En este artículo, se examina la forma en que realmente se inserta un informe en una aplicación. Aquí se asume que ya tiene un informe que existe en un área de trabajo de su colección de áreas de trabajo. Si aún no ha dado ese paso, consulte [Introducción a Colecciones de áreas de trabajo de Power BI](get-started.md).
 
@@ -116,7 +116,7 @@ Si usa tokens de inserción, puede restringir el uso de los recursos a los que p
 
 ## <a name="embed-using-javascript"></a>Inserción mediante JavaScript
 
-Una vez que tenga el token de acceso y el identificador del informe, el informe se puede insertar mediante JavaScript. Se requiere instalar el paquete NuGet [Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). El valor de embedUrl será https://embedded.powerbi.com/appTokenReportEmbed.
+Una vez que tenga el token de acceso y el identificador del informe, el informe se puede insertar mediante JavaScript. Se requiere instalar el paquete NuGet [Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). El valor de embedUrl será simplemente https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Puede usar el [ejemplo de inserción de informe JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para probar la funcionalidad. También proporciona ejemplos de código de las distintas operaciones que están disponibles.
@@ -151,7 +151,7 @@ El informe se insertará automáticamente según el tamaño de su contenedor. Pa
 ## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
-[Autenticación y autorización con Colecciones de áreas de trabajo de Power BI](app-token-flow.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 [Paquete Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  

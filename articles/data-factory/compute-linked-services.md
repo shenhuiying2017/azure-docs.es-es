@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shengc
-ms.openlocfilehash: fe4a4962acce06a6448cef8d5c1af398e3965a33
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 806d0db3536a00dea4e421f847cf0f75bcfc218c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Entornos de proceso compatibles con Azure Data Factory
 En este artículo se explican distintos entornos de procesos que se pueden usar para procesar o transformar datos. También se proporcionan detalles acerca de las distintas configuraciones (a petición frente traiga su propia) admitidas por la Factoría de datos al configurar servicios vinculados que vinculan estos entornos de procesos a una Factoría de datos de Azure.
@@ -426,6 +426,65 @@ Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un ser
 | tenant               | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarlo, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí                                      |
 | connectVia           | Integration Runtime que se utilizará para enviar las actividades a este servicio vinculado. Puede usar Azure Integration Runtime o Integration Runtime autohospedado. Si no se especifica, se usará Azure Integration Runtime. | Sin                                        |
 
+
+
+## <a name="azure-databricks-linked-service"></a>Servicio vinculado de Azure Databricks
+Puede crear un **servicio vinculado de Azure Databricks** para registrar el área de trabajo de Databricks que va a utilizar para ejecutar el las cargas de trabajo (notebooks) de Databricks.
+
+### <a name="example---using-new-job-cluster-in-databricks"></a>Ejemplo: uso de un clúster de trabajo nuevo en Databricks
+
+```json
+{
+    "name": "AzureDatabricks_LS",
+    "properties": {
+        "type": "AzureDatabricks",
+        "typeProperties": {
+            "domain": "eastus.azuredatabricks.net",
+            "newClusterNodeType": "Standard_D3_v2",
+            "newClusterNumOfWorker": "1:10",
+            "newClusterVersion": "4.0.x-scala2.11",
+            "accessToken": {
+                "type": "SecureString",
+                "value": "dapif33c9c721144c3a790b35000b57f7124f"
+            }
+        }
+    }
+}
+
+```
+
+### <a name="example---using-existing-interactive-cluster-in-databricks"></a>Ejemplo: uso de un clúster interactivo existente en Databricks
+
+```json
+{
+    "name": " AzureDataBricksLinedService",
+    "properties": {
+      "type": " AzureDatabricks",
+      "typeProperties": {
+        "domain": "https://westeurope.azuredatabricks.net",
+        "accessToken": {
+            "type": "SecureString", 
+            "value": "dapif33c9c72344c3a790b35000b57f7124f"
+          },
+        "existingClusterId": "{clusterId}"
+        }
+}
+
+```
+
+### <a name="properties"></a>Properties (Propiedades)
+
+| Propiedad             | DESCRIPCIÓN                              | Obligatorio                                 |
+| -------------------- | ---------------------------------------- | ---------------------------------------- |
+| Nombre                 | Nombre del servicio vinculado               | Sí   |
+| Tipo                 | La propiedad type se debe establecer en **AzureDatabricks**. | Sí                                      |
+| dominio               | Especifica la región de Azure según corresponda en función de la región del área de trabajo de Databricks. Ejemplo: https://eastus.azuredatabricks.net | Sí                                 |
+| accessToken          | El token de acceso es necesario para que Data Factory se autentique en Azure Databricks. El token de acceso debe generarse a partir del área de trabajo de Databricks. [Aquí](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token) encontrará más pasos detallados para encontrar el token de acceso.  | Sí                                       |
+| existingClusterId    | Identificador de un clúster existente para ejecutar todos los trabajos en él. Debe tratarse de un clúster interactivo que ya se haya creado. Debe reiniciar manualmente el clúster si deja de responder. Databricks sugiere la ejecución de trabajos en clústeres nuevos para mayor confiabilidad. Encontrará el identificador del clúster interactivo en el área de trabajo de Databricks -> Clusters -> Interactive Cluster Name -> Configuration -> Tags (Clústeres -> Nombre del clúster interactivo -> Configuración -> Etiquetas). [Más detalles](https://docs.databricks.com/user-guide/clusters/tags.html) | Sin  
+| newClusterVersion    | Versión de Spark del clúster. Creará de un clúster de trabajo en Databricks. | Sin   |
+| newClusterNumOfWorker| Número de nodos de trabajo que debería tener este clúster. Los clústeres tienen un controlador de Spark y num_workers ejecutores para un total de num_workers + 1 nodos de Spark. Una cadena con formato Int32, como "1" significa que numOfWorker es 1 o que "1:10" significa que la escala automática va de 1 como mínimo a 10 como máximo.  | Sin                 |
+| newClusterNodeType   | Este campo codifica, mediante un solo valor, los recursos disponibles para cada uno de los nodos de Spark de este clúster. Por ejemplo, los nodos de Spark se pueden aprovisionar y optimizar para cargas de trabajo intensivas de memoria o proceso. Este campo es obligatorio para el nuevo clúster                | Sin                |
+| newClusterSparkConf  | Conjunto de pares de clave-valor de configuración de Spark opcionales especificado por el usuario. Los usuarios también pueden pasar una cadena de opciones adicionales de JVM al controlador y los ejecutores con spark.driver.extraJavaOptions y spark.executor.extraJavaOptions respectivamente. | Sin   |
 
 
 ## <a name="azure-sql-database-linked-service"></a>Servicio vinculado a Azure SQL Database

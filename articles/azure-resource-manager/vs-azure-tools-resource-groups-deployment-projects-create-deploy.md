@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2017
+ms.date: 04/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: d647206b882059e0651223dc84f2ad2a314f8a87
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: bd0680a16596931b5f595bbdd4e48414c8dbde73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creación e implementación de grupos de recursos de Azure mediante Visual Studio
 Con Visual Studio y [Azure SDK](https://azure.microsoft.com/downloads/), puede crear un proyecto que implementa su infraestructura y código en Azure. Por ejemplo, puede definir el host de web, el sitio web y la base de datos para una aplicación, e implementar esa infraestructura junto con el código. O bien, puede definir una máquina virtual, una red virtual y una cuenta de almacenamiento e implementar esa infraestructura junto con un script que se ejecuta en la máquina virtual. El proyecto de implementación del **grupo de recursos de Azure** permite implementar todos los recursos necesarios en una sola operación que se puede repetir. Para más información sobre la implementación y administración de recursos, consulte [Información general de Azure Resource Manager](resource-group-overview.md).
@@ -53,7 +53,7 @@ En este procedimiento, va a crear un proyecto de grupo de recursos de Azure con 
    
     Dado que elegimos la plantilla de aplicación web + SQL para este ejemplo, verá los archivos a continuación: 
    
-   | Nombre de archivo | Description |
+   | Nombre de archivo | DESCRIPCIÓN |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Un script de PowerShell que invoca los comandos de PowerShell que se implementarán en Azure Resource Manager.<br />**Nota** Visual Studio utiliza este script de PowerShell para implementar su plantilla. Los cambios que realice a este script también afectan a la implementación en Visual Studio; por tanto, tenga cuidado. |
    | WebSiteSQLDatabase.json |La plantilla de Resource Manager que define la infraestructura que desea implementar en Azure, y los parámetros que puede proporcionar durante la implementación. También define las dependencias entre los recursos, de modo que Resource Manager implemente los recursos en el orden correcto. |
@@ -148,7 +148,7 @@ Ahora está preparado para implementar el proyecto. Cuando implementa un proyect
 5. Elija el botón **Implementar** para implementar el proyecto en Azure. Se abre una consola de PowerShell fuera de la instancia de Visual Studio. Cuando se lo pidan, escriba la contraseña del administrador de SQL Server en la consola de PowerShell. **Puede que la consola de PowerShell esté oculta detrás de otros elementos o minimizada en la barra de tareas.** Busque esta consola y selecciónela para proporcionar la contraseña.
    
    > [!NOTE]
-   > Visual Studio puede pedirle que instale los cmdlets de Azure PowerShell. Necesita los cmdlets de Azure PowerShell para implementar correctamente los grupos de recursos. Si se le solicita, instálelos.
+   > Visual Studio puede pedirle que instale los cmdlets de Azure PowerShell. Necesita los cmdlets de Azure PowerShell para implementar correctamente los grupos de recursos. Si se le solicita, instálelos. Para obtener más información, vea [Install and Configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
    > 
    > 
 6. La implementación puede tardar unos minutos. En la ventana **Salida** puede ver el estado de la implementación. Cuando se termina la implementación, el último mensaje indica una implementación satisfactoria de una forma parecida a esta:
@@ -216,6 +216,102 @@ A estas alturas ha implementado la infraestructura de la aplicación, pero no ha
     
      ![mostrar la aplicación implementada](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
+## <a name="add-an-operations-dashboard-to-your-deployment"></a>Adición de un panel de operaciones a la implementación
+Ahora que hemos creado una solución es el momento de hacer que sea operativa. No está limitado únicamente a los recursos que están disponibles a través de la interfaz de Visual Studio. Se puede aprovechar el uso de los paneles compartidos, que se definen como recursos en JSON. Para ello, edite la plantilla y agregue un recurso personalizado. 
+
+1. Abra el archivo WebsiteSqlDeploy.json y agregue el siguiente bloque de código json después de los recursos de la cuenta de almacenamiento y antes del símbolo ] de cierre de la sección de recursos.
+
+```json
+    ,{
+      "properties": {
+        "lenses": {
+          "0": {
+            "order": 0,
+            "parts": {
+              "0": {
+                "position": {
+                  "x": 0,
+                  "y": 0,
+                  "colSpan": 4,
+                  "rowSpan": 6
+                },
+                "metadata": {
+                  "inputs": [
+                    {
+                      "name": "resourceGroup",
+                      "isOptional": true
+                    },
+                    {
+                      "name": "id",
+                      "value": "[resourceGroup().id]",
+                      "isOptional": true
+                    }
+                  ],
+                  "type": "Extension/HubsExtension/PartType/ResourceGroupMapPinnedPart"
+                }
+              },
+              "1": {
+                "position": {
+                  "x": 4,
+                  "y": 0,
+                  "rowSpan": 3,
+                  "colSpan": 4
+                },
+                "metadata": {
+                  "inputs": [],
+                  "type": "Extension[azure]/HubsExtension/PartType/MarkdownPart",
+                  "settings": {
+                    "content": {
+                      "settings": {
+                        "content": "__Customizations__\n\nUse this dashboard to create and share the operational views of services critical to the application performing. To customize simply pin components to the dashboard and then publish when you're done. Others will see your changes when you publish and share the dashboard.\n\nYou can customize this text too. It supports plain text, __Markdown__, and even limited HTML like images <img width='10' src='https://portal.azure.com/favicon.ico'/> and <a href='https://azure.microsoft.com' target='_blank'>links</a> that open in a new tab.\n",
+                        "title": "Operations",
+                        "subtitle": "[resourceGroup().name]"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "metadata": {
+          "model": {
+            "timeRange": {
+              "value": {
+                "relative": {
+                  "duration": 24,
+                  "timeUnit": 1
+                }
+              },
+              "type": "MsPortalFx.Composition.Configuration.ValueTypes.TimeRange"
+            }
+          }
+        }
+      },
+      "apiVersion": "2015-08-01-preview",
+      "name": "[concat('ARM-',resourceGroup().name)]",
+      "type": "Microsoft.Portal/dashboards",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "hidden-title": "[concat('OPS-',resourceGroup().name)]"
+      }
+    }
+}
+```
+
+2. Vuelva a implementar el grupo de recursos y, cuando examine el panel en Azure Portal, verá que el panel compartido se ha agregado a la lista de opciones. 
+
+    ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+
+
+
+   > [!NOTE] 
+   > El acceso al panel se puede administrar mediante grupos RBAC y las personalizaciones se pueden publicar en el recurso después de su implementación. Tenga en cuenta que al volver a implementar el grupo de recursos se restablecerá el valor predeterminado de la plantilla. Considere la posibilidad de actualizar la plantilla con las personalizaciones. Para obtener ayuda acerca de cómo hacerlo, consulte la [creación de paneles de Azure mediante programación](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+
+
+    ![Panel personalizado](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
+    
+    
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre la administración de recursos en el portal, consulte [Administración de los recursos de Azure a través del portal](resource-group-portal.md).
 * Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).

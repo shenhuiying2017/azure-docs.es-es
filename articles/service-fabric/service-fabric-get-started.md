@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 4593f6f01759e41ee3cf4262b2eeb5295546e955
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1012cdc73e721c65502d749ce27eb6e9cbda6bf4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
@@ -84,6 +84,7 @@ Ahora que ha terminado la configuración del entorno de desarrollo, puede empeza
 * [Introducción a la implementación y actualización de aplicaciones en un clúster local](service-fabric-get-started-with-a-local-cluster.md)
 * [Preparación del entorno de desarrollo Linux en Windows](service-fabric-local-linux-cluster-windows.md)
 * [Más información sobre los modelos de programación: Reliable Services y Reliable Actors](service-fabric-choose-framework.md)
+* [Restauración y copia de seguridad periódicas de Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 * [Consulta de los ejemplos de código de Service Fabric en GitHub](https://aka.ms/servicefabricsamples)
 * [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 * [Siga la ruta de aprendizaje de Service Fabric para obtener una amplia introducción a la plataforma](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)

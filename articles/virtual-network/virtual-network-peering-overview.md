@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 69264ac7ffe8124b964a10c11aacaca5c712fd63
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dcb46c7127590f1986fe1fd66c2f6ac4fd8b107d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="virtual-network-peering"></a>Emparejamiento de redes virtuales de Azure
 
-El emparejamiento de redes virtuales permite conectar sin problemas dos [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. 
+El emparejamiento de redes virtuales permite conectar sin problemas dos [redes virtuales](virtual-networks-overview.md) de Azure. Una vez emparejadas, a efectos de conectividad las redes virtuales aparecen como una sola. El tráfico entre las máquinas virtuales de las redes virtuales emparejadas se enruta a través de la infraestructura de la red troncal de Microsoft, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual a través únicamente de direcciones IP *privadas*. Azure admite:
+* Emparejamiento de redes virtuales: conexión de redes virtuales dentro de la misma región de Azure
+* Emparejamiento de redes virtuales globales: conexión de redes virtuales por regiones de Azure
 
-Las ventajas del uso del emparejamiento de redes virtuales son las siguientes:
+Las ventajas del uso del emparejamiento de redes virtuales, ya sean locales o globales, son las siguientes:
 
 * El tráfico de red entre redes virtuales emparejadas es privado. El tráfico entre las redes virtuales se mantiene en la red troncal de Microsoft. No se requieren ninguna red pública de Internet, puertas de enlace o cifrado en la comunicación entre las redes virtuales.
 * Baja latencia, conexión de gran ancho de banda entre los recursos de redes virtuales diferentes.

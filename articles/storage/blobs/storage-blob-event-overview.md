@@ -8,13 +8,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="reacting-to-blob-storage-events"></a>Reacción a eventos de Blob Storage
+# <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
 Los eventos de Azure Storage permiten a las aplicaciones reaccionar a la creación y eliminación de blobs mediante arquitecturas sin servidor modernas. Esto se consigue sin necesidad de código complejo ni de servicios de sondeo costosos e ineficientes.  En su lugar, se insertan eventos a través de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), o incluso su propio agente de escucha http personalizado y solo paga por lo que utiliza. 
 
@@ -24,7 +24,7 @@ La disponibilidad de los eventos de almacenamiento está asociada a la [disponib
 
 ![Modelo de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## <a name="blob-storage-accounts"></a>Cuentas de Blob Storage
+## <a name="blob-storage-accounts"></a>Cuentas de Almacenamiento de blobs
 Los eventos de Blob Storage están disponibles en las [cuentas de Blob Storage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) y en las [cuentas de almacenamiento de uso general v2](../common/storage-account-options.md#general-purpose-v2). Las cuentas de **uso general v2 (GPv2)**  son cuentas de almacenamiento que admiten todas las características de todos los servicios de almacenamiento, como Blob, Files, Queue y Table. Una **cuenta de Blob Storage** es una cuenta de almacenamiento especializada para almacenar los datos no estructurados como blobs (objetos) en Azure Storage. Las cuentas de Blob Storage son similares a las cuentas de almacenamiento de uso general y comparten las excelentes características de rendimiento, escalabilidad, disponibilidad y durabilidad que se usan en la actualidad, incluida la coherencia total de la API con blobs en bloques y blobs en anexos. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs. 
 
 ## <a name="available-blob-storage-events"></a>Eventos de Blob Storage disponibles
@@ -39,7 +39,7 @@ Event Grid usa las [suscripciones a eventos](../../event-grid/concepts.md#event-
 Los eventos de Blob Storage contienen toda la información necesaria para responder a cualquier cambio que se produzca en los datos.  Puede identificar un evento de Blob Storage porque la propiedad eventType comienza por "Microsoft.Storage".  
 Puede encontrar información adicional acerca del uso de las propiedades de los eventos de Event Grid en [Esquema de eventos de Event Grid](../../event-grid/event-schema.md).  
 
-> |Propiedad|type|DESCRIPCIÓN|
+> |Propiedad|Escriba|DESCRIPCIÓN|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Identificador completo de Azure Resource Manager de la cuenta de almacenamiento que emite el evento.|
 > |subject|string|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
@@ -92,7 +92,7 @@ Las suscripciones de eventos de blobs se pueden filtrar en función del tipo de 
 
 El asunto de los eventos de Blob Storage utiliza el formato:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Para que coincida con todos los eventos de una cuenta de almacenamiento, los fil
 
 Para que coincida con eventos de blobs creados en un conjunto de contenedores que comparten un prefijo, utilice un filtro `subjectBeginsWith` como:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Para que coincida con eventos de blobs creados en un contenedor concreto, utilice un filtro `subjectBeginsWith` como:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Para que coincida con eventos de blobs creados en un contenedor concreto que comparten un prefijo de nombre de blob, utilice un filtro `subjectBeginsWith` como:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

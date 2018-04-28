@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/29/2017
+ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: a56c9d57c802e869ee0de4c9bde2ab5e319f34da
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 076693250faaafe85df5b8c1ffcbc657b9201f3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: Compilación de una aplicación de SQL API con Node.js y Azure Portal
 
@@ -39,17 +39,35 @@ En esta guía de inicio rápido se muestra cómo crear una cuenta de [SQL API](s
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>Incorporación de una colección
+## <a name="add-a-collection"></a>Agregar una colección
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+
+## <a name="add-sample-data"></a>Adición de datos de ejemplo
+
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+
+## <a name="query-your-data"></a>Consulta de los datos
+
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Clonación de la aplicación de ejemplo
 
 Ahora vamos a clonar una aplicación de SQL API desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra una ventana de terminal de Git, como Git Bash, y `CD` en un directorio de trabajo.  
+1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
 
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
@@ -57,7 +75,9 @@ Ahora vamos a clonar una aplicación de SQL API desde GitHub, establecer la cade
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo `app.js` y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+
+Los fragmentos de código siguientes se han tomado del archivo app.js.
 
 * Se inicializa `documentClient`.
 
@@ -142,10 +162,7 @@ Ahora puede volver al Explorador de datos y ver, consultar, modificar y trabajar
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
-
-1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

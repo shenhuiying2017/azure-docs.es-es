@@ -2,7 +2,7 @@
 title: Uso de ScaleR y SparkR con Azure HDInsight | Microsoft Docs
 description: Uso de ScaleR y SparkR con R Server y HDInsight
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -10,37 +10,37 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinación de ScaleR y SparkR en HDInsight
 
-En este artículo se muestra cómo predecir retrasos en la llegada de los vuelos con un modelo de regresión logística de **ScaleR** a partir de los datos de retrasos de vuelos y la meteorología combinados con **SparkR**. Este escenario muestra la funcionalidad de ScaleR para la manipulación de datos en Spark que se usa con Microsoft R Server para el análisis. La combinación de estas tecnologías permite aplicar la funcionalidad más reciente del procesamiento distribuido.
+Este documento muestra cómo predecir retrasos en la llegada de vuelos con un modelo de regresión logística **ScaleR**. En el ejemplo se usan datos meteorológicos y de retraso de vuelos, combinados mediante **SparkR**.
 
 Aunque ambos paquetes se procesan en el motor de ejecución de Spark de Hadoop, se les impide compartir datos en memoria, ya que cada uno de ellos requiere sus correspondientes sesiones de Spark. Hasta que este problema se solucione en una próxima versión de R Server, la solución alternativa consiste en mantener sesiones de Spark no superpuestas e intercambiar datos mediante archivos intermedios. Las siguientes instrucciones muestran que estos requisitos son fáciles de lograr.
 
-Usaremos un ejemplo compartido inicialmente en una charla en Strata 2016 por Mario Inchiosa y Roni Burd, que también está disponible en el seminario web [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Creación de una plataforma escalable de ciencia de datos con R). En el ejemplo se utiliza SparkR para combinar el conjunto de datos de retraso de llegada de las líneas aéreas conocido con los datos meteorológicos en aeropuertos de salida y llegada. Acto seguido, los datos combinados se utilizan como entrada para un modelo de regresión logística de ScaleR para predecir los retrasos en vuelos llegada.
+Este ejemplo se presentó originalmente en una charla en Strata 2016 de Mario Inchiosa y Roni Burd. Esta charla puede encontrarse en [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Creación de una plataforma de ciencia de datos escalable con R).
 
-El código utilizado se escribió originalmente para R Server que se ejecuta en Spark en un clúster de HDInsight en Azure. Pero el concepto de mezclar el uso de SparkR y ScaleR en un script también es válido en el contexto de entornos locales. En las siguientes secciones, se presupone un nivel de conocimiento intermedio de R y la biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de R Server. También presentamos el uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) al recorrer este escenario.
+El código se escribió originalmente para R Server que se ejecuta en Spark en un clúster de HDInsight en Azure. Pero el concepto de mezclar el uso de SparkR y ScaleR en un script también es válido en el contexto de entornos locales. 
+
+En los pasos de este documento se presupone que tiene un nivel de conocimiento intermedio de R y la biblioteca [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) de R Server. También se presentará el uso de [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) al recorrer este escenario.
 
 ## <a name="the-airline-and-weather-datasets"></a>Los conjuntos de datos de líneas aéreas y meteorológicos
 
-El conjunto de datos público de líneas aéreas **AirOnTime08to12CSV** contiene información detallada sobre las llegadas y salidas de todos los vuelos comerciales dentro de EE. UU., desde octubre de 1987 a diciembre de 2012. Se trata de un conjunto de datos grande: hay casi 150 millones de registros en total. Es algo inferior a 4 GB desempaquetado. Está disponible en los [archivos del gobierno de EE. UU](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Para su conveniencia, está disponible como archivo zip (AirOnTimeCSV.zip) que contiene un conjunto de 303 archivos CSV separados por meses del [repositorio de conjuntos de datos de Revolution Analytics](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/).
+Los datos de vuelo están disponibles en los [archivos del gobierno de EE. UU](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). También están disponibles como archivo zip de [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Para ver los efectos de la meteorología en el retraso de los vuelos, necesitamos también los datos meteorológicos de cada uno de los aeropuertos. Estos datos se pueden descargar como archivos zip sin procesar por mes del [repositorio de la Administración Nacional Oceánica y Atmosférica](http://www.ncdc.noaa.gov/orders/qclcd/). Para los fines de este ejemplo, extraemos datos meteorológicos del período comprendido entre mayo de 2007 y diciembre de 2012 y usamos los archivos de datos por hora dentro de cada uno de los 68 archivos zip mensuales. Los archivos zip mensuales también contienen una asignación (AAAAMMstation.txt) entre el identificador de la estación meteorológica (WBAN), el aeropuerto con el que está asociada (CallSign) y el ajuste de la zona horaria del aeropuerto de UTC (TimeZone). Toda esta información es necesaria cuando se realiza la combinación con los datos de retraso de las líneas aéreas y meteorológicos.
+Los datos meteorológicos se pueden descargar como archivos zip sin procesar por mes del [repositorio de la Administración Nacional Oceánica y Atmosférica](http://www.ncdc.noaa.gov/orders/qclcd/). Para este ejemplo, descargue los datos correspondientes al periodo entre mayo de 2007 y diciembre de 2012. Use los archivos de datos por hora y el archivo `YYYYMMMstation.txt` en cada uno de los archivos zip. 
 
 ## <a name="setting-up-the-spark-environment"></a>Configuración del entorno de Spark
 
-El primer paso es configurar el entorno de Spark. Empezamos por apuntar al directorio que contiene nuestros directorios de datos de entrada, crear un contexto de proceso de Spark y crear una función de registro para el registro informativo en la consola:
+Utilice el código siguiente para configurar el entorno de Spark:
 
 ```
 workDir        <- '~'  
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Luego, agregamos "Spark_Home" a la ruta de acceso de búsqueda de paquetes R de forma que podamos usar SparkR e inicializamos una sesión de SparkR:
+A continuación, agregue `Spark_Home` a la ruta de búsqueda para paquetes de R. Al hacerlo, podrá usar SparkR e inicializar una sesión de SparkR:
 
 ```
 #..setup for use of SparkR  
@@ -108,7 +108,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Preparación de los datos meteorológicos
 
-Para preparar los datos meteorológicos, los subagrupamos en las columnas necesarias para el modelado: 
+Para preparar los datos meteorológicos, subagrúpelos en las columnas necesarias para el modelado: 
 
 - "Visibility"
 - "DryBulbCelsius"
@@ -117,17 +117,9 @@ Para preparar los datos meteorológicos, los subagrupamos en las columnas necesa
 - "WindSpeed"
 - "Altimeter"
 
-A continuación, agregamos un código de aeropuerto asociado a la estación meteorológica y convertimos las mediciones de la hora local a UTC.
+A continuación, agregue un código de aeropuerto asociado a la estación meteorológica y convierta las mediciones de la hora local a UTC.
 
-Para comenzar, creamos un archivo para asignar la información de la estación meteorológica (WBAN) a un código de aeropuerto. Podríamos obtener esta correlación del archivo de asignación incluido con los datos meteorológicos. Para ello, asignaríamos el campo *CallSign* (por ejemplo, LAX) del archivo de datos meteorológicos a *Origin* de los datos de la compañía aérea. Sin embargo, resulta que tenemos otra asignación que se asigna *WBAN* a *AirportID* (por ejemplo, 12892 para LAX) e incluye *TimeZone* que se ha guardado en un archivo CSV denominado “wban-to-airport-id-tz.CSV” que podemos usar. Por ejemplo:
-
-| AirportID | WBAN | TimeZone
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-El código siguiente lee cada uno de los archivos de datos meteorológicos sin procesar por hora, los subagrupa en las columnas que necesitamos, combina el archivo de asignación de la estación meteorológica, ajusta las horas y fechas de medidas a UTC y luego escribe una nueva versión del archivo:
+Para comenzar, cree un archivo para asignar la información de la estación meteorológica (WBAN) a un código de aeropuerto. El código siguiente lee cada uno de los archivos de datos meteorológicos sin procesar por hora, los subagrupa en las columnas que necesitamos, combina el archivo de asignación de la estación meteorológica, ajusta las horas y fechas de medidas a UTC y luego escribe una nueva versión del archivo:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time

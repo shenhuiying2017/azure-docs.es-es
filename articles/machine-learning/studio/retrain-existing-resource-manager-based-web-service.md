@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: 67d75a28ba65dbdc0a3a105f9e41a1c4f02f2615
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f870bf1a282d7a044bb876e0015962b4f520a15f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reciclaje de un servicio web predictivo existente
 En este documento se describe el proceso de reciclaje para el escenario siguiente:
@@ -26,8 +26,8 @@ En este documento se describe el proceso de reciclaje para el escenario siguient
 * Dispone de un experimento de entrenamiento y un experimento predictivo que se ha implementado como un servicio web de operaciones.
 * Tiene nuevos datos que desea que el servicio web predictivo utilice para realizar su puntuación.
 
-> [!NOTE] 
-> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
+> [!NOTE]
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
 
 A partir de su servicio web existente y los experimentos, debe seguir estos pasos:
 
@@ -54,7 +54,7 @@ Para actualizar el experimento de entrenamiento:
 
 Ejecute el experimento.
 
-Después, debe implementar el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo.  
+Después, debe implementar el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo.
 
 En la parte inferior del lienzo del experimento, haga clic en **Set Up Web Service** (Configurar servicio web) y después seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). El portal de servicios web de Azure Machine Learning se abre en la página **Deploy Web service** (Implementar servicio web). Escriba un nombre para el servicio web y elija un plan de pago y después haga clic en **Implementar**. Solo puede usar el método Ejecución de lotes para crear modelos de entrenamiento.
 
@@ -84,7 +84,7 @@ Localice la declaración de **apikey**:
 En la sección **Basic consumption info** (Información básica sobre consumo) de la página **Consume** (Consumo), localice la clave principal y cópiela en la declaración de **apikey**.
 
 ### <a name="update-the-azure-storage-information"></a>Actualización de la información de Azure Storage
-El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo, "C:\temp\CensusIpnput.csv") en Azure Storage, lo procesa y escribe los resultados de nuevo en Azure Storage.  
+El código de ejemplo de BES carga un archivo desde una unidad local (por ejemplo, "C:\temp\CensusIpnput.csv") en Azure Storage, lo procesa y escribe los resultados de nuevo en Azure Storage.
 
 Después de ejecutar el experimento, el flujo de trabajo resultante debe ser similar al siguiente:
 
@@ -126,7 +126,7 @@ El siguiente es un ejemplo de resultado de reciclaje:
 ## <a name="evaluate-the-retraining-results"></a>Evaluación de los resultados de reciclaje
 Al ejecutar la aplicación, la salida incluye la dirección URL y el token de firmas de acceso compartido que son necesarios para tener acceso a los resultados de evaluación.
 
-Podrá ver los resultados de rendimiento del modelo reciclado combinando *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de salida de *output2* (como se muestra en la imagen de la salida de reciclado anterior) y copiando y pegando la dirección URL completa en la barra de direcciones del explorador.  
+Podrá ver los resultados de rendimiento del modelo reciclado combinando *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de salida de *output2* (como se muestra en la imagen de la salida de reciclado anterior) y copiando y pegando la dirección URL completa en la barra de direcciones del explorador.
 
 Revise los resultados para determinar si el modelo recientemente entrenado funciona lo suficientemente bien como para reemplazar el existente.
 
@@ -136,7 +136,7 @@ Copie *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de s
 Al reciclar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado. La definición de servicio web es una representación interna del modelo entrenado del servicio web y no es modificable directamente. Asegúrese de que va a recuperar la definición de servicio web para el experimento predictivo y no para el experimento de entrenamiento.
 
 ## <a name="sign-in-to-azure-resource-manager"></a>Iniciar sesión en Azure Resource Manager
-Primero debe iniciar sesión en la cuenta de Azure en el entorno de PowerShell mediante el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
+Primero debe iniciar sesión en la cuenta de Azure en el entorno de PowerShell mediante el cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition-object"></a>Obtener el objeto de definición del servicio web
 A continuación, obtenga el objeto de definición de servicio web, llamando al cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx).

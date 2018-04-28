@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 8ca129640db862f6031325279cc98c1e08dcef59
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -113,6 +113,10 @@ Una vez finalizada la restauración, busque el servidor nuevo y compruebe que lo
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for PostgreSQL esté disponible.  
 
 Para crear un servidor con una copia de seguridad con redundancia geográfica, use el comando `az postgres server georestore` de la CLI de Azure.
+
+> [!NOTE]
+> Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
+>
 
 Para restaurar geográficamente el servidor, en el símbolo del sistema de la CLI de Azure, escriba el siguiente comando:
 

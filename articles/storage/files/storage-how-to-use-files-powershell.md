@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c30bcc293cfe57452844dd74378593c234146802
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Administración de recursos compartidos de archivos de Azure mediante Azure PowerShell 
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows, Linux y macOS. En esta guía se describen los conceptos básicos sobre cómo trabajar con recursos compartidos de archivos de Azure mediante PowerShell. En este artículo, aprenderá a:
@@ -34,10 +34,10 @@ Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita](https://
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si desea instalar y usar PowerShell de forma local, para esta guía se requiere la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Para averiguar qué versión del módulo de Azure PowerShell está ejecutando, ejecute `Get-Module -ListAvailable AzureRM`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+Si desea instalar y usar PowerShell de forma local, para esta guía se requiere la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Para averiguar qué versión del módulo de Azure PowerShell está ejecutando, ejecute `Get-Module -ListAvailable AzureRM`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Si ya no tiene un grupo de recursos de Azure, puede crear uno nuevo con el cmdlet [`New-AzureRmResourceGroup`](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Si ya no tiene un grupo de recursos de Azure, puede crear uno nuevo con el cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región Este de EE. UU.:
 
@@ -70,15 +70,17 @@ New-AzureStorageShare `
 > [!Important]  
 > Los nombres de recursos compartidos deben estar formados por letras minúsculas, números y guiones sencillos, pero no pueden empezar con un guion. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="manipulating-the-contents-of-the-azure-file-share"></a>Manipulación del contenido del recurso compartido de archivos de Azure
-Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo con SMB en [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). Como alternativa, puede manipular el recurso compartido de archivos de Azure con el módulo Azure PowerShell. Esto supone una mejora con respecto al montaje del recurso compartido de archivos con SMB, dado que todas las solicitudes realizadas con PowerShell se realizan con la API REST File lo que le permite crear, modificar y eliminar archivos y directorios en el recurso compartido de archivos desde:
+## <a name="work-with-the-contents-of-the-azure-file-share"></a>Uso del contenido de un recurso compartido de archivos de Azure
+Ahora que ha creado un recurso compartido de archivos de Azure, puede montarlo con SMB en [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). Como alternativa, puede trabajar con el recurso compartido de archivos de Azure con el módulo Azure PowerShell. Esto supone una mejora con respecto al montaje del recurso compartido de archivos con SMB, dado que todas las solicitudes realizadas con PowerShell se realizan con la API REST File lo que le permite crear, modificar y eliminar archivos y directorios en el recurso compartido de archivos desde:
 
 - PowerShell Cloud Shell (que no puede montar recursos compartidos de archivos sobre SMB).
 - Clientes que no pueden montar recursos compartidos de SMB, como los clientes locales que no tienen desbloqueado el puerto 445.
 - Escenarios sin servidor, como en [Azure Functions](../../azure-functions/functions-overview.md). 
 
+
 ### <a name="create-directory"></a>Creación del directorio
-Para crear un nuevo directorio denominado *myDirectory* en la raíz del recurso compartido de archivos de Azure, use el cmdlet [`New-AzureStorageDirectory`](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+Para crear un nuevo directorio denominado *myDirectory* en la raíz del recurso compartido de archivos de Azure, use el cmdlet [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory).
+
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `
@@ -88,7 +90,7 @@ New-AzureStorageDirectory `
 ```
 
 ### <a name="upload-a-file"></a>Cargar un archivo
-Para demostrar cómo cargar un archivo mediante el cmdlet [`Set-AzureStorageFileContent` ](/powershell/module/azure.storage/set-azurestoragefilecontent), primero es necesario crear un archivo dentro de la unidad temporal de PowerShell Cloud Shell donde cargar. 
+Para demostrar cómo cargar un archivo mediante el cmdlet [Set-AzureStorageFileContent](/powershell/module/azure.storage/set-azurestoragefilecontent), primero es necesario crear un archivo dentro de la unidad temporal de PowerShell Cloud Shell donde cargar. 
 
 Este ejemplo pone la fecha y hora actuales en un nuevo archivo en el disco temporal y, a continuación, lo carga en el recurso compartido de archivos.
 
@@ -106,14 +108,14 @@ Set-AzureStorageFileContent `
 
 Si está ejecutando PowerShell localmente, debe sustituir `C:\Users\ContainerAdministrator\CloudDrive\` con una ruta de acceso que exista en la máquina.
 
-Después de cargar el archivo, puede usar el cmdlet [`Get-AzureStorageFile`](/powershell/module/Azure.Storage/Get-AzureStorageFile) para asegurarse de que el archivo se cargó en el recurso compartido de archivos de Azure. 
+Después de cargar el archivo, puede usar el cmdlet [Get-AzureStorageFile](/powershell/module/Azure.Storage/Get-AzureStorageFile) para asegurarse de que el archivo se cargó en el recurso compartido de archivos de Azure. 
 
 ```azurepowershell-interactive
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare" -Path "myDirectory" 
 ```
 
 ### <a name="download-a-file"></a>Descarga de un archivo
-Puede usar el cmdlet [`Get-AzureStorageFileContent`](/powershell/module/azure.storage/get-azurestoragefilecontent) para descargar una copia del archivo que acaba de cargar en la unidad temporal de Cloud Shell.
+Puede usar el cmdlet [Get-AzureStorageFileContent](/powershell/module/azure.storage/get-azurestoragefilecontent) para descargar una copia del archivo que acaba de cargar en la unidad temporal de Cloud Shell.
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
@@ -136,7 +138,7 @@ Get-ChildItem -Path "C:\Users\ContainerAdministrator\CloudDrive"
 ``` 
 
 ### <a name="copy-files"></a>Copiar archivos
-Una tarea habitual consiste en copiar los archivos de un recurso compartido de archivos a otro o entre contenedores de almacenamiento de Azure Blob. Para demostrar esta funcionalidad, puede crear un nuevo recurso compartido y copie el archivo recién cargado en este nuevo recurso compartido con el cmdlet [`Start-AzureStorageFileCopy`](/powershell/module/azure.storage/start-azurestoragefilecopy). 
+Una tarea habitual consiste en copiar los archivos de un recurso compartido de archivos a otro o entre contenedores de almacenamiento de Azure Blob. Para demostrar esta funcionalidad, puede crear un nuevo recurso compartido y copie el archivo recién cargado en este nuevo recurso compartido con el cmdlet [Start-AzureStorageFileCopy](/powershell/module/azure.storage/start-azurestoragefilecopy). 
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -148,7 +150,7 @@ New-AzureStorageDirectory `
    -ShareName "myshare2" `
    -Path "myDirectory2"
 
-Start-AzureStorageFileCopy 
+Start-AzureStorageFileCopy `
     -Context $storageAcct.Context `
     -SrcShareName "myshare" `
     -SrcFilePath "myDirectory\SampleUpload.txt" `
@@ -160,7 +162,7 @@ Start-AzureStorageFileCopy
 Ahora, si enumera los archivos en el nuevo recurso compartido, debería ver el archivo copiado.
 
 ```azurepowershell-interactive
-Get-AzureStorageFile -Context $storageAcct.Context -Share "myshare2" -Path "myDirectory2" 
+Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
 Aunque el cmdlet `Start-AzureStorageFileCopy` es conveniente para los movimientos de archivos ad hoc entre recursos compartidos de archivos de Azure y contenedores de almacenamiento de Azure Blob, se recomienda usar AzCopy para movimientos mayores (en cuanto al número o el tamaño de los archivos que se van a mover). Obtenga más información sobre [AzCopy para Windows](../common/storage-use-azcopy.md) y [AzCopy para Linux](../common/storage-use-azcopy-linux.md). AzCopy se debe instalar localmente; no está disponible en Cloud Shell 
@@ -171,7 +173,7 @@ Una tarea útil adicional que puede hacer con un recurso compartido de archivos 
 - Instantáneas del [Administrador de volúmenes lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
 - Instantáneas de [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS. 
 
-Puede crear una instantánea de un recurso compartido mediante el método `Snapshot` en el objeto de PowerShell para un recurso compartido de archivos, que se recupera con el cmdlet [`Get-AzureStorageShare`](/powershell/module/azure.storage/get-azurestorageshare). 
+Puede crear una instantánea de un recurso compartido mediante el método `Snapshot` en el objeto de PowerShell para un recurso compartido de archivos, que se recupera con el cmdlet [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
 
 ```azurepowershell-interactive
 $share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
@@ -212,7 +214,7 @@ Start-AzureStorageFileCopy `
 ```
 
 ### <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
-Puede eliminar una instantánea de recurso compartido mediante el cmdlet [`Remove-AzureStorageShare`](/powershell/module/azure.storage/remove-azurestorageshare), con la variable que contiene la referencia `$snapshot` al parámetro `-Share`.
+Puede eliminar una instantánea de recurso compartido mediante el cmdlet [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare), con la variable que contiene la referencia `$snapshot` al parámetro `-Share`.
 
 ```azurepowershell-interactive
 Remove-AzureStorageShare -Share $snapshot

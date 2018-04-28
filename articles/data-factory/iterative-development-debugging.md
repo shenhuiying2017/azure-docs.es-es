@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo desarrollar y depurar de manera it
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.topic: article
 ms.service: data-factory
 services: data-factory
@@ -12,11 +12,11 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: adb5ffd65d4b2b591abba5d4b3481b7ca08de579
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b6a6fbd721e4f0af977fe7fa03adc4459de7611f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desarrollo y depuración iterativos con Azure Data Factory
 
@@ -45,9 +45,17 @@ Cuando realiza las series de pruebas, no es necesario que publique los cambios q
 
 ## <a name="setting-breakpoints-for-debugging"></a>Establecimiento de puntos de interrupción para la depuración
 
-Data Factory también permite depurar hasta alcanzar una actividad concreta en el lienzo de la canalización. Simplemente ubique un punto de interrupción en la actividad que indique hasta donde desea probar y seleccione **Depurar**. Data Factory garantiza que las pruebas se ejecutan solo hasta la actividad de punto de interrupción en el lienzo de la canalización. Esta característica *Debug Until* (Depurar hasta) resulta útil cuando no desea probar toda la canalización, sino solo un subconjunto de actividades dentro de la canalización.
+Data Factory también permite realizar la depuración hasta alcanzar una actividad concreta en el lienzo de la canalización. Simplemente ubique un punto de interrupción en la actividad que indique hasta donde desea probar y seleccione **Depurar**. Data Factory garantiza que las pruebas se ejecutan solo hasta la actividad de punto de interrupción en el lienzo de la canalización. Esta característica *Debug Until* (Depurar hasta) resulta útil cuando no desea probar toda la canalización, sino solo un subconjunto de actividades dentro de la canalización.
 
 ![Puntos de interrupción en el lienzo de la canalización](media/iterative-development-debugging/iterative-development-image4.png)
+
+Para establecer un punto de interrupción, seleccione un elemento en el lienzo de la canalización. La opción *Depurar hasta* aparece como un círculo rojo vacío en la esquina superior derecha del elemento.
+
+![Antes de establecer un punto de interrupción en el elemento seleccionado](media/iterative-development-debugging/iterative-development-image5.png)
+
+Tras seleccionar la opción *Depurar hasta* cambia a un círculo rojo lleno para indicar el punto de interrupción está habilitado.
+
+![Después de establecer un punto de interrupción en el elemento seleccionado](media/iterative-development-debugging/iterative-development-image6.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Integración e implementación continuas en Azure Data Factory](continuous-integration-deployment.md)

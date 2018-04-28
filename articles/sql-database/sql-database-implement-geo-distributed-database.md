@@ -9,11 +9,11 @@ ms.custom: mvc,business continuity
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 569eef6e1d930e505bc6dff9b692814438e5bd4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementar una base de datos distribuida geográficamente
 
@@ -380,4 +380,17 @@ Instale [Maven](https://maven.apache.org/download.cgi) con el instalador oficial
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, vea [Grupos de conmutación por error y replicación geográfica activa](sql-database-geo-replication-overview.md).
+En este tutorial, ha aprendido a configurar una instancia de Azure SQL Database y una aplicación para realizar la conmutación por error a una región remota y, luego, probar el plan de conmutación por error.  Ha aprendido a: 
+
+> [!div class="checklist"]
+> * Crear usuarios de base de datos y concederles permisos
+> * Configurar una regla de firewall de nivel de base de datos
+> * Crear un grupo de conmutación por error de replicación geográfica
+> * Crear y compilar una aplicación de Java para consultar una instancia de Azure SQL Database
+> * Obtener detalles de recuperación ante desastres
+
+Continúe con el siguiente tutorial para aprender a crear una instancia administrada.
+
+> [!div class="nextstepaction"]
+>[Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md)
+

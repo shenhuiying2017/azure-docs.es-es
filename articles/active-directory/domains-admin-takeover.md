@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Adquisición de un directorio no administrado como administrador en Azure Active Directory
 En este artículo se describen dos maneras de adquirir un nombre de dominio DNS en un directorio no administrado en Azure Active Directory (Azure AD). Cuando un usuario de autoservicio se regista en un servicio en la nube que usa Azure AD, se agrega a un directorio de Azure AD no administrado en función del dominio de su correo electrónico. Para más información sobre el registro de autoservicio o "viral" en un servicio, consulte [¿Qué es el registro de autoservicio de Azure Active Directory?]()
@@ -83,14 +83,12 @@ Cuando se comprueba la propiedad del nombre de dominio, Azure AD quita el nombre
 - Usuarios
 - Suscripciones
 - Asignaciones de licencia
- 
-La opción [**ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para la adquisición de administración externa del nombre de dominio solo es compatible con dos servicios: Power BI y Azure RMS.
 
 ### <a name="support-for-external-admin-takeover"></a>Compatibilidad con la adquisición de administración externa
 La adquisición de administración externa es compatible con los servicios en línea siguientes:
 
 - Power BI
-- Azure Rights Management Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 Los planes de servicio compatibles incluyen:
@@ -99,12 +97,19 @@ Los planes de servicio compatibles incluyen:
 - Power BI Pro
 - PowerApps Free
 - PowerFlow Free
-- Azure Rights Management Service Basic (RMS)
-- Azure Rights Management Service Enterprise (RMS)
+- RMS para individuos
 - Microsoft Stream
 - Evaluación gratuita de Dynamics 365
 
-La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office o la SKU de Office Basic.
+La adquisición de administración externa no es compatible con ningún servicio con planes de servicio que incluyan SharePoint, OneDrive o Skype Empresarial, por ejemplo, con una suscripción gratuita de Office o la SKU de Office Basic. También puede usar la opción [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para quitar el nombre de dominio del inquilino no administrado y comprobarlo en el inquilino deseado. Esta opción no moverá usuarios ni mantendrá el acceso a la suscripción. Solo mueve el nombre de dominio. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Más información acerca de RMS para individuos
+
+En el caso de [RMS para individuos](/information-protection/understand-explore/rms-for-individuals), cuando el inquilino no administrado está en la misma región que el inquilino que posee, tanto la [clave de inquilino de Azure Information Protection](/information-protection/plan-design/plan-implement-tenant-key) como las [plantillas de protección predeterminadas](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates), que se crean automáticamente, se mueven con el nombre de dominio. 
+
+Si inquilino no administrado está en otra región, la clave y las plantillas no se mueven. Por ejemplo, el inquilino no administrado está en Europa y el inquilino que posee se encuentra en Norteamérica. 
+
+Aunque RMS para individuos está diseñado para admitir la autenticación de Azure AD para abrir contenido protegido, no impide que los usuarios también protejan el contenido. Si los usuarios han protegido el contenido con la suscripción a RMS para individuos y la clave y las plantillas no se han movido, no será posible acceder a dicho contenido después de la adquisición de dominio.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Cmdlets de Azure AD PowerShell para la opción ForceTakeover
 Puede ver estos cmdlets en uso en el [ejemplo de PowerShell](#powershell-example).

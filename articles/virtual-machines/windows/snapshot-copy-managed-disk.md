@@ -3,7 +3,7 @@ title: Creación de una instantánea de un disco duro virtual en Azure | Microso
 description: Aprenda a crear una copia de una máquina virtual de Azure como copia de seguridad o para solucionar problemas.
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 15eb778e-fc07-45ef-bdc8-9090193a6d20
@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: c5f4c7224e04b601d7d3fe4da7d8f5f0c02c7039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d7315d3fb7fc156beb85271d0e5aa19ec6baa7a9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -37,41 +37,52 @@ Tome una instantánea de un disco duro virtual de un disco de datos o del sistem
 9. Haga clic en **Create**(Crear).
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>Uso de PowerShell para crear una instantánea
+
 Los pasos siguientes le muestran cómo obtener el disco duro virtual que se copiará, crear las configuraciones de instantánea y crear una instantánea del disco con el cmdlet [New-AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot). 
 
-Asegúrese de que tiene instalada la versión más reciente del módulo AzureRM.Compute de PowerShell. Ejecute el siguiente comando para realizar la instalación.
+Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Para este artículo se requiere la versión 5.7.0 del módulo de AzureRM o una versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
-```
-Install-Module AzureRM.Compute -MinimumVersion 2.6.0
-```
-Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
-
-
-1. Configure algunos parámetros. 
+Configure algunos parámetros. 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'eastus' 
-$dataDiskName = 'myDisk' 
+$vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-2. Obtenga el disco VHD que se copiará.
+Obtenga la máquina virtual.
 
  ```azurepowershell-interactive
-$disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
+$vm = get-azurermvm `
+   -ResourceGroupName $resourceGroupName `
+   -Name $vmName
 ```
-3. Cree las configuraciones de la instantánea. 
+
+Cree la configuración de la instantánea. En este ejemplo, vamos a crear la instantánea del disco del sistema operativo.
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
+$snapshot =  New-AzureRmSnapshotConfig `
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+   -Location $location `
+   -CreateOption copy
 ```
-4. Tome la instantánea.
+   
+> [!NOTE]
+> Si desea almacenar la instantánea en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad ](../../availability-zones/az-overview.md) e incluir el parámetro `-SkuName Standard_ZRS`.   
 
- ```azurepowershell-interactive
-New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
+   
+Tome la instantánea.
+
+```azurepowershell-interactive
+New-AzureRmSnapshot `
+   -Snapshot $snapshot `
+   -SnapshotName $snapshotName `
+   -ResourceGroupName $resourceGroupName 
 ```
-Si tiene previsto utilizar la instantánea para crear un disco administrado y conectarle una VM que precisa de un alto rendimiento, use el parámetro `-AccountType Premium_LRS` con el comando New-AzureRmSnapshot. El parámetro crea la instantánea para que se almacene como disco administrado Premium. Managed Disks Premium son más costosos que los Estándar. Por lo tanto, asegúrese de que realmente necesita discos Premium antes de usar el parámetro.
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

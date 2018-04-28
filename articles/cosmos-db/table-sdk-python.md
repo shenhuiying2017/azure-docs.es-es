@@ -1,25 +1,25 @@
 ---
 title: API de tabla de Azure Cosmos DB para Python | Microsoft Docs
-description: "Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión."
+description: Obtenga toda la información acerca de Table API de Azure Cosmos DB, incluidas las fechas de lanzamiento, las fechas de retirada y los cambios realizados en cada versión.
 services: cosmos-db
 documentationcenter: python
-author: mimig
-manager: jhubbard
-editor: 
-ms.assetid: 
+author: SnehaGunda
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 11/20/2017
-ms.author: mimig1
-ms.custom: 
-ms.openlocfilehash: 70315d93b7211351c19a17553db88962f25d8acb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: sngun
+ms.custom: ''
+ms.openlocfilehash: 760f79bf50ea3e6e76beb26d2cd8419a8404a3ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK de Table API de Azure Cosmos DB para Python: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -62,9 +62,9 @@ Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK a
 | [0.37.1](#0.37.1) |5 de octubre de 2017 |--- |
 
 
-## <a name="faq"></a>P+F
+## <a name="faq"></a>Preguntas más frecuentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 Para más información sobre Cosmos DB, consulte la página del servicio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

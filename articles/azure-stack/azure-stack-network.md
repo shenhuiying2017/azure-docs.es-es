@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 5ade2a09d0729f48c075a5bcaa20bee079ead47d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e6438c353d84510ee918df120e6d54df0607c89d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-connectivity"></a>Conectividad de red
 En este artículo se ofrece información sobre la infraestructura de red de Azure Stack que le ayudará decidir cuál es la mejor forma de integrar Azure Stack en su entorno de red existente. 
@@ -40,7 +40,7 @@ En la siguiente tabla se muestran las redes lógicas y los intervalos de subred 
 
 | Red lógica | DESCRIPCIÓN | Tamaño | 
 | -------- | ------------- | ------------ | 
-| VIP pública | Direcciones IP públicas para un pequeño conjunto de servicios de Azure Stack, con las demás usadas por máquinas virtuales de inquilinos. La infraestructura de Azure Stack utiliza 32 direcciones de esta red. Si tiene previsto usar App Service y los proveedores de recursos de SQL, se usan 7 direcciones más. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
+| VIP pública | Azure Stack usa un total de 32 direcciones de esta red. Ocho direcciones IP públicas se utilizan para un pequeño conjunto de servicios de Azure Stack, mientras que el resto lo usan las máquinas virtuales del inquilino. Si tiene previsto usar App Service y los proveedores de recursos de SQL, se usan 7 direcciones más. | /26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
 | Infraestructura del conmutador | Direcciones IP de punto a punto con fines de enrutamiento, interfaces de administración de conmutador dedicado y direcciones de bucle invertido asignadas al conmutador. | /26 | 
 | Infraestructura | Se utiliza para que los componentes internos de Azure Stack se comuniquen. | /24 |
 | Privada | Se utiliza para la red de almacenamiento y las VIP privadas. | /24 | 
@@ -70,7 +70,7 @@ Esta red /24 está dedicada a los componentes internos de Azure Stack para que p
 Esta red /27 es el intervalo pequeño de la subred de infraestructura de Azure Stack mencionada anteriormente, no requiere direcciones IP públicas, pero sí requiere acceso a Internet a través de NAT o proxy transparente. Esta red se asignará al sistema de consola de recuperación de emergencia (ERCS); la máquina virtual de ERCS requiere acceso a Internet durante el registro en Azure y durante las copias de seguridad de la infraestructura. La máquina virtual de ERCS debe ser enrutable a la red de administración con el fin de solucionar problemas.
 
 ### <a name="public-vip-network"></a>Red IP virtual pública
-La red IP virtual pública se asigna al controlador de red en Azure Stack. No es una red lógica en el conmutador. El equilibrador de carga de software utiliza el grupo de direcciones y asigna redes /32 a las cargas de trabajo de inquilino. En la tabla de enrutamiento de conmutador, estas direcciones IP /32 se publican como una ruta disponible a través de BGP. Esta red contiene las direcciones IP externas accesibles o públicas. La infraestructura de Azure Stack usa por lo menos ocho direcciones de esta red IP virtual pública, mientras que el resto lo utilizan las máquinas virtuales de inquilino. El tamaño de red en esta subred puede variar desde un mínimo de /26 (64 hosts) a un máximo de /22 (1022 hosts); le recomendamos que planee una red /24.
+La red IP virtual pública se asigna al controlador de red en Azure Stack. No es una red lógica en el conmutador. El equilibrador de carga de software utiliza el grupo de direcciones y asigna redes /32 a las cargas de trabajo de inquilino. En la tabla de enrutamiento de conmutador, estas direcciones IP /32 se publican como una ruta disponible a través de BGP. Esta red contiene las direcciones IP externas accesibles o públicas. La infraestructura de Azure Stack usa ocho direcciones de esta red IP virtual pública, mientras que el resto lo utilizan las máquinas virtuales del inquilino. El tamaño de red en esta subred puede variar desde un mínimo de /26 (64 hosts) a un máximo de /22 (1022 hosts); le recomendamos que planee una red /24.
 
 ### <a name="switch-infrastructure-network"></a>Red de la infraestructura de conmutadores
 Esta red /26 es la subred que contiene las subredes IP /30 (2 IP de host) punto a punto enrutables y los bucles invertidos que son subredes /32 dedicadas a la administración de conmutadores en banda y al ID de router de BGP. Este rango de direcciones IP debe enrutarse externamente desde la solución Azure Stack a su centro de datos, y pueden ser IP privadas o públicas.

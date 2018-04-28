@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: a62268cee0750c544703fb4c3f7e91238e26b872
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 30013c0bd8ded31ccaf3cdc142bbf8dc6b375031
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.9
 
@@ -41,7 +41,7 @@ En esta versión no se han hecho cambios importantes en el SDK de Azure 2.9. Tam
  
 ### <a name="windows-server-2016-virtual-machines"></a>Máquinas virtuales Windows Server 2016
 
-- Visual Studio ahora admite la implementación de Cloud Services en máquinas virtuales con la familia del SO 5 (Windows Server 2016). Para servicios en la nube existentes, puede cambiar la configuración para la nueva familia del SO. Al crear servicios en la nube, si decide crear el servicio con .Net 4.6 o posterior, el servicio usará la familia del SO 5 de forma predeterminada.  Para más información, puede consultar la tabla de [compatibilidad de la familia del SO invitado](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+- Visual Studio ahora admite la implementación de Cloud Services en máquinas virtuales con la familia del SO 5 (Windows Server 2016). Para servicios en la nube existentes, puede cambiar la configuración para la nueva familia del SO. Al crear servicios en la nube, si decide crear el servicio con .Net 4.6 o posterior, el servicio usará la familia del SO 5 de forma predeterminada.  Para más información, puede consultar la tabla de [compatibilidad de la familia del SO invitado](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/).
 
 #### <a name="known-issues"></a>Problemas conocidos
 
@@ -50,7 +50,7 @@ En esta versión no se han hecho cambios importantes en el SDK de Azure 2.9. Tam
  
 ### <a name="azure-in-role-cache"></a>Caché en rol de Azure 
 
-- La compatibilidad con Azure In-Role Cache finaliza el 30 de noviembre de 2016. Para más detalles, haga clic [aquí](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+- La compatibilidad con Azure In-Role Cache finaliza el 30 de noviembre de 2016. Para más detalles, haga clic [aquí](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
 
 ### <a name="azure-resource-manager-templates-for-azure-stack"></a>Plantillas de Azure Resource Manager para Azure Stack
 

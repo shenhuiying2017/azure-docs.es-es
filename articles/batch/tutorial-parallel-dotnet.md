@@ -1,21 +1,21 @@
 ---
-title: "Ejecución de una carga de trabajo paralela: .NET de Azure Batch"
-description: "Tutorial: Transcodificación de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de .NET de Batch"
+title: 'Ejecución de una carga de trabajo paralela: .NET de Azure Batch'
+description: 'Tutorial: Transcodificación de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de .NET de Batch'
 services: batch
 author: dlepow
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 1100f8fddcd2f802b5f38e0b9789bc9ec359e03a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 57fc70d5b47f18affa90e1153884e8af23d937ec
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET
 
@@ -38,7 +38,7 @@ En este tutorial, convertiremos archivos multimedia MP4 a formato MP3 en paralel
 
 * [IDE de Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 o una versión más reciente). 
 
-* Una cuenta de Batch y una de Storage de uso general vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
+* Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
 * [Versión de 64 bits de Windows de ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Descargue el archivo zip en el equipo local. Para este tutorial solo se necesita el archivo zip. No es necesario descomprimir el archivo ni instalarlo localmente. 
 

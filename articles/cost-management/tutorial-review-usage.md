@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Revisión del uso y los costos en Azure Cost Management | Microsoft Docs"
-description: "En este tutorial, revisará el uso y los costos para realizar un seguimiento de las tendencias, detectar deficiencias y crear alertas."
+title: 'Tutorial: Revisión del uso y los costos en Azure Cost Management | Microsoft Docs'
+description: En este tutorial, revisará el uso y los costos para realizar un seguimiento de las tendencias, detectar deficiencias y crear alertas.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 558dcd65051c0134a87205dcd8bbf432d7763fd2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 820fea1aa2eb93fb383dca4def9ed607515c29b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -37,11 +37,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="open-the-cloudyn-portal"></a>Abrir el portal de Cloudyn
 
-Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o vaya a https://azure.cloudyn.com e inicie sesión.
+Revise todos los usos y costos en el portal de Cloudyn. Abra el portal de Cloudyn desde Azure Portal o navegue a https://azure.cloudyn.com e inicie sesión.
 
 ## <a name="track-usage-and-cost-trends"></a>Realizar un seguimiento de las tendencias de uso y costos
 
-El seguimiento del dinero real gastado en uso y costos se realiza con informes a lo largo del tiempo para identificar tendencias. Para empezar a observar tendencias, use el informe de costo real a lo largo del tiempo. En el menú de informes en la parte superior del portal, haga clic en **Costo** > **Análisis de costos** > **Actual Cost Over Time (Costo real a lo largo del tiempo)**. Cuando abra el informe por primera vez, no tendrá grupos ni filtros aplicados.
+El seguimiento del dinero real gastado en uso y costos se realiza con informes a lo largo del tiempo para identificar tendencias. Para empezar a observar tendencias, use el informe de costo real a lo largo del tiempo. En el menú de la parte superior del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Cuando abra el informe por primera vez, no tendrá grupos ni filtros aplicados.
 
 A continuación se muestra un informe de ejemplo:
 
@@ -69,7 +69,7 @@ El problema es que ya se ha pagado su infraestructura existente. Los usuarios pu
 
 El informe de recomendaciones de tamaño rentables identifica posibles ahorros anuales comparando la capacidad de tipo de instancia de máquina virtual con los datos de uso de memoria y CPU históricos correspondientes.  
 
-En el menú de informes en la parte superior del portal, haga clic en **Optimizer (Optimizador)** > **Pricing Optimization (Optimización de precios)** > **Cost Effective Sizing Recommendations (Recomendaciones de tamaño rentables)**. Filtrar el proveedor por Azure para observar solo las máquinas virtuales de Azure. A continuación se muestra una imagen de ejemplo.
+En el menú de la parte superior del portal, haga clic en **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations** (Optimizador > Optimización de tamaño > Recomendaciones de tamaño rentables). Filtrar el proveedor por Azure para observar solo las máquinas virtuales de Azure. A continuación se muestra una imagen de ejemplo.
 
 ![Máquinas virtuales de Azure](./media/tutorial-review-usage/sizing01.png)
 
@@ -87,9 +87,9 @@ Para ver un tutorial en vídeo acerca de cómo detectar deficiencias de uso, con
 
 También pueden alertar automáticamente a las partes interesadas sobre anomalías de gastos y riesgos de gastos innecesarios. Se pueden crear alertas fácilmente mediante informes que admitan alertas basadas en umbrales de presupuesto y costos.
 
-Cree una alerta para cualquier gasto mediante cualquier informe de costos. En este ejemplo, use el informe de costo a lo largo del tiempo para recibir una notificación cuando el gasto de la máquina virtual de Azure se acerque al presupuesto total. En el menú de informes en la parte superior del portal, haga clic en **Costo** > **Análisis de costos** > **Actual Cost Over Time (Costo real a lo largo del tiempo)**. Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. En la parte superior derecha del informe, haga clic en **Acciones** y, a continuación, seleccione **Schedule report (Programar informe)**.
+Cree una alerta para cualquier gasto mediante cualquier informe de costos. En este ejemplo, use el informe de costo a lo largo del tiempo para recibir una notificación cuando el gasto de la máquina virtual de Azure se acerque al presupuesto total. Para crear la alerta es necesario realizar los pasos siguientes. En el menú de la parte superior del portal, haga clic en **Costs** > **Cost Analysis** > **Actual Cost Over Time** (Costos > Análisis de costos > Costo real a lo largo del tiempo). Establezca **Grupos** en **Servicio** y **Filter on the service (Filtrar el servicio)** en **Azure/VM**. En la parte superior derecha del informe, haga clic en **Acciones** y, a continuación, seleccione **Schedule report (Programar informe)**.
 
-Use la pestaña **Programación** para enviarse un correo electrónico del informe con la frecuencia que desee. Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 500 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree un **alerta roja** en 250 000 dólares y una **alerta amarilla** en 240 000 USD. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían alertas adicionales. Guarde el informe programado.
+Use la pestaña **Programación** para enviarse un correo electrónico del informe con la frecuencia que desee. Asegúrese de seleccionar **Send via email** (Enviar por correo electrónico). Las etiquetas, la agrupación y el filtrado que usa se incluyen en el informe enviado por correo electrónico. Haga clic en la pestaña **Umbral** y seleccione **Actual Cost vs. Threshold (Costo real frente a umbral)**. Si tiene un presupuesto total de 500 000 USD y desea una notificación cuando los costos se acerquen a la mitad, cree un **alerta roja** en 250 000 dólares y una **alerta amarilla** en 240 000 USD. No incluya comas en los valores que especifique. A continuación, elija el número de alertas consecutivas. Cuando recibe el número total de alertas especificado, no se envían más alertas. Guarde el informe programado.
 
 ![informe de ejemplo](./media/tutorial-review-usage/schedule-alert01.png)
 

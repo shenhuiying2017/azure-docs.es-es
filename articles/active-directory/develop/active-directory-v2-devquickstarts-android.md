@@ -1,11 +1,11 @@
 ---
-title: "Aplicación para Android de la versión 2.0 de Azure Active Directory | Microsoft Docs"
-description: "Procedimiento para compilar una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto su cuenta personal de Microsoft y sus cuentas profesionales o educativas, además de realizar llamadas a la API Graph mediante bibliotecas de terceros."
+title: Aplicación para Android de la versión 2.0 de Azure Active Directory | Microsoft Docs
+description: Procedimiento para compilar una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto su cuenta personal de Microsoft y sus cuentas profesionales o educativas, además de realizar llamadas a Graph API mediante bibliotecas de terceros.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
@@ -16,15 +16,15 @@ ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
 ms.openlocfilehash: b1c30362a7b14c8f7f0c44d911c46c491b3de3c0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/17/2018
 ---
-# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
+# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con Graph API mediante la versión 2.0 del punto de conexión
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.
 
-Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscarse en la organización mediante la API Graph.
+Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscarse en la organización mediante Graph API.
 
 Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran parte de esta configuración de ejemplo no le sea relevante. Si este es el caso, es aconsejable que lea [Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -36,7 +36,7 @@ Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran p
 No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión.
 
 > [!NOTE]
-> Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
@@ -121,7 +121,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 Ahora que `oidlib-sample` se ejecuta correctamente, vamos a modificar algunos puntos de conexión para que funcionen con Azure Active Directory.
 
 ### <a name="configure-your-client-by-editing-the-oidcclientconfxml-file"></a>Configuración del cliente modificando el archivo oidc_clientconf.xml
-1. Como estamos usando flujos de OAuth2 para obtener un token y llamar a la API Graph, vamos a configurar el cliente para que solo utilice OAuth2. El uso de OIDC se tratará en un ejemplo posterior.
+1. Como estamos usando flujos de OAuth2 para obtener un token y llamar a Graph API, vamos a configurar el cliente para que solo utilice OAuth2. El uso de OIDC se tratará en un ejemplo posterior.
    
     ```xml
         <bool name="oidc_oauth2only">true</bool>
@@ -137,7 +137,7 @@ Ahora que `oidlib-sample` se ejecuta correctamente, vamos a modificar algunos pu
     ```xml
         <string name="oidc_redirectUrl">https://login.microsoftonline.com/common/oauth2/nativeclient</string>
     ```
-4. Configure los ámbitos que necesita para acceder a la API Graph.
+4. Configure los ámbitos que necesita para acceder a Graph API.
    
     ```xml
         <string-array name="oidc_scopes">
@@ -172,7 +172,7 @@ Nunca deben cambiar estos puntos de conexión si usa OAuth2 como protocolo.
 > 
 > 
 
-## <a name="configure-a-graph-api-call"></a>Configuración de una llamada de API Graph
+## <a name="configure-a-graph-api-call"></a>Configuración de una llamada de Graph API
 * Abra el archivo `HomeActivity.java` y realice los siguientes cambios:
   
     ```Java
@@ -180,11 +180,11 @@ Nunca deben cambiar estos puntos de conexión si usa OAuth2 como protocolo.
         private static final String protectedResUrl = "https://graph.microsoft.com/v1.0/me/";
     ```
 
-Aquí se muestra una llamada sencilla a la API Graph que devuelve nuestra información.
+Aquí se muestra una llamada sencilla a Graph API que devuelve nuestra información.
 
 Estos son todos los cambios que tiene que realizar. Ejecute aplicación `oidlib-sample` y haga clic en **Iniciar sesión**.
 
-Cuando se haya autenticado correctamente, haga clic en el botón **Request Protected Resource** (Solicitar recurso protegido) para probar la llamada a la API Graph.
+Cuando se haya autenticado correctamente, haga clic en el botón **Request Protected Resource** (Solicitar recurso protegido) para probar la llamada a Graph API.
 
 ## <a name="get-security-updates-for-our-product"></a>Obtención de actualizaciones de seguridad para nuestro producto
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.

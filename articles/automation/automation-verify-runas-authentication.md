@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 5359a12d5b241eff80203c9e9bf04107ce4d3159
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6b8e1f2923657965f4bab89e7a0f5f08faa1d27e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Comprobación de la autenticación con la cuenta de ejecución de Azure Automation
 Una vez que se haya creado correctamente una cuenta de Automation, puede realizar una prueba sencilla para confirmar que puede autenticarse correctamente en Azure Resource Manager o en el modelo de implementación clásica de Azure mediante la cuenta de ejecución de Automation recién creada o actualizada.    
@@ -27,7 +27,7 @@ Utilice el código de ejemplo que aparece a continuación para [crear un runbook
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -58,7 +58,7 @@ Utilice el código de ejemplo que aparece a continuación para [crear un runbook
        Write-Output ("")
     } 
 
-Observe que el cmdlet usado para autenticarse en el Runbook - **Add-AzureRmAccount**usa el conjunto de parámetros *ServicePrincipalCertificate* .  Se autentica mediante el certificado de la entidad de servicio, no las credenciales.  
+Observe que el cmdlet usado para autenticarse en el Runbook - **Connect-AzureRmAccount** usa el conjunto de parámetros *ServicePrincipalCertificate*.  Se autentica mediante el certificado de la entidad de servicio, no las credenciales.  
 
 Cuando [ejecuta el runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) para validar la cuenta de ejecución, se crea un [trabajo de runbook](automation-runbook-execution.md), se muestra la página del trabajo y el estado de este aparece en el icono **Resumen del trabajo**. El estado del trabajo se iniciará como *En cola* , lo que indica que está esperando a que haya algún trabajo de Runbook disponible en la nube. Su estado cambiará a *Iniciando* cuando un trabajo de runbook lo solicite. Cuando el runbook comience a ejecutarse realmente, el estado será *En ejecución*.  Cuando el trabajo de runbook se complete, debería aparecer el estado **Completado**.
 

@@ -16,15 +16,15 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a02844c678c08d8aefbceb16d3908faeffd755fb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 396452faf36bc43a185fd6492f952b7bfd9511cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Administración de recursos de Azure Data Lake Store en el Explorador de Storage
 
-[Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview) es un servicio de almacenamiento de grandes cantidades de datos no estructurados, como texto o datos binarios. Puede acceder a los datos desde cualquier lugar a través de HTTP o HTTPS. Data Lake Store en el Explorador de Azure Storage le permite acceder a los datos y recursos de Data Lake Storage y administrarlos junto con otras entidades de Azure, como los blobs o las colas. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar.
+[Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) es un servicio de almacenamiento de grandes cantidades de datos no estructurados, como texto o datos binarios. Puede acceder a los datos desde cualquier lugar a través de HTTP o HTTPS. Data Lake Store en el Explorador de Azure Storage le permite acceder a los datos y recursos de Data Lake Storage y administrarlos junto con otras entidades de Azure, como los blobs o las colas. Ahora puede usar la misma herramienta para administrar las diferentes entidades de Azure en un solo lugar.
 
 Otra ventaja es que, para administrar datos de Data Lake Store, no es necesario disponer de permiso de suscripción. En el Explorador de Storage, puede adjuntar la ruta de acceso de Data Lake Store al nodo de **Local and Attached** (locales y conectados) siempre que un usuario conceda el permiso.
 
@@ -32,7 +32,7 @@ Otra ventaja es que, para administrar datos de Data Lake Store, no es necesario 
 Para completar los pasos de este artículo, necesitará lo siguiente:
 
 *   Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-*   Una cuenta de Azure Data Lake Store. Para obtener instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-get-started-portal).
+*   Una cuenta de Azure Data Lake Store. Para obtener instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="install-storage-explorer"></a>Instalación del Explorador de Azure Storage
 
@@ -197,7 +197,7 @@ Si tiene una dirección URL, puede escribirla en la ruta de acceso de dirección
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Vea las [notas de la versión y los vídeos más recientes del Explorador de Storage](http://www.storageexplorer.com).
-* Aprenda a [administrar Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer).
-* [Introducción al Explorador de Storage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Introducción a Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-overview).
+* Aprenda a [administrar Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
+* [Introducción al Explorador de Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* [Introducción a Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 * Vea el [vídeo de YouTube acerca de cómo usar Azure Cosmos DB en el Explorador de Azure Storage](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

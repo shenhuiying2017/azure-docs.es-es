@@ -2,24 +2,24 @@
 title: Uso de las herramientas proporcionadas en los SDK de Azure IoT Hub Device Provisioning para simplificar el desarrollo
 description: En este documento se analizan las herramientas de desarrollo proporcionadas en el SDK de Azure IoT Hub Device Provisioning Service
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 76c6f64dea202f661691fafaa78a6d77b4a40f14
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Uso de las herramientas proporcionadas en los SDK para simplificar el desarrollo del aprovisionamiento
-IoT Hub Device Provisioning Service simplifica el proceso de aprovisionamiento con un aprovisionamiento Just-In-Time sin intervención del usuario de una manera segura y escalable.  Se requiere una atestación de seguridad mediante el certificado X.509 o el Módulo de plataforma segura (TPM).  Microsoft también está asociado con [otros asociados de hardware de seguridad](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para mejorar la confiabilidad en la protección de la implementación de IoT. A los desarrolladores les puede resultar bastante complicado conocer el requisito de seguridad de hardware. Se proporciona un conjunto de SDK de Azure IoT Provisioning Service para que los desarrolladores puedan usar un nivel de comodidad para los clientes de escritura que se comunican con el servicio de aprovisionamiento. Los SDK también proporcionan ejemplos para escenarios comunes, así como un conjunto de herramientas para simplificar la atestación de seguridad en el desarrollo.
+El servicio IoT Hub Device Provisioning simplifica el proceso de aprovisionamiento con un [aprovisionamiento automático](concepts-auto-provisioning.md) Just-In-Time sin intervención del usuario de una manera segura y escalable.  Se requiere una atestación de seguridad mediante el certificado X.509 o el Módulo de plataforma segura (TPM).  Microsoft también está asociado con [otros asociados de hardware de seguridad](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) para mejorar la confiabilidad en la protección de la implementación de IoT. A los desarrolladores les puede resultar bastante complicado conocer el requisito de seguridad de hardware. Se proporciona un conjunto de SDK de Azure IoT Provisioning Service para que los desarrolladores puedan usar un nivel de comodidad para los clientes de escritura que se comunican con el servicio de aprovisionamiento. Los SDK también proporcionan ejemplos para escenarios comunes, así como un conjunto de herramientas para simplificar la atestación de seguridad en el desarrollo.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Simulador del Módulo de plataforma segura (TPM)
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) puede hacer referencia a un estándar para almacenar de forma segura las claves para autenticar la plataforma, o puede hacer referencia a la interfaz de E/S que se utiliza para interactuar con los módulos que implementan el estándar. Los módulos de plataforma segura pueden existir como hardware discreto, hardware integrado, basados en firmware o basados en software.  En producción, TPM se encuentra en el dispositivo, ya sea como hardware discreto, hardware integrado o basado en el firmware. En la fase de prueba, se proporciona a los desarrolladores un simulador de TPM basado en software.  Este simulador solo está disponible por ahora para el desarrollo en la Plataforma de Windows.

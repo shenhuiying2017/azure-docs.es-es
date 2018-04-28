@@ -1,27 +1,23 @@
 ---
-title: "Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse (Azure Portal) | Microsoft Docs"
-description: "Tareas de Azure Portal que pausan un proceso para que una instancia de Azure SQL Data Warehouse ahorre costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos."
+title: 'Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse (Azure Portal) | Microsoft Docs'
+description: Use Azure Portal para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/23/2018
-ms.author: barbkess
-ms.openlocfilehash: 30dede32b35f995f89e2946af34da10353f55212
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 162bc44bccc04d97ea4d631d0e95defa342e6616
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Inicio rápido: Pausar y reanudar un proceso en una instancia de Azure SQL Data Warehouse en Azure Portal
-Puede pausar un proceso para que una instancia de Azure SQL Data Warehouse ahorre costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
+Use Azure Portal para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

@@ -1,8 +1,8 @@
 ---
 title: Uso de C# con MapReduce en Hadoop en HDInsight (Azure) | Microsoft Docs
-description: "Descubra cómo utilizar C# para crear soluciones de MapReduce con Hadoop en Azure HDInsight."
+description: Descubra cómo utilizar C# para crear soluciones de MapReduce con Hadoop en Azure HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0db3df1666a56ca96af208a4e43f814105de40d5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 7287972ccf63f33a8cf08065f8d5d30ee1b1afb5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Hadoop en HDInsight
 
@@ -33,7 +31,7 @@ El streaming de Hadoop es una utilidad que permite ejecutar trabajos de MapReduc
 
 ## <a name="net-on-hdinsight"></a>.NET en HDInsight
 
-Los clústeres de __HDInsight basado en Linux__ se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.6 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](../hdinsight-component-versioning.md). Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](../hdinsight-hadoop-install-mono.md).
+Los clústeres de __HDInsight basados en Linux__ usan [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. La versión 4.2.1 de Mono está incluida en la versión 3.6 de HDInsight. Para obtener más información sobre la versión de Mono incluida en HDInsight, consulte el artículo relativo a las [versiones de componentes de HDInsight](../hdinsight-component-versioning.md). Para usar una versión específica de Mono, consulte el documento [Instalación o actualización de Mono](../hdinsight-hadoop-install-mono.md).
 
 Si desea conocer más detalles sobre la compatibilidad entre Mono y las versiones de .NET Framework, consulte la página en la que se trata la [compatibilidad de Mono](http://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -47,7 +45,7 @@ A continuación se expone el proceso básico que se emplea para realizar streami
 4. El reductor lee los pares clave-valor delimitados por tabulaciones, procesa los datos y, después, envía el resultado en forma de pares clave-valor delimitados por tabulaciones en STDOUT.
 5. Hadoop lee los resultados, que, a continuación, se escriben en el directorio de salida.
 
-Para obtener más información sobre el streaming, consulte la página relativa al [streaming de Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
+Para más información, consulte [Streaming de Hadoop (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## <a name="prerequisites"></a>requisitos previos
 

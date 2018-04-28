@@ -1,42 +1,38 @@
 ---
-title: "Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs"
-description: "Tareas de PowerShell que pausan un proceso para que una instancia de Azure SQL Data Warehouse ahorre costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos."
+title: 'Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs'
+description: Use PowerShell para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. Reanude el proceso cuando esté listo para usar el almacenamiento de datos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/25/2018
-ms.author: barbkess
-ms.openlocfilehash: b1f5c10fe294b44a9853f16e1866b77cf74a1479
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ef341a1528bf759461abfb7cfc6d878fd8a44cb4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-powershell"></a>Inicio rápido: Pausar y reanudar un proceso en una instancia de Azure SQL Data Warehouse en PowerShell
-Use PowerShell para pausar un proceso para que una instancia de Azure SQL Data Warehouse ahorre costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
+# <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse con PowerShell
+Use PowerShell para pausar un proceso en Azure SQL Data Warehouse con la finalidad de ahorrar costos. [Reanude el proceso](sql-data-warehouse-manage-compute-overview.md) cuando esté listo para usar el almacenamiento de datos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md) (Instalación y configuración de Azure PowerShell). 
+Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md) (Instalación y configuración de Azure PowerShell).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse que puede pausar y reanudar. Si tiene que crear una, puede usar [Crear y conectar: Portal](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. 
+En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse que puede pausar y reanudar. Si tiene que crear una, puede usar [Crear y conectar: Portal](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) y siga las instrucciones de la pantalla.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Para ver qué suscripción está usando, ejecute [AzureRmSubscription Get](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -53,7 +49,7 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## <a name="look-up-data-warehouse-information"></a>Buscar información del almacenamiento de datos
 
-Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos para el almacenamiento de datos que tiene previsto pausar y reanudar. 
+Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos para el almacenamiento de datos que tiene previsto pausar y reanudar.
 
 Siga estos pasos para buscar información de ubicación para el almacenamiento de datos.
 
@@ -63,12 +59,12 @@ Siga estos pasos para buscar información de ubicación para el almacenamiento d
 
     ![Nombre del servidor y grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote el nombre del almacenamiento de datos, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los 
+4. Anote el nombre del almacenamiento de datos, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los
 5.  usará en los comandos para pausar y reanudar.
 6. Si su servidor es foo.database.windows.net, use solo la primera parte como nombre de servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es newserver-20171113.database.windows.net. Elimine el sufijo y use **newserver-20171113** como nombre del servidor en el cmdlet de PowerShell.
 
 ## <a name="pause-compute"></a>Pausa del proceso
-Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento. 
+Para ahorrar costos, puede pausar y reanudar recursos de proceso a petición. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. No se le cobrará por recursos de proceso mientras la base de datos se encuentre en pausa. Sin embargo, se le seguirá cobrando por el almacenamiento.
 
 Para pausar una base de datos, use el cmdlet [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase.md). En el ejemplo siguiente, se pausa un almacenamiento de datos denominado **mySampleDataWarehouse** hospedado en un servidor denominado **newserver 20171113**. El servidor está en un grupo de recursos de Azure denominado **myResourceGroup**.
 
@@ -107,10 +103,10 @@ $resultDatabase
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado. 
+Se le está cobrando por unidades de almacenamiento de datos y por los datos almacenados en el almacenamiento de datos. Estos recursos de proceso y de almacenamiento se facturan por separado.
 
 - Si quiere conservar los datos de almacenamiento, pause el proceso.
-- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos. 
+- Si desea quitar cobros futuros, puede eliminar el almacenamiento de datos.
 
 Siga estos pasos para limpiar los recursos según estime oportuno.
 

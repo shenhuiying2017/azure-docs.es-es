@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2017
-ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e84903870110091d527e870600d9a67bdc9cc6e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos
+# <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Tutorial: Stream Analytics y Power BI: panel de análisis en tiempo real del flujo de datos
 Azure Stream Analytics permite aprovechar una de las principales herramientas de inteligencia empresarial, [Microsoft Power BI](https://powerbi.com/). En este artículo, aprenderá a crear herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de Azure Stream Analytics. También aprenderá a crear y usar un panel en tiempo real.
 
 Este artículo continúa a partir del tutorial [Detección de fraudes en tiempo real](stream-analytics-real-time-fraud-detection.md) de Stream Analytics. Se basa en el flujo de trabajo creado en ese tutorial y agrega una salida de Power BI para que se puedan visualizar llamadas telefónicas fraudulentas detectadas por un trabajo de Streaming Analytics. 

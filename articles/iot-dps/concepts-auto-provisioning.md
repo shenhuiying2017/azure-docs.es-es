@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Conceptos de aprovisionamiento automático
 
@@ -31,7 +31,7 @@ El aprovisionamiento automático de Azure IoT se puede dividir en tres fases:
    > [!NOTE]
    > Independientemente del tamaño de la solución de IoT, incluso si piensa dar cabida a millones de dispositivos, se trata de una **configuración única**.
 
-2. **Inscripción de dispositivos**: el proceso de hacer que la instancia del servicio Device Provisioning sea consciente de los dispositivos que intentarán registrarse en el futuro. La inscripción se realiza mediante la configuración de información de identidad de los dispositivos en el servicio de aprovisionamiento, bien como una "inscripción individual" para un único dispositivo, o como una "inscripción de grupo" para varios dispositivos. La identidad se basa en el [mecanismo de atestación](concepts-security.md#attestation-mechanism) que el dispositivo está diseñado para usar, y que permite al servicio de aprovisionamiento dar fe de la autenticidad del dispositivo durante el registro:
+2. **Inscripción de dispositivos**: el proceso de hacer que la instancia del servicio Device Provisioning sea consciente de los dispositivos que intentarán registrarse en el futuro. La [inscripción](concepts-service.md#enrollment) se realiza mediante la configuración de información de identidad de los dispositivos en el servicio de aprovisionamiento, bien como "inscripción individual" para un único dispositivo, o como "inscripción de grupo" para varios dispositivos. La identidad se basa en el [mecanismo de atestación](concepts-security.md#attestation-mechanism) que el dispositivo está diseñado para usar, y que permite al servicio de aprovisionamiento dar fe de la autenticidad del dispositivo durante el registro:
 
    - **TPM**: configurado como "inscripción individual", la identidad del dispositivo se basa en el identificador de registro TPM y la clave de aprobación pública. Dado que el TPM es una [especificación]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), el servicio únicamente espera dar fe según la especificación, independientemente de la implementación del TPM (hardware o software). Consulte [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) (Aprovisionamiento de dispositivos: atestación de identidad con TPM) para obtener detalles sobre la atestación basada en TPM. 
 

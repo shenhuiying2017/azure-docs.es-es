@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Cambiar el tamaño o cambiar una SKU
+###  <a name="resizechange"></a>Cambio de tamaño o de SKU
 
-Cambiar el tamaño de una SKU de puerta de enlace es bastante fácil. Tendrá muy poco tiempo de inactividad mientras cambia el tamaño de la puerta de enlace. Sin embargo, hay reglas en relación con el cambio de tamaño:
+Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace distinta, las opciones son o cambiar el tamaño de la SKU de puerta de enlace o cambiar a otra SKU. Al cambiar a otra SKU de puerta de enlace, se elimina completamente la puerta de enlace existente y se crea otra. Esto puede tardar hasta 45 minutos. En cambio, al cambiar el tamaño de la SKU de puerta de enlace, tendrá muy poco tiempo de inactividad, ya que no tiene que eliminar y volver crear la puerta de enlace. Si tiene la opción de cambiar el tamaño de la SKU de puerta de enlace, en lugar de cambiarla, aprovéchela. Sin embargo, hay reglas en relación con el cambio de tamaño:
 
 1. Puede cambiar el tamaño entre las SKU de VpnGw1, VpnGw2 y VpnGw3.
 2. Si trabaja con las SKU de puerta de enlace antiguas, puede cambiar el tamaño entre las SKU Básica, Estándar y HighPerformance.

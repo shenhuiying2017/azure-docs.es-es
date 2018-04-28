@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Cifrado del servicio Azure Storage para datos en reposo (versión preliminar)
 
@@ -72,7 +72,7 @@ R: Sí, si [utiliza sus propias claves de cifrado](storage-service-encryption-cu
 
 **P: ¿El Cifrado del servicio Storage se habilita de forma predeterminada al crear una cuenta de almacenamiento?**
 
-R: Sí, el Cifrado del servicio Storage (mediante claves administradas de Microsoft) está habilitado de forma predeterminada para todas las cuentas de almacenamiento, tanto clásicas como de Azure Resource Manager. También está habilitado para todos los servicios: Blob Storage, Table Storage, Queue Storage y Azure Files.
+R: Sí, la característica Storage Service Encryption está habilitada de forma predeterminada para todas las cuentas de almacenamiento y para todos los servicios de Azure Storage.
 
 **P: ¿Qué diferencia tiene con Azure Disk Encryption?**
 

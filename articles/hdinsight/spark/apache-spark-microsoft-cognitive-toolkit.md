@@ -1,25 +1,23 @@
 ---
 title: Microsoft Cognitive Toolkit con Azure HDInsight Spark para aprendizaje profundo | Microsoft Docs
-description: "Aprenda cómo un modelo de aprendizaje profundo de Microsoft Cognitive Toolkit formado se puede aplicar a un conjunto de datos mediante la API de Spark Python en un clúster de Azure HDInsight Spark."
+description: Aprenda cómo un modelo de aprendizaje profundo de Microsoft Cognitive Toolkit formado se puede aplicar a un conjunto de datos mediante la API de Spark Python en un clúster de Azure HDInsight Spark.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: jgao
-ms.openlocfilehash: ebbbcd7a1d61ba0eac13a184aa48cacb800524e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7afb891642e3e53da5eb1e17ee654fb5fb42c313
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Uso del modelo de aprendizaje profundo de Microsoft Cognitive Toolkit con un clúster de Azure HDInsight Spark
 
@@ -77,7 +75,7 @@ Para obtener instrucciones sobre cómo usar Azure Portal con el fin de ejecutar 
 
 Para usar Microsoft Cognitive Toolkit con el clúster de Azure HDInsight Spark, debe cargar el cuaderno de Jupyter **CNTK_model_scoring_on_Spark_walkthrough.ipynb** en el clúster de Azure HDInsight Spark. Este cuaderno está disponible en GitHub en [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
-1. Clone el repositorio de GitHub en [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Para obtener las instrucciones de clonación, consulte [Cloning a repository](https://help.github.com/articles/cloning-a-repository/) (Clonación de un repositorio).
+1. Clone el repositorio de GitHub [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Para obtener las instrucciones de clonación, consulte [Cloning a repository](https://help.github.com/articles/cloning-a-repository/) (Clonación de un repositorio).
 
 2. Desde Azure Portal, abra la hoja del clúster de Spark que ya ha aprovisionado, haga clic en **Panel de clúster**y, a continuación, haga clic en **Jupyter Notebook**.
 

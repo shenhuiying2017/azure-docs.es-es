@@ -3,20 +3,20 @@ title: Aprovisionamiento de un dispositivo de TPM simulado para Azure IoT Hub me
 description: 'Inicio rápido de Azure: Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C# para el servicio Azure IoT Hub Device Provisioning'
 services: iot-dps
 keywords: ''
-author: JimacoMS2
-ms.author: v-jamebr
-ms.date: 12/21/2017
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/09/2018
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8c292f998a719f8bc6d64655c1f2cdd75054653b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4bca89f71922e36707c0c4893a7190d508242ffc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo de TPM simulado mediante el SDK de dispositivos C# para el servicio Azure IoT Hub Device Provisioning
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/03/2018
 
 En estos pasos se muestra cómo compilar el ejemplo de dispositivo de TPM simulado del SDK de C# de Azure IoT Hub en una máquina de desarrollo en la que se ejecuta el sistema operativo Windows y cómo conectar el dispositivo simulado con el servicio Device Provisioning e IoT Hub. El código de ejemplo utiliza el simulador de TPM de Windows como [módulo de seguridad de hardware (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del dispositivo. 
 
-Asegúrese de completar los pasos descritos en [Configuración de un servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar.
+Si no está familiarizado con el proceso de aprovisionamiento automático, no olvide revisar los [conceptos sobre aprovisionamiento automático](concepts-auto-provisioning.md). Asegúrese de completar los pasos descritos en [Configuración del servicio Azure IoT Hub Device Provisioning con Azure Portal](./quick-setup-auto-provision.md) antes de continuar. 
 
 [!INCLUDE [IoT DPS basic](../../includes/iot-dps-basic.md)]
 

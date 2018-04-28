@@ -1,11 +1,11 @@
 ---
-title: "Incorporación a Azure Security Center Estándar para una seguridad mejorada | Microsoft Docs"
+title: Incorporación a Azure Security Center Estándar para una seguridad mejorada | Microsoft Docs
 description: " Obtenga información sobre como incorporarse a Azure Security Center Estándar para una seguridad mejorada. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la version Estándar de forma gratuita durante 60 días. Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -99,7 +99,7 @@ Veremos ambos métodos:
 
    ![Agregar una nueva área de trabajo][4]
 
-2. En **Seguridad y auditoría**, seleccione **Área de trabajo de OMS** para crear un área de trabajo.
+2. En **Security and Audit**, seleccione **Área de trabajo de OMS** para crear un área de trabajo.
 3. En **Área de trabajo de OMS**, escriba la información del área de trabajo.
 4. En **Área de trabajo de OMS**, haga clic en **Aceptar**.  Tras hacer clic en Aceptar, obtendrá un vínculo para descargar un agente de Windows o de Linux, y las claves de su identificador de área de trabajo que usará para configurar el agente.
 5. En **Seguridad y auditoría**, haga clic en **Aceptar**.

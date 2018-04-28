@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 86b0e78f362d1cf3c2480aad97ef5281c5f3bc95
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>Configuración de SQL Data Sync (versión preliminar)
 En este tutorial, obtendrá información sobre cómo configurar Azure SQL Data Sync mediante la creación de un grupo de sincronización híbrido que contiene instancias de Azure SQL Database y de SQL Server. El nuevo grupo de sincronización está configurado completamente y se sincroniza según el programa establecido.
@@ -151,7 +151,7 @@ En la página **Configurar localmente**, haga lo siguiente:
         ![Definición de las credenciales del servidor y de la clave del agente](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Si recibe un error de firewall en este punto, tendrá que crear una regla de firewall en Azure para permitir el tráfico entrante desde el equipo de SQL Server. Puede crear manualmente la regla en el portal, pero quizá le resulte más fácil crearla en SQL Server Management Studio (SSMS). En SSMS, intente conectarse a la base de datos central en Azure. Escriba su nombre como \<hub_database_name\>.database.windows.net. Para configurar la regla de firewall de Azure, siga los pasos del cuadro de diálogo. A continuación, vuelva a la aplicación de Agente de sincronización cliente.
+        >   Si recibe un error de firewall en este punto, tendrá que crear una regla de firewall en Azure para permitir el tráfico entrante desde el equipo de SQL Server. Puede crear manualmente la regla en el portal, pero quizá le resulte más fácil crearla en SQL Server Management Studio (SSMS). En SSMS, intente conectarse a la base de datos central en Azure. Escriba su nombre como <hub_database_name>.database.windows.net. Para configurar la regla de firewall de Azure, siga los pasos del cuadro de diálogo. A continuación, vuelva a la aplicación de Agente de sincronización cliente.
 
     9.  En la aplicación del Agente de sincronización cliente, haga clic en **Registrar** para registrar una instancia de SQL Server Database en el agente. Se abre el cuadro de diálogo **Configuración de SQL Server**.
 
@@ -225,7 +225,16 @@ No necesariamente. En un grupo de sincronización con un concentrador y tres rad
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>¿Cómo se realizan cambios de esquema en un grupo de sincronización?
 
-Tendrá que realizar manualmente los cambios de esquema.
+Tendrá que realizar y propagar todos los cambios de esquema manualmente.
+1. Replique los cambios de esquema manualmente en el centro y en todos los miembros de la sincronización.
+2. Actualice el esquema de sincronización.
+
+**Mediante la incorporación de nuevas tablas y columnas**. Las nuevas tablas y columnas no afectan a la sincronización actual. Data Sync pasa por alto las nuevas tablas y columnas hasta que se agregan al esquema de sincronización. Al agregar nuevos objetos de base de datos, esta es la mejor secuencia que seguir:
+1. Agregue las nuevas tablas o columnas al centro y a todos los miembros de la sincronización.
+2. Agregue las nuevas tablas o columnas al esquema de sincronización.
+3. Empiece a insertar valores en las nuevas tablas y columnas.
+
+**Mediante el cambio del tipo de datos de una columna**. Al cambiar el tipo de datos de una columna existente, Data Sync funcionará siempre que los nuevos valores se ajusten al tipo de datos original definido en el esquema de sincronización. Por ejemplo, si cambia el tipo de la base de datos de origen de **int** a **bigint**, Data Sync funcionará hasta que se inserte un valor que sea demasiado grande para el tipo de datos **int**. Para completar el cambio, replique el cambio de esquema manualmente en el centro y en todos los miembros de la sincronización y actualice el esquema de sincronización.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>¿Cómo se exporta e importa una base de datos con la sincronización de datos?
 Después de exportar una base de datos como un archivo `.bacpac` e importar dicho archivo para crear una base de datos, debe realizar los dos pasos siguientes para usar Data Sync en la nueva base de datos:

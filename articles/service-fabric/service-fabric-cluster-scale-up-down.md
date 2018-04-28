@@ -1,11 +1,11 @@
 ---
-title: "Escalado o reducción horizontal de un clúster de Service Fabric | Microsoft Docs"
-description: "Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric"
+title: Escalado o reducción horizontal de un clúster de Service Fabric | Microsoft Docs
+description: Escale o reduzca horizontalmente un clúster de Service Fabric para satisfacer la demanda y configure para ello reglas de escalado automático en cada tipo de nodo y conjunto de escalado de máquinas virtuales. Incorporación o eliminación de nodos de un clúster de Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Escalado o reducción horizontal de un clúster de Service Fabric usando reglas de escalado automático
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Escalado o reducción horizontal de un clúster de Service Fabric mediante reglas de escalado automático o manualmente
 Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azure que se puede usar para implementar y administrar una colección de máquinas virtuales de forma conjunta. Cada tipo de nodo que se define en un clúster de Service Fabric está configurado como un conjunto de escalado de máquinas virtuales independiente. Cada tipo de nodo se puede escalar o reducir horizontalmente de forma independiente. Cada uno cuenta con diferentes conjuntos de puertos abiertos y puede tener distintas métricas de capacidad. Puede obtener más información al respecto en el documento [Relación entre los tipos de nodos de Service Fabric y los conjuntos de escalado de máquinas virtuales](service-fabric-cluster-nodetypes.md). Dado que los tipos de nodo de Service Fabric del clúster están formados por conjuntos de escalado de máquinas virtuales en el back-end, tendrá que configurar reglas de escalado automático para cada tipo de nodo y conjunto de escalado de máquinas virtuales.
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Los conjuntos de escalas de máquinas virtuales son un recurso de proceso de Azu
 ## <a name="choose-the-node-typevirtual-machine-scale-set-to-scale"></a>Selección del tipo de nodo o conjunto de escalado de máquinas virtuales para escalar
 Actualmente, no es posible especificar reglas de escalado automático para conjuntos de escalado de máquinas virtuales mediante el portal, por lo que vamos a usar Azure PowerShell (1.0 +) para mostrar los tipos de nodo y luego agregarles reglas de escalado automático.
 
-Para obtener la lista de conjuntos de escalado de máquinas virtuales que componen el clúster, ejecute los siguientes cmdlets:
+Para la lista de conjuntos de escalado de máquinas virtuales que componen el clúster, ejecute los siguientes cmdlets:
 
 ```powershell
 Get-AzureRmResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/VirtualMachineScaleSets
@@ -47,7 +47,7 @@ Si el clúster tiene varios tipos de nodo, repita este procedimiento con cada ti
 > 
 > 
 
-Actualmente, la característica de escalado automático no depende de las cargas que las aplicaciones pueden notificar a Service Fabric. En este momento, está controlada por los contadores de rendimiento que emiten cada una de las instancias del conjunto de escalado de máquinas virtuales.  
+Actualmente, la característica de escalado automático no depende de las cargas que las aplicaciones pueden notificar a Service Fabric. En este momento, se controla mediante los contadores de rendimiento que emiten cada una de las instancias del conjunto de escalado de máquinas virtuales.  
 
 Siga estas instrucciones [para configurar el escalado automático para cada conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
@@ -86,12 +86,12 @@ Debe realizar los siguientes pasos en una instancia de máquina virtual cada vez
 Debe realizar los siguientes pasos en una instancia de máquina virtual cada vez. De este modo, los servicios del sistema (y los servicios con estado) se cerrarán correctamente en la instancia de máquina virtual que se va a quitar y en las nuevas réplicas creadas en otros nodos.
 
 1. Ejecute [Disable-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) con RemoveNode para deshabilitar el nodo que va a quitar (la instancia más alta de dicho tipo de nodo).
-2. Ejecute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para asegurarse de que el nodo vaya a deshabilitarse. Si no, espere hasta que se deshabilite. Este paso no puede saltarse.
+2. Ejecute [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) para asegurarse de que el nodo vaya a deshabilitarse. Si no es así, espere hasta que se deshabilite. Este paso no puede saltarse.
 3. Siga las instrucciones o el ejemplo de la [galería de plantillas de inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) para cambiar el número de máquinas virtuales por uno de ese tipo de nodo. Esta acción quitará la instancia de máquina virtual más alta. 
 4. repita los pasos del 1 al 3 según vea necesario, pero nunca apague las instancias del nodo principal ni las reduzca a un número inferior al que garantiza el nivel de confiabilidad. Consulte [la información sobre los niveles de confiabilidad aquí](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Comportamientos que se pueden observar en Service Fabric Explorer
-Al escalar verticalmente un clúster, Service Fabric Explorer reflejará el número de nodos (instancias del conjunto de escalado de máquinas virtuales) que son parte del clúster.  Sin embargo, al reducir un clúster horizontalmente verá que el nodo o la instancia de máquina virtual quitados se mostrarán con un estado incorrecto, a menos que llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo apropiado.   
+Al escalar verticalmente un clúster, Service Fabric Explorer refleja el número de nodos (instancias del conjunto de escalado de máquinas virtuales) que forman parte del clúster.  Sin embargo, al reducir un clúster horizontalmente verá que el nodo o la instancia de máquina virtual quitados se mostrarán con un estado incorrecto, a menos que llame a [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con el nombre de nodo apropiado.   
 
 Esta es la explicación de este comportamiento.
 

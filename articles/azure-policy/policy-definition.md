@@ -3,17 +3,17 @@ title: Estructura de definición de Azure Policy | Microsoft Docs
 description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué acción realizar.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.date: 04/18/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: c98712b8fb2f8d6a85906b2c78fb678fc0f970b7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 

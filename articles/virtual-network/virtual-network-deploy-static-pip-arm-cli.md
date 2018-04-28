@@ -1,11 +1,11 @@
 ---
-title: "Crear una VM con una dirección IP pública estática: CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear una VM con una dirección IP pública estática mediante la interfaz de la línea de comandos (CLI) de Azure."
+title: 'Crear una VM con una dirección IP pública estática: CLI de Azure | Microsoft Docs'
+description: Aprenda a crear una VM con una dirección IP pública estática mediante la interfaz de la línea de comandos (CLI) de Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,19 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Crear una VM con una dirección IP pública estática mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [CLI de Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [Plantilla](virtual-network-deploy-static-pip-arm-template.md)
 > * [PowerShell (clásico)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
@@ -145,7 +144,11 @@ Se recomienda eliminar los recursos creados en este ejercicio si no va a utiliza
 1. Ejecute el comando `az resource list --resource-group IaaSStory` para ver los recursos del grupo de recursos.
 2. Confirme que no haya otros recursos en el grupo de recursos que no sean los creados por el script de este artículo, antes de eliminar el grupo de recursos. 
 3. Para eliminar todos los recursos creados en este ejercicio, ejecute el comando `az group delete -n IaaSStory`. Este comando elimina el grupo de recursos y todos los recursos que contiene.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>Configuración de direcciones IP en el sistema operativo
+
+No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Se recomienda no asignar estáticamente la dirección IP privada asignada a la máquina virtual de Azure en el sistema operativo de una máquina virtual, a menos que sea necesario, como al [asignar varias direcciones IP a una máquina virtual Windows](virtual-network-multiple-ip-addresses-cli.md). Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure, de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cualquier tráfico de red puede fluir hacia la máquina virtual creada en este artículo y desde ella. Puede definir reglas entrantes y salientes en un grupo de seguridad de red que limite el tráfico que puede fluir hacia la interfaz de red, la subred o ambas y desde ellas. Para más información acerca de los grupos de seguridad de red, consulte el artículo de [información general sobre los grupos de seguridad de red](virtual-networks-nsg.md).
+Cualquier tráfico de red puede fluir hacia la máquina virtual creada en este artículo y desde ella. Puede definir reglas de seguridad entrantes y salientes en un grupo de seguridad de red que limite el tráfico que puede fluir hacia la interfaz de red, la subred o ambas y desde ellas. Para más información acerca de los grupos de seguridad de red, consulte [Seguridad de las redes](security-overview.md).

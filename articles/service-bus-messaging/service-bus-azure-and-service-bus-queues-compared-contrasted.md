@@ -1,11 +1,11 @@
 ---
-title: "Colas de Azure Storage y colas de Service Bus: comparación y diferencias | Microsoft Docs"
+title: 'Colas de Azure Storage y colas de Service Bus: comparación y diferencias | Microsoft Docs'
 description: Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de colas que ofrece Microsoft Azure en la actualidad: colas de Storage y colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -39,7 +39,7 @@ Al determinar qué tecnología de cola se ajusta al propósito de una solución 
 
 Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas de Storage** en los siguientes casos:
 
-* Su aplicación debe almacenar más de 80 GB de mensajes en una cola, donde los mensajes tienen una duración inferior a 7 días.
+* La aplicación debe almacenar más de 80 GB de mensajes en una cola.
 * Su aplicación desea realizar un seguimiento del progreso para procesar un mensaje dentro de la cola. Esto es útil si se bloquea el trabajador que procesa un mensaje. Un trabajador posterior puede usar esa información para continuar desde donde se marchó el trabajador anterior.
 * Necesita registros de lado de servidor de todas las transacciones ejecutadas con las colas.
 
@@ -51,7 +51,6 @@ Como arquitecto o desarrollador de soluciones, **debe considerar el uso de colas
 * Su solución debe ser capaz de admitir la detección automática de duplicados.
 * Quiere que su aplicación procese mensajes como secuencias de larga ejecución en paralelo (los mensajes están asociados a una secuencia mediante la propiedad [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) del mensaje). En este modelo, cada nodo de la aplicación de consumo compite por secuencias, en lugar de los mensajes. Cuando se proporciona una secuencia a un nodo de consumo, el nodo puede examinar el estado de la secuencia de aplicación mediante transacciones.
 * Su solución requiere un comportamiento transaccional y atomicidad al enviar o recibir varios mensajes desde una cola.
-* La característica de período de vida (TTL) de la carga de trabajo específica de la aplicación puede superar el período de 7 días.
 * Su aplicación administra mensajes que pueden superar los 64 KB pero probablemente no alcanzarán el límite de 256 KB.
 * Aborda un requisito para ofrecer un modelo de acceso basado en roles a las colas y diferentes derechos o permisos para los remitentes y receptores.
 * El tamaño de la cola no aumentará a más de 80 GB.
@@ -133,7 +132,7 @@ En esta sección se comparan las colas de Storage y las colas de Service Bus des
 | --- | --- | --- |
 | Tamaño de cola máximo |**500 TB**<br/><br/>(limitado a una [capacidad de cuenta de almacenamiento única](../storage/common/storage-introduction.md#queue-storage)) |**De 1 GB a 80 GB**<br/><br/>(definido al crear una cola y [habilitar particiones](service-bus-partitioning.md): vea la sección "Información adicional") |
 | Tamaño de mensaje máximo |**64 KB**<br/><br/>(48 K cuando se usa la codificación **Base64**)<br/><br/>Azure admite mensajes de gran tamaño mediante la combinación de colas y blobs, momento en el que puede poner en cola hasta 200 GB para un solo elemento. |**256 KB** o **1 MB**<br/><br/>(incluidos tanto el encabezado como el cuerpo, tamaño de encabezado máximo: 64 KB).<br/><br/>Depende del [nivel de servicio](service-bus-premium-messaging.md). |
-| TTL de mensaje máximo |**7 días** |**TimeSpan.Max** |
+| TTL de mensaje máximo |**Infinitas** (a partir de la versión de API 2017-07-27) |**TimeSpan.Max** |
 | Número máximo de colas |**Sin límite** |**10.000**<br/><br/>(por espacio de nombres de servicio) |
 | Número máximo de clientes simultáneos |**Sin límite** |**Sin límite**<br/><br/>(el límite de 100 conexiones simultáneas solo se aplica a la comunicación basada en protocolo TCP) |
 

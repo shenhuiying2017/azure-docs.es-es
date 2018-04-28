@@ -1,31 +1,24 @@
 ---
-title: 'Tutorial: Carga de datos de PolyBase, de Azure Storage Blob en Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial que utiliza Azure Portal y SQL Server Management Studio para cargar datos de taxis de Nueva York de Azure Blob Storage en Azure SQL Data Warehouse.
+title: 'Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse | Microsoft Docs'
+description: En este tutorial se utiliza Azure Portal y SQL Server Management Studio para cargar datos de taxis de Nueva York de un blob de Azure público en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: ''
 author: ckarst
-manager: jhubbard
-editor: ''
-tags: ''
-ms.assetid: ''
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.custom: mvc,develop data warehouses
-ms.devlang: na
-ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 03/16/2018
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: barbkess
-ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.reviewer: igorstan
+ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Tutorial: Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
-PolyBase es la tecnología de carga estándar para obtener datos en SQL Data Warehouse. En este tutorial, se usa PolyBase para cargar datos de taxis de Nueva York de Azure Blob Storage en Azure SQL Data Warehouse. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
+En este tutorial se utiliza PolyBase para cargar datos de taxis de Nueva York de un blob de Azure público en Azure SQL Data Warehouse. El tutorial utiliza [Azure Portal](https://portal.azure.com) y [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) para: 
 
 > [!div class="checklist"]
 > * Crear un almacenamiento de datos en Azure Portal
@@ -50,7 +43,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Creación de un almacenamiento de datos SQL en blanco
 
-Un almacenamiento de datos de Azure SQL se crea con un conjunto definido de [recursos de proceso](performance-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
+Un almacenamiento de datos de Azure SQL se crea con un conjunto definido de [recursos de proceso](memory-and-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
 
 Siga estos pasos para crear un almacenamiento de datos SQL en blanco. 
 
@@ -170,7 +163,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="create-a-user-for-loading-data"></a>Creación de un usuario para cargar datos
 
-La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. La carga de datos es una operación que utiliza mucha memoria. Se definen [valores máximos de memoria](performance-tiers.md#memory-maximums) según el [nivel de rendimiento](performance-tiers.md) y la [clase de recurso](resource-classes-for-workload-management.md). 
+La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. La carga de datos es una operación que utiliza mucha memoria. Los valores máximos de memoria se definen por [nivel de rendimiento](memory-and-concurrency-limits.md#performance-tiers), [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) y [clase de recurso](resource-classes-for-workload-management.md). 
 
 Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar datos. A continuación, agregue el usuario de carga a una [clase de recurso](resource-classes-for-workload-management.md) que permita una asignación de memoria máxima apropiada.
 
@@ -221,7 +214,7 @@ El primer paso para cargar datos es iniciar sesión como LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Creación de tablas externas para los datos de ejemplo
 
-Está listo para comenzar el proceso de carga de datos en el nuevo almacenamiento de datos. Este tutorial le muestra cómo usar [PolyBase](/sql/relational-databases/polybase/polybase-guide) para cargar datos de los taxis de Nueva York procedentes de una instancia de Azure Storage Blob. Para consultas futuras y aprender cómo obtener los datos en Azure Blob Storage o cómo cargarlos directamente desde el origen en SQL Data Warehouse, consulte la [introducción a la carga](sql-data-warehouse-overview-load.md).
+Está listo para comenzar el proceso de carga de datos en el nuevo almacenamiento de datos. Este tutorial le muestra cómo usar tablas externas para cargar datos de taxis de Nueva York procedentes de una instancia de Azure Storage Blob. Para consultas futuras y aprender cómo obtener los datos en Azure Blob Storage o cómo cargarlos directamente desde el origen en SQL Data Warehouse, consulte la [introducción a la carga](sql-data-warehouse-overview-load.md).
 
 Ejecute los siguientes scripts SQL para especificar información sobre los datos que desea cargar. Esta información incluye dónde se encuentran los datos, el formato del contenido de los mismos y la definición de tabla para ellos. 
 

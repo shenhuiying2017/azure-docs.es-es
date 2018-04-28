@@ -1,25 +1,25 @@
 ---
-title: "Decisiones de implementación desconectada de Azure en sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Determine qué decisiones de planeamiento hay que tomar en las implementaciones de Azure Stack multinodo con conexión a Azure."
+title: Decisiones de implementación desconectada de Azure en sistemas integrados de Azure Stack | Microsoft Docs
+description: Determine qué decisiones de planeamiento hay que tomar en las implementaciones de Azure Stack multinodo con conexión a Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Decisiones de planeamiento de implementación desconectada de Azure en sistemas integrados de Azure Stack
 Una vez que haya decidido [cómo va a integrar Azure Stack en el entorno de nube híbrida](azure-stack-connection-models.md), puede concluir sus decisiones de implementación de Azure Stack.
@@ -45,7 +45,7 @@ Azure Stack se ha diseñado para funcionar mejor cuando se conecta a Azure, por 
 |Implementación de máquina virtual con extensión Docker para ejecutar comandos de Docker|Limitación: Docker buscará en Internet la versión más reciente y se producirá un error en esta comprobación.|
 |Vínculos de documentación en el Portal de Azure Stack|No disponible: los vínculos como Enviar comentarios, Ayuda, Guía de inicio rápido, etc., que utilizan una dirección URL de Internet, no funcionarán.|
 |Corrección o mitigación de alertas que hace referencia a una guía de corrección en línea|No disponible: no funcionará ningún vínculo de corrección de alertas que utilice una dirección URL de Internet.|
-|Redifusión de Marketplace: la capacidad para seleccionar y agregar paquetes de la Galería directamente desde Azure Marketplace|No disponible: esta característica requiere conectividad con Azure y una cuenta de Azure Active Directory.|
+|Redifusión de Marketplace: la capacidad para seleccionar y agregar paquetes de la Galería directamente desde Azure Marketplace|Limitación: cuando Azure Stack se implementa en un modo sin conexión (sin conectividad a Internet), no puede descargar elementos de Marketplace a través del portal de Azure Stack. Sin embargo, puede usar la [herramienta de redifusión de Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) para descargar los elementos de Marketplace en un equipo que tenga conectividad a Internet y transferirlos después a su entorno de Azure Stack.|
 |Uso de cuentas de federación de Azure Active Directory para administrar una implementación de Azure Stack|No disponible: esta característica requiere conectividad con Azure. En su lugar se debe usar AD FS con una instancia local de Active Directory.|
 |Proveedores de recursos como WebApps y SQL|No disponible: los proveedores de recursos como WebApps y SQL requieren acceso a Internet para el contenido.|
 |Interfaz de línea de comandos (CLI)|Limitación: la CLI ha reducido la funcionalidad en lo que se refiere a autenticación y aprovisionamiento de entidades de servicio.|

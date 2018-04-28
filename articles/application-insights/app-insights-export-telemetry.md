@@ -1,8 +1,8 @@
 ---
-title: "Exportación de telemetría desde Application Insights | Microsoft Docs"
-description: "Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí."
+title: Exportación de telemetría desde Application Insights | Microsoft Docs
+description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d1f648bc2c2a42cfbd668f180bce8f56ebd065b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
@@ -31,6 +31,7 @@ Antes de configurar la exportación continua, hay algunas alternativas que convi
 * [Analytics](app-insights-analytics.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
 * Si lo que le interesa es [explorar los datos en Power BI](app-insights-export-power-bi.md), puede hacerlo sin usar la exportación continua.
 * La [API de REST de acceso a datos](https://dev.applicationinsights.io/) le permite acceder a datos de telemetría con programación.
+* También puede tener acceso a la configuración de la [exportación continua a través de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Cuando la exportación continua copie sus datos en el almacenamiento (donde pueden permanecer tanto tiempo como quiera), seguirán estando disponibles en Application Insights durante el [período de retención](app-insights-data-retention-privacy.md) habitual.
 
@@ -81,7 +82,7 @@ No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso med
 Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](app-insights-monitor-web-app-availability.md) que haya configurado.
 
 > [!NOTE]
-> **Muestreo.** Si la aplicación envía muchos datos, la característica de muestreo puede operar y enviar solamente una fracción de la telemetría generada. [Obtenga más información sobre el muestreo.](app-insights-sampling.md)
+> **Muestreo.** Si la aplicación envía muchos datos, la característica de muestreo puede operar y enviar solamente una fracción de la telemetría generada. [Aprenda más sobre el muestreo.](app-insights-sampling.md)
 >
 >
 
@@ -121,7 +122,7 @@ Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos 
 [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](app-insights-export-data-model.md)
 
 ## <a name="processing-the-data"></a>Procesamiento de los datos
-En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo:
+En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo: 
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -176,7 +177,7 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
     Lamentablemente, no. Nuestro motor de exportación actualmente solo funciona con el almacenamiento de Azure.  
 * *¿Hay ningún límite para la cantidad de datos que puedo colocar en mi almacén?*
 
-    No. Seguiremos insertando datos hasta que elimine la exportación. Pararemos si alcanzamos los límites externos del almacenamiento de blobs, pero hasta llegar ahí falta mucho. Depende de usted controlar la cantidad de almacenamiento que usa.  
+    Nº Seguiremos insertando datos hasta que elimine la exportación. Pararemos si alcanzamos los límites externos del almacenamiento de blobs, pero hasta llegar ahí falta mucho. Depende de usted controlar la cantidad de almacenamiento que usa.  
 * *¿Cuántos blobs debería ver en el almacenamiento?*
 
   * Para cada tipo de datos que seleccionó para exportar, se crea un blob nuevo cada minuto (si los datos están disponibles).

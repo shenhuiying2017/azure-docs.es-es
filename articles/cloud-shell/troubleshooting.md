@@ -1,12 +1,12 @@
 ---
-title: "Solución de problemas de Azure Cloud Shell | Microsoft Docs"
-description: "Solución de problemas de Azure Cloud Shell"
+title: Solución de problemas de Azure Cloud Shell | Microsoft Docs
+description: Solución de problemas de Azure Cloud Shell
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: maertendMSFT
 manager: angelc
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 52ee832b643af573d8236b266df17d36e485ead2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -147,4 +147,30 @@ Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unida
 
 ### <a name="gui-applications-are-not-supported"></a>No se admiten las aplicaciones con GUI
 
-Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD` o `Login-AzureRMAccount`, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+Si el usuario ejecuta un comando que crearía un cuadro de diálogo de Windows, como `Connect-AzureAD` o `Connect-AzureRmAccount`, se ve un mensaje de error como el siguiente: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+## <a name="gdpr-compliance-for-cloud-shell"></a>Cumplimiento del RGPD en Cloud Shell
+
+Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados por el servicio Azure Cloud Shell se usan para proporcionar los valores predeterminados de su experiencia, tales como el shell que ha utilizado más recientemente, el tamaño y el tipo de fuente que prefiere y los detalles de recursos compartidos de archivos que respaldan el comando clouddrive. En caso de que quiera exportar o eliminar estos datos, hemos incluido las siguientes instrucciones.
+
+### <a name="export"></a>Exportación
+Para poder **exportar** la configuración de usuario, Cloud Shell guarda automáticamente datos tales como el shell, el tamaño y el tipo de fuente preferidos ejecutando los comandos siguientes.
+
+1. Inicio de Bash en Cloud Shell
+2. Ejecute los comandos siguientes:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
+```
+
+### <a name="delete"></a>Eliminar
+Para poder **eliminar** la configuración de usuario, Cloud Shell guarda automáticamente datos tales como el shell, el tamaño y el tipo de fuente preferidos ejecutando los comandos siguientes. La próxima vez que inicie Cloud Shell se le pedirá que vuelva a incorporar un recurso compartido de archivos. 
+
+El recurso compartido de archivos real de Azure Files no se eliminará si elimina la configuración de usuario. Vaya a Azure Files para completar esa acción.
+
+1. Inicio de Bash en Cloud Shell
+2. Ejecute los comandos siguientes:
+```
+user@Azure:~$ token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+user@Azure:~$ curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+```

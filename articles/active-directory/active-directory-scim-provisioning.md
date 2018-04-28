@@ -17,10 +17,10 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.openlocfilehash: 3b7f2f104046313e7d60cea4ef296f265d204aec
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -144,7 +144,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
   ![][2]
   *Figura 4: configuración del aprovisionamiento en Azure Portal*
     
-6. En el campo **URL de inquilino**, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. Sería algo como http://testmachine.contoso.com:9000 o http://<ip-address>:9000/, donde <ip-address> es la dirección IP expuesta a Internet.  
+6. En el campo **URL de inquilino**, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. Podría ser algo parecido a http://testmachine.contoso.com:9000 o http://<dirección-IP>:9000/, donde <dirección-IP> es la dirección IP expuesta a Internet.  
 7. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si se deja este campo en blanco, Azure AD incluirá un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token emitido por Azure AD.
 8. Haga clic en el botón **Probar conexión** para que Azure Active Directory intente conectarse al punto de conexión SCIM. Si se produce un error en los intentos, se muestra información de error.  
 9. Si se produce la conexión, a continuación, haga clic en **Guardar** para guardar las credenciales de administrador.
@@ -168,7 +168,7 @@ Para desarrollar su propio servicio web que cumpla la especificación SCIM, fami
 2. Los [controladores de ruta Express](http://expressjs.com/guide/routing.html) están disponibles para analizar los objetos de solicitud de node.js que representan llamadas (tal y como se define en la especificación SCIM), realizadas a un servicio web de node.js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Creación de un punto de conexión SCIM personalizado
-Mediante las bibliotecas CLI, los desarrolladores que usan dichas bibliotecas pueden hospedar sus servicios en cualquier ensamblado ejecutable de Common Language Infrastructure, o bien en Internet Information Services. Este es el código de ejemplo para hospedar un servicio dentro de un ensamblado ejecutable, en la dirección http://localhost:9000: 
+Mediante las bibliotecas CLI, los desarrolladores que usan dichas bibliotecas pueden hospedar sus servicios en cualquier ensamblado ejecutable de Common Language Infrastructure, o bien en Internet Information Services. Aquí se incluye un ejemplo de código para hospedar un servicio dentro de un ensamblado ejecutable en la dirección http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -288,7 +288,7 @@ Para hospedar el servicio en Internet Information Services, un desarrollador cre
     }
 
 ### <a name="handling-endpoint-authentication"></a>Control de la autenticación de puntos de conexión
-Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0.   Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory en nombre del inquilino de Azure Active Directory esperado, para el acceso al servicio web Graph de Azure Active Directory.  En el token, el emisor se identifica mediante una notificación ISS, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  En este ejemplo, la dirección base del valor de notificación, https://sts.windows.net, identifica Azure Active Directory como el emisor, mientras que el segmento de dirección relativa, cbb1a5ac f33b 45fa 9bf5 f37db0fed422, es un identificador único del inquilino de Azure Active Directory en cuyo nombre se ha emitido el token.  Si el token se emitió para acceder al servicio web Graph de Azure Active Directory, el identificador de dicho servicio, 00000002-0000-0000-c000-000000000000, debe estar en el valor de notificación aud del token.  
+Las solicitudes de Azure Active Directory incluyen un token de portador de OAuth 2.0.   Cualquier servicio que reciba la solicitud debe autenticar al emisor como Azure Active Directory en nombre del inquilino de Azure Active Directory esperado, para el acceso al servicio web Graph de Azure Active Directory.  En el token, el emisor se identifica mediante una notificación de iss; por ejemplo, "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  En este ejemplo, la dirección base del valor de notificación, https://sts.windows.net, identifica a Azure Active Directory como el emisor, mientras que el segmento de la dirección relativa, cbb1a5ac f33b 45fa 9bf5 f37db0fed422, es un identificador único del inquilino de Azure Active Directory en cuyo nombre se ha emitido el token.  Si el token se emitió para acceder al servicio web Graph de Azure Active Directory, el identificador de dicho servicio, 00000002-0000-0000-c000-000000000000, debe estar en el valor de notificación aud del token.  
 
 Los desarrolladores que usan las bibliotecas de CLI proporcionadas por Microsoft para crear un servicio SCIM pueden autenticar las solicitudes de Azure Active Directory mediante el paquete Microsoft.Owin.Security.ActiveDirectory siguiendo estos pasos: 
 
@@ -347,9 +347,9 @@ Los desarrolladores que usan las bibliotecas de CLI proporcionadas por Microsoft
 ## <a name="user-and-group-schema"></a>Esquema de grupos y usuarios
 Azure Active Directory puede aprovisionar dos tipos de recursos a los servicios web SCIM.  Esos tipos de recursos son los usuarios y grupos.  
 
-Los recursos de usuario se identifican mediante el identificador de esquema, urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, que se incluye en esta especificación del protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  La asignación predeterminada de los atributos de los usuarios en Azure Active Directory a los atributos de los recursos de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User se proporciona en la tabla 1, a continuación.  
+Los recursos de usuario se identifican mediante el identificador de esquema urn: ietf:params:scim:schemas:extension:enterprise:2.0:User, que se incluye en esta especificación del protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  La asignación predeterminada de los atributos de los usuarios en Azure Active Directory a los atributos de los recursos de urn: ietf:params:scim:schemas:extension:enterprise:2.0:User se proporciona en la tabla 1, a continuación.  
 
-Los recursos del grupo se identifican mediante el identificador del esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  En la Tabla 2 se muestra la asignación predeterminada de los atributos de los grupos en Azure Active Directory para los atributos de los recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+Los recursos del grupo se identifican mediante el identificado de esquema http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  En la Tabla 2, se muestra la asignación predeterminada entre los atributos de los grupos de Azure Active Directory y los atributos de los recursos de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tabla 1: Asignación de atributos de usuario predeterminada
 | Usuario de Azure Active Directory | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |

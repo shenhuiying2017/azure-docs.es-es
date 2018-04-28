@@ -1,6 +1,6 @@
 ---
-title: "Ejecución de Ansible con Bash en Azure Cloud Shell"
-description: "Información acerca de cómo realizar diversas tareas de Ansible con Bash en Azure Cloud Shell"
+title: Ejecución de Ansible con Bash en Azure Cloud Shell
+description: Información acerca de cómo realizar diversas tareas de Ansible con Bash en Azure Cloud Shell
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarcher
@@ -8,11 +8,11 @@ manager: routlaw
 ms.author: tarcher
 ms.date: 02/01/2018
 ms.topic: article
-ms.openlocfilehash: 92ca2950199d638c5f76c0c7aadbae4fda7e9d1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9fe65f4cf10119002bcb7a3855d112d850e20f1a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-ansible-with-bash-in-azure-cloud-shell"></a>Ejecución de Ansible con Bash en Azure Cloud Shell
 
@@ -24,7 +24,7 @@ En este tutorial, obtendrá información acerca de cómo realizar diversas tarea
 
 - **Credenciales de Azure** - [: cree credenciales de Azure y configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configuración de Azure Cloud Shell**: si es la primera vez que usa Azure Cloud Shell, el artículo [Guía de inicio rápido para Bash en Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) muestra cómo iniciar y configurar Cloud Shell. Inicie un sitio web dedicado para Cloud Shell aquí:
+- **Configuración de Azure Cloud Shell**: si es la primera vez que usa Azure Cloud Shell, el artículo [Guía de inicio rápido para Bash en Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) muestra cómo iniciar y configurar Cloud Shell. Inicie un sitio web dedicado para Cloud Shell aquí:
 
 [![Iniciar Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 

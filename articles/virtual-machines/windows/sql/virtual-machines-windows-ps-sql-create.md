@@ -1,11 +1,11 @@
 ---
-title: "Guía de aprovisionamiento para máquinas virtuales de SQL Server con Azure PowerShell | Microsoft Docs"
-description: "Ofrece pasos y comandos de PowerShell para crear una VM de Azure con imágenes de la galería de máquinas virtuales de SQL Server."
+title: Guía de aprovisionamiento para máquinas virtuales de SQL Server con Azure PowerShell | Microsoft Docs
+description: Ofrece pasos y comandos de PowerShell para crear una VM de Azure con imágenes de la galería de máquinas virtuales de SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 2f94cf2ab84179161c8d0a4f2ae6f73ded1d65c3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7dff9fd736b1b0c616ee2d4f2591d632345156b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell
 
@@ -31,10 +31,10 @@ En este artículo se requiere la versión 3.6 del módulo de Azure PowerShell, u
 
 ## <a name="configure-your-subscription"></a>Configuración de su suscripción
 
-1. Abra PowerShell y establezca el acceso a su cuenta de Azure mediante la ejecución del comando **Add-AzureRmAccount**.
+1. Abra PowerShell y establezca el acceso a su cuenta de Azure mediante la ejecución del comando **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Debería ver una pantalla de inicio de sesión para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
@@ -327,7 +327,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 También puede eliminar de forma definitiva todos los recursos asociados a la máquina virtual con el comando **Remove-AzureRmResourceGroup**. Como esta acción también elimina la máquina virtual definitivamente, use este comando con cuidado.
 
 ## <a name="example-script"></a>Script de ejemplo
-El siguiente script contiene el script de PowerShell completo de este tutorial. Se da por hecho que ya tiene configurada la suscripción de Azure para usarla con los comandos **Add-AzureRmAccount** y **Select-AzureRmSubscription**.
+El siguiente script contiene el script de PowerShell completo de este tutorial. Se da por hecho que ya tiene configurada la suscripción a Azure para usarla con los comandos **Connect-AzureRmAccount** y **Select-AzureRmSubscription**.
 
 ```PowerShell
 # Variables

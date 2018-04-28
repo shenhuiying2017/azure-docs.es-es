@@ -2,29 +2,27 @@
 title: Uso de .NET con MapReduce de Hadoop en HDInsight basado en Linux - Azure | Microsoft Docs
 description: Aprenda a usar aplicaciones de .NET para streaming de MapReduce en HDInsight basado en Linux.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bff53af8f5c0b74cf0f69ba474d62ecdb7e20ce1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migración de soluciones .NET para HDInsight basado en Windows a HDInsight basado en Linux
 
-Los clústeres de HDInsight basado en Linux se sirven de [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. Mono le permite usar componentes .NET como aplicaciones de MapReduce con HDInsight basado en Linux. En este documento, aprende a migrar soluciones .NET creadas para clústeres de HDInsight basados en Windows para que funcionen con Mono en HDInsight basados en Linux.
+Los clústeres de HDInsight basados en Linux usan [Mono (https://mono-project.com)](https://mono-project.com) para ejecutar aplicaciones .NET. Mono le permite usar componentes .NET como aplicaciones de MapReduce con HDInsight basado en Linux. En este documento, aprende a migrar soluciones .NET creadas para clústeres de HDInsight basados en Windows para que funcionen con Mono en HDInsight basados en Linux.
 
 ## <a name="mono-compatibility-with-net"></a>Compatibilidad de Mono con .NET
 
@@ -58,7 +56,7 @@ El [Analizador de portabilidad de .NET](https://marketplace.visualstudio.com/ite
 
 ## <a name="manual-portability-analysis"></a>Análisis de portabilidad manual
 
-Realice una auditoría manual de su código con la información del documento [Application Portability (Portabilidad de la aplicación) (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/).
+Realice una auditoría manual del código con la información del documento sobre [portabilidad de la aplicación (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/).
 
 ## <a name="modify-and-build"></a>Modificación y compilación
 

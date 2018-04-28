@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6926ae6c67e3397006e95595a8dc28bab67256da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Copia de datos de ServiceNow con Azure Data Factory
 
@@ -45,7 +45,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **ServiceNow**. | Sí |
-| endpoint | El punto de conexión del servidor de ServiceNow (`http://ServiceNowData.com`).  | Sí |
+| endpoint | El punto de conexión del servidor de ServiceNow (`http://<instance>.service-now.com`).  | Sí |
 | authenticationType | Tipo de autenticación que se debe usar. <br/>Los valores permitidos son: **Basic** y **OAuth2**. | Sí |
 | nombre de usuario | Nombre de usuario utilizado para conectarse al servidor de ServiceNow para la autenticación Basic y OAuth2.  | Sin  |
 | contraseña | Contraseña correspondiente al nombre de usuario para la autenticación Basic y OAuth2. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
@@ -63,7 +63,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de ServiceN
     "properties": {
         "type": "ServiceNow",
         "typeProperties": {
-            "endpoint" : "http://ServiceNowData.com",
+            "endpoint" : "http://<instance>.service-now.com",
             "authenticationType" : "Basic",
             "username" : "<username>",
             "password": {

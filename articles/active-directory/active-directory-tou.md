@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/29/2018
 ms.author: billmath
-ms.openlocfilehash: 208a65c09b13acad62c9b6d8e55b6050041c9f5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Términos de uso de Azure AD proporciona un método sencillo que las organizaciones pueden usar para presentar la información a los usuarios finales.  Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes para los requisitos legales o de cumplimiento.
@@ -96,7 +96,7 @@ Para empezar a trabajar con auditorías utilice el procedimiento siguiente:
 2. Haga clic en Ver registros de auditoría.</br>
 ![Evento de auditoría](media/active-directory-tou/tou8.png)
 3.  En la pantalla de registros de auditoría de Azure AD, puede filtrar la información utilizando los elementos desplegables para seleccionar información de registro de auditoría específica.
-![Evento de auditoría](media/active-directory-tou/tou9.png)
+[Evento de auditoría](media/active-directory-tou/tou9.png)
 4.  También puede descargar la información en un archivo .csv para su uso de forma local.
 
 ## 
@@ -115,7 +115,7 @@ Los usuarios pueden revisar y ver los términos de uso que han aceptado.  Para e
 2. En la esquina superior derecha, haga clic en su nombre y seleccione **Perfil** en la lista desplegable.
 ![Perfil](media/active-directory-tou/tou14.png)
 
-3. En Perfil, haga clic en **Revisión de las condiciones de uso**.
+3. En Perfil, haga clic en **Revisar los términos de uso**.
 ![Evento de auditoría](media/active-directory-tou/tou13a.png)
 
 4.  Desde ahí puede examinar los términos de uso que ha aceptado. 

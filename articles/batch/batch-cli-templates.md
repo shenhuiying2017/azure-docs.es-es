@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 4b4a5b9199fe648425304eaa8db0130bb1b4264d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0a6e355d8f16fed9022cc2cf55dc09781364f0b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Uso de plantillas y transferencia de archivos de la CLI de Azure Batch (versión preliminar)
 
@@ -261,5 +261,5 @@ Pruebe la extensión Batch para la CLI de Azure y proporcione sus comentarios y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el blog de plantillas de Batch: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Ejecución de trabajos de Azure Batch mediante la CLI de Azure: sin necesidad de código).
+- Consulte el blog de plantillas de Batch: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/) (Ejecución de trabajos de Azure Batch mediante la CLI de Azure: sin necesidad de código).
 - La documentación detallada sobre la instalación y el uso, ejemplos y el código fuente está disponible en el [repositorio de GitHub de Azure](https://github.com/Azure/azure-batch-cli-extensions).

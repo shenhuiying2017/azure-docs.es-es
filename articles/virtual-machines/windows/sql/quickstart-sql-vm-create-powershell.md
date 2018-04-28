@@ -1,6 +1,6 @@
 ---
-title: "Creación de una máquina virtual Windows de SQL Server con Azure PowerShell | Microsoft Docs"
-description: "Este tutorial muestra cómo crear una máquina virtual Windows de SQL Server 2017 con Azure PowerShell."
+title: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell | Microsoft Docs
+description: Este tutorial muestra cómo crear una máquina virtual Windows de SQL Server 2017 con Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: daa5043a948e660b6c3e685e933855afff8f7671
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
 
@@ -40,10 +40,10 @@ Para realizar los pasos de esta guía, se requiere la versión 3.6 del módulo A
 
 ## <a name="configure-powershell"></a>Configuración de PowerShell
 
-1. Abra PowerShell y establezca el acceso a su cuenta de Azure, para lo que debe ejecutar el comando **Add-AzureRmAccount**.
+1. Abra PowerShell y establezca el acceso a su cuenta de Azure mediante la ejecución del comando **Connect-AzureRmAccount**.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. Debería ver una pantalla de inicio de sesión para escribir sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.

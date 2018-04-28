@@ -1,9 +1,9 @@
 ---
 title: Filtrado y preprocesamiento en el SDK de Azure Application Insights | Microsoft Docs
-description: "Escriba procesadores e inicializadores de telemetría para que el SDK filtre o agregue propiedades a los datos antes de enviar la telemetría al portal de Application Insights."
+description: Escriba procesadores e inicializadores de telemetría para que el SDK filtre o agregue propiedades a los datos antes de enviar la telemetría al portal de Application Insights.
 services: application-insights
-documentationcenter: 
-author: beckylino
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 11/23/2016
-ms.author: borooji;mbullwin
-ms.openlocfilehash: 3f621010c1c36445ad35d81d96a2e5aefc46b10c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: mbullwin; borooji
+ms.openlocfilehash: 06f116fc5096fe4bda9c8433c3a33726acb67eea
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 

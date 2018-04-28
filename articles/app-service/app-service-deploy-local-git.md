@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 4cbe26055bdbf906223a327ab8cf94bebe9e7998
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local a Azure App Service
 
@@ -189,3 +189,5 @@ git config --global http.postBuffer 524288000
 
 * [Documentación de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 * [Implementación continua en Azure App Service](app-service-continuous-deployment.md)
+* [Ejemplo: creación de una aplicación web e implementación de código desde un repositorio local de Git (CLI de Azure)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Ejemplo: creación de una aplicación web e implementación de código desde un repositorio local de Git (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

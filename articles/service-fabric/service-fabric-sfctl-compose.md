@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 19afd35248cc0796eddbb50db4f38b813f5d568e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Cree, elimine y administre implementaciones de Docker Compose.
@@ -56,7 +56,7 @@ Crea una implementación de Compose de Service Fabric.
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
 | --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
+| --query                 | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
@@ -79,7 +79,7 @@ Obtiene el estado sobre las implementaciones de Compose que se crearon o están 
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
 | --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query          | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
+| --query          | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose        | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
@@ -101,7 +101,7 @@ Elimina una implementación existente de Compose de Service Fabric.
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
 | --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
+| --query                 | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
@@ -123,7 +123,7 @@ Devuelve el estado de la implementación de Compose que se creó o está en proc
 | --debug                 | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h               | Muestra este mensaje de ayuda y sale.|
 | --output -o             | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                 | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
+| --query                 | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose               | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
@@ -161,9 +161,9 @@ Valida los parámetros de actualización proporcionados e inicia la actualizaci�
 |   --debug                      | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 |    --help -h                    | Muestra este mensaje de ayuda y sale.|
 |   --output -o                  | Formato de salida.  Valores permitidos: json, jsonc, table y tsv. Valor predeterminado: json.|
-|   --query                      | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+|   --query                      | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 |   --verbose                    | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

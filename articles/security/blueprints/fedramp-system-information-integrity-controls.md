@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: Automatización de aplicaciones web para FedRAMP: integridad del sistema y de la información"
-description: "Automatización de aplicaciones web para FedRAMP: integridad del sistema y de la información"
+title: 'Azure Security and Compliance Blueprint: Automatización de aplicaciones web para FedRAMP: integridad del sistema y de la información'
+description: 'Automatización de aplicaciones web para FedRAMP: integridad del sistema y de la información'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Integridad de la información y del sistema
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa la solución OMS Automation and Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. En el panel de OMS, el icono Update Management muestra el estado de corrección de errores para todos los servidores Windows implementados. |
+| **Cliente** | En este proyecto se implementa la solución Automation & Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. En el panel, el icono Update Management muestra el estado de corrección de errores para todos los servidores Windows implementados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales Windows implementadas por esta instancia de Blueprint se configuran de forma predeterminada para recibir actualizaciones automáticas de Windows Update Service. Esta solución también implementa la solución OMS Automation and Control a través de la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario. |
+| **Cliente** | Las máquinas virtuales Windows implementadas por esta instancia de Blueprint se configuran de forma predeterminada para recibir actualizaciones automáticas de Windows Update Service. Esta solución también implementa la solución Automation & Control mediante la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa la solución OMS Automation and Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. En el panel de OMS, el icono Update Management muestra el estado de corrección de errores para todos los servidores Windows implementados. Se pueden crear implementaciones de actualizaciones para implementar revisiones de servidores Windows cuando sea necesario. |
+| **Cliente** | En este proyecto se implementa la solución Automation & Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. En el panel, el icono Update Management muestra el estado de corrección de errores para todos los servidores Windows implementados. Se pueden crear implementaciones de actualizaciones para implementar revisiones de servidores Windows cuando sea necesario. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa la solución OMS Automation and Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento. |
+| **Cliente** | En este proyecto se implementa la solución Automation & Control para realizar un seguimiento del estado de las actualizaciones para las máquinas virtuales Windows implementadas en esta arquitectura. Para cada equipo Windows administrado, se realiza un examen dos veces al día. Cada 15 minutos, se llama a la API de Windows para consultar la hora de la última actualización y determinar si ha cambiado el estado y, de ser así, se inicia un examen de cumplimiento. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -217,7 +217,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa protecciones antimalware para todas las máquinas virtuales Windows implementadas mediante la extensión de máquina virtual Microsoft Antimalware. Azure OMS proporciona una funcionalidad centralizada para revisar el estado actual de la solución antimalware. |
+| **Cliente** | Esta instancia de Blueprint implementa protecciones antimalware para todas las máquinas virtuales Windows implementadas mediante la extensión de máquina virtual Microsoft Antimalware. Azure proporciona una funcionalidad centralizada para revisar el estado actual de la solución antimalware. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa Log Analytics y la solución OMS Security and Audit. Esta solución proporciona una vista completa de la actitud frente a la seguridad, los ataques y los indicadores de posibles ataques. El panel Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. |
+| **Cliente** | En este proyecto se implementa Log Analytics y la solución Security and Audit. Esta solución proporciona una vista completa de la actitud frente a la seguridad, los ataques y los indicadores de posibles ataques. El panel de información Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de administración implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -273,7 +273,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa la solución OMS de Security and Audit. El dominio Identify and Access (Identificación y acceso) proporciona un panel con información general sobre el estado de identificación del sistema de información, incluido el número de intentos con errores de inicio de sesión y el número actual de cuentas con sesiones iniciadas. La información disponible en este panel puede ayudarle de inmediato a identificar una posible actividad sospechosa. |
+| **Cliente** | En este proyecto se implementa la solución de Security and Audit. El dominio Identify and Access (Identificación y acceso) proporciona un panel con información general sobre el estado de identificación del sistema de información, incluido el número de intentos con errores de inicio de sesión y el número actual de cuentas con sesiones iniciadas. La información disponible en este panel puede ayudarle de inmediato a identificar una posible actividad sospechosa. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa Log Analytics y la solución OMS Security and Audit. El panel Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas, incluido el punto de vista sobre los datos de supervisión del sistema operativo de la máquina virtual. |
+| **Cliente** | En este proyecto se implementa Log Analytics y la solución Security and Audit. El panel Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de administración implementadas, incluido el punto de vista sobre los datos de supervisión del sistema operativo de la máquina virtual. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa Log Analytics y varias soluciones de OMS, incluida Security and Audit. Log Analytics proporciona el análisis casi en tiempo real de los eventos a través de los recursos implementados. Las soluciones de OMS proporcionan una visión completa de la actitud frente a la seguridad entre los dominios de la solución. OMS proporciona un punto de vista sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. OMS puede configurarse para generar alertas basadas en criterios definidos. |
+| **Cliente** | En este proyecto se implementa Log Analytics y varias soluciones de administración, incluida Security and Audit. Log Analytics proporciona el análisis casi en tiempo real de los eventos a través de los recursos implementados. Las soluciones de administración proporcionan una visión completa de la actitud frente a la seguridad de los dominios de la solución. Log Analytics proporciona un punto de vista sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de administración implementadas. Log Analytics puede configurarse para generar alertas basadas en criterios definidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -399,7 +399,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa varias soluciones de OMS, incluida Security and Audit. Log Analytics proporciona el análisis casi en tiempo real de los eventos a través de los recursos implementados. Las soluciones de OMS proporcionan una visión completa de la actitud frente a la seguridad entre los dominios de la solución. OMS puede configurarse para generar alertas basadas en criterios definidos. |
+| **Cliente** | En este proyecto se implementa varias soluciones de administración, incluida Security and Audit. Log Analytics proporciona el análisis casi en tiempo real de los eventos a través de los recursos implementados. Las soluciones de administración proporcionan una visión completa de la actitud frente a la seguridad de los dominios de la solución. Log Analytics puede configurarse para generar alertas basadas en criterios definidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -441,7 +441,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa Log Analytics y varias soluciones de OMS, incluida Security and Audit. OMS proporciona un punto de vista sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. |
+| **Cliente** | En este proyecto se implementa Log Analytics y varias soluciones de administración, incluida Security and Audit. Log Analytics proporciona un punto de vista sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de administración implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -511,7 +511,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint recopila los datos de supervisión de los recursos implementados, incluidos los de las funcionalidades de supervisión basadas en host. Microsoft Monitoring Agent está instalado en todas las máquinas virtuales Windows para recopilar datos de supervisión que Log Analytics y otras soluciones de OMS usan. |
+| **Cliente** | Esta instancia de Blueprint recopila los datos de supervisión de los recursos implementados, incluidos los de las funcionalidades de supervisión basadas en host. Microsoft Monitoring Agent está instalado en todas las máquinas virtuales Windows para recopilar datos de supervisión que usan Log Analytics y otras soluciones de administración. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

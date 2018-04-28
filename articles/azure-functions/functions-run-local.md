@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f3278c064a01e3dea1d7a629b4a7b2e846a71208
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificación y comprobación de las funciones de Azure Functions en un entorno local
 
@@ -31,45 +31,88 @@ Si es un desarrollador de C# de Visual Studio, Azure Functions también [permite
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
-[Azure Functions Core Tools] es una versión local del entorno en tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. No se trata de un emulador o simulador. Se trata del mismo entorno de ejecución que se usa en Functions en Azure. Hay dos versiones de Azure Functions Core Tools, una para la versión 1.x del entorno en tiempo de ejecución y otra para la versión 2.x. Ambas versiones se proporcionan como un [paquete npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Azure Functions Core Tools] es una versión local del entorno en tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. No se trata de un emulador o simulador. Se trata del mismo entorno de ejecución que se usa en Functions en Azure. Hay dos versiones de Azure Functions Core Tools:
 
->[!NOTE]  
-> Antes de instalar cualquiera de ellas, debe [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que incluye npm. Para la versión 2.x de las herramientas, solo se admite Node.js 8.5 y versiones posteriores. 
++ [Versión 1.x](#v1): admite la versión 1.x del entorno en tiempo de ejecución. Esta versión solo se admite en equipos con Windows y se instala desde un [paquete npm](https://docs.npmjs.com/getting-started/what-is-npm).
++ [Versión 2.x](#v2): admite la versión 2.x del entorno en tiempo de ejecución. Esta versión admite [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). Usa administradores de paquetes específicos de la plataforma o npm para la instalación. 
 
-### <a name="version-2x-runtime"></a>Entorno en tiempo de ejecución versión 2.x
+### <a name="v1"></a>Versión 1.x
 
-La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x. Use esta versión para el desarrollo multiplataforma y cuando se necesite el entorno en tiempo de ejecución 2.x de Functions. 
+La versión original de las herramientas usa el entorno en tiempo de ejecución versión 1.x de Functions. Esta versión usa .NET Framework (4.7.1) y solo se admite en equipos con Windows. Antes de instalar las herramientas de la versión 1.x, debe [instalar NodeJS](https://docs.npmjs.com/getting-started/installing-node), que incluye npm.
 
->[!IMPORTANT]   
-> Antes de instalar Azure Functions Core Tools, [instale .NET Core 2.0](https://www.microsoft.com/net/core).  
->
-> El entorno en tiempo de ejecución 2.0 de Azure Functions está en versión preliminar y actualmente no se admiten todas las características de Azure Functions. Para más información, consulte los [problemas conocidos del entorno en tiempo de ejecución 2.0 de Azure Functions](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues). 
-
- Use el siguiente comando para instalar las herramientas de la versión 2.0:
-
-```bash
-npm install -g azure-functions-core-tools@core
-```
-
-Para instalar en Ubuntu, use `sudo` como se indica a continuación:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core
-```
-
-Para instalar en Mac OS y Linux, quizás necesite incluir la marca `unsafe-perm`, como se indica a continuación:
-
-```bash
-sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
-```
-
-### <a name="version-1x-runtime"></a>Entorno en tiempo de ejecución versión 1.x
-
-La versión original de las herramientas usa el entorno en tiempo de ejecución versión 1.x de Functions. Esta versión usa .NET Framework y solo se admite en equipos con Windows. Use el siguiente comando para instalar las herramientas de la versión 1.x:
+Use el siguiente comando para instalar las herramientas de la versión 1.x:
 
 ```bash
 npm install -g azure-functions-core-tools
 ```
+
+### <a name="v2"></a>Versión 2.x
+
+>[!NOTE]
+> El entorno en tiempo de ejecución 2.0 de Azure Functions está en versión preliminar y actualmente no se admiten todas las características de Azure Functions. Para más información, consulte las [versiones de Azure Functions](functions-versions.md). 
+
+La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux).
+
+#### <a name="windows-npm"></a>Windows
+
+Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También puede usar [Chocolatey](https://chocolatey.org/). Para más información, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+
+1. Instale [.NET Core 2.0 para Windows](https://www.microsoft.com/net/download/windows).
+
+2. Instale [Node.js], que incluye npm. Para la versión 2.x de las herramientas, solo se admite Node.js 8.5 y versiones posteriores.
+
+3. Instale el paquete de Core Tools:
+
+  ```bash
+  npm install -g azure-functions-core-tools@core
+  ```
+
+#### <a name="brew"></a>MacOS con Homebrew
+
+Los pasos siguientes utilizan Homebrew para instalar Core Tools en macOS.
+
+1. Instale [.NET Core 2.0 para macOS](https://www.microsoft.com/net/download/macos).
+
+1. Instale [Homebrew](https://brew.sh/), si aún no está instalado.
+
+2. Instale el paquete de Core Tools:
+
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools 
+    ```
+
+#### <a name="linux"></a> Linux (Ubuntu/Debian) con APT
+
+Los siguientes pasos usan [APT](https://wiki.debian.org/Apt) para instalar Core Tools en la distribución de Ubuntu/Debian Linux. Para otras distribuciones de Linux, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
+
+1. Instale [.NET Core 2.0 para Linux](https://www.microsoft.com/net/download/linux).
+
+1. Registre la clave de producto de Microsoft como de confianza:
+
+  ```bash
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  ```
+
+2.  Configure la fuente del paquete, reemplazando `<version>` en el siguiente comando por el nombre de la versión adecuada de la tabla:
+
+  ```bash
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
+  sudo apt-get update
+  ```
+
+  | Distribución de Linux | `<version>` |
+  | --------------- | ----------- |
+  | Ubuntu 17.10    | `artful`    |
+  | Ubuntu 17.04    | `zesty`     |
+  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+3. Instale el paquete de Core Tools:
+
+  ```bash
+  sudo apt-get install azure-functions-core-tools
+  ```
 
 ## <a name="run-azure-functions-core-tools"></a>Ejecución de Azure Functions Core Tools
  
@@ -137,15 +180,19 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 | Configuración      | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | Cuando se establece en **true**, todos los valores se cifran con una clave de máquina local. Se usa con los comandos `func settings`. El valor predeterminado es **false**. |
-| **Valores** | Colección de opciones de configuración de la aplicación que se usa en la ejecución local. **AzureWebJobsStorage** y **AzureWebJobsDashboard** son ejemplos; para obtener una lista completa, consulte la [referencia de las opciones de configuración de aplicaciones](functions-app-settings.md).  |
+| **Valores** | Colección de opciones de configuración de la aplicación que se usa en la ejecución local. **AzureWebJobsStorage** y **AzureWebJobsDashboard** son ejemplos; para obtener una lista completa, consulte la [referencia de las opciones de configuración de aplicaciones](functions-app-settings.md). Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación como, por ejemplo, **Conexión** para el desencadenador de Blob Storage. Para estas propiedades, se necesita una configuración de la aplicación definida en la matriz **Valores**. Esto también se aplica a cualquier propiedad de enlace que establezca en un nombre de la configuración de la aplicación mediante la adición del valor entre signos de porcentaje, por ejemplo `%AppSettingName%`. |
 | **Host** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. | 
 | **LocalHttpPort** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
 | **CORS** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
 | **ConnectionStrings** | Contiene las cadenas de conexión de la base de datos para las funciones. Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de **System.Data.SqlClient**.  | 
 
-La mayoría de los desencadenadores y los enlaces tienen una propiedad **Connection** que se asigna al nombre de una variable de entorno o a una configuración de aplicación. Por cada propiedad de conexión debe haber una configuración de aplicación definida en el archivo local.settings.json. 
+Esta configuración también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
 
-Esta configuración también se puede leer en el código como variables de entorno. En C#, use [System.Environment.GetEnvironmentVariable](https://msdn.microsoft.com/library/system.environment.getenvironmentvariable(v=vs.110).aspx) o [ConfigurationManager.AppSettings](https://msdn.microsoft.com/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx). En JavaScript, use `process.env`. Las opciones de configuración especificadas como variable de entorno del sistema tienen prioridad sobre otros valores del archivo local.settings.json. 
++ [C# precompilado](functions-dotnet-class-library.md#environment-variables)
++ [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
++ [F#](functions-reference-fsharp.md#environment-variables)
++ [Java](functions-reference-java.md#environment-variables) 
++ [JavaScript](functions-reference-node.md#environment-variables)
 
 Las herramientas de Functions solo usan las opciones de configuración de dicho archivo cuando las herramientas se ejecutan localmente. De manera predeterminada, estas opciones de configuración no se migran automáticamente cuando el proyecto se publica en Azure. Use el conmutador `--publish-local-settings` [al publicarlo](#publish) para asegurarse de que la configuración se agregue a la aplicación de función en Azure.
 
@@ -275,7 +322,7 @@ En el siguiente ejemplo está la misma función a la que se llama desde una soli
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Tenga en cuenta que puede realizar solicitudes GET desde un explorador que transfiere datos en la cadena de consulta. Para todos los demás métodos HTTP, debe usar cURL, Fiddler, Postman o una herramienta de pruebas HTTP similar.  
+Puede realizar solicitudes GET desde un explorador que transfiere datos en la cadena de consulta. Para todos los demás métodos HTTP, debe usar cURL, Fiddler, Postman o una herramienta de pruebas HTTP similar.  
 
 #### <a name="non-http-triggered-functions"></a>Funciones no desencadenadas por HTTP
 En el caso de todos los tipos de funciones distintas de los desencadenadores HTTP y HTTP webhooks, puede probar sus funciones localmente llamando a un punto de conexión de administración. Al llamar a este punto de conexión con una solicitud HTTP POST en el servidor local se desencadena esta función. Opcionalmente, puede transferir los datos de prueba a la ejecución en el cuerpo de la solicitud POST. Esta funcionalidad es similar a la pestaña **Prueba** de Azure Portal.  
@@ -361,3 +408,4 @@ Para notificar un error o realizar una solicitud de característica, [abra un pr
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
+[Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

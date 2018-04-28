@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7e092dc1448a45277e01b1a8c6d2bc0e2a8a22a3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>Actualización a la versión 2 de la pila de copia de seguridad de máquinas virtuales
 La actualización de la versión 2 de la pila de copia de seguridad de máquinas virtuales (VM) proporciona las siguientes mejoras de características:
@@ -49,7 +49,9 @@ De forma predeterminada, las instantáneas se conservan durante siete días. Com
 * Esta es una actualización unidireccional de la pila de copia de seguridad de máquinas virtuales. Por lo tanto, todas las futuras copias de seguridad siguen este flujo. Puesto que **está habilitada en el nivel de suscripción, todas las máquinas virtuales siguen este flujo**. Todas las nuevas adiciones de características se basan en la misma pila. La posibilidad de controlar esta actualización en el nivel de directiva estará disponible en futuras versiones. 
 * En máquinas virtuales con discos premium, asegúrese de que durante la primera copia de seguridad, y hasta que finalice, haya disponible espacio de almacenamiento equivalente al tamaño de la máquina virtual en la cuenta de almacenamiento. 
 * Dado que las instantáneas se almacenan localmente para favorecer la creación de puntos de recuperación y también para acelerar la restauración, verá los costos de almacenamiento correspondientes a las instantáneas durante el período de siete días.
+* Las instantáneas incrementales se almacenan como blobs en páginas. A todos los clientes que usen discos no administrados se les cobrará por las instantáneas de siete días que se almacenen en la cuenta de almacenamiento local del cliente. Según el modelo de precios actual, no hay ningún costo para los clientes con Managed Disks.
 * Si va a realizar una restauración desde un punto de recuperación de Snapshot en una máquina virtual Premium, verá que se usa una ubicación de almacenamiento temporal mientras se crea la máquina virtual como parte de la restauración. 
+* En caso de cuentas de Premium Storage, las instantáneas tomadas para la recuperación instantánea ocuparán el espacio de 10 TB asignado a la cuenta Premium Storage.
 
 ## <a name="how-to-upgrade"></a>Instrucciones de actualización
 ### <a name="the-azure-portal"></a>El Portal de Azure
@@ -66,7 +68,7 @@ Ejecute los siguientes cmdlets desde un terminal de PowerShell con privilegios e
 1.  Inicie sesión en la cuenta de Azure. 
 
 ```
-PS C:> Login-AzureRmAccount
+PS C:> Connect-AzureRmAccount
 ```
 
 2.  Seleccione la suscripción que desea registrar para la versión preliminar:
@@ -78,14 +80,14 @@ PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select
 3.  Registre esta suscripción para la versión preliminar privada:
 
 ```
-PS C:>  Register-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ## <a name="verify-whether-the-upgrade-is-complete"></a>Compruebe si la actualización ha finalizado.
 Desde un terminal de PowerShell con privilegios elevados, ejecute el siguiente cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName “InstantBackupandRecovery” –ProviderNamespace Microsoft.RecoveryServices
+Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
 Si pone Registrado, su suscripción se actualiza a la versión 2 de la pila de copia de seguridad de máquinas virtuales. 

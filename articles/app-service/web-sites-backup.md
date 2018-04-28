@@ -1,8 +1,8 @@
 ---
-title: "Realizar una copia de seguridad de la aplicación en Azure"
-description: "Obtenga información sobre cómo crear copias de seguridad de sus aplicaciones en Azure App Service."
+title: Realizar una copia de seguridad de la aplicación en Azure
+description: Obtenga información sobre cómo crear copias de seguridad de sus aplicaciones en Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 435370a8758d439a5fcce2e04efd11b4aaaf0357
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](app-service-web-overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -35,9 +35,9 @@ App Service puede hacer una copia de seguridad de la siguiente información en u
 * Base de datos conectada a la aplicación
 
 Las siguientes soluciones de base de datos son compatibles con la característica de copia de seguridad: 
-   - [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-   - [Azure Database for MySQL (versión preliminar)](https://azure.microsoft.com/en-us/services/mysql)
-   - [Azure Database for PostgreSQL (versión preliminar)](https://azure.microsoft.com/en-us/services/postgres)
+   - [SQL Database](https://azure.microsoft.com/services/sql-database/)
+   - [Azure Database for MySQL (versión preliminar)](https://azure.microsoft.com/services/mysql)
+   - [Azure Database for PostgreSQL (versión preliminar)](https://azure.microsoft.com/services/postgres)
    - [MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

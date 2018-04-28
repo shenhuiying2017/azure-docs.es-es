@@ -5,8 +5,8 @@ services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 34e4d47b1de509c2053996d9d1078733d7055447
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Inicie, detenga e informe sobre el servicio de prueba de Chaos.
@@ -53,7 +53,7 @@ Se puede especificar ContinuationToken para obtener el siguiente segmento del in
 | --debug          | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h        | Muestra este mensaje de ayuda y sale.|
 | --output -o      | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query          | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query          | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose        | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
@@ -86,7 +86,7 @@ Si Chaos no está aún en ejecución en el clúster, inicia Chaos con los parám
 | --debug                    | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                  | Muestra este mensaje de ayuda y sale.|
 | --output -o                | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.           Valor predeterminado: json.|
-| --query                    | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query                    | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose                  | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
@@ -107,9 +107,9 @@ Detiene Chaos de programar más errores; sin embargo, los errores en proceso no 
 | --debug  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h| Muestra este mensaje de ayuda y sale.|
 | --output -o | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query  | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query  | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose| Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

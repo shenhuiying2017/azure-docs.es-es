@@ -3,17 +3,17 @@ title: Conexión de la aplicación a Instancia administrada de Azure SQL Databas
 description: En este artículo se describe la conexión de la aplicación a Instancia administrada de Azure SQL Database.
 ms.service: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 243dfd09df5eaac05608f57a0b2abf6e757f00e8
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL Database
 
@@ -79,4 +79,4 @@ En la configuración de una conexión de punto a sitio a una red virtual en los 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md).
-- Para ver un tutorial, consulte [Creación de una instancia administrada](sql-database-managed-instance-tutorial-portal.md).
+- Para un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-create-tutorial-portal.md).

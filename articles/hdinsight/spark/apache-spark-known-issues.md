@@ -1,8 +1,8 @@
 ---
-title: "Solución de problemas con el clúster de Apache Spark en Azure HDInsight | Microsoft Docs"
-description: "Obtenga información sobre problemas relacionados con los clústeres de Apache Spark en Azure HDInsight y cómo evitarlos."
+title: Solución de problemas con el clúster de Apache Spark en Azure HDInsight | Microsoft Docs
+description: Obtenga información sobre problemas relacionados con los clústeres de Apache Spark en Azure HDInsight y cómo evitarlos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,24 +10,22 @@ tags: azure-portal
 ms.assetid: 610c4103-ffc8-4ec0-ad06-fdaf3c4d7c10
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: de7847055c00fe9d0d1cc08cf5ba5d2ab54a9fc0
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 664c97117de793209007843fa23c98f52c2b079d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemas conocidos de clústeres de Apache Spark en HDInsight
 
 En este documento se hace un seguimiento de todos los problemas conocidos de la versión preliminar pública de HDInsight Spark.  
 
 ## <a name="livy-leaks-interactive-session"></a>Sesión interactiva con pérdidas de Livy
-Cuando se reinicia Livy (desde Ambari o debido al reinicio de la máquina virtual del nodo principal 0) con una sesión interactiva activa, se pierde una sesión de trabajo interactiva. Por este motivo, los nuevos trabajos se bloquean en el estado Aceptado y no se pueden iniciar.
+Cuando se reinicia Livy (desde Ambari o debido al reinicio de la máquina virtual del nodo principal 0) con una sesión interactiva activa, se pierde una sesión de trabajo interactiva. Como resultado, los nuevos trabajos se pueden detener en el estado Aceptado.
 
 **Mitigación:**
 
@@ -54,7 +52,12 @@ El servidor de historial de Spark no se inicia automáticamente después de crea
 Inicie el servidor de historial manualmente desde Ambari.
 
 ## <a name="permission-issue-in-spark-log-directory"></a>Problemas con permisos en el directorio de registros de Spark
-Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (permiso denegado) y el registro del controlador no se ha escrito. 
+hdiuser obtiene el siguiente error al enviar un trabajo mediante spark-submit:
+
+```
+java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied)
+```
+Y no se escribe ningún registro del controlador. 
 
 **Mitigación:**
 
@@ -65,7 +68,7 @@ Cuando hdiuser envía un trabajo con spark-submit, hay un error java.io.FileNotF
 
 ## <a name="spark-phoenix-connector-is-not-supported"></a>No se admite el conector Spark-Phoenix
 
-En este momento, el conector Spark-Phoenix no es compatible con un clúster de Spark de HDInsight.
+Los clústeres de HDInsight Spark no son compatibles con el conector Spark-Phoenix.
 
 **Mitigación:**
 
@@ -75,7 +78,7 @@ Debe usar el conector Spark-HBase en su lugar. Para instrucciones, consulte el a
 A continuación, se muestran algunos problemas conocidos relacionados con los cuadernos de Jupyter Notebook.
 
 ### <a name="notebooks-with-non-ascii-characters-in-filenames"></a>Cuadernos que tienen caracteres no ASCII en los nombres de archivo
-Los cuadernos de Jupyter Notebook que pueden utilizarse en clústeres Spark de HDInsight no deben tener caracteres que no sean ASCII en los nombres de archivo. Si trata de cargar un archivo a través de la interfaz de usuario de Jupyter, cuyo nombre de archivo incluye caracteres que no son ASCII, se produce un error silencioso (es decir, Jupyter no permite cargar el archivo, pero tampoco muestra un error). 
+No utilice caracteres que no sean ASCII en los nombres de archivo de los cuadernos de Jupyter. Si intenta cargar un archivo a través de la interfaz de usuario de Jupyter, que tiene un nombre de archivo que no es ASCII, se produce un error sin ningún mensaje. Jupyter no permite cargar el archivo, pero tampoco produce un error visible.
 
 ### <a name="error-while-loading-notebooks-of-larger-sizes"></a>Error al cargar cuadernos con tamaños mayores
 Es posible que aparezca un error **`Error loading notebook`** al cargar cuadernos de mayor tamaño.  

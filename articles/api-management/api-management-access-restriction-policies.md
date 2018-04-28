@@ -1,11 +1,11 @@
 ---
-title: "Directivas de restricción de acceso de Azure API Management | Microsoft Docs"
-description: "Aprenda sobre las directivas de restricción de acceso disponibles para su uso en Azure API Management."
+title: Directivas de restricción de acceso de Azure API Management | Microsoft Docs
+description: Aprenda sobre las directivas de restricción de acceso disponibles para su uso en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 034febe3-465f-4840-9fc6-c448ef520b0f
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 11cc5841d2f804f0d120dddda226bf05a0612607
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5fbb4f8a15ee7ee8b6cecbe76391e2b2a7e4be1b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="api-management-access-restriction-policies"></a>Directivas de restricción de acceso de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -88,8 +88,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```xml  
 <rate-limit calls="number" renewal-period="seconds">  
-    <api name="name" calls="number" renewal-period="seconds">  
-        <operation name="name" calls="number" renewal-period="seconds" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </rate-limit>  
 ```  
@@ -113,8 +113,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
 |set-limit|Elemento raíz.|Sí|  
-|api|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente.|Sin |  
-|operación|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto.|Sin |  
+|api|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las API del producto. Los límites de tasa de llamadas a la API y al producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
+|operación|Agregue uno o varios de estos elementos para imponer un límite de tasa de llamadas a las operaciones de una API. Los límites de tasa de llamadas se aplican de forma independiente a la API, a la operación y al producto. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -243,8 +243,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
   
 ```xml  
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">  
-    <api name="name" calls="number" bandwidth="kilobytes">  
-        <operation name="name" calls="number" bandwidth="kilobytes" />  
+    <api name="API name" id="API id" calls="number" renewal-period="seconds" />  
+        <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" />  
     </api>  
 </quota>  
 ```  
@@ -268,8 +268,8 @@ En este tema se proporciona una referencia para las siguientes directivas de API
 |NOMBRE|DESCRIPCIÓN|Obligatorio|  
 |----------|-----------------|--------------|  
 |quota|Elemento raíz.|Sí|  
-|api|Agregue uno o varios de estos elementos para imponer una cuota a las API del producto. Las cuotas de API y de producto se aplican de forma independiente.|Sin |  
-|operación|Agregue uno o varios de estos elementos para imponer una cuota a las operaciones de una API. Las cuotas de API, operación y producto se aplican de forma independiente.|Sin |  
+|api|Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las API del producto. Las cuotas de llamada de API y de producto se aplican de forma independiente. Se puede hacer referencia a la API a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
+|operación|Agregue uno o varios de estos elementos para imponer una cuota de llamadas a las operaciones de una API. Las cuotas de llamadas de API, operación y producto se aplican de forma independiente. Se puede hacer referencia a la operación a través de `name` o `id`. Si se proporcionan ambos atributos, `id` se usará y `name` se omitirá.|Sin |  
   
 ### <a name="attributes"></a>Atributos  
   

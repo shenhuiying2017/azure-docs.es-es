@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 03/06/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 409bb14635afbfc6d31efd853837677c74851b41
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -85,7 +85,7 @@ Sí. Estos son los detalles importantes para el autoservicio de restablecimiento
 Sí. Se puede enviar un correo electrónico de restablecimiento de contraseña que permite que un usuario restablezca su contraseña en el inquilino JIT.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>¿Proporciona Microsoft Dynamics 365 compatibilidad en línea con la colaboración B2B de Azure AD?
-Sí, Dynamics 365 (en línea) proporciona compatibilidad con la colaboración B2B de Azure AD. Para más información, consulte el artículo de Dynamics 365 [Invitar a usuarios con colaboración B2B de Azure Active Directory](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Sí, Dynamics 365 (en línea) proporciona compatibilidad con la colaboración B2B de Azure AD. Para más información, consulte el artículo de Dynamics 365 [Invitar a usuarios con colaboración B2B de Azure Active Directory](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>¿Cuál es la duración de una contraseña inicial para un usuario de colaboración B2B recién creado?
 Azure AD tiene un conjunto fijo de requisitos de bloqueo de cuentas, seguridad de la contraseña y caracteres que se aplican igualmente a todas las cuentas de usuario en la nube de Azure AD. Las cuentas de usuario de nube son cuentas que no se federan con otro proveedor de identidades, como 

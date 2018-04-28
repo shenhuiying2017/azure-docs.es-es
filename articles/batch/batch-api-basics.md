@@ -1,25 +1,25 @@
 ---
-title: "Introducción a Azure Batch para desarrolladores | Microsoft Docs"
-description: "Conozca las características del servicio Batch y sus API desde el punto de vista del desarrollo."
+title: Introducción a Azure Batch para desarrolladores | Microsoft Docs
+description: Conozca las características del servicio Batch y sus API desde el punto de vista del desarrollo.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
 ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 02/28/2018
+ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0a18f975530d2a291e529308ee53d6d48a68e42
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -79,10 +79,15 @@ Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch
 
 ## <a name="azure-storage-account"></a>Cuenta de Azure Storage
 
-La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida.  
+La mayoría de las soluciones de Batch usan Azure Storage para almacenar los archivos de recursos y los archivos de salida. Por ejemplo, las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) especifican normalmente archivos de recursos que residen en cuentas de almacenamiento.
 
-Actualmente, Batch solo admite el tipo de cuenta de almacenamiento de uso general, como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md). Las tareas de Batch (incluidas las tareas estándar, las de inicio, las de preparación de trabajos y las de liberación de trabajos) deben especificar archivos de recursos que residan en cuentas de almacenamiento de uso general.
+Batch admite las siguientes [opciones de cuenta](../storage/common/storage-account-options.md) de Azure Storage:
 
+* Cuentas de uso general v2 (GPv2) 
+* Cuentas de uso general v1 (GPv1)
+* Cuentas de Almacenamiento de blobs
+
+Puede asociar una cuenta de almacenamiento con su cuenta de Batch cuando crea la cuenta de Batch o en otro momento. Al elegir una cuenta de almacenamiento, tenga en cuenta los requisitos de costo y rendimiento. Por ejemplo, las opciones de cuenta GPv2 y de Blob Storage admiten mayores [límites de capacidad y escalabilidad](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) si se compara con GPv1. (Póngase en contacto con el servicio de soporte técnico de Azure para solicitar un aumento en el límite de almacenamiento). Estas opciones de cuenta pueden mejorar el rendimiento de las soluciones de Batch que contienen un gran número de tareas en paralelo que se leen o escriben en la cuenta de almacenamiento.
 
 ## <a name="compute-node"></a>Nodo de ejecución
 Un nodo de proceso es una máquina virtual de Azure o una máquina virtual de servicio en la nube dedicada al proceso de una parte de la carga de trabajo de la aplicación. El tamaño de un nodo determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asignan al nodo. Puede crear grupos de nodos de Windows o Linux mediante Azure Cloud Services, imágenes de [Azure Virtual Machines Marketplace][vm_marketplace] o imágenes personalizadas que prepare. Consulte la sección [Grupo](#pool) a continuación para más información sobre estas opciones.
@@ -117,7 +122,7 @@ Cuando se crea un grupo, puede especificar los siguientes atributos:
 Cada uno de estos valores se describe con más detalle en las secciones siguientes.
 
 > [!IMPORTANT]
-> Las cuentas de Batch tienen una cuota predeterminada que limita el número de núcleos en una cuenta de Batch. El número de núcleos corresponde al número de nodos de proceso. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) se pueden encontrar en [Límites y cuotas del servicio de Batch de Azure](batch-quota-limit.md). Si el grupo no está consiguiendo su número de nodos de destino, la causa podría ser la cuota básica.
+> Las cuentas de Batch tienen una cuota predeterminada que limita el número de núcleos en ellas. El número de núcleos corresponde al número de nodos de proceso. Tanto las cuotas predeterminadas como las instrucciones para [aumentar una cuota](batch-quota-limit.md#increase-a-quota) se pueden encontrar en [Límites y cuotas del servicio de Batch de Azure](batch-quota-limit.md). Si el grupo no está consiguiendo su número de nodos de destino, la causa podría ser la cuota básica.
 >
 
 
@@ -252,7 +257,7 @@ Cuando crea una tarea, puede especificar:
     `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
     Si las tareas deben ejecutar una aplicación o un script que no se encuentra en `PATH` en el nodo o en las variables de entorno de referencia, invoque el shell explícitamente en la línea de comandos de la tarea.
-* **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo desde Blob Storage en una cuenta de Azure Storage de uso general antes de que se ejecute la línea de comandos de la tarea. Para más información, consulte las secciones [Tarea de inicio](#start-task) y [Archivos y directorios](#files-and-directories).
+* **archivos de recursos** que contienen los datos que se procesan. Estos archivos se copian automáticamente en el nodo desde Blob Storage en una cuenta de Azure Storage antes de que se ejecute la línea de comandos de la tarea. Para más información, consulte las secciones [Tarea de inicio](#start-task) y [Archivos y directorios](#files-and-directories).
 * Las **variables de entorno** que requiere la aplicación. Para más información, consulte la sección [Configuración del entorno para las tareas](#environment-settings-for-tasks) .
 * Las **restricciones** con que se debe ejecutar la tarea. Por ejemplo, las restricciones incluyen el tiempo máximo que se permite que la tarea se ejecute, el número máximo de veces que se debe volver a intentar una tarea si se produce un error y el tiempo máximo que se conservan los archivos en el directorio de trabajo de la tarea.
 * **Paquetes de aplicación** que se implementan en el nodo de proceso en el que está programado que se ejecute la tarea. [Application packages](#application-packages) proporcionan una implementación simplificada y el control de las versiones de las aplicaciones que ejecutan las tareas. Los paquetes de aplicaciones de nivel de tarea son especialmente útiles en entornos de grupo compartido, donde los distintos trabajos se ejecutan en un grupo que no se elimina cuando se completa un trabajo. Si el trabajo tiene menos tareas que nodos en el grupo, los paquetes de aplicación de las tareas pueden minimizar la transferencia de datos, ya que la aplicación se implementa solo en los nodos que ejecutan tareas.

@@ -1,33 +1,26 @@
 ---
-title: "Lección 4 del tutorial de Azure Analysis Services: creación de roles | Microsoft Docs"
-description: "En este artículo se describe cómo crear relaciones en el proyecto del tutorial de Azure Analysis Services."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 4 del tutorial de Azure Analysis Services: creación de roles | Microsoft Docs'
+description: En este artículo se describe cómo crear relaciones en el proyecto del tutorial de Azure Analysis Services.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-relationships"></a>Crear relaciones
+# <a name="create-relationships"></a>Creación de relaciones
 
 En esta lección, comprobará las relaciones que se crearon automáticamente cuando importó los datos y agregará nuevas relaciones entre tablas diferentes. Una relación es una conexión entre dos tablas que establecen cómo se deben relacionar los datos de esas tablas. Por ejemplo, las tablas DimProduct y DimProductSubcategory tienen una relación basada en el hecho de que cada producto pertenece a una subcategoría. Para obtener más información, consulte el artículo de [relaciones](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   
 Tiempo estimado para completar esta lección: **10 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 3: Marcado como tabla de fechas](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>Revisión de las relaciones existentes e incorporación de nuevas relaciones  

@@ -1,18 +1,18 @@
 ---
-title: "Ejecución de tareas en contenedores en Azure Container Instances"
-description: "Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes."
+title: Ejecución de tareas en contenedores en Azure Container Instances
+description: Aprenda a usar Azure Container Instances para ejecutar tareas hasta su terminación, como compilaciones, pruebas o trabajos de representación de imágenes.
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: marsma
-ms.openlocfilehash: a922525970eac9af6657e58daae971912183b369
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Ejecución de tareas en contenedores en Azure Container Instances
 

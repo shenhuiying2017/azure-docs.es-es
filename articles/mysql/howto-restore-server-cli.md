@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -112,7 +112,11 @@ Una vez finalizada la restauración, busque el servidor nuevo y compruebe que lo
 ## <a name="geo-restore"></a>Restauración geográfica
 Si ha configurado el servidor para copias de seguridad con redundancia geográfica, se puede crear un nuevo servidor a partir de la copia de seguridad de ese servidor existente. Este nuevo servidor puede crearse en cualquier región en la que Azure Database for MySQL esté disponible.  
 
-Para crear un servidor con una copia de seguridad con redundancia geográfica, utilice el comando `az mysql server georestore` de la CLI de Azure.
+Para crear un servidor con una copia de seguridad con redundancia geográfica, use el comando `az mysql server georestore` de la CLI de Azure.
+
+> [!NOTE]
+> Al crear por primera vez un servidor, puede que no esté disponible para la restauración geográfica inmediatamente. Los metadatos pueden tardar unas horas en rellenarse.
+>
 
 Para restaurar geográficamente el servidor, en el símbolo del sistema de la CLI de Azure, escriba el siguiente comando:
 
@@ -133,7 +137,7 @@ El comando `az mysql server georestore` requiere los siguientes parámetros:
 | --- | --- | --- |
 |resource-group| myresourcegroup | Nombre del grupo de recursos al que pertenece el nuevo servidor.|
 |Nombre | mydemoserver-georestored | Nombre del nuevo servidor. |
-|source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se utilizan. |
+|source-server | mydemoserver | Nombre del servidor existente cuyas copias de seguridad con redundancia geográfica se usan. |
 |location | estado | Ubicación del nuevo servidor. |
 |sku-name| GP_Gen4_8 | Este parámetro establece el plan de tarifa, la generación del proceso y el número de núcleos virtuales del nuevo servidor. GP_Gen4_8 se asigna a un servidor Gen 4 de uso general con ocho núcleos virtuales.|
 

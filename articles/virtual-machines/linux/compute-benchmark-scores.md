@@ -1,6 +1,6 @@
 ---
-title: Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux | Microsoft Docs
-description: Comparación de puntuaciones de pruebas comparativas de proceso de CoreMark para máquinas virtuales de Azure con Linux
+title: Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux de Azure | Microsoft Docs
+description: Comparación de puntuaciones de pruebas comparativas de proceso de CoreMark para máquinas virtuales de Azure con Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 25e471b826a1df0bd71f141286a59159b674f365
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 07e313404b1d57fe4c851ab182823bcea454cbec
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Linux
 Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimiento de proceso para la alineación de máquinas virtuales de alto rendimiento de Azure con Ubuntu. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales de Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -28,7 +28,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:32:49 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 1.9 | 6514 | 56 | 0,86 % | 119 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 1.9 | 6162 | 195 | 3,17 % | 70 |
 | Standard_A1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 1 | 1 | 1.9 | 6505 | 425 | 6,53 % | 63 |
@@ -55,7 +55,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 9:06:07 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 | Procesador AMD Opteron(tm) 4171 HE | 1 | 1 | 0.6 | 3556 | 14 | 0,39 % | 21 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 0.6 | 3137 | 16 | 0,51 % | 70 |
 | Standard_A0 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 0.6 | 3146 | 134 | 4,27 % | 63 |
@@ -84,7 +84,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:28:44 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 8.0 | 20 259 | 729 | 3,60 % | 140 |
 | Standard_D2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 2 | 1 | 8.0 | 20 364 | 1007 | 4,94 % | 70 |
 | Standard_D4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 4 | 1 | 16.0 | 39 662 | 1757 | 4,43 % | 182 |
@@ -107,7 +107,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:32:37 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 8.0 | 20 791 | 1531 | 7,36 % | 175 |
 | Standard_D2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 2 | 1 | 8.0 | 21 326 | 1622 | 7,61 % | 84 |
 | Standard_D4_v3 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 4 | 1 | 16.0 | 39 978 | 1853 | 4,63 % | 98 |
@@ -124,7 +124,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:31:01 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 2 | 1 | 16.0 | 21 015 | 1112 | 5,29 % | 210 |
 | Standard_E4s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 4 | 1 | 32,1 | 40 691 | 1928 | 4,74 % | 287 |
 | Standard_E8s_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 8 | 1 | 64,4 | 79 841 | 2856 | 3,58 % | 161 |
@@ -141,7 +141,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:29:35 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_E2_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 2 | 1 | 16.0 | 23 318 | 2734 | 11,72 % | 245 |
 | Standard_E4_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 4 | 1 | 32,1 | 42 612 | 3834 | 9,00 % | 154 |
 | Standard_E8_v3 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 8 | 1 | 64,4 | 83 488 | 4888 | 5,85 % | 189 |
@@ -154,7 +154,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:30:03 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 3.4 | 14 691 | 626 | 4,26 % | 182 |
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 1 | 1 | 3.4 | 14 577 | 1120 | 7,68 % | 63 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 6.9 | 29 156 | 1095 | 3,76 % | 91 |
@@ -188,7 +188,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:27:28 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 3.4 | 15 027 | 963 | 6,41 % | 105 |
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 1 | 1 | 3.4 | 15 296 | 1696 | 11,09 % | 77 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 6.9 | 29 060 | 1405 | 4,83 % | 133 |
@@ -214,7 +214,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:28:16 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 3.4 | 10 331 | 303 | 2,93 % | 112 |
 | Standard_D1 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 3.4 | 14 547 | 916 | 6,30 % | 14 |
 | Standard_D2 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 2 | 1 | 6.9 | 21 112 | 383 | 1,81 % | 119 |
@@ -236,7 +236,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:34:52 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 1 | 1 | 3.4 | 10 666 | 134 | 1,25 % | 126 |
 | Standard_DS11 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 2 | 1 | 14,0 | 21 330 | 268 | 1,26 % | 49 |
 | Standard_DS12 | Intel(R) Xeon(R) CPU E5-2660 0 a 2,20 GHz | 4 | 1 | 28,1 | 42 225 | 555 | 1,31 % | 126 |
@@ -253,7 +253,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:33:11 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 2 | 1 | 3.9 | 25 392 | 157 | 0,62 % | 49 |
 | Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 4 | 1 | 8.0 | 48 065 | 656 | 1,36 % | 42 |
 | Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU a 2,70 GHz | 8 | 1 | 16.0 | 95 026 | 1205 | 1,27 % | 49 |
@@ -266,7 +266,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:28:54 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 1.9 | 14 762 | 815 | 5,52 % | 175 |
 | Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 1 | 1 | 1.9 | 15 756 | 1653 | 10,49 % | 91 |
 | Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 3.9 | 29 265 | 1593 | 5,44 % | 182 |
@@ -283,7 +283,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:30:14 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 1 | 1 | 1.9 | 14 630 | 678 | 4,64 % | 203 |
 | Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 a 2,30 GHz | 1 | 1 | 1.9 | 15 247 | 801 | 5,25 % | 91 |
 | Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v3 a 2,40 GHz | 2 | 1 | 3.9 | 28 931 | 1105 | 3,82 % | 133 |
@@ -300,7 +300,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:27:25 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 2 | 1 | 28,1 | 32 071 | 4239 | 13,22 % | 182 |
 | Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 4 | 1 | 56,3 | 60 598 | 6048 | 9,98 % | 175 |
 | Standard_G3 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 8 | 1 | 112,8 | 111 058 | 6536 | 5,89 % | 161 |
@@ -311,7 +311,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:25:12 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 2 | 1 | 28,1 | 28 771 | 2006 | 6,97 % | 231 |
 | Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 4 | 1 | 56,3 | 54 947 | 3699 | 6,73 % | 203 |
 | Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 8 | 1 | 112,8 | 105 054 | 4441 | 4,23 % | 182 |
@@ -326,7 +326,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:27:16 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 | Intel(R) Xeon(R) CPU E5-2667 v3 a 3,20 GHz | 8 | 1 | 56,3 | 140 445 | 2840 | 2,02 % | 147 |
 | Standard_H8m | Intel(R) Xeon(R) CPU E5-2667 v3 a 3,20 GHz | 8 | 1 | 112,8 | 141 086 | 2209 | 1,57 % | 147 |
 | Standard_H16 | Intel(R) Xeon(R) CPU E5-2667 v3 a 3,20 GHz | 16 | 2 | 112,8 | 270 129 | 6502 | 2,41 % | 56 |
@@ -338,7 +338,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:35:10 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 8 | 1 | 56,3 | 117 148 | 1877 | 1,60 % | 189 |
 | Standard_A9 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 16 | 2 | 112,8 | 225 608 | 7532 | 3,34 % | 147 |
 | Standard_A10 | Intel(R) Xeon(R) CPU E5-2670 0 a 2,60 GHz | 8 | 1 | 56,3 | 117 638 | 1988 | 1,69 % | 168 |
@@ -348,7 +348,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 7:58:51 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_L4s | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 4 | 1 | 32,1 | 55 962 | 3567 | 6,37 % | 154 |
 | Standard_L8s | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 8 | 1 | 64,4 | 106 482 | 3178 | 2,98 % | 168 |
 | Standard_L16s | Intel(R) Xeon(R) CPU E5-2698B v3 a 2,00 GHz | 16 | 1 | 128,9 | 197 906 | 12 605 | 6,37 % | 168 |
@@ -358,7 +358,7 @@ Las siguientes puntuaciones de pruebas comparativas CoreMark muestran el rendimi
 (3/23/2018 8:57:07 PM pbi 2050259)
 
 | Tamaño de VM | CPU | vCPU | Nodos NUMA | Memoria (GiB) | Puntuación media | StdDev | % Devest | N. º de ejecuciones |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_M64-32ms | Intel(R) Xeon(R) CPU E7-8890 v3 a 2,50 GHz | 64 | 2 | 1806,2 | 339 412 | 4655 | 1,37 % | 21 |
 | Standard_M64ms | Intel(R) Xeon(R) CPU E7-8890 v3 a 2,50 GHz | 64 | 2 | 1806,2 | 662 070 | 16 539 | 2,50 % | 70 |
 | Standard_M64s | Intel(R) Xeon(R) CPU E7-8890 v3 a 2,50 GHz | 64 | 2 | 1032,1 | 659 757 | 22 439 | 3,40 % | 21 |

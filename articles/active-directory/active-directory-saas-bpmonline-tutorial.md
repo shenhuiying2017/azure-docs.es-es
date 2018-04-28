@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con Bpm’online | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bpm’online."
+title: 'Tutorial: integración de Azure Active Directory con Bpm’online | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bpm’online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 052db91d-ccff-4098-8ae3-2f76eca90539
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0214fcbdde886bd14d84917e496568027d417096
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9359fc76d2198cab8e61b151fcd8672cb6b65b6e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: integración de Azure Active Directory con Bpm’online
 
@@ -32,7 +32,7 @@ Integrar Bpm’online con Azure AD le proporciona las siguientes ventajas:
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Bpm’online, necesita los siguientes elementos:
 
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Bpm’online desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -84,10 +84,10 @@ Para establecer la relación de vínculo, en Bpm’online, asigne el valor del *
 
 Para configurar y probar el inicio de sesión único de Azure AD con Bpm’online, es preciso completar los siguientes bloques de compilación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Bpm’online](#create-a-bpmonline-test-user)**: para tener un homólogo de Britta Simon en Bpm’online vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -101,7 +101,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_samlbase.png)
 
 3. En la sección **Bpm’online Domain and URLs** (Dominio y direcciones URL de Bpm’online), realice los siguientes pasos si desea configurar la aplicación en el modo iniciado por el **punto de distribución de emisión**:
@@ -118,37 +118,18 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<client site name>.bpmonline.com/`.
      
-    > [!NOTE] 
+    > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com) para obtener estos valores. 
 
-5. Para generar la dirección URL de **Metadatos**, lleve a cabo los pasos siguientes:
-
-    a. Haga clic en **Registros de aplicaciones**.
+5. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appregistrations.png)
-   
-    b. Haga clic en **Puntos de conexión** para abrir el cuadro de diálogo **Puntos de conexión**.  
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpointicon.png)
-
-    c. Haga clic en el botón Copiar para copiar la dirección URL del **DOCUMENTO DE METADATOS DE FEDERACIÓN** y péguela en el Bloc de notas.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_endpoint.png)
+    ![Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_metadataurl.png)
      
-    d. Ahora, vaya a la página de propiedades de **Bpm’online** y copie el **Identificador de la aplicación** con el botón **Copiar** y péguelo en el bloc de notas.
- 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_bpmonline_appid.png)
-
-     e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>` 
-
 6. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-bpmonline-tutorial/tutorial_general_400.png)
     
-8. Para configurar el inicio de sesión único del lado de **Bpm’online**, debe enviar la **URL de metadatos** al [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. Para configurar el inicio de sesión único de **Bpm’online**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Bpm’online](mailto:support@bpmonline.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -180,7 +161,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-a-bpmonline-test-user"></a>Creación de un usuario de prueba de Bpm’online
 
@@ -190,11 +171,11 @@ En esta sección se crea un usuario llamado Britta Simon en Bpm’online. Trabaj
 
 En esta sección se habilita a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Bpm’online.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar a Britta Simon a Bpm’online, siga estos pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

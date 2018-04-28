@@ -1,25 +1,25 @@
 ---
-title: "Ejemplo de JSON de Azure Policy: auditoría de una máquina virtual que no utiliza un disco administrado | Microsoft Docs"
-description: "Este ejemplo de JSON audita cuando se crea una máquina virtual que no usa discos administrados."
+title: 'Ejemplo de JSON de Azure Policy: auditoría de una máquina virtual que no utiliza un disco administrado | Microsoft Docs'
+description: Este ejemplo de JSON audita cuando se crea una máquina virtual que no usa discos administrados.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: a849c1bdbaf75cda25caca22f8ceaeb5fe23c211
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 84f359b073689648917a3853e60afb136bd005d7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="audit-when-vm-does-not-use-managed-disk"></a>Auditoría cuando la máquina virtual no utiliza un disco administrado
 

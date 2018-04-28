@@ -6,19 +6,21 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cb7797f5322b9288faf96be2ede164f156fd66cc
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos de Azure Event Grid
 
 En este artículo se describen las propiedades y el esquema que están presentes para todos los eventos. Los eventos constan de un conjunto de cinco propiedades de cadena y un objeto de datos obligatorios. Las propiedades son comunes a todos los eventos de cualquier anunciante. El objeto de datos contiene propiedades específicas de cada anunciante. Para los temas de sistema, estas propiedades son específicas del proveedor de recursos, como Azure Storage o Azure Event Hubs.
 
-Los eventos se envían a Azure Event Grid en una matriz que puede contener varios objetos de evento. Si hay un solo evento, la matriz tiene una longitud de 1. La matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo.
+Los orígenes de eventos envían eventos a Azure Event Grid en una matriz que puede contener varios objetos de evento. Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo. Si un evento o la matriz supera los límites de tamaño, recibirá la respuesta **413 Carga demasiado grande**.
+
+Event Grid envía los eventos a los suscriptores en una matriz que contiene un solo evento. Este comportamiento puede cambiar en el futuro.
 
 Puede encontrar el esquema JSON para el evento de Event Grid y cada carga de datos del publicador de Azure en el [almacén de esquemas de eventos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
 
@@ -77,7 +79,7 @@ Por ejemplo, el esquema publicado para un evento de Azure Blob Storage es:
 
 Todos los eventos contienen los mismos datos de nivel superior siguientes:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |

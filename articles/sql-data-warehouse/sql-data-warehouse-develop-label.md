@@ -1,28 +1,27 @@
 ---
 title: Uso de etiquetas para instrumentar consultas en SQL Data Warehouse | Microsoft Docs
-description: Sugerencias para usar etiquetas para instrumentar las consultas en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
+description: Sugerencias para usar etiquetas para instrumentar las consultas en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 22737faa146d83f1f31489125dee4146c7d11ac1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL
-Almacenamiento de datos SQL admite un concepto conocido como etiquetas de consulta. Antes de entrar en materia, vamos a ver un ejemplo:
+# <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Uso de etiquetas para instrumentar consultas en Azure SQL Data Warehouse
+Sugerencias para usar etiquetas para instrumentar las consultas en Azure SQL Data Warehouse para el desarrollo de soluciones.
+
+
+## <a name="what-are-labels"></a>¿Qué son las etiquetas?
+SQL Data Warehouse admite un concepto conocido como etiquetas de consulta. Antes de entrar en materia, vamos a ver un ejemplo:
 
 ```sql
 SELECT *
@@ -31,11 +30,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Esta última línea etiqueta la cadena 'Mi etiqueta de consulta' a la consulta. Esto es especialmente útil dado que la etiqueta se puede consultar a través de las DMV. De esta manera contamos con un mecanismo para realizar el seguimiento de los problemas y también para ayudar a identificar el progreso a través de una ejecución de ETL.
+Esta última línea etiqueta la cadena "Mi etiqueta de consulta" a la consulta. Esta etiqueta es especialmente útil dado que la etiqueta se puede consultar a través de las DMV. La consulta de etiquetas proporciona un mecanismo para buscar consultas problemáticas y ayudar a identificar el progreso a través de una ejecución de ETL.
 
-Una buena convención de nomenclatura realmente ayuda en este caso. Por ejemplo, algo como ' PROYECTO : PROCEDIMIENTO : INSTRUCCIÓN : COMENTARIO' ayudaría a identificar de forma única la consulta entre todo el código de control del código fuente.
+Una buena convención de nomenclatura realmente ayuda en este caso. Por ejemplo, que la etiqueta empiece por algo como "PROYECTO, PROCEDIMIENTO, INSTRUCCIÓN o COMENTARIO" ayudaría a identificar de forma única la consulta entre todo el código de control del código fuente.
 
-Para buscar por etiqueta, puede usar la siguiente consulta que emplea las vistas de administración dinámica:
+La consulta siguiente utiliza una vista de administración dinámica para buscar por etiqueta.
 
 ```sql
 SELECT  *
@@ -45,18 +44,11 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Es esencial que encierre entre corchetes o comillas dobles la etiqueta de la palabra al consultar. Etiqueta es una palabra reservada y producirá un error si no se ha delimitado.
+> Es esencial que encierre entre corchetes o comillas dobles la etiqueta de la palabra al consultar. La etiqueta es una palabra reservada y provoca un error cuando no se delimita. 
 > 
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

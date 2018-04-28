@@ -1,20 +1,20 @@
 ---
-title: "Adición de métricas extendidas a máquinas virtuales de Azure | Microsoft Docs"
-description: "Este artículo le ayuda a habilitar y configurar métricas de diagnóstico extendidas en las máquinas virtuales de Azure."
+title: Adición de métricas extendidas a máquinas virtuales de Azure | Microsoft Docs
+description: Este artículo le ayuda a habilitar y configurar métricas de diagnóstico extendidas en las máquinas virtuales de Azure.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 91797aaab1dca96e78643f57776eb16d336e894b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+manager: dougeby
+ms.custom: ''
+ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adición de métricas extendidas a máquinas virtuales de Azure
 
@@ -31,7 +31,7 @@ Por ejemplo, puede supervisar los porcentajes de CPU y de memoria de las máquin
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Comprobación de que las métricas están habilitadas en las máquinas virtuales
 
-1. Inicie sesión en Azure Portal: http://portal.azure.com/.
+1. Inicie sesión en Azure Portal en http://portal.azure.com.
 2. En **Máquinas virtuales**, seleccione una máquina virtual y en **Supervisión**, seleccione **Métricas**. Se muestra una lista de las métricas disponibles.
 3. Seleccione algunas métricas y un gráfico mostrará los datos de las mismas.  
     ![Métrica de ejemplo: porcentaje de CPU de host](./media/azure-vm-extended-metrics/metric01.png)

@@ -1,25 +1,23 @@
 ---
-title: "Puesta en operación de una canalización de análisis de datos en Azure | Microsoft Docs"
-description: "Configure y ejecute una canalización de datos de ejemplo que se desencadena con los datos nuevos y produce resultados concisos."
+title: Puesta en operación de una canalización de análisis de datos en Azure | Microsoft Docs
+description: Configure y ejecute una canalización de datos de ejemplo que se desencadena con los datos nuevos y produce resultados concisos.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Uso de una canalización de análisis de datos
 
@@ -137,7 +135,7 @@ La base de datos de Azure SQL Database ya está lista.
 
        ![Configuración de Metastore de HDInsight](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Seleccione **Siguiente**.
+12. Seleccione **Next** (Siguiente).
 13. En el panel **Resumen**, seleccione **Crear** para implementar el clúster.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Verificación de la configuración del túnel SSH
@@ -181,7 +179,7 @@ Puede copiar el archivo mediante SCP en la sesión del shell `bash`.
 
 Los datos de ejemplo ahora están disponibles. Sin embargo, la canalización requiere dos tablas de Hive para el procesamiento, una para los datos entrantes (`rawFlights`) y otra para los datos resumidos (`flights`). Cree estas tablas en Ambari como se indica a continuación.
 
-1. Para iniciar sesión en Ambari, vaya a [http://headnodehost:8080](http://headnodehost:8080).
+1. Inicie sesión en Ambari mediante [http://headnodehost:8080](http://headnodehost:8080).
 2. En la lista de servicios, seleccione **Hive**.
 
     ![Selección de Hive en Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

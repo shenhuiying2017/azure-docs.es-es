@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: e2f2064de5dc29ef290e6dc6dd7df6ae0a466f92
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cc8fd5ef77407274187411da593be7b68ae114d7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con Node.js y Azure Cosmos DB
 
@@ -46,13 +46,19 @@ Para poder crear una base de datos de documentos, debe crear una cuenta de Cassa
 
 Ahora vamos a clonar una aplicación de la API de Cassandra desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a una carpeta para instalar la aplicación de ejemplo. 
+1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
+3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-nodejs-getting-started.git
@@ -60,7 +66,7 @@ Ahora vamos a clonar una aplicación de la API de Cassandra desde GitHub, establ
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se toman del archivo `uprofile.js` en la carpeta C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo uprofile.js en la carpeta C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
 
 * El nombre de usuario y la contraseña se establecen en la página de la cadena de conexión de Azure Portal. "path\to\cert" proporciona una ruta de acceso a un certificado X509. 
 
@@ -162,7 +168,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     La línea 4 ahora debe ser similar a 
 
-    `config.contactPoint = "cosmos-db-quickstarts.documents.azure.com:10350"`
+    `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
 4. Copie el valor de NOMBRE DE USUARIO del portal y péguelo en `<FillMEIN>` en la línea 2.
 

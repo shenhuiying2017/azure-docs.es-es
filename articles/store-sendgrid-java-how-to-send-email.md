@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Envío de correo electrónico con SendGrid desde Java
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en Java. Entre los escenarios descritos se incluyen **creación de correo electrónico**, **envío de correo electrónico**, **incorporación de archivos adjuntos**, **uso de filtros** y **actualización de propiedades**. Para obtener más información sobre SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](#next-steps) .
@@ -81,7 +81,7 @@ Obtenga las bibliotecas javax.mail, por ejemplo de <http://www.oracle.com/techne
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. Cree su mensaje y asigne los valores **Para**, **De**, **Asunto** y los valores de contenido. Esto se muestra en la sección [Creación de un correo electrónico](#how-to-create-an-email).
-4. Envíe el mensaje a través de un objeto *javax.mail.Transport* . Esto se muestra en la sección [Envío de un correo electrónico][Envío de un correo electrónico].
+4. Envíe el mensaje a través de un objeto *javax.mail.Transport* . Esto se muestra en la sección [Envío de un correo electrónico][#how-to-send-an-email].
 
 ## <a name="how-to-create-an-email"></a>Creación de un correo electrónico
 A continuación se muestra cómo especificar valores para un correo electrónico.

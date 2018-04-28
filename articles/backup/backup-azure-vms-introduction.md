@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: markgal;trinadhk;sogup
+ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planeación de la infraestructura de copia de seguridad de máquinas virtuales en Azure
 En este artículo se proporcionan sugerencias de recursos y rendimiento para ayudarle a planear la infraestructura de copia de seguridad de máquina virtual. También se definen los aspectos clave del servicio Backup; estos aspectos pueden ser críticos a la hora de determinar la arquitectura, el planeamiento de la capacidad y la programación. Si ha [preparado el entorno](backup-azure-arm-vms-prepare.md), este es el paso siguiente antes de comenzar a realizar la [copia de seguridad de las máquinas virtuales](backup-azure-arm-vms.md). Si necesita más información sobre Azure Virtual Machines, vea la [Documentación sobre Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,7 +99,8 @@ Aunque la mayoría del tiempo de copia de seguridad se dedica a leer y copiar lo
 
 * Tiempo necesario para [instalar o actualizar la extensión de copia de seguridad](backup-azure-arm-vms.md)
 * Hora de la instantánea: tiempo dedicado a desencadenar una instantánea. Las instantáneas se desencadenan cerca de la hora de copia de seguridad programada.
-* Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Recovery Services podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta ocho horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias.
+* Tiempo de espera en la cola. Puesto que el servicio Copia de seguridad procesa las copias de seguridad de varios clientes, la copia de datos de copia de seguridad de la instantánea al almacén de copia de seguridad o de Recovery Services podría no iniciarse inmediatamente. En los momentos de carga máxima, los tiempos de espera pueden ampliarse hasta ocho horas debido al número de copias de seguridad que se procesan. Sin embargo, el tiempo total de la copia de seguridad de máquina virtual será de menos de 24 horas para las directivas de copia de seguridad diarias. <br>
+**Esto es válido solo para copias de seguridad incrementales y no para la primera copia de seguridad. El tiempo de la primera copia de seguridad es proporcional y puede ser mayor de 24 horas, dependiendo del tamaño de los datos y del tiempo que lleve la copia de seguridad.**
 * Tiempo de transferencia de datos, el tiempo necesario para que el servicio de copia de seguridad calcule los cambios incrementales de la copia de seguridad anterior y transfiera esos cambios al almacén de almacenamiento.
 
 ### <a name="why-am-i-observing-longer12-hours-backup-time"></a>¿Por qué veo un tiempo de copia de seguridad más largo (>12 horas)?

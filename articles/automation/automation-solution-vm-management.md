@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solución Start/Stop VMs during off-hours (versión preliminar) en Azure Automation
 
@@ -54,16 +54,15 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. Aparece la página **Agregar solución**. Se le pide que configure la solución antes de importarla en la suscripción de Automation.
+
    ![Página Agregar solución de administración de VM](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. En el la página **Agregar solución**, seleccione **Área de trabajo**. Seleccione un área de trabajo de Log Analytics que esté vinculada a la suscripción de Azure en la que se encuentra la cuenta de Automation. Si no tiene ningún área de trabajo, seleccione **Crear nueva área de trabajo**. En la página **Área de trabajo de OMS**, realice las siguientes operaciones:
    * Especifique un nombre para el nuevo **espacio de trabajo de OMS**.
    * Seleccione la **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    * En **Grupo de recursos**, puede crear un grupo de recursos nuevo o seleccionar uno existente.
    * Seleccione una **ubicación**. Actualmente las únicas ubicaciones disponibles son: **Sudeste de Australia**, **Centro de Canadá**, **Centro de la India**, **Este de EE. UU.**, **Japón Oriental**, **Sudeste Asiático**, **Sur de Reino Unido** y **Europa Occidental**.
-   * Seleccione un **plan de tarifa**. La solución se ofrece en dos niveles: **Gratis** y **Por nodo (OMS)**. El nivel Gratis tiene limitados la cantidad de datos que se recopilan a diario, el período de retención y los minutos de tiempo de ejecución del trabajo del runbook. El nivel Por nodo (OMS) no tiene ningún límite en la cantidad de datos recopilados a diario.
-
-        > [!NOTE]
-        > Aunque el nivel de pago por GB (Independiente) se muestra como opción, no es aplicable. Si lo selecciona y continúa con la creación de esta solución en su suscripción, se producirá un error. Esto se solucionará cuando se lance oficialmente la solución. Esta solución solo usa minutos de trabajo e ingesta de registros. No agrega nodos adicionales a su entorno.
+   * Seleccione un **plan de tarifa**. Elija la opción **Por GB (independiente)**. Log Analytics ha actualizado [precios](https://azure.microsoft.com/pricing/details/log-analytics/) y el nivel Por GB es la única opción.
 
 1. Después de proporcionar la información necesaria en la página **Área de trabajo de OMS**, haga clic en **Crear**. Se puede realizar un seguimiento de su progreso en la opción **Notificaciones** del menú, que le devuelve a la página **Agregar solución** cuando haya finalizado.
 1. En la página **Agregar solución**, seleccione **Cuenta de Automation**. Si va a crear una nueva área de trabajo de Log Analytics, también debe crear una nueva cuenta de Automation con la que asociarla. Seleccione **Crear una cuenta de Automation** y, en la página **Agregar cuenta de Automation**, especifique la siguiente información:
@@ -80,6 +79,9 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    * Especifique el **lista de exclusiones de máquinas virtuales (cadena)**. Es el nombre de una o varias máquinas virtuales del grupo de recursos de destino. Puede especificar más de un nombre y separarlos con una coma (los valores no distinguen mayúsculas de minúsculas). Se admite el uso de un carácter comodín. Este valor se almacena en la variable **External_ExcludeVMNames**.
    * Seleccione una **programación**. Se trata de la fecha y hora recurrentes para iniciar y detener las máquinas virtuales en los grupos de recursos de destino. De forma predeterminada, la programación se configura para la zona horaria UTC. No se puede seleccionar otra región. Para configurar su zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modify-the-startup-and-shutdown-schedule).
    * Para recibir **notificaciones por correo electrónico** de SendGrid, acepte el valor predeterminado **Sí** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero posteriormente decide que desea recibir notificaciones por correo electrónico, puede actualizar la variable **External_EmailToAddress** con direcciones de correo electrónico válidas separadas por una coma y, después, modificar la variable **External_IsSendEmail** con el valor **Yes**.
+
+> [!IMPORTANT]
+> El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;**. Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
 
 1. Cuando haya configurado los valores iniciales necesarios para la solución, haga clic en **Aceptar** para cerrar la página **Parámetros** y seleccione **Crear**. Cuando todos los valores se hayan validado, la solución se implementa en su suscripción. Este proceso puede tardar varios segundos en finalizar y se puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 

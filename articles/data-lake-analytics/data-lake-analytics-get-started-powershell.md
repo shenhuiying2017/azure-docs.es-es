@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: saveenr
-ms.openlocfilehash: f37a4563a758d442760f4a6be3c11bb9a9ddfc28
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 332b6c90ea51d16a439bfb21222bb753e93a02b9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introducción a Azure Data Lake Analytics mediante Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -39,13 +39,13 @@ En este tutorial se asume que sabe usar Azure PowerShell. En concreto, debe sabe
 Para iniciar sesión con un nombre de suscripción:
 
 ```
-Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
 En lugar del nombre de la suscripción, también puede utilizar un identificador de suscripción para iniciar sesión:
 
 ```
-Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 Si se realiza correctamente, la salida de este comando es similar a la siguiente:
@@ -96,13 +96,13 @@ OUTPUT @a
 "@
 ```
 
-Envíe el script.
+Envíe el texto del script con el cmdlet `Submit-AdlJob` y el parámetro `-Script`.
 
 ```
 $job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
-Como alternativa, puede guardar el script como archivo y enviarlo con el siguiente comando:
+Como alternativa, puede enviar un archivo de script mediante el parámetro `-ScriptPath`:
 
 ```
 $filename = "d:\test.usql"
@@ -110,20 +110,19 @@ $script | out-File $filename
 $job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
-
-Obtenga el estado de un trabajo específico. Diga usando este cmdlet hasta que vea que el trabajo se ha realizado.
+Obtenga el estado de un trabajo con `Get-AdlJob`. 
 
 ```
 $job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-En lugar de llamar a Get-AdlAnalyticsJob una y otra vez hasta que finaliza un trabajo, puede usar el cmdlet Wait-AdlJob.
+En lugar de llamar a Get-AdlJob una y otra vez hasta que finalice un trabajo, use el cmdlet `Wait-AdlJob`.
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Descargue el archivo de salida.
+Descargue el archivo de salida mediante `Export-AdlStoreItem`.
 
 ```
 Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"

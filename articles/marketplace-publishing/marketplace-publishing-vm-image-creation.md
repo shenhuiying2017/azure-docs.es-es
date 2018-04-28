@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
 En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
@@ -446,7 +446,7 @@ A continuación se enumeran los pasos para generar la dirección URL de SAS medi
 
     b. **`<Storage Account Key>`**: indique la clave de la cuenta de almacenamiento
 
-    c. **`<Permission Start Date>`**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es el 26 de octubre de 2016, el valor debe ser 10/25/2016. Si utiliza la CLI de Azure 2.0 (comando az), especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: para proteger la hora UTC, seleccione el día anterior a la fecha actual. Por ejemplo, si la fecha actual es 25 de octubre de 2016, el valor debe ser 10/25/2016. Si utiliza la CLI de Azure 2.0 (comando az), especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: seleccione una fecha que sea al menos 3 semanas después de la **Fecha de inicio**. El valor debería ser **11/02/2016**. Si utiliza la CLI de Azure 2.0 (comando az), especifique la fecha y la hora en las fechas inicial y final, por ejemplo: 11-02-2016T00:00:00Z.
 

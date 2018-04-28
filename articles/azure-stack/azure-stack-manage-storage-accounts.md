@@ -1,11 +1,11 @@
 ---
-title: "Administración de cuentas de almacenamiento de Azure Stack | Microsoft Docs"
+title: Administración de cuentas de almacenamiento de Azure Stack | Microsoft Docs
 description: Aprenda a buscar, administrar, recuperar y reclamar cuentas de almacenamiento de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Administración de cuentas de almacenamiento en Azure Stack
 Aprenda a administrar cuentas de almacenamiento en Azure Stack para buscar, recuperar y reclamar capacidad de almacenamiento según las necesidades empresariales.
@@ -99,7 +99,7 @@ En Azure Stack, existe una manera sencilla de hacerlo:
   Su cuenta podría no aparecer en la lista de cuentas si la cuenta eliminada ya ha pasado la recolección de elementos no utilizados. En este caso no se puede recuperar. Consulte [Reclamación de capacidad](#reclaim) en este tema.
 
 ## <a name="set-the-retention-period"></a>Establecimiento del período de retención
-La configuración del período de retención permite a un operador de nube especificar un período de tiempo en días (entre 0 y 9999 días) durante el cual existe la posibilidad de que cualquier cuenta eliminada se pueda recuperar. El período de retención predeterminado se establece en 15 días. Un valor configurado de "0" significa que una cuenta eliminada está inmediatamente fuera de retención y marcada para la recolección periódica de elementos no utilizados.
+La configuración del período de retención permite a un operador de nube especificar un período de tiempo en días (entre 0 y 9999 días) durante el cual existe la posibilidad de que cualquier cuenta eliminada se pueda recuperar. El período de retención predeterminado se establece en 0 días. Un valor configurado de "0" significa que una cuenta eliminada está inmediatamente fuera de retención y marcada para la recolección periódica de elementos no utilizados.
 
 **Para cambiar el periodo de retención:**
 

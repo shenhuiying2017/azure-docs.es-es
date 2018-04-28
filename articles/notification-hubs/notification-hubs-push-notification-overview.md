@@ -1,11 +1,11 @@
 ---
-title: Centros de notificaciones de Azure
-description: "Aprenda a agregar funcionalidades de notificación push con Azure Notification Hubs."
+title: Azure Notification Hubs
+description: Aprenda a agregar funcionalidades de notificación push con Azure Notification Hubs.
 author: ysxu
 manager: erikre
-editor: 
+editor: ''
 services: notification-hubs
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 1/17/2017
 ms.author: yuaxu
-ms.openlocfilehash: a1be0b13cd1feb582a23965df142e44d90ac6851
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea8d569a8d51afee352860ab60a1fe311496b83c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-notification-hubs"></a>Centros de notificaciones de Azure
+# <a name="azure-notification-hubs"></a>Azure Notification Hubs
 ## <a name="overview"></a>Información general
 Azure Notification Hubs proporciona un motor de inserción fácil de usar, multiplataforma y escalado horizontalmente. Con una única llamada de API multiplataforma puede enviar fácilmente notificaciones push específicas y personalizadas a cualquier plataforma móvil desde cualquier back-end local o en la nube.
 
@@ -71,7 +71,7 @@ La inserción es una de las características más solicitadas en servicios de di
   
   * Aunque los PNS proporcionan una manera de enviar mensajes a dispositivos, la mayoría de las notificaciones de aplicaciones se dirigen a usuarios o grupos de interés. Esto significa que el back-end debe mantener un registro para asociar dispositivos a grupos de interés, usuarios, propiedades, etc. Esta sobrecarga se agrega al tiempo de comercialización total y a los costos de mantenimiento de una aplicación.
 
-## <a name="why-use-notification-hubs"></a>¿Por qué usar los Centros de notificaciones?
+## <a name="why-use-notification-hubs"></a>¿Por qué usar Notification Hubs?
 Notification Hubs elimina todas las complejidades asociadas con la habilitación de una inserción propia. Su infraestructura de notificaciones push multiplataforma y escalada horizontalmente reduce los códigos relativos a la inserción y simplifica el back-end. Con Notification Hubs, los dispositivos solo son responsables de registrar identificadores de PNS con un centro, mientras que el back-end envía mensajes a usuarios o grupos de interés, tal como se muestra en la ilustración siguiente:
 
 ![][1]
@@ -110,19 +110,19 @@ Notification Hubs es un motor de inserción listo para usar que presenta las sig
 
   * Firma de acceso compartido (SAS) o autenticación federada.
 
-## <a name="integration-with-app-service-mobile-apps"></a>Integración con las Aplicaciones móviles del Servicio de aplicaciones
-Para facilitar una experiencia perfecta y unificadora entre servicios de Azure, [Aplicaciones móviles del Servicio de aplicaciones] tiene compatibilidad integrada con notificaciones push mediante centros de notificaciones. [Aplicaciones móviles del Servicio de aplicaciones] ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
+## <a name="integration-with-app-service-mobile-apps"></a>Integración con App Service Mobile Apps
+Para facilitar una experiencia perfecta y unificadora entre servicios de Azure, [App Service Mobile Apps] tiene compatibilidad integrada con notificaciones push mediante Notification Hubs. [App Service Mobile Apps] ofrece una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a desarrolladores móviles.
 
-Los desarrolladores de aplicaciones móviles pueden usar centros de notificaciones con el siguiente flujo de trabajo:
+Los desarrolladores de aplicaciones móviles pueden usar Notification Hubs con el siguiente flujo de trabajo:
 
 1. Recuperar controlador PNS de dispositivo
 2. Registrar el dispositivo con Notification Hubs a través de la API adecuada del registro del SDK de cliente de Mobile Apps
-   * Tenga en cuenta que las aplicaciones móviles eliminan todas las etiquetas en los registros por motivos de seguridad. Trabaje con centros de notificaciones desde su back-end directamente para asociar etiquetas a dispositivos.
-3. Enviar notificaciones desde su back-end de aplicación con los centros de notificaciones
+   * Tenga en cuenta que Mobile Apps elimina todas las etiquetas en los registros por motivos de seguridad. Trabaje con Notification Hubs desde su back-end directamente para asociar etiquetas a dispositivos.
+3. Enviar notificaciones desde su back-end de aplicación con Notification Hubs
 
 Estas son algunas ventajas para los desarrolladores de esta integración:
 
-* **SKD de cliente de Mobile Apps**: estos SDK multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no tienen que indagar en las credenciales de los Centros de notificaciones y trabajar con un servicio adicional.
+* **SKD de cliente de Mobile Apps**: estos SDK multiplataforma ofrecen API simples para el registro y se comunican con el centro de notificaciones vinculado con la aplicación móvil automáticamente. Los desarrolladores no tienen que indagar en las credenciales de Notification Hubs y trabajar con un servicio adicional.
 
   * *Inserción en usuario*: los SDK etiquetan automáticamente el dispositivo específico con un identificador de usuario autenticado de Mobile Apps para habilitar la inserción en un escenario de usuario.
   * *Inserción en dispositivo*: los SDK utilizan automáticamente el identificador de instalación de Mobile Apps como GUID para registrarse con Notification Hubs, lo que permite que los desarrolladores no tengan que mantener varios GUID de servicio.
@@ -131,7 +131,7 @@ Estas son algunas ventajas para los desarrolladores de esta integración:
 * **Experiencia integrada en [Azure Portal]**: la inserción como funcionalidad se representa visualmente en Mobile Apps y los desarrolladores pueden trabajar fácilmente con el centro de notificaciones asociado a través de Mobile Apps.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información acerca de los Centros de notificaciones en estos temas:
+Más información acerca de Notification Hubs en estos temas:
 
 * **[Cómo utilizan los clientes los Notification Hubs]**
 * **[Tutoriales y guías sobre los Notification Hubs]**
@@ -150,7 +150,7 @@ Más información acerca de los Centros de notificaciones en estos temas:
 [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
 [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
 [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-[Aplicaciones móviles del Servicio de aplicaciones]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+[App Service Mobile Apps]: https://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop/
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [Azure Portal]: https://portal.azure.com
 [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

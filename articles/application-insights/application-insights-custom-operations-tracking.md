@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: sergkanz
-ms.openlocfilehash: 5c6f7521614d7c8337ef31fb8102c5715f83a58d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 94424a3d8aad56cf4504cccd8adb1a45523d95e0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -450,7 +450,7 @@ public async Task RunMyTaskAsync()
 
 Desechar la operación provoca que la operación se detenga, por lo que puede hacerlo en lugar de llamar a `StopOperation`.
 
-*Advertencia*: En algunos casos, una excepción no controlada puede [impedir](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
+*Advertencia*: En algunos casos, una excepción no controlada puede [impedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) la llamada a `finally`, por lo que puede que no se realice un seguimiento de las operaciones.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Seguimiento y procesamiento de operaciones paralelas
 

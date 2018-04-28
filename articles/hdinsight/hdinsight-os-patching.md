@@ -1,25 +1,23 @@
 ---
-title: "Configuración de la programación de aplicación de revisiones de SO para clústeres de HDInsight basado en Linux (Azure) | Microsoft Docs"
-description: "Aprenda a configurar la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux."
+title: Configuración de la programación de aplicación de revisiones de SO para clústeres de HDInsight basado en Linux (Azure) | Microsoft Docs
+description: Aprenda a configurar la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: asadk
 editor: bprakash
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
 Como servicio de Hadoop administrado, HDInsight se preocupa de aplicar las revisiones del SO de las máquinas virtuales subyacentes que los clústeres de HDInsight usan. A partir del 1 de agosto de 2016, cambiamos la directiva de aplicación de revisión del SO invitado para clústeres de HDInsight basado en Linux (versión 3.4 o superior). El objetivo de la nueva directiva consiste en reducir significativamente el número de reinicios debidos a la aplicación de revisión. La nueva directiva seguirá aplicando revisiones en máquinas virtuales de clústeres Linux cada lunes o jueves a partir de las 12:00 (UTC) de manera escalonada en los distintos nodos de cualquier clúster. Sin embargo, las máquinas virtuales solo se reiniciarán, como máximo, una vez cada 30 días debido a la aplicación de revisión de SO invitado. Además, el primer reinicio de un clúster recién creado no se realizará hasta que no hayan transcurrido 30 días desde la fecha de creación del clúster. Las revisiones entrarán en vigor una vez que se reinicien las máquinas virtuales.
@@ -44,14 +42,14 @@ Con la acción de script que se describe en este artículo, puede modificar la p
 ## <a name="how-to-use-the-script"></a>Uso del script 
 
 Cuando se usa este script, se requiere la información siguiente:
-1. La ubicación del script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
+1. Ubicación del script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight usa este URI para encontrar y ejecutar el script en todas las máquinas virtuales del clúster.
   
 2. Los tipos de nodo de clúster al que se aplica el script: headnode, workernode, zookeeper. Este script se debe aplicar a todos los tipos de nodo del clúster. Si no se aplica a un tipo de nodo, las máquinas virtuales de ese tipo de nodo seguirán usando la programación de aplicación de revisión anterior.
 
 
 3.  Parámetro: este script acepta tres parámetros numéricos:
 
-    | Parámetro | Definición |
+    | . | Definición |
     | --- | --- |
     | Habilite o deshabilite los reinicios automáticos |0 o 1. El valor 0 deshabilita los reinicios automáticos, mientras que 1 los habilita. |
     | Frecuencia |7 a 90 (incluido). La cantidad de días que se esperará antes de reiniciar las máquinas virtuales para las revisiones que requieren un reinicio. |

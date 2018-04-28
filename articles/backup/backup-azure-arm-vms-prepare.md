@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
-En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Almacene los datos de copia de seguridad de la máquina virtual en un almacén de Recovery Services. El almacén contiene los datos de copia de seguridad para la máquina virtual implementada según el modelo clásico y la implementada por Resource Manager.
+En este artículo se indican los pasos necesarios para preparar el entorno para realizar una copia de seguridad de una máquina virtual en que se ha implementado Azure Resource Manager. Los pasos que se muestran en los procedimientos utilizan el Portal de Azure. Al hacer una copia de seguridad de una máquina virtual, los datos de copia de seguridad o los puntos de recuperación se almacenan en un almacén de Recovery Services. Los almacenes de Recovery Services contienen los datos de copia de seguridad para la máquina virtual implementada según el modelo clásico y la implementada por Resource Manager.
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Para proteger o realizar una copia de seguridad de una máquina virtual implementada mediante Resource Manager, asegúrese de cumplir los siguientes requisitos previos:
 
-* Ha creado un almacén de Recovery Services (o ha identificado uno existente) *en la misma región que la máquina virtual*.
+* Cree o identifique un almacén de Recovery Services *en la misma región que la máquina virtual*.
 * Ha seleccionado un escenario, ha definido la directiva de copia de seguridad y ha definido los elementos que quiere proteger.
-* Ha comprobado la instalación de un agente de máquina virtual en la máquina virtual.
+* Ha comprobado la instalación de un agente de máquina virtual (extensión) en la máquina virtual.
 * Ha comprobado la conectividad de la red.
 * En el caso de las máquinas virtuales Linux, si desea personalizar el entorno de copia de seguridad para realizar copias de seguridad coherentes con la aplicación, siga los [pasos para configurar scripts previos y posteriores a la instantánea](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
@@ -51,11 +51,11 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 * No se admite la copia de seguridad de máquinas virtuales con más de 16 discos de datos.
 * No se admite la copia de seguridad de máquinas virtuales con una dirección IP reservada y sin puntos de conexión definidos.
 * No se admite la copia de seguridad de máquinas virtuales Linux en las que se ha usado el cifrado LUKS (Linux Unified Key Setup).
-* No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM. 
+* No se recomienda realizar copias de seguridad de máquinas virtuales que contengan la configuración de volúmenes compartidos de clúster (CSV) o de Servidor de archivos de escalabilidad horizontal. Si hace esto, se espera un error de los escritores de CSV. Requieren que en una tarea de instantánea haya que implicar todas las máquinas virtuales incluidas en la configuración del clúster. Azure Backup no es compatible con la coherencia entre varias VM. 
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.
-* La copia de seguridad y restauración de máquinas virtuales con discos no administrados en las cuentas de almacenamiento con reglas de red aplicadas no se admiten actualmente. 
+* La copia de seguridad y restauración de máquinas virtuales con discos no administrados en las cuentas de almacenamiento con reglas de red aplicadas no se admiten para los clientes de la pila de copia de seguridad de la VM antigua. 
 * Al configurar la copia de seguridad, asegúrese de que la configuración de la cuenta de almacenamiento **Firewalls y redes virtuales** de la cuenta de almacenamiento permite el acceso desde Todas las redes.
 * Puede realizar copias de seguridad de máquinas virtuales en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones admitidas). Si la región que busca no se admite, no aparecerá en la lista desplegable durante la creación del almacén.
 * La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Para más información, consulte [Restauración de máquinas virtuales de controlador de dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
@@ -167,7 +167,7 @@ Antes de registrar una máquina virtual en un almacén de Recovery Services, eje
 
    ![Botón "Habilitar copia de seguridad"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
-Después de habilitar correctamente la copia de seguridad, la directiva de copia de seguridad se ejecutará según lo programado. Si desea generar un trabajo de copia de seguridad a petición para hacer una copia de seguridad de las máquinas virtuales ahora, consulte [Desencadenamiento del trabajo de copia de seguridad](./backup-azure-arm-vms.md#triggering-the-backup-job).
+Después de habilitar correctamente la copia de seguridad, la directiva de copia de seguridad se ejecutará según lo programado. Si desea generar un trabajo de copia de seguridad a petición para hacer una copia de seguridad de las máquinas virtuales ahora, consulte [Desencadenamiento del trabajo de copia de seguridad](./backup-azure-vms-first-look-arm.md#initial-backup).
 
 Si surgen problemas al registrar la máquina virtual, consulte la siguiente información acerca de cómo instalar el agente de máquina virtual y de la conectividad de red. Probablemente no necesite la siguiente información si va a proteger máquinas virtuales creadas en Azure. Sin embargo, si ha migrado las máquinas virtuales a Azure, asegúrese de que ha instalado correctamente el agente de máquina virtual y que la máquina virtual se puede comunicar con la red virtual.
 
@@ -208,6 +208,10 @@ Para incluir los intervalos de IP de un centro de datos de Azure en una lista bl
 Con las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) puede permitir conexiones al almacenamiento de la región concreta. Asegúrese de que la regla que permite el acceso a la cuenta de almacenamiento tiene mayor prioridad que la que bloquea el acceso a Internet. 
 
 ![NSG con etiquetas de almacenamiento para una región](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
+
+El vídeo siguiente le guiará por el procedimiento paso a paso para configurar las etiquetas de servicio: 
+
+>[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
 > [!WARNING]
 > Las etiquetas del servicio de almacenamiento solo están disponibles en determinadas regiones y en versión preliminar. Para ver la lista de regiones, consulte el apartado [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags).

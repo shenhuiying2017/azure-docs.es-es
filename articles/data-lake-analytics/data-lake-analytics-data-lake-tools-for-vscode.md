@@ -1,10 +1,10 @@
 ---
 title: 'Herramientas de Azure Data Lake: Uso de Herramientas de Azure Data Lake para Visual Studio Code | Microsoft Docs'
-description: "Obtenga información sobre cómo usar Herramientas de Azure Data Lake para Visual Studio Code para crear, probar y ejecutar scripts U-SQL. "
+description: 'Obtenga información sobre cómo usar Herramientas de Azure Data Lake para Visual Studio Code para crear, probar y ejecutar scripts U-SQL. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Uso de Herramientas de Azure Data Lake para Visual Studio Code
 
@@ -224,7 +224,7 @@ Para poder compilar y ejecutar scripts de U-SQL en Data Lake Analytics, debe con
 
     ![Herramientas de Data Lake para Visual Studio Code: paleta de comandos](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
     ![Herramientas de Data Lake para Visual Studio Code: información de inicio de sesión del dispositivo](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-login-info.png)
-3.  Haga clic en **Copy & Open** (Copiar y abrir) para abrir la página web https://aka.ms/devicelogin. Pegue el código **G567LX42V** en el cuadro de texto y seleccione **Continuar**.
+3.  Haga clic en **Copiar y abrir** para abrir la página de inicio de sesión con la dirección URL: https://aka.ms/devicelogin. Pegue el código **G567LX42V** en el cuadro de texto y seleccione **Continuar**.
 
    ![Código de inicio de sesión pegado de Herramientas de Data Lake para Visual Studio Code](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login-paste-code.png )   
 4.  Siga las instrucciones para iniciar sesión desde la página web. Cuando se conecte, el nombre de la cuenta de Azure aparecerá en la barra de estado que se encuentra en la esquina inferior izquierda de la ventana **VS Code**. 
@@ -356,13 +356,13 @@ El estado se muestra en la parte inferior de la barra de estado cuando se comple
 
 **Integración de Azure** 
 
-- Antes de iniciar sesión en Azure, siempre puede expandir el **EXPLORADOR DE DATA LAKE** y hacer clic en **Iniciar sesión en Azure**. Después de iniciar sesión, verá que todas suscripciones de la cuenta de Azure aparecen en el panel izquierdo del **EXPLORADOR DE DATA LAKE**. 
+- Para iniciar sesión en Azure, siempre puede expandir **AZURE DATA LAKE** y hacer clic en **Iniciar sesión en Azure**. Después de iniciar sesión, verá que todas suscripciones de la cuenta de Azure aparecen en el panel izquierdo de **AZURE DATA LAKE**. 
 
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**Navegación por los metadatos de ADLA** 
+**Navegación por los metadatos de ADLA**
 
 - Expanda la suscripción de Azure, donde podrá navegar por la base de datos U-SQL y consultar la información de **Esquemas**, **Credenciales**, **Ensamblados**, **Tabla**, **Índice**, etc. en el nodo Bases de datos U-SQL.
 
@@ -382,11 +382,31 @@ El estado se muestra en la parte inferior de la barra de estado cuando se comple
 
 **Integración de ADLS** 
 
- - Vaya a **Cuenta de almacenamiento**, donde podrá utilizar las opciones **Vista previa**, **Descargar**, **Eliminar**, **Copiar ruta de acceso relativa** y **Copiar ruta de acceso completa** que encontrará en el menú contextual del nodo del archivo. También puede utilizar las opciones **Actualizar**, **Cargar**, **Cargar carpeta** y **Eliminar** haciendo clic en el menú contextual del nodo de la carpeta.
+Navegue a **Data Lake Store**
+
+ - En el nodo de carpeta, puede seleccionar **Actualizar**, **Eliminar**, **Cargar**, **Cargar carpeta**, **Copiar ruta de acceso relativa** y **Copiar ruta de acceso completa** en el menú contextual.
 
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - En el nodo de archivo, puede **Descargar**, **Obtener vista previa**, **Eliminar**, **Copiar ruta de acceso relativa** y **Copiar ruta de acceso completa** en el menú contextual. 
+
    ![Explorador de DataLake](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**Integración de WASB**
+
+Navegar a **Blob Storage**
+
+- En el nodo de contenedor de blobs, puede seleccionar **Actualizar**, **Eliminar contenedor de blobs** y **Cargar blob** en el menú contextual.
+
+    ![Nodo de contenedor de blobs de Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- En el nodo de carpeta, puede seleccionar **Actualizar** y **Cargar Blob** en el menú contextual.
+
+    ![Nodo de carpeta de Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- En el nodo de archivo, puede seleccionar **Obtener vista previa/Editar**, **Descargar**, **Eliminar**, **Copiar ruta de acceso relativa** y **Copiar ruta de acceso completa** en el menú contextual.
+
+    ![Nodo de archivo de Blob Storage](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Apertura del Explorador de almacenamiento de ADL en portal
 1. Seleccione Ctrl+Mayús+P para abrir la paleta de comandos.

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Uso de Draft con Azure Container Service (AKS)
 
@@ -33,10 +33,10 @@ Por último, debe instalar [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Instalación de Draft
 
-La CLI de Draft es un cliente que se ejecuta en su sistema de desarrollo, y que permite implementar código rápidamente en un clúster de Kubernetes. 
+La CLI de Draft es un cliente que se ejecuta en su sistema de desarrollo, y que permite implementar código rápidamente en un clúster de Kubernetes.
 
-> [!NOTE] 
-> Si tiene instalada una versión de Draft anterior a la 0.12, primero debe eliminar Draft del clúster mediante `helm delete --purge draft` y, a continuación, quitar la configuración local ejecutando `rm -rf ~/.draft`. Si se encuentra en Mac OS, puede ejecutar `brew upgrade draft`.
+> [!NOTE]
+> Si tiene instalada una versión de Draft anterior a la 0.12, primero debe eliminar Draft del clúster mediante `helm delete --purge draft` y, a continuación, quitar la configuración local ejecutando `rm -rf ~/.draft`. Si se encuentra en Mac OS, ejecute `brew upgrade draft`.
 
 Para instalar la CLI de Draft en un equipo Mac, use `brew`. Para conocer otras opciones de instalación, consulte la [Draft Install guide][install-draft] (Guía de instalación de Draft).
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Ahora que hay una relación de confianza entre AKS y ACR, los pasos siguientes habilitan el uso de ACR desde el clúster de AKS.
 1. Establezca el valor de `registry` en la configuración de Draft ejecutando `draft config set registry <registry name>.azurecr.io`, en donde _&lt;registry name&lt;_ es el nombre del registro de ACR.
-2. Inicie sesión en el registro de ACR ejecutando `az acr login -n <registry name>`. 
+2. Inicie sesión en el registro de ACR ejecutando `az acr login -n <registry name>`.
 
-Dado que ya ha iniciado sesión localmente en ACR y ha creado una relación de confianza con AKS y ACR, no se necesitan contraseñas ni secretos para insertar o extraer desde ACR en AKS. La autenticación se produce en el nivel de Azure Resource Manager mediante Azure Active Directory. 
+Dado que ya ha iniciado sesión localmente en ACR y ha creado una relación de confianza con AKS y ACR, no se necesitan contraseñas ni secretos para insertar o extraer desde ACR en AKS. La autenticación se produce en el nivel de Azure Resource Manager mediante Azure Active Directory.
 
 ## <a name="run-an-application"></a>Ejecución de una aplicación
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Ahora puede probar la aplicación. Para ello, vaya a http://localhost:46143 (en el ejemplo anterior, el puerto puede ser distinto). Cuando termine de probar la aplicación, use `Control+C` para detener la conexión de proxy.
+Pruebe la aplicación ahora. Para ello, vaya a http://localhost:46143 (en el ejemplo anterior; el puerto puede ser distinto). Cuando termine de probar la aplicación, use `Control+C` para detener la conexión de proxy.
 
 > [!NOTE]
 > También puede usar el comando `draft up --auto-connect` para compilar e implementar la aplicación y conectarse inmediatamente al primer contenedor en ejecución para hacer que el ciclo de iteración sea aún más rápido.

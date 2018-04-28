@@ -1,12 +1,12 @@
 ---
-title: "Integración de Azure Service Fabric con API Management | Microsoft Docs"
-description: "En este tutorial, aprenderá a empezar a usar rápidamente Azure API Management y Service Fabric."
+title: Integración de Azure Service Fabric con API Management | Microsoft Docs
+description: En este tutorial, aprenderá a empezar a usar rápidamente Azure API Management y Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 3/9/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 430e813b89f3e0004c517ef77f1028e00ebe5404
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: f209e992c4562f11727613c58e1e94483af03bb7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Tutorial: Implementación de API Management con Service Fabric
 Este tutorial es la cuarta parte de una serie.  La implementación de Azure API Management con Service Fabric es un escenario avanzado.  API Management es útil cuando es necesario publicar API con un completo conjunto de reglas de enrutamiento para los servicios de Service Fabric de back-end. Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end para proporcionar un único punto de entrada para usuarios, dispositivos u otras aplicaciones. En Service Fabric, una puerta de enlace puede ser cualquier servicio sin estado diseñado para la entrada de tráfico, como una aplicación ASP.NET Core, Event Hubs, IoT Hub o Azure API Management. 
@@ -59,7 +59,7 @@ Ahora que tiene un [clúster de Windows](service-fabric-tutorial-create-vnet-and
 Inicie sesión en su cuenta de Azure y seleccione su suscripción antes de ejecutar comandos de Azure.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -142,7 +142,7 @@ En este tutorial, se implementará un servidor web básico que devuelve mensajes
 
    Ahora se ejecutará un servicio sin estado Java denominado `fabric:/EchoServerApplication/EchoServerService` en el clúster Service Fabric en Azure.
 
-5. Abra un explorador y escriba http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage; debería ver "[version 1.0]Hello World !!!" en la pantalla.
+5. Abra un explorador y escriba en http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, debería ver "[version 1.0]Hello World!!!" en la pantalla.
 
 ## <a name="download-and-understand-the-resource-manager-templates"></a>Descarga e información de las plantillas de Resource Manager
 Descargue y guarde las plantillas de Resource Manager y el archivo de parámetros siguientes:

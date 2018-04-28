@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.openlocfilehash: 93397e5370863b11b7c153bbf234d6bfdd808718
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/16/2018
+ms.openlocfilehash: 63648dfe02a0b5ed00d0a7206a6aabbe200f94c4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Análisis de opiniones mediante Azure Stream Analytics y Azure Machine Learning
 En este artículo se explica cómo configurar rápidamente un trabajo sencillo de Azure Stream Analytics que integre Azure Machine Learning. Un modelo de análisis de opiniones de Machine Learning de la galería de Cortana Intelligence se usa para analizar datos de texto que se están transmitiendo y determinar la puntuación de opiniones en tiempo real. Cortana Intelligence Suite permite realizar esta tarea sin preocuparse por las complejidades de la creación de un modelo de análisis de opiniones.
@@ -25,7 +25,7 @@ Puede aplicar lo que aprenda en este artículo a escenarios como estos:
 * Evaluación de comentarios en foros, blogs y vídeos. 
 * Muchos otros escenarios de puntuación predictiva en tiempo real.
 
-En un escenario real, los datos se obtendrían directamente de un flujo de datos de Twitter. Para simplificar el tutorial, se ha escrito de modo que el trabajo de Streaming Analytics obtenga los tweets de un archivo CSV de Azure Blob Storage. Puede crear su propio archivo CSV o usar un archivo CSV de ejemplo, como se muestra en la siguiente imagen:
+En un escenario real, los datos se obtendrían directamente de un flujo de datos de Twitter. Para simplificar el tutorial, se escribe de modo que el trabajo de Streaming Analytics obtenga los tweets de un archivo CSV de Azure Blob Storage. Puede crear su propio archivo CSV o usar un archivo CSV de ejemplo, como se muestra en la siguiente imagen:
 
 ![tweets de ejemplo de un archivo CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
@@ -157,7 +157,7 @@ El trabajo envía los resultados al mismo almacenamiento de blobs del que obtien
 
    |Campo  |Valor  |
    |---------|---------|
-   |**Alias de salida** | Use el nombre `datainput` y seleccione **Seleccionar Blob Storage de las suscripciones**       |
+   |**Alias de salida** | Use el nombre `datamloutput` y seleccione **Seleccionar Blob Storage de las suscripciones**       |
    |**Cuenta de almacenamiento**  |  Seleccione la cuenta de almacenamiento creada anteriormente.  |
    |**Contenedor**  | Seleccione el contenedor creado anteriormente (`azuresamldemoblob`).        |
    |**Formato de serialización de eventos**  |  Seleccione **CSV**.       |
@@ -200,12 +200,13 @@ Stream Analytics usa una consulta declarativa basada en SQL para examinar la ent
 
     ```
     WITH sentiment AS (  
-    SELECT text, sentiment(text) as result from datainput  
+    SELECT text, sentiment(text) as result 
+    FROM datainput  
     )  
 
-    Select text, result.[Score]  
-    Into datamloutput
-    From sentiment  
+    SELECT text, result.[Score]  
+    INTO datamloutput
+    FROM sentiment  
     ```    
 
     La consulta invoca a la función creada anteriormente (`sentiment`) para realizar el análisis de opiniones en cada tweet de la entrada. 

@@ -10,14 +10,14 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 22337e412661172475a05f6fec31ae03683be988
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Unidades de transacción de bases de datos (DTU) y unidades de transacción de bases de datos elásticas (eDTU)
-Este artículo describe las unidades de transacción de bases de datos (DTU) y las unidades de transacción de bases de datos elásticas (eDTU) y qué sucede cuando se alcanza el número máximo de DTU o eDTU.  
+Este artículo describe las unidades de transacción de bases de datos (DTU) y las unidades de transacción de bases de datos elásticas (eDTU) y qué sucede cuando se alcanza el número máximo de DTU o eDTU. Para obtener información de precios, consulte [Precio de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="what-are-database-transaction-units-dtus"></a>¿Qué son las unidades de transacción de base de datos?
 Para una sola base de datos de Azure SQL en un nivel de rendimiento específico dentro de un [nivel de servicio](sql-database-single-database-resources.md), Microsoft garantiza un cierto nivel de recursos para esa base de datos (independiente de cualquier otra base de datos en la nube de Azure) y asegura ofrecer un nivel de rendimiento predecible. Esta cantidad de recursos se calcula como un número de unidades de transacción de base de datos o DTU y es una medida combinada de recursos de proceso, almacenamiento y E/S. La relación entre estos recursos se determinó originalmente mediante una [carga de trabajo OLTP de prueba comparativa](sql-database-benchmark-overview.md) diseñada para representar las típicas cargas de trabajo OLTP reales. Cuando la carga de trabajo supera la cantidad de cualquiera de estos recursos, se limita el rendimiento, con lo que se obtiene un rendimiento y tiempos de espera más lentos. Los recursos utilizados por la carga de trabajo no afectan a los recursos disponibles para otras bases de datos SQL en la nube de Azure, y los recursos utilizados por otras cargas de trabajo no afectan a los recursos disponibles para la base de datos SQL.

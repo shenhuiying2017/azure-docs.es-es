@@ -1,8 +1,8 @@
 ---
-title: "Introducción a Azure Key Vault | Microsoft Docs"
-description: "Use este tutorial para empezar a trabajar con Azure Key Vault para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure."
+title: Introducción a Azure Key Vault | Microsoft Docs
+description: Use este tutorial para empezar a trabajar con Azure Key Vault para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/20/2017
 ms.author: barclayn
-ms.openlocfilehash: 1b70802945b710059e93b54607996ccf74510d1f
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introducción a Azure Key Vault
 Este artículo sirve de ayuda para empezar a trabajar con Azure Key Vault mediante PowerShell y guía a través de las actividades siguientes:
@@ -43,34 +43,34 @@ Antes de continuar con el artículo, confirme que dispone de:
 >[!NOTE]
 En este artículo se supone que el usuario tiene un conocimiento básico de Azure PowerShell. Para más información acerca de PowerShell, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
-Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet **Get-Help** .
+Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet **Get-Help**.
 
 ```powershell-interactive
 Get-Help <cmdlet-name> -Detailed
 ```
     
-Por ejemplo, para obtener ayuda para el cmdlet **Add-AzureRmAccount** , escriba:
+Por ejemplo, para obtener ayuda para el cmdlet **Connect-AzureRmAccount**, escriba:
 
 ```PowerShell
-Get-Help Login-AzureRmAccount -Detailed
+Get-Help Connect-AzureRmAccount -Detailed
 ```
 
 También puede leer los siguientes artículos para familiarizarse con el modelo de implementación de Azure Resource Manager en Azure PowerShell:
 
-* [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 * [Uso de Azure PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md)
 
 ## <a id="connect"></a>Conexión a las suscripciones
 Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure con el siguiente comando:  
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 >[!NOTE]
- Si utiliza una instancia específica de Azure, use el parámetro -Environment. Por ejemplo: 
+ Si utiliza una instancia específica de Azure, use el parámetro -Environment. Por ejemplo:  
  ```powershell
- Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
  ```
 
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtiene todas las suscripciones asociadas a esta cuenta y, de forma predeterminada, usa la primera.
@@ -114,7 +114,7 @@ New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoReso
 El resultado de este cmdlet muestra las propiedades del almacén de claves que creó. Las dos propiedades más importantes son:
 
 * **Nombre de almacén**: en este ejemplo es **ContosoKeyVault**. Utilizará este nombre para otros cmdlets de Key Vault.
-* **Identificador URI de almacén**: en este ejemplo es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **URI de almacén**: en el ejemplo, es https://contosokeyvault.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
 Su cuenta de Azure ahora está autorizada para realizar operaciones en este Almacén de claves. Hasta el momento, nadie más lo está.
 
@@ -138,11 +138,11 @@ Para mostrar el URI para esta clave, escriba:
 $key.id
 ```
 
-Ahora puede hacer referencia a una clave que creó o cargó en Azure Key Vault mediante su URI. Para obtener la versión actual, utilice **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** y **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** a fin de obtener esta versión específica.  
+Ahora puede hacer referencia a una clave que creó o cargó en Azure Key Vault mediante su URI. Para obtener la versión actual, puede usar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, pero para obtener esta versión concreta debe usar **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.  
 
 ### <a name="importing-an-existing-pfx-file-into-azure-key-vault"></a>Importación de un archivo PFX existente en Azure Key Vault
 
-En el caso de las claves existentes almacenadas en un archivo PFX que desee cargar en Azure Key Vault, los pasos son diferentes. Por ejemplo:
+En el caso de las claves existentes almacenadas en un archivo PFX que desee cargar en Azure Key Vault, los pasos son diferentes. Por ejemplo: 
 - Si tiene una clave protegida por software en un archivo PFX
 - El archivo PFX se denomina softkey.pfx 
 - Se almacena en la unidad C.
@@ -187,7 +187,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```
 
 
-Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Utilice **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión concreta.
+Ahora puede hacer referencia a esta clave que agregó a Azure Key Vault utilizando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y use **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión concreta.
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -213,35 +213,38 @@ Este paso lo haría normalmente un programador en un equipo independiente. No es
 
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory. Para ello, el propietario de la aplicación debe registrarla primero en su Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
 
-- **Identificador de la aplicación** 
-- Una **clave de autenticación** (también conocida como secreto compartido). 
+- **Id. de aplicación** 
+- **Clave de autenticación** (también conocida como "secreto compartido") 
 
 Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La forma en que se configura la aplicación para ello depende de la aplicación. Para la [aplicación de ejemplo de Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), el propietario de la aplicación establece estos valores en el archivo app.config.
 
 
 Para registrar la aplicación en Azure Active Directory:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-2. En el panel izquierdo, haga clic en **Registros de aplicaciones**. Si no ve los registros de aplicaciones, haga clic en **Más servicios** y búsquelos allí.  
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. Haga clic en **Registros de aplicaciones** en la parte izquierda. Si no ve los registros de aplicaciones, haga clic en **Más servicios** y búsquelos allí.  
 >[!NOTE]
 Debe seleccionar el mismo directorio que contiene la suscripción de Azure con la que creó la instancia de Key Vault. 
 3. Haga clic en **Nuevo registro de aplicaciones**.
-4. En la hoja **Crear**, proporcione un nombre para la aplicación y, después, seleccione**APLICACIÓN WEB Y/O API WEB** (valor predeterminado) y especifique la **DIRECCION URL DE INICIO DE SESIÓN** para su aplicación. Si no tiene esta información en este momento, puede inventársela para este paso (por ejemplo, podría especificar http://prueba1.contoso.com). No importa si los sitios existen. 
+4. En la hoja **Crear**, proporcione un nombre para la aplicación y, después, seleccione **APLICACIÓN WEB Y/O API WEB** (valor predeterminado) y especifique la **DIRECCION URL DE INICIO DE SESIÓN** para su aplicación web. Si no dispone de esta información, puede inventársela para este paso (por ejemplo, podría especificar http://test1.contoso.com). No importa si los sitios existen. 
 
     ![Nuevo registro de aplicaciones](./media/key-vault-get-started/new-application-registration.png)
     >[!WARNING]
     Asegúrese de elegir **APLICACIÓN WEB Y/O API WEB**; si no lo hizo, no verá la opción **Claves** en la configuración.
 
-5. Haga clic en el botón **Crear** .
-6. Cuando el registro de la aplicación se completa, puede ver la lista de aplicaciones registradas. Busque la aplicación recién registrada y haga clic en ella.
-7. Haga clic en la hoja **Aplicación registrada** y copie el **Id. de aplicación**
-8. Haga clic en **Toda la configuración**
-9. En la hoja **Configuración**, haga clic en **Claves**
+5. Haga clic en el botón **Crear**.
+6. Una vez que haya completado el registro de la aplicación, podrá ver la lista de aplicaciones registradas. Busque la aplicación que acaba de registrar y haga clic en ella.
+7. Haga clic en la hoja **Aplicación registrada** y copie el **id. de aplicación**.
+8. Haga clic en **Toda la configuración**.
+9. En la hoja **Configuración**, haga clic en **claves**.
 9. Escriba una descripción en el cuadro **Descripción de la clave** y seleccione una duración; a continuación, haga clic en **GUARDAR**. La página se actualiza y muestra ahora un valor de clave. 
-10. En el paso siguiente, utilizará la información de **Id. de aplicación** y **Clave** para establecer permisos en el almacén.
+10. En el paso siguiente, usará la información del **id. de aplicación** y la **clave** para establecer permisos en el almacén.
 
 ## <a id="authorize"></a>Autorización de la aplicación para que use la clave o el secreto
-Para autorizar a la aplicación a acceder a la clave o al secreto del almacén, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
+Hay dos formas de autorizar el acceso de la aplicación a la clave o al secreto del almacén.
+
+### <a name="using-powershell"></a>Con PowerShell
+Para utilizar PowerShell, use el cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy).
 
 Por ejemplo, si el nombre del almacén es **ContosoKeyVault** y la aplicación que desea autorizar tiene el identificador de cliente 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed y desea que la aplicación tenga autorización para descifrar y firmar con claves en el almacén, ejecute lo siguiente:
 
@@ -254,6 +257,13 @@ Si desea autorizar a esa misma aplicación para leer los secretos en el almacén
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
+### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+Para cambiar la autorización de una aplicación para usar las claves o los secretos:
+1. Seleccione **Directivas de acceso** en la hoja de recursos de Key Vault
+2. Haga clic en el botón [+ Agregar nueva] en la parte superior de la hoja
+3. Haga clic en **Seleccionar la entidad de seguridad** para seleccionar la aplicación que creó anteriormente
+4. En la lista desplegable **Permisos de clave**, seleccione "Descifrar" y "Firmar" para autorizar que la aplicación descifre y firme con claves de su almacén
+5. En la lista desplegable **Permisos de secretos**, seleccione "Obtener" para permitir que la aplicación lea los secretos del almacén
 
 ## <a id="HSM"></a>Trabajo con un módulo de seguridad de hardware (HSM)
 Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).

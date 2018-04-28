@@ -84,13 +84,23 @@ Puede encontrar la cadena de conexión en Azure Portal o mediante las herramient
 
 4. En la página **Resumen**, en **Salidas**, se proporcionan varios vínculos de clúster. **SSHMaster0** proporciona una cadena de conexión de SSH para el primer patrón del clúster de servicio de contenedor. 
 
-Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo:
+Como se indicó anteriormente, también puede utilizar las herramientas de Azure para buscar el FQDN del patrón. Realice una conexión de SSH con el patrón mediante el FQDN de este y el nombre de usuario que especificó al crear el clúster. Por ejemplo: 
 
 ```bash
 ssh userName@masterFQDN –A –p 22 
 ```
 
 Para más información, consulte [Conexión a un clúster de Azure Container Service](../articles/container-service/kubernetes/container-service-connect.md).
+
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>La resolución de nombres DNS no funciona en Windows. ¿Qué debo hacer?
+
+Hay algunos problemas conocidos de DNS en Windows cuyas correcciones siguen eliminándolos gradualmente. Asegúrese de que usa el motor de ACS y la versión de Windows más actualizados (con [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) y [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) instalados) para que su entorno se puede beneficiar de esto. Si no es así, consulte en la tabla siguiente los pasos necesarios para la mitigación:
+
+| Síntoma de DNS | Solución alternativa  |
+|-------------|-------------|
+|Cuando el contenedor de la carga de trabajo no es estable y se bloquea, se limpia el espacio de nombres de la red | Vuelva a implementar los servicios afectados |
+| El acceso VIP al servicio se interrumpe | Configure un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) para que haya siempre un pod normal (sin privilegios) en ejecución |
+|Cuando el nodo en el que se ejecuta el contenedor deja de estar disponible, se puede producir un error en las consultas DNS, lo que generaría una "entrada negativa de la caché" | Ejecute lo siguiente en los contenedores afectados: <ul><li> `New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxCacheTtl -Value 0 -Type DWord`</li><li>`New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\Dnscache\Parameters' -Name MaxNegativeCacheTtl -Value 0 -Type DWord`</li><li>`Restart-Service dnscache` </li></ul><br> Si aun así no se resuelve el problema, pruebe a deshabilitar completamente el almacenamiento en caché de DNS: <ul><li>`Set-Service dnscache -StartupType disabled`</li><li>`Stop-Service dnscache`</li></ul> |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,12 +1,12 @@
 ---
-title: "CLI de Azure Service Fabric: réplica de sfctl | Microsoft Docs"
-description: "Se describen los comandos de réplica de sfctl de la CLI de Service Fabric."
+title: 'CLI de Azure Service Fabric: réplica de sfctl | Microsoft Docs'
+description: Se describen los comandos de réplica de sfctl de la CLI de Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/22/2017
 ms.author: ryanwi
 ms.openlocfilehash: ba67a2a20d3f3e8e9fbccb2674cea500bfbde3fb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-replica"></a>réplica de sfctl
 Administre las réplicas que pertenecen a las particiones del servicio.
@@ -58,7 +58,7 @@ Obtiene los detalles de la réplica implementada en un nodo de Service Fabric. L
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Para obtener más información y ejemplos, consulte http://jmespath.org/.|
+| --query               | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
@@ -82,7 +82,7 @@ Obtiene el estado de una réplica de Service Fabric. Use EventsHealthStateFilter
 | --debug                  | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h                | Muestra este mensaje de ayuda y sale.|
 | --output -o              | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query                  | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
+| --query                  | Cadena de consulta de JMESPath. Para más información, consulte http://jmespath.org/.|
 | --verbose                | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
@@ -106,7 +106,7 @@ La respuesta incluye el identificador, el rol, el estado, el estado, el nombre d
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Para obtener más información, consulte http://jmespath.org/.|
+| --query               | Cadena de consulta de JMESPath. Para más información, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
@@ -130,7 +130,7 @@ La respuesta incluye el identificador, el rol, el estado, el mantenimiento, el n
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query               | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
@@ -155,7 +155,7 @@ Esta API simula un error de réplica de Service Fabric mediante la eliminación 
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query               | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
@@ -179,9 +179,9 @@ Reinicia una réplica de servicio de un servicio persistente que se ejecuta en u
 | --debug               | Aumenta el nivel de detalle de registro para mostrar todos los registros de depuración.|
 | --help -h             | Muestra este mensaje de ayuda y sale.|
 | --output -o           | Formato de salida.  Valores permitidos: json, jsonc, table y tsv.  Valor predeterminado: json.|
-| --query               | Cadena de consulta de JMESPath. Consulte http://jmespath.org/ para obtener más información y ejemplos.|
+| --query               | Cadena de consulta de JMESPath. Para más información y ejemplos, consulte http://jmespath.org/.|
 | --verbose             | Aumenta el nivel de detalle de registro. Use --debug para obtener registros de depuración completos.|
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 - [Configuración](service-fabric-cli.md) de la CLI de Service Fabric.
 - Obtenga información sobre cómo utilizar la CLI de Service Fabric con los [scripts de ejemplo](/azure/service-fabric/scripts/sfctl-upgrade-application).

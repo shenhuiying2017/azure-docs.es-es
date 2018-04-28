@@ -1,29 +1,91 @@
 ---
-title: Administración de clústeres de HDInsight unidos a dominio - Azure | Microsoft Docs
+title: 'Administración de clústeres de HDInsight unidos a dominio: Azure'
 description: Aprenda a administrar clústeres de HDInsight unidos a dominio
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/11/2018
-ms.author: bhanupr
-ms.openlocfilehash: 44202541557a7513e0068f52289a637f6e48f43f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Administración de clústeres de HDInsight unidos a dominio
 Conozca los usuarios y los roles de HDInsight unido a un dominio y cómo administrar clústeres de HDInsight unidos a dominio.
+
+## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Uso de VSCode para vincular a un clúster unido a un dominio
+
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+1. Para abrir la paleta de comandos, seleccione **CTRL + MAYÚS + P** y, a continuación, escriba **HDInsight: Unlink a cluster**.
+
+   ![comando de clúster de vinculación](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. Escriba la dirección URL del clúster de HDInsight, escriba el nombre de usuario y la contraseña y seleccione el tipo de clúster; si la comprobación se realiza correctamente, se muestra información de operación completada con éxito.
+   
+   ![cuadro de diálogo de vinculación de clúster](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan el nombre de usuario y la contraseña vinculados. 
+   
+3. Puede ver un clúster vinculado mediante el comando **List cluster**. Ahora puede enviar un script a este clúster vinculado.
+
+   ![clúster vinculado](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. También puede desvincular un clúster si inserta **HDInsight: Unlink a cluster** (HDInsight: desvincular un clúster) desde la paleta de comandos.
+
+## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Uso de IntelliJ para vincular a un clúster unido a un dominio
+
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com). 
+1. Haga clic en **Link a cluster** (Vincular un clúster) desde **Azure Explorer**.
+
+   ![menú contextual de vinculación de un clúster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Escriba el **Nombre de clúster**, el **Nombre de usuario** y la **Contraseña**. Si obtiene un error de autenticación, debe comprobar el nombre de usuario y la contraseña. Si lo desea, agregue la cuenta de almacenamiento, la clave de almacenamiento, y seleccione un contenedor del contenedor de almacenamiento. La información de almacenamiento es para el explorador de almacenamiento en el árbol de la izquierda
+   
+   ![cuadro de diálogo de vinculación de clúster](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados.
+   > ![explorador de almacenamiento en IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. Puede ver un clúster vinculado en el nodo de **HDInsight** si la información de entrada es correcta. Ahora puede enviar una aplicación a este clúster vinculado.
+
+   ![clúster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. También puede desvincular un clúster de **Azure Explorer**.
+   
+   ![clúster no vinculado](./media/apache-domain-joined-manage/unlink.png)
+
+## <a name="use-eclipse-to-link-to-domain-joined-cluster"></a>Uso de Eclipse para vincular a un clúster unido a un dominio
+
+Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
+1. Haga clic en **Link a cluster** (Vincular un clúster) desde **Azure Explorer**.
+
+   ![menú contextual de vinculación de un clúster](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Escriba el **Nombre de clúster**, el **Nombre de usuario** y la **Contraseña** y haga clic en el botón Aceptar para vincular el clúster. De manera opcional, escriba la cuenta de almacenamiento, la clave de almacenamiento y, a continuación, seleccione el contenedor de almacenamiento para que el explorador de almacenamiento funcione en la vista de árbol de la izquierda.
+   
+   ![cuadro de diálogo de vinculación de clúster](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan la clave de almacenamiento, el nombre de usuario y la contraseña vinculados.
+   > ![explorador de almacenamiento en Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. Si la información de entrada es correcta, puede ver un clúster vinculado en el nodo de **HDInsight** tras hacer clic en el botón OK (Aceptar). Ahora puede enviar una aplicación a este clúster vinculado.
+
+   ![clúster vinculado](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. También puede desvincular un clúster de **Azure Explorer**.
+   
+   ![clúster no vinculado](./media/apache-domain-joined-manage/unlink.png)
 
 ## <a name="access-the-clusters-with-enterprise-security-package"></a>Acceda a clústeres con Enterprise Security Package.
 

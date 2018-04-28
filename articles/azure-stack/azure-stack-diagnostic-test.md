@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Ejecución de una prueba de validación para Azure Stack
 
@@ -33,7 +33,8 @@ Si hay algún problema, póngase en contacto con el Soporte de servicio al clien
 2. Póngase en contacto con el Soporte de servicio al cliente de Microsoft.
 3. Ejecute **Test-AzureStack** desde el punto de conexión con privilegios.
     1. Acceda al punto de conexión con privilegios. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md). 
-    2. Inicie sesión como **AzureStack\CloudAdmin** en el host de administración.
+    2. En ASDK, inicie sesión en el host de administración como **AzureStack\CloudAdmin**.  
+    En los sistemas integrados, tendrá que utilizar la dirección IP del punto de conexión con privilegios en la administración proporcionada por el proveedor de hardware de OEM.
     3. Abra PowerShell como administrador.
     4. Ejecute: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Ejecute: `Test-AzureStack`

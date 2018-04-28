@@ -22,3 +22,10 @@
 7. Puede seleccionar la etiqueta anclada desde el panel para ver los recursos que contienen esa etiqueta.
 
      ![Anclar etiquetas al panel](./media/resource-manager-tag-resources/show-pinned-tag.png)
+
+
+Para asignar etiquetas a varios recursos de forma masiva:
+1. Vaya a una lista de recursos (por ejemplo, todos los recursos, información general del grupo de recursos).
+2. Seleccione la casilla de los recursos a los que quiere asignar la etiqueta.
+3. Seleccione la opción Asignar etiquetas.
+4. Agregue los nombres y valores y seleccione Asignar.

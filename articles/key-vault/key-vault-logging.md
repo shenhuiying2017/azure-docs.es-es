@@ -1,8 +1,8 @@
 ---
 title: Registro de Azure Key Vault | Microsoft Docs
-description: "Use este tutorial para tener ayuda para empezar a trabajar con el registro del Almacén de claves de Azure."
+description: Use este tutorial para tener ayuda para empezar a trabajar con el registro de Azure Key Vault.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 2faf45c7329f1c98a26bcf7ec5d569dfa16cbbda
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="azure-key-vault-logging"></a>Registro del Almacén de claves de Azure
-Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](https://azure.microsoft.com/pricing/details/key-vault/).
+# <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
+Azure Key Vault está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="introduction"></a>Introducción
-Después de haber creado uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Puede hacerlo al habilitar el registro del Almacén de claves, que guarda la información en una cuenta de almacenamiento de Azure proporcionada por el usuario. Un nuevo contenedor llamado **insights-logs-auditevent** se crea automáticamente para su cuenta de almacenamiento especificada, y puede utilizar esta misma cuenta para recopilar registros de varios almacenes de claves.
+Después de haber creado uno o varios almacenes de claves, es probable que desee supervisar cómo y cuándo se accede a los almacenes de claves y quién lo hace. Puede hacerlo al habilitar el registro de Key Vault, que guarda la información en una cuenta de almacenamiento de Azure proporcionada por el usuario. Un nuevo contenedor llamado **insights-logs-auditevent** se crea automáticamente para su cuenta de almacenamiento especificada, y puede utilizar esta misma cuenta para recopilar registros de varios almacenes de claves.
 
 Puede acceder a la información de registro como máximo, 10 minutos después de la operación del Almacén de claves. En la mayoría de los casos, será más rápido que esto.  Es decisión suya administrar los registros en la cuenta de almacenamiento:
 
 * Utilice los métodos de control de acceso de Azure estándar para proteger los registros mediante la restricción de quién puede tener acceso a ellos.
 * Elimine los registros que ya no desee mantener en la cuenta de almacenamiento.
 
-Use este tutorial para tener ayuda para empezar a trabajar con el registro del Almacén de claves de Azure, para crear la cuenta de almacenamiento, habilitar el registro e interpretar la información de registro recopilada.  
+Use este tutorial para tener ayuda para empezar a trabajar con el registro de Azure Key Vault, para crear la cuenta de almacenamiento, habilitar el registro e interpretar la información de registro recopilada.  
 
 > [!NOTE]
-> Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción al Almacén de claves de Azure](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
+> Este tutorial no incluye instrucciones sobre cómo crear almacenes de claves, claves o secretos. Para obtener información, consulte [Introducción a Azure Key Vault](key-vault-get-started.md). O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 >
-> Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
+> Actualmente, no es posible configurar Azure Key Vault en Azure Portal. En su lugar, siga estas instrucciones de Azure PowerShell.
 >
 >
 
-Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
+Para obtener información general sobre Azure Key Vault, consulte [¿Qué es Azure Key Vault?](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Un Almacén de claves existente que ha utilizado.  
 * Azure PowerShell, **versión mínima: 1.0.1**. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`.  
-* Suficiente almacenamiento en Azure para sus registros del Almacén de claves.
+* Suficiente almacenamiento en Azure para sus registros de Key Vault.
 
 ## <a id="connect"></a>Conexión a las suscripciones
 Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure con el siguiente comando:  
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtendrá todas las suscripciones asociadas a esta cuenta y, de forma predeterminada, usará la primera.
 
@@ -72,9 +72,9 @@ A continuación, para especificar la suscripción asociada al almacén de claves
 Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
 ## <a id="storage"></a>Creación de una cuenta de almacenamiento nueva para los registros
-Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros del Almacén de claves. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
+Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros de Key Vault. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
 
-Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup** , y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores para los suyos propios, según corresponda:
+Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores para los suyos propios, según corresponda:
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
@@ -91,7 +91,7 @@ En nuestro tutorial de introducción, el nombre de nuestro almacén de claves er
 
 
 ## <a id="enable"></a>Habilitación del registro
-Para habilitar el registro del Almacén de claves, usaremos el cmdlet Set-AzureRmDiagnosticSetting, junto con las variables que hemos creado para nuestra nueva cuenta de almacenamiento y nuestro Almacén de claves. También estableceremos la marca **-Enabled** en **$true** y estableceremos la categoría en AuditEvent (la única categoría del registro de Key Vault):
+Para habilitar el registro de Key Vault, usaremos el cmdlet Set-AzureRmDiagnosticSetting, junto con las variables que hemos creado para nuestra nueva cuenta de almacenamiento y nuestro almacén de claves. También estableceremos la marca **-Enabled** en **$true** y estableceremos la categoría en AuditEvent (la única categoría del registro de Key Vault):
 
     Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
@@ -133,7 +133,7 @@ Para mostrar una lista de todos los blobs de este contenedor, escriba:
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 El resultado será similar al siguiente.
 
-**Identificador URI de contenedor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**Uri del contenedor: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **Name**
 
@@ -150,7 +150,7 @@ Los valores de fecha y hora usan UTC.
 
 Puesto que la misma cuenta de almacenamiento puede usarse para recopilar registros de varios recursos, el identificador de recurso completo en el nombre del blob es muy útil para acceder o descargar solo los blobs que necesita. Pero antes de hacerlo, primero explicaremos cómo descargar todos los blobs.
 
-En primer lugar, cree una carpeta para descargar los blobs. Por ejemplo:
+En primer lugar, cree una carpeta para descargar los blobs. Por ejemplo: 
 
     New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 
@@ -164,7 +164,7 @@ Canalice esta lista mediante 'Get-AzureStorageBlobContent' para descargar los bl
 
 Al ejecutar este segundo comando, el delimitador **/** de los nombres de los blobs crea una estructura de carpeta completa en la carpeta de destino y dicha estructura se usará para descargar y almacenar los blobs como archivos.
 
-Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo:
+Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejemplo: 
 
 * Si tiene varios almacenes de claves y desea descargar los registros solo para un Almacén de claves, denominado CONTOSOKEYVAULT3:
 
@@ -208,23 +208,23 @@ Los blobs individuales se almacenan como texto, con formato de blob JSON. A cont
 
 En la tabla siguiente se muestran los nombres y las descripciones de los campos.
 
-| Nombre del campo | Description |
+| Nombre del campo | DESCRIPCIÓN |
 | --- | --- |
 | Twitter en tiempo |Fecha y hora (UTC). |
-| resourceId |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el udentificador de recurso correcto de Key Vault. |
+| ResourceId |Identificador de recursos del Administrador de recursos de Azure Para los registros de Key Vault, siempre es el udentificador de recurso correcto de Key Vault. |
 | operationName |Nombre de la operación, como se documenta en la tabla siguiente. |
 | operationVersion |Se trata de la versión de API de REST solicitada por el cliente. |
-| categoría |Para los registros del Almacén de claves, AuditEvent es el único valor disponible. |
+| categoría |Para los registros de Key Vault, AuditEvent es el único valor disponible. |
 | resultType |Resultado de la solicitud de API de REST. |
 | resultSignature |Estado de HTTP |
 | resultDescription |Descripción adicional acerca del resultado, cuando esté disponible. |
 | durationMs |Tiempo que tardó en atender la solicitud de API de REST, en milisegundos. Esto no incluye la latencia de red, por lo que el tiempo que se mide en el cliente podría no coincidir con este tiempo. |
 | callerIpAddress |Dirección IP del cliente que realizó la solicitud. |
-| correlationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (el Almacén de claves). |
+| correlationId |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
 | identidad |Identidad del token que se ha presentado al realizar la solicitud de API de REST. Suele ser un "usuario", una "entidad de servicio" o una combinación de "usuario + appId" como en el caso de una solicitud procedente de un cmdlet de Azure PowerShell. |
 | propiedades |Este campo contendrá información diferente en función de la operación (operationName). En la mayoría de los casos, contiene información del cliente (la cadena useragent pasada por el cliente), el URI de la solicitud de API de REST exacta y el código de estado HTTP. Además, cuando se devuelve un objeto como resultado de una solicitud (por ejemplo, KeyCreate o VaultGet) también contiene el URI de la clave (como "id"), el URI del almacén o el URI del secreto. |
 
-Los valores del campo **operationName** tienen el formato ObjectVerb. Por ejemplo:
+Los valores del campo **operationName** tienen el formato ObjectVerb. Por ejemplo: 
 
 * Todas las operaciones del almacén de claves tienen el formato 'Vault`<action>`', como `VaultGet` y `VaultCreate`.
 * Todas las operaciones de las claves tienen el formato 'Key`<action>`', como `KeySign` y `KeyList`.
@@ -269,7 +269,7 @@ Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los re
 ## <a id="next"></a>Pasos siguientes
 Para ver un tutorial que use Azure Key Vault en una aplicación web, consulte [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md).
 
-Para conocer las referencias de programación, consulte la [Guía del desarrollador del Almacén de claves de Azure](key-vault-developers-guide.md).
+Para conocer las referencias de programación, consulte la [Guía del desarrollador de Azure Key Vault](key-vault-developers-guide.md).
 
 Para obtener una lista de los cmdlets de Azure PowerShell 1.0 para Azure Key Vault, consulte [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault)(Cmdlets de Azure Key Vault).
 

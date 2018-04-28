@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -42,8 +42,6 @@ En la siguiente tabla se describen las principales diferencias y escenarios de u
 |Azure SQL Database (única o grupal) |**Grupos elásticos**: para los clientes que desarrollan nuevas aplicaciones SaaS multiinquilino o que transforman intencionadamente sus aplicaciones locales existentes en una aplicación SaaS multiinquilino, se recomiendan los grupos elásticos. Las ventajas de este modelo son: <br><ul><li>Conversión del modelo de negocio de venta de licencias a la venta de suscripciones de servicio (para fabricantes de software independientes)</li></ul><ul><li>Aislamiento de inquilinos fácil y a toda prueba</li></ul><ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul><ul><li>La posibilidad de escalar horizontalmente sin alcanzar un límite estricto</li></ul>**Bases de datos únicas**: para aquellos clientes que desean desarrollar nuevas aplicaciones que no sean aplicaciones SaaS multiinquilino, se recomienda usar bases de datos únicas. Las ventajas de este modelo son:<ul><li>Un modelo de programación simplificado centrado en una base de datos</li></ul>  <ul><li>Rendimiento predecible para cada base de datos</li></ul>|
 |Máquina virtual IaaS de SQL|Para los clientes que necesitan personalizar el sistema operativo o el servidor de bases de datos, así como los clientes que tienen requisitos específicos en cuanto a la ejecución de aplicaciones de terceros en paralelo con SQL Server (en la misma máquina virtual), se recomiendan las máquinas virtuales de SQL o IaaS como la mejor solución|
 |||
-
-<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Cómo identificar mediante programación una instancia administrada
 
@@ -131,7 +129,7 @@ La tabla siguiente describe las principales características del nivel de servic
 
 Instancia administrada proporciona un aislamiento de seguridad adicional a partir de otros inquilinos en la nube de Azure. El aislamiento de seguridad incluye: 
 
-- Implementación nativa de redes virtuales y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway 
+- [Implementación nativa de redes virtuales](sql-database-managed-instance-vnet-configuration.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway 
 - El punto de conexión de SQL se expone solo mediante una dirección IP privada, lo que permite una conectividad segura desde una nube privada de Azure o redes híbridas
 - Inquilino único con infraestructura subyacente dedicada (proceso, almacenamiento)
 
@@ -185,7 +183,13 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 
 ### <a name="backup-and-restore"></a>Copia de seguridad y restauración  
 
-El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Blob Storage se pueden restaurar directamente en Instancia administrada. 
+El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Blob Storage se pueden restaurar directamente en Instancia administrada. Para restaurar una base de datos SQL existente a una instancia administrada, haga lo siguiente:
+
+- Use [Data Migration Service (DMS)](/sql/dma/dma-overview). Para ver un tutorial, consulte [Migración de SQL Server a Instancia administrada de Azure SQL Database](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar desde un archivo de copia de seguridad de base de datos.
+- Use el [comando RESTORE de T-SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Para ver un tutorial que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, consulte [Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial muestra que tiene que cargar un archivo de copia de seguridad en el almacenamiento de blobs de Azure y protegerlo utilizando una clave de firma de acceso compartido (SAS).
+  - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Importación desde un archivo BACPAC](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Características de SQL admitidas 
 
@@ -217,5 +221,6 @@ Instancia administrada permite al administrador del sistema centrarse en lo más
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).
-- Para ver un tutorial que crea una instancia administrada y restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-tutorial-portal.md).
+- Para más información acerca de la configuración de redes virtuales, consulte [Configuración de una red virtual de instancia administrada](sql-database-managed-instance-vnet-configuration.md).
+- Para ver un tutorial que crea una instancia administrada y restaura una base de datos desde un archivo de copia de seguridad, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
 - Para consultar un tutorial con Azure Database Migration Service (DMS) para la migración, consulte [Migración a Instancia administrada con DMS](../dms/tutorial-sql-server-to-managed-instance.md).

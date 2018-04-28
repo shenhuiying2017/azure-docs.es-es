@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics
 Log Analytics está diseñado para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
@@ -33,15 +33,14 @@ El costo de datos puede ser considerable dependiendo de los factores siguientes:
 - Período durante el que los datos se retengan en el área de trabajo  
 - Número de soluciones de administración habilitadas, origen de datos y frecuencia de recopilación 
 
+Consulte la documentación de cada solución, ya que proporciona una estimación de la cantidad de datos que recopila.   
+
+Si se encuentra en un plan de tarifa "Gratis", los datos tienen una retención limitada de siete días. Para los niveles de "Por nodo (OMS)" o "Por GB (independiente)", los datos recopilados están disponibles durante los últimos 31 días y la retención se puede aumentar a 2 años. Se aplican cargos si elige seleccionar un período de retención mayor. El plan Gratis tiene 500 MB diarios de límite de ingesta, si observa que supera constantemente el volumen permitido, puede cambiar el área de trabajo a un plan de pago por GB o nodo para recopilar más datos. Puede cambiar el tipo de plan en cualquier momento. Para obtener más información sobre los precios, vea la [información sobre los precios](https://azure.microsoft.com/pricing/details/log-analytics/). 
+
 > [!NOTE]
-> Consulte la documentación de cada solución, ya que proporciona una estimación de la cantidad de datos que recopila.   
+> En abril de 2018, [introdujimos](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [valorar el impacto de pasar a este modelo](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
 
-Si se encuentra en un plan *Gratis*, los datos tienen una retención limitada de siete días. En el plan *Independiente* o *De pago*, los datos recopilados están disponibles durante los últimos 31 días. El plan *Gratis* tiene 500 MB diarios de límite de ingesta, si observa que supera de forma uniforme las cantidades permitidas de volumen, puede cambiar el área de trabajo a un plan de pago para recopilar datos más allá de este límite. 
-
-> [!NOTE]
-> Pueden aplicarse cargos si elige seleccionar un período de retención mayor para el nivel de pago. Puede cambiar el tipo de plan en cualquier momento. Para obtener más información sobre los precios, vea la [información sobre los precios](https://azure.microsoft.com/pricing/details/log-analytics/). 
-
-Hay dos maneras para limitar el volumen de datos y ayudar a controlan el costo, son el límite diario y la retención de datos.  
+Independientemente del modelo o nivel de precios, la administración del volumen de datos es fundamental para controlar los costos. Aparte de la elección y la configuración de una solución concreta, en Log Analytics hay dos maneras para limitar el volumen de datos y ayudar a controlar el costo: el límite diario y la retención de datos.  
 
 ## <a name="review-estimated-cost"></a>Revisión del costo estimado
 Log Analytics permite entender fácilmente lo que los costos probablemente vayan a ser, en base a los patrones de uso reciente.  Para ello, siga estos pasos.  

@@ -1,10 +1,10 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Google Apps | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Google Apps."
+title: 'Tutorial: integración de Azure Active Directory con G Suite | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y G Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
@@ -12,32 +12,33 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: f3b0d48534113dea152aba632e59d03ed78db301
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: aaa42283f44bc090d54db85ff5062edffa1b4b02
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Tutorial: Integración de Azure Active Directory con Google Apps
+# <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: integración de Azure Active Directory con G Suite
 
-En este tutorial, obtendrá información sobre cómo integrar Google Apps con Azure Active Directory (Azure AD).
+En este tutorial, aprenderá a integrar G Suite con Azure Active Directory (Azure AD).
 
-La integración de Google Apps con Azure AD proporciona las siguientes ventajas:
+La integración de G Suite con Azure AD proporciona las siguientes ventajas:
 
-- En Azure AD se puede controlar quién tiene acceso a Google Apps.
-- Puede permitir que los usuarios inicien sesión automáticamente en Google Apps (inicio de sesión único) con sus cuentas de Azure AD.
+- En Azure AD se puede controlar quién tiene acceso a G Suite.
+- Puede permitir que los usuarios inicien sesión automáticamente en G Suite (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Para configurar la integración de Azure AD con Google Apps, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con G Suite, se necesitan los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en Google Apps
+- Una suscripción habilitada de G Suite para el inicio de sesión único
+- Una suscripción de Google Apps o Google Cloud Platform
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -48,32 +49,37 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="frequently-asked-questions"></a>Preguntas frecuentes
-1. **P: ¿Son los Chromebooks y otros dispositivos Chrome compatibles con el inicio de sesión único de Azure AD?**
-   
-    R: Sí, los usuarios pueden iniciar sesión en sus dispositivos Chromebook con sus credenciales de Azure AD. Consulte este [artículo de soporte técnico de Google Apps](https://support.google.com/chrome/a/answer/6060880) para información sobre por qué puede que se pidan las credenciales a los usuarios dos veces.
+1.  **P: ¿Es esta integración compatible con la integración del inicio de sesión único de Google Cloud Platform con Azure AD?**
+    
+    R: Sí. Google Cloud Platform y Google Apps comparten la misma plataforma de autenticación. Por ello, para la integración de GCP debe configurar el inicio de sesión único con Google Apps.
 
-2. **P: Si se habilita el inicio de sesión único, ¿podrán usar los usuarios sus credenciales de Azure AD para iniciar sesión en cualquier producto de Google, como Google Classroom, GMail, Google Drive, YouTube, etc.?**
-   
-    R: Sí, en función de [qué aplicaciones de Google](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) decida habilitar o deshabilitar para su organización.
 
-3. **P: ¿Puedo habilitar el inicio de sesión único solo para un subconjunto de mis usuarios de Google Apps?**
+2. **P: ¿Son los Chromebooks y otros dispositivos Chrome compatibles con el inicio de sesión único de Azure AD?**
    
-    R: No; si activa el inicio de sesión único, es necesario de inmediato que todos los usuarios de Google Apps se autentiquen con sus credenciales de Azure AD. Dado que Google Apps no admite tener varios proveedores de identidades, el proveedor de identidades para su entorno de Google Apps puede ser Azure AD o Google, pero no ambos al mismo tiempo.
+    R: Sí, los usuarios pueden iniciar sesión en sus dispositivos Chromebook con sus credenciales de Azure AD. Consulte este [artículo de soporte técnico de G Suite](https://support.google.com/chrome/a/answer/6060880) para información sobre por qué se les pueden pedir a los usuarios las credenciales dos veces.
 
-4. **P: Si un usuario inicia sesión a través de Windows, ¿se autentica automáticamente en Google Apps sin que se le pida una contraseña?**
+3. **P: Si se habilita el inicio de sesión único, ¿podrán usar los usuarios sus credenciales de Azure AD para iniciar sesión en cualquier producto de Google, como Google Classroom, GMail, Google Drive, YouTube, etc.?**
    
-    R: Hay dos opciones para habilitar este escenario. En primer lugar, los usuarios podrían iniciar sesión en dispositivos Windows 10 a través de [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Como alternativa, los usuarios podrían iniciar sesión en dispositivos Windows que están unidos a un dominio en un entorno Active Directory local que se ha habilitado para el inicio de sesión único en Azure AD a través de una implementación de los [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-user-signin.md) . Ambas opciones requieren que realice los pasos del tutorial siguiente para permitir el inicio de sesión único entre Azure AD y Google Apps.
+    R: Sí, en función de la [ versión de G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) que decida habilitar o deshabilitar para su organización.
+
+4. **P: ¿Puedo habilitar el inicio de sesión único solo para un subconjunto de usuarios de G Suite?**
+   
+    R: No; si activa el inicio de sesión único, es necesario de inmediato que todos los usuarios de G Suite se autentiquen con sus credenciales de Azure AD. Dado que G Suite no admite varios proveedores de identidades, el proveedor de identidades del entorno de G Suite puede ser Azure AD o Google, pero no ambos al mismo tiempo.
+
+5. **P: Si un usuario inicia sesión mediante Windows, ¿se autentica automáticamente en G Suite sin que se le pida la contraseña?**
+   
+    R: Hay dos opciones para habilitar este escenario. En primer lugar, los usuarios podrían iniciar sesión en dispositivos Windows 10 a través de [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Como alternativa, los usuarios podrían iniciar sesión en dispositivos Windows que están unidos a un dominio en un entorno Active Directory local que se ha habilitado para el inicio de sesión único en Azure AD a través de una implementación de los [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-user-signin.md) . Ambas opciones requieren los pasos del tutorial siguiente para permitir el inicio de sesión único entre Azure AD y G Suite.
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Incorporación de Google Apps desde la galería
+1. Incorporación de G Suite desde la Galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-google-apps-from-the-gallery"></a>Incorporación de Google Apps desde la galería
-Para configurar la integración de Google Apps en Azure AD, será preciso que agregue Google Apps desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-g-suite-from-the-gallery"></a>Incorporación de G Suite desde la Galería
+Para configurar la integración de G Suite en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Google Apps desde la galería, siga estos pasos:**
+**Para agregar G Suite desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -87,95 +93,113 @@ Para configurar la integración de Google Apps en Azure AD, será preciso que ag
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Google Apps**, seleccione **Google Apps** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **G Suite**, seleccione **G Suite** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Google Apps en la lista de resultados](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_addfromgallery.png)
+    ![G Suite en la lista de resultados](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Google Apps con un usuario de prueba llamado "Britta Simon".
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con G Suite con un usuario de prueba llamado "Britta Simon".
 
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Google Apps para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Google Apps.
+Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el homólogo de G Suite del usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre el usuario de Azure AD y el usuario asociado de G Suite.
 
-Para establecer la relación de vínculo, en Google Apps, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+Para establecer la relación de vínculo, en G Suite, asigne el valor de **nombre de usuario** de Azure AD como valor de **Username** (Nombre de usuario).
 
-Para configurar y probar el inicio de sesión único de Azure AD con Google Apps, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con G Suite, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Google Apps](#create-a-google-apps-test-user)**: para tener un homólogo de Britta Simon en Google Apps que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+3. **[Creación de un usuario de prueba de G Suite](#create-a-g-suite-test-user)**: para tener un homólogo de Britta Simon en G Suite vinculado a la representación del usuario en Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Google Apps.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación G Suite.
 
-**Para configurar el inicio de sesión único de Azure AD con Google Apps, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con G Suite, realice los pasos siguientes:**
 
-1. En Azure Portal, en la página de integración de la aplicación **Google Apps**, haga clic en **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **G Suite**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_samlbase.png)
 
-3. En la sección de **dominio y direcciones URL de Google Apps**, lleve a cabo los pasos siguientes:
+3. En la sección **G Suite Domain and URLs** (Direcciones URL y dominio de G Suite), si desea configurar **Gmail**, realice los pasos siguientes:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de Google Apps](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_url.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de G Suite](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://mail.google.com/a/<yourdomain.com>`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
-
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: 
     | |
     |--|
-    | `google.com`|
-    | `http://google.com`|
-    | `google.com/<yourdomain.com>`|
-    | `http://google.com/a/<yourdomain.com>`|
-       
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+ 
     > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Google Apps](https://www.google.com/contact/) para obtener estos valores. 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de G Suite](https://www.google.com/contact/) para obtener estos valores.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado** y, a continuación, guarde el archivo de certificado en el equipo.
+4. En la sección **G Suite Domain and URLs** (Direcciones URL y dominio de G Suite), si desea configurar **Google Cloud Platform**, realice los pasos siguientes:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de G Suite](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_url1.png)
+
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+
+    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: 
+    | |
+    |--|
+    | `google.com/a/<yourdomain.com>` |
+    | `google.com` |
+    | `http://google.com` |
+    | `http://google.com/a/<yourdomain.com>` |
+    
+    > [!NOTE] 
+    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de G Suite](https://www.google.com/contact/) para obtener estos valores. 
+
+5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado** y, a continuación, guarde el archivo de certificado en el equipo.
 
     ![Vínculo de descarga del certificado](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+6. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-googleapps-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-googleapps-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de Google Apps**, haga clic en **Configurar Google Apps** para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de cierre de sesión, la dirección URL del servicio de inicio de sesión único de SAML y la dirección URL de cambio de contraseña** de la **sección de referencia rápida**.
+7. En la sección **G Suite Configuration** (Configuración de G Suite), haga clic en **Configure G Suite** (Configurar G Suite) para abrir la ventana **Configurar inicio de sesión**. Copie la **dirección URL de cierre de sesión, la dirección URL del servicio de inicio de sesión único de SAML y la dirección URL de cambio de contraseña** de la **sección de referencia rápida**.
 
-    ![Configuración de Google Apps](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_configure.png) 
+    ![Configuración de G Suite](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_configure.png) 
 
-7. Abra una nueva pestaña en el explorador e inicie sesión en la [consola de administración de Google Apps](http://admin.google.com/) con su cuenta de administrador.
+8. Abra una nueva pestaña en el explorador e inicie sesión en la [consola de administración de G Suite](http://admin.google.com/) con la cuenta de administrador.
 
-8. Haga clic en **Seguridad**. Si no ve el vínculo, puede estar oculto debajo del menú **Más controles** en la parte inferior de la pantalla.
+9. Haga clic en **Seguridad**. Si no ve el vínculo, puede estar oculto debajo del menú **Más controles** en la parte inferior de la pantalla.
    
     ![Haga clic en Seguridad.][10]
 
-9. En la página **Seguridad**, haga clic en **Configurar inicio de sesión único (SSO)**.
+10. En la página **Seguridad**, haga clic en **Configurar inicio de sesión único (SSO)**.
    
     ![Haga clic en SSO.][11]
 
-10. Realice los cambios de configuración siguientes:
+11. Realice los cambios de configuración siguientes:
    
     ![Configuración de SSO][12]
    
     a. Seleccione **Configurar SSO con un proveedor de identidades de terceros**.
 
-    b. En el campo **Dirección URL de la página de inicio de sesión** en Google Apps, pegue el valor de la **dirección URL del servicio de inicio de sesión único** que copió desde Azure Portal.
+    b. En el campo **Sign-in page URL** (Dirección URL de la página de inicio de sesión) de G Suite, pegue el valor de la **URL de servicio de inicio de sesión único** que copió de Azure Portal.
 
-    c. En el campo **Dirección URL de cierre de sesión** en Google Apps, pegue el valor de la **dirección URL de cierre de sesión** que copió desde Azure Portal. 
+    c. En el campo **Sign-out page URL** (Dirección URL de cierre de sesión) de G Suite, pegue el valor de la **URL de cierre de sesión** que copió de Azure Portal. 
 
-    d. En el campo **Dirección URL de cambio de contraseña** en Google Apps, pegue el valor de la **dirección URL de cambio de contraseña** que copió desde Azure Portal. 
+    d. En el campo **Change password URL** (Dirección URL de cambio de contraseña) de G Suite, pegue el valor de la **URL de cambio de contraseña** que copió de Azure Portal. 
 
-    e. En Google Apps, para el **certificado de verificación**, cargue el certificado que descargó de Azure Portal.
+    e. En G Suite, para el **certificado de verificación** y cargue el certificado que descargó de Azure Portal.
 
-    f. Haga clic en **Guardar cambios**.
+    f. Seleccione **Use a domain specific issuer** (Usar un emisor de dominio específico).
+
+    g. Haga clic en **Guardar cambios**.
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -211,30 +235,30 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
-### <a name="create-a-google-apps-test-user"></a>Creación de un usuario de prueba de Google Apps
+### <a name="create-a-g-suite-test-user"></a>Creación de un usuario de prueba de G Suite
 
-El objetivo de esta sección es crear un usuario llamado Britta Simon en Google Apps Software. Google Apps admite el aprovisionamiento automático, que está habilitado de manera predeterminada. El usuario no tiene que hacer nada en esta sección. Si el usuario aún no existe en Google Apps Software, se crea uno nuevo cuando se intenta acceder a esta aplicación.
+El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en el software G Suite. G Suite admite el aprovisionamiento automático, que está habilitado de manera predeterminada. El usuario no tiene que hacer nada en esta sección. Si el usuario aún no existe en el software G Suite, se crea uno al intentar acceder.
 
 >[!NOTE] 
 >Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Google](https://www.google.com/contact/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Google Apps.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a G Suite.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
-**Para asignar Britta Simon a Google Apps, siga estos pasos:**
+**Para asignar a Britta Simon a G Suite, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
-2. En la lista de aplicaciones, seleccione **Google Apps**.
+2. En la lista de aplicaciones, seleccione **G Suite**.
 
-    ![Vínculo de Google Apps en la lista de aplicaciones](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_app.png)  
+    ![Vínculo a G Suite en la lista de aplicaciones](./media/active-directory-saas-googleapps-tutorial/tutorial_googleapps_app.png)  
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
@@ -254,7 +278,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Google Apps en el panel de acceso, debería iniciar sesión automáticamente en su aplicación de Google Apps.
+Al hacer clic en el icono de G Suite en el Panel de acceso, debería iniciar sesión automáticamente en la aplicación G Suite.
 Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionales

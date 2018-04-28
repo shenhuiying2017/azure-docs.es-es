@@ -1,12 +1,12 @@
 ---
 title: Descarga de elementos de Marketplace desde Azure | Microsoft Docs
-description: "Puedo descargar elementos de Marketplace desde Azure a la implementación de Azure Stack."
+description: Puedo descargar elementos de Marketplace desde Azure a la implementación de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdadf48aa23e3dd76d8a511794f00725f073611d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7d28831edf028657b7dd2a6a404a692a4a3bcb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Descarga de elementos de Marketplace desde Azure a Azure Stack
 
@@ -31,7 +31,7 @@ Puesto que usted decide qué contenido desea incluir en su Marketplace de Azure 
 ## <a name="download-marketplace-items-in-a-connected-scenario-with-internet-connectivity"></a>Descarga de elementos de Marketplace en un escenario conectado (con conectividad a Internet)
 
 1. Para descargar elementos de Marketplace, primero debe [registrar Azure Stack en Azure](azure-stack-register.md).
-2. Inicie sesión en el portal de administrador de Azure Stack (https://portal.local.azurestack.external).
+2. Inicie sesión en el portal de administración de Azure Stack (https://portal.local.azurestack.external).
 3. Algunos elementos de Marketplace pueden ser grandes. Para comprobar que dispone de espacio suficiente en el sistema, haga clic en **Proveedores de recursos** > **Storage**.
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)
@@ -62,7 +62,7 @@ En el equipo que tenga conectividad a Internet, siga estos pasos para descargar 
 
 1. Abra una consola de PowerShell como administrador e [instale módulos de PowerShell específicos para Azure Stack](azure-stack-powershell-install.md). Asegúrese de instalar la **versión 1.2.11 de PowerShell, o cualquiera posterior**.  
 
-2. Agregue la cuenta de Azure que ha usado para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount** sin parámetros. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.  
+2. Agregue la cuenta de Azure que ha usado para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Connect-AzureRmAccount** sin parámetros. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.  
 
 3. Si tiene varias suscripciones, ejecute el siguiente comando para seleccionar la que ha usado para el registro:  
 

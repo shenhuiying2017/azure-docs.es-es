@@ -1,6 +1,22 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="os-config"></a>Incorporación de direcciones IP a un sistema operativo de la máquina virtual
 
-Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual:
+Conéctese e inicie sesión en una máquina virtual que creó con múltiples direcciones IP privadas. Debe agregar manualmente todas las direcciones IP privadas (incluida la principal) que ha agregado a la máquina virtual. Complete los pasos siguientes para el sistema operativo de su máquina virtual.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
     * **Dirección IP**: escriba la dirección IP privada *principal* .
     * **Máscara de subred**: establezca este valor en función de su subred. Por ejemplo, si la subred es una subred /24, la máscara de subred es 255.255.255.0.
     * **Puerta de enlace predeterminada**: la primera dirección IP de la subred. Si la subred es 10.0.0.1/24, la dirección IP de la puerta de enlace es 10.0.0.0/24.
-    * Haga clic en **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
+    * Seleccione **Usar las siguientes direcciones de servidor DNS** y escriba los valores siguientes:
         * **Servidor DNS preferido:** escriba 168.63.129.16 si no usa su propio servidor DNS.  Si usa su propio servidor DNS, escriba la dirección IP de su servidor.
-    * Haga clic en el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias indicadas en el paso 8 a la NIC con la misma subred especificada para la dirección IP principal.
-        >[!WARNING] 
-        >Si no sigue los pasos anteriores correctamente, puede perder la conectividad a la máquina virtual. Asegúrese de que la información del paso 5 es correcta antes de continuar.
+    * Seleccione el botón **Avanzadas** y agregue más direcciones IP. Agregue cada una de las direcciones IP privadas secundarias, que agregó a la interfaz de red de Azure en un paso anterior, a la interfaz de red de Windows que se asigna a la dirección IP principal asignada a la interfaz de red de Azure.
+
+        No asigne manualmente la dirección IP pública asignada a una máquina virtual de Azure en el sistema operativo de la máquina virtual. Al establecer manualmente la dirección IP privada en el sistema operativo, asegúrese de que sea la misma que la asignada a la [interfaz de red](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings) de Azure; de lo contrario, perderá la conectividad a la máquina virtual. Más información sobre la configuración de la [dirección IP privada](../articles/virtual-network/virtual-network-network-interface-addresses.md#private). Nunca debe asignar una dirección IP pública de Azure dentro del sistema operativo.
 
     * Haga clic en **Aceptar** para cerrar la configuración de TCP/IP y en **Aceptar** otra vez para cerrar la configuración del adaptador. Se restablece la conexión RDP.
 
 6. En un símbolo del sistema, escriba *ipconfig /all*. Se muestran todas las direcciones IP que agregó y DHCP está desactivado.
 7. Configure Windows para usar la dirección IP privada de la configuración IP principal de Azure como dirección IP principal en Windows. Para más información, consulte [Sin acceso a Internet desde una máquina virtual Windows de Azure que tiene varias direcciones IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
-
 
 ### <a name="validation-windows"></a>Validación (Windows)
 

@@ -1,27 +1,25 @@
 ---
-title: "Ejemplo de topología de Apache Storm en Java - Azure HDInsight | Microsoft Docs"
-description: "Aprenda a crear topologías de Apache Storm en Java al crear una topología de recuento de palabras de ejemplo."
+title: Ejemplo de topología de Apache Storm en Java - Azure HDInsight | Microsoft Docs
+description: Aprenda a crear topologías de Apache Storm en Java al crear una topología de recuento de palabras de ejemplo.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "apache storm,ejemplo de apache storm,storm java,ejemplo de topología de storm"
+keywords: apache storm,ejemplo de apache storm,storm java,ejemplo de topología de storm
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
 
@@ -30,13 +28,13 @@ Aprenda a crear una topología de Apache Storm basada en Java. Vamos a crear una
 Después de completar los pasos descritos en este documento, puede implementar la topología en Apache Storm en HDInsight.
 
 > [!NOTE]
-> En [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount) encontrará una versión completa de los ejemplos de topologías de Storm creadas en este documento.
+> Hay una versión completa de los ejemplos de topología de Storm creada en este documento disponible en [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>requisitos previos
 
 * [Kit de desarrolladores de Java (JDK), versión 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven es un sistema de compilación de proyectos para proyectos de Java.
+* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): sistema de compilación de proyectos de Java.
 
 * Un editor de texto o IDE.
 
@@ -169,7 +167,7 @@ Los complementos de Maven permiten personalizar las fases de compilación del pr
 </build>
 ```
 
-Esta sección se usa para agregar complementos, recursos y otras opciones de configuración de compilación. Para obtener una referencia completa del archivo **pom.xml**, consulte [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Esta sección se usa para agregar complementos, recursos y otras opciones de configuración de compilación. Para una referencia completa del archivo **pom.xml**, consulte [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Agregar complementos
 
@@ -565,10 +563,10 @@ Este XML configura un nuevo registrador para la clase `com.microsoft.example`, q
 
 La sección `<Root level="error">` configura el nivel de registro raíz (todo lo que no esté en `com.microsoft.example`) para registrar solo la información de los errores.
 
-Para obtener más información sobre la configuración de registro de Log4j, consulte [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Para más información sobre la configuración del registro para Log4j, consulte [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
-> La versión 0.10.0 y superiores de Storm utilizan Log4j 2.x. Las versiones anteriores de Storm usaban Log4j 1.x, que empleaba otro formato de configuración del registro. Para obtener información sobre la configuración anterior, consulte [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> La versión 0.10.0 y superiores de Storm utilizan Log4j 2.x. Las versiones anteriores de Storm usaban Log4j 1.x, que empleaba otro formato de configuración del registro. Para información sobre la configuración anterior, consulte [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>Prueba de la topología de manera local
 
@@ -598,10 +596,10 @@ Flux es un nuevo marco de trabajo disponible con Storm 0.10.0 y versiones superi
 
 El archivo YAML define los componentes que se usarán para la topología y el flujo de datos entre ellos. Puede incluir un archivo YAML como parte del archivo jar o puede usar un archivo YAML externo.
 
-Para más información sobre Flux, vea este documento sobre el [marco de trabajo de Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
+Para más información sobre la plataforma Flux, consulte [Plataforma Flux (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Debido a un [error (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) con Storm 1.0.1, es posible que deba instalar un [entorno de desarrollo de Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) para ejecutar topologías de un flujo de forma local.
+> Debido a un [error (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) con Storm 1.0.1, es posible que deba instalar un [entorno de desarrollo de Storm](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) para ejecutar topologías de Flux de forma local.
 
 1. Saque el archivo `WordCountTopology.java` del proyecto. Anteriormente, este archivo definía la topología, pero no es necesario con Flux.
 
@@ -720,7 +718,7 @@ Para más información sobre Flux, vea este documento sobre el [marco de trabajo
     ```
 
     > [!WARNING]
-    > Este comando produce un error si la topología usa bits de Storm 1.0.1. Este error se debe a [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). En su lugar, [instale Storm en su entorno de desarrollo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) y siga los siguientes pasos:
+    > Este comando produce un error si la topología usa bits de Storm 1.0.1. Este error lo causa [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). En su lugar, [instale Storm en su entorno de desarrollo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) y siga los siguientes pasos:
     >
     > Si tiene [instalado Storm en el entorno de desarrollo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), puede usar en su lugar los siguientes comandos:
     >

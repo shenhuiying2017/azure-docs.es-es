@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Uso de Apache Kafka con Storm en HDInsight
 
@@ -32,7 +30,7 @@ Obtenga información sobre cómo usar Apache Storm para leer y escribir en Apach
 
 ## <a name="get-the-code"></a>Obtención del código
 
-El código del ejemplo que se usa en este documento está disponible en [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+El código para el ejemplo que se usa en este documento está disponible en [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 Para compilar este proyecto, necesitará la siguiente configuración para su entorno de desarrollo:
 
@@ -68,7 +66,7 @@ Aunque puede crear manualmente la red virtual de Azure y los clústeres Kafka y 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    La plantilla de Azure Resource Manager está ubicada en **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Crea estos recursos:
+    La plantilla de Azure Resource Manager se encuentra en **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Crea estos recursos:
     
     * Grupo de recursos de Azure
     * Azure Virtual Network
@@ -131,7 +129,7 @@ Los siguientes parámetros se establecen en tiempo de ejecución para estas topo
 
 * `${kafka.zookeeper.hosts}`: los hosts donde se ejecuta Zookeeper en el clúster de Kafka.
 
-Para más información sobre las topologías de Flux, vea [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Para más información sobre las topologías de Flux, consulte [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Descarga y compilación del proyecto
 

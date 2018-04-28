@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
-ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
 
+
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
 
 Lista de temas relacionados:
-
-
 
 Tema. |  Detalles
 --------- | --------- |
@@ -35,6 +34,21 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="117510"></a>1.1.751.0
+Estado el 12 de abril de 2018: publicado solo para la descarga
+
+>[!NOTE]
+>Esta es una revisión para Azure AD Connect
+
+### <a name="azure-ad-connect-sync"></a>Sincronización de Azure AD Connect
+#### <a name="fixed-issues"></a>Problemas corregidos
+Se ha corregido un problema por el que la detección automática de instancias de Azure para los inquilinos de China producía error en algunas ocasiones.  
+
+### <a name="ad-fs-management"></a>Administración de AD FS
+#### <a name="fixed-issues"></a>Problemas corregidos
+
+Había un problema en la lógica de reintento de la configuración que podía provocar una excepción ArgumentException que indicaba que "Ya se agregó un elemento con la misma clave".  Esto podía provocar que todas las operaciones de reintento produjeran error.
 
 ## <a name="117500"></a>1.1.750.0
 Estado al 22/3/2018: Publicado para actualización y descarga automáticas.
@@ -99,8 +113,7 @@ Estado: publicado para clientes exclusivos
 Los cambios se encargarán de lo siguiente:
 1. Instalaciones rápidas
 2. Instalaciones personalizadas con la cuenta de creación automática
-
-* Se ha cambiado el instalador, por lo que no se requiere el privilegio de asociación de seguridad en una instalación limpia de Azure AD Connect.
+3. Se ha cambiado el instalador, por lo que no se requiere el privilegio de asociación de seguridad en una instalación limpia de Azure AD Connect.
 
 * Se ha agregado una utilidad nueva para solucionar problemas de sincronización de un objeto específico. Está disponible en la opción "Solucionar problemas de sincronización de objetos" de la tarea adicional de solución de problemas del asistente de Azure AD Connect. Actualmente, la utilidad comprueba lo siguiente:
 
@@ -139,7 +152,7 @@ Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguie
 *   Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF. Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
 *   Asigne estos permisos específicos:
 
-type     | NOMBRE                          | Access               | Se aplica a
+Escriba     | NOMBRE                          | Access               | Se aplica a
 ---------|-------------------------------|----------------------|--------------|
 PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
 PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |

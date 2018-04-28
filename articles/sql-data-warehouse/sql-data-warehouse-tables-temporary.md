@@ -1,44 +1,29 @@
 ---
 title: Tablas temporales en SQL Data Warehouse | Microsoft Docs
-description: "Introducción a las tablas temporales en Azure SQL Data Warehouse."
+description: Directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 9b1119eb-7f54-46d0-ad74-19c85a2a555a
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 12/06/2017
-ms.author: barbkess
-ms.openlocfilehash: e3b2f9017ecea7d9f78c07476f96c3dd8d031863
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tablas temporales en SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Información general][Overview]
-> * [Tipos de datos][Data Types]
-> * [Distribución][Distribute]
-> * [Índice][Index]
-> * [Partición][Partition]
-> * [Estadísticas][Statistics]
-> * [Temporal][Temporary]
-> 
-> 
-
-Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Las tablas temporales de SQL Data Warehouse existen en el nivel de sesión.  Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra.  Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.  No son iguales en SQL Data Warehouse que en Azure SQL Database en el sentido de que se puede acceder a ellas desde cualquier parte de la sesión, incluso dentro y fuera de un procedimiento almacenado.
-
 Este artículo contiene directrices esenciales para el uso de tablas temporales y resalta los principios de las tablas temporales de nivel de sesión. La información de este artículo puede ayudarle a dividir en secciones el código y así mejorar su reusabilidad y facilidad de mantenimiento.
 
+## <a name="what-are-temporary-tables"></a>¿Qué son las tablas temporales?
+Las tablas temporales son útiles al procesar datos, especialmente durante la transformación donde los resultados intermedios son transitorios. Las tablas temporales de SQL Data Warehouse existen en el nivel de sesión.  Solo son visibles para la sesión en la que se crearon y se eliminan automáticamente cuando esa sesión se cierra.  Las tablas temporales ofrecen ventajas para el rendimiento porque sus resultados se escriben en el almacenamiento local en lugar de en el remoto.  No son iguales en SQL Data Warehouse que en Azure SQL Database en el sentido de que se puede acceder a ellas desde cualquier parte de la sesión, incluso dentro y fuera de un procedimiento almacenado.
+
 ## <a name="create-a-temporary-table"></a>Creación de una tabla temporal
-Las tablas temporales se crean colocando `#` delante del nombre de la tabla.  Por ejemplo:
+Las tablas temporales se crean colocando `#` delante del nombre de la tabla.  Por ejemplo: 
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -232,20 +217,5 @@ DROP TABLE #stats_ddl;
 SQL Data Warehouse impone algunas limitaciones al implementar las tablas temporales.  Actualmente, solo se admiten tablas temporales con ámbito de sesión.  No se admiten tablas temporales globales.  Además, no se pueden crear vistas en las tablas temporales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información, consulte los artículos sobre [información general de tablas][Overview], [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [creación de particiones de una tabla][Partition] y [mantenimiento de estadísticas de tabla][Statistics].  Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse de Azure][SQL Data Warehouse Best Practices].
+Para aprender a desarrollar tablas, consulte la [Información general sobre tablas](sql-data-warehouse-tables-overview.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

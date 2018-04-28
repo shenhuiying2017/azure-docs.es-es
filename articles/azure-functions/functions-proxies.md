@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Uso de Azure Functions Proxies
 
@@ -99,7 +99,7 @@ Los parámetros de respuesta pueden utilizarse como parte de la modificación de
 
 También puede hacer referencia a la [configuración de la aplicación definida para la aplicación de función](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#develop) rodeando el nombre de la configuración con signos de porcentaje (%).
 
-Por ejemplo, en una dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" se reemplaza por el valor de la configuración de ORDER_PROCESSING_HOST.
+Por ejemplo, en la dirección URL de back-end *https://%ORDER_PROCESSING_HOST%/api/orders*, "%ORDER_PROCESSING_HOST%" se sustituiría por el valor de la opción ORDER_PROCESSING_HOST.
 
 > [!TIP] 
 > Use la configuración de la aplicación para hosts back-end si tiene varias implementaciones o entornos de prueba. De este modo, puede asegurarse de que siempre se comunica con el back-end correcto para ese entorno.

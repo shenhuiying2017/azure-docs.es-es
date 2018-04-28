@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
-ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Guía de publicación de Cortana Intelligence en AppSource
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 AppSource es el único destino para que los responsables de la toma de decisiones puedan encontrar y probar perfectamente soluciones y aplicaciones creadas por asociados y evaluadas por Microsoft. Vea [este vídeo](https://youtu.be/hpq_Y9LuIB8) para obtener información sobre cómo funciona AppSource. 
 
 Como asociado de Microsoft, puede beneficiarse realmente de la publicación en AppSource si:
-- Ha creado una solución o aplicación inteligente con [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Ha creado una solución o aplicación inteligente con [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable).
 - La solución o aplicación corrige un problema empresarial específico.
 - Ha creado módulos o propiedad intelectual que los clientes pueden reutilizar relativamente rápido de una manera predecible.
 

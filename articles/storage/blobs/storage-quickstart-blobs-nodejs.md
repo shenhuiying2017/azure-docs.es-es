@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs en Azure Storage mediante Node.js | Microsoft Docs'
-description: En esta guía de inicio rápido, puede crear una cuenta de almacenamiento y un contenedor. Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
+title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Node.js | Microsoft Docs'
+description: En esta guía de inicio rápido, creará una cuenta de almacenamiento y un contenedor en el almacenamiento de objetos (Blob). Después, puede usar la biblioteca de clientes de almacenamiento para Node.js a fin de cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: craigshoemaker
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 8783b83a1a94caf4a49f9da7a2dd30c9cb52df22
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js
 
@@ -82,7 +82,7 @@ El propósito de los módulos es el siguiente:
 - *dotenv* carga las variables de entorno definidas en un archivo llamado *.env* en el contexto de ejecución actual
 - *path* es necesario para determinar la ruta de acceso absoluta del archivo que se va a cargar en Blob Storage
 - *yargs* expone una interfaz sencilla para acceder a los argumentos de la línea de comandos
-- *azure-storage* es el módulo del [SDK de Azure Storage](/nodejs/api/azure-storage) para Node.js
+- *azure-storage* es el módulo del [SDK de Azure Storage](https://docs.microsoft.com/javascript/api/azure-storage) para Node.js
 
 A continuación, se inicializan diversas variables:
 
@@ -294,4 +294,4 @@ Esta guía de inicio rápido muestra cómo cargar un archivo entre un disco loca
 > [!div class="nextstepaction"]
 > [Procedimientos de las operaciones de Blob Storage](storage-nodejs-how-to-use-blob-storage.md)
 
-Para la referencia de Node.js para Azure Storage, consulte [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage/?view=azure-node-latest) (Paquete azure-storage).///
+Para la referencia de Node.js para Azure Storage, consulte [azure-storage package](https://docs.microsoft.com/javascript/api/azure-storage) (Paquete azure-storage).///

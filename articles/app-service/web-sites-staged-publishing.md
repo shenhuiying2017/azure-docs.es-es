@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Al implementar la aplicación web, la aplicación web en Linux, el back-end móv
 * La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
 
-Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite su nivel de la aplicación, consulte [Precios de App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * Cuando la aplicación tiene varias ranuras, no puede cambiar el nivel.
 * El escalado no está disponible para los espacios que no son de producción.

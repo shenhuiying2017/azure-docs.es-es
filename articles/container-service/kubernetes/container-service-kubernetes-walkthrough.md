@@ -1,19 +1,19 @@
 ---
-title: "Guía de inicio rápido: clúster de Azure Kubernetes para Linux"
-description: "Aprenda rápidamente a crear un clúster de Kubernetes para contenedores de Linux en Azure Container Service con la CLI de Azure."
+title: 'Guía de inicio rápido: clúster de Azure Kubernetes para Linux'
+description: Aprenda rápidamente a crear un clúster de Kubernetes para contenedores de Linux en Azure Container Service con la CLI de Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d6eb3ed9114a597389dbe1a521e083c2cacbb724
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c505f5c737b0e37e74bf136211aa0baca006658c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>Implementación de un clúster de Kubernetes para los contenedores de Linux
 

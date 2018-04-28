@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a293ebbd2ec07d9de53d168f79b8546576499bcb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8340ca9d95e7600e2500755de252e7f6c6de9343
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-container-service-aks"></a>Tutorial: Actualización de Kubernetes en Azure Container Service (AKS)
 
@@ -41,7 +41,7 @@ Antes de actualizar un clúster, use el comando `az aks get-upgrades` para compr
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Aquí puede ver que la versión del nodo actual es `1.7.9` y puede ver también las versiones de actualizaciones disponibles en la columna correspondiente.
+En este ejemplo, la versión del nodo actual es `1.7.9` y puede ver las versiones de actualizaciones disponibles en la columna correspondiente.
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -115,7 +115,7 @@ Salida:
 
 ## <a name="validate-upgrade"></a>Validación de la actualización
 
-Puede comprobar que la actualización se realizó correctamente con el comando `az aks show`.
+Confirme que la actualización se realizó correctamente con el comando `az aks show`.
 
 ```azurecli
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table

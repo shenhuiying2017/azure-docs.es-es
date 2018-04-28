@@ -1,24 +1,24 @@
 ---
-title: "Preguntas frecuentes sobre la migración de la plataforma de Security Center | Microsoft Docs"
-description: "Estas preguntas frecuentes responden a interrogantes sobre la migración de la plataforma de Azure Security Center."
+title: Preguntas frecuentes sobre la migración de la plataforma de Security Center | Microsoft Docs
+description: Estas preguntas frecuentes responden a interrogantes sobre la migración de la plataforma de Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2017
+ms.date: 04/13/2018
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 6a88fbadd8fbf05a4942e42b535770f6f068af28
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Preguntas frecuentes sobre la migración de la plataforma de Security Center
 A principios de junio de 2017, Azure Security Center comenzó a usar Microsoft Monitoring Agent para recopilar y almacenar datos. Para obtener más información, consulte [Migración de la plataforma de Azure Security Center](security-center-platform-migration.md). Estas preguntas frecuentes responden a interrogantes sobre la migración de la plataforma.
@@ -34,7 +34,7 @@ Security Center usa Microsoft Monitoring Agent para recopilar datos de seguridad
 Los datos que recopila el agente se almacenan en un área de trabajo de Log Analytics existente conectado a la VM o en una nueva área de trabajo creada por Security Center. Cuando Security Center crea una nueva área de trabajo, la geolocalización de VM se tiene en cuenta.
 
 > [!NOTE]
-> Microsoft Monitoring Agent es el mismo agente que usan Operations Management Suite (OMS), el servicio Log Analytics y System Center Operations Manager (SCOM).
+> Microsoft Monitoring Agent es el mismo agente que usan el servicio Log Analytics y System Center Operations Manager (SCOM).
 >
 >
 
@@ -64,8 +64,8 @@ La ubicación del área de trabajo se basa en la ubicación de la VM. Para más 
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>¿Se me factura por Log Analytics u OMS en las áreas de trabajo creadas por Security Center?
-No. Las áreas de trabajo creadas por Security Center, mientras estén configuradas para OMS por facturación de nodo, no incurren en gastos de OMS. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>¿Se me factura por Log Analytics en las áreas de trabajo creadas por Security Center?
+Nº Las áreas de trabajo creadas por Security Center, mientras estén configuradas para Log Analytics por facturación de nodo, no incurren en gastos de Log Analytics. La facturación de Security Center siempre se basa en la directiva de seguridad de Security Center y en las soluciones instaladas en un área de trabajo:
 
 - **Nivel Gratis**: Security Center habilita la solución "SecurityCenterFree" en el área de trabajo predeterminada. No se le facturará por el nivel Gratis.
 - **Nivel Estándar**: Security Center habilita la solución "Security" en el área de trabajo predeterminada.
@@ -73,7 +73,7 @@ No. Las áreas de trabajo creadas por Security Center, mientras estén configura
 Para más información, vea [Precios de Security Center ](https://azure.microsoft.com/pricing/details/security-center/). La página de precios trata los cambios en el almacenamiento de datos de seguridad y la facturación prorrateada a partir de junio de 2017.
 
 > [!NOTE]
-> El plan de tarifa de OMS de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center.
+> El plan de tarifa de Log Analytics de áreas de trabajo creadas por Security Center no afecta a la facturación de Security Center.
 >
 >
 
@@ -123,8 +123,6 @@ Para seleccionar un área de trabajo existente de Log Analytics:
 
    - Haga clic en **Cancelar** para cancelar la operación.
 
-      ![Reconfigurar máquinas virtuales supervisadas][6]
-
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>¿Qué ocurre si Microsoft Monitoring Agent ya estaba instalado como una extensión en la VM?
 Security Center no invalida las conexiones existentes con áreas de trabajo de usuario. Security Center almacena los datos de seguridad de la VM en el área de trabajo ya conectada. Security Center actualiza la versión de la extensión para incluir el identificador del recurso de Azure de la máquina virtual y que admita la utilización de Security Center.
 
@@ -149,7 +147,7 @@ Puede desactivar el aprovisionamiento automático en las suscripciones en la dir
 
 1. Si la suscripción está configurada para el nivel Estándar, abra la directiva de seguridad de esa suscripción y seleccione el nivel **Gratis**.
 
-   ![Plan de tarifa ][1]
+   ![Nivel de precios][1]
 
 2. Después, desactive el aprovisionamiento automático seleccionando **Desactivar** en la hoja **Security policy - Data collection** (Directiva de seguridad: Recopilación de datos).
    ![Recopilación de datos][2]
@@ -179,7 +177,7 @@ Debe instalar Microsoft Monitoring Agent manualmente para que Security Center pu
 
 Puede conectar al agente a cualquier área de trabajo personalizada existente o a la que creara Security Center. Si el área de trabajo personalizada no tiene las soluciones "Security" o "SecurityCenterFree" habilitadas, será necesario aplicar una solución. Para la aplicación, seleccione el área de trabajo personalizada o la suscripción y aplique un plan de tarifa desde la hoja **Directiva de seguridad: plan de tarifa**.
 
-   ![Plan de tarifa ][1]
+   ![Nivel de precios][1]
 
 Security Center habilitará la solución correcta en el área de trabajo en función del plan de tarifa seleccionado.
 
@@ -204,12 +202,12 @@ Para quitar manualmente el agente:
 >
 >
 
-## <a name="existing-oms-customers"></a>Clientes de OMS existentes
+## <a name="existing-log-analytics-customers"></a>Clientes existentes de Log Analytics
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>¿Invalida Security Center las conexiones existentes entre VM y áreas de trabajo?
 Si una VM ya tiene Microsoft Monitoring Agent instalado como una extensión de Azure, Security Center no invalida la conexión de área de trabajo existente. En su lugar, Security Center usa el área de trabajo existente.
 
-Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes. Cuando se agrega una solución, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md), que es una característica de OMS, le permite aplicar un ámbito a sus soluciones.
+Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes. Cuando se agrega una solución, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) le permite aplicar un ámbito a sus soluciones.
 
 Si Microsoft Monitoring Agent se instala directamente en la VM (no como una extensión de Azure), Security Center no instala Microsoft Monitoring Agent y la supervisión de seguridad estará limitada.
 
@@ -220,18 +218,13 @@ Esto no debería ocurrir. Si ocurre, [cree una solicitud de soporte técnico de 
 - El identificador del recurso de Azure del área de trabajo configurada en la extensión antes de que la conexión se interrumpiera
 - El agente y la versión que estaban previamente instalados
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>¿Instala Security Center soluciones en mis áreas de trabajo OMS existentes? ¿Qué implica desde el punto de vista de la facturación?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>¿Instala Security Center soluciones en mis áreas de trabajo de Log Analytics existentes? ¿Qué implica desde el punto de vista de la facturación?
 Cuando Security Center identifica que una VM ya está conectada a un área de trabajo creado por el usuario, habilita las soluciones en esta área de trabajo según el plan de tarifa. Las soluciones se aplican solo a las VM de Azure pertinentes a través de la [selección de destino de solución](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), por lo que la facturación sigue siendo la misma.
 
 - **Nivel Gratis**: Security Center instala la solución “SecurityCenterFree” en el área de trabajo. No se le facturará por el nivel Gratis.
 - **Nivel Estándar**: Security Center instala la solución "Security" en el área de trabajo.
 
    ![Soluciones del área de trabajo predeterminada][4]
-
-> [!NOTE]
-> La solución “Seguridad” de Log Analytics es la solución Seguridad y auditoría de OMS.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ya tengo áreas de trabajo en mi entorno, ¿puedo utilizarlas para recopilar datos de seguridad?
 Si una VM ya tiene Microsoft Monitoring Agent instalado como una extensión de Azure, Security Center usa el área de trabajo conectada existente. Una solución de Security Center se instala en el área de trabajo si todavía no está presente y la solución solo se aplica a VM relevantes mediante la [selección de destino de solución](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
@@ -253,4 +246,3 @@ Para más información sobre la migración de la plataforma de Security Center, 
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
-[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png

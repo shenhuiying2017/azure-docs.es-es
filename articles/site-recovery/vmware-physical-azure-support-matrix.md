@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
 En este artículo se resumen los ajustes y los componentes admitidos para la recuperación ante desastres de máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Escenarios admitidos
+## <a name="replication-scenario"></a>Escenario de replicación
 
 **Escenario** | **Detalles**
 --- | ---
-Máquinas virtuales de VMware | Puede realizar el proceso de recuperación ante desastres en Azure para máquinas virtuales de VMware locales. Puede implementar este escenario en Azure Portal o mediante PowerShell.
-Servidores físicos | Puede realizar el proceso de recuperación ante desastres en Azure para servidores físicos de Windows o Linux locales. Puede implementar este escenario en Azure Portal.
+Máquinas virtuales de VMware | Replicación de máquinas virtuales de VMware locales en Azure. Puede implementar este escenario en Azure Portal o mediante PowerShell.
+Servidores físicos | Replicación de servidores Windows/Linux físicos locales en Azure. Puede implementar este escenario en Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualización locales
 
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.
+VMware | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.<br/><br/> Se recomienda que los hosts de vSphere y los servidores vCenter se encuentren en la misma red que el servidor de procesos. De forma predeterminada, los componentes del servidor de procesos se ejecutan en el servidor de configuración, por lo esta será la red en la que se configurará el servidor de configuración, a menos que elija un servidor de procesos especializado. 
 Física | N/D
 
+## <a name="site-recovery-configuration-server"></a>Servidor de configuración de Site Recovery
+
+El servidor de configuración es una máquina local que ejecuta componentes de Site Recovery locales, incluido el servidor de configuración, el servidor de procesos y el servidor de destino maestro. Para la replicación de VMware se configura el servidor de configuración con todos los requisitos, mediante una plantilla OVF para crear una máquina virtual de VMware. Para la replicación de un servidor físico, la máquina del servidor de configuración se configura manualmente.
+
+**Componente** | **Requisitos**
+--- |---
+Núcleos de CPU | 8 
+RAM | 12 GB
+Número de discos | 3 discos<br/><br/> Los discos incluyen el disco del sistema operativo, el disco de memoria caché del servidor de procesos y la unidad de retención para la conmutación por recuperación.
+Espacio libre en el disco | 600 GB de espacio necesarios para la memoria caché del servidor de procesos.
+Espacio libre en el disco | 600 GB de espacio necesarios para la unidad de retención.
+Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 | 
+Configuración regional del sistema operativo | Español (es-es) 
+PowerCLI | Se debe instalar [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0").
+Roles de Windows Server | No habilite: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
+Directivas de grupo| No habilite: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Asegúrese de lo siguiente:<br/><br/> - No hay ningún sitio web preexistente predeterminado <br> - Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - No hay ningún sitio web o aplicación preexistente que escuche en el puerto 443<br>
+Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware) 
+Tipo de dirección IP | estática 
+Puertos | 443 se usa para la orquestación del canal de control<br>9443 se usa para el transporte de datos
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
 
-En la tabla siguiente se resume la compatibilidad de replicación de las máquinas virtuales de VMware y los servidores físicos. Site Recovery admite la replicación de cualquier carga de trabajo que se ejecute en una máquina que tenga un sistema operativo compatible.
+Site Recovery admite la replicación de cualquier carga de trabajo que se ejecute en una máquina compatible.
 
 **Componente** | **Detalles**
 --- | ---

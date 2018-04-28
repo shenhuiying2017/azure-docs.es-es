@@ -1,11 +1,11 @@
 ---
-title: Resolución de nombres para máquinas virtuales e instancias de rol
+title: Resolución de nombres de recursos en redes virtuales de Azure | Microsoft Docs
 description: Escenarios de resolución de nombres para IaaS de Azure, soluciones híbridas, entre servicios en la nube diferentes, Active Directory y con su propio servidor DNS.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
-editor: tysonn
+author: subsarma
+manager: vitinnan
+editor: ''
 ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
@@ -13,46 +13,46 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
-ms.author: jdial
-ms.openlocfilehash: e46f6617b1a6d73ace00d4eafa1410785315a8c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: subsarma
+ms.openlocfilehash: 32d4f72afb4cd18e6b66c52eb78b2fc7b6b75cbd
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="name-resolution-for-virtual-machines-and-role-instances"></a>Resolución de nombres para máquinas virtuales e instancias de rol
+# <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolución de nombres de recursos en redes virtuales de Azure
 
-Según cómo utilice Azure para hospedar soluciones híbridas, IaaS y PaaS, puede que tenga que permitir que las máquinas virtuales y las instancias de rol creadas se comuniquen entre sí. Aunque este tipo de comunicación puede realizarse mediante las direcciones IP, es mucho más sencillo usar nombres, ya que podrá recordarlos con más facilidad y no cambiarlos. 
+Según cómo utilice Azure para hospedar soluciones híbridas, IaaS y PaaS, puede que tenga que permitir que las máquinas virtuales (VM) y otros recursos implementados en una red virtual se comuniquen entre sí. Aunque puede habilitar la comunicación mediante las direcciones IP, es mucho más sencillo usar nombres, ya que podrá recordarlos con más facilidad y no cambian. 
 
-Cuando las instancias de rol y las máquinas virtuales hospedadas en Azure necesitan resolver nombres de dominio en direcciones IP internas, pueden usar uno de dos métodos:
+Si los recursos implementados en redes virtuales necesitan resolver nombres de dominio en direcciones IP internas, pueden usar uno de dos métodos:
 
 * [Resolución de nombres de Azure](#azure-provided-name-resolution)
 * [Resolución de nombres con su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server) (que puede reenviar consultas a los servidores DNS proporcionados por Azure) 
 
-El tipo de resolución de nombres que tenga que usar dependerá de cómo se comuniquen las máquinas virtuales y las instancias de rol entre sí. En la siguiente tabla se muestran los escenarios y las soluciones de resolución de nombre correspondientes:
+El tipo de resolución de nombres que tenga que usar dependerá de cómo se comuniquen los recursos entre sí. En la siguiente tabla se muestran los escenarios y las soluciones de resolución de nombre correspondientes:
 
 > [!NOTE]
-> Según el escenario, puede ser conveniente usar la característica Azure DNS Private Zones, que se encuentra actualmente en versión preliminar pública. Para obtener más detalles, consulte [Uso de Azure DNS para dominios privados](../dns/private-dns-overview.md).
+> Según el escenario, puede ser conveniente usar la característica Azure DNS Private Zones, que se encuentra actualmente en versión preliminar pública. Para obtener más información, vea [Uso de Azure DNS para dominios privados](../dns/private-dns-overview.md).
 >
 
 | **Escenario** | **Solución** | **Sufijo** |
 | --- | --- | --- |
-| Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en el mismo servicio en la nube o red virtual. | [Azure DNS Private Zones](../dns/private-dns-overview.md) o [resolución de nombres de Azure](#azure-provided-name-resolution) |Nombre de host o FQDN |
-| Resolución de nombres entre instancias de rol o máquinas virtuales ubicadas en diferentes redes virtuales. |[Azure DNS Private Zones](../dns/private-dns-overview.md) o Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
-| Resolución de nombres de Azure App Service (aplicación web, función o bot) mediante la integración de red virtual con instancias de rol o máquinas virtuales ubicadas en la misma red virtual. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
-| Resolución de nombres entre instancias de App Service Web Apps en máquinas virtuales ubicadas en la misma red virtual. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
-| Resolución de nombres entre instancias de App Service Web Apps en máquinas virtuales ubicadas en una red virtual diferente. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Solo FQDN |
-| Resolución de nombres de servicios y de equipos locales desde instancias de rol o máquinas virtuales en Azure. |Servidores DNS administrados por el cliente (controlador de dominio local, controlador de dominio de solo lectura local o un DNS secundario sincronizado mediante transferencias de zona, por ejemplo). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
+| Resolución de nombres entre máquinas virtuales ubicadas en la misma red virtual, o instancias de rol de Azure Cloud Services en el mismo servicio en la nube. | [Azure DNS Private Zones](../dns/private-dns-overview.md) o [resolución de nombres de Azure](#azure-provided-name-resolution) |Nombre de host o FQDN |
+| Resolución de nombres entre máquinas virtuales en redes virtuales diferentes o instancias de rol en diferentes servicios en la nube. |[Azure DNS Private Zones](../dns/private-dns-overview.md) o Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
+| Resolución de nombres de Azure App Service (aplicación web, función o bot) mediante la integración de red virtual con instancias de rol o máquinas virtuales en la misma red virtual. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
+| Resolución de nombres entre instancias de App Service Web Apps en máquinas virtuales en la misma red virtual. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
+| Resolución de nombres de App Service Web Apps de una máquina virtual a las máquinas virtuales de otra red virtual. |Servidores DNS administrados por el cliente que reenvían consultas entre redes virtuales para la resolución mediante Azure (proxy DNS). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Solo FQDN |
+| Resolución de nombres de servicios y de equipos locales de máquinas virtuales o instancias de rol en Azure. |Servidores DNS administrados por el cliente (controlador de dominio local, controlador de dominio de solo lectura local o un DNS secundario sincronizado mediante transferencias de zona, por ejemplo). Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
 | Resolución de nombres de host de Azure desde equipos locales. |Reenvío de consultas a un servidor proxy DNS administrado por el cliente en la red virtual correspondiente: el servidor proxy reenvía consultas a Azure para su resolución. Consulte [Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |Solo FQDN |
 | DNS inverso para direcciones IP internas. |[Resolución de nombres mediante su propio servidor DNS](#name-resolution-that-uses-your-own-dns-server). |No aplicable |
 | Resolución de nombres entre máquinas virtuales o instancias de rol ubicadas en diferentes servicios en la nube y no en una red virtual. |No aplicable. La conectividad entre máquinas virtuales e instancias de rol de servicios en la nube diferentes no es compatible fuera de una red virtual. |No aplicable|
 
 ## <a name="azure-provided-name-resolution"></a>Resolución de nombres de Azure
 
-Junto con la resolución de nombres DNS públicos, Azure proporciona una resolución de nombres interna para máquinas virtuales e instancias de rol que residen dentro de la misma red virtual o servicio en la nube. Las máquinas virtuales y las instancias en un servicio en la nube comparten el mismo sufijo DNS (por lo que el nombre de host por sí solo es suficiente). Pero en las redes virtuales que utilizan el modelo de implementación clásica, diferentes servicios en la nube tienen distintos sufijos DNS. En esta situación, es necesario el FQDN para resolver los nombres entre diferentes servicios en la nube. En las redes virtuales basadas en el modelo de implementación de Azure Resource Manager, el sufijo DNS es coherente en toda la red virtual, de modo que el FQDN no es necesario. Los nombres DNS pueden asignarse tanto a las NIC como a las máquinas virtuales. Aunque la resolución de nombres que proporciona Azure no necesita ningún tipo de configuración, no es la opción más adecuada para todos los escenarios de implementación, tal y como se mostró en la tabla anterior.
+Junto con la resolución de nombres DNS públicos, Azure proporciona una resolución de nombres interna para máquinas virtuales e instancias de rol que residen dentro de la misma red virtual o servicio en la nube. Las máquinas virtuales y las instancias en un servicio en la nube comparten el mismo sufijo DNS (por lo que el nombre de host por sí solo es suficiente). No obstante, en las redes virtuales implementadas con el modelo de implementación clásica, diferentes servicios en la nube tienen distintos sufijos DNS. En esta situación, es necesario el FQDN para resolver los nombres entre diferentes servicios en la nube. En las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager, el sufijo DNS es coherente en toda la red virtual, de modo que el FQDN no es necesario. Los nombres DNS se pueden asignar a máquinas virtuales y a interfaces de red. Aunque la resolución de nombres que proporciona Azure no necesita ningún tipo de configuración, no es la opción más adecuada para todos los escenarios de implementación, tal y como se explicó en la tabla anterior.
 
 > [!NOTE]
-> Al utilizar roles web y de trabajo, también puede tener acceso a las direcciones IP internas de las instancias de rol. Esto se fundamenta en el número de instancia y en el nombre de rol, mediante el uso de la API REST de Azure Service Management. Para obtener más información, consulte la [Referencia de la API REST de administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx).
+> En el caso de los roles web y de trabajo de servicios en la nube, puede acceder a las direcciones IP internas de las instancias de rol mediante la API de REST de administración de servicios de Azure. Para obtener más información, consulte la [Referencia de la API REST de administración de servicios](https://msdn.microsoft.com/library/azure/ee460799.aspx). La dirección se basa en el nombre de rol y el número de instancia. 
 > 
 > 
 
@@ -62,21 +62,21 @@ La resolución de nombres proporcionada por Azure incluye las siguientes caracte
 * Facilidad de uso. No se requiere ninguna configuración.
 * Alta disponibilidad. No es necesario crear clústeres de sus propios servidores DNS ni administrarlos.
 * Puede utilizar el servicio junto con sus propios servidores DNS para resolver nombres de host de Azure y locales.
-* Puede usar la resolución de nombres entre las instancias de rol y las máquinas virtuales que están dentro del mismo servicio en la nube, sin necesidad de un nombre de dominio completo.
+* Puede usar la resolución de nombres entre las máquinas virtuales y las instancias de rol del mismo servicio en la nube, sin necesidad de un nombre de dominio completo.
 * Puede usar la resolución de nombres entre las máquinas virtuales en redes virtuales que usan el modelo de implementación de Azure Resource Manager, sin necesidad de un nombre de dominio completo. En el modelo de implementación clásica, las redes virtuales requieren un FQDN cuando se resuelven nombres en diferentes servicios en la nube. 
 * Puede usar los nombres de host que describan mejor las implementaciones, en lugar de trabajar con nombres generados automáticamente.
 
 ### <a name="considerations"></a>Consideraciones
 
-Aquí se presentan puntos que deben considerarse cuando se utiliza la resolución de nombres de Azure:
+Puntos que deben considerarse cuando se utiliza la resolución de nombres de Azure:
 * No se puede modificar el sufijo DNS creado por Azure.
 * No se pueden registrar manualmente los registros propios.
-* No se admiten WINS ni NetBIOS (no se pueden ver las máquinas virtuales en Windows Explorer).
+* No se admiten ni WINS ni NetBIOS. Las máquinas virtuales no se pueden ver en el Explorador de Windows.
 * Los nombres de host deben ser compatibles con DNS. Los nombres solamente pueden contener los caracteres 0-9, a-z y "-", y no pueden comenzar ni terminar por "-".
 * El tráfico de consultas de DNS está limitado por cada máquina virtual. La limitación no debería afectar a la mayoría de las aplicaciones. Si se observa una limitación de solicitudes, asegúrese de que está habilitado el almacenamiento en caché del lado cliente. Para más información, consulte [Configuración de cliente DNS](#dns-client-configuration).
 * En un modelo de implementación clásico, solo se registran las máquinas virtuales de los 180 primeros servicios en la nube para cada red virtual clásica. Este límite no se aplica a las redes virtuales en Azure Resource Manager.
 
-## <a name="dns-client-configuration"></a>Configuración de cliente DNS
+## <a name="dns-client-configuration"></a>Configuración del cliente DNS
 
 Esta sección trata los intentos del lado cliente y el almacenamiento en caché del cliente.
 
@@ -135,11 +135,11 @@ El archivo resolv.conf suele generarse de forma automática y no se debe editar.
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>Resolución de nombres con su propio servidor DNS
 
-Esta sección trata las instancias de rol y máquinas virtuales, y las aplicaciones web.
+En esta sección se tratan las máquinas virtuales, las instancias de rol y las aplicaciones web.
 
 ### <a name="vms-and-role-instances"></a>Máquinas virtuales e instancias de rol
 
-Puede que sus necesidades de resolución de nombres superen las posibilidades de las características de Azure. Por ejemplo, esto puede suceder cuando se utilizan dominios de Active Directory o cuando se requiere la resolución DNS entre redes virtuales. Para abarcar estos escenarios, Azure le ofrece la posibilidad de que use sus propios servidores DNS.
+Puede que sus necesidades de resolución de nombres superen las posibilidades de las características de Azure. Por ejemplo, es posible que necesite utilizar dominios de Microsoft Windows Server Active Directory y resolver nombres DNS entre redes virtuales. Para abarcar estos escenarios, Azure le ofrece la posibilidad de que use sus propios servidores DNS.
 
 Los servidores DNS dentro de una red virtual pueden reenviar consultas DNS a las resoluciones recursivas en Azure. Esto le permite resolver los nombres de host dentro de esa red virtual. Por ejemplo, un controlador de dominio (DC) que se ejecute en Azure puede responder a las consultas DNS referidas a sus dominios y reenviar todas las demás consultas a Azure. El reenvío de consultas permite que las máquinas virtuales vean sus recursos locales (mediante el controlador de dominio) y los nombres de host proporcionados por Azure (mediante el reenviador). El acceso a las resoluciones recursivas de Azure se proporciona mediante la IP virtual 168.63.129.16.
 
@@ -163,13 +163,13 @@ Si es necesario, el sufijo DNS interno se puede determinar con PowerShell o la A
 
 Si el reenvío de consultas a Azure no satisface sus necesidades, debería proporcionar su propia solución DNS. La solución DNS debe:
 
-* Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante [DDNS](virtual-networks-name-resolution-ddns.md). Observe que, si usa DDNS, puede que tenga que deshabilitar la limpieza de registros DNS. Las concesiones DHCP de Azure son muy largas y la limpieza puede eliminar registros DNS de forma prematura. 
+* Proporcionar la resolución adecuada de nombres de host, por ejemplo, mediante [DDNS](virtual-networks-name-resolution-ddns.md). Si usa DDNS, puede que tenga que deshabilitar la limpieza de registros DNS. Las concesiones DHCP de Azure son muy largas y la limpieza puede eliminar registros DNS de forma prematura. 
 * Proporcionar la resolución recursiva adecuada para permitir la resolución de nombres de dominio externos.
 * Estar accesible (TCP y UDP en el puerto 53) desde los clientes a los que sirve y poder acceder a Internet.
 * Tener protección contra el acceso desde Internet para mitigar las amenazas que suponen los agentes externos.
 
 > [!NOTE]
-> Para obtener el mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, debe deshabilitarse IPv6. Debe asignarse una [dirección IP pública de nivel de instancia](virtual-networks-instance-level-public-ip.md) a cada máquina virtual del servidor DNS. Si desea realizar optimizaciones y análisis de rendimiento adicionales al utilizar Windows Server como servidor DNS, consulte [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Rendimiento de resolución de nombres de un servidor Windows DNS Server 2012 R2 recursivo).
+> Para obtener el mejor rendimiento, cuando se usan máquinas virtuales de Azure como servidores DNS, debe deshabilitarse IPv6. Debe asignarse una [dirección IP pública](virtual-network-public-ip-address.md) a cada máquina virtual del servidor DNS. Si desea realizar optimizaciones y análisis de rendimiento adicionales al utilizar Windows Server como servidor DNS, consulte [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx) (Rendimiento de resolución de nombres de un servidor Windows DNS Server 2012 R2 recursivo).
 > 
 > 
 
@@ -180,7 +180,7 @@ Supongamos que necesita realizar la resolución de nombres de una aplicación we
 
     ![Captura de pantalla de la resolución de nombres de red virtual](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
 
-Supongamos que necesita realizar la resolución de nombres de una aplicación web compilada con App Service y vinculada a una red virtual, a las máquinas virtuales de una red virtual diferente. Esto requiere el uso de servidores DNS personalizados en ambas redes virtuales, como se indica a continuación: 
+Si necesita ejecutar la resolución de nombres de la aplicación web integrada mediante App Service vinculada a una red virtual, a las máquinas virtuales que se encuentran en una red virtual diferente, debe usar servidores DNS personalizados en las dos redes virtuales, del modo siguiente: 
 * Configure un servidor DNS en la red virtual de destino en una máquina virtual que también pueda reenviar consultas a la resolución recursiva de Azure (dirección IP virtual 168.63.129.16). Puede encontrar un reenviador DNS de ejemplo disponible en la [galería de plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder) y en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder). 
 * Configure un reenviador DNS en la red virtual de origen en una máquina virtual. Configure este reenviador DNS para que reenvíe consultas al servidor DNS de la red virtual de destino.
 * Configure el servidor DNS de origen en la configuración de su red virtual de origen.
@@ -188,14 +188,14 @@ Supongamos que necesita realizar la resolución de nombres de una aplicación we
 * En Azure Portal, para el plan de App Service que hospeda la aplicación web, seleccione **Sincronizar red** en **Redes**, **Integración de Virtual Network**. 
 
 ## <a name="specify-dns-servers"></a>Especificación de los servidores DNS
-Si usa sus propios servidores DNS, Azure permite especificar varios servidores DNS por cada red virtual. También puede hacer esto para cada interfaz de red (para Azure Resource Manager) o servicio en la nube (para el modelo de implementación clásica). Los servidores DNS especificados para una interfaz de red o un servicio en la nube tienen prioridad sobre los servidores DNS especificados para la red virtual.
+Si usa sus propios servidores DNS, Azure permite especificar varios servidores DNS por cada red virtual. También puede especificar varios servidores DNS por interfaz de red (para Azure Resource Manager) o por servicio en la nube (para el modelo de implementación clásica). Los servidores DNS especificados para una interfaz de red o un servicio en la nube tienen prioridad sobre los servidores DNS especificados para la red virtual.
 
 > [!NOTE]
 > Las propiedades de conexión de red, como las direcciones IP del servidor DNS, no deben editarse directamente dentro de máquinas virtuales Windows. Esto se debe a que podrían borrarse durante el servicio de reparación cuando se reemplaza el adaptador de la red virtual. 
 > 
 > 
 
-Cuando se usa el modelo de implementación de Azure Resource Manager, puede especificar servidores DNS en Azure Portal. Consulte [Redes virtuales](https://msdn.microsoft.com/library/azure/mt163661.aspx) e [Interfaces de red](https://msdn.microsoft.com/library/azure/mt163668.aspx). También puede hacer esto en PowerShell. Consulte [Redes virtuales](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork) e [interfaz de red](/powershell/module/azurerm.network/new-azurermnetworkinterface).
+Si se usa el modelo de implementación de Azure Resource Manager, puede especificar servidores DNS para una red virtual y una interfaz de red. Para obtener más información, consulte [Administración de una red virtual](manage-virtual-network.md) y [Administración de una interfaz de red](virtual-network-network-interface.md).
 
 Cuando se usa el modelo de implementación clásica, puede especificar servidores DNS para la red virtual en Azure Portal o en el [archivo de configuración de red](https://msdn.microsoft.com/library/azure/jj157100). En el caso de los servicios en la nube, puede especificar los servidores DNS mediante el [archivo de configuración del servicio](https://msdn.microsoft.com/library/azure/ee758710) o mediante PowerShell, con [New-AzureVM](/powershell/module/azure/new-azurevm).
 
@@ -208,10 +208,8 @@ Cuando se usa el modelo de implementación clásica, puede especificar servidore
 
 Modelo de implementación de Azure Resource Manager:
 
-* [Creación o actualización de una red virtual](https://msdn.microsoft.com/library/azure/mt163661.aspx)
-* [Creación o actualización de una tarjeta de interfaz de red](https://msdn.microsoft.com/library/azure/mt163668.aspx)
-* [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)
-* [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)
+* [Administración de una red virtual](manage-virtual-network.md)
+* [Administración de una interfaz de red](virtual-network-network-interface.md)
 
 Modelo de implementación clásico:
 

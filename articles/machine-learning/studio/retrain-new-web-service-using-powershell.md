@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7fa93e138bc9feb66c200597119bb12dbaf00480
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 865243a10bd5043ca04c392c043b37772271f68f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="retrain-a-new-resource-manager-based-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reciclaje de un servicio web nuevo basado en Resource Manager mediante los cmdlets de PowerShell para administración de Machine Learning
-Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.  
+Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.
 
 ## <a name="prerequisites"></a>requisitos previos
-Debe configurar un experimento de entrenamiento y predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md). 
+Debe configurar un experimento de entrenamiento y predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> El experimento predictivo debe implementarse como un servicio web Machine Learning basado en Azure Resource Manager (nuevo). Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md). 
+> El experimento predictivo debe implementarse como un servicio web Machine Learning basado en Azure Resource Manager (nuevo).
+> Para implementar un nuevo servicio web, debe tener permisos suficientes en la suscripción en la que lo implementa. Para obtener más información, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
 
 Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
@@ -48,7 +49,7 @@ Los pasos son:
 6. Actualice el servicio web con la nueva definición de servicio web
 
 ## <a name="sign-in-to-your-azure-resource-manager-account"></a>Inicie sesión en la cuenta de Azure Resource Manager
-Primero debe iniciar sesión en la cuenta de Azure en el entorno de PowerShell mediante el cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) .
+Primero debe iniciar sesión en la cuenta de Azure en el entorno de PowerShell mediante el cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
 
 ## <a name="get-the-web-service-definition"></a>Obtenga la definición de servicio web
 A continuación, obtenga el servicio web, llamando al cmdlet [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) . La definición de servicio web es una representación interna del modelo entrenado del servicio web y no es modificable directamente. Asegúrese de que va a recuperar la definición de servicio web para el experimento predictivo y no para el experimento de entrenamiento.

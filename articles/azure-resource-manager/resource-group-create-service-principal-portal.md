@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 264befc6c60b87d41658b4da763e477fbb7e3f8c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -46,13 +46,13 @@ Para completar este artículo, debe tener permisos suficientes para registrar un
 
    ![ver registros de aplicaciones](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Si la configuración de registros de aplicaciones está establecida en **No**, solo los usuarios administradores pueden registrar aplicaciones. Compruebe si la cuenta es un administrador del inquilino de Active Directory. Seleccione **Información general** y eche un vistazo a la información del usuario. Si su cuenta está asignada al rol Usuario pero la configuración del registro de aplicaciones (del paso anterior) está limitada a los usuarios administradores, pida a su administrador que le asigne un rol de administrador o que permita a los usuarios registrar aplicaciones.
+1. Si la opción Registros de aplicaciones está establecida en **No**, los [administradores globales](../active-directory/active-directory-assign-admin-roles-azure-portal.md) serán los únicos que podrán registrar aplicaciones. Compruebe si la cuenta es un administrador del inquilino de Active Directory. Seleccione **Información general** y eche un vistazo a la información del usuario. Si la cuenta está asignada al rol Usuario pero la opción Registros de aplicaciones (del paso anterior) está limitada a los usuarios administradores, pida al administrador que le asigne un rol de administrador global o que permita a los usuarios registrar las aplicaciones.
 
    ![encontrar usuario](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
 ### <a name="check-azure-subscription-permissions"></a>Comprobación de los permisos de suscripción de Azure
 
-En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorization/*/Write` para asignar una aplicación de AD a un rol. Esta acción se concede mediante el rol [Propietario](../active-directory/role-based-access-built-in-roles.md#owner) o el rol [Administrador de acceso de usuario](../active-directory/role-based-access-built-in-roles.md#user-access-administrator). Si su cuenta está asignada al rol **Colaborador**, no tiene los permisos adecuados. Al intentar asignar la entidad de servicio a un rol, se muestra un error.
+En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorization/*/Write` para asignar una aplicación de AD a un rol. Esta acción se concede mediante el rol [Propietario](../role-based-access-control/built-in-roles.md#owner) o el rol [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator). Si su cuenta está asignada al rol **Colaborador**, no tiene los permisos adecuados. Al intentar asignar la entidad de servicio a un rol, se muestra un error.
 
 Para comprobar los permisos de su suscripción:
 
@@ -135,7 +135,7 @@ Al iniciar sesión mediante programación, deberá pasar el id. de inquilino con
 
 ## <a name="assign-application-to-role"></a>Asignación de aplicación a un rol
 
-Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol representa los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md).
+Para acceder a los recursos de la suscripción, debe asignarle a la aplicación un rol. Decida qué rol representa los permisos adecuados para la aplicación. Para obtener más información sobre los roles disponibles, vea [RBAC: Roles integrados](../role-based-access-control/built-in-roles.md).
 
 Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o recurso. Los permisos se heredan en los niveles inferiores del ámbito. Por ejemplo, el hecho de agregar una aplicación al rol Lector para un grupo de recursos significa que esta puede leer el grupo de recursos y los recursos que contenga.
 
@@ -167,5 +167,5 @@ Puede establecer el ámbito en el nivel de suscripción, grupo de recursos o rec
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar una aplicación multiinquilino, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](resource-manager-api-authentication.md).
-* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).  
-* Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md).
+* Para obtener información sobre cómo especificar directivas de seguridad, consulte [Control de acceso basado en roles de Azure](../role-based-access-control/role-assignments-portal.md).  
+* Para obtener una lista de las acciones que puede conceder o denegar a los usuarios, consulte [Operaciones del proveedor de recursos de Azure Resource Manager](../role-based-access-control/resource-provider-operations.md).

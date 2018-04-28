@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2018
 ms.author: kgremban
-ms.openlocfilehash: a6b498b38e76dfa2553bf3a916b723cd774d950d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: dae4599db5127ac8fd266d5e0f299e1284fc9b9c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de Restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -28,7 +28,7 @@ La solución de Azure Active Directory para este desafío es una característica
 
 Restricciones de inquilino ofrece a las organizaciones la posibilidad de especificar la lista de inquilinos a los que sus usuarios pueden acceder. Después, Azure AD solo concede el acceso a estos inquilinos con permiso.
 
-Este artículo se centra en Restricciones de inquilino para Office 365, pero la característica debe funcionar con cualquier aplicación en la nube SaaS que use protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/).
+Este artículo se centra en Restricciones de inquilino para Office 365, pero la característica debe funcionar con cualquier aplicación en la nube SaaS que use protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 ## <a name="how-it-works"></a>Cómo funciona
 

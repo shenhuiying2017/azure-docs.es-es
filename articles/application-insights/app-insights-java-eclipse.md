@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Azure Application Insights con Java en Eclipse | Microsoft Docs"
-description: "Utilización del complemento de Eclipse para agregar supervisión del rendimiento y uso para su sitio web de Java con Application Insights"
+title: Introducción a Azure Application Insights con Java en Eclipse | Microsoft Docs
+description: Utilización del complemento de Eclipse para agregar supervisión del rendimiento y uso para su sitio web de Java con Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Introducción a Application Insights con Java en Eclipse
 El SDK de Application Insights envía telemetría desde la aplicación web de Java para que se pueda analizar el uso y el rendimiento. El complemento Eclipse de Application Insights instala automáticamente el SDK en el proyecto para que obtenga la telemetría de serie, además de una API que puede usar para escribir la telemetría personalizada.   
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Actualmente el complemento funciona para proyectos Maven y proyectos web dinámicos en Eclipse.
 ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
 
 Necesitará:
 
-* Oracle JRE 1.6 o posterior
+* JRE 1.7 o 1.8
 * Una suscripción a [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE para Java EE Developers](http://www.eclipse.org/downloads/), Indigo o superior.
 * Windows 7 o posterior, o Windows Server 2008 o posterior
@@ -39,7 +39,7 @@ Basta con hacerlo una vez por equipo. Este paso instala un kit de herramientas q
 1. En Eclipse, haga clic en Ayuda, Instalar nuevo software.
 
     ![Ayuda, Instalar nuevo software](./media/app-insights-java-eclipse/0-plugin.png)
-2. El SDK se encuentra en http://dl.microsoft.com/eclipse, en el kit de herramientas de Azure.
+2. El SDK está en http://dl.microsoft.com/eclipse, en el kit de herramientas de Azure.
 3. Desactive **Ponerse en contacto con todos los sitios de actualización...**
 
     ![Para el SDK de Application Insights, desactive Ponerse en contacto con todos los sitios de actualización](./media/app-insights-java-eclipse/1-plugin.png)
@@ -47,7 +47,7 @@ Basta con hacerlo una vez por equipo. Este paso instala un kit de herramientas q
 Siga los pasos restantes para cada proyecto de Java.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Creación de un recurso de Application Insights en Azure
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Cree un recurso de Application Insights. Establezca el tipo de aplicación a una aplicación web de Java.  
 
     ![Haga clic en + y elija Application Insights](./media/app-insights-java-eclipse/01-create.png)  
@@ -129,7 +129,7 @@ Para recopilar datos de otras excepciones, tiene dos opciones:
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Supervisión de llamadas a métodos y dependencias externas
 [Instale el agente de Java](app-insights-java-agent.md) para registrar los métodos internos especificados y las llamadas realizadas a través de JDBC, con datos de tiempo.
 
-## <a name="performance-counters"></a>Contadores de rendimiento
+## <a name="performance-counters"></a>contadores de rendimiento
 En la hoja de Información general, desplácese hacia abajo y haga clic en el icono **Servidores**. Verá diferentes contadores de rendimiento.
 
 ![Desplácese hacia abajo para hacer clic en el icono Servidores](./media/app-insights-java-eclipse/11-perf-counters.png)

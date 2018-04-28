@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/19/2018
 ms.author: sngun
-ms.openlocfilehash: ab14261e939063c5e50050774d1aae3edf1bef19
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a63a8577bda951613f60102475396f72ea1a4bdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal
 
@@ -43,8 +43,19 @@ Si no tiene Visual Studio, descargue [Visual Studio 2017 Community Edition](http
 
 En primer lugar, descargue la aplicación API de MongoDB de ejemplo de GitHub. Implementa una lista de tareas con el modelo de almacenamiento de documentos de MongoDB.
 
-1. Abra una ventana de terminal de Git, como Git Bash, y `cd` en un directorio de trabajo.
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. 
+1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
+
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-getting-started.git
@@ -54,7 +65,9 @@ Si no desea usar git, también puede [descargar el proyecto como un archivo ZIP]
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Vamos a revisar rápidamente lo que sucede en la aplicación. Abra el archivo **Dal.cs** del directorio **DAL** y observe que estas líneas de código crean los recursos de Azure Cosmos DB. 
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string). 
+
+Los fragmentos de código siguientes se han tomado del archivo Dal.cs en el directorio DAL.
 
 * Inicialice Mongo Client.
 
@@ -126,10 +139,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:
-
-1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

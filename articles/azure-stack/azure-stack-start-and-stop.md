@@ -1,28 +1,28 @@
 ---
-title: "Inicio y detención de Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de cómo iniciar y apagar Azure Stack."
+title: Inicio y detención de Azure Stack | Microsoft Docs
+description: Obtenga información acerca de cómo iniciar y apagar Azure Stack.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Inicio y detención de Azure Stack
-
-*Se aplica a: sistemas integrados de Azure Stack (versión 1712 y posteriores)*.
+Siga los procedimientos que se describen en este artículo para detener y reiniciar los servicios de Azure Stack correctamente. 
 
 ## <a name="stop-azure-stack"></a>Detención de Azure Stack 
 
@@ -86,4 +86,4 @@ Siga los pasos que se indican a continuación en caso de que los servicios de in
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-Para obtener más información acerca de la herramienta de diagnóstico de Azure Stack y el registro de problemas, consulte Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack. Herramientas de diagnóstico de Azure Stack.
+Para más información sobre la herramienta de diagnóstico de Azure Stack y el registro de problemas, consulte [Herramientas de diagnóstico de Azure Stack](azure-stack-diagnostics.md).

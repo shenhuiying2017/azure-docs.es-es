@@ -1,11 +1,11 @@
 ---
-title: "Eliminación de un clúster de Azure y los recursos que contiene | Microsoft Docs"
-description: "Aprenda a eliminar completamente un clúster de Service Fabric, bien mediante la eliminación del grupo de recursos que contiene el clúster o por medio de la eliminación selectiva de recursos."
+title: Eliminación de un clúster de Azure y los recursos que contiene | Microsoft Docs
+description: Aprenda a eliminar completamente un clúster de Service Fabric, bien mediante la eliminación del grupo de recursos que contiene el clúster o por medio de la eliminación selectiva de recursos.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 1255574e6aae930b0e349ec8f36cc66ac2b7e49f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Eliminación de un clúster de Service Fabric en Azure y de los recursos que usa
 Un clúster de Service Fabric está formado por muchos otros recursos de Azure, además del recurso del clúster propiamente dicho. Así que, para eliminar completamente un clúster de Service Fabric, también debe eliminar todos los recursos que lo componen.
@@ -38,7 +38,7 @@ Otra forma de eliminar el grupo de recursos es ejecutar los siguientes cmdlets d
 Abra una ventana de PowerShell y ejecute los siguientes cmdlets de PS:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
@@ -46,7 +46,7 @@ Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 Si no ha utilizado la opción *-Force* , recibirá un mensaje para confirmar la eliminación. Tras la confirmación, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 ### <a name="delete-a-resource-group-in-the-azure-portal"></a>Eliminación de un grupo de recursos en el Portal de Azure
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
 3. Haga clic en el nombre del grupo de recursos en la página de información básica del clúster.
 4. Se abre la página **Resource Group Essentials** (Información básica del grupo de recursos).
@@ -60,12 +60,12 @@ Si el grupo de recursos tiene únicamente recursos que están relacionados con e
 
 Si ha implementado el clúster mediante el portal o por medio de una de las plantillas de Resource Manager de Service Fabric de la galería de plantillas, entonces todos los recursos del clúster están etiquetados con las dos etiquetas siguientes. Puede utilizarlas para decidir qué recursos quiere eliminar.
 
-***Etiqueta 1:*** Clave = clusterName, valor = 'nombre del clúster'
+***Etiqueta 1:*** Clave = clusterName, valor = "nombre del clúster"
 
 ***Etiqueta 2:*** Clave = resourceName, valor = ServiceFabric
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>Eliminación de recursos específicos en Azure Portal
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Desplácese hasta el clúster de Service Fabric que quiere eliminar.
 3. Vaya a **All settings** (Toda la configuración) en la hoja de información básica.
 4. Haga clic en **Etiquetas** en **Administración de recursos** en la hoja de configuración.
@@ -82,15 +82,15 @@ Puede eliminar los recursos uno a uno mediante la ejecución de los siguientes c
 Abra una ventana de PowerShell y ejecute los siguientes cmdlets de PS:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
-Para cada uno de los recursos que quiere eliminar, ejecute lo siguiente:
+Para cada uno de los recursos que quiera eliminar, ejecute el siguiente script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Para eliminar el recurso de clúster, ejecute lo siguiente:
+Para eliminar el recurso de clúster, ejecute el siguiente script:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

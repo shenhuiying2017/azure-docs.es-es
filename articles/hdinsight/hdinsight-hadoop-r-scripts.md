@@ -1,32 +1,30 @@
 ---
-title: "Uso de R en HDInsight para personalizar clústeres: Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo instalar R mediante la acción de script y usar R en clústeres de HDInsight."
+title: 'Uso de R en HDInsight para personalizar clústeres: Azure | Microsoft Docs'
+description: Obtenga información sobre cómo instalar R mediante la acción de script y usar R en clústeres de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: be851270-afa5-4af0-a69e-2d343a4deeb7
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c5fb38de8b1023a05709d07ba17b0c776c87957e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Instalación y uso de R en clústeres de Hadoop para HDInsight
 
 Obtenga información sobre cómo personalizar un clúster de HDInsight basado en Windows con R mediante la acción de script, y cómo usar R en clústeres de HDInsight. La [oferta HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) incluye R Server como parte del clúster de HDInsight. Esto permite que los scripts de R usen MapReduce y Spark para ejecutar cálculos distribuidos. Para obtener más información, consulte [Get started using R Server on HDInsight](r-server/r-server-get-started.md)(Introducción a R Server en HDInsight). Para obtener información sobre el uso de R con un clúster basado en Linux, consulte [Instalación y uso de R en clústeres de Hadoop para HDinsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)
 
-Puede instalar R en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark) en HDInsight de Azure mediante la *acción de script*. Hay un script de ejemplo para instalar R en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Puede instalar R en cualquier tipo de clúster (Hadoop, Storm, HBase, Spark) en HDInsight de Azure mediante la *acción de script*. Un script de ejemplo para instalar R en un clúster de HDInsight se encuentra disponible desde un blob de solo lectura de Azure Storage en [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 **Artículos relacionados**
 
@@ -55,10 +53,10 @@ Un [script de ejemplo](https://hdiconfigactions.blob.core.windows.net/rconfigact
 
     <table border='1'>
         <tr><th>Propiedad</th><th>Valor</th></tr>
-        <tr><td>Nombre</td>
+        <tr><td>NOMBRE</td>
             <td>Especifique un nombre para la acción de script, por ejemplo, <b>Instalar R</b>.</td></tr>
         <tr><td>Identificador URI de script</td>
-            <td>Especifique el URI al script que se invoca para personalizar el clúster, por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>Especifique el identificador URI al script que se ha invocado para personalizar el clúster, por ejemplo, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>Tipo de nodo</td>
             <td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
         <tr><td>Parámetros</td>
@@ -95,10 +93,10 @@ Las dos primeras líneas llaman a las bibliotecas de RHadoop instaladas con R. L
 
 
 ## <a name="install-r-using-aure-powershell"></a>Instalación de R mediante Azure PowerShell
-Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  El ejemplo muestra cómo instalar Spark con Azure PowerShell. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  El ejemplo muestra cómo instalar Spark con Azure PowerShell. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 ## <a name="install-r-using-net-sdk"></a>Instalación de R con .NET SDK
-Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Deberá personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
+Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). El ejemplo muestra cómo instalar Spark con .NET SDK. Debe personalizar el script para usar [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 ## <a name="see-also"></a>Otras referencias
 * [Instalación y uso de R en clústeres de Hadoop para HDInsight (Linux)](hdinsight-hadoop-r-scripts-linux.md)

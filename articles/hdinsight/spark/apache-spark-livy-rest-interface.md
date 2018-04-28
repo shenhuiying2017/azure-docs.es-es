@@ -1,9 +1,9 @@
 ---
-title: "Uso de Livy Spark para enviar trabajos a un clúster Spark de Azure HDInsight | Microsoft Docs"
-description: "Obtenga información sobre cómo usar la API de REST de Apache Spark para enviar trabajos de Spark de forma remota a un clúster de Azure HDInsight."
+title: Uso de Livy Spark para enviar trabajos a un clúster Spark de Azure HDInsight | Microsoft Docs
+description: Obtenga información sobre cómo usar la API de REST de Apache Spark para enviar trabajos de Spark de forma remota a un clúster de Azure HDInsight.
 keywords: API de REST de Apache Spark, Livy Spark
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -11,17 +11,15 @@ tags: azure-portal
 ms.assetid: 2817b779-1594-486b-8759-489379ca907d
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 05a50488793482ef761f34f4729c52181bc3eaf4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 29cf245a03b38be4f5396a3c83c966a27cf038f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Uso de la API de REST de Apache Spark para enviar trabajos remotos a un clúster Spark de HDInsight
 
@@ -173,7 +171,7 @@ Un clúster de HDInsight 3.5 deshabilita de forma predeterminada el uso de rutas
 
 Si se conecta a un clúster de HDInsight Spark desde una instancia de Azure Virtual Network, puede conectarse directamente a Livy en el clúster. En tal caso, la dirección URL del punto de conexión de Livy es `http://<IP address of the headnode>:8998/batches`. Aquí, **8998** es el puerto en el que se ejecuta Livy en el nodo principal del clúster. Para más información sobre el acceso a los servicios en puertos no públicos, vea [Puertos utilizados por los servicios Hadoop en HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Estos son algunos de los problemas que pueden surgir a la hora de utilizar Livy para el envío de trabajo remoto a clústeres de Spark.
 

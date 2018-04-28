@@ -12,31 +12,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Solución de problemas de una máquina virtual de Azure mediante la virtualización anidada en Azure
 
-En este artículo se muestra cómo crear un entorno de virtualización anidada en Microsoft Azure con el fin de que pueda montar el disco de la máquina virtual con problemas en el host de Hyper-V (máquina virtual de recuperación) y solucionar los problemas que puedan surgir.
+En este artículo se muestra cómo crear un entorno de virtualización anidada en Microsoft Azure con el fin de que pueda montar el disco de la máquina virtual con problemas en el host de Hyper-V (máquina virtual de rescate) y solucionar los problemas que puedan surgir.
 
-## <a name="prerequisite"></a>Requisito previo
+## <a name="prerequisites"></a>requisitos previos
 
-Para montar la máquina virtual con problemas, la máquina virtual de recuperación debe cumplir los siguientes requisitos previos:
+Para montar la máquina virtual con problemas, la máquina virtual de rescate debe cumplir los siguientes requisitos previos:
 
--   La máquina virtual de recuperación debe estar en la misma ubicación que la máquina virtual con problemas.
+-   La máquina virtual de rescate debe estar en la misma ubicación que la máquina virtual con problemas.
 
--   La máquina virtual de recuperación debe estar en el mismo grupo de recursos que la máquina virtual con problemas.
+-   La máquina virtual de rescate debe estar en el mismo grupo de recursos que la máquina virtual con problemas.
 
--   La máquina virtual de recuperación debe usar el mismo tipo de cuenta de almacenamiento (Estándar o Premium) que la máquina virtual con problemas.
+-   La máquina virtual de rescate debe usar el mismo tipo de cuenta de almacenamiento (Estándar o Premium) que la máquina virtual con problemas.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>Paso 1: Creación de una máquina virtual de recuperación e instalación del rol de Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Paso 1: Creación de una máquina virtual de rescate e instalación del rol de Hyper-V
 
-1.  Cree una nueva máquina virtual de recuperación:
+1.  Cree una máquina virtual de rescate:
 
     -  Sistema operativo: Windows Server 2016 Datacenter
 
@@ -46,13 +46,13 @@ Para montar la máquina virtual con problemas, la máquina virtual de recuperaci
 
     -  Seleccione el mismo tipo de almacenamiento que la máquina virtual con problemas (Estándar o Premium).
 
-2.  Una vez creada la máquina virtual de recuperación, establezca una conexión de escritorio remoto con la máquina virtual de recuperación.
+2.  Una vez creada la máquina virtual de rescate, establezca una conexión de escritorio remoto con ella.
 
 3.  En Administrador del servidor, seleccione **Administrar** > **Agregar roles y características**.
 
 4.  En la sección **Tipo de instalación**, seleccione **Instalación basada en características o en roles**.
 
-5.  En la sección **Seleccionar servidor de destino**, asegúrese de que la máquina virtual de recuperación esté seleccionada.
+5.  En la sección **Seleccionar servidor de destino**, asegúrese de que la máquina virtual de rescate esté seleccionada.
 
 6.  Seleccione **Rol de Hyper-V** > **Agregar características**.
 
@@ -70,25 +70,25 @@ Para montar la máquina virtual con problemas, la máquina virtual de recuperaci
 
 13. Permita que el servidor instale el rol de Hyper-V. Esta operación tarda unos minutos y el servidor se reiniciará automáticamente.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>Paso 2: Creación de la máquina virtual con problemas en el servidor de Hyper-V de la máquina virtual de recuperación
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Paso 2: Creación de la máquina virtual con problemas en el servidor de Hyper-V de la máquina virtual de rescate
 
 1.  Registre el nombre del disco en la máquina virtual con problemas y, a continuación, elimínela. Asegúrese de conservar todos los discos conectados. 
 
-2.  Conecte el disco del sistema operativo de la máquina virtual con problemas como un disco de datos de la máquina virtual de recuperación.
+2.  Conecte el disco del sistema operativo de la máquina virtual con problemas como disco de datos de la máquina virtual de rescate.
 
-    1.  Una vez eliminada la máquina virtual con problemas, vaya a la máquina virtual de recuperación.
+    1.  Una vez eliminada la máquina virtual con problemas, vaya a la máquina virtual de rescate.
 
     2.  Seleccione **Discos** y, a continuación, **Agregar disco de datos**.
 
     3.  Seleccione el disco de la máquina virtual con problemas y, a continuación, **Guardar**.
 
-3.  Después de haber conectado correctamente el disco, establezca una conexión de escritorio remoto con la máquina virtual de recuperación.
+3.  Después de haber conectado correctamente el disco, establezca una conexión de escritorio remoto con la máquina virtual de rescate.
 
 4.  Abra Administración de discos (diskmgmt.msc). Asegúrese de que el disco de la máquina virtual con problemas esté establecido en **Sin conexión**.
 
 5.  Abra el Administrador de Hyper-V y, en **Administrador del servidor**, seleccione **Rol de Hyper-V**. Haga clic con el botón derecho en el servidor y, a continuación, seleccione **Administrador de Hyper-V**.
 
-6.  En Administrador de Hyper-V, haga clic con el botón derecho en la máquina virtual de recuperación y, a continuación, seleccione **Nuevo** > **Máquina virtual** > **Siguiente**.
+6.  En Administrador de Hyper-V, haga clic con el botón derecho en la máquina virtual de rescate y seleccione **Nuevo** > **Máquina virtual** > **Siguiente**.
 
 7.  Escriba un nombre para la máquina virtual y, a continuación, seleccione **Siguiente**.
 
@@ -125,7 +125,7 @@ Para montar la máquina virtual con problemas, la máquina virtual de recuperaci
 
 1.  Cuando la máquina virtual vuelva a estar en línea, apáguela en el administrador de Hyper-V.
 
-2.  Vaya a [Azure Portal](https://portal.azure.com), seleccione Máquina virtual de recuperación > Discos y copie el nombre del disco. Utilizará el nombre en el paso siguiente. Desconecte el disco fijo de la máquina virtual de recuperación.
+2.  Vaya a [Azure Portal](https://portal.azure.com), seleccione la máquina virtual de rescate > Discos y copie el nombre del disco. Utilizará el nombre en el paso siguiente. Desconecte el disco fijo de la máquina virtual de rescate.
 
 3.  Vaya a **Todos los recursos**, busque el nombre del disco y, a continuación, seleccione el disco.
 

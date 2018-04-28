@@ -1,6 +1,6 @@
 ---
-title: "Límites de solicitudes de Azure Resource Manager| Microsoft Docs"
-description: "En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción."
+title: Límites de solicitudes de Azure Resource Manager| Microsoft Docs
+description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 04/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc109cdaeade900e239624f408cea2a1f448ae5a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1d670fd7a9a165977fa5c8d3ce4caf5ff1b1df1e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 Para cada suscripción e inquilino, los límites de Resource Manager leen 15 000 solicitudes y escriben 1200 cada hora. Estos límites se aplican a cada instancia de Azure Resource Manager. En cada región de Azure hay varias instancias, y Azure Resource Manager está implementado en todas las regiones de Azure.  Por lo tanto, en la práctica, los límites son realmente mucho mayores que los mencionados anteriormente, ya que las solicitudes del usuario normalmente se suministran desde muchas instancias diferentes.
@@ -36,8 +36,8 @@ Puede determinar el número de solicitudes restantes examinando los encabezados 
 
 | Encabezado de respuesta | DESCRIPCIÓN |
 | --- | --- |
-| x-ms-ratelimit-Remaining-Subscription-Reads |Lecturas restantes del ámbito de la suscripción |
-| x-ms-ratelimit-Remaining-Subscription-Writes |Escrituras restantes del ámbito de la suscripción |
+| x-ms-ratelimit-Remaining-Subscription-Reads |Lecturas restantes del ámbito de la suscripción. Este valor lo devuelven las operaciones de lectura. |
+| x-ms-ratelimit-Remaining-Subscription-Writes |Escrituras restantes del ámbito de la suscripción. Este valor lo devuelven las operaciones de escritura. |
 | x-ms-ratelimit-Remaining-tenant-Reads |Lecturas restantes del ámbito del inquilino |
 | x-ms-ratelimit-Remaining-tenant-Writes |Escrituras restantes del ámbito del inquilino |
 | x-ms-ratelimit-Remaining-Subscription-Resource-Requests |Solicitudes de tipos de recursos restantes del ámbito de la suscripción<br /><br />Este valor de encabezado solo se devuelve si un servicio ha invalidado el límite predeterminado. Resource Manager agrega este valor en lugar de las lecturas o escrituras de la suscripción. |
@@ -70,7 +70,6 @@ Get-AzureRmResourceGroup -Debug
 Que devuelve muchos valores, incluido el siguiente valor de respuesta:
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -79,7 +78,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+Para obtener los límites de escritura, utilice una operación de escritura: 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+```
+
+Esta operación devuelve muchos valores, incluidos los siguientes:
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 En la **CLI de Azure**, recupere el valor del encabezado mediante la opción más detallada.
@@ -88,24 +105,41 @@ En la **CLI de Azure**, recupere el valor del encabezado mediante la opción má
 az group list --verbose --debug
 ```
 
-Que devuelve muchos valores, incluido el siguiente objeto:
+Esta operación devuelve muchos valores, incluidos los siguientes:
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+Para obtener los límites de escritura, utilice una operación de escritura: 
+
+```azurecli
+az group create -n myresourcegroup --location westus --verbose --debug
+```
+
+Esta operación devuelve muchos valores, incluidos los siguientes:
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## <a name="waiting-before-sending-next-request"></a>Espera antes de enviar la solicitud siguiente
-Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el código de estado HTTP **429** y un valor **Retry-After** del encabezado. El valor **Retry-After** valor especifica el número de segundos que debe esperar (o estar en estado de suspensión) la aplicación antes de enviar la solicitud siguiente. Si envía una solicitud antes de que haya transcurrido el valor de reintento, no se procesa la solicitud y se devuelve un nuevo valor de reintento.
+Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el código de estado HTTP **429** y un valor **Retry-After** del encabezado. El valor **Retry-After** valor especifica el número de segundos que debe esperar (o estar en estado de suspensión) la aplicación antes de enviar la solicitud siguiente. Si envía una solicitud antes de que haya transcurrido el tiempo especificado en el valor de reintento, la solicitud no se procesará y se devolverá un nuevo valor de reintento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

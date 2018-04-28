@@ -1,11 +1,11 @@
 ---
-title: "Cambio de la configuración de un clúster de Azure Service Fabric | Microsoft Docs"
-description: "En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar."
+title: Cambio de la configuración de un clúster de Azure Service Fabric | Microsoft Docs
+description: En este artículo se describe la configuración de Fabric y las directivas de actualización de Fabric que se pueden personalizar.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalización de la configuración de un clúster de Service Fabric y una directiva de actualización de Fabric
 En este documento se explica cómo personalizar las diversas opciones de configuración de Fabric y la directiva de actualización de Fabric para el clúster de Service Fabric. Puede personalizarlos en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager.
@@ -302,7 +302,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |RemoveServiceResponseHeaders|string, el valor predeterminado es L"Date; Server"|estática|Lista de encabezados de respuesta separados por punto y coma o comas que se eliminarán de la respuesta del servicio antes de enviarla al cliente. Si se establece en una cadena vacía, se pasarán todos los encabezados que devuelva el servicio como estén. es decir, no se sobrescribirá la fecha ni el servidor. |
 |ApplicationCertificateValidationPolicy|string, el valor predeterminado es L"None"|estática| ApplicationCertificateValidationPolicy: None: no se valida el certificado de servidor; la solicitud se realiza correctamente. ServiceCertificateThumbprints: hace referencia a la configuración ServiceCertificateThumbprints para la lista separada por comas de las huellas digitales de los certificados remotos en los que puede confiar el proxy inverso. ServiceCommonNameAndIssuer: hace referencia a la configuración ServiceCommonNameAndIssuer para el nombre del firmante y la huella digital del emisor de los certificados remotos en los que puede confiar el proxy inverso. |
 |ServiceCertificateThumbprints|string, el valor predeterminado es L""|Dinámica| |
-|CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 0x20000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT aa376078 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |IgnoreCrlOfflineError|bool, el valor predeterminado es TRUE|Dinámica|Especifica si se ignoran los errores de CRL sin conexión de la verificación del certificado del servicio o la aplicación. |
 |SecureOnlyMode|bool, el valor predeterminado es FALSE|Dinámica| SecureOnlyMode: true. El proxy inverso solo reenviará a servicios que publican puntos de conexión seguros. false: el proxy inverso puede reenviar solicitudes a puntos de conexión seguros o no seguros.  |
 |ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica| |

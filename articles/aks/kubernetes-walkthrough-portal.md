@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 4aad45559d167e6c046822200c9bbb98113d463b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5bb758637d7b23f206f78d1604f985c2985d4410
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Container Service (AKS)
 
@@ -83,6 +83,11 @@ Abra Cloud Shell mediante el botón de la esquina superior derecha de Azure Port
 
 ![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+Especificación de la suscripción (si aún no lo ha hecho)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Use el comando [az aks get-credentials][az-aks-get-credentials] para configurar kubectl para conectarse a su clúster de Kubernetes.
 
 Copie y pegue el siguiente comando en Cloud Shell. Si es necesario, modifique el nombre del clúster y del grupo de recursos.
@@ -110,7 +115,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usará un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote.
 
-Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, puede crear el archivo mediante vi o Nano, como si trabajara en un sistema físico o virtual.
+Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, cree el archivo mediante vi o Nano, como si trabajara en un sistema físico o virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +216,13 @@ Una vez que la dirección *EXTERNAL-IP* haya cambiado de *pendiente* a una *dire
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Ahora ya puede navegar a la dirección IP externa para ver la aplicación Azure Vote.
+Ahora, vaya a la dirección IP externa para ver la aplicación Azure Vote.
 
 ![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
 
-Cuando el clúster ya no es necesario, puede eliminar el grupo de recursos de clúster, que elimina todos los recursos asociados. Esta operación se puede realizar en Azure Portal; para ello, seleccione el grupo de recursos y haga clic en el botón Eliminar. Como alternativa, el comando [az group delete][az-group-delete] se puede usar en Cloud Shell.
+Cuando el clúster ya no sea necesario, elimine el grupo de recursos del clúster, que elimina todos los recursos asociados. Esta operación se puede realizar en Azure Portal; para ello, seleccione el grupo de recursos y haga clic en el botón Eliminar. Como alternativa, el comando [az group delete][az-group-delete] se puede usar en Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

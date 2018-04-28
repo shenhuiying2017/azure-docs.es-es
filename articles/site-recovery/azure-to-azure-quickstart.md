@@ -1,22 +1,19 @@
 ---
-title: "Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)"
-description: "En esta guía de inicio rápido se indican los pasos necesarios para replicar una máquina virtual de Azure de una región de Azure a otra región."
+title: Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)
+description: En esta guía de inicio rápido se indican los pasos necesarios para replicar una máquina virtual de Azure de una región de Azure a otra región.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 02/07/2018
+ms.date: 04/08/2018
 ms.author: raynew
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 213b218a50506ace2298aa3f77721db1b81e2efe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)
 
@@ -26,9 +23,9 @@ En esta guía de inicio rápido se describe cómo replicar una máquina virtual 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com/.
+Inicie sesión en Azure Portal en http://portal.azure.com.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Habilitación de la replicación para la máquina virtual de Azure
 

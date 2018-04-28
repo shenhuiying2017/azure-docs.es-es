@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la línea de comandos de Java de Azure AD | Microsoft Docs"
-description: "Cómo crear una aplicación de línea de comandos de Java que inicie la sesión de usuarios para tener acceso a una API."
+title: Introducción a la línea de comandos de Java de Azure AD | Microsoft Docs
+description: Cómo crear una aplicación de línea de comandos de Java que inicie la sesión de usuarios para tener acceso a una API.
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0e12711e4a7e67861d61ae4575c4956531cf841
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Utilización de una aplicación de línea de comandos de Java para tener acceso a una API con Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -258,7 +258,7 @@ Ahora debería tener un archivo `adal4jsample.war` en su directorio `/targets`. 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> Es muy fácil de implementar un WAR con los servidores Tomcat más recientes. Simplemente vaya a `http://localhost:8080/manager/` y siga las instrucciones acerca de cómo cargar el archivo ``adal4jsample.war`. Se implementará automáticamente con el punto de conexión correcto.
+> Es muy fácil de implementar un WAR con los servidores Tomcat más recientes. Basta con acceder a `http://localhost:8080/manager/` y seguir las instrucciones acerca de cómo cargar el archivo `adal4jsample.war`. Se implementará automáticamente con el punto de conexión correcto.
 > 
 > 
 

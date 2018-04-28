@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Notificar los datos de uso de Azure Stack a Azure 
 
@@ -27,7 +27,7 @@ Los datos de uso, también denominados datos de consumo, representan la cantidad
 Los sistemas de varios nodos de Azure Stack que usan el modelo de facturación basado en el consumo deben notificar datos de uso a Azure para la facturación.  Los operadores de Azure Stack deben configurar su instancia de Azure Stack para informar de los datos de uso a Azure.
 
 > [!NOTE]
-> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página sobre cómo comprar Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
+> Los informes de datos de uso son obligatorios para los usuarios de varios nodos de Azure Stack con una licencia de modelo de pago por uso. Es opcional para los clientes con una licencia de modelo de capacidad (vea la [página sobre cómo comprar Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)). Para los usuarios del Kit de desarrollo de Azure Stack, los operadores de Azure Stack pueden notificar los datos de uso y probar la característica. Sin embargo, no se cobrará a los usuarios por el uso. 
 
 
 ![flujo de facturación](media/azure-stack-usage-reporting/billing-flow.png)

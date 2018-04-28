@@ -1,11 +1,11 @@
 ---
-title: "Descripción del clúster de Cluster Resource Manager | Microsoft Docs"
-description: "Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y funcionalidades de nodo en Cluster Resource Manager."
+title: Descripción del clúster de Cluster Resource Manager | Microsoft Docs
+description: Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y funcionalidades de nodo en Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
 ms.service: Service-Fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26ce9e96dd4df170e80c2c61dcc08c70357eec22
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 396f1d3d8c69ba3204d16f06d49656fd138a1126
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descripción de un clúster de Service Fabric
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Cluster Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster. Al aplicar estas reglas importantes, también trata de optimizar el consumo de recursos del clúster.
@@ -95,7 +95,8 @@ No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconveniente
 El modelo más habitual es la matriz FD/UD, en la que los FD (dominios de error) y los UD forman una tabla donde los nodos se colocan empezando por la diagonal. Este es el modelo que se utiliza de forma predeterminada en clústeres de Service Fabric en Azure. Para los clústeres con muchos nodos, todo tiene un aspecto parecido al patrón de matriz denso de arriba.
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restricciones de dominio de error y de actualización y el comportamiento resultante
-Cluster Resource Manager trata el deseo de mantener un servicio en equilibrio entre los dominios de error y de actualización como una restricción. Para más información sobre las restricciones, vea [este artículo](service-fabric-cluster-resource-manager-management-integration.md). Las restricciones de dominios de error y de actualización se definen de esta forma: "para una partición de servicio específica, nunca tiene que haber una diferencia *mayor que uno* en el número de réplicas (instancias de servicios sin estado o réplicas de servicios con estado) entre dos dominios". Esto evita determinados movimientos o disposiciones que infringen esta restricción.
+### <a name="default-approach"></a>*Enfoque predeterminado*
+De forma predeterminada, el administrador de recursos del clúster mantiene los servicios equilibrados en los dominios de error y actualización. Esto se modela como una [restricción](service-fabric-cluster-resource-manager-management-integration.md). Las restricciones de dominio de error y de actualización se definen de esta forma: "para una partición de servicio específica, nunca tiene que haber una diferencia mayor que uno en el número de objetos de servicio (instancias de servicio sin estado o réplicas de servicios con estado) entre dos dominios en el mismo nivel de jerarquía". Digamos que esta restricción proporciona una garantía de "diferencia máxima". La restricción de dominio de error y actualización impide ciertos movimientos o disposiciones que infringen la regla indicada anteriormente. 
 
 Veamos un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado con 5 dominios de error y 5 dominios de actualización.
 
@@ -106,6 +107,8 @@ Veamos un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado c
 | **UD2** | | |N3 | | |
 | **UD3** | | | |N4 | |
 | **UD4** | | | | |N5 |
+
+*Configuración 1*
 
 Ahora supongamos que creamos un servicio con un TargetReplicaSetSize (o, para un servicio sin estado un InstanceCount) de cinco. Las réplicas se dirigen a N1-N5. De hecho, nunca se usará N6, independientemente del número de servicios como este que cree. Pero ¿por qué? Echemos un vistazo a la diferencia entre el diseño actual y lo que sucedería si se elige N6.
 
@@ -120,6 +123,9 @@ Este es el diseño que obtuvimos y el número total de las réplicas por dominio
 | **UD4** | | | | |R5 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
+*Diseño 1*
+
+
 Este diseño se equilibra en términos de nodos por dominio de error y de actualización. También está equilibrado en cuanto al número de réplicas por dominios de error y de actualización. Cada dominio tiene el mismo número de nodos y el mismo número de réplicas.
 
 Ahora, echemos un vistazo a lo que sucedería si hubiéramos utilizado N6 en lugar de N2. ¿Cómo se distribuirían las réplicas entonces?
@@ -133,7 +139,10 @@ Ahora, echemos un vistazo a lo que sucedería si hubiéramos utilizado N6 en lug
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |2 |0 |1 |1 |1 |- |
 
-Este diseño no cumple la definición de la restricción de dominio de error. FD0 tiene 2 réplicas, mientras que FD1 tiene 0, por lo que la diferencia entre FD0 y FD1 es 2. Cluster Resource Manager no permite este tipo de disposición. De forma similar, si se ha seleccionado N2 y N6 (en lugar de N1 y N2), obtendríamos lo siguiente:
+*Diseño 2*
+
+
+Este diseño no cumple la definición de garantía de "diferencia máxima" para la restricción de dominio de error. FD0 tiene 2 réplicas, mientras que FD1 tiene 0, por lo que la diferencia entre FD0 y FD1 es 2, que es mayor que la diferencia máxima de 1. Como se ha infringido la restricción, el Cluster Resource Manager no permite este tipo de disposición. De forma similar, si se ha seleccionado N2 y N6 (en lugar de N1 y N2), obtendríamos lo siguiente:
 
 |  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
 | --- |:---:|:---:|:---:|:---:|:---:|:---:|
@@ -144,7 +153,85 @@ Este diseño no cumple la definición de la restricción de dominio de error. FD
 | **UD4** | | | | |R4 |1 |
 | **FDTotal** |1 |1 |1 |1 |1 |- |
 
-Este diseño se equilibra en cuanto a dominios de error. Sin embargo, ahora infringe la restricción de actualización de dominio. Esto es porque UD0 tiene cero réplicas, mientras que UD1 tiene dos. Por lo tanto, este diseño tampoco es válido y Cluster Resource Manager no puede seleccionarlo. 
+*Diseño 3*
+
+
+Este diseño se equilibra en cuanto a dominios de error. Sin embargo, ahora infringe la restricción de dominio de actualización porque UD0 tiene cero réplicas, mientras que UD1 tiene dos. Por lo tanto, este diseño tampoco es válido y Cluster Resource Manager no puede seleccionarlo.
+
+Este enfoque para la distribución de réplicas con estado o instancias sin estado proporciona la mejor tolerancia a errores posible. En una situación en que un dominio deja de funcionar, se pierde el número mínimo de instancias o réplicas. 
+
+Por otro lado, este enfoque puede ser demasiado estricto y no permite que el clúster use todos los recursos. Para determinadas configuraciones de clúster, no se pueden usar determinados nodos. Esto puede provocar que Service Fabric no coloque sus servicios, lo que da lugar a mensajes de advertencia. En el ejemplo anterior, no se pueden usar algunos de los nodos del clúster (N6 en el ejemplo dado). Aunque agregase nodos a ese clúster (N7 a N10), solo se colocarían réplicas o instancias en N1 a N5 debido a restricciones de dominio de error y de actualización. 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | |N10 |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | |N9 |N5 |
+
+*Configuración 2*
+
+
+### <a name="alternative-approach"></a>*Enfoque alternativo*
+
+El administrador de recursos de clúster es compatible con otra versión de la restricción de dominio de error y de actualización que permite la ubicación y, al mismo tiempo, garantiza un nivel mínimo de seguridad. Se puede establecer la restricción de dominio de error y de actualización alternativa de la siguiente manera: "Para la partición de un servicio determinado, la distribución de réplica entre dominios debe garantizar que la partición no sufra una pérdida de cuórum". Digamos que esta restricción proporciona una garantía de "seguridad de cuórum". 
+
+> [!NOTE]
+>Para un servicio con estado, definimos *pérdida de cuórum* en una situación en que la mayoría de las réplicas de la partición están inactivas al mismo tiempo. Por ejemplo, si el valor de TargetReplicaSetSize es cinco, un conjunto de tres réplicas cualesquiera representará el cuórum. De forma similar, si el valor de TargetReplicaSetSize es 6, se necesitarán cuatro réplicas para el cuórum. En ambos casos, no pueden estar inactivas más de dos réplicas al mismo tiempo si quiere que la partición continúe funcionando con normalidad. Para un servicio sin estado, no hay nada parecido a *pérdida de cuórum*, ya que los servicios sin estado continúan funcionando con normalidad incluso si una mayoría de instancias dejan de funcionar al mismo tiempo. Por lo tanto, nos centraremos en los servicios con estado en el resto del texto.
+>
+
+Volvamos al ejemplo anterior Con la versión de "seguridad de cuórum" de la restricción, los tres diseños serían válidos. Esto se debe a que, aunque hubiera un error de FD0 en el segundo diseño o UD1 en el tercer diseño, la partición seguiría teniendo cuórum (la mayoría de sus réplicas continuarían funcionando). Con esta versión de la restricción, N6 podría utilizarse casi siempre.
+
+El enfoque de "seguridad de cuórum" proporciona más flexibilidad que el enfoque de "máxima diferencia", ya que es más fácil encontrar las distribuciones de réplica válidas en casi todas las topologías de clúster. Sin embargo, este enfoque no garantiza las mejores características de tolerancia a errores porque algunos errores son peores que otros. En el peor de los casos, podría perderse una mayoría de las réplicas con el error de un dominio y una réplica adicional. Por ejemplo, en lugar de los 3 errores que se requieren para perder el cuórum con 5 réplicas o instancias, ahora podría perder una mayoría con solo dos errores. 
+
+### <a name="adaptive-approach"></a>*Enfoque adaptable*
+Dado que ambos enfoques tienen ventajas y desventajas, hemos presentado un enfoque adaptable que combina estas dos estrategias.
+
+> [!NOTE]
+>Este será el comportamiento predeterminado a partir de la versión 6.2. de Service Fabric. 
+>
+El enfoque adaptable utiliza la lógica de "diferencia máxima" de forma predeterminada y activa la lógica de "seguridad de cuórum" solo si es necesario. Cluster Resource Manager automáticamente averigua cuál es la estrategia necesaria examinando cómo se configuran los servicios y el clúster. Para un servicio determinado: *si TargetReplicaSetSize es divisible por el número de dominios de error y el número de dominios de actualización, **y** el número de nodos es menor o igual a (número de dominios de error) * (número de dominios de actualización), Cluster Resource Manager deberá usar la lógica "basada en cuórum" para ese servicio.* Tenga en cuenta que Cluster Resource Manager usará este enfoque para los servicios sin estado y con estado, a pesar de que la pérdida de cuórum no es aplicable a los servicios sin estado.
+
+Volvamos al ejemplo anterior y supongamos que un clúster tiene ahora 8 nodos (el clúster todavía está configurado con cinco dominios de error y cinco dominios de actualización y el valor de TargetReplicaSetSize de un servicio hospedado en ese clúster continúa siendo cinco). 
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N1 | | | | |
+| **UD1** |N6 |N2 | | | |
+| **UD2** | |N7 |N3 | | |
+| **UD3** | | |N8 |N4 | |
+| **UD4** | | | | |N5 |
+
+*Configuración 3*
+
+Dado que se cumplen todas las condiciones necesarias, Cluster Resource Manager utilizará la lógica "basada en cuórum" para la distribución del servicio. Esto habilita el uso de N6 a N8. En este caso, una distribución posible para los servicios podría ser:
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |R1 | | | | |1 |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | | | |0 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |2 |1 |1 |0 |1 |- |
+
+*Diseño 4*
+
+Si el valor de TargetReplicaSetSize de su servicio se reduce a cuatro (por ejemplo), Cluster Resource Manager observará ese cambio y volverá a utilizar la lógica de "diferencia máxima" porque el valor de TargetReplicaSetSize ya no se puede dividir por el número de FD y UD. Como resultado, se producen ciertos movimientos de réplica con el fin de distribuir las cuatro réplicas restantes en los nodos N1 a N5 para no infringir la versión "diferencia máxima" de la lógica de dominio de error y dominio de actualización. 
+
+Volvamos a examinar el cuarto diseño y el valor de TargetReplicaSetSize de cinco. Si N1 se quita del clúster, el número de dominios de actualización resultante es igual a cuatro. De nuevo, el administrador de recursos de clúster comienza a utilizar una lógica de "diferencia máxima", ya que el número de UD ya no puede dividir de manera uniforme el valor de TargetReplicaSetSize del servicio. Como resultado, la réplica R1, cuando se compila de nuevo, debe llegar a N4 para no infringir la restricción de dominio de error y de actualización.
+
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
+| **UD0** |N/D |N/D |N/D |N/D |N/D |N/D |
+| **UD1** |R2 | | | | |1 |
+| **UD2** | |R3 |R4 | | |2 |
+| **UD3** | | | |R1 | |1 |
+| **UD4** | | | | |R5 |1 |
+| **FDTotal** |1 |1 |1 |1 |1 |- |
+
+*Diseño 5*
 
 ## <a name="configuring-fault-and-upgrade-domains"></a>Configuración de dominios de error y de actualización
 La definición de dominios de error y de actualización se realiza automáticamente en las implementaciones de Service Fabric hospedadas en Azure. Service Fabric se limita a recopilar la información sobre el entorno de Azure.
@@ -247,7 +334,7 @@ a través de ClusterConfig.json para las implementaciones independientes
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Restricciones de ubicación y propiedades de nodo
-A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo:
+A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados tipos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, Determinadas máquinas sirven de front-end o lado de la aplicación a la API y se exponen a los clientes o a Internet. Otras máquinas, a menudo con recursos de hardware diferentes, se encargan del trabajo de las capas de proceso o almacenamiento. Estas _no_ se suelen exponer directamente a los clientes o a Internet. Service Fabric espera que haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware específicas. Por ejemplo: 
 
 * una aplicación de n niveles existente se ha transferido "tal cual" a un entorno de Service Fabric;
 * se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad;

@@ -1,20 +1,20 @@
 ---
-title: "Registrar la suscripción de Azure con Administración de costos de Azure | Microsoft Docs"
-description: "Use la suscripción de Azure para registrarse en Azure Cost Management."
+title: Registrar la suscripción de Azure con Administración de costos de Azure | Microsoft Docs
+description: Use la suscripción de Azure para registrarse en Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: b7c1fee3276d98b6b7c611a09133804c1253384a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: abf169b84170ff44f7a2035acbb1243821f6e596
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar una suscripción individual de Azure y ver los datos de costo
 
@@ -22,9 +22,9 @@ Puede usar la suscripción de Azure para registrarse en Azure Cost Management. E
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal: http://portal.azure.com/.
+- Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Crear un registro de evaluación
+## <a name="register-with-azure-cost-management"></a>Regístrese en Azure Cost Management
 
 1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
 2. En **Overview** (Información general), haga clic en **Administración de costos**.  

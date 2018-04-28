@@ -1,11 +1,11 @@
 ---
-title: "Descripción de la factura de Azure"
-description: "Aprenda a leer y entender el uso y la factura de la suscripción de Azure"
-services: 
-documentationcenter: 
+title: Descripción de la factura de Azure
+description: Aprenda a leer y entender el uso y la factura de la suscripción de Azure
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ec4fd970c6b552d87e006f9e0ab55d3495c9b0c8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -49,7 +49,7 @@ Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos s
  | --- | --- |
 |Ciclo de facturación | Período de facturación |
  |NOMBRE |Categoría de medidor |
- |type |Subcategoría de medidor |
+ |Escriba |Subcategoría de medidor |
  |Recurso |Nombre de medidor |
  |Region |Medidor de la región |
  |Consumida |Cantidad consumida |
@@ -102,7 +102,7 @@ Si [paga mediante factura](billing-how-to-pay-by-invoice.md), envíe el pago a l
 [Cree una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar el estado de su pago. 
 
 ## <a name="tips-for-cost-management"></a>Sugerencias de administración de costes
-- Realice una estimación de los costos mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) y la [calculadora de costo total de propiedad](https://aka.ms/azure-tco-calculator) y obtenga la [información detallada sobre los precios de cada servicio](https://azure.microsoft.com/en-us/pricing/).
+- Realice una estimación de los costos mediante la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) y la [calculadora de costo total de propiedad](https://aka.ms/azure-tco-calculator) y obtenga la [información detallada sobre los precios de cada servicio](https://azure.microsoft.com/pricing/).
 - [Configure las alertas de facturación](billing-set-up-alerts.md).
 - [Revise el uso y los costos con regularidad en Azure Portal](billing-getting-started.md#costs).
 

@@ -1,11 +1,11 @@
 ---
-title: "Instalación de la extensión del explorador del panel de acceso de la aplicación - Azure| Microsoft Docs"
-description: "Corrección de los errores comunes encontrados al instalar la extensión del explorador del panel de acceso."
+title: Instalación de la extensión del explorador del panel de acceso de la aplicación - Azure| Microsoft Docs
+description: Corrección de los errores comunes encontrados al instalar la extensión del explorador del panel de acceso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: c49cfad5f362f4402be476066f0e8c0158f20d73
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
 
@@ -37,7 +37,6 @@ Para el inicio de sesión único basado en contraseña, puede usar cualquiera de
 - **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior. 
 - **Chrome**: en Windows 7 o versiones posteriores y en MacOS X o versiones posteriores.
 - **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
-- **Internet Explorer 8, 9, 10, 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
 
 ## <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
 
@@ -64,7 +63,7 @@ También puede descargar la extensión para Chrome y Edge directamente desde los
 - [Extensión para Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Uso de la extensión de inicio de sesión seguro de Mis aplicaciones
-* Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada tal y como se indica a continuación:
+* Si va utilizar una dirección URL de Mis aplicaciones que no sea `https://myapps.microsoft.com`, configure la dirección URL predeterminada siguiendo estos pasos:
    1. *Sin* iniciar sesión en la extensión, haga clic con el botón derecho en el icono de la extensión.
    2. En el menú, seleccione **My Apps URL** (URL de Mis aplicaciones).
    3. Seleccione la dirección URL predeterminada.
@@ -72,14 +71,14 @@ También puede descargar la extensión para Chrome y Edge directamente desde los
    5. Para iniciar sesión en la extensión, seleccione **Iniciar sesión para comenzar**.
 
 * Para iniciar sesión directamente en una aplicación desde el explorador, haga lo siguiente:
-   1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para comenzar**.
+   1. Después de instalar la extensión, seleccione **Iniciar sesión para comenzar** para iniciar sesión.
    2. Inicie sesión en la aplicación con la dirección URL de inicio de sesión.  
        La dirección URL de inicio de sesión suele ser la dirección URL de la aplicación que muestra el formulario de inicio de sesión.
       La extensión debe cambiar el estado e indicar que hay una contraseña disponible.
    3. Para iniciar sesión, seleccione el icono de la extensión.
 
 * Para iniciar una aplicación desde la extensión, haga lo siguiente:
-   1. Después de instalar la extensión, inicie sesión en ella seleccionando **Iniciar sesión para comenzar**.
+   1. Después de instalar la extensión, seleccione **Iniciar sesión para comenzar** para iniciar sesión.
    2. Seleccione el icono de extensión para abrir su menú.
    3. Busque una aplicación que esté disponible en el portal Mis aplicaciones.
    4. En la lista de resultados de la búsqueda, seleccione la aplicación.  

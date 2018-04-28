@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: jodebrui
-ms.openlocfilehash: cd76f475f330c49dec737d2c4a25aa75a18b41a7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 19ddcdf9a7d27535172c1e9ccfa89b3836589c84
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Use OLTP en memoria para mejorar el rendimiento de las aplicaciones en SQL Database
-[OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en bases de datos [de los planes Premium y Crítico para la empresa](sql-database-service-tiers.md) sin aumentar el plan de tarifa. 
+[OLTP en memoria](sql-database-in-memory.md) puede utilizarse para mejorar el rendimiento del procesamiento de transacciones, la ingesta de datos y los escenarios de datos transitorios, en bases de datos [de los planes Premium y Crítico para la empresa](sql-database-service-tiers-vcore.md) sin aumentar el plan de tarifa. 
 
 > [!NOTE] 
 > Más información sobre cómo [Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)

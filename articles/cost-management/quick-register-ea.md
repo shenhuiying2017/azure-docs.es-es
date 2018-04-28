@@ -1,8 +1,8 @@
 ---
-title: "Registrar el Contrato Enterprise de Azure con Administración de costos de Azure | Microsoft Docs"
+title: Registrar el Contrato Enterprise de Azure con Administración de costos de Azure | Microsoft Docs
 description: Use el Contrato Enterprise para registrarse en Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 75ae3aabf51a14ceb3326e7f3cee3e20d9b98579
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f0769340ca15f2b60cbcb2669e1a5cf9beef6b8e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar un Contrato Enterprise de Azure y ver datos de costo
 
@@ -22,9 +22,9 @@ El Contrato Enterprise se usa para registrarse en Azure Cost Management. Este re
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal: http://portal.azure.com/.
+- Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Crear un registro de evaluación
+## <a name="register-with-azure-cost-management"></a>Regístrese en Azure Cost Management
 
 1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
 2. En **Overview** (Información general), haga clic en **Administración de costos**.  

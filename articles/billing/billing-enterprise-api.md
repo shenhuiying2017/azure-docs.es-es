@@ -1,11 +1,11 @@
 ---
-title: "API de facturación de Azure Enterprise | Microsoft Docs"
-description: "Obtenga información acerca de las API de informes que permiten a los clientes de Azure Enterprise extraer datos de consumo mediante programación."
-services: 
-documentationcenter: 
+title: API de facturación de Azure Enterprise | Microsoft Docs
+description: Obtenga información acerca de las API de informes que permiten a los clientes de Azure Enterprise extraer datos de consumo mediante programación.
+services: ''
+documentationcenter: ''
 author: anandedwin
 manager: aedwin
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
 ms.service: billing
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: f7a480c77c93035e655606433aea2547a1c105cc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7ae04c7c1fdddecf40583d14f7b08dcf41941c6f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Información general de API de informes para clientes de Enterprise
 Las API de informes permiten a los clientes de Azure Enterprise extraer datos de facturación y consumo mediante programación en las herramientas de análisis de datos preferidas. 
 
 ## <a name="enabling-data-access-to-the-api"></a>Habilitación del acceso de datos a la API
-* **Generar o recuperar la clave de API**: inicie sesión en el portal de Enterprise y siga el tutorial en la sección de API de informes de la ayuda. La primera sección de este artículo de ayuda explica cómo generar o recuperar la clave de API para la inscripción especificada.
+* **Generar o recuperar la clave de API**: inicie sesión en el portal de Enterprise y vaya a Informes > Descargar uso > Clave de acceso de la API para generar o recuperar la clave de API.
 * **Pasar claves en la API**: la clave de API tiene que pasarse para cada llamada para la autenticación y autorización. La siguiente propiedad tiene que ser los encabezados HTTP.
 
 |Clave de encabezado de solicitud | Valor|

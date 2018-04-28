@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: f898c626d52b1a4e7df72284190749f4481999ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: una herramienta auxiliar que se usa para mostrar la característica de personalización de la interfaz de usuario de la página
 Este artículo es un complemento del [artículo principal sobre personalización de la interfaz de usuario](active-directory-b2c-reference-ui-customization.md) de Azure Active Directory (Azure AD) B2C. Los pasos siguientes describen cómo ejecutar la característica de personalización de la interfaz de usuario de la página mediante el contenido HTML y CSS de ejemplo que hemos proporcionado.
@@ -29,7 +29,7 @@ El contenido de ejemplo que hemos proporcionado se puede usar para personalizar 
 ## <a name="register-an-application"></a>Registro de una aplicación
 Deberá [registrar la aplicación](active-directory-b2c-app-registration.md) en el inquilino B2C que puede usarse para ejecutar la directiva. Después de registrar la aplicación, tiene algunas opciones que puede usar para ejecutar la directiva de registro:
 
-* Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que se enumeran en la sección "Introducción" de [Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión de consumidores en las aplicaciones](active-directory-b2c-overview.md#get-started).
+* Compilar una de las aplicaciones de inicio rápido de Azure AD B2C que se enumeran en la sección "Introducción" de [Versión preliminar de Azure Active Directory B2C: registro e inicio de sesión de consumidores en las aplicaciones](active-directory-b2c-overview.md).
 * Usar la aplicación de [área de juegos de Azure AD B2C](https://aadb2cplayground.azurewebsites.net) previamente compilada. Si elige usar el área de juegos, debe registrar una aplicación en el inquilino de B2C mediante el **URI de redirección**`https://aadb2cplayground.azurewebsites.net/`.
 * Use el botón **Ejecutar ahora** de la directiva en el [Portal de Azure](https://portal.azure.com/).
 
@@ -39,7 +39,7 @@ Para personalizar la apariencia de la directiva, debe crear primero los archivos
 Para los fines de este tutorial, ya hemos creado algún contenido de ejemplo y lo hemos hospedado en Azure Blob Storage. El contenido de ejemplo es una personalización muy básica del tema de nuestra empresa ficticia: "Wingtip Toys". Para probarlo en su propia directiva, siga estos pasos:
 
 1. Inicie sesión en el inquilino en el [Portal de Azure](https://portal.azure.com/) y navegue hasta la hoja de características de B2C.
-2. Haga clic en **Directivas de inicio de sesión o registro** y en su directiva (por ejemplo, "b2c\_1\_sign\_up\_sign\_in").
+2. Haga clic en **Directivas de inicio de sesión o registro**, en su directiva y, finalmente, en Editar (por ejemplo, "b2c\_1\_sign\_up\_sign\_in").
 3. Haga clic en **Personalización de la interfaz de usuario de la página** y, luego, en **Página unificada de inicio de sesión o de registro**.
 4. Cambie el conmutador **Usar página personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/unified.html`. Haga clic en **OK**.
 5. Haga clic en **Página de suscripción de cuenta local**. Cambie el conmutador **Usar plantilla personalizada** a **Sí**. En el campo **URI de página personalizada**, escriba `https://wingtiptoysb2c.blob.core.windows.net/b2c/wingtip/selfasserted.html`.

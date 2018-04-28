@@ -1,24 +1,20 @@
 ---
-title: "Instrucciones de diseño para las tablas replicadas: Azure SQL Data Warehouse | Microsoft Docs"
-description: "Recomendaciones para el diseño de tablas replicadas en el esquema de Azure SQL Data Warehouse."
+title: 'Instrucciones de diseño para las tablas replicadas: Azure SQL Data Warehouse | Microsoft Docs'
+description: Recomendaciones para el diseño de tablas replicadas en el esquema de Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ronortloff
-manager: jhubbard
-editor: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 10/23/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 575b3c5710d744e99c6e02439577a362eb17c67e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de SQL Data Warehouse. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
@@ -27,7 +23,7 @@ En este artículo se proporcionan recomendaciones para el diseño de tablas repl
 > La característica de tabla replicada está actualmente en versión preliminar pública. Algunos comportamientos están sujetos a cambios.
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Data Warehouse.  Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md). 
 
 Como parte del diseño de tablas, comprenda tanto como sea posible sobre los datos y cómo se consultan los datos.  Por ejemplo, considere estas preguntas:
@@ -84,7 +80,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertir tablas Round Robin existentes en tablas replicadas
 Si ya tiene tablas Round Robin, se recomienda convertirlas en tablas replicadas si cumplen con los criterios que se describen en este artículo. Las tablas replicadas mejoran el rendimiento con respecto a las tablas Round Robin porque eliminan la necesidad del movimiento de datos.  Una tabla Round Robin siempre requiere movimiento de datos para las combinaciones. 
 
-En este ejemplo se usa [CTAS](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para convertir la tabla DimSalesTerritory en una tabla replicada. Este ejemplo funciona independientemente de si DimSalesTerritory se distribuye por hash o Round Robin.
+En este ejemplo se usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para convertir la tabla DimSalesTerritory en una tabla replicada. Este ejemplo funciona independientemente de si DimSalesTerritory se distribuye por hash o Round Robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]   
@@ -112,7 +108,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Ejemplo de rendimiento de consultas para tablas Round Robin frente a tablas replicadas 
 
-Una tabla replicada no requiere ningún movimiento de datos para las combinaciones porque la tabla completa ya está presente en todos los nodo de proceso. Si las tablas de dimensiones se distribuyen con el método Round Robin, una combinación copia la tabla de dimensiones completa en todos los nodos de proceso. Para mover los datos, el plan de consulta contiene una operación llamada BroadcastMoveOperation. Este tipo de operación de movimiento de datos reduce el rendimiento de las consultas y se elimina mediante el uso de tablas replicadas. Para ver los pasos del plan de consulta, use la vista de catálogo del sistema [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
+Una tabla replicada no requiere ningún movimiento de datos para las combinaciones porque la tabla completa ya está presente en todos los nodo de proceso. Si las tablas de dimensiones se distribuyen con el método Round Robin, una combinación copia la tabla de dimensiones completa en todos los nodos de proceso. Para mover los datos, el plan de consulta contiene una operación llamada BroadcastMoveOperation. Este tipo de operación de movimiento de datos reduce el rendimiento de las consultas y se elimina mediante el uso de tablas replicadas. Para ver los pasos del plan de consulta, use la vista de catálogo del sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
 Por ejemplo, en la siguiente consulta en el esquema de AdventureWorks, la tabla ` FactInternetSales` se distribuye por hash. Las tablas `DimDate` y `DimSalesTerritory` son tablas de dimensiones más pequeñas. Esta consulta devuelve el total de ventas en América del Norte para el año fiscal 2004:
  
@@ -140,7 +136,7 @@ SQL Data Warehouse implementa una tabla replicada mediante el mantenimiento de u
 
 Las recompilaciones son necesarias después de que:
 - Se carguen o modifiquen datos.
-- El almacenamiento de datos se escale a un [nivel de servicio](performance-tiers.md#service-levels) diferente
+- El almacenamiento de datos se escale a una configuración DWU diferente
 - Se actualice la definición de tabla
 
 Las recompilaciones no son necesarias después de que:
@@ -178,7 +174,7 @@ Por ejemplo, en este modelo de carga se cargan datos de cuatro orígenes pero so
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Recompilar una tabla replicada después de una carga por lotes
 Para garantizar tiempos de ejecución de consultas coherentes, se recomienda forzar una actualización de las tablas replicadas después de una carga por lotes. En caso contrario, la primera consulta debe esperar a que las tablas se actualicen, lo que incluye recompilar los índices. Según el tamaño y el número de tablas replicadas afectadas, el impacto en el rendimiento puede ser significativo.  
 
-Esta consulta usa la DMV [sys.pdw_replicated_table_cache_state](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) para enumerar las tablas replicadas que se han modificado, pero no recompilado.
+Esta consulta usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) para enumerar las tablas replicadas que se han modificado, pero no recompilado.
 
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
@@ -200,8 +196,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Pasos siguientes 
 Para crear una tabla replicada, use una de estas instrucciones:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Para obtener información general de las tablas distribuidas, vea [tablas distribuidas](sql-data-warehouse-tables-distribute.md).
 

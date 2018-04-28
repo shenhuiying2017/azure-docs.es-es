@@ -1,25 +1,22 @@
 ---
-title: Reglas y grupos de reglas de CRS de firewall de aplicaciones web de Azure Application Gateway | Microsoft Docs
-description: "Esta página proporciona información sobre las reglas y grupos de reglas de CRS de firewall de aplicaciones web."
+title: Reglas y grupos de reglas de CRS de firewall de aplicaciones web de Azure Application Gateway
+description: Esta página proporciona información sobre las reglas y grupos de reglas de CRS de firewall de aplicaciones web.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
+author: vhorne
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.custom: 
+ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 03/28/2017
-ms.author: davidmu
-ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/16/2018
+ms.author: victorh
+ms.openlocfilehash: 5ba291eaa93a48e3aadc11b1f0f7b48b01683b07
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de reglas y grupos de reglas de CRS de firewall de aplicaciones web que se ofrecen
 
@@ -27,32 +24,12 @@ El firewall de aplicaciones web de Application Gateway protege las aplicaciones 
 
 Las tablas siguientes son los grupos de reglas y las reglas que están disponibles al utilizar Application Gateway con el firewall de aplicaciones web.  Cada tabla representa las reglas incluidas en un grupo de reglas para una versión específica de CRS.
 
-##<a name="owasp30"></a> OWASP_3.0
+## <a name="owasp30"></a> OWASP_3.0
 
-### <a name="crs910"></a>  <p x-ms-format-detection="none">REQUEST-910-IP-REPUTATION</p>
-
-|Identificador de regla|Descripción|
-|---|---|
-|910011|Regla 910011|
-|910012|Regla 910012|
-|910000|Solicitud de cliente malintencionado conocido (según anteriores infracciones de tráfico)|
-|910100|Dirección IP del cliente procedente de una ubicación de un país de ALTO riesgo|
-|910120|Regla 910120|
-|910130|Regla 910130|
-|910150|Dirección IP de motor de búsqueda incluida en la lista negra HTTP|
-|910160|Dirección IP de spammer incluida en la lista negra HTTP|
-|910170|Dirección IP sospechosa incluida en la lista negra HTTP|
-|910180|Dirección IP de recolector incluida en la lista negra HTTP|
-|910013|Regla 910013|
-|910014|Regla 910014|
-|910015|Regla 910015|
-|910016|Regla 910016|
-|910017|Regla 910017|
-|910018|Regla 910018|
 
 ### <a name="crs911"></a> <p x-ms-format-detection="none">REQUEST-911-METHOD-ENFORCEMENT</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |911011|Regla 911011|
 |911012|Regla 911012|
@@ -64,30 +41,10 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |911017|Regla 911017|
 |911018|Regla 911018|
 
-### <a name="crs912"></a> <p x-ms-format-detection="none">REQUEST-912-DOS-PROTECTION</p>
-
-|Identificador de regla|Descripción|
-|---|---|
-|912100|Regla 912100|
-|912012|Regla 912012|
-|912120|Ataque de denegación de servicio (DoS) identificado desde %@{tx.real_ip} (%@{tx.dos_block_counter} incidencias desde la última alerta)|
-|912130|Regla 912130|
-|912140|Regla 912140|
-|912150|Regla 912150|
-|912160|Regla 912160|
-|912170|Posible ataque de denegación de servicio (DoS) de %@{tx.real_ip} - Número de ráfagas de solicitud = %@{ip.dos_burst_counter}|
-|912013|Regla 912013|
-|912014|Regla 912014|
-|912019|Regla 912019|
-|912171|Posible ataque de denegación de servicio (DoS) de %@{tx.real_ip} - Número de ráfagas de solicitud = %@{ip.dos_burst_counter}|
-|912015|Regla 912015|
-|912016|Regla 912016|
-|912017|Regla 912017|
-|912018|Regla 912018|
 
 ### <a name="crs913"></a> <p x-ms-format-detection="none">REQUEST-913-SCANNER-DETECTION</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |913011|Regla 913011|
 |913012|Regla 913012|
@@ -105,7 +62,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs920"></a> <p x-ms-format-detection="none">REQUEST-920-PROTOCOL-ENFORCEMENT</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |920011|Regla 920011|
 |920012|Regla 920012|
@@ -159,7 +116,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |921011|Regla 921011|
 |921012|Regla 921012|
@@ -182,7 +139,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs930"></a> <p x-ms-format-detection="none">REQUEST-930-APPLICATION-ATTACK-LFI</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |930011|Regla 930011|
 |930012|Regla 930012|
@@ -199,7 +156,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs931"></a> <p x-ms-format-detection="none">REQUEST-931-APPLICATION-ATTACK-RFI</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |931011|Regla 931011|
 |931012|Regla 931012|
@@ -216,7 +173,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs932"></a> <p x-ms-format-detection="none">REQUEST-932-APPLICATION-ATTACK-RCE</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |932011|Regla 932011|
 |932012|Regla 932012|
@@ -235,7 +192,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs933"></a> <p x-ms-format-detection="none">REQUEST-933-APPLICATION-ATTACK-PHP</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |933011|Regla 933011|
 |933012|Regla 933012|
@@ -259,7 +216,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs941"></a> <p x-ms-format-detection="none">REQUEST-941-APPLICATION-ATTACK-XSS</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |941011|Regla 941011|
 |941012|Regla 941012|
@@ -292,7 +249,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs942"></a> <p x-ms-format-detection="none">REQUEST-942-APPLICATION-ATTACK-SQLI</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |942011|Regla 942011|
 |942012|Regla 942012|
@@ -320,7 +277,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs943"></a> <p x-ms-format-detection="none">REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION</p>
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |943011|Regla 943011|
 |943012|Regla 943012|
@@ -338,7 +295,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |960911|Línea de solicitud HTTP no válida|
 |981227|Error de Apache = URI no válido en la solicitud|
@@ -364,7 +321,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs21"></a> crs_21_protocol_anomalies
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |960008|Falta un encabezado host en la solicitud.|
 |960007|Encabezado host vacío|
@@ -377,7 +334,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs23"></a> crs_23_request_limits
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |960209|Nombre de argumento demasiado largo|
 |960208|Valor de argumento demasiado largo|
@@ -388,7 +345,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs30"></a> crs_30_http_policy
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |960032|Método no permitido por la directiva|
 |960010|Tipo de contenido de solicitud no permitido por una directiva|
@@ -398,7 +355,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs35"></a> crs_35_bad_robots
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |990002|La solicitud indica que un examen de seguridad ha analizado el sitio|
 |990901|La solicitud indica que un examen de seguridad ha analizado el sitio|
@@ -407,7 +364,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs40"></a>crs_40_generic_attacks
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |960024|Alerta de detección de anomalías de metacaracteres: repetición de caracteres que no se usan en las palabras|
 |950008|Inyección de etiquetas de ColdFusion no documentadas|
@@ -436,7 +393,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs41sql"></a> crs_41_sql_injection_attacks
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |981231|Secuencia de comentario SQL detectada|
 |981260|Codificación hexadecimal de SQL identificada|
@@ -473,7 +430,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs41xss"></a> crs_41_xss_attacks
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |973336|Filtro XSS - Categoría 1 = Vector de etiqueta de script|
 |973338|Filtro XSS - Categoría 3 = Vector URI de JavaScript|
@@ -578,13 +535,13 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 
 ### <a name="crs42"></a> crs_42_tight_security
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |950103|Ataque punto punto barra|
 
 ### <a name="crs45"></a> crs_45_trojans
 
-|Identificador de regla|Descripción|
+|Identificador de regla|DESCRIPCIÓN|
 |---|---|
 |950110|Acceso a puerta trasera|
 |950921|Acceso a puerta trasera|

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con GaggleAMP | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GaggleAMP."
+title: 'Tutorial: Integración de Azure Active Directory con GaggleAMP | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GaggleAMP.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: integración de Azure Active Directory con GaggleAMP
 
@@ -27,16 +27,16 @@ Integrar GaggleAMP con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a GaggleAMP.
 - Puede permitir que los usuarios inicien sesión automáticamente en GaggleAMP (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con GaggleAMP, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión único en GaggleAMP
+- Una suscripción habilitada para el inicio de sesión único en GaggleAMP
 
 > [!NOTE]
 > Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
@@ -44,10 +44,10 @@ Para configurar la integración de Azure AD con GaggleAMP, necesita los siguient
 Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 - No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de GaggleAMP desde la Galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de GaggleAMP en Azure AD, deberá agregar Gaggle
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **GaggleAMP**.
 
@@ -86,7 +86,7 @@ Para establecer la relación de vínculo en GaggleAMP, asigne el valor de **nomb
 
 Para configurar y probar el inicio de sesión único de Azure AD con GaggleAMP, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de GaggleAMP](#creating-a-gaggleamp-test-user)**: para tener un homólogo de Britta Simon en GaggleAMP que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -106,44 +106,48 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. En la sección de **Dominio y direcciones URL de GaggleAMP**, siga estos pasos:
+3. En la sección **GaggleAMP Domain and URLs** (Dominio y direcciones URL de GaggleAMP), realice los siguientes pasos si quiere configurar la aplicación en modo iniciado por **IDP**:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.gaggleamp.com`.
+     En el cuadro de texto **Identificador**, escriba la dirección URL: `https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Para obtener este valor, póngase en contacto con el [equipo de soporte técnico de clientes de GaggleAMP](mailto:sales@gaggleamp.com). 
+4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+
+    ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://gaggleamp.com/i/<customerid>`.
+
+    > [!NOTE]
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Para obtener este valor, póngase en contacto con el [equipo de atención al cliente de GaggleAMP](mailto:sales@gaggleamp.com).
  
-4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+5. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Haga clic en el botón **Guardar** .
+6. Haga clic en el botón **Guardar** .
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. En la sección **Configuración de GaggleAMP**, haga clic en **Configurar GaggleAMP** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
+7. En la sección **Configuración de GaggleAMP**, haga clic en **Configurar GaggleAMP** para abrir la ventana **Configurar inicio de sesión**. Copie **SAML Entity ID and SAML Single Sign-On Service URL** (URL del servicio de inicio de sesión único de SAML e Identificador de entidad de SAML) de la sección **Referencia rápida**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. En otra instancia del explorador, desplácese a la página SSO de SAML creada por el equipo de soporte de Gaggle (por ejemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+8. En otra instancia del explorador, vaya a la página de SSO de SAML que ha creado para usted el equipo de soporte técnico de Gaggle (por ejemplo:  *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. En la página **SAML SSO** (Inicio de sesión único de SAML), realice los pasos siguientes:  
+9. En la página **SAML SSO** (Inicio de sesión único de SAML), realice los pasos siguientes:  
    
-    ![Inicio de sesión único de GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **URL del emisor** que ha copiado de Azure Portal. 
- 
-    b. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal. 
+    ![Inicio de sesión único de GaggleAMP](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Haga clic en **Guardar**      
-
-    d. Envíe el certificado **Certificado (Base64)** al [equipo de soporte técnico de GaggleAMP](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. En el menú desplegable **Proveedor de identidades**, seleccione **Otro**.
+    
+    b. En el cuadro de texto **Emisor de proveedor de identidades**, pegue el valor de **URL del emisor** que ha copiado de Azure Portal.
+    
+    c. En el cuadro de texto **Dirección URL del inicio de sesión único del proveedor de identidades**, pegue el valor de **Dirección URL del servicio de inicio de sesión único** que ha copiado de Azure Portal.
+    
+    d. Abra el archivo descargado **Certificado (Base64)** en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado X.509**.
+    
+    e. Haga clic en **Save**(Guardar).
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
@@ -174,7 +178,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-gaggleamp-test-user"></a>Creación de un usuario de prueba de GaggleAMP
 
@@ -223,8 +227,6 @@ Al hacer clic en el icono de GaggleAMP en el panel de acceso, debería iniciar s
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ Al hacer clic en el icono de GaggleAMP en el panel de acceso, debería iniciar s
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

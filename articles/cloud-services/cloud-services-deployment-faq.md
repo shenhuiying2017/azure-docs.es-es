@@ -1,11 +1,11 @@
 ---
-title: "P+F sobre los problemas de implementación con Microsoft Azure Cloud Services | Microsoft Docs"
-description: "En este artículo se enumeran las preguntas frecuentes sobre la implementación con Microsoft Azure Cloud Services."
+title: P+F sobre los problemas de implementación con Microsoft Azure Cloud Services | Microsoft Docs
+description: En este artículo se enumeran las preguntas frecuentes sobre la implementación con Microsoft Azure Cloud Services.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: 61d1cc511bf541e75ffda3e84b116f78a434f6f1
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: effc0eb872a1f63e32c1958234c173a53c381620
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementación con Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -79,4 +79,4 @@ Dado que el servicio en la nube es un recurso clásico que no es directamente co
 
 En el portal clásico, el paquete se cargó directamente al nivel de API de administración y, a continuación, el nivel de API guardó temporalmente el paquete en una cuenta de almacenamiento interno.  Debido a este proceso, se crean problemas de rendimiento y escalabilidad porque el nivel de API no se diseñó para ser un servicio de carga de archivos.  En Azure Portal (modelo de implementación de administrador de recursos), hemos omitido el paso intermedio que supone cargar contenido primero en el nivel de API, lo que da lugar a implementaciones más rápidas y fiables. 
 
-En cuanto al costo, este es ínfimo, por lo que puede volver a usar la misma cuenta de almacenamiento a través de todas las implementaciones. Puede usar la [calculadora de costo de almacenamiento](https://azure.microsoft.com/en-us/pricing/calculator/#storage1) para determinar el costo que supone cargar, descargar y eliminar el paquete de servicio (CSPKG). 
+En cuanto al costo, este es ínfimo, por lo que puede volver a usar la misma cuenta de almacenamiento a través de todas las implementaciones. Puede usar la [calculadora de costo de almacenamiento](https://azure.microsoft.com/pricing/calculator/#storage1) para determinar el costo que supone cargar, descargar y eliminar el paquete de servicio (CSPKG). 

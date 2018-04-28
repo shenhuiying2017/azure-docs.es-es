@@ -1,26 +1,24 @@
 ---
-title: "Migración de un clúster de HBase a una versión nueva: Azure HDInsight | Microsoft Docs"
-description: "Migración de clústeres de HBase a una versión nueva."
+title: 'Migración de un clúster de HBase a una versión nueva: Azure HDInsight | Microsoft Docs'
+description: Migración de clústeres de HBase a una versión nueva.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 15d23d0ccf816ca355103ad7fd0d6124f1c5c226
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: 3ca982e7fc0ce56bee2ee2e193c82a78fac44362
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="migrate-an-hbase-cluster-to-a-new-version"></a>Migración de un clúster de HBase a una versión nueva
 
@@ -193,7 +191,7 @@ El siguiente escenario es para actualizar de HDInsight 3.4 a 3.6 (ambas versione
     
 4. Detenga la ingesta al clúster de HBase anterior.
 5. Para asegurarse de que se vacían todos los datos recientes del almacén memstore, vuelva a ejecutar el script anterior.
-6. Inicie sesión en Ambari en el clúster anterior (https://NombreClústerAnterior.azurehdidnsight.net) y detenga los servicios de HBase. Cuando se le pida confirmar que desea detener los servicios, active la casilla para habilitar el modo de mantenimiento para HBase. Para más información sobre la conexión y el uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](../hdinsight-hadoop-manage-ambari.md).
+6. Inicie sesión en Ambari en el clúster antiguo (https://OLDCLUSTERNAME.azurehdidnsight.net) y detenga los servicios de HBase. Cuando se le pida confirmar que desea detener los servicios, active la casilla para habilitar el modo de mantenimiento para HBase. Para más información sobre la conexión y el uso de Ambari, consulte [Administración de clústeres de HDInsight con la interfaz de usuario web de Ambari](../hdinsight-hadoop-manage-ambari.md).
 
     ![En Ambari, haga clic en la pestaña Servicios, luego en HBase en el menú de la izquierda y, a continuación, en Detener en Acciones de servicio](./media/apache-hbase-migrate-new-version/stop-hbase-services.png)
 

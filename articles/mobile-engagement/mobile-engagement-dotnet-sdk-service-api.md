@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 99595eb1f9a1eab1db51796632d58df35bf45be6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4a303db638b8ea304db5cba4075b0b102eedd0f3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Uso del SDK de .NET para acceder a las API del servicio Azure Mobile Engagement
 > [!IMPORTANT]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/30/2018
 Azure Mobile Engagement expone un conjunto de API para administrar dispositivos, campañas de cobertura/push, etc. Para interactuar con estas API, también proporcionamos un [archivo de Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que puede usar con las herramientas para generar los SDK para su idioma preferido. Se recomienda usar la herramienta [AutoRest](https://github.com/Azure/AutoRest) para generar el SDK a partir de nuestro archivo de Swagger.
 
 > [!NOTE]
-> El servicio Azure Mobile Engagement se retirará en marzo de 2018 y actualmente solo está disponible para los clientes existentes. Para más información, consulte [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> El servicio Azure Mobile Engagement se retirará en marzo de 2018 y actualmente solo está disponible para los clientes existentes. Para más información, consulte [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 De forma similar, hemos creado un SDK para .NET que permite interactuar con estas API con un contenedor de C# sin tener que realizar la negociación de token de autenticación y la actualización usted mismo.  
 
@@ -54,7 +54,7 @@ En este ejemplo se pasa por el conjunto de pasos que deben seguirse para usar el
         const string SUBSCRIPTION_ID = "<Your Subscription Id>";
    
         // This is the Azure Resource group concept for grouping together resources 
-        //  see here: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
+        //  see here: https://azure.microsoft.com/documentation/articles/resource-group-portal/
         const string RESOURCE_GROUP = "";
    
         // For Mobile Engagement operations
@@ -104,7 +104,7 @@ En este ejemplo se pasa por el conjunto de pasos que deben seguirse para usar el
         private async static Task CreateCampaign()
         {
             //  Refer to the Announcement Campaign format from here - 
-            //      https://msdn.microsoft.com/en-us/library/azure/mt683751.aspx
+            //      https://msdn.microsoft.com/library/azure/mt683751.aspx
             // Make sure you are passing all the non-optional parameters
             Campaign parameters = new Campaign(
                 name:"WelcomeCampaign",
@@ -114,7 +114,7 @@ En este ejemplo se pasa por el conjunto de pasos que deben seguirse para usar el
                 deliveryTime:"any"
                 );
    
-            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/en-us/library/azure/mt683742.aspx
+            // Refer to the Campaign Kinds from here - https://msdn.microsoft.com/library/azure/mt683742.aspx
             CampaignStateResult result = 
                 await engagementClient.Campaigns.CreateAsync(CampaignKinds.Announcements, parameters);
             Console.WriteLine("Campaign Id '{0}' was created successfully and it is in '{1}' state", result.Id, result.State);

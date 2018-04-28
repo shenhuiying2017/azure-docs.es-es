@@ -28,7 +28,7 @@ Las [directivas de Azure](../articles/azure-policy/azure-policy-introduction.md)
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-Mediante el [control de acceso basado en rol (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en [Azure Portal](../articles/active-directory/role-based-access-control-configure.md), usando la [CLI de Azure](https://docs.microsoft.com/cli/azure/role) o [Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Mediante el [control de acceso basado en rol (RBAC)](../articles/role-based-access-control/overview.md), puede repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan en la máquina virtual para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en la máquina virtual, puede permitir solo determinadas acciones. Puede configurar el control de acceso para la máquina virtual en [Azure Portal](../articles/role-based-access-control/role-assignments-portal.md), usando la [CLI de Azure](https://docs.microsoft.com/cli/azure/role) o [Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

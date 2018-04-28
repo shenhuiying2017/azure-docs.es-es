@@ -12,15 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8734daa5303aa76e9f8a074b5f709727cabb58b2
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Instalación de aplicación publicada: H2O Sparkling Water
 
@@ -84,7 +82,7 @@ Para instrucciones paso a paso sobre cómo instalar esta aplicación y otras apl
 
     ![Seleccionar Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. Busque la ruta de acceso que contiene **milsongs-cls-train.csv.gz** y reemplácela por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
+7. Busque la ruta de acceso que contiene **milsongs-cls-train.csv.gz** y reemplace la ruta completa por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**.
 
 8. Busque la ruta de acceso que contiene **milsongs-cls-test.csv.gz** y reemplácela por **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**.
 

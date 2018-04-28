@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3435ada40afb9f1c6e57be64d1b9086d0cdaefd9
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4188d114aa86086821b2c640d7f2d98a78bcbf4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
@@ -99,7 +99,7 @@ Si no está utilizando una solución basada en Nagios, Nagios o Operations Manag
    ```PowerShell
    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 3. Cambie al directorio donde instaló las [herramientas de Azure Stack](https://github.com/Azure/AzureStack-Tools) como parte de la instalación de PowerShell, por ejemplo, c:\azurestack-tools-master. A continuación, cambie al directorio de la infraestructura y ejecute el siguiente comando para importar el módulo de la infraestructura:
 
@@ -145,7 +145,7 @@ La solicitud obtiene todas las alertas activas y cerradas de la suscripción de 
 
 |Argumento  |DESCRIPCIÓN  |
 |---------|---------|
-|armendpoint     |  Punto de conexión de Azure Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.       |
+|armendpoint     |  Punto de conexión de Azure Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.       |
 |subid     |   Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.      |
 |RegionName     |    Nombre de la región de la implementación de Azure Stack.     |
 |api-version     |  Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.      |
@@ -248,7 +248,7 @@ La solicitud cierra una alerta por su identificador único.
 
 |Argumento  |DESCRIPCIÓN  |
 |---------|---------|
-|*armendpoint*     |   Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.      |
+|*armendpoint*     |   Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.      |
 |*subid*     |    Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.     |
 |*RegionName*     |   Nombre de la región de la implementación de Azure Stack.      |
 |*api-version*     |    Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.     |
@@ -393,7 +393,7 @@ La solicitud obtiene el estado de mantenimiento de todos los proveedores de recu
 
 |Argumentos  |DESCRIPCIÓN  |
 |---------|---------|
-|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
 |*subid*     |     Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.    |
 |*RegionName*     |     Nombre de la región de la implementación de Azure Stack.    |
 |*api-version*     |   Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.      |
@@ -462,7 +462,7 @@ La solicitud obtiene el estado de mantenimiento de todos los proveedores de recu
 
 |Argumentos  |DESCRIPCIÓN  |
 |---------|---------|
-|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack, en el formato siguiente https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
+|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
 |*subid*     |Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.         |
 |*RegionName*     |  Nombre de la región de la implementación de Azure Stack.       |
 |*api-version*     |  Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.       |

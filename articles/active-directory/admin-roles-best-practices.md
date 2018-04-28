@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 109a5b50688ca0b2c4edc63b6ba5c89bac74a6d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9897a3578ad35376bea81b4821dbc2d84526a736
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD
 
@@ -240,7 +240,7 @@ Solicite a los ejecutivos del máximo rango, directores de alto nivel, personal 
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Use estaciones de trabajo dedicados para la administración de Azure AD
 
-Los atacantes pueden intentar dirigirse a cuentas con privilegios para obtener acceso a los datos y sistemas de una organización, con el fin de deteriorar la integridad y la autenticidad de los datos mediante código malintencionado que modifica la lógica del programa o fisgonea al administrador cuando este escriba una credencial. Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas protegido contra ataques de Internet y vectores de amenazas. La separación de estas tareas y cuentas delicadas de las estaciones de trabajo y dispositivos de uso diario proporciona una protección muy eficaz contra ataques de suplantación de identidad (phishing), las vulnerabilidades de las aplicaciones o del sistema operativo, diversos ataques de suplantación y ataques de robo de credenciales, como registro de pulsaciones de teclas, y ataques pass-the-hash y pass-the-ticket. Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador, salvo en un entorno de escritorio que se ha protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Los atacantes pueden intentar dirigirse a cuentas con privilegios para obtener acceso a los datos y sistemas de una organización, con el fin de deteriorar la integridad y la autenticidad de los datos mediante código malintencionado que modifica la lógica del programa o fisgonea al administrador cuando este escriba una credencial. Las estaciones de trabajo con privilegios de acceso (PAW) proporcionan un sistema operativo dedicado para tareas delicadas protegido contra ataques de Internet y vectores de amenazas. La separación de estas tareas y cuentas delicadas de las estaciones de trabajo y dispositivos de uso diario proporciona una protección muy eficaz contra ataques de suplantación de identidad (phishing), las vulnerabilidades de las aplicaciones o del sistema operativo, diversos ataques de suplantación y ataques de robo de credenciales, como registro de pulsaciones de teclas, y ataques pass-the-hash y pass-the-ticket. Mediante la implementación de estaciones de trabajo de acceso con privilegios, se puede reducir el riesgo de que los administradores escriban las credenciales de administrador, salvo en un entorno de escritorio que se ha protegido. Para más información, consulte [Estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Consulte las recomendaciones de control de incidentes que realiza el Instituto Nacional de Normas y Tecnología 
 

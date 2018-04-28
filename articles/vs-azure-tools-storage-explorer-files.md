@@ -1,12 +1,12 @@
 ---
-title: "Uso del Explorador de Storage (versión preliminar) con Azure File Storage | Microsoft Docs"
-description: "Aprenda a usar el Explorador de Storage (versión preliminar) para trabajar con archivos y recursos compartidos de archivos."
+title: Uso del Explorador de Storage con Azure File Storage | Microsoft Docs
+description: Aprenda a usar el Explorador de Storage para trabajar con archivos y recursos compartidos de archivos.
 services: storage
 documentationcenter: na
 author: cawaMS
 manager: paulyuk
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Uso del Explorador de Storage (versión preliminar) con Azure File Storage
+# <a name="using-storage-explorer-with-azure-file-storage"></a>Uso del Explorador de Storage con Azure File Storage
 
 Azure File Storage es un servicio que ofrece recursos compartidos de archivos en la nube mediante el protocolo Bloque de mensajes del servidor (SMB) estándar. Se admiten SMB 2.1 y SMB 3.0. Con Almacenamiento de archivos de Azure puede migrar aplicaciones heredadas basadas en recursos compartidos de archivos a Azure con rapidez y sin necesidad de costosas reescrituras. File Storage se puede usar para exponer datos públicamente o para almacenar los datos de la aplicación de manera privada. En este artículo, aprenderá a usar el Explorador de Storage (versión preliminar) para trabajar con recursos compartidos de archivos y archivos.
 
@@ -28,7 +28,7 @@ Azure File Storage es un servicio que ofrece recursos compartidos de archivos en
 
 Para completar los pasos de este artículo, necesitará:
 
-- [Descargar e instalar el Explorador de almacenamiento (versión preliminar)](http://www.storageexplorer.com/)
+- [Descargar e instalar el Explorador de Azure Storage](http://www.storageexplorer.com/)
 
 - [Conectarse a una cuenta de almacenamiento de Azure o a un servicio](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -36,9 +36,9 @@ Para completar los pasos de este artículo, necesitará:
 
 Todos los archivos deben residir en un recurso compartido de archivos, que no es más que una agrupación lógica de archivos. Una cuenta puede contener un número ilimitado de recursos compartidos de archivos y cada uno de ellos puede almacenar un número ilimitado de archivos.
 
-Los siguientes pasos muestran cómo crear un recurso compartido de archivos en el Explorador de Storage (versión preliminar).
+Los siguientes pasos muestran cómo crear un recurso compartido de archivos en el Explorador de Storage.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento en la que desea crear el recurso compartido de archivos
 
@@ -58,9 +58,9 @@ Los siguientes pasos muestran cómo crear un recurso compartido de archivos en e
 
 Los recursos compartidos de archivos contienen archivos y carpetas (que también pueden contener archivos).
 
-Los siguientes pasos muestran cómo ver el contenido de recurso compartido de archivos en el Explorador de Storage (versión preliminar):+
+Los siguientes pasos muestran cómo ver el contenido de recurso compartido de archivos en el Explorador de Storage:+
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
 
@@ -78,9 +78,9 @@ Los siguientes pasos muestran cómo ver el contenido de recurso compartido de ar
 
 Los recursos compartidos de archivos se pueden crear y eliminar fácilmente si fuera necesario. (para ver cómo eliminar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
 
-Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos en el Explorador de Storage (versión preliminar):
+Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos en el Explorador de Storage:
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea ver.
 
@@ -96,11 +96,11 @@ Los siguientes pasos muestran cómo eliminar un recurso compartido de archivos e
 
 ## <a name="copy-a-file-share"></a>Copia de un recurso compartido de archivos
 
-El Explorador de Storage (versión preliminar) permite copiar un recurso compartido de archivos en el Portapapeles y, después, pegarlo en otra cuenta de almacenamiento. (para ver cómo copiar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
+El Explorador de Storage permite copiar un recurso compartido de archivos en el Portapapeles y, después, pegarlo en otra cuenta de almacenamiento. (para ver cómo copiar los archivos individuales, consulte la sección [Administración de archivos en un recurso compartido de archivos](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)).
 
 Los siguientes pasos muestran cómo copiar un recurso compartido de archivos de una cuenta de almacenamiento a otra.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea copiar.
 
@@ -120,7 +120,7 @@ Una [firma de acceso compartido (SAS)](https://docs.microsoft.com//azure/storage
 
 Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de archivos:+
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos del que desea obtener una SAS.
 
@@ -130,7 +130,7 @@ Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de 
 
     ![Obtener firma de acceso compartido](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. En el cuadro de diálogo **Firma de acceso compartido** , especifique la directiva, las fechas de inicio y vencimiento, la zona horaria y los niveles de acceso que desea para el recurso.
+5. En el cuadro de diálogo **Firma de acceso compartido**, especifique la directiva, las fechas de inicio y vencimiento, la zona horaria y los niveles de acceso que desea para el recurso.
 
     ![Cuadro de diálogo SAS](media/vs-azure-tools-storage-explorer-files/image11.png)
 
@@ -146,7 +146,7 @@ Los siguientes pasos muestran cómo crear una SAS para un recurso compartido de 
 
 Los siguientes pasos muestran cómo administrar (agregar y quitar) las directivas de acceso de un recurso compartido de archivos:+. Las directivas de acceso se utilizan para crear las direcciones URL de SAS que los usuarios pueden utilizar para acceder al recurso de archivo de almacenamiento durante un período definido.
 
-1. Abra el Explorador de almacenamiento (versión preliminar).
+1. Abra el Explorador de Storage.
 
 2. En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos cuyas directivas de acceso desea administrar.
 
@@ -180,7 +180,7 @@ Una vez que haya creado un recurso compartido de archivos, puede cargar un archi
 
 Los siguientes pasos muestran cómo administrar los archivos (y carpetas) en un recurso compartido de archivos.
 
-1.  Abra el Explorador de almacenamiento (versión preliminar).
+1.  Abra el Explorador de Storage.
 
 2.  En el panel izquierdo, expanda la cuenta de almacenamiento que contiene el recurso compartido de archivos que desea administrar.
 
@@ -258,6 +258,6 @@ Los siguientes pasos muestran cómo administrar los archivos (y carpetas) en un 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ver las [notas de la versión y los vídeos más recientes del Explorador de almacenamiento (versión preliminar)](http://www.storageexplorer.com/).
+- Vea las [notas de la versión y los vídeos más recientes del Explorador de Storage](http://www.storageexplorer.com/).
 
 - Obtenga información acerca de cómo [crear aplicaciones con blobs, tablas, colas y archivos de Azure](https://azure.microsoft.com/documentation/services/storage/).

@@ -1,11 +1,11 @@
 ---
 title: Acceso seguro a Azure Logic Apps | Microsoft Docs
-description: "Aumente la seguridad para proteger el acceso a desencadenadores, entradas y salidas, parámetros de acción y servicios que se utilizan con flujos de trabajo en Azure Logic Apps."
+description: Aumente la seguridad para proteger el acceso a desencadenadores, entradas y salidas, parámetros de acción y servicios que se utilizan con flujos de trabajo en Azure Logic Apps.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Acceso seguro a aplicaciones lógicas
 
@@ -77,7 +77,7 @@ Además de la Firma de acceso compartido, es posible que desee restringir las ll
 Esta opción se puede configurar en la configuración de la aplicación lógica:
 
 1. En Azure Portal, abra la aplicación lógica a la que desea agregar las restricciones de dirección IP
-1. Haga clic en el elemento de menú **Access control configuration** (Configuración de control de acceso) en **Settings** (Configuración).
+1. Haga clic en el elemento del menú **Configuración del flujo de trabajo** en **Configuración**
 1. Especifique la lista de intervalos de direcciones IP que van a ser aceptados por el desencadenador.
 
 Un intervalo IP válido adopta el formato `192.168.1.1/255`. Si quiere que la aplicación lógica solo se active como una aplicación lógica anidada, seleccione la opción **Solo otras aplicaciones lógicas**. Esta opción escribe una matriz vacía en el recurso, lo que significa que solo las llamadas realizadas desde el mismo servicio (aplicaciones lógicas principales) se activan correctamente.
@@ -119,7 +119,7 @@ Para agregar más protocolos de autorización basados en una aplicación lógica
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Protección del acceso para administrar o modificar aplicaciones lógicas
 
-Puede restringir el acceso a las operaciones de administración en una aplicación lógica para que solo determinados usuarios o grupos puedan realizar operaciones en el recurso. Las aplicaciones lógicas usan la característica de Azure [Control de acceso basado en rol (RBAC)](../active-directory/role-based-access-control-configure.md), y se puede personalizar con las mismas herramientas.  Hay algunas funciones integradas que puede asignar también a los miembros de la suscripción:
+Puede restringir el acceso a las operaciones de administración en una aplicación lógica para que solo determinados usuarios o grupos puedan realizar operaciones en el recurso. Las aplicaciones lógicas usan la característica de Azure [Control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md), y se puede personalizar con las mismas herramientas.  Hay algunas funciones integradas que puede asignar también a los miembros de la suscripción:
 
 * **Colaborador de aplicación lógica**: proporciona acceso para consultar, modificar y actualizar una aplicación lógica.  No puede quitar el recurso ni realizar operaciones de administración.
 * **Operador de aplicación lógica**: puede consultar la aplicación lógica y el historial de ejecución, así como habilitarla o deshabilitarla.  No puede modificar ni actualizar la definición.
@@ -264,7 +264,7 @@ Las aplicaciones lógicas proporcionan integración con varios servicios para of
 
 Muchos de los conectores administrados de las aplicaciones lógicas proporcionan conectividad segura a sistemas locales, como el sistema de archivos, SQL, SharePoint o DB2, entre otros. La puerta de enlace retransmite datos desde orígenes locales en canales cifrados hasta Azure Service Bus. Todo el tráfico se origina como tráfico de salida seguro desde el agente de puerta de enlace. Más información sobre [cómo funciona la puerta de enlace de datos](logic-apps-gateway-install.md#gateway-cloud-service).
 
-#### <a name="azure-api-management"></a>Administración de API de Azure
+#### <a name="azure-api-management"></a>Azure API Management
 
 [Azure API Management](https://azure.microsoft.com/services/api-management/) tiene opciones de conectividad local, incluida la integración de ExpressRoute y VPN de sitio a sitio para el proxy protegido y la comunicación en los sistemas locales. En el Diseñador de aplicación lógica, puede seleccionar rápidamente una API expuesta desde Azure API Management dentro de un flujo de trabajo, proporcionando acceso rápido a los sistemas locales.
 

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ba51c2f8eb8db1f74c4501b045234c222b00da5c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración 
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
 
-La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com); o puede usar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), la [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o la [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para administrar grupos de administración.
+La característica de grupo de administración está disponible en versión preliminar pública. Para empezar a usar grupos de administración, inicie sesión en [Azure Portal](https://portal.azure.com); o puede usar [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), la [CLI de Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) o la [API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) para administrar grupos de administración.
 
 Para realizar cambios en un grupo de administración, debe tener un rol de propietario o colaborador en el grupo de administración. Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../role-based-access-control/overview.md).
 
@@ -231,4 +231,4 @@ Para más información sobre los grupos de administración, consulte:
 - [Creación de grupos de administración para organizar los recursos de Azure](management-groups-create.md)
 - [Instalación del módulo de Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Revisión de las especificaciones de API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Instalación de la extensión de la CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Instalación de la extensión de la CLI de Azure](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

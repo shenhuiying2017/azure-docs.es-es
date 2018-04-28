@@ -1,11 +1,11 @@
 ---
-title: "Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería | Microsoft Docs"
-description: "Configuración de una aplicación personalizada ajena para el inicio de sesión único con contraseña cuando no aparece en la Galería de aplicaciones de Azure AD"
+title: Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería | Microsoft Docs
+description: Configuración de una aplicación personalizada ajena para el inicio de sesión único con contraseña cuando no aparece en la Galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fd93b3fa5b601a276047feab67758fe1a29d4e27
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b928d71fbff232ae93dbf3d24517e7efc4cf8bfd
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -112,6 +112,8 @@ Para configurar el inicio de sesión único para una aplicación, siga estos pas
 10. Asigne usuarios a la aplicación.
 
 11. Además, también puede proporcionar credenciales en nombre del usuario; para ello, seleccione las filas de los usuarios, haga clic en **Actualizar credenciales** y escriba el nombre de usuario y la contraseña en nombre de los usuarios. En caso contrario, se solicitará a los usuarios que especifiquen ellos mismos las credenciales al inicio.
+
+12. **Opcional:** para determinadas aplicaciones de redes sociales como Twitter y Facebook, también hay la opción de habilitar la sustitución automática de la contraseña de la aplicación con una frecuencia que se puede seleccionar. Para habilitar esta opción, seleccione **Quiero que Azure AD administre automáticamente la contraseña de este usuario o grupo** al escribir las credenciales en nombre de un usuario o grupo. A continuación, seleccione la **frecuencia de sustitución (en semanas)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Asignar un usuario a una aplicación directamente
 

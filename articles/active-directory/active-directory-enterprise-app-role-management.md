@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 58656e2aa3b052d9bd9aa14edeb6215858d55ea4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuración de las notificaciones de rol emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
 
@@ -52,90 +52,94 @@ Si la aplicación espera que se pasen roles personalizados a la respuesta de SAM
 
     ![Aplicación en la lista de resultados](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **Id. de objeto**.
+5. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **identificador de objeto**.
 
     ![Página de propiedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Abra el sitio de [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+6. Abra el sitio del [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
-    a. Inicie sesión en el sitio de Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
+    a. Inicie sesión en el sitio del Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
 
-    b. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
+    b. Debe tener permisos suficientes para crear los roles. Haga clic en **Modificar permisos** para obtener los permisos necesarios. 
+
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+
+    c. Seleccione los siguientes permisos de la lista (si no los tiene ya) y haga clic en "Modificar permisos" 
+
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    d. En este se le pedirá que vuelva a iniciar la sesión y acepte el consentimiento. Después de aceptar el consentimiento, habrá iniciado sesión en el sistema de nuevo.
+
+    e. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
     Si usa varios directorios, debe seguir este patrón `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
     
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    c. En la lista de entidades de servicio que se capturan, escoja la que tiene para modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **Id. de objeto**, que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
+    f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **identificador de objeto** que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-    d. Extraiga la propiedad appRoles del objeto de la entidad de servicio.
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    g. Extraiga la propiedad appRoles del objeto de entidad de servicio. 
 
-    e. Ahora debe generar roles nuevos para la aplicación. Puede descargar Azure AD Role Generator [aquí](https://app.box.com/s/jw6m9p9ehmf4ut5jx8xhcw87cu09ml3y).
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
 
-    f. Abra Azure AD Generator y realice los siguientes pasos:
+    > [!Note]
+    > Si va a usar la aplicación personalizada (que no procede de la galería), podrá ver los dos roles predeterminados: usuario y msiam_access. Si usa la aplicación de la galería, msiam_access es el único rol predeterminado. No es necesario realizar ningún cambio en los roles predeterminados.
 
-    ![Azure AD Generator](./media/active-directory-enterprise-app-role-management/azure_ad_role_generator.png)
-    
-    Escriba **Nombre de rol**, **Descripción de rol** y **Role Value** (Valor de rol). Haga clic en **Agregar** para agregar el rol.
-    
-    Después de agregar todos los roles necesarios, haga clic en **Generar**.
-    
-    Copie el contenido haciendo clic en **Copy Content** (Copiar contenido).
+    h. Ahora debe generar roles nuevos para la aplicación. 
 
-    > [!NOTE] 
-    > Asegúrese de que dispone del rol de usuario **msiam_access** y de que el identificador coincide con el rol generado.
+    i. En el JSON que aparece a continuación, se muestra un ejemplo del objeto appRoles. Cree un objeto similar para agregar los roles que desee para su aplicación. 
 
-    g. Vuelva a Probador de Graph. Cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener las propiedades appRoles deseadas al actualizar la propiedad appRoles con los valores copiados. Haga clic en **Ejecutar consulta**.
-
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patch.png)
-
-    > [!NOTE]
-    > A continuación, se muestra un ejemplo del objeto appRoles. 
     ```
     {
        "appRoles": [
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "msiam_access",
-        "displayName": "msiam_access",
-        "id": "7dfd756e-8c27-4472-b2b7-38c17fc5de5e",
-        "isEnabled": true,
-        "origin": "Application",
-        "value": null
-    },
-    {
-        "allowedMemberTypes": [
-        "User"
-        ],
-        "description": "teacher",
-        "displayName": "teacher",
-        "id": "6478ffd2-5dbd-4584-b2ce-137390b09b60",
-        "isEnabled": ,
-        "origin": "ServicePrincipal",
-        "value": "teacher"
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "msiam_access",
+            "displayName": "msiam_access",
+            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+            "isEnabled": true,
+            "origin": "Application",
+            "value": null
+        },
+        {
+            "allowedMemberTypes": [
+                "User"
+            ],
+            "description": "Administrators Only",
+            "displayName": "Admin",
+            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+            "isEnabled": true,
+            "origin": "ServicePrincipal",
+            "value": "Administrator"
+        }
+    ],
     }
-    ] 
-    }   
     ```
-7. Una vez que haya revisado la entidad de servicio con más roles, podrán asignarse usuarios a los roles correspondientes. Para hacer esto, vaya al Portal y navegue hasta la aplicación correspondiente. A continuación, en la parte superior, haga clic en la pestaña **Usuarios y grupos**. Este proceso mostrará una lista de todos los usuarios o grupos.
+    > [!Note]
+    > Solo puede agregar nuevos roles además de **msiam_access** para la operación de revisión. Además, puede agregar tantos roles como desee según las necesidades de su organización. Azure AD enviará el **valor** de estos roles como valor de notificación en la respuesta de SAML.
+    
+    j. Vuelva al explorador de Graph y cambie el método de **GET** a **PATCH**. Revise el objeto de entidad de servicio para obtener los roles deseados mediante la actualización de la propiedad appRoles de manera similar a la que aparece anteriormente en el ejemplo. Haga clic en **Ejecutar consulta** para ejecutar la operación de revisión. Un mensaje confirma la creación del rol.
 
-    ![Configurar la adición del inicio de sesión único](./media/active-directory-enterprise-app-role-management/userrole.png)
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
-    a. Para asignar un rol a cualquier usuario, seleccione el usuario o grupo determinado y haga clic en el botón **Asignar** en la parte inferior de la página.
+7. Una vez que haya revisado la entidad de servicio con más roles, podrá asignar usuarios a los roles correspondientes. Para hacer esto, vaya al portal y navegue hasta la aplicación correspondiente. En la parte superior, haga clic en la pestaña **Usuarios y grupos**. Esta acción muestra todos los usuarios y grupos que ya están asignados a la aplicación. Puede agregar nuevos usuarios al nuevo rol y también puede seleccionar el usuario existente y hacer clic en **Editar** para cambiar el rol.
 
-    ![Configurar la adición del inicio de sesión único](./media/active-directory-enterprise-app-role-management/userandgroups.png)
+    ![Configurar la adición del inicio de sesión único](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
 
-    b. Al hacer clic aparece una ventana emergente para que pueda seleccionar un rol de entre los distintos roles que se definen para la entidad de servicio correspondiente.
+     Para asignar el rol a cualquier usuario, seleccione el nuevo rol y haga clic en el botón **Asignar** de la parte inferior de la página.
 
-    c. Elija el rol necesario y haga clic en Enviar.
+    ![Configurar la adición del inicio de sesión único](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
+
+    > [!Note]
+    > Tenga en cuenta que debe actualizar la sesión en Azure Portal para ver los nuevos roles.
 
 8. Después de asignar roles a los usuarios, deberá actualizar la tabla **Atributos** para definir una asignación personalizada de la notificación de **rol**.
 
@@ -151,7 +155,7 @@ Si la aplicación espera que se pasen roles personalizados a la respuesta de SAM
 
     ![Configuración del atributo de inicio de sesión único](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    b. En el cuadro de texto **Nombre**, escriba el nombre de atributo según sea necesario. En este ejemplo hemos usado **Nombre del rol** como nombre de la notificación.
 
     c. En la lista **Valor**, seleccione el atributo que se muestra para esa fila.
 
@@ -163,87 +167,89 @@ Si la aplicación espera que se pasen roles personalizados a la respuesta de SAM
 
 ## <a name="update-existing-role"></a>Actualización de un rol existente
 
-1. Para actualizar un rol existente, realice los pasos siguientes:
+Para actualizar un rol existente, realice los pasos siguientes:
 
-    a. Abra el sitio de [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+1. Abra el [Explorador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer).
 
-    b. Inicie sesión en el sitio de Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
+2. Inicie sesión en el sitio del Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
     
-    c. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
+3. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
     
     `https://graph.microsoft.com/beta/servicePrincipals`
-        
+    
     Si usa varios directorios, debe seguir este patrón `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
+
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
-    
-    d. En la lista de entidades de servicio que se capturan, escoja la que tiene que modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **Id. de objeto**, que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
+4. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **identificador de objeto** que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
     
     `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
-    
-    e. Extraiga la propiedad appRoles del objeto de la entidad de servicio.
-    
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
-    
-    f. Para actualizar el rol existente, siga los pasos siguientes:
 
-    ![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    
+5. Extraiga la propiedad appRoles del objeto de entidad de servicio.
+    
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+    
+6. Para actualizar el rol existente, siga los pasos siguientes:
+
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
     * Cambie el método de **GET** a **PATCH**.
 
-    * Copie los roles existentes de la aplicación y péguelos en el **cuerpo de la solicitud**.
-    
-    * Actualice el valor de rol reemplazando la **descripción del rol**, el **valor del rol** y el **nombre para mostrar del rol** según los requisitos de su organización.
-    
-    * Después de actualizar todos los roles necesarios, haga clic en **Ejecutar consulta**.
+    * Copie los roles existentes y péguelos en el **cuerpo de la solicitud**.
+
+    * Actualice el valor del rol mediante la actualización de la **descripción del rol**, el **valor del rol** o el **nombre para mostrar del rol** según sea necesario.
+
+    * Después de actualizar todos los roles necesarios, haga clic en **Run Query** (Ejecutar consulta).
         
 ## <a name="delete-existing-role"></a>Eliminación del rol existente
 
 Para eliminar un rol existente, realice los pasos siguientes:
 
-a. Abra el sitio de [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
+1. Abra el sitio de [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
-b. Inicie sesión en el sitio de Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
+2. Inicie sesión en el sitio del Probador de Graph con las credenciales globales de administrador o coadministrador del inquilino.
 
-c. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
+3. Cambie la versión a **beta** y recupere la lista de entidades de servicio desde el inquilino con la siguiente consulta:
     
-`https://graph.microsoft.com/beta/servicePrincipals`
+    `https://graph.microsoft.com/beta/servicePrincipals`
     
-Si usa varios directorios, debe seguir este patrón `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
+    Si usa varios directorios, debe seguir este patrón `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`.
     
-![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer1-updated.png)
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-d. En la lista de entidades de servicio que se capturan, escoja la que tiene que modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **Id. de objeto**, que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
+4. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Busque el **identificador de objeto** que copió de la página Propiedades y use la consulta siguiente para ir a la entidad de servicio correspondiente.
      
-`https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
-    
-e. Extraiga la propiedad appRoles del objeto de la entidad de servicio.
-    
-![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-approles.png)
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
 
-f. Para eliminar el rol existente, siga los pasos siguientes:
-
-![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchdelete.png)
-
-Cambie el método de **GET** a **PATCH**.
-
-Copie los roles existentes de la aplicación y péguelos en el **cuerpo de la solicitud**.
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-Establezca el valor **IsEnabled** en **false** para el rol que quiere eliminar.
+5. Extraiga la propiedad appRoles del objeto de entidad de servicio.
+    
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-Haga clic en **Ejecutar consulta**.
-    
-> [!NOTE] 
-> Asegúrese de que dispone del rol de usuario **msiam_access** y de que el identificador coincide con el rol generado.
-    
-g. Una vez realizado el proceso arriba mencionado, mantenga el método como **PATCH** y pegue el contenido restante del rol en el **cuerpo de la solicitud** y haga clic en **Ejecutar consulta**.
-    
-![Cuadro de diálogo de Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-patchfinal.png)
+6. Para eliminar el rol existente, siga los pasos siguientes:
 
-h. Después de ejecutar la consulta se eliminará el rol.
+    ![Cuadro de diálogo del Probador de Graph](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+
+    * Cambie el método de **GET** a **PATCH**.
+
+    * Copie los roles existentes de la aplicación y péguelos en el **cuerpo de la solicitud**.
+        
+    * Establezca el valor **IsEnabled** en **false** para el rol que quiere eliminar.
+
+    * Haga clic en **Ejecutar consulta**.
     
-> [!NOTE]
-> El rol debe deshabilitarse para poder eliminarlo. 
+    > [!NOTE] 
+    > Asegúrese de que dispone del rol de usuario **msiam_access** y de que el identificador coincide con el rol generado.
+    
+7. Una vez que el rol está deshabilitado, elimine ese bloque de roles de la sección appRoles, mantenga el método en **PATCH** y haga clic en **Ejecutar consulta**.
+    
+8. Después de ejecutar la consulta se eliminará el rol.
+    
+    > [!NOTE]
+    > El rol debe estar deshabilitado para poder eliminarlo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

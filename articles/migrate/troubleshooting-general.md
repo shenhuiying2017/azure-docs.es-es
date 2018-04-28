@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 03/19/2018
 ms.author: raynew
-ms.openlocfilehash: b2c89a980411cac02f46bc91d53620bc94fa845b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bba52534c534ea33c2939d0d9b76b7b4138e13cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solución de problemas de Azure Migrate
 
@@ -37,7 +37,7 @@ Asegúrese de haber copiado y pegado la información correcta. Para solucionar p
 2. Para iniciar la instalación, haga doble clic en el archivo descargado.
 3. En la **principal** que aparece al iniciar la instalación, haga clic en **Siguiente**. En la página **Términos de licencia**, haga clic en **Acepto** para aceptar la licencia.
 4. En **Carpeta de destino**, mantenga o modifique la carpeta de instalación predeterminada y después haga clic en **Siguiente**.
-5. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics (OMS)** > **Siguiente**.
+5. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
 6. Haga clic en **Agregar** para agregar un área de trabajo nueva de Log Analytics. Pegue el identificador de proyecto y la clave que copió. A continuación, haga clic en **Siguiente**.
 7. Verifique que el agente puede conectarse al proyecto. Si no puede, verifique la configuración. Si el agente puede conectarse, pero el recopilador no, póngase en contacto con el servicio de soporte técnico.
 
@@ -62,7 +62,7 @@ Para habilitar la recopilación de los datos de rendimiento del disco y la red, 
 
 **He instalado agentes y he usado la visualización de dependencias para crear grupos. Ahora, después de la conmutación por error, los equipos muestran la acción "Instalar agente" en lugar de "Ver dependencias"**
 * Tras una conmutación por error planeada o no planeada, los equipos locales se desactivan y los equipos equivalentes se activan en Azure. Estos equipos adquieren una dirección MAC diferente. Pueden adquirir una dirección IP distinta en función de si el usuario elige conservar o no la dirección IP local. Si las direcciones IP y MAC difieren, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
-* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que el usuario bloquee el tráfico saliente de OMS procedente de estos equipos, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
+* Después de la conmutación por error de prueba, los equipos locales permanecen encendidos según lo previsto. Los equipos equivalentes que se activan en Azure adquieren una dirección MAC distinta y pueden adquirir una dirección IP diferente. A menos que el usuario bloquee el tráfico saliente de Log Analytics procedente de estos equipos, Azure Migrate no asocia los equipos locales con ningún dato de dependencia de Service Map y solicita al usuario que instale los agentes en lugar de visualizar las dependencias.
 
 
 ## <a name="troubleshoot-readiness-issues"></a>Solución de problemas de preparación

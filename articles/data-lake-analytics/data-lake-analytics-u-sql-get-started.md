@@ -1,8 +1,8 @@
 ---
-title: "Introducción al lenguaje U-SQL | Microsoft Docs"
-description: "Conozca los aspectos básicos del lenguaje U-SQL."
+title: Introducción al lenguaje U-SQL | Microsoft Docs
+description: Conozca los aspectos básicos del lenguaje U-SQL.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-u-sql"></a>Introducción a U-SQL
 U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitirle procesar sus datos a cualquier escala. Mediante la funcionalidad de consulta distribuida escalable de U-SQL, puede analizar los datos de manera eficaz entre almacenes relacionales, como Azure SQL Database. Con U-SQL, puede procesar los datos no estructurados mediante la aplicación de esquemas en la lectura y la inserción de lógica personalizada y UDF. Además, U-SQL incluye extensibilidad que proporciona un control más preciso sobre cómo ejecutarlo a escala. 
@@ -29,7 +29,7 @@ U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitir
 * Para más información sobre la **sintaxis del lenguaje U-SQL**, consulte la [referencia del lenguaje U-SQL](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 * Para comprender la **filosofía del diseño de U-SQL**, consulte la entrada del blog de Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introducción s U-SQL: un lenguaje que facilita el procesamiento de marcrodatos).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de examinar los ejemplos de U-SQL de este documento, lea y realice el [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). En este tutorial se explican los mecanismos de uso de U-SQL con Herramientas de Azure Data Lake para Visual Studio.
 
@@ -226,8 +226,8 @@ La cláusula HAVING de U-SQL puede usarse para restringir los resultados a los g
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-Para escenarios avanzados de agregación, consulte la documentación de referencia de U-SQL para [agregar, analizar y hacer referencia a funciones](https://msdn.microsoft.com/en-us/library/azure/mt621335.aspx)
+Para escenarios avanzados de agregación, consulte la documentación de referencia de U-SQL para [agregar, analizar y hacer referencia a funciones](https://msdn.microsoft.com/library/azure/mt621335.aspx)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desarrollo de scripts de U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

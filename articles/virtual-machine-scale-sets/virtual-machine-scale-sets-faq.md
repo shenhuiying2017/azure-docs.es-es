@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -170,7 +170,7 @@ Para más información, consulte el artículo sobre la [creación o actualizaci�
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -260,7 +260,7 @@ Puede proporcionar claves públicas SSH en texto sin formato al crear una máqui
     }
 ```
  
-Nombre del elemento de linuxConfiguration | Obligatorio | type | DESCRIPCIÓN
+Nombre del elemento de linuxConfiguration | Obligatorio | Escriba | DESCRIPCIÓN
 --- | --- | --- | --- |  ---
 ssh | Sin  | Colección | Especifica la configuración de la clave SSH para un sistema operativo Linux
 path | Sí | string | Especifica la ruta de acceso de Linux en donde se deben colocar las claves SSH o el certificado
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 Puede encontrar el valor extensionName en `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>¿Hay un ejemplo de plantilla de conjunto de escalado de máquinas virtuales que se integre con Operations Management Suite?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>¿Hay algún ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con Log Analytics?
 
-Para un ejemplo de plantilla de conjunto de escalado de máquinas virtuales que se integre con Operations Management Suite, vea el segundo ejemplo de [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de Log Analytics).
+Para ver un ejemplo de una plantilla del conjunto de escalado de máquinas virtuales que se integre con Log Analytics, vea el segundo ejemplo de [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Implementar un clúster de Azure Service Fabric y habilitar la supervisión mediante el uso de Log Analytics).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Parece que las extensiones se ejecutan en paralelo en los conjuntos de escalado de máquinas virtuales. Esto hace que una extensión de script personalizado genere un error. ¿Qué puedo hacer para solucionar esto?
 
@@ -693,9 +693,9 @@ Sí, puede usar la operación de restablecimiento de la imagen inicial para rest
 
 Para más información, consulte el artículo sobre la [administración de todas las máquinas virtuales de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>¿Es posible integrar conjuntos de escalado con Azure OMS (Operations Management Suite)?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>¿Es posible integrar conjuntos de escalado con Azure Log Analytics?
 
-Sí, puede hacerlo instalando la extensión de OMS en las máquinas virtuales del conjunto de escalado. A continuación se ofrece un ejemplo de CLI de Azure:
+Sí, puede hacerlo instalando la extensión de Log Analytics en las máquinas virtuales del conjunto de escalado. A continuación se ofrece un ejemplo de CLI de Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```

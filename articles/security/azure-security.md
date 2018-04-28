@@ -1,12 +1,12 @@
 ---
-title: "Introducción a la seguridad de Azure | Microsoft Docs"
-description: "Aprenda acerca de la seguridad de Azure, sus servicios y cómo funciona."
+title: Introducción a la seguridad de Azure | Microsoft Docs
+description: Aprenda acerca de la seguridad de Azure, sus servicios y cómo funciona.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 68bba95e177fa8d0261b84f51b0f5285c7fb7417
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -58,8 +58,8 @@ Las características siguientes son las funcionalidades que puede revisar para p
 | [Plataforma segura](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacidad y controles](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Cumplimiento normativo](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Transparencia](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Ciclo de desarrollo de seguridad](https://www.microsoft.com/en-us/sdl/), auditorías internas | [Administración constante de los datos](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Centro de confianza](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Cómo Microsoft protege los datos de clientes en servicios de Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Entrenamiento de seguridad obligatorio, comprobación de antecedentes](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc) |  [Control en la ubicación de los datos](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Centro de controles comunes](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Cómo Microsoft administra la ubicación de datos en los servicios de Azure](http://azuredatacentermap.azurewebsites.net/)|
-| [Pruebas de penetración](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwiwsOCpganRAhWqxVQKHUdiDsMQFghAMAE&url=https%3A%2F%2Fdownloads.cloudsecurityalliance.org%2Fstar%2Fself-assessment%2FStandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx&usg=AFQjCNEYvBky4zNeDQPN6YJGPFRZA7eeZg&sig2=2kkw1lOCP_kzLzgE9RS2Tg&bvm=bv.142059868,d.amc), [detección de intrusiones, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [auditorías y registro](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Proporcionar acceso a datos en sus propios términos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Lista de comprobación de diligencia debida para Cloud Services](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personas de Microsoft que pueden acceder a sus datos y bajo qué términos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
+| [Entrenamiento de seguridad obligatorio, comprobación de antecedentes](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Control en la ubicación de los datos](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Centro de controles comunes](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Cómo Microsoft administra la ubicación de datos en los servicios de Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Pruebas de penetración](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [detección de intrusiones, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [auditorías y registro](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Proporcionar acceso a datos en sus propios términos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Lista de comprobación de diligencia debida para Cloud Services](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personas de Microsoft que pueden acceder a sus datos y bajo qué términos](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centro de datos de vanguardia](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), seguridad física, [red segura](https://docs.microsoft.com/azure/security/security-network-overview) | [Respuesta a las autoridades judiciales](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Cumplimiento por servicio, ubicación y sector](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Cómo Microsoft protege los datos de clientes en servicios de Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Respuesta a incidentes de seguridad](http://aka.ms/SecurityResponsepaper), [responsabilidad compartida](http://aka.ms/sharedresponsibility) |[Rigurosos estándares de privacidad](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Revisión de la certificación para servicios de Azure, centro de transparencia](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
@@ -78,7 +78,7 @@ La solución [Seguridad y auditoría de OMS](https://docs.microsoft.com/azure/op
 
 Además, puede configurar Seguridad y cumplimiento de OMS para que [lleve a cabo automáticamente acciones específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) cuando se detecte un evento concreto.
 
-### <a name="azure-resource-manager"></a>Administrador de recursos de Azure
+### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite trabajar con los recursos de la solución como grupo. Todos los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada. Use una [plantilla de Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para la implementación; esta puede funcionar en distintos entornos, como producción, pruebas y ensayo. Administrador de recursos proporciona funciones de seguridad, auditoría y etiquetado que le ayudan a administrar los recursos después de la implementación.
 
 Las implementaciones basadas en plantillas de Azure Resource Manager ayudan a mejorar la seguridad de las soluciones implementadas en Azure porque incluyen una configuración de control de seguridad estándar y pueden integrarse en implementaciones basadas en plantillas estandarizadas. Esto reduce el riesgo de que se produzcan errores de configuración de seguridad, posibles durante las implementaciones manuales.
@@ -105,7 +105,7 @@ Log Analytics puede ser una herramienta útil en el análisis forense y otros an
 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 Además, Azure Security Center le ayuda con las operaciones de seguridad, al proporcionarle un único panel donde aparecen alertas y recomendaciones para las que puede actuar de inmediato. A menudo, puede corregir problemas con solo hacer clic dentro de la consola de Azure Security Center.
-## <a name="applications"></a>Aplicaciones
+## <a name="applications"></a>APLICACIONES
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad de las aplicaciones y un resumen de estas funcionalidades.
 
 ### <a name="web-application-vulnerability-scanning"></a>Examen de vulnerabilidades para aplicaciones web
@@ -139,7 +139,7 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 -   Registro del servidor web: registra información sobre todas las transacciones HTTP con el formato de archivo de registro extendido de W3C. Este informe resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
 
-#### <a name="application-diagnostics"></a>diagnósticos de la aplicación
+#### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
 El [diagnóstico de aplicaciones](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. En Diagnóstico de aplicaciones, hay dos tipos principales de eventos, los relacionados con el rendimiento de las aplicaciones y los relacionados con los errores de las aplicaciones. Los errores se pueden subdividir en problemas de conectividad, seguridad y funcionamiento. Los problemas de funcionamiento normalmente guardan relación con un problema con el código de la aplicación.
 
 En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguientes maneras:
@@ -152,7 +152,7 @@ En Diagnóstico de aplicaciones, puede ver los eventos agrupados de las siguient
 En esta sección se proporciona información adicional acerca de características fundamentales para la seguridad del almacenamiento de Azure y un resumen de estas funcionalidades.
 
 ### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) puede controlarse con el control de acceso basado en rol (RBAC).
+Puede proteger su cuenta de almacenamiento con el control de acceso basado en rol (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imprescindible restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios. El acceso a las claves de almacenamiento para una cuenta de almacenamiento mediante el modelo de [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) puede controlarse con el control de acceso basado en rol (RBAC).
 
 ### <a name="shared-access-signature"></a>Firma de acceso compartido
 Una [firma de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas.
@@ -356,7 +356,7 @@ Microsoft utiliza varias tecnologías y procedimientos recomendados de seguridad
 
 -   La [aplicación de directivas de contraseña](https://azure.microsoft.com/documentation/articles/active-directory-passwords-policy/) aumenta la seguridad de las contraseñas tradicionales al imponer requisitos de longitud y complejidad, la rotación periódica obligatoria y el bloqueo de cuenta después de intentos de autenticación incorrectos.
 
--   La [autenticación basada en token](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) habilita la autenticación mediante los Servicios de federación de Active Directory (AD FS) o sistemas de tokens seguros de terceros.
+-   La [autenticación basada en tokens](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) habilita la autenticación a través de Azure Active Directory.
 
 -   El [control de acceso basado en rol (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) permite conceder acceso en función del rol asignado al usuario, lo que hace más fácil proporcionar a los usuarios únicamente la cantidad de acceso que necesitan para realizar sus tareas. Puede personalizar RBAC según el modelo de negocio de su organización y su tolerancia al riesgo.
 

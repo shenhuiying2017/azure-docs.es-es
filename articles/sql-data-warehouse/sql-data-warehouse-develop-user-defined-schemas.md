@@ -1,44 +1,43 @@
 ---
-title: Esquemas definidos por el usuario en SQL Data Warehouse | Microsoft Docs
-description: Sugerencias para usar los esquemas Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones.
+title: Uso de esquemas definidos por el usuario en SQL Data Warehouse | Microsoft Docs
+description: Sugerencias para usar los esquemas definidos por el usuario en Azure SQL Data Warehouse para desarrollar soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: dfb58956ad6637cf0f50b4c052ab98fb7c26139d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: c18e6d34416390ae7e93b69b28d508a540f7b1ab
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Esquemas definidos por el usuario en el Almacenamiento de datos SQL
+# <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Uso de esquemas definidos por el usuario en SQL Data Warehouse
+Sugerencias para usar los esquemas definidos por el usuario en Azure SQL Data Warehouse para desarrollar soluciones.
+
+## <a name="schemas-for-application-boundaries"></a>Esquemas para los límites de la aplicación
+
 Los almacenamientos de datos tradicionales suelen utilizar bases de datos independientes para crear los límites de la aplicación en función de la carga de trabajo, el dominio o la seguridad. Por ejemplo, un almacenamiento de datos de SQL Server tradicional podría incluir una base de datos provisional, una base de datos de almacenamiento de datos y algunas bases de datos data mart. En esta topología, cada base de datos funciona como una carga de trabajo y el límite de seguridad de la arquitectura.
 
-Por el contrario, el Almacenamiento de datos SQL ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, el Almacenamiento de datos SQL espera que todas las tablas que el almacenamiento utiliza se almacenen en una base de datos.
+Por el contrario, SQL Data Warehouse ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, SQL Data Warehouse espera que todas las tablas que el almacenamiento utiliza se almacenen en una base de datos.
 
 > [!NOTE]
-> El Almacenamiento de datos SQL no admite consultas entre bases de datos de cualquier tipo. En consecuencia, deben revisarse las implementaciones de almacenamiento de datos que utilizan este patrón.
+> SQL Data Warehouse no admite consultas entre bases de datos de cualquier tipo. En consecuencia, deben revisarse las implementaciones de almacenamiento de datos que utilizan este patrón.
 > 
 > 
 
 ## <a name="recommendations"></a>Recomendaciones
 Se trata de recomendaciones para consolidar los límites de cargas de trabajo, seguridad, dominio y funcionales con esquemas definidos por el usuario.
 
-1. Use una base de datos de Almacenamiento de datos SQL para ejecutar la carga de trabajo completa del almacenamiento de datos.
-2. Consolide el entorno de almacenamiento de datos existente para utilizar una base de datos de Almacenamiento de datos SQL.
+1. Use una base de datos de SQL Data Warehouse para ejecutar la carga de trabajo completa del almacenamiento de datos.
+2. Consolide el entorno de almacenamiento de datos existente para utilizar una base de datos de SQL Data Warehouse.
 3. Utilice **esquemas definidos por el usuario** para proporcionar el límite implementado anteriormente con las bases de datos.
 
-Si los esquemas definidos por el usuario no se han utilizado anteriormente, tendrá una pizarra limpia. Utilice simplemente el nombre anterior de la base de datos como base para los esquemas definidos por el usuario en la base de datos de Almacenamiento de datos SQL.
+Si los esquemas definidos por el usuario no se han utilizado anteriormente, tendrá una pizarra limpia. Utilice simplemente el nombre anterior de la base de datos como base para los esquemas definidos por el usuario en la base de datos de SQL Data Warehouse.
 
 Si ya se han utilizado los esquemas, tienen algunas opciones:
 
@@ -47,7 +46,7 @@ Si ya se han utilizado los esquemas, tienen algunas opciones:
 3. Conservar los nombres de esquemas heredados mediante la implementación de vistas sobre la tabla en un esquema adicional para volver a crear la estructura del esquema anterior.
 
 > [!NOTE]
-> En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en el Almacenamiento de datos SQL. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
+> En la primera inspección, la opción 3 puede resultar la opción más atractiva. No obstante, el problema radica en los detalles. Las vistas son de solo lectura en SQL Data Warehouse. Cualquier modificación de datos o tablas tendría que realizarse según la tabla de base. La opción 3 también introduce una capa de vistas en el sistema. Desea incorporar algunas más a pesar de que ya utiliza vistas en la arquitectura.
 > 
 > 
 
@@ -121,13 +120,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

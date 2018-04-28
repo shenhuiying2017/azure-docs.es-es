@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Uso de las Herramientas de Azure HDInsight para Visual Studio Code
 
@@ -31,7 +29,7 @@ Aprenda a usar las Herramientas de Azure HDInsight para Visual Studio Code (VS C
 
 Para completar los pasos de este artículo, se requieren los elementos siguientes:
 
-- Un clúster de HDInsight.  Para crear un clúster, vea la [introducción a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
+- Un clúster de HDInsight. Para crear un clúster, vea la [introducción a HDInsight]( hdinsight-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 
@@ -102,7 +100,7 @@ Antes de poder enviar scripts a clústeres de HDInsight desde VS Code, debe cone
     - Enviar scripts por lotes de PySpark
     - Establecer configuraciones
 
-**Vinculación de un clúster**
+<a id="linkcluster"></a>**Vinculación de un clúster**
 
 Puede vincular un clúster normal mediante un nombre de usuario administrado de Ambari; también puede vincular un clúster de Hadoop de seguridad mediante un nombre de usuario de dominio (como user1@contoso.com).
 1. Para abrir la paleta de comandos, seleccione **CTRL + MAYÚS + P** y, a continuación, escriba **HDInsight: Unlink a cluster**.
@@ -277,8 +275,50 @@ Herramientas de HDInsight para VS Code también le permite enviar consultas de P
 
 Después de enviar un trabajo de Python, los registros de envío aparecen en la ventana **SALIDA** de VS Code. También se muestran la **dirección URL de interfaz de usuario de Spark** y la **dirección URL de interfaz de usuario de Yarn**. Puede abrir la dirección URL en un explorador web para realizar el seguimiento de estado del trabajo.
 
-
+>[!NOTE]
+>PySpark3 ya no se admite en Livy 0.4 (que es el clúster de HDI Spark 2.2). Para Python, solo se admite "PySpark". Se sabe que el envío de Spark 2.2 dará error con Python 3.
    
+## <a name="livy-configuration"></a>Configuración de Livy
+Se admite la configuración de Livy; se puede establecer en los parámetros del proyecto dentro de la carpeta del área de trabajo. Para obtener más información, consulte el archivo [léame de Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+
++ Configuración de proyecto:
+
+    ![Configuración de Livy](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+
++ Configuraciones de Livy admitidas:   
+
+    **POST /batches**   
+    Cuerpo de la solicitud
+
+    | Nombre | Descripción | Tipo | 
+    | :- | :- | :- | 
+    | file | Archivo que contiene la aplicación para ejecutar | ruta de acceso (obligatorio) | 
+    | proxyUser | Usuario para suplantar cuando se ejecuta el trabajo | string | 
+    | className | Clase principal de Spark o Java de la aplicación | string |
+    | args | Argumentos de la línea de comandos para la aplicación | lista de cadenas | 
+    | jars | Archivos JAR que se usarán en esta sesión | Lista de cadenas | 
+    | pyFiles | Archivos Python que se usarán en esta sesión | Lista de cadenas |
+    | files | Archivos que se usarán en esta sesión | Lista de cadenas |
+    | driverMemory | Cantidad de memoria que se usará para el proceso de controlador | string |
+    | driverCores | Número de núcleos que se usarán para el proceso de controlador | int |
+    | executorMemory | Cantidad de memoria que se usará por proceso ejecutor | string |
+    | executorCores | Número de núcleos que se usarán para cada ejecutor | int |
+    | numExecutors | Número de ejecutores para iniciar en esta sesión | int |
+    | archives | Archivos que se usarán en esta sesión | Lista de cadenas |
+    | queue | El nombre de la cola YARN a la que se envió | string |
+    | Nombre | Nombre de esta sesión | string |
+    | conf | Propiedades de configuración de Spark. | Asignación de clave = val |
+
+    Cuerpo de respuesta   
+    El objeto Batch creado.
+
+    | Nombre | Descripción | Tipo | 
+    | :- | :- | :- | 
+    | id | Identificador de sesión | int | 
+    | appId | Identificador de la aplicación de esta sesión |  string |
+    | appInfo | Información detallada de la aplicación | Asignación de clave = val |
+    | log | Líneas de registro | lista de cadenas |
+    | state |   Estado de lote | string |
 
 
 ## <a name="additional-features"></a>Características adicionales

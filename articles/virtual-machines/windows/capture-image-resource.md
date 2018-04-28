@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 0b0bd48b95ad9393b4cd82081436e561326df6da
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4445787fd559c6d0a6dfc891910cb9a139a6907e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -66,12 +66,11 @@ Asegúrese de que los roles de servidor que se ejecutan en la máquina sean comp
 Crear una imagen directamente desde la VM garantiza que la imagen incluya todos los discos asociados a la VM, incluido el disco del SO y todos los discos de datos. En este ejemplo se muestra cómo crear una imagen administrada a partir de una máquina virtual que utiliza discos administrados.
 
 
-Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Ejecute el siguiente comando para realizar la instalación. (Utilice `Get-Module` para comprobar qué versión tiene).
+Antes de comenzar, asegúrese de que tiene la última versión del módulo AzureRM.Compute de PowerShell. Para este artículo se requiere la versión 5.7.0 del módulo de AzureRM o una versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
-```azurepowershell-interactive
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
+
+> [!NOTE]
+> Si desea almacenar la imagen en un almacenamiento resistente a zonas, debe crearla en una región que admita [zonas de disponibilidad](../../availability-zones/az-overview.md) e incluir el parámetro `-ZoneResilient` en la configuración de la imagen.
 
 
 1. Cree algunas variables.

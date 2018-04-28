@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database 
 
@@ -239,7 +239,7 @@ No se admite la [búsqueda semántica](https://docs.microsoft.com/sql/relational
 ### <a name="linked-servers"></a>Servidores vinculados
  
 Los servidores vinculados en Instancia administrada admiten un número limitado de destinos: 
-- Destinos admitidos: SQL Server, SQL Database, Instancia administrada y SQL Server en una máquina virtual.
+- Destinos admitidos: SQL Server y SQL Database
 - Destinos no admitidos: archivos, Analysis Services y otros RDBMS.
 
 Operaciones
@@ -419,4 +419,4 @@ Solo puede haber un perfil de Correo electrónico de base de datos y debe llamar
 
 - Para más información acerca de Instancia administrada, consulte [¿Qué es Instancia administrada de SQL Database (versión preliminar)?](sql-database-managed-instance.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](sql-database-features.md).
-- Para ver un tutorial, consulte [Creación de una instancia administrada](sql-database-managed-instance-tutorial-portal.md).
+- Para ver un tutorial que muestra cómo crear una instancia administrada, consulte el artículo de [creación de instancias administradas](sql-database-managed-instance-create-tutorial-portal.md).

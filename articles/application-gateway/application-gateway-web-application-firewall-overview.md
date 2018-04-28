@@ -6,19 +6,18 @@ services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 4/16/2018
 ms.author: amsriva
-ms.openlocfilehash: d3945436a369f624ccb1d862b9623b8cfb1ed376
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 35a7e60dc65b54cbddfcd85fa0e704823152889e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF)
 
@@ -60,7 +59,7 @@ El firewall de aplicaciones web viene preconfigurado con CRS 3.0 de forma predet
 * Protección contra infracciones del protocolo HTTP
 * Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación
 * Prevención contra bots, rastreadores y escáneres
-* Detección de errores de configuración comunes (es decir, Apache, IIS, etc.)
+* Detección de errores de configuración comunes de las aplicaciones (por ejemplo, Apache, IIS, etc.)
 
 Para una lista más detallada de las reglas y los mecanismos de protección, consulte el siguiente apartado sobre [conjuntos de reglas principales](#core-rule-sets).
 
@@ -74,9 +73,7 @@ CRS 3.0 proporciona 13 grupos de reglas, tal como se muestra en la tabla siguien
 
 |RuleGroup|DESCRIPCIÓN|
 |---|---|
-|**[REQUEST-910-IP-REPUTATION](application-gateway-crs-rulegroups-rules.md#crs910)**|Contiene reglas para protegerse frente a remitentes de spam conocidos o actividades malintencionadas.|
 |**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contiene reglas para bloquear métodos (PUT, PATCH< ..)|
-|**[REQUEST-912-DOS-PROTECTION](application-gateway-crs-rulegroups-rules.md#crs912)**| Contiene reglas para protegerse contra ataques de denegación de servicio (DoS).|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contiene reglas para protegerse de los escáneres de puertos y entornos.|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contiene reglas para protegerse de problemas de protocolo y codificación.|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contiene reglas para protegerse frente a ataques por inyección de encabezado, contrabando de solicitudes y división de respuestas|
@@ -166,7 +163,6 @@ WAF de Application Gateway ofrece informes detallados sobre las amenazas detecta
 
 El firewall de aplicaciones web está disponible en una nueva SKU de WAF. Esta SKU está disponible solo en el modelo de aprovisionamiento de Azure Resource Manager y no en el modelo de implementación clásica. Además, la SKU de WAF está solo disponible para tamaños de instancias medianas y grandes de Application Gateway. Todos los límites de Application Gateway también se aplican a la SKU de WAF. El precio se basa en una tarifa por instancia de puerta de enlace por hora y una tarifa de procesamiento de datos. El precio de puerta de enlace por hora para una SKU de WAF es diferente a los costos de una SKU estándar y puede encontrar más información sobre estos en los [detalles de precios de Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/). Los costos por procesamiento de datos permanecen iguales. No hay ningún costo por regla o grupo de reglas. Puede proteger varias aplicaciones web mediante el mismo firewall de aplicaciones web y no hay ningún cargo adicional por admitir varias aplicaciones. 
 
-La facturación de WAF se inicia de forma efectiva a partir del 5/5/2017. Hasta entonces, las puertas de enlace de SKU de WAF se continuarán cobrando a las tarifas estándar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

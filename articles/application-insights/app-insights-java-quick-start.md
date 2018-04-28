@@ -1,8 +1,8 @@
 ---
-title: "Guía de inicio rápido con Azure Application Insights | Microsoft Docs"
-description: "Proporciona instrucciones para configurar rápidamente una aplicación web Java para la supervisión con Application Insights"
+title: Guía de inicio rápido con Azure Application Insights | Microsoft Docs
+description: Proporciona instrucciones para configurar rápidamente una aplicación web Java para la supervisión con Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: daf7fb88b41ca21ea08e1368215578971032e47d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Inicio de la supervisión de la aplicación web Java
 
@@ -26,7 +26,7 @@ Esta guía de inicio rápido le ayudará a agregar el SDK de Application Insight
 
 Para completar esta guía de inicio rápido:
 
-- Instale Oracle JRE 1.6 o posterior, o Zulu JRE 1.6 o posterior
+- Instale JRE 1.7 o 1.8
 - Instale el entorno gratuito [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/). Este guía de inicio rápido utiliza Eclipse Oxygen (4.7)
 - Necesitará una suscripción de Azure y un proyecto web dinámico Java existente.
  
@@ -63,7 +63,7 @@ Application Insights recopila datos de telemetría desde cualquier aplicación c
 
    ![Formulario de nuevo recurso de Application Insights](./media/app-insights-java-quick-start/000-j.png)
 
-2. Copie ```http://dl.microsoft.com/eclipse``` en el campo "Trabajar con" > marque **Azure Toolkit for Java** (Kit de herramientas de Azure para Java) > seleccione **Application Insights Plugin for Java** (Complemento de Application Insights para Java) >  anule la selección de**"Contact all update sites during install to find required software"** (Contactar con todos los sitios de actualización durante la instalación para buscar el software necesario).
+2. Copie ```http://dl.microsoft.com/eclipse``` en el campo "Trabajar con" > marque **Azure Toolkit for Java** (Kit de herramientas de Azure para Java) > seleccione **Application Insights Plugin for Java** (Complemento de Application Insights para Java) >  anule la selección de **"Contact all update sites during install to find required software"** (Contactar con todos los sitios de actualización durante la instalación para buscar el software necesario).
 
 3. Una vez completada la instalación, se le pedirá que **reinicie Eclipse**.
 

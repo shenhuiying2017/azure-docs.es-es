@@ -1,6 +1,6 @@
 ---
-title: "Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (protección del sistema y las comunicaciones)"
-description: "Automatización de aplicaciones web para FedRAMP: protección del sistema y las comunicaciones"
+title: 'Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (protección del sistema y las comunicaciones)'
+description: 'Automatización de aplicaciones web para FedRAMP: protección del sistema y las comunicaciones'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Protección del sistema y de las comunicaciones
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. Además, la solución implementa una arquitectura y controles de acceso diseñados para aislar la funcionalidad de seguridad donde corresponda. |
+| **Cliente** | Las máquinas virtuales implementadas por esta instancia de Blueprint ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. Además, la solución implementa una arquitectura y controles de acceso diseñados para aislar la funcionalidad de seguridad donde corresponda. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. El sistema operativo administra los recursos (por ejemplo, memoria, almacenamiento) de manera que la información sea accesible solo para los usuarios y los roles con los permisos adecuados. |
+| **Cliente** | Las máquinas virtuales implementadas por esta instancia de Blueprint ejecutan sistemas operativos Windows. El sistema operativo administra los recursos (por ejemplo, memoria, almacenamiento) de manera que la información sea accesible solo para los usuarios y los roles con los permisos adecuados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Cada proceso de Windows proporciona los recursos necesarios para ejecutar un programa. La prioridad de recursos se administra por parte del sistema operativo. |
+| **Cliente** | Las máquinas virtuales implementadas por esta instancia de Blueprint ejecutan sistemas operativos Windows. Cada proceso de Windows proporciona los recursos necesarios para ejecutar un programa. La prioridad de recursos se administra por parte del sistema operativo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa una instancia de Application Gateway y un equilibrador de carga, y configura reglas de grupos de seguridad de red para controlar las conmutaciones en los límites externos y entre subredes internas. La instancia de Application Gateway, el equilibrador de carga y los registros de diagnóstico y evento del grupo seguridad de red se recopilan por parte de OMS Log Analytics para permitir la supervisión del cliente. |
+| **Cliente** | Este plano implementa una instancia de Application Gateway y un equilibrador de carga, y configura reglas de grupos de seguridad de red para controlar las conmutaciones en los límites externos y entre subredes internas. La instancia de Application Gateway, el equilibrador de carga y los registros de diagnóstico y evento del grupo seguridad de red los recopila Log Analytics para permitir la supervisión del cliente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente a lo necesario para la funcionalidad de administración y del sistema (por ejemplo, el tráfico externo no puede acceder a la base de datos, la administración o las subredes de Active Directory). |
+| **Cliente** | Esta instancia de Blueprint implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente a lo necesario para la funcionalidad de administración y del sistema (por ejemplo, el tráfico externo no puede acceder a la base de datos, la administración o las subredes de Active Directory). |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema. |
+| **Cliente** | Esta instancia de Blueprint implementa los recursos en una arquitectura con una subred web independiente, la subred de la base de datos, la subred de Active Directory y la subred de administración. Las subredes se separan de forma lógica mediante las reglas del grupo de seguridad de red aplicadas a las subredes individuales para restringir el tráfico entre subredes unicamente según sea necesario para la funcionalidad de administración y del sistema. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -469,7 +469,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano utiliza la autenticación de Windows, el escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
+| **Cliente** | En este plano técnico se usa la autenticación de Windows, Escritorio remoto y BitLocker. Estos componentes se pueden configurar para que se basen en los módulos criptográficos validados de FIPS 140. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -721,5 +721,5 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Las máquinas virtuales implementadas por este plano ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. |
+| **Cliente** | Las máquinas virtuales implementadas por esta instancia de Blueprint ejecutan sistemas operativos Windows. Windows mantiene dominios de ejecución independientes para cada proceso en ejecución mediante la asignación de un espacio privado de direcciones virtuales a cada proceso. |
 | **Proveedor (Microsoft Azure)** | No aplicable |

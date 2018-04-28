@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -58,14 +58,13 @@ Para preparar VMM para la asignación de red, siga estos pasos:
 
 ## <a name="verify-internet-access"></a>Comprobación del acceso a Internet
 
-1. En este tutorial, la configuración más sencilla es para los hosts de Hyper-V y el servidor de VMM, si corresponde, para tener acceso directo a Internet sin usar proxy. 
+1. En este tutorial, la configuración más sencilla es para que los hosts de Hyper-V y el servidor VMM tengan acceso directo a Internet sin proxys. 
 2. Asegúrese de que los hosts de Hyper-V, y el servidor VMM si procede, puedan acceder a estas direcciones URL: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Asegúrese de que:
-    - Todas las reglas de firewall basadas en direcciones IP deben permitir la comunicación con Azure.
-    - Permita los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y el puerto HTTPS (443).
+3. Si controla el acceso por la dirección IP, asegúrese de que:
+    - Las reglas de firewall basadas en la dirección IP se puedan conectar a [intervalos IP de centro de datos de Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) y al puerto HTTPS (443).
     - Permita los intervalos de direcciones IP correspondientes a la región de Azure de su suscripción y del oeste de EE. UU. (se usan para Access Control y para Identity Management).
 
 

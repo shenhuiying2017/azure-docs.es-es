@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Si aparece un mensaje similar al siguiente: "1) Analizando registros de flujo de grupos de seguridad de red por primera vez. Este proceso puede tardar de 20 a 30 minutos en completarse. Compruébelo de nuevo más tarde. 2) Si el paso anterior no funciona y el área de trabajo está en la SKU gratuita, compruebe aquí el uso del área de trabajo para validar el excedente de la cuota y consulte también las preguntas más frecuentes para más información", ¿cómo puedo solucionarlo?
 
         Este error puede producirse por las siguientes razones:
-        - Es posible que Análisis de tráfico se haya habilitado hace poco tiempo y esté agregando datos suficientes para inferir información detallada relevante antes de poder generar ningún informe. En este caso, inténtelo de nuevo después de 30 minutos.
+        - Es posible que el análisis de tráfico se haya habilitado hace poco tiempo y todavía no esté agregando datos suficientes para inferir información detallada relevante.
         - El área de trabajo de OMS está en la SKU gratuita y ha superado los límites de la cuota. En este caso, es posible que deba usar un área de trabajo que esté en una SKU con mayor capacidad.
     
         Si el problema persiste, comparta su experiencia en el [foro de UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,11 +104,15 @@ ms.lasthandoff: 03/28/2018
 
         Puede ver información sobre los recursos en el panel; sin embargo, no aparece ninguna estadística relacionada con los flujos. Es posible que estos datos no aparezcan porque no hay flujos de comunicación entre los recursos. Espere 60 minutos y vuelva a comprobar el estado. Si no sabe con seguridad si hay flujos de comunicación entre los recursos, comparta su experiencia en el [foro de UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  ¿Qué precio tiene Análisis de tráfico?
+14. ¿Puedo configurar Análisis de tráfico mediante PowerShell o una plantilla de Azure Resource Manager?
+
+    No, Análisis de tráfico solo se puede configurar con Azure Portal.
+
+15.  ¿Qué precio tiene Análisis de tráfico?
 
         Análisis de tráfico se mide para mejorar la reducción de los registros y almacenar los registros mejorados en un área de trabajo de Log Analytics. Mientras esté en versión preliminar, no se cobra por el Análisis de tráfico para mejorar los registros reducidos; sin embargo, la retención de datos en un área de trabajo está sujeta a facturación a las tasas publicadas. Esta respuesta se actualizará una vez que el precio del Análisis de tráfico esté disponible.
 
-15.  ¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
+16.  ¿Cómo puedo navegar con el teclado en la vista del mapa geográfico?
 
         La página del mapa geográfico se compone de dos secciones principales:
     

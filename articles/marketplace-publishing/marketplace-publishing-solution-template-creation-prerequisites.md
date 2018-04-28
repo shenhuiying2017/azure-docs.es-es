@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 4de9f66b4632f2573299757b2e40fae65f86f7d6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ce90545900f4abdaf5173c160faf9b178193eafe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Requisitos previos técnicos para la creación de una plantilla de soluciones para Azure Marketplace
 Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se realiza cada paso. Tanto como sea posible, debe preparar la información de su compañía y otros datos, descargar las herramientas necesarias o crear componentes técnicos antes de comenzar el proceso de creación de la oferta.  
@@ -28,7 +28,7 @@ Debe decidir los bloques de creación de la solución antes de continuar con la 
 
 1. [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 2. Plantillas de inicio rápido de Azure:
-   * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
+   * [https://azure.microsoft.com/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a las aplicaciones administradas de Azure | Microsoft Docs"
+title: Introducción a las aplicaciones administradas de Azure | Microsoft Docs
 description: Describe los conceptos de las aplicaciones administradas de Azure
 services: managed-applications
 author: tfitzmac
@@ -8,13 +8,13 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 35e30700270fb5757a80c4a6b8f231042f7640f3
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -52,7 +52,7 @@ Para más información sobre cómo publicar una aplicación administrada en Azur
 
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicaciones administradas
 
-Normalmente, los recursos de una aplicación administrada residen en dos grupos de recursos. El consumidor administra un grupo de recursos y el editor administra el otro. Al definir la aplicación administrada, el editor especifica los niveles de acceso. La siguiente imagen muestra un escenario en el que el editor solicita el rol de propietario del grupo de recursos administrados. El editor puso un bloqueo de solo lectura en este grupo de recursos para el consumidor.
+Normalmente, los recursos de una aplicación administrada residen en dos grupos de recursos. El consumidor administra un grupo de recursos y el editor administra el otro. Al definir la aplicación administrada, el editor especifica los niveles de acceso. La siguiente imagen muestra un escenario en el que el editor solicita el rol de propietario del grupo de recursos administrados. El editor puso un bloqueo de solo lectura en este grupo de recursos para el consumidor. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
 
 ![Acceso al grupo de recursos](./media/overview/access.png)
 

@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introducción a una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con SQL Database
 
@@ -24,7 +24,7 @@ El código fuente y los scripts de administración de la aplicación están disp
 
 ## <a name="application-architecture"></a>Arquitectura de la aplicación
 
-La aplicación SaaS Wingtip usa el modelo de base de datos por inquilino. Usa grupos elásticos de SQL para maximizar la eficacia. Para aprovisionar y asignar inquilinos a sus datos, se usa una base de datos de catálogo. En la aplicación SaaS Wingtip principal se usa un grupo con tres inquilinos de ejemplo, además de una base de datos de catálogo. Si se completan muchos de los tutoriales de SaaS Wingtip se generan complementos para la implementación inicial. Se introducen complementos como bases de datos de análisis y administración de esquemas entre bases de datos.
+La aplicación SaaS Wingtip usa el modelo de base de datos por inquilino. Usa grupos elásticos de SQL para maximizar la eficacia. Para aprovisionar y asignar inquilinos a sus datos, se usa una base de datos de catálogo. En la aplicación SaaS Wingtip principal se usa un grupo con tres inquilinos de ejemplo, además de una base de datos de catálogo. Los servidores de catálogo e inquilino se han aprovisionado con alias DNS. Estos alias se usan para conservar una referencia a los recursos de activos que usa la aplicación Wingtip. Se actualizan para señalar a los recursos de recuperación en los tutoriales de recuperación ante desastres. Si se completan muchos de los tutoriales de SaaS Wingtip se generan complementos para la implementación inicial. Se introducen complementos como bases de datos de análisis y administración de esquemas entre bases de datos.
 
 
 ![Arquitectura de SaaS Wingtip](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

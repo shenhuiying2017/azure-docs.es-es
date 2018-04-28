@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con DigiCert | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y DigiCert."
+title: 'Tutorial: integración de Azure Active Directory con DigiCert | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y DigiCert.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integración de Azure Active Directory con DigiCert
 
@@ -27,11 +27,11 @@ La integración de DigiCert con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a DigiCert.
 - Puede permitir que los usuarios inicien sesión automáticamente en DigiCert (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con DigiCert, se necesitan los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de DigiCert desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de DigiCert en Azure AD, será preciso que agreg
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **DigiCert**.
 
@@ -106,9 +106,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
  
     ![Configurar inicio de sesión único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. En la sección **Dominio y direcciones URL de DigiCert**, el usuario no tiene que realizar ningún paso ya que la aplicación se ha integrado previamente con Azure.
+3. En la sección **DigiCert Domain and URLs** (Dominio y direcciones URL de DigiCert), lleve a cabo los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    En el cuadro de texto **Identificador**, escriba la dirección URL: `https://www.digicert.com/sso`
 
 4. La aplicación DigiCert espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección "**Atributos de usuario**" de la página de integración de aplicaciones. En la siguiente captura de pantalla se muestra un ejemplo de esta configuración. 
 
@@ -146,9 +148,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 8. Para configurar el inicio de sesión único en **DigiCert**, debe enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de DigiCert](mailto:support@digicert.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -178,7 +177,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-digicert-test-user"></a>Creación de un usuario de prueba de DigiCert
 

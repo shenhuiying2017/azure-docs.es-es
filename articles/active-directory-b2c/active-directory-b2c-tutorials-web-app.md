@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web para ASP.NET'
-description: Tutorial sobre cómo usar Azure Active Directory B2C para proporcionar inicio de sesión de usuario en una aplicación web de ASP.NET.
+title: 'Tutorial: Habilitación de una aplicación web para autenticarse con cuentas mediante Azure Active Directory B2C | Microsoft Docs'
+description: Tutorial sobre cómo usar Azure Active Directory B2C para proporcionar inicios de sesión de usuario en una aplicación web de ASP.NET.
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
@@ -8,13 +8,13 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Tutorial: Autenticación de usuarios con Azure Active Directory B2C en una aplicación web para ASP.NET
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de una aplicación web para autenticarse con cuentas mediante Azure Active Directory B2C
 
 En este tutorial se muestra cómo usar Azure Active Directory (Azure AD) B2C para registrar e iniciar sesión con usuarios en una aplicación web para ASP.NET. Azure AD B2C permite que las aplicaciones puedan autenticarse en cuentas de las redes sociales, cuentas de empresa y cuentas de Azure Active Directory mediante protocolos estándar abiertos.
 
@@ -40,22 +40,22 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador g
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Seleccione **Azure AD B2C** en la lista de servicios de Azure Portal.
+1. Seleccione **Azure AD B2C** en la lista de servicios de Azure Portal. 
 
-2. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**.
+2. En la configuración de B2C, haga clic en **Aplicaciones** y luego en **Agregar**. 
 
     Para registrar la aplicación web de ejemplo en el inquilino, utilice la siguiente configuración:
 
     ![Incorporación de una nueva aplicación](media/active-directory-b2c-tutorials-web-app/web-app-registration.png)
-
+    
     | Configuración      | Valor sugerido  | Descripción                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | Mi aplicación web de ejemplo | Escriba un **Nombre** que describa la aplicación a los consumidores. | 
     | **Incluir aplicación web o API web** | Sí | Seleccione **Sí** para una aplicación web. |
     | **Permitir flujo implícito** | Sí | Seleccione **Sí**, ya que la aplicación utiliza el [inicio de sesión con OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de respuesta** | `https://localhost:44316` | Las direcciones URL de respuesta son puntos de conexión en los que Azure AD B2C devolverá los tokens que su aplicación solicite. En este tutorial, el ejemplo se ejecuta localmente (localhost) y escucha en el puerto 44316. |
-    | **Cliente nativo** | Sin  | Como es una aplicación web y no un cliente nativo, seleccione No. |
-
+    | **Incluir cliente nativo** | Sin  | Como es una aplicación web y no un cliente nativo, seleccione No. |
+    
 3. Haga clic en **Crear** para registrar la aplicación.
 
 Las aplicaciones registradas aparecen en la lista de aplicaciones del inquilino de Azure AD B2C. Seleccione la aplicación web en la lista. Se muestra el panel de propiedades de la aplicación web.
@@ -70,7 +70,7 @@ Azure AD B2C utiliza la autorización de OAuth2 para [aplicaciones cliente](../a
 
 1. Seleccione la página de claves de la aplicación web registrada y haga clic en **Generar clave**.
 
-2. Haga clic en **Guardar** para mostrar la clave.
+2. Haga clic en **Guardar** para mostrar la clave de aplicación.
 
     ![Página de claves generales de la aplicación](media/active-directory-b2c-tutorials-web-app/app-general-keys-page.png)
 
@@ -112,7 +112,7 @@ Para permitir que los usuarios restablezcan la información de su perfil de usua
     | **Name** | SiPe | Escriba un **Nombre** para la directiva. El nombre de directiva tiene como prefijo **b2c_1_**. En el código de ejemplo, se utiliza el nombre de directiva completo **b2c_1_SiPe**. | 
     | **Proveedor de identidades** | Inicio de sesión en una cuenta local | El proveedor de identidades que se usa para identificar al usuario de forma exclusiva. |
     | **Atributos de perfil** | Nombre para mostrar y Código postal | Seleccione los atributos que los usuarios pueden modificar durante la edición de un perfil. |
-    | **Notificaciones de la aplicación** | Nombre para mostrar, Código postal, El usuario es nuevo, Identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/active-directory-dev-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/active-directory-dev-glossary.md#access-token) después de una edición de perfil correcta. |
+    | **Notificaciones de la aplicación** | Nombre para mostrar, código postal, identificador de objeto del usuario | Seleccione las [notificaciones](../active-directory/develop/active-directory-dev-glossary.md#claim) que desea incluir en el [token de acceso](../active-directory/develop/active-directory-dev-glossary.md#access-token) después de una edición de perfil correcta. |
 
 2. Haga clic en **Crear** para crear la directiva. 
 
@@ -134,7 +134,7 @@ Para habilitar en su aplicación el restablecimiento de contraseña, deberá cre
 
 ## <a name="update-web-app-code"></a>Actualización del código de aplicación web
 
-Ahora que tiene una aplicación web registrada y las directivas creadas, debe configurar la aplicación para usar el inquilino de Azure AD B2C. En este tutorial, configurará una aplicación web de ejemplo. 
+Ahora que tiene una aplicación web registrada y las directivas creadas, debe configurar la aplicación para usar el inquilino de Azure AD B2C. En este tutorial, configurará una aplicación web de ejemplo que puede descargar desde GitHub. 
 
 [Descargue un archivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) o clone la aplicación web de ejemplo desde GitHub.
 
@@ -154,7 +154,7 @@ Debe cambiar la aplicación para que use el registro de aplicaciones de su inqui
 
 1. Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
 
-2. En el proyecto de aplicación web **TaskWebApp**, abra el archivo **Web.config** y realice las siguientes actualizaciones:
+2. En el proyecto de aplicación web **TaskWebApp**, abra el archivo **Web.config** y realice las siguientes actualizaciones en las claves existentes:
 
     ```C#
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
@@ -163,7 +163,7 @@ Debe cambiar la aplicación para que use el registro de aplicaciones de su inqui
     
     <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
-3. Actualice la configuración de directiva con el nombre generado al crear las directivas.
+3. Actualice las claves existentes con los valores de los nombres de directiva que creó en el paso anterior. No olvide incluir el prefijo *b2c_1_*.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />

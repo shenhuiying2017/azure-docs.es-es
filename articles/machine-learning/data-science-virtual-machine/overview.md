@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: d4f91270-dbd2-4290-ab2b-b7bfad0b2703
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9ef6b216889416ea00786dcd3043d6e0f246b305
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -62,23 +62,24 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | [Microsoft Office](https://products.office.com/en-us/business/office-365-proplus-business-software) Pro Plus con activación compartida: Excel, Word y PowerPoint   |Y                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2.7, 3.5 con paquetes populares preinstalados    |Y                      |Y              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) con paquetes populares para lenguaje Julia preinstalados                         |Y                      |Y              |
-| Bases de datos relacionales                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/)(solo CentOS) |
+| Bases de datos relacionales                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Edición para desarrolladores (Ubuntu) |
 | Herramientas de base de datos                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Controladores ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (herramienta de consulta), <br /> * bcp, sqlcmd <br /> * Controladores ODBC/JDBC|
 | Análisis de base de datos escalable con ML Services de SQL Server (R, Python) | Y     |N              |
 | **[Jupyter Notebook Server](http://jupyter.org/) con los kernel siguientes,**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
-|     &nbsp;&nbsp;&nbsp;&nbsp;* Python 2.7 y 3.5 | Y | Y |
+|     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* PySpark | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;*   [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | Y (solo Ubuntu) |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* SparkR     | N | Y |
 | JupyterHub (servidor de cuadernos de varios usuarios)| N | Y |
+| JupyterLab (servidor de cuadernos de varios usuarios) | N | Y (solo Ubuntu) |
 | **Herramientas de desarrollo, entornos de desarrollo integrados y editores de código**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) &gt; con Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) y [Herramientas de R para Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) con Git Plugin, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](http://aka.ms/ptvs) y [Herramientas de R para Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | Y | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Visual Studio Code](https://code.visualstudio.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [PyCharm](https://www.jetbrains.com/pycharm/) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Atom](https://atom.io/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Juno (Julia IDE)](http://junolab.org/)| Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim y Emacs | Y | Y |
@@ -105,12 +106,14 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Rattle](http://rattle.togaware.com/) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (solo Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [H2O](https://www.h2o.ai/h2o/) | N | Y (solo Ubuntu) |
-| **Herramientas de aprendizaje profundo basado en GPU** |Edición de Windows Server 2016  | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (anteriormente conocido como CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [MXNet](http://mxnet.io/) | Y | Y|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/), [Deep Water](https://www.h2o.ai/deep-water/) | N | Y (solo Ubuntu) |
+| **Herramientas de aprendizaje profundo** <br>Todas las herramientas funcionarán en una CPU o GPU |  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) (Windows 2016) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | Y (Windows 2016) | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | Y (Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp;*   [MXNet](http://mxnet.io/) | Y (Windows 2016) | Y|
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Caffe y Caffe2](https://github.com/caffe2/caffe2) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Torch](http://torch.ch/) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Theano](https://github.com/Theano/Theano) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Keras](https://keras.io/)| N | Y |
@@ -118,43 +121,18 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | N | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | Y |
-| &nbsp;&nbsp;&nbsp;&nbsp;*   [CUDA, CUDNN, Nvidia Driver](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | Y | Y |
 | **Plataforma de macrodatos (solo Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) Standalone local | N | Y |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) Standalone local | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](http://hadoop.apache.org/) (HDFS, YARN) local | N | Y |
 
+## <a name="get-started"></a>Introducción
 
+### <a name="windows-data-science-vm"></a>Máquina virtual de ciencia de datos de Windows
+* Para más información sobre cómo crear una instancia de DSVM de Windows y utilizarla, consulte [Aprovisionamiento de Data Science Virtual Machine de Windows en Azure](provision-vm.md). Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en DSVM de Windows, consulte [Diez cosas que puede hacer en Data Science Virtual Machine](vm-do-ten-things.md).
 
-## <a name="get-started-with-the-windows-data-science-vm"></a>Introducción a la máquina virtual de ciencia de datos en Windows
-* Cree una instancia de la edición de la DSVM de Windows que quiera accediendo a
-  * [DSVM basada en Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.windows-data-science-vm)
-  
-  o 
-  * [DSVM basada en Windows Server 2012](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) 
-* Haga clic en el botón **OBTENERLA AHORA**.
-* Inicie sesión en la VM desde el escritorio remoto con las credenciales que especificó cuando creó la VM.
-* Para detectar e iniciar las herramientas disponibles, haga clic en el menú **Inicio**.
-
-## <a name="get-started-with-the-linux-data-science-vm"></a>Introducción a la VM de ciencia de datos de Linux
-* Cree una instancia de la edición de la DSVM de Linux que quiera accediendo a 
-  * [DSVM basada en Ubuntu](http://aka.ms/dsvm/ubuntu)
-
-  o
-
-  * [DSVM basada en CentOS](http://aka.ms/dsvm/centos)
-
-  
-* Haga clic en el botón **Obtenerla ahora**.
-* Inicie sesión en una VM desde un cliente SSH, como Putty o comando SSH con las credenciales que especificó cuando creó la VM.
-* En el símbolo del sistema de shell, especifique dsvm-more-info.
-* Para un escritorio gráfico, descargue el cliente X2Go para la plataforma cliente [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient) y siga las instrucciones en el documento de VM de ciencia de datos de Linux [Aprovisionamiento de máquina virtual de ciencia de datos de Linux](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
-
-## <a name="next-steps"></a>Pasos siguientes
-### <a name="for-the-windows-data-science-vm"></a>Para la VM de ciencia de datos de Windows
-* Para obtener más información sobre cómo ejecutar las herramientas específicas disponibles en la versión de Windows, vea [Aprovisionamiento de la máquina virtual de ciencia de datos de Microsoft](provision-vm.md) y
-* Para obtener información sobre cómo realizar diversas tareas necesarias para el proyecto de ciencia de datos en la VM de Windows, vea [Diez cosas que puede hacer en la máquina virtual de ciencia de datos](vm-do-ten-things.md).
-
-### <a name="for-the-linux-data-science-vm"></a>Una VM de ciencia de los datos de Linux
-* Para obtener más información sobre cómo ejecutar las herramientas específicas disponibles en la versión de Linux, vea [Aprovisionamiento de la máquina virtual de ciencia de datos de Linux](linux-dsvm-intro.md).
-* Para ver un tutorial que muestra cómo llevar a cabo varias tareas de ciencia de datos comunes con la VM de Linux, consulte [Ciencia de datos en la máquina virtual de ciencia de datos de Linux](linux-dsvm-walkthrough.md).
+### <a name="linux-data-science-vm"></a>Data Science Virtual Machine de Linux
+* Para más información sobre cómo crear una instancia de DSVM de Ubuntu y utilizarla, consulte [Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)](dsvm-ubuntu-intro.md). Para más información sobre cómo crear una instancia de DSVM de CentOS y utilizarla, consulte [Aprovisionamiento de una instancia de Data Science Virtual Machine de Linux CentOS en Azure](linux-dsvm-intro.md).
+* Para ver un tutorial que muestra cómo llevar a cabo varias tareas de ciencia de datos comunes con la máquina virtual Linux, tanto con CentOS y con Ubuntu, consulte [Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure](linux-dsvm-walkthrough.md).
 

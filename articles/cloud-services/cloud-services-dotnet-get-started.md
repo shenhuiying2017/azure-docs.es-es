@@ -1,11 +1,11 @@
 ---
-title: "Introducción a Azure Cloud Services y ASP.NET | Microsoft Docs"
-description: "Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, SQL Database y blobs y colas de Azure Storage."
+title: Introducción a Azure Cloud Services y ASP.NET | Microsoft Docs
+description: Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, SQL Database y blobs y colas de Azure Storage.
 services: cloud-services, storage
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
 ms.service: cloud-services
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 704391a60b4ba777b8fd2b156db2ea5587498383
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
@@ -34,8 +34,8 @@ La aplicación es un tablón de anuncios publicitario. Los usuarios crean un anu
 
 La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para descargar el trabajo de uso intensivo de CPU de creación de miniaturas y pasarlo a un proceso back-end.
 
-## <a name="alternative-architecture-websites-and-webjobs"></a>Arquitectura alternativa: Websites y WebJobs
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en versión preliminar) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Azure Websites, Cloud Services y Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitectura alternativa: Web Apps y WebJobs
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en [Azure Web Apps](/azure/app-service/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) para el back-end. Para ver un tutorial en el que se utiliza WebJobs, consulte [Introducción al SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, consulte [Comparación entre Azure Websites, Cloud Services y Virtual Machines](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Temas que se abordarán
 * Habilitar su equipo para desarrollar contenido de Azure mediante la instalación del SDK de Azure.
@@ -767,7 +767,6 @@ A continuación se muestran algunas aplicaciones de ejemplo de servicios en la n
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Tiene un concepto similar a Contoso Ads, pero implementa más características y más procedimientos de codificación del mundo real.
 * [Aplicación de niveles múltiples de servicios en la nube de Azure con Tablas, Colas y Blobs.](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36)Presenta las tablas de Almacenamiento de Azure, así como blobs y colas. Basadas en una versión anterior del SDK de Azure para. NET, se requieren algunas modificaciones para que funcionen con la versión actual.
-* [Fundamentos de servicios en la nube en Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Ejemplo global que muestra una amplia gama de procedimientos recomendados, creados por el grupo de modelos y procedimientos de Microsoft.
 
 Para obtener información general sobre el desarrollo para la nube, consulte [Creación de aplicaciones del mundo real para la nube con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
@@ -777,5 +776,5 @@ Para obtener más información, consulte los siguientes recursos:
 
 * [Azure Cloud Services, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](/documentation/services/storage/)
+* [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Uso del servicio Microsoft Azure Import/Export para transferir datos a Azure Storage
 En este artículo, se proporcionan instrucciones detalladas sobre el uso del servicio Azure Import/Export para transferir de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files mediante el envío de unidades de disco duro a un centro de datos de Azure. También se puede usar este servicio para transferir datos desde Azure Storage hasta las unidades de disco duro y enviarlas al sitio local. Es posible importar los datos de una sola unidad de disco SATA interna a Azure Blob Storage o Azure Files. 
@@ -560,7 +560,7 @@ El tamaño máximo de blobs en páginas es de 1 TB.
 
 El servicio Azure Import/Export usa de forma predeterminada el cifrado Bitlocker AES 128, pero se puede aumentar a AES 256 si los datos se cifran manualmente con Bitlocker antes de copiarlos. 
 
-Si usa [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), a continuación se muestra un comando de ejemplo.
+Si usa [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), a continuación se muestra un comando de ejemplo
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

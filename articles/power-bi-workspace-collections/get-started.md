@@ -1,12 +1,12 @@
 ---
-title: "Introducción a las colecciones de áreas de trabajo de Power BI"
-description: "Las colecciones de áreas de trabajo de Power BI son un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones."
+title: Introducción a las colecciones de áreas de trabajo de Power BI
+description: Las colecciones de áreas de trabajo de Power BI son un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
@@ -15,19 +15,19 @@ ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 4ee113ed25142507f381d8c9d49b25ee6553c525
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introducción a las colecciones de áreas de trabajo de Power BI
 
 Las **colecciones de áreas de trabajo de Power BI** son un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones. Las **colecciones de áreas de trabajo de Power BI** se pueden utilizar con las aplicaciones existentes sin necesidad de modificar el diseño ni de cambiar el modo en que los usuarios inician sesión.
 
 > [!IMPORTANT]
-> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de la colección de áreas de trabajo de Power BI Embedded a Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 Los recursos para las **colecciones de áreas de trabajo de Microsoft Power BI** se aprovisionan mediante las [API de Azure Resource Manager](https://msdn.microsoft.com/library/mt712306.aspx). En este caso, el recurso que se aprovisiona es una **colección de áreas de trabajo de Power BI**.
 
@@ -42,7 +42,7 @@ Una **colección de áreas de trabajo** es el recurso de Azure de nivel superior
 
 Vamos a ver cuáles son los pasos necesarios para crear una **colección de áreas de trabajo** mediante Azure Portal.
 
-1. Abra **Azure Portal**, [http://portal.azure.com](http://portal.azure.com), e inicie sesión.
+1. Abra e inicie sesión en **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
 2. Seleccione **+ Nuevo** en el panel superior.
    
    ![+ Nuevo en Azure Portal](media/get-started/create-workspace-1.png)
@@ -106,7 +106,7 @@ Cuando guarde el trabajo en **Power BI Desktop**, se creará un archivo PBIX. Es
 
 ## <a name="create-power-bi-datasets-and-reports-using-apis"></a>Creación de conjuntos de datos e informes de Power BI con las API
 
-### <a name="datasets"></a>CONJUNTOS DE DATOS
+### <a name="datasets"></a>Conjuntos de datos
 
 Puede crear conjuntos de datos dentro de colecciones de áreas de trabajo de Power BI mediante la API de REST. Luego, puede insertar datos en el conjunto de datos. De esta forma puede trabajar con datos sin necesidad de Power BI Desktop. Para más información, consulte [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx) (Publicación de conjuntos de datos).
 
@@ -117,8 +117,8 @@ Puede crear un informe a partir de un conjunto de datos directamente en la aplic
 ## <a name="see-also"></a>Otras referencias
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
-[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización con Colecciones de áreas de trabajo de Power BI)  
-[Embed a report in Power BI Embedded](embed-report.md) (Inserción de un informe en Power BI Embedded)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
+[Inserción de un informe](embed-report.md)  
 [Create a new report from a dataset in Power BI Workspace Collections](create-report-from-dataset.md) (Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI) 
 [Guardar informes](save-reports.md)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  

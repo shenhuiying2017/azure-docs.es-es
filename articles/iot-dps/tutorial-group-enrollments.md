@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0ebf71a68f00b9766e14ea775fa2b1e9f15a201b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d325e71125e875590b54b84700b6ec9e0fe7dd7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Creación y aprovisionamiento de un dispositivo X.509 simulado mediante el SDK de dispositivos y servicios Java y las inscripciones de grupos para el servicio Azure IoT Hub Device Provisioning
 
@@ -33,7 +33,7 @@ Asegúrese de completar los pasos descritos en [Configuración de un servicio Az
 
 1. Asegúrese de que `git` está instalado en su máquina y se agrega a las variables de entorno accesibles para la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash**, la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
 
-1. Utilice la siguiente [Introducción a los certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para crear los certificados de prueba. Para obtener información más detallada sobre la creación de certificados, consulte [Scripts de PowerShell para administrar certificados X.509 firmados por la entidad de certificación](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Utilice la siguiente [Introducción a los certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para crear los certificados de prueba. Para obtener información más detallada sobre la creación de certificados, consulte [Scripts de PowerShell para administrar certificados X.509 firmados por la entidad de certificación](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates).
 
     > [!NOTE]
     > Este paso requiere [OpenSSL](https://www.openssl.org/), que se puede integrar e instalar desde el origen o descargarse e instalarse desde el sitio web de un [tercero](https://wiki.openssl.org/index.php/Binaries) como [este](https://sourceforge.net/projects/openssl/). Si ya ha creado los certificados _raíz_, _intermedio_ y de _dispositivo_, puede omitir este paso.

@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -51,7 +51,7 @@ En la tabla siguiente se muestra una lista de sistemas operativos compatibles:
 |Sistema operativo  |Notas  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Solo admite las evaluaciones de actualización         |
-|Windows Server 2008 R2 SP1 y versiones posteriores     |Se necesitan .NET Framework 4.5 y WMF 5.0 o posterior para Windows Server 2008 R2 SP1        |
+|Windows Server 2008 R2 SP1 y versiones posteriores     |Se requiere Windows PowerShell 4.0 o posterior ([descargar WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([descargar WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) se recomienda para mayor confiabilidad.         |
 |CentOS 6 (x86/x64) y 7 (x64)      | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |Red Hat Enterprise (x86/x64) 6 y 7 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)     | Los agentes de Linux deben tener acceso a un repositorio de actualización.        |
@@ -252,7 +252,7 @@ Si se producen problemas al intentar incorporar la solución o una máquina virt
 | No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>System.Net.Http.HttpRequestException: error al enviar la solicitud. ---><br>System.Net.WebException: la conexión subyacente<br>se cerró: error inesperado<br>en una operación de recepción. ---> System.ComponentModel.Win32Exception:<br>el cliente y el servidor no pueden comunicarse,<br>dado que no poseen un algoritmo común | El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](automation-offering-get-started.md#network-planning)|
 | No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>Newtonsoft.Json.JsonReaderException: error al analizar el valor de infinito positivo. | El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](automation-offering-get-started.md#network-planning)|
 | El certificado presentado por el servicio <wsid>.oms.opinsights.azure.com<br>no fue emitido por una entidad de certificación<br>utilizada para los servicios de Microsoft. Contacto<br>el administrador de red para comprobar si están ejecutando un proxy que intercepte<br>la comunicación TLS/SSL. |El proxy, la puerta de enlace o el firewall están bloqueando la comunicación | [Revise los requisitos de red](automation-offering-get-started.md#network-planning)|
-| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>error al crear un certificado autofirmado. ---><br>System.UnauthorizedAccessException: se denegó el acceso. | Error al generar un certificado autofirmado | Compruebe que la cuenta del sistema tiene<br>acceso de lectura a la carpeta:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| No se pudo registrar la máquina para la administración de revisiones,<br>error en el registro con la excepción<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>error al crear un certificado autofirmado. ---><br>System.UnauthorizedAccessException: se denegó el acceso. | Error al generar un certificado autofirmado | Compruebe que la cuenta del sistema tiene<br>acceso de lectura a la carpeta:<br>**C:\ProgramData\Microsoft\**<br>** Crypto\RSA**|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

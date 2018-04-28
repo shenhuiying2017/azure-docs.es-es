@@ -8,16 +8,14 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Conexión de HDInsight a la red local
 
@@ -125,7 +123,7 @@ Para crear una máquina virtual Linux que usa el software DNS [Bind](https://www
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
     > * [Bash en Ubuntu en Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [GIT (https://git-scm.com/)](https://git-scm.com/)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Para instalar Bind, use los comandos siguientes en la sesión de SSH:
@@ -297,7 +295,7 @@ Use los pasos que aparecen en el documento sobre cómo [crear un clúster de HDI
 
 ## <a name="connecting-to-hdinsight"></a>Conexión a HDInsight
 
-En la mayor parte de la documentación sobre HDInsight se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en https://NOMBREDECLÚSTER.azurehdinsight.net. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado NSG o UDR para restringir el acceso desde Internet.
+En la mayor parte de la documentación sobre HDInsight se supone que tiene acceso al clúster a través de Internet. Por ejemplo, que se puede conectar al clúster en https://CLUSTERNAME.azurehdinsight.net. Esta dirección usa la puerta de enlace pública, que no está disponible si ha usado NSG o UDR para restringir el acceso desde Internet.
 
 Alguna documentación también hace referencia a `headnodehost` al conectarse al clúster desde una sesión de SSH. Esta dirección solo está disponible en los nodos de un clúster y no se puede usar en los clientes conectados a través de la red virtual.
 

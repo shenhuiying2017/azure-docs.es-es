@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -468,7 +468,7 @@ Si su inquilino de Azure Active Directory se encuentra en uno de los centros de 
 
 **Solución de problemas del agente**
 
-El [registro de eventos de Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente contiene eventos de todas las operaciones realizadas por el agente. Para ver estos eventos:
+El [registro de eventos de Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente contiene eventos de todas las operaciones realizadas por el agente. Para ver estos eventos:
     
 1. Abra **Eventvwr.msc**.
 2. Seleccione **Registros de Windows > Aplicación**.
@@ -491,7 +491,7 @@ Una vez que las partes 1-3 se han completado, puede volver a iniciar el servicio
 
 4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen fuera de Workday y que luego se agregan o actualizan en Active Directory. **[Consulte la guía de creación de informes de aprovisionamiento para obtener instrucciones detalladas sobre cómo leer los registros de auditoría](active-directory-saas-provisioning-reporting.md)**.
 
-5.  Compruebe el [registro de eventos de Windows](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente para ver si hay nuevos errores o advertencias. Estos eventos se pueden ver si se inicia **Eventvwr.msc** en el servidor y se selecciona **Registros de Windows > Aplicación**. Todos los mensajes relacionados con el aprovisionamiento se registran en el origen **AADSyncAgent**. 
+5.  Compruebe el [registro de eventos de Windows](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) en la máquina Windows Server que hospeda el agente para ver si hay nuevos errores o advertencias. Estos eventos se pueden ver si se inicia **Eventvwr.msc** en el servidor y se selecciona **Registros de Windows > Aplicación**. Todos los mensajes relacionados con el aprovisionamiento se registran en el origen **AADSyncAgent**. 
     
 
 6. Una vez finalizada la operación, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
@@ -819,7 +819,7 @@ Se puede cumplir con el GDPR de dos formas:
 1. Previa solicitud, en cuyo caso se extraen los datos de una persona y se eliminan de los registros de eventos de Windows. 
 2. Mantener el período de retención de los registros de eventos de Windows del proceso de AADSyncAgent durante menos de 48 horas.
 
-Para obtener información sobre cómo configurar la retención de datos de los registros de eventos de Windows, vea la [configuración de los registros de eventos](https://technet.microsoft.com/en-us/library/cc952132.aspx). Para obtener información general sobre el registro de eventos de Windows, vea [este artículo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+Para obtener información sobre cómo configurar la retención de datos de los registros de eventos de Windows, vea la [configuración de los registros de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obtener información general sobre el registro de eventos de Windows, vea [este artículo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

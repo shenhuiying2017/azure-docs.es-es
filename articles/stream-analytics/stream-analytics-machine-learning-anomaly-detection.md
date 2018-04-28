@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Detección de anomalías en Azure Stream Analytics
 
@@ -65,6 +65,8 @@ Para extraer los valores individuales del registro, use la función **GetRecordP
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 La anomalía de un tipo se detecta cuando una de estas puntuaciones supera un umbral. El umbral puede ser cualquier número de punto flotante >= 0. El umbral es un equilibrio entre la confidencialidad y la confianza. Por ejemplo, un umbral más bajo aumentaría la sensibilidad a los cambios y generaría más alertas, mientras que un umbral más alto podría reducir la sensibilidad de la detección y aumentar la seguridad pero enmascararía algunas anomalías. El valor de umbral exacto que se utiliza depende del escenario. No hay límite superior, pero el rango recomendado es 3,25-5. 
+
+El valor de 3,25 que aparece en el ejemplo es simplemente una sugerencia de punto inicial. Ajuste el valor; para ello, ejecute las operaciones en su propio conjunto de datos y observe que el valor de salida hasta que se alcance un umbral tolerable.
 
 ## <a name="anomaly-detection-algorithm"></a>Algoritmo de detección de anomalías
 
@@ -118,19 +120,19 @@ Revisemos el cálculo de la extrañeza en detalle (supongamos que existe un conj
    - event_value/90th_percentile, si event_value > 90th_percentile  
    - 10th_percentile/event_value, si event_value es < 10th_percentile  
 
-2. **Tendencia positiva lenta:** se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y buscamos una tendencia positiva dentro de la línea. El valor de extrañeza se calcula como:  
+2. **Tendencia positiva lenta:** se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia positiva dentro de la línea. El valor de extrañeza se calcula como:  
 
    - Pendiente, si la pendiente es positiva  
    - 0, de lo contrario. 
 
-1. **Tendencia negativa lenta:** se calcula una línea de tendencia sobre los valores de evento en la ventana de historial y buscamos tendencia negativa dentro de la línea. El valor de extrañeza se calcula como: 
+3. **Tendencia negativa lenta:** se calcula una línea de tendencia sobre los valores del evento en la ventana de historial y la operación busca una tendencia negativa dentro de la línea. El valor de extrañeza se calcula como: 
 
    - Pendiente, si la pendiente es negativa  
    - 0, de lo contrario.  
 
 Una vez que se calcula el valor de extrañeza para el evento entrante, se calcula un valor de Martingala basado en el valor de extrañeza (consulte el [blog de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para más información sobre cómo se calcula el valor de Martingala). Se devuelve este valor de Martingala como puntuación de anomalía. El valor de Martingala aumenta lentamente en respuesta a valores extraños, lo que permite al detector permanecer consistente a los cambios esporádicos y reduce las falsas alertas. También tiene una propiedad útil: 
 
-Probabilidad [existe t tal que M<sub>t</sub> > λ] < 1/λ, donde M<sub>t</sub> es el valor de Martingala en el instante t y λ es un valor real. Por ejemplo, si se alerta cuando M<sub>t</sub>> 100, entonces la probabilidad de falsos positivos es inferior a 1/100.  
+Probabilidad [existe t tal que M<sub>t</sub> > λ] < 1/λ, donde M<sub>t</sub> es el valor de Martingala en el instante t y λ es un valor real. Por ejemplo, si se produce una alerta cuando M<sub>t</sub> > 100, la probabilidad de falsos positivos es menor que 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Guía para usar el detector de cambios de nivel bidireccional 
 
@@ -140,7 +142,7 @@ Deben tener en cuenta los siguientes puntos cuando se usa este detector:
 
 1. Cuando la serie temporal ve de repente un aumento o una caída en el valor, el operador AnomalyDetection lo detecta. Pero detectar el regreso a la normalidad requiere más planeación. Si una serie temporal se encontraba en estado estable antes de la anomalía, lo que puede lograrse mediante el establecimiento de la ventana de detección del operador AnomalyDetecttion a lo sumo a la mitad de la longitud de la anomalía. En este escenario se asume que la duración mínima de la anomalía puede ser calculada con anticipación, y que hay suficientes eventos en ese plazo de tiempo para entrenar el modelo de manera suficiente (al menos 50 eventos). 
 
-   Esto se muestra en las figuras 1 y 2, a continuación, que utilizan un cambio de límite superior (la misma lógica se aplica a un cambio de límite inferior). En ambas ilustraciones, las formas de onda constituyen un cambio de nivel anómalo. Las líneas naranja verticales indican los límites del salto y el tamaño del salto es el mismo que la ventana de detección especificada en el operador AnomalyDetection. Las líneas verdes indican el tamaño de la ventana de aprendizaje. En la figura 1, el tamaño de salto es igual al tiempo durante el cual dura la anomalía. En la figura 2, el tamaño de salto es la mitad del tiempo durante el cual dura la anomalía. En todos los casos, se detecta un cambio al alza porque el modelo utilizado para la puntuación se ha entrenado con datos normales. Pero basándonos en cómo funciona el detector de cambios de nivel bidireccional, debemos excluir los valores normales de la ventana de aprendizaje utilizada para el modelo que puntúa la vuelta a la normalidad. En la figura 1, el aprendizaje del modelo de puntuación incluye algunos eventos normales, por lo que no se puede detectar la vuelta a la normalidad. Pero en la figura 2, el aprendizaje solo incluye la parte anómala, lo que asegura que se detecte la vuelta a la normalidad. Cualquier valor menor que la mitad también funciona por la misma razón, mientras que cualquier valor mayor terminará incluyendo un poco de los eventos normales. 
+   Esto se muestra en las figuras 1 y 2, a continuación, que utilizan un cambio de límite superior (la misma lógica se aplica a un cambio de límite inferior). En ambas ilustraciones, las formas de onda constituyen un cambio de nivel anómalo. Las líneas naranja verticales indican los límites del salto y el tamaño del salto es el mismo que la ventana de detección especificada en el operador AnomalyDetection. Las líneas verdes indican el tamaño de la ventana de aprendizaje. En la figura 1, el tamaño de salto es igual al tiempo durante el cual dura la anomalía. En la figura 2, el tamaño de salto es la mitad del tiempo durante el cual dura la anomalía. En todos los casos, se detecta un cambio al alza porque el modelo utilizado para la puntuación se ha entrenado con datos normales. Pero en función de cómo funciona el detector de cambios de nivel bidireccional, se deben excluir los valores normales de la ventana de aprendizaje que se usan para el modelo que puntúa la vuelta a la normalidad. En la figura 1, el aprendizaje del modelo de puntuación incluye algunos eventos normales, por lo que no se puede detectar la vuelta a la normalidad. Pero en la figura 2, el aprendizaje solo incluye la parte anómala, lo que asegura que se detecte la vuelta a la normalidad. Cualquier valor menor que la mitad también funciona por la misma razón, mientras que cualquier valor mayor terminará incluyendo un poco de los eventos normales. 
 
    ![Detección de anomalías con tamaño de ventana igual a la longitud de la anomalía](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

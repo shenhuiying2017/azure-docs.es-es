@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: ac63d0f731dcbb393d7bd1cb30e135fdcca095de
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 19e8c11a0051f9d13ef4be3d77fe828a272c3c77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Etiquetado de una máquina virtual Linux en Azure
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual en Azure el modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager.
@@ -27,22 +27,30 @@ En este artículo se describen diferentes maneras de etiquetar una máquina virt
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-azure-cli"></a>Etiquetado con la CLI de Azure
-Para empezar, necesita tener instalada la última versión de la [CLI de Azure 2.0 (versión preliminar)](/cli/azure/install-az-cli2) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
+Para empezar, necesita tener instalada la última versión de la [CLI de Azure 2.0](/cli/azure/install-azure-cli) e iniciar sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az-login).
 
 También puede llevar a cabo estos pasos con la [CLI de Azure 1.0](tag-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Con este comando es posible ver todas las propiedades de una máquina virtual dada, incluidas las etiquetas:
 
-        az vm show --resource-group MyResourceGroup --name MyTestVM
+```azurecli
+az vm show --resource-group MyResourceGroup --name MyTestVM
+```
 
 Para agregar una nueva etiqueta de máquina virtual a través de la CLI de Azure, puede usar el comando `azure vm update` junto con el parámetro de etiqueta **--set**:
 
-        az vm update --resource-group MyResourceGroup --name MyTestVM –-set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```azurecli
+az vm update \
+    --resource-group MyResourceGroup \
+    --name MyTestVM \
+    --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
+```
 
 Para quitar las etiquetas, puede usar el parámetro **--remove** en el comando `azure vm update`.
 
-        az vm update –-resource-group MyResourceGroup –-name MyTestVM --remove tags.myNewTagName1
-
+```azurecli
+az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1
+```
 
 Ahora que hemos aplicado etiquetas a nuestros recursos a través de PowerShell, la CLI de Azure y el portal, analicemos los datos de uso para ver las etiquetas del portal de facturación.
 

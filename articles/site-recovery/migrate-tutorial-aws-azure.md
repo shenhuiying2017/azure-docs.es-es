@@ -1,6 +1,6 @@
 ---
-title: "Migración de máquinas virtuales de AWS a Azure con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se describe cómo migrar máquinas virtuales Windows que se ejecutan en Amazon Web Services (AWS) en Azure con Azure Site Recovery."
+title: Migración de máquinas virtuales de AWS a Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo migrar máquinas virtuales Windows que se ejecutan en Amazon Web Services (AWS) en Azure con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,17 +9,18 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 59a09b5d67391f2b48d338d721369f14ed6b4ede
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3ad4f46585be9cf61e3ef8343b5cb05308c972d6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migración de máquinas virtuales de Amazon Web Services (AWS) a Azure
 
 En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web Services (AWS) a máquinas virtuales de Azure con Site Recovery. Al migrar instancias de EC2 a Azure, se tratan las máquinas virtuales como si fuesen físicas en los equipos locales. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+> * Verificar los requisitos previos
 > * Preparar recursos de Azure
 > * Preparar las instancias de AWS EC2 para la migración
 > * Implementar un servidor de configuración
@@ -29,6 +30,22 @@ En este tutorial se enseña cómo migrar máquinas virtuales (VM) de Amazon Web 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
+## <a name="prerequisites"></a>requisitos previos
+- Asegúrese de que las máquinas virtuales que quiere migrar ejecutan una versión del sistema operativo compatible, como por ejemplo: 
+    - Versión de 64 bits de Windows Server 2008 R2 SP1 o posterior, 
+    - Windows Server 2012,
+    - Windows Server 2012 R2, 
+    - Windows Server 2016
+    - Red Hat Enterprise Linux 6.7 (solo instancias virtualizadas de HVM) y solo con controladores Citrix PV o AWS PV. **No** se admiten instancias que ejecuten controladores RedHat PV.
+
+- Mobility Service debe instalarse en cada máquina que quiera replicar. 
+
+> [!IMPORTANT]
+> Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta en las instancias de EC2, que Site Recovery usará para acceder a la máquina virtual. Puede usar una cuenta local o de dominio. 
+> - En el caso de las máquinas virtuales Linux, debe ser la cuenta raíz en el servidor Linux de origen. 
+> - En máquinas virtuales Windows, si no va a usar una cuenta de dominio, deshabilite el control de acceso de usuario remoto en la máquina local: en el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** y establezca el valor en 1.
+
+- También necesita una instancia de EC2 aparte, que puede usar como servidor de configuración de Site Recovery. Esta instancia debe ejecutar Windows Server 2012 R2.
 
 ## <a name="prepare-azure-resources"></a>Preparar recursos de Azure
 
@@ -74,19 +91,6 @@ Cuando se crean máquinas virtuales de Azure después de la migración (conmutac
 8. Deje los valores predeterminados de **Subred**, tanto de **Nombre** como de **Intervalo IP**.
 9. Deje **Puntos de conexión de servicio** deshabilitado.
 10. Cuando haya terminado, haga clic en **Crear**.
-
-
-## <a name="prepare-the-ec2-instances"></a>Preparar las instancias de EC2
-
-Necesita una o varias máquinas virtuales que quiera migrar. Estas instancias de EC2 deben ejecutar la versión de 64 bits de Windows Server 2008 R2 SP1 o posterior, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 o Red Hat Enterprise Linux 6.7 (solo instancias de HVM virtualizadas). El servidor debe tener solo los controladores Citrix PV o AWS PV. No se admiten instancias que ejecuten controladores RedHat PV.
-
-Mobility Service debe instalarse en cada máquina que quiera replicar. Site Recovery instala este servicio automáticamente cuando se habilita la replicación para la máquina virtual. Para la instalación automática, debe preparar una cuenta en las instancias de EC2, que Site Recovery usará para acceder a la máquina virtual.
-
-Puede usar una cuenta local o de dominio. En el caso de las máquinas virtuales Linux, debe ser la cuenta raíz en el servidor Linux de origen. En el caso de las máquinas virtuales Windows, si no usa una cuenta de dominio, deshabilite el control Acceso de usuarios remotos en la máquina local:
-
-  - En el Registro, en **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, agregue la entrada DWORD **LocalAccountTokenFilterPolicy** y establezca el valor en 1.
-
-También necesita una instancia de EC2 aparte, que puede usar como el servidor de configuración de Site Recovery. Esta instancia debe ejecutar Windows Server 2012 R2.
 
 
 ## <a name="prepare-the-infrastructure"></a>Preparación de la infraestructura

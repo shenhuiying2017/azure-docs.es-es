@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 819d8ce9793f785726f55a89d49d08d818401b33
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ba402847d14f7de6c70b545b74d7ba8c1aaddcb0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Preguntas más frecuentes sobre el inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -82,7 +82,7 @@ Siga estos pasos en el servidor local donde se ejecuta Azure AD Connect:
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Paso 1. Obtención de la lista de bosques de AD en los que se habilitó SSO de conexión directa
 
 1. En primer lugar, descargue e instale [Microsoft Online Services - Ayudante para el inicio de sesión](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. A continuación, descargue e instale el [módulo de Azure Active Directory de 64 bits para Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Vaya a la carpeta `%programfiles%\Microsoft Azure Active Directory Connect`.
 4. Importe el módulo de PowerShell de SSO de conexión directa mediante este comando: `Import-Module .\AzureADSSO.psd1`.
 5. Ejecute PowerShell como administrador. En PowerShell, llame a `New-AzureADSSOAuthenticationContext`. Este comando debería mostrar un cuadro emergente para escribir las credenciales de administrador global del inquilino.

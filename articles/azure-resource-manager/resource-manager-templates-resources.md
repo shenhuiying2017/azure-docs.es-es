@@ -1,6 +1,6 @@
 ---
-title: Estructura y sintaxis de las plantillas de Azure Resource Manager | Microsoft Docs
-description: Describe la estructura y las propiedades de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
+title: Recursos de la plantilla de Azure Resource Manager | Microsoft Docs
+description: Describe la sección de recursos de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: b5438080f71fa8f5c4f03006b75b826f1cfa576a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 74830a5220a75408398af2224204f8195ab27cc6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sección de recursos de plantillas de Azure Resource Manager
 
@@ -42,9 +42,9 @@ Defina recursos con la siguiente estructura:
       "comments": "<your-reference-notes>",
       "copy": {
           "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
+          "count": <number-of-iterations>,
           "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
+          "batchSize": <number-to-deploy-serially>
       },
       "dependsOn": [
           "<array-of-related-resource-names>"
@@ -58,6 +58,21 @@ Defina recursos con la siguiente estructura:
                   "input": {}
               }
           ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
       },
       "resources": [
           "<array-of-child-resources>"
@@ -78,11 +93,14 @@ Defina recursos con la siguiente estructura:
 | copia |Sin  |Si se necesita más de una instancia, el número de recursos que se crearán. El modo predeterminado es paralelo. Si no desea que todos los recursos se implementen al mismo tiempo, especifique el modo serie. Para más información, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Sin  |Recursos que se deben implementar antes de implementar este. Resource Manager evalúa las dependencias entre recursos y los implementa en su orden correcto. Cuando no hay recursos dependientes entre sí, se implementan en paralelo. El valor puede ser una lista separada por comas de nombres de recursos o identificadores de recursos únicos. Solo los recursos de lista que se implementan en esta plantilla. Deben existir los recursos que no estén definidos en esta plantilla. Evite agregar dependencias innecesarias, ya que pueden ralentizar la implementación y crear dependencias circulares. Para obtener instrucciones sobre la configuración de dependencias, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md). |
 | propiedades |Sin  |Opciones de configuración específicas de recursos. Los valores de las propiedades son exactamente los mismos valores que se especifican en el cuerpo de la solicitud de la operación de API de REST (método PUT) para crear el recurso. También puede especificar una matriz de copia para crear varias instancias de una propiedad. |
+| sku | Sin  | Algunos recursos permiten valores que definen la SKU que se va a implementar. Por ejemplo, puede especificar el tipo de redundancia para una cuenta de almacenamiento. |
+| kind | Sin  | Algunos recursos permiten un valor que define el tipo de recurso que va a implementar. Por ejemplo, puede especificar el tipo de instancia de Cosmos DB que va a crear. |
+| plan | Sin  | Algunos recursos permiten valores que definen el plan que se va a implementar. Por ejemplo, puede especificar la imagen de Marketplace para una máquina virtual. | 
 | resources |Sin  |Recursos secundarios que dependen del recurso que se está definiendo. Proporcione solo tipos de recursos que permita el esquema del recurso principal. El tipo completo del recurso secundario incluye el tipo del recurso principal, por ejemplo, **Microsoft.Web/sites/extensions**. La dependencia del recurso principal no está implícita. Debe definirla explícitamente. |
 
 ## <a name="resource-specific-values"></a>Valores específicos de los recursos
 
-Los valores **apiVersion**, **type** y **properties** son diferentes para cada tipo de recurso. Para determinar los valores de estas propiedades, consulte la [referencia de plantillas](/azure/templates/).
+Los elementos **apiVersion**, **type** y **properties** son diferentes para cada tipo de recurso. Los elementos **sku**, **kind** y **plan** están disponibles para algunos tipos de recursos, pero no para todos. Para determinar los valores de estas propiedades, consulte la [referencia de plantillas](/azure/templates/).
 
 ## <a name="resource-names"></a>Nombres de recurso
 Por lo general, trabaja con tres tipos de nombres de recursos en Resource Manager:

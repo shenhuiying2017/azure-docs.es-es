@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
-ms.openlocfilehash: e021403cd5544f0570e8ea3c73a17a57b241a65f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integración e implementación continuas en Azure Data Factory
 
@@ -62,6 +62,8 @@ El siguiente es el ciclo de vida completo de la integración y la implementació
 
 Estos son los pasos para configurar una versión de VSTS para que pueda automatizar la implementación de una factoría de datos en varios entornos.
 
+![Diagrama de integración continua con VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### <a name="requirements"></a>Requisitos
 
 -   Una suscripción de Azure vinculada a Team Foundation Server o VSTS que use el [*punto de conexión de servicio de Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -90,7 +92,7 @@ Estos son los pasos para configurar una versión de VSTS para que pueda automati
 
     a.  Añada los secretos al archivo de parámetros:
 
-        -   Cree una copia del archivo de parámetros cargado en la rama de publicación y establezca los valores de los parámetros que desea obtener del almacén de claves con el formato siguiente:
+       -   Cree una copia del archivo de parámetros cargado en la rama de publicación y establezca los valores de los parámetros que desea obtener del almacén de claves con el formato siguiente:
 
         ```json
         {
@@ -100,24 +102,24 @@ Estos son los pasos para configurar una versión de VSTS para que pueda automati
                         "keyVault": {
                             "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
                         },
-                        "secretName": " &lt secret - name &gt "
+                        "secretName": " < secret - name > "
                     }
-                }        
+                }
             }
         }
         ```
 
-        -   Al utilizar este método, el secreto se extrae automáticamente del almacén de claves.
+       -   Al utilizar este método, el secreto se extrae automáticamente del almacén de claves.
 
-        -   El archivo de parámetros también debe estar en la rama de publicación.
+       -   El archivo de parámetros también debe estar en la rama de publicación.
 
     b.  Añada una [tarea de Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Seleccione la pestaña **Tareas**, cree una nueva tarea, busque **Azure Key Vault** y añádalo.
+       -   Seleccione la pestaña **Tareas**, cree una nueva tarea, busque **Azure Key Vault** y añádalo.
 
-        -   En la tarea de Key Vault, elija la suscripción en la que se creó el almacén de claves, proporcione las credenciales si es necesario y, a continuación, seleccione el almacén de claves.
+       -   En la tarea de Key Vault, elija la suscripción en la que se creó el almacén de claves, proporcione las credenciales si es necesario y, a continuación, seleccione el almacén de claves.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Añada una tarea de implementación de Azure Resource Manager:
 

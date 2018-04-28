@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Uso de Azure Active Directory B2C para proteger ASP.NET Web API'
+title: 'Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C | Microsoft Docs'
 description: Tutorial sobre cómo usar Active Directory B2C para proteger ASP.NET Web API y llamarlo desde una aplicación web para ASP.NET.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 editor: ''
 ms.author: davidmu
-ms.date: 1/23/2018
+ms.date: 01/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: f4e1c18f151a9c815258f01ea198d3d173d0b44e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f61a3b103d8738e1b86fb64aff99dab9c6986fdf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="tutorial-use-azure-active-directory-b2c-to-protect-an-aspnet-web-api"></a>Tutorial: Uso de Azure Active Directory B2C para proteger ASP.NET Web API
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acceso a una API web de ASP.NET desde una aplicación web mediante Azure Active Directory B2C
 
 Este tutorial muestra cómo llamar a un recurso de API web protegido de Azure Active Directory (Azure AD) B2C desde una aplicación web para ASP.NET.
 
@@ -89,11 +89,13 @@ Para configurar los ámbitos de la API, agregue las siguientes entradas.
 | **Ámbito** | Hello.Read | Acceso de lectura a Hello |
 | **Ámbito** | Hello.Write | Acceso de escritura a Hello |
 
+Haga clic en **Save**(Guardar).
+
 Los ámbitos publicados se pueden utilizar para conceder a una aplicación cliente permiso para la API web.
 
 ### <a name="grant-app-permissions-to-web-api"></a>Concesión a una aplicación permisos para la API web
 
-Para llamar a una API web protegida desde una aplicación, deberá conceder a su aplicación permisos para la API. 
+Para llamar a una API web protegida desde una aplicación, deberá conceder a su aplicación permisos para la API. En este tutorial, usará la aplicación web que se creó en el tutorial [Uso de Azure Active Directory B2C para la autenticación de usuarios en una aplicación web de ASP.NET](active-directory-b2c-tutorials-web-app.md). 
 
 1. En Azure Portal, seleccione **Azure AD B2C** en la lista de servicios y haga clic en **Aplicaciones** para ver la lista de aplicaciones registradas.
 
@@ -109,7 +111,7 @@ Para llamar a una API web protegida desde una aplicación, deberá conceder a su
 
 **Mi aplicación web de ejemplo** está registrada para llamar a **Mi API web de ejemplo** protegida. Un usuario [se autentica](../active-directory/develop/active-directory-dev-glossary.md#authentication) con Azure AD B2C para utilizar la aplicación web. La aplicación web obtiene una [concesión de autorización](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant) de Azure AD B2C para tener acceso a la API web protegida.
 
-## <a name="update-web-api-code"></a>Actualización del código de API web
+## <a name="update-code"></a>Actualización del código
 
 Ahora que se ha registrado la API web y tiene ámbitos definidos, debe configurar el código de la API web para usar el inquilino de Azure AD B2C. En este tutorial, configurará una API web de ejemplo. 
 
@@ -137,11 +139,11 @@ Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
 
 3. Configure el identificador URI de la API. Es el URI que utiliza la aplicación web para realizar la solicitud de API. Configure además los permisos solicitados.
 
-```C#
-<add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
-<add key="api:ReadScope" value="Hello.Read" />
-<add key="api:WriteScope" value="Hello.Write" />
-```
+    ```C#
+    <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/myAPISample/" />
+    <add key="api:ReadScope" value="Hello.Read" />
+    <add key="api:WriteScope" value="Hello.Write" />
+    ```
 
 ### <a name="configure-the-web-api"></a>Configuración de la API web
 
@@ -162,7 +164,7 @@ Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
 4. Actualice la configuración de directiva con el nombre generado al crear la directiva de registro y de inicio de sesión.
 
     ```C#
-    <add key="ida:SignUpSignInPolicyId" value="b2c_1_SiUpIn" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
     ```
 
 5. Defina la configuración de los ámbitos para que coincida con lo que ha creado en el portal.
@@ -172,7 +174,7 @@ Abra la solución **B2C-WebAPI-DotNet** en Visual Studio.
     <add key="api:WriteScope" value="Hello.Write" />
     ```
 
-## <a name="run-the-sample-web-app-and-web-api"></a>Ejecución de la aplicación web de ejemplo y la API web
+## <a name="run-the-sample"></a>Ejecución del ejemplo
 
 Debe ejecutar tanto el proyecto **TaskWebApp** como el de **TaskService**. 
 

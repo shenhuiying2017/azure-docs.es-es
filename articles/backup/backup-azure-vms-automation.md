@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bac1e679aa46b280596ab09ba40da780c81cac5d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3431db3844ca47ce6c2beafbd894a69f05e0311a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Uso de los cmdlets AzureRM.RecoveryServices.Backup para realizar copias de seguridad de máquinas virtuales
 
@@ -79,9 +79,9 @@ Para empezar:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Inicie sesión en su cuenta de Azure mediante el cmdlet **Login-AzureRmAccount**. El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta: 
-    - Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Login-AzureRmAccount** mediante el parámetro **-Credential**.
-    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+3. Inicie sesión en su cuenta de Azure mediante el cmdlet **Connect-AzureRmAccount**. El cmdlet abrirá una página web que le solicitará las credenciales de la cuenta: 
+    - Como alternativa, puede incluir sus credenciales de cuenta como un parámetro en el cmdlet **Connect-AzureRmAccount** mediante el parámetro **-Credential**.
+    - Si usted es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Por ejemplo: **Connect-AzureRmAccount -Tenant "fabrikam.com"**.
 4. Ya que una cuenta puede tener varias suscripciones, le recomendamos que asocie la suscripción que quiera usar a esa cuenta:
 
     ```PS
@@ -362,7 +362,7 @@ Una vez que restaure los discos, vaya a la siguiente sección para crear la máq
 Tras haber restaurado los discos, siga estos pasos para crear y configurar la máquina virtual a partir de ellos.
 
 > [!NOTE]
-> Para crear máquinas virtuales cifradas a partir de discos restaurados, el rol de Azure debe tener permiso para realizar la acción, **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Para obtener más información, vea [Roles personalizados en RBAC de Azure](../active-directory/role-based-access-control-custom-roles.md).
+> Para crear máquinas virtuales cifradas a partir de discos restaurados, el rol de Azure debe tener permiso para realizar la acción, **Microsoft.KeyVault/vaults/deploy/action**. Si su rol no tiene este permiso, cree un rol personalizado con esta acción. Para obtener más información, vea [Roles personalizados en RBAC de Azure](../role-based-access-control/custom-roles.md).
 >
 >
 

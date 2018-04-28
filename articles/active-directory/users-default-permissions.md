@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0c4f6ef9d934a414ef805ddba6d2602b03bcbf16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Permisos de usuario predeterminados en Azure Active Directory
 
-En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [pertenencias a roles](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados.
+En Azure Active Directory (Azure AD), a todos los usuarios se les otorga un conjunto de permisos predeterminados. El acceso de un usuario consta del tipo de usuario, sus [pertenencias a roles](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) y su propiedad de objetos individuales. En este artículo se describen dichos permisos predeterminados y contiene una comparación de los valores predeterminados de los usuarios miembros e invitados.
 
 ## <a name="member-and-guest-users"></a>Usuarios miembros e invitados
 El conjunto de permisos predeterminados recibido depende de si el usuario es miembro nativo del inquilino (usuario miembro) o si el usuario es un invitado de la colaboración B2B (usuario invitado). Para más información acerca de la colaboración B2B, consulte [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md) para más información acerca de los usuarios invitados). 

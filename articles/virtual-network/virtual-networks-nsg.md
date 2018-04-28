@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3a581111587d0fe3cba04cd05272b3154374ce52
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 87ca0a1cd9766d3ad76d0fe5dd29a34ec40ea276
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Filtrado del tráfico de red con grupos de seguridad de red
 
@@ -38,7 +38,7 @@ Los grupos de seguridad de red contienen las siguientes propiedades:
 | Reglas |Las reglas de entrada o de salida que definen qué tráfico se permite o deniega. | |Consulte la sección [Reglas de grupo de seguridad de red](#Nsg-rules) de este artículo. |
 
 > [!NOTE]
-> No se admiten ACL basadas en el extremo y  grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para aprender a quitar una ACL, lea el artículo [Administración de listas de control de acceso de puntos de conexión con PowerShell](virtual-networks-acl-powershell.md).
+> No se admiten ACL basadas en el extremo y grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para aprender a quitar una ACL, lea el artículo [Administración de listas de control de acceso de puntos de conexión con PowerShell](virtual-networks-acl-powershell.md).
 > 
 
 ### <a name="nsg-rules"></a>Reglas de grupo de seguridad de red
@@ -50,8 +50,8 @@ Las reglas de grupo de seguridad de red contienen las siguientes propiedades:
 | **Protocolo** |Protocolo que debe coincidir con la regla. |TCP, UDP o *. |El uso de * como protocolo incluye ICMP (solo tráfico este-oeste), así como UDP y TCP, y puede reducir el número de reglas necesarias.<br/>Al mismo tiempo, usar * podría ser un enfoque demasiado amplio, por lo que se recomienda que solo lo use cuando sea necesario. |
 | **Intervalo de puertos de origen** |Intervalo de puertos de origen que debe coincidir con la regla. |Número de puerto único entre 1 y 65535, intervalo de puertos (ejemplo: 1-65535) o * (para todos los puertos). |Los puertos de origen podrían ser transitorios. A menos que el programa cliente use un puerto concreto, utilice * en la mayoría de los casos.<br/>Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas.<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma. |
 | **Intervalo de puertos de destino** |Intervalo de puertos de destino que debe coincidir con la regla. |Número de puerto único entre 1 y 65535, intervalo de puertos (ejemplo: 1-65535) o \* (para todos los puertos). |Pruebe a usar intervalos de puertos tanto como sea posible para evitar tener que utilizar varias reglas.<br/>Los distintos puertos o intervalos de puertos no se pueden agrupar mediante una coma. |
-| **Prefijo de dirección de origen** |Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla. |Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas. |
-| **Prefijo de dirección de destino** |Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla. | Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta predeterminada](#default-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas predeterminadas y * para reducir el número de reglas. |
+| **Prefijo de dirección de origen** |Prefijo o etiqueta de la dirección de origen que debe coincidir con la regla. |Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta de servicio](#service-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas de servicio y * para reducir el número de reglas. |
+| **Prefijo de dirección de destino** |Prefijo o etiqueta de la dirección de destino que debe coincidir con la regla. | Dirección IP única (ejemplo: 10.10.10.10), subred IP (ejemplo: 192.168.1.0/24), [etiqueta predeterminada](#service-tags) o * (para todas las direcciones). |Considere la posibilidad de usar intervalos, etiquetas de servicio y * para reducir el número de reglas. |
 | **Dirección** |Dirección del tráfico que debe coincidir con la regla. |De entrada o de salida. |Las reglas de entrada y de salida se procesan por separado, en función de la dirección. |
 | **Prioridad** |Las reglas se comprueban por orden de prioridad. Una vez que se aplica una regla, no se comprueba si las demás coinciden. | Número entre 100 y 4096. | Considere la posibilidad de crear prioridades de salto de reglas por 100 para cada regla, para dejar espacio para las que cree en el futuro. |
 | **Access** |Tipo de acceso que se debe aplicar si coincide con la regla. | Permítalo o deniéguelo. | Tenga en cuenta que, si no se encuentra una regla de permiso para un paquete, el paquete se descarta. |
@@ -62,36 +62,13 @@ Los grupos de seguridad de red contienen dos tipos de reglas: de entrada y de sa
 
 En la imagen anterior se muestra cómo se procesan las reglas de grupo de seguridad de red.
 
-### <a name="default-tags"></a>Etiquetas predeterminadas
-Las etiquetas predeterminadas son identificadores proporcionados por el sistema para tratar una categoría de direcciones IP. Puede usar etiquetas predeterminadas en las propiedades de **prefijo de dirección de origen** y **prefijo de dirección de destino** de cualquier regla. Hay tres etiquetas predeterminadas que puede utilizar:
+### <a name="default-tags"></a>Etiquetas del sistema
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para el modelo clásico): esta etiqueta incluye el espacio de direcciones de red virtual (intervalos CIDR definidos en Azure), todos los espacios de direcciones locales conectados y las redes virtuales de Azure conectadas (redes locales).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para el modelo clásico): esta etiqueta denota el equilibrador de carga de la infraestructura de Azure. La etiqueta se traducirá en una IP del centro de datos de Azure en el se originan los sondeos de mantenimiento de Azure Load Balancer.
-* **Internet** (Resource Manager) (**INTERNET** para el modelo clásico): esta etiqueta denota el espacio de direcciones IP que se encuentra fuera de la red virtual y es accesible mediante la red pública de Internet. El intervalo incluye además el [espacio de IP públicas propiedad de Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+Las etiquetas del sistema son identificadores que proporciona el sistema para tratar una categoría de direcciones IP. Las etiquetas de servicio se pueden usar en las propiedades de **prefijo de dirección de origen** y **prefijo de dirección de destino** de todas las reglas de seguridad. Más información acerca de las [etiquetas de servicio](security-overview.md#service-tags).
 
-### <a name="default-rules"></a>Reglas predeterminadas
-Todos los grupos de seguridad de red contienen un conjunto de reglas predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree. 
+### <a name="default-rules"></a>Reglas de seguridad predeterminadas
 
-Las reglas predeterminadas permiten y deniegan el tráfico como se indica a continuación:
-- **Red virtual:** el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida.
-- **Internet:** se permite el tráfico saliente, pero se bloquea el entrante.
-- **Load Balancer:** permita que Azure Load Balancer sondee el mantenimiento tanto de las máquinas virtuales como de las instancias de rol. Si anula esta regla, no se realizarán los sondeos del mantenimiento de Azure Load Balancer, lo que podría afectar a su servicio.
-
-**Reglas predeterminadas de entrada**
-
-| NOMBRE | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVNetInBound |65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
-| AllowAzureLoadBalancerInBound | 65001 | AzureLoadBalancer | * | * | * | * | PERMITIR |
-| DenyAllInBound |65500 | * | * | * | * | * | Denegar |
-
-**Reglas predeterminadas de salida**
-
-| NOMBRE | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| AllowVnetOutBound | 65000 | VirtualNetwork | * | VirtualNetwork | * | * | PERMITIR |
-| AllowInternetOutBound | 65001 | * | * | Internet | * | * | PERMITIR |
-| DenyAllOutBound | 65500 | * | * | * | * | * | Denegar |
+Todos los grupos de seguridad de red contienen un conjunto de reglas de seguridad predeterminadas. No se pueden eliminar las reglas predeterminadas, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree. Obtenga más información acerca de las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules).
 
 ## <a name="associating-nsgs"></a>Asociación de grupos de seguridad de red 
 Puede asociar un grupo de seguridad de red a máquinas virtuales, interfaces de red y subredes, según el modelo de implementación que use, de la forma siguiente:
@@ -127,7 +104,7 @@ Puede implementar los grupos de seguridad de red en el modelo de implementación
 | PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](tutorial-filter-network-traffic.md) |
 | CLI de Azure **V1**   | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](tutorial-filter-network-traffic-cli.md) |
 | CLI de Azure **V2**   | Sin  | [Sí](tutorial-filter-network-traffic-cli.md) |
-| Plantilla del Administrador de recursos de Azure   | Sin   | [Sí](virtual-networks-create-nsg-arm-template.md) |
+| Plantilla del Administrador de recursos de Azure   | Sin   | [Sí](template-samples.md) |
 
 ## <a name="planning"></a>Planificación
 Antes de implementar los grupos de seguridad de red, deberá responder a las siguientes preguntas:
@@ -177,7 +154,7 @@ Para ilustrar la aplicación de la información de este artículo, considere un 
 
 ![Grupos de seguridad de red](./media/virtual-network-nsg-overview/figure1.png)
 
-Como se muestra en el diagrama, las máquinas virtuales *Web1* y *Web2* están conectadas a la subred *FrontEnd*, y las máquinas virtuales *DB1* y *DB2* están conectadas a la subred *BackEnd*.  Ambas subredes forman parte de la red virtual *TestVNet* . Cada componente de la aplicación se ejecuta dentro de una máquina virtual de Azure conectada a una red virtual. El escenario tiene los siguientes requisitos:
+Como se muestra en el diagrama, las máquinas virtuales *Web1* y *Web2* están conectadas a la subred *FrontEnd*, y las máquinas virtuales *DB1* y *DB2* están conectadas a la subred *BackEnd*.  Ambas subredes forman parte de la red virtual *TestVNet*. Cada componente de la aplicación se ejecuta dentro de una máquina virtual de Azure conectada a una red virtual. El escenario tiene los siguientes requisitos:
 
 1. Separación del tráfico entre los servidores web y de bases de datos.
 2. Reglas de equilibrio de carga que reenvían tráfico desde el equilibrador de carga hacia todos los servidores web en el puerto 80.

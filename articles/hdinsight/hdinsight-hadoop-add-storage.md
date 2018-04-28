@@ -1,25 +1,23 @@
 ---
-title: "Adición de cuentas de almacenamiento de Azure a HDInsight | Microsoft Docs"
-description: "Aprenda a agregar cuentas de Azure Storage adicionales a un clúster de HDInsight existente."
+title: Adición de cuentas de almacenamiento de Azure a HDInsight | Microsoft Docs
+description: Aprenda a agregar cuentas de Azure Storage adicionales a un clúster de HDInsight existente.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -68,7 +66,7 @@ Este script se puede utilizar a través de Azure Portal, Azure PowerShell o la C
 > [!IMPORTANT]
 > Al utilizar los pasos indicados en el documento de personalización, utilice la siguiente información para aplicar este script:
 >
-> * Sustituya el identificador URI de la acción de script necesaria por el identificador URI de este script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
+> * Sustituya los URI de acción del script de ejemplo por el URI de este script (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * Reemplace los parámetros de ejemplo por el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta de almacenamiento que va a agregar al clúster. Si usa Azure Portal, estos parámetros deben estar separados por un espacio.
 > * No es necesario marcar este script como __Guardado__, porque actualiza directamente la configuración de Ambari para el clúster.
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Establezca `$PASSWORD` en la contraseña de cuenta de inicio de sesión del clúster. Establezca `$CLUSTERNAME` en el nombre del clúster de HDInsight. Establezca `$STORAGEACCOUNTNAME` en el nombre de la cuenta de almacenamiento.
 >
-> El comando siguiente muestra cómo usar [curl (http://curl.haxx.se/)](http://curl.haxx.se/) y [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar y analizar datos JSON.
+> En este ejemplo, se utilizan [curl (http://curl.haxx.se/)](http://curl.haxx.se/) y [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) para recuperar y analizar datos JSON.
 
 Cuando use este comando, reemplace __CLUSTERNAME__ por el nombre del clúster de HDInsight. Reemplace __PASSWORD__ por la contraseña de inicio de sesión HTTP del clúster. Reemplace __STORAGEACCOUNT__ por el nombre de la cuenta de almacenamiento agregada mediante la acción de script. La información que devuelve este comando es similar al siguiente texto:
 
@@ -116,7 +114,7 @@ La ejecución nuevamente de la acción de script __no__ actualizará la clave, y
 
 Para solucionar este problema, debe quitar la entrada existente para la cuenta de almacenamiento. Realice los siguientes pasos para quitar la entrada:
 
-1. Abra un explorador web y abra la interfaz de usuario web de Ambari de su clúster de HDInsight. El identificador URI es https://CLUSTERNAME.azurehdinsight.net. Reemplace __CLUSTERNAME__ por el nombre del clúster.
+1. Abra un explorador web y abra la interfaz de usuario web de Ambari de su clúster de HDInsight. El URI es https://CLUSTERNAME.azurehdinsight.net. Reemplace __CLUSTERNAME__ por el nombre del clúster.
 
     Cuando se le solicite, escriba el usuario de inicio de sesión HTTP y la contraseña para el clúster.
 

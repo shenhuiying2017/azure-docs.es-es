@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6aa0c08fad98eeff7c937f817ca0a8fa20238c4a
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Preguntas más frecuentes sobre la configuración y administración de Web Apps en Azure
 
@@ -84,7 +84,7 @@ Para obtener la lista de direcciones IP de salida para la aplicación web:
 
 Aparece la lista de direcciones IP de salida.
 
-Si su sitio web está hospedado en App Service Environment para PowerApps, consulte [Direcciones de red de salida](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses) para saber cómo obtener la dirección IP de salida.
+Para saber cómo obtener la dirección IP de salida si su sitio web está hospedado en App Service Environment, consulte [Direcciones de red de salida](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>¿Cómo se obtiene una dirección IP de entrada reservada o dedicada para una aplicación web?
 
@@ -268,7 +268,7 @@ Como indica el mensaje, este proceso de comprobación de fraude puede tardar has
 Si el certificado de App Service sigue mostrando este mensaje transcurridas 24 horas, ejecute el siguiente script de PowerShell. El script establece contacto directamente con el [proveedor de certificados](https://www.godaddy.com/) para resolver este problema.
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"

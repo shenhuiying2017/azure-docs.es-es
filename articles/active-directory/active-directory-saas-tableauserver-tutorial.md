@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integración de Azure Active Directory con Tableau Server
 
@@ -158,7 +158,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
   
    b. Active la casilla de **Use SAML for single sign-on**(Usar SAML para inicio de sesión único).
    
-   c. URL de retorno de Tableau Server: es la URL a la que accederán los usuarios de Tableau Server, como http://servidor_de_tableau. No se recomienda usar http://localhost. No se permite usar una dirección URL con una barra diagonal final (por ejemplo, http://servidor_de_tableau/). Copie el valor de **Tableau Server return URL** (URL de retorno de Tableau Server) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
+   c. Dirección URL de retorno de Tableau Server: dirección URL a la que accederán los usuarios de Tableau Server; por ejemplo, http://tableau_server. No se recomienda usar http://localhost. No se permiten las direcciones URL que tienen una barra diagonal al final; por ejemplo, http://tableau_server/). Copie el valor de **Tableau Server return URL** (URL de retorno de Tableau Server) y péguelo en el cuadro de texto **URL de inicio de sesión** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
    
    d. SAML entity ID (Id. de entidad SAML): el identificador de entidad identifica de forma exclusiva la instalación de Tableau Server en el IdP. Aquí, si quiere, puede especificar de nuevo la dirección URL de Tableau Server, pero no tiene que ser esa misma URL. Copie el valor de **SAML entity ID** (Id. de entidad SAML) y péguelo en el cuadro de texto **Identificador** de la sección **Tableau Server Domain and URLs** (Dominio y direcciones URL de Tableau Server) de Azure AD.
      

@@ -3,17 +3,17 @@ title: 'Guía de inicio rápido: clúster de Azure Docker Swarm para Linux'
 description: Aprenda rápidamente a crear un clúster de Docker Swarm para contenedores de Linux en Azure Container Service con la CLI de Azure.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7bd781d2fd71c6075cb458b222a93953a22892b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1d658449e688c007560489f1370219cebce09df1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Implementación del clúster de Docker Swarm
 

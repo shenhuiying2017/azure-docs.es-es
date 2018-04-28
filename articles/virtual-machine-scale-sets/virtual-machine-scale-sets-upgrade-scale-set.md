@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 A lo largo del ciclo de vida de las aplicaciones, puede que tenga la necesidad de modificar o actualizar el conjunto de escalado de máquinas virtuales. Estas actualizaciones pueden incluir cómo actualizar la configuración del conjunto de escalado o cambiar la configuración de la aplicación. En este artículo se describe cómo modificar un conjunto de escalado existente con las API REST, Azure PowerShell o la CLI de Azure 2.0.
@@ -347,6 +347,7 @@ Algunas propiedades solo pueden establecerse al crear el conjunto de escalado. E
 - Zonas de disponibilidad
 - Image reference publisher
 - Image reference offer
+- Tipo de cuenta de almacenamiento de disco de sistema operativo administrado
 
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propiedades que solo se pueden cambiar en función del valor actual
 Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actual. Estas propiedades incluyen:

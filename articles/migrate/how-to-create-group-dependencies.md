@@ -1,16 +1,16 @@
 ---
-title: "Refinación de un grupo de evaluación con la asignación de dependencias de grupo en Azure Migrate | Microsoft Docs"
-description: "Describe cómo refinar una evaluación mediante la asignación de dependencia de grupo en el servicio Azure Migrate."
+title: Refinación de un grupo de evaluación con la asignación de dependencias de grupo en Azure Migrate | Microsoft Docs
+description: Describe cómo refinar una evaluación mediante la asignación de dependencia de grupo en el servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -37,8 +37,8 @@ Para instalar al agente en una máquina Windows, siga estos pasos:
 1. Haga doble clic en el agente descargado.
 2. En la página **principal**, haga clic en **Siguiente**. En la página **Términos de licencia**, haga clic en **Acepto** para aceptar la licencia.
 3. En **Carpeta de destino**, mantenga o modifique la carpeta de instalación predeterminada y después haga clic en **Siguiente**. 
-4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics (OMS)** > **Siguiente**. 
-5. Haga clic en **Agregar** para agregar una nueva área de trabajo de OMS. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
+4. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**. 
+5. Haga clic en **Agregar** para agregar un área de trabajo nueva de Log Analytics. Pegue la clave y el identificador de área de trabajo que ha copiado desde el portal. Haga clic en **Next**.
 
 
 Para instalar al agente en una máquina Linux, siga estos pasos:

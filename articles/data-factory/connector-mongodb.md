@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Copia de datos desde MongoDB mediante Azure Data Factory de Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Puede copiar datos desde la base de datos MongoDB en cualquier almacén de datos
 
 En concreto, este conector MongoDB admite las siguientes funcionalidades:
 
-- **Versiones 2.4, 2.6, 3.0 y 3.2** de MongoDB.
+- **Versiones 2.4, 2.6, 3.0, 3.2, 3.4 y 3.6** de MongoDB.
 - Copiar datos mediante la autenticación **Básica** o **Anónima**.
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -63,6 +63,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de MongoDB:
 | nombre de usuario |Cuenta de usuario para tener acceso a MongoDB. |Sí (si se usa la autenticación básica). |
 | contraseña |Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí (si se usa la autenticación básica). |
 | authSource |Nombre de la base de datos de MongoDB que desea usar para comprobar las credenciales de autenticación. |Nº Para la autenticación básica, el valor predeterminado se utiliza la cuenta de administrador y la base de datos especificada mediante la propiedad databaseName. |
+| enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
+| allowSelfSignedServerCert | Especifica si se permiten los certificados autofirmados del servidor. El valor predeterminado es false.  | Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 **Ejemplo:**
@@ -116,7 +118,7 @@ Para copiar datos desde MongoDB, establezca la propiedad type del conjunto de da
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia

@@ -1,24 +1,22 @@
 ---
-title: "Configuración de la replicación de clúster de HBase en redes virtuales de Azure | Microsoft Docs"
-description: "Aprenda a configurar la replicación de HBase de una versión de HDInsight a otra para conseguir equilibrio de carga, alta disponibilidad, migración y actualizaciones sin tiempo de inactividad y recuperación ante desastres."
+title: Configuración de la replicación de clúster de HBase en redes virtuales de Azure | Microsoft Docs
+description: Aprenda a configurar la replicación de HBase de una versión de HDInsight a otra para conseguir equilibrio de carga, alta disponibilidad, migración y actualizaciones sin tiempo de inactividad y recuperación ante desastres.
 services: hdinsight,virtual-network
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c28c48b5842deec9d9c3898c5742c3d4d473094e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configuración de la replicación de clúster de HBase en redes virtuales de Azure
 
@@ -43,7 +41,7 @@ Los siguientes son casos de uso de replicación de HBase para dos redes virtuale
 
 Puede replicar clústeres mediante scripts de [acción de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles en [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de comenzar este tutorial, debe tener una suscripción a Azure. Consulte cómo [obtener una evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configuración de los entornos
@@ -106,7 +104,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Valor |
 |----------|-------|
-| La ubicación | Oeste de EE. UU |
+| Ubicación | Oeste de EE. UU |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet1 |
 | Prefijo del espacio de direcciones | 10.1.0.0/16 |
 | Nombre de subred | subred 1 |
@@ -128,7 +126,7 @@ Algunos de los valores de la plantilla están codificados de forma rígida:
 
 | Propiedad | Valor |
 |----------|-------|
-| La ubicación | Este de EE. UU |
+| Ubicación | Este de EE. UU |
 | Nombre de red virtual | &lt;ClusterNamePrevix>-vnet2 |
 | Prefijo del espacio de direcciones | 10.2.0.0/16 |
 | Nombre de subred | subred 1 |

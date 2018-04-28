@@ -1,12 +1,12 @@
 ---
-title: "Configuraciones de dispositivo VPN asociado para conexión a puertas de enlace de VPN de Azure | Microsoft Docs"
-description: "Este artículo proporciona información general sobre configuraciones de dispositivo VPN asociado para conectarse a puertas de enlace de VPN de Azure."
+title: Configuraciones de dispositivo VPN asociado para conexión a puertas de enlace de VPN de Azure | Microsoft Docs
+description: Este artículo proporciona información general sobre configuraciones de dispositivo VPN asociado para conectarse a puertas de enlace de VPN de Azure.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: b3806d16d3b78347e183ecbd2ab5a463a2142110
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd9ca3937d688170798c42fce45dbcd7711773d1
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.
@@ -40,7 +40,7 @@ Esta sección enumera los parámetros para los ejemplos que se describen en las 
 | **Parámetro**                | **Valor**                    |
 | ---                          | ---                          |
 | Prefijos de direcciones de red virtual        | 10.11.0.0/16<br>10.12.0.0/16 |
-| Dirección IP de la puerta de enlace de VPN de Azure         | Dirección IP de la puerta de enlace de VPN de Azure         |
+| Dirección IP de la puerta de enlace de VPN de Azure         | Dirección IP de Azure VPN Gateway         |
 | Prefijos de direcciones locales | 10.51.0.0/16<br>10.52.0.0/16 |
 | Dirección IP del dispositivo VPN local    | Dirección IP del dispositivo VPN local    |
 | *Red Virtual BGP ASN                | 65010                        |
@@ -84,7 +84,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 

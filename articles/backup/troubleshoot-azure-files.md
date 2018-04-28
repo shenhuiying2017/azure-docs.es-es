@@ -9,11 +9,11 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 2e067e0a1f673480bc08abfee61d2b1b2c92f885
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Solución de problemas de copia de seguridad de archivos de Azure
 Puede solucionar los problemas y errores encontrados durante el uso de Azure Files Backup con la información indicada en las siguientes tablas.
@@ -59,6 +59,7 @@ La tabla siguiente es para configurar la copia de seguridad:
 | Error en la restauración porque uno de los archivos del origen no existe. | <ul><li> Los elementos seleccionados no están presentes en los datos del punto de recuperación. Para recuperar los archivos, proporcione la lista de archivos correcta. <li> La instantánea del recurso compartido de archivos que corresponde al punto de recuperación se elimina manualmente. Seleccione un punto de recuperación diferente y vuelva a intentar la operación de restauración. |
 | Ya hay un trabajo de Recovery en curso para el mismo destino. | <ul><li>La copia de seguridad de recursos compartidos de archivos no admite recuperación en paralelo al mismo recurso compartido de archivos de destino. <li>Espere a que la recuperación existente finalice e inténtelo de nuevo. Si no encuentra un trabajo de recuperación en el almacén de Recovery Services, compruebe otros almacenes de Recovery Services de la misma suscripción. |
 | No se puede realizar la operación de restauración porque el recurso compartido de archivos de destino está lleno. | Aumente la cuota de tamaño del recurso compartido de archivos de destino para albergar los datos de restauración y vuelva a intentar la operación. |
+| La operación de restauración produjo un error porque, a su vez, se produjo un error al realizar las operaciones previas de restauración en los recursos del servicio de sincronización de archivos asociados con el recurso compartido de archivos de destino. | Vuelva a intentarlo un tiempo después y si el problema persiste, póngase en contacto con el soporte técnico de Microsoft. |
 | Uno o varios archivos no se pudieron recuperar correctamente. Para más información, consulte la lista de archivos que han dado error en la ruta de acceso anterior. | <ul> <li> Las causas de los errores de recuperación se muestran en el archivo (la ruta de acceso se proporciona en los detalles del trabajo). Solucione los errores y vuelva a intentar la operación de restauración solo de los archivos con error. <li> Las causas comunes de errores de restauración de archivos son: <br/> -Asegúrese de que los archivos con error no están actualmente en uso. <br/> -Existe un directorio con el mismo nombre que el archivo de error en el directorio principal. |
 
 ## <a name="see-also"></a>Otras referencias

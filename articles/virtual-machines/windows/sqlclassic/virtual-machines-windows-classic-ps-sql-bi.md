@@ -1,9 +1,9 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "En este tema se utilizan recursos creados con el modelo de implementación clásica y se describen las características de Business Intelligence (BI) disponibles para SQL Server cuando se ejecuta en Azure Virtual Machines."
+description: En este tema se utilizan recursos creados con el modelo de implementación clásica y se describen las características de Business Intelligence (BI) disponibles para SQL Server cuando se ejecuta en Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server en Azure Virtual Machines
 > [!IMPORTANT] 
@@ -225,7 +225,7 @@ Si quiere conectarse al portal web o al Administrador de informes de 2014 y 2012
 2. Abra el puerto 80 en el firewall de la máquina virtual.
 3. Navegue hasta el portal web o el administrador de informes. Como nombre de servidor en la URL, use el **nombre de DNS** de la máquina virtual de Azure. Por ejemplo: 
    
-    **Servidor de informes**: http://uebi.cloudapp.net/reportserver **Portal web**: http://uebi.cloudapp.net/reports
+    **Servidor de informes**: http://uebi.cloudapp.net/reportserver**portal Web**: http://uebi.cloudapp.net/reports
    
     [Configurar un firewall para el acceso del Servidor de informes](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -316,7 +316,7 @@ En esta sección se resumen los extremos de máquina virtual de Microsoft Azure 
   * Cree extremos de máquina virtual para los puertos anotados (*).
 * Si la máquina virtual se une a un dominio con un túnel VPN, como las redes virtuales de Azure, los extremos no son necesarios. Sin embargo, abra los puertos en el firewall en la máquina virtual.
   
-  | Port | type | DESCRIPCIÓN |
+  | Port | Escriba | DESCRIPCIÓN |
   | --- | --- | --- |
   | **80** |TCP |Acceso remoto al servidor de informes (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

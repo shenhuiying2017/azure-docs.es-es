@@ -1,24 +1,24 @@
 ---
 title: Uso de Azure Container Service con Kafka en HDInsight | Microsoft Docs
-description: "Aprenda a usar Kafka en HDInsight desde imágenes de contenedor hospedadas en Azure Container Service (AKS)."
+description: Aprenda a usar Kafka en HDInsight desde imágenes de contenedor hospedadas en Azure Container Service (AKS).
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 53342e11476a307bb6af356eb40fe51928041822
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 16513cbd775e200a0821e8786ae823b82c67e437
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-container-services-with-kafka-on-hdinsight"></a>Uso de Azure Container Service con Kafka en HDInsight
 
@@ -108,7 +108,7 @@ Al crear el clúster de Kafka en HDInsight, debe unir la red virtual que creó a
 
 Use los pasos siguientes para configurar Kafka para anunciar direcciones IP en lugar de nombres de dominio:
 
-1. En el explorador web, vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
+1. Vaya a https://CLUSTERNAME.azurehdinsight.net desde un explorador web. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
 
     Cuando se le solicite, use el nombre de usuario y la contraseña HTTPS para el clúster. Aparece la interfaz de usuario web de Ambari para el clúster.
 

@@ -1,26 +1,24 @@
 ---
-title: "Análisis de datos de Twitter con Apache Hive en Azure HDInsight | Microsoft Docs"
-description: "Obtenga información sobre cómo usar Hive y Hadoop en HDInsight para transformar datos sin procesar de Twitter en una tabla de Hive que permite realizar búsquedas."
+title: Análisis de datos de Twitter con Apache Hive en Azure HDInsight | Microsoft Docs
+description: Obtenga información sobre cómo usar Hive y Hadoop en HDInsight para transformar datos sin procesar de Twitter en una tabla de Hive que permite realizar búsquedas.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Análisis de datos de Twitter con Hive y Hadoop en HDInsight
 
@@ -179,9 +177,9 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
 
 Para cargar los datos de almacenamiento para HDInsight, use los comandos siguientes:
 
-   ```bash
-   hdfs dfs -mkdir -p /tutorials/twitter/data
-   hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
+```bash
+hdfs dfs -mkdir -p /tutorials/twitter/data
+hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 ```
 
 Estos comandos almacenan los datos en una ubicación a la que pueden tener acceso todos los nodos del clúster.

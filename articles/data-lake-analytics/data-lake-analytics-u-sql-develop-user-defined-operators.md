@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 7c0b9c193f8f1c3a3043824186e337f942ebfd56
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
 Aprenda a desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.
@@ -130,5 +130,5 @@ Para instrucciones sobre cómo desarrollar ensamblados de propósito general par
 2. Expanda Ejemplos, expanda Salidas y, finalmente, haga doble clic en **Drivers.csv**.
 
 ## <a name="see-also"></a>Otras referencias
-* [Extensión de las expresiones U-SQL con código de usuario](https://msdn.microsoft.com/en-us/library/azure/mt621316.aspx)
+* [Extensión de las expresiones U-SQL con código de usuario](https://msdn.microsoft.com/library/azure/mt621316.aspx)
 * [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

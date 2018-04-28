@@ -1,19 +1,19 @@
 ---
-title: "Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery | Microsoft Docs"
-description: "Aprenda a configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery."
+title: Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery | Microsoft Docs
+description: Aprenda a configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7580db2a2fd41c124443b26257f1b946adcc068c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -27,8 +27,8 @@ Este tutorial muestra cómo configurar la recuperación ante desastres para máq
 
 Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores:
 
-* [Preparación de Azure](tutorial-prepare-azure.md)
-* [Preparación de VMware local](vmware-azure-tutorial-prepare-on-premises.md)
+* [Preparación de Azure](tutorial-prepare-azure.md). En este tutorial se describe cómo configurar una cuenta de almacenamiento de Azure y una red, cómo asegurarse de que la cuenta de Azure tiene los permisos adecuados y cómo crear un almacén de Recovery Services.
+* [Preparación de VMware local](vmware-azure-tutorial-prepare-on-premises.md). En este tutorial se prepararan las cuentas para que Site Recovery pueda acceder a los servidores de VMware para detectar las máquinas virtuales y para, opcionalmente, realiza una instalación de inserción del componente de servicio de movilidad de Site Recovery cuando se habilita la replicación para una máquina virtual. Asegúrese también de que los servidores y las máquinas virtuales de VMware cumplen los requisitos de Site Recovery.
 
 Antes de empezar, es útil [revisar la arquitectura](vmware-azure-architecture.md) de los escenarios de recuperación ante desastres.
 
@@ -43,8 +43,6 @@ Antes de empezar, es útil [revisar la arquitectura](vmware-azure-architecture.m
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
 
-> [!TIP]
-> El método recomendado para implementar un servidor de configuración para proteger la máquina virtual VMware es utilizar el modelo de implementación basado en OVF, tal como se sugiere en este artículo. En caso de que existan restricciones en su organización que le impidan implementar una plantilla OVF, puede utilizar [UnifiedSetup.exe para instalar un servidor de configuración](physical-manage-configuration-server.md).
 
 Para configurar el entorno de origen, es necesaria una máquina local, única y de alta disponibilidad que hospede los componentes locales de Site Recovery. Los componentes son el servidor de configuración, el servidor de procesos y el servidor de destino maestro:
 
@@ -53,6 +51,10 @@ Para configurar el entorno de origen, es necesaria una máquina local, única y 
 - El servidor de destino maestro controla los datos de replicación durante la conmutación por recuperación desde Azure.
 
 Para configurar el servidor de configuración como máquina virtual de VMware de alta disponibilidad, descargue una plantilla Open Virtualization Format (OVF) preparada e impórtela a VMware para crear la máquina virtual. Después de configurar el servidor de configuración, regístrelo en el almacén. Tras el registro, Site Recovery detecta las máquinas virtuales locales de VMware.
+
+> [!TIP]
+> En este tutorial se usa una plantilla OVF para crear la máquina virtual de VMware del servidor de configuración. Si no es capaz de hacer esto, puede ejecutar el [programa de instalación manual](physical-manage-configuration-server.md) para ello. 
+
 
 ### <a name="download-the-vm-template"></a>Descarga de la plantilla de máquina virtual
 
@@ -67,7 +69,7 @@ Para configurar el servidor de configuración como máquina virtual de VMware de
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
 1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
-2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el asistente para implementar plantillas OVF. 
+2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el Asistente para implementar plantillas OVF. 
 
      ![Plantilla de OVF](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -101,9 +103,9 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 5. Especifique el nombre que se usará para registrar el servidor de configuración en Site Recovery. Luego, seleccione **Siguiente**.
 6. La herramienta comprueba que la máquina virtual pueda conectarse a Azure. Una vez establecida la conexión, haga clic en **Iniciar sesión** para iniciar sesión en la suscripción de Azure. Las credenciales deben tener acceso al almacén donde desea registrar el servidor de configuración.
 7. La herramienta realiza algunas tareas de configuración y, a continuación, se reinicia.
-8. Inicie sesión de nuevo en la máquina. El asistente para administración del servidor de configuración se inicia automáticamente.
+8. Inicie sesión de nuevo en la máquina. El Asistente para administración del servidor de configuración se inicia automáticamente.
 
-### <a name="configure-settings-and-connect-to-vmware"></a>Valores de configuración y conexión a VMware
+### <a name="configure-settings-and-add-the-vmware-server"></a>Configuración de los valores y adición del servidor de VMware
 
 1. En el asistente para administración del servidor de configuración, seleccione **Configurar conectividad** y seleccione la NIC que va a recibir el tráfico de replicación. Después, seleccione **Guardar**. Una vez configurada, esta opción no se puede cambiar.
 2. En **Seleccionar almacén de Recovery Services**, seleccione la suscripción de Azure y el grupo de recursos y almacén correspondientes.

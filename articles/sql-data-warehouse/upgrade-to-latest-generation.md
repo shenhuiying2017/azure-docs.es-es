@@ -1,24 +1,26 @@
 ---
 title: Actualización a la última generación de Azure SQL Data Warehouse | Microsoft Docs
-description: Pasos para actualizar Azure SQL Data Warehouse a la última generación de arquitectura de almacenamiento y hardware de Azure.
+description: Actualización de Azure SQL Data Warehouse a la última generación de arquitectura de almacenamiento y hardware de Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
-ms.services: sql-data-warehouse
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/02/2018
+ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 673386ad236f596aa4c64fe2e8c885fb86afe170
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
+Actualización de Azure SQL Data Warehouse a la última generación de arquitectura de almacenamiento y hardware de Azure.
 
-Ahora, puede actualizar sin problemas al nivel de rendimiento Optimizado para Compute en Azure Portal. Si tiene un almacenamiento de datos Optimizado para Elasticity, se recomienda actualizar a la última generación de hardware de Azure y a una arquitectura de almacenamiento mejorada. Podrá aprovechar las ventajas de rendimiento más rápido, mayor escalabilidad y almacenamiento ilimitado en columnas. 
+## <a name="why-upgrade"></a>¿Por qué actualizar?
+Ahora, puede actualizar sin problemas al nivel de rendimiento Optimizado para Compute en Azure Portal. Si tiene un almacenamiento de datos optimizado para elasticidad, se recomienda actualizar. Mediante la actualización, puede usar la última generación de hardware de Azure y arquitectura de almacenamiento mejorada. Puede aprovechar las ventajas del rendimiento más rápido, mayor escalabilidad y almacenamiento ilimitado en columnas. 
 
 ## <a name="applies-to"></a>Se aplica a
 Esta actualización se aplica a los almacenamientos de datos del nivel de rendimiento optimizado para elasticidad.
@@ -28,12 +30,6 @@ Esta actualización se aplica a los almacenamientos de datos del nivel de rendim
 Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
-
-> [!NOTE]
-> A partir del 30/3, debe tener desactivada la [auditoría de nivel de servidor](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) antes de iniciar la actualización.
-> 
->
-
 > [!NOTE]
 > Si su almacenamiento de datos existente Optimizado para Elasticity no está en una región donde esté disponible Optimizado para Compute, puede realizar la [restauración geográfica a Optimizado para Compute](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) mediante PowerShell en una región admitida.
 > 
@@ -70,9 +66,9 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
    
    El primer paso del proceso de actualización recorre la operación de escalado ("Actualización: sin conexión") donde todas las sesiones se terminan y las conexiones se descartan. 
    
-   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea, durante el cual se mueven lentamente los datos en columnas desde la arquitectura de almacenamiento antigua Gen1 a la nueva arquitectura de almacenamiento Gen2 para aprovechar la caché de SSD local de Gen2. Durante este tiempo, el almacenamiento de datos estará en línea para consulta y carga. Todos los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de los datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas. 
+   El segundo paso del proceso de actualización es la migración de datos ("Actualización: en línea"). La migración de datos es un proceso en segundo plano lento y en línea, durante el cual se mueven lentamente los datos en columnas desde la arquitectura de almacenamiento antigua hasta la nueva arquitectura de almacenamiento mediante una caché de SSD local. Durante este tiempo, el almacenamiento de datos estará en línea para consulta y carga. Todos los datos estarán disponibles para consulta tanto si se han migrado como si no. La migración de los datos se produce a una velocidad variable, según el tamaño de los datos, el nivel de rendimiento y el número de segmentos del almacén de columnas. 
 
-5. **Recomendación opcional:** para acelerar el proceso en segundo plano de migración de los datos, se recomienda forzar inmediatamente el movimiento de datos mediante la ejecución de [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) en todas las tablas de almacén de columnas con un SLO y una clase de recurso más grandes. Esta operación se realiza sin conexión en comparación con el proceso en segundo plano lento; sin embargo, la migración de los datos será mucho más rápida donde pueda aprovechar la arquitectura de almacenamiento de Gen2 una vez completada con grupos de filas de alta calidad. 
+5. **Recomendación opcional:** para acelerar el proceso en segundo plano de migración de los datos, se recomienda forzar inmediatamente el movimiento de datos mediante la ejecución de [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) en todas las tablas de almacén de columnas con un SLO y una clase de recurso más grandes. Esta operación se realiza sin conexión en comparación con el proceso en segundo plano lento; sin embargo, la migración de los datos será mucho más rápida donde pueda aprovechar la nueva arquitectura de almacenamiento mejorada una vez completada con grupos de filas de alta calidad. 
 
 La consulta siguiente genera los comandos Alter Index Rebuild necesarios para acelerar el proceso de migración de datos:
 

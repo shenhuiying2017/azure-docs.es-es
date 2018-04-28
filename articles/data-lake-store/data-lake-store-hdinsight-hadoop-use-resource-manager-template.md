@@ -1,8 +1,8 @@
 ---
 title: Uso de plantillas de Azure para crear Azure HDInsight y Data Lake Store | Microsoft Docs
-description: "Uso de las plantillas de Azure Resource Manager para crear y usar clústeres de HDInsight con Azure Data Lake Store"
+description: Uso de las plantillas de Azure Resource Manager para crear y usar clústeres de HDInsight con Azure Data Lake Store
 services: data-lake-store,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 8c5afc96cc8101345f00b5d435e9f393d22672de
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bc20504865fa59cafc199305f9810fb4c3d99524
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-an-hdinsight-cluster-with-data-lake-store-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Data Lake Store mediante las plantillas de Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -43,10 +43,10 @@ Estas son algunas consideraciones importantes que deben tenerse en cuenta al usa
 
 En este artículo, aprovisionamos un clúster de Hadoop con el Almacén de Data Lake como almacenamiento adicional. Para instrucciones sobre cómo crear un clúster de Hadoop con Data Lake Store como almacenamiento predeterminado, consulte [Creación de un clúster de HDInsight con Data Lake Store mediante Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 o versiones posteriores**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 * **Entidad de servicio de Azure Active Directory** En los pasos de este tutorial se proporcionan instrucciones sobre cómo crear entidades de servicio de Azure AD. Sin embargo, debe ser administrador de Azure AD para poder crearlas. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 
@@ -59,7 +59,7 @@ Estas instrucciones requieren el uso de PowerShell. Antes de comenzar con las in
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -80,7 +80,7 @@ Para confirmar que los datos de ejemplo que carga están accesibles desde el cl�
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-the-data-lake-store"></a>Ejecución de trabajos de prueba en el clúster de HDInsight para usar el Almacén de Data Lake
 Después de configurar un clúster de HDInsight, puede ejecutar trabajos de prueba en el clúster para probar que el clúster de HDInsight pueda acceder al Almacén de Data Lake. Para hacerlo, ejecutaremos un trabajo de Hive de ejemplo que crea una tabla con los datos de ejemplo que cargó antes en el Almacén de Data Lake.
 
-En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight y ejecutará una consulta de Hive de ejemplo. Si usa un cliente Windows, se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en el clúster de Linux en HDInsight y ejecutará una consulta de Hive de ejemplo. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -116,7 +116,7 @@ Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con H
 ## <a name="access-data-lake-store-using-hdfs-commands"></a>Acceso al Almacén de Data Lake mediante comandos de HDFS
 Una vez que configure el clúster de HDInsight para que use el Almacén de Data Lake, puede usar los comandos de shell de HDFS para acceder al almacén.
 
-En esta sección, aprenderá a usar SSH en un clúster de Linux en HDInsight y ejecutará los comandos HDFS. Si usa un cliente Windows, se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+En esta sección, aprenderá a usar SSH en un clúster de Linux en HDInsight y ejecutará los comandos HDFS. Si está utilizando un cliente de Windows, se recomienda utilizar **PuTTY**, que puede descargarse desde [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obtener más información sobre el uso de PuTTY, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

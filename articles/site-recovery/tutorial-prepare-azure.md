@@ -1,18 +1,18 @@
 ---
-title: "Creación de recursos para usar con Azure Site Recovery | Microsoft Docs"
-description: "Aprenda a preparar Azure para la replicación de máquinas locales mediante Azure Site Recovery."
+title: Creación de recursos para usar con Azure Site Recovery | Microsoft Docs
+description: Aprenda a preparar Azure para la replicación de máquinas locales mediante Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2f6ff1d30eef1fe34e55457d9bdd4295804ec16a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0aec94ce4d53e1d0f5ecfbc7c667f7d4ceea1d2d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos de Azure para la replicación de máquinas locales
 
@@ -21,8 +21,9 @@ ms.lasthandoff: 02/23/2018
 En este tutorial se muestra cómo preparar los componentes de Azure cuando se desean replicar máquinas virtuales locales (Hyper-V o VMware) o servidores físicos de Windows/Linux en Azure. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Comprobar si su cuenta tiene permisos de replicación.
-> * Cree una cuenta de Azure Storage.
+> * Compruebe que la cuenta de Azure tiene permisos de replicación.
+> * Cree una cuenta de Azure Storage. Los datos replicados se almacenan en ella.
+> * Cree un almacén de Recovery Services.
 > * Establezca una red de Azure. Cuando se crean máquinas virtuales de Azure después de la conmutación por error, se unen a esta red de Azure.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
@@ -39,7 +40,7 @@ Si acaba de crear su cuenta de Azure gratis, ya es el administrador de la suscri
 - Crear una máquina virtual en la red virtual seleccionada.
 - Escribir en la cuenta de almacenamiento seleccionada.
 
-El rol integrado "Colaborador de la máquina virtual" tiene estos permisos. También necesita permiso para administrar las operaciones de Site Recovery. El rol "Colaborador de Site Recovery" tiene todos los permisos necesarios para administrar las operaciones de Site Recovery en un almacén de Recovery Services.
+Para completar estas tareas su cuenta debe tener asignado el rol integrado de colaborador de la máquina virtual. Además, para administrar las operaciones de Site Recovery en un almacén, su cuenta debe tener asignado el rol integrado de colaborador de Site Recovery.
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 

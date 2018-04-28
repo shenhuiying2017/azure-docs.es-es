@@ -1,23 +1,23 @@
 ---
-title: "Preparación de la implementación de un clúster independiente de Azure Service Fabric | Microsoft Docs"
-description: "Documentación relacionada con la preparación del entorno y la creación de la configuración del clúster, que se debe tener en cuenta antes de implementar un clúster dirigido a administrar una carga de trabajo de producción."
+title: Preparación de la implementación de un clúster independiente de Azure Service Fabric | Microsoft Docs
+description: Documentación relacionada con la preparación del entorno y la creación de la configuración del clúster, que se debe tener en cuenta antes de implementar un clúster dirigido a administrar una carga de trabajo de producción.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ Si especifica dominios de actualización en ClusterConfig.json, puede elegir el 
 
 Para más información sobre los dominios de actualización y los dominios de error, consulte [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Un clúster en producción debe extender al menos tres FD para que se admita en un entorno de producción, si tiene control total sobre el mantenimiento y la administración de los nodos, es decir, usted es responsable de actualizar y reemplazar las máquinas. Para los clústeres que se ejecutan en entornos (por ejemplo, instancias de máquinas virtuales de Amazon Web Services) en los que no tiene control total sobre las máquinas, debe tener un mínimo de cinco FD en el clúster. Cada FD puede tener uno o más nodos. Esto es para evitar problemas causados por actualizaciones de máquinas que, dependiendo de su programación temporal, pueden interferir con la ejecución de aplicaciones y servicios de clústeres.
+Un clúster en producción debe extender al menos tres FD para que se admita en un entorno de producción, si tiene control total sobre el mantenimiento y la administración de los nodos, es decir, usted es responsable de actualizar y reemplazar las máquinas. Para los clústeres que se ejecutan en entornos (por ejemplo, instancias de máquinas virtuales de Amazon Web Services) en los que no tiene control total sobre las máquinas, debe tener un mínimo de cinco FD en el clúster. Cada FD puede tener uno o más nodos. Esto es para evitar problemas causados por actualizaciones de máquinas que, dependiendo de su programación temporal, interfieran con la ejecución de aplicaciones y servicios en clúster.
 
 ## <a name="determine-the-initial-cluster-size"></a>Determinar el tamaño inicial del clúster
 
-Por lo general, el número de nodos del clúster se determina en función de las necesidades empresariales, por ejemplo, el número de servicios y contenedores que se ejecutarán en el clúster y la cantidad de recursos necesaria para admitir las cargas de trabajo. Para los clústeres de producción, se recomienda tener al menos 5 nodos en el clúster, que expanden 5 FD. Sin embargo, como se describió anteriormente, si tiene control total sobre los nodos y puede extender tres FD, tres nodos serán suficientes.
+Por lo general, el número de nodos del clúster se determina en función de las necesidades empresariales, por ejemplo, el número de servicios y contenedores que se ejecutarán en el clúster y la cantidad de recursos necesaria para admitir las cargas de trabajo. Para los clústeres de producción, se recomienda tener al menos cinco nodos en el clúster, que expanden 5 FD. Sin embargo, como se describió anteriormente, si tiene control total sobre los nodos y puede extender tres FD, tres nodos serán suficientes.
 
 Los clústeres de prueba que ejecutan cargas de trabajo con estado deben tener tres nodos, mientras que los clústeres de prueba que solo ejecutan cargas de trabajo sin estado solamente necesitan un nodo. Se debe también tener en cuenta que, para fines de desarrollo, puede tener más de un nodo en un equipo determinado. Sin embargo, en un entorno de producción, Service Fabric solo admite un nodo por máquina virtual o física.
 
@@ -99,7 +99,7 @@ Cuando un administrador de clústeres configura un clúster independiente de Ser
 * Tener desinstalado el SDK de Service Fabric
 * tener desinstalado el entorno de tiempo de ejecución de Service Fabric 
 * Tener habilitado el servicio Firewall de Windows (mpssvc)
-* Tener habilitado el servicio Registro remoto (remoteregistry)
+* Tener habilitado el servicio Remote Registry (registro remoto)
 * Tener habilitado el uso compartido de archivos (SMB)
 * Tener abiertos los puertos necesarios, según los puertos de configuración del clúster
 * Tener abiertos los puertos necesarios para Windows SMB y el servicio Registro remoto: 135, 137, 138, 139 y 445

@@ -1,24 +1,19 @@
 ---
-title: 'Configuración de clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services: Azure | Microsoft Docs'
+title: Configuración de clústeres de HDInsight unidos a un dominio con AAD-DS
 description: Aprender a configurar y definir clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/20/2018
-ms.author: bhanupr
-ms.openlocfilehash: ae7ccaf3d167176a1fc6015e84b0eb023da945d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: conceptual
+ms.date: 04/17/2018
+ms.author: omidm
+ms.openlocfilehash: 060ca8040f514ec1df48c2ca4568cbbb2a529267
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-using-azure-active-directory-domain-services"></a>Configurar clústeres de HDInsight unidos a un dominio con Azure Active Directory Domain Services
 
@@ -36,7 +31,10 @@ Es necesario crear una instancia de Azure AD DS para poder crear un clúster de 
 > [!NOTE]
 > Solo los administradores de inquilinos tienen privilegios para crear servicios de dominio. Si usa Azure Data Lake Storage (ADLS) como almacenamiento predeterminado para HDInsight, asegúrese de que el inquilino de Azure AD predeterminado de ADLS es el mismo que el del dominio del clúster de HDInsight. Para que esta configuración funcione con Azure Data Lake Store, se debe deshabilitar la autenticación multifactor para los usuarios que tengan acceso al clúster.
 
-Después de aprovisionar el servicio de dominio, debe crear una cuenta de servicio en el grupo **Administradores de controladores de dominio de AAD** para crear el clúster de HDInsight. La cuenta de servicio debe ser un administrador global en Azure AD.
+Después de aprovisionar el servicio de dominio de AAD, debe crear una cuenta de servicio en AAD (que se sincronizará con AAD-DS) para crear el clúster de HDInsight. Si la cuenta de servicio ya existe, tiene que restablecer su contraseña y esperar hasta que se sincronice con AAD DS (este restablecimiento dará como resultado la creación del hash de contraseñas de Kerberos y los cambios podrían tardar hasta 30 minutos). Esta cuenta de servicio debe tener los privilegios siguientes:
+
+- Unir máquinas al dominio y colocar las entidades de seguridad de la máquina en la unidad organizativa que se especifique durante la creación del clúster.
+- Crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster.
 
 Debe habilitar LDAP seguro para un dominio administrado con Azure AD Domain Services. Para habilitar LDAP seguro, consulte [Configuración de LDAP seguro (LDAPS) para un dominio administrado con Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
@@ -49,7 +47,7 @@ Es más fácil colocar el servicio de dominio de Azure AD y el clúster de HDIns
 Al crear un clúster de HDInsight unidos a un dominio, debe proporcionar los parámetros siguientes:
 
 - **Nombre de dominio**: nombre de dominio asociado con Azure AD DS. Por ejemplo, contoso.onmicrosoft.com.
-- **Nombre de usuario de dominio**: cuenta de servicio del grupo Administradores de controladores de dominio de AAD creada en la sección anterior. Por ejemplo, hdiadmin@contoso.onmicrosoft.com. Este usuario de dominio es el administrador de este clúster de HDInsight unido a un dominio.
+- **Nombre de usuario de dominio**: cuenta de servicio de Azure AD DC creada en la sección anterior. Por ejemplo, hdiadmin@contoso.onmicrosoft.com. Este usuario de dominio será el administrador de este clúster de HDInsight unido a un dominio.
 - **Contraseña de dominio**: contraseña de la cuenta de servicio.
 - **Unidad organizativa**: nombre distintivo de la unidad organizativa (UO) que quiere utilizar con el clúster de HDInsight. Por ejemplo: OU=HDInsightOU,DC=contoso,DC=onmicrosohift,DC=com. Si no existe esta unidad organizativa, el clúster de HDInsight intenta crearla. 
 - **Dirección URL de LDAPS**: ldaps://contoso.onmicrosoft.com:636.

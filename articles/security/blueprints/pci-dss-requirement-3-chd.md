@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 356599cbe1e4e1948a5ec16d0d504835fa7dcd43
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 3bbed692bfccaa2a3296ba4697c66e9069b6e914
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="chd-requirements-for-pci-dss-compliant-environments"></a>Requisitos de CHD para entornos que cumplen el estándar PCI DSS
 ## <a name="pci-dss-requirement-3"></a>Requisito 3 de PCI DSS
@@ -161,7 +161,7 @@ Entre los datos de autenticación confidenciales, se encuentran los que se descr
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso cifra todos los datos almacenados y aísla el tráfico para evitar la elevación de privilegios en las funciones de DevOps.<br /><br />Como App Service Environment está protegido y bloqueado, se necesita un mecanismo que tenga en cuenta cualquier versión o cambio de DevOps que sea necesario; por ejemplo, la capacidad de supervisar una aplicación web mediante Kudu.<br /><br />Una máquina virtual se establece como JumpBox (host de tipo bastión) con las siguientes configuraciones:<br /><br /><ul><li>[Extensión de Antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensión de supervisión de OMS](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensión de diagnóstico de máquina virtual](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco cifrado con BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>Al utilizar Azure Key Vault, se cumplen los requisitos de Azure Government, PCI DSS e HIPAA.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso cifra todos los datos almacenados y aísla el tráfico para evitar la elevación de privilegios en las funciones de DevOps.<br /><br />Como App Service Environment está protegido y bloqueado, se necesita un mecanismo que tenga en cuenta cualquier versión o cambio de DevOps que sea necesario; por ejemplo, la capacidad de supervisar una aplicación web mediante Kudu.<br /><br />Una máquina virtual se establece como JumpBox (host de tipo bastión) con las siguientes configuraciones:<br /><br /><ul><li>[Extensión antimalware](/azure/security/azure-security-antimalware)</li><li>[Extensión de supervisión de Log Analytics](/azure/virtual-machines/virtual-machines-windows-extensions-oms)</li><li>[Extensión de diagnóstico de máquina virtual](/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)</li><li>[Disco cifrado con BitLocker](/azure/security/azure-security-disk-encryption)</li></ul>Al utilizar Azure Key Vault, se cumplen los requisitos de Azure Government, PCI DSS e HIPAA.|
 
 
 
@@ -252,7 +252,7 @@ Entre los datos de autenticación confidenciales, se encuentran los que se descr
 **3.6** Documente e implemente todos los procedimientos y procesos de administración de las claves criptográficas que se utilizan para cifrar los datos de los titulares de tarjeta, incluidos los siguientes: 
 
 > [!NOTE]
-> Los numerosos estándares sectoriales para la administración de claves que están disponibles en diferentes recursos, como NIST, que se encuentra en http://csrc.nist.gov.
+> Los numerosos estándares del sector para la administración de claves, disponibles en diferentes recursos, como NIST, que se encuentra en http://csrc.nist.gov.
 
 **Responsabilidades:&nbsp;&nbsp;`Customer Only`**
 

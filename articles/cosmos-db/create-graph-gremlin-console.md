@@ -12,11 +12,11 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: a2855a05cf77afa69e79ecc602797524b80219d2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f50443385f483fd948d7f19164050600fa8c143
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: crear, consultar y recorrer un grafo en la consola de Gremlin
 
@@ -50,7 +50,7 @@ También necesita instalar la [consola de Gremlin](http://tinkerpop.apache.org/)
 
     Configuración|Valor sugerido|DESCRIPCIÓN
     ---|---|---
-    hosts|[***. gremlin.cosmosdb.azure.com] o [***. graphs.azure.com] para las cuentas creadas antes del 20 de diciembre de 2017|Ver la captura de pantalla siguiente. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.<br><br>Este valor también se puede obtener desde la pestaña Claves; para ello, use el valor del identificador URI mediante la supresión de https://, el cambio de los documentos a grafos o gremlin.cosmosdb y la eliminación de la terminación :443/.
+    hosts|[*nombre-de-la-cuenta*.gremlin.cosmosdb.azure.com] o [*nombre-de-la-cuenta*.graphs.azure.com] para las cuentas creadas antes del 20 de diciembre de 2017|Vea la siguiente captura de pantalla. Este es el valor del Identificador URI de Gremlin en la página Información general de Azure Portal, entre corchetes, sin la terminación :443/.<br><br>Este valor también se puede obtener desde la pestaña Claves; para ello, use el valor del identificador URI mediante la supresión de https://, el cambio de los documentos a grafos o gremlin.cosmosdb y la eliminación de la terminación :443/.
     puerto|443|Se establece en 443.
     nombre de usuario|*Su nombre de usuario*|El recurso con la forma `/dbs/<db>/colls/<coll>` donde `<db>` es el nombre de la base de datos y `<coll>` es el nombre de la colección.
     contraseña|*La clave principal*| Ver la segunda captura de pantalla más adelante. Es la clave principal, que puede obtener en la página Claves de Azure Portal, en el cuadro de texto Clave principal. Use el botón Copiar a la izquierda del cuadro de texto para copiar el valor.
@@ -306,10 +306,7 @@ Felicidades. Ha finalizado este tutorial de Graph API de Azure Cosmos DB.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si no va a seguir usando esta aplicación, siga estos pasos para eliminar todos los recursos creados en esta guía de inicio rápido en Azure Portal:  
-
-1. En el menú de la izquierda de Azure Portal, haga clic en **Grupos de recursos** y en el nombre del recurso que creó. 
-2. En la página del grupo de recursos, haga clic en **Eliminar**, escriba en el cuadro de texto el nombre del recurso que quiere eliminar y haga clic en **Eliminar**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

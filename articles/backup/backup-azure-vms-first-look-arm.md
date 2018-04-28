@@ -12,19 +12,19 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 01/05/2018
+ms.topic: article
+ms.date: 04/18/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51ae5c9d5e4f363f3762389347de865212b45b9b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
+# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
-Este tutorial le guiará por los pasos necesarios para crear un almacén de Servicios de recuperación y realizar copias de seguridad de una máquina virtual (VM) de Azure. Los almacenes de Servicios de recuperación protegen:
+En este artículo se explica cómo configurar la protección de una máquina virtual desde el menú de operaciones de máquinas virtuales o el almacén de Recovery Services. Los almacenes de Recovery Services protegen:
 
 * Máquinas virtuales implementadas en Azure Resource Manager
 * Máquinas virtuales clásicas
@@ -36,18 +36,18 @@ Este tutorial le guiará por los pasos necesarios para crear un almacén de Serv
 
 Para más información sobre la protección de máquinas virtuales de Premium Storage, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales de Premium Storage](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). Para más información sobre la compatibilidad con máquinas virtuales de disco administrado, consulte el artículo sobre la [copia de seguridad y la restauración de máquinas virtuales en discos administrados](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Para más información acerca de los marcos previo y posterior al script para copias de seguridad de máquinas virtuales Linux, consulte [Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Para más información sobre lo que puede hacer una copia de seguridad y sobre lo que no, consulte [aquí](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Para obtener más información sobre qué copias de seguridad que se pueden realizar, vea [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
 > En este tutorial se asume que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad pueda acceder a dicha máquina virtual.
 >
 >
 
-Dependiendo del número de máquinas virtuales que quiera proteger, puede usar diferentes puntos de partida. Si quiere hacer una copia de seguridad de varias máquinas virtuales en una operación, vaya al almacén de Recovery Services e [inicie el trabajo de copia de seguridad desde el panel del almacén](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si quiere realizar una copia de seguridad de una sola máquina virtual, puede iniciar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales.
+Dependiendo del número de máquinas virtuales que quiera proteger, puede usar diferentes puntos de partida. Si quiere hacer una copia de seguridad de varias máquinas virtuales en una operación, vaya al almacén de Recovery Services e [inicie el trabajo de copia de seguridad desde el panel del almacén](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Si quiere realizar una copia de seguridad de una sola máquina virtual, [inicie el trabajo de copia de seguridad desde el menú de operaciones de máquina virtual](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu).
 
-## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configuración del trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales
+## <a name="configure-the-backup-job-from-the-vm-operations-menu"></a>Configuración del trabajo de copia de seguridad desde el menú de operaciones de máquina virtual
 
-Use los pasos siguientes para configurar el trabajo de copia de seguridad desde la hoja de administración de máquinas virtuales de Azure Portal. Los pasos siguientes se aplican únicamente a máquinas virtuales de Azure Portal.
+Siga estos pasos para configurar el trabajo de copia de seguridad desde el menú de operaciones de máquina virtual. Los pasos se aplican únicamente a máquinas virtuales de Azure Portal.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú central, haga clic en **Todos los servicios** y, en el cuadro de diálogo Filtrar, escriba **Máquinas virtuales**. A medida que escribe, se filtra la lista de recursos. Cuando vea Máquinas virtuales, selecciónelo.
@@ -62,59 +62,58 @@ Use los pasos siguientes para configurar el trabajo de copia de seguridad desde 
 
   ![Aparece la lista de máquinas virtuales de la suscripción.](./media/backup-azure-vms-first-look-arm/list-of-vms-selected.png)
 
-  Cuando se selecciona la máquina virtual, la lista de máquinas virtuales cambia a la izquierda y se abren la hoja de administración de máquinas virtuales y el panel de máquinas virtuales. </br>
- ![Hoja de administración de máquinas virtuales](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+  Cuando se selecciona la máquina virtual, la lista de máquinas virtuales pasa a la izquierda y se abren el menú Administración de máquina virtual y el panel de máquinas virtuales.
 
-4. En la hoja de administración de máquinas virtuales, en la sección **Configuración**, haga clic en **Copia de seguridad**. </br>
+4. En el menú Administración de máquina virtual, en la sección **Operaciones**, haga clic en **Copia de seguridad**. </br>
 
-  ![Opción de copia de seguridad de la hoja de administración de máquinas virtuales](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+  ![Opción Copia de seguridad del menú Administración de máquina virtual](./media/backup-azure-vms-first-look-arm/vm-management-menu.png)
 
-  La hoja Habilitar copia de seguridad se abre.
+  Se abre el menú Habilitar copia de seguridad.
 
-  ![Opción de copia de seguridad de la hoja de administración de máquinas virtuales](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Opción Copia de seguridad del menú Administración de máquina virtual](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup.png)
 
-5. Para el almacén de Recovery Services, haga clic en **Seleccionar existente** y elija el almacén de la lista desplegable.
+5. En el almacén de Recovery Services, haga clic en **Seleccionar existente** y elija un almacén de la lista desplegable.
 
-  ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+  ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
   Si no hay ningún almacén de Recovery Services o quiere usar uno nuevo, haga clic en **Create new** (Crear nuevo) y proporcione el nombre del nuevo almacén. Se crea un nuevo almacén en el mismo grupo de recursos y en la misma región que la máquina virtual. Si quiere crear un almacén de Recovery Services con valores diferentes, consulte la sección sobre cómo [crear un directorio de Recovery Services](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm).
 
-6. Para ver los detalles de la directiva de copia de seguridad, haga clic en **Directiva de copia de seguridad**.
+6. En el menú Elegir directiva de copia de seguridad, seleccione una directiva. Los detalles de la directiva seleccionada aparecen debajo del menú desplegable.
 
-  Se abre la hoja **Directiva de copia de seguridad** con los detalles de la directiva seleccionada. Si existen otras directivas, use el menú desplegable para elegir una directiva de copia de seguridad diferente. Si desea crear una directiva, seleccione **Crear nuevo** en el menú desplegable. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Para guardar los cambios en la directiva de copia de seguridad y volver a la hoja Enable backup (Habilitar la copia de seguridad), haga clic en **Aceptar**.
+  Si quiere crear otra directiva o modificar la directiva existente, haga clic en **Crear una nueva directiva (o editar una)** para abrir el editor de directivas de copia de seguridad. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Para guardar los cambios en la directiva de copia de seguridad y volver al menú Habilitar copia de seguridad, haga clic en **Aceptar**.
 
-  ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new-2.png)
+  ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. En la hoja Habilitar copia de seguridad, haga clic en **Habilitar copia de seguridad** para implementar la directiva. La implementación de la directiva la asocia con el almacén y las máquinas virtuales.
+7. Para aplicar la directiva de copia de seguridad y almacén de Recovery Services a la máquina virtual, haga clic en **Habilitar copia de seguridad** para implementar la directiva. La implementación de la directiva la asocia con el almacén y las máquinas virtuales.
 
-  ![Botón Enable Backup (Habilitar la copia de seguridad)](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+  ![Botón Enable Backup (Habilitar la copia de seguridad)](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
 8. Puede realizar el seguimiento del progreso de la configuración mediante la notificación que aparece en el portal. En el ejemplo siguiente se muestra que se ha iniciado la implementación.
 
   ![Notificaciones de la opción Habilitar copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
-9. Cuando el progreso de la configuración haya finalizado, en la hoja de administración de máquinas virtuales, haga clic en **Copia de seguridad** para abrir la hoja Elemento de copia de seguridad y ver los detalles.
+9. Cuando el progreso de la configuración haya finalizado, en el menú Administración de máquina virtual, haga clic en **Copia de seguridad** para abrir el menú Copia de seguridad y ver los detalles disponibles.
 
-  ![Vista de Elemento de copia de seguridad de la máquina virtual](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+  ![Vista de Elemento de copia de seguridad de la máquina virtual](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-  Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)**. Para ver cuándo se produce el siguiente trabajo de copia de seguridad programado, en **Directiva de copia de seguridad**, haga clic en el nombre de la directiva. Se abre la hoja Directiva de copia de seguridad con la hora de la copia de seguridad programada.
+  Hasta que se haya completado la copia de seguridad inicial, el **estado de la última copia de seguridad** se muestra como **Advertencia (copia de seguridad inicial pendiente)**. Para ver cuándo se produce el siguiente trabajo de copia de seguridad programado, en **Resumen**, haga clic en el nombre de la directiva. Se abre el menú Directiva de copia de seguridad y muestra la hora de la copia de seguridad programada.
 
-10. Para ejecutar un trabajo de Backup y crear el punto de recuperación inicial, en la hoja Almacén de Backup, haga clic en **Realizar copia de seguridad ahora**.
+10. Para proteger la máquina virtual, haga clic en **Realizar copia de seguridad ahora**. 
 
-  ![Haga clic en Realizar copia de seguridad ahora para ejecutar la copia de seguridad inicial.](./media/backup-azure-vms-first-look-arm/backup-now.png)
+  ![Haga clic en Realizar copia de seguridad ahora para ejecutar la copia de seguridad inicial.](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Se abre la hoja Realizar copia de seguridad ahora.
+  Se abrirá el menú Realizar copia de seguridad ahora. 
 
   ![muestra la hoja Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-11. En la hoja Realizar copia de seguridad ahora, haga clic en el icono del calendario, use el control del calendario para seleccionar el último día en el que se mantendrá este punto de recuperación y haga clic en **Copia de seguridad**.
+11. En el menú Realizar copia de seguridad ahora, haga clic en el icono del calendario, use el control de calendario para seleccionar el último día en que se mantendrá este punto de recuperación y haga clic en **Aceptar**.
 
   ![establece el último día en que se mantiene el punto de recuperación de Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad.
 
 ## <a name="configure-the-backup-job-from-the-recovery-services-vault"></a>Configuración del trabajo de copia de seguridad desde el almacén de Recovery Services
-Para configurar el trabajo de copia de seguridad, complete los pasos siguientes.  
+Para configurar el trabajo de copia de seguridad, complete los pasos siguientes.
 
 1. Cree un almacén de Recovery Services para una máquina virtual.
 2. Use Azure Portal para seleccionar un escenario, establecer directivas de copia de seguridad e identificar los elementos que desea proteger.
@@ -142,7 +141,7 @@ Para crear un almacén de Recovery Services:
 
     ![Creación del almacén de Recovery Services, paso 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
+    Se abre el menú del almacén de Recovery Services, donde se le pide que especifique los valores de **nombre**, **suscripción**, **grupo de recursos** y **ubicación**.
 
     ![Creación del almacén de Recovery Services, paso 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
@@ -164,7 +163,7 @@ Para crear un almacén de Recovery Services:
   > Si no está seguro de la región en que se encuentra la máquina virtual, cierre el cuadro de diálogo de creación del almacén y vaya a la lista de máquinas virtuales del portal. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. Cree el almacén en la primera región antes de pasar a la siguiente. No es necesario especificar las cuentas de almacenamiento usadas para almacenar los datos de copia de seguridad (el almacén de Recovery Services y el servicio Azure Backup controlarán automáticamente el almacenamiento).
   >
 
-8. En la parte inferior de la hoja de almacén de recovery Services, haga clic en **Create** (Crear).
+8. En la parte inferior del menú Almacenes de Recovery Services, haga clic en **Crear**.
 
     La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services. Si no ve el almacén pasados unos minutos, haga clic en **Refresh** (Actualizar).
 
@@ -179,19 +178,21 @@ La opción de replicación de almacenamiento permite elegir entre almacenamiento
 
 Para editar la configuración de replicación de almacenamiento:
 
-1. En la hoja **Almacenes de Recovery Services**, seleccione un almacén nuevo.
+1. En el menú **Almacenes de Recovery Services**, seleccione un almacén nuevo.
 
   ![Selección del almacén nuevo en la lista de almacenes de Recovery Services](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
 
-  Al seleccionar el almacén, la hoja Configuración (*con el nombre del almacén en la parte superior*) y la hoja de detalles del almacén se abren.
+  Al seleccionar el almacén, se abren el menú Configuración (*con el nombre del almacén en la parte superior*) y el panel del almacén.
 
-  ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+  ![Vista de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
-2. En la hoja de configuración del nuevo almacén, desplácese con el control deslizante vertical hasta la sección Manage (Administrar) y haga clic en **Backup Infrastructure** (Infraestructura de copia de seguridad).
-    Con ello, se abrirá esta hoja.
-3. En la hoja Infraestructura de copia de seguridad, haga clic en **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**.
+2. En el menú Administración de máquina virtual del nuevo almacén, desplácese con el control deslizante vertical hasta la sección Administrar y haga clic en **Infraestructura de Backup** para abrir el menú Infraestructura de Backup.
+ 
+   ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
-    ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+3. En el menú Infraestructura de Backup, haga clic en **Configuración de copia de seguridad** para abrir el menú **Configuración de copia de seguridad**.
+
+    ![Establecimiento de la configuración de almacenamiento del nuevo almacén](./media/backup-try-azure-backup-in-10-mins/set-storage-open-infra.png)
 4. Elija la opción de replicación del almacenamiento apropiada para su almacén.
 
     ![opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
@@ -212,43 +213,43 @@ Antes de registrar una máquina virtual en un almacén, ejecute el proceso de de
 
     En la lista de almacenes de Recovery Services, seleccione un almacén para abrir su panel.
 
-     ![Hoja del almacén abierta](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
+     ![Abrir el menú Almacén](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. En el menú del panel del almacén, haga clic en **Copia de seguridad** para abrir la hoja Copia de seguridad.
+2. En el menú del panel del almacén, haga clic en **Copia de seguridad** para abrir el menú Copia de seguridad.
 
-    ![Hoja Copia de seguridad abierta](./media/backup-azure-arm-vms-prepare/backup-button.png)
+    ![Abrir el menú Copia de seguridad](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-    Se abren las hojas Copia de seguridad y Objetivo de copia de seguridad.
+    Se abren los menús Copia de seguridad y Objetivo de Backup.
 
-    ![Hoja Escenario abierta](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-3. En la hoja Objetivo de copia de seguridad, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?**, elija Azure. En la lista desplegable **What do you want to backup** (¿De qué quiere realizar una copia de seguridad?), elija Máquina virtual y luego haga clic en **Aceptar**.
+    ![Abrir el menú Escenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+3. En el menú Objetivo de Backup, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?**, elija Azure. En la lista desplegable **What do you want to backup** (¿De qué quiere realizar una copia de seguridad?), elija Máquina virtual y luego haga clic en **Aceptar**.
 
-    Estas acciones permiten registrar la extensión de la máquina virtual con el almacén. La hoja Objetivo de copia de seguridad se cierra y se abre la hoja **Directiva de copia de seguridad**.
+    Estas acciones permiten registrar la extensión de la máquina virtual con el almacén. El menú Objetivo de Backup se cierra y se abre el menú **Directiva de copia de seguridad**.
 
-    ![Hoja Escenario abierta](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
+    ![Abrir el menú Escenario](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
-4. En la hoja Directiva de copia de seguridad, seleccione la que quiera aplicar al almacén.
+4. En el menú Directiva de copia de seguridad, seleccione la directiva que quiera aplicar al almacén.
 
     ![Seleccionar directiva de copia de seguridad](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
     Los detalles de la directiva predeterminada se muestran en el menú desplegable. Si desea crear una directiva, seleccione **Crear nuevo** en el menú desplegable. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy).
     Haga clic en **Aceptar** para asociar la directiva de copia de seguridad con el almacén.
 
-    La hoja Objetivo de copia de seguridad se cierra y se abre la hoja **Seleccionar máquinas virtuales**.
-5. En la hoja **Seleccionar máquinas virtuales**, elija las máquinas virtuales que se asociarán con la directiva especificada y haga clic en **Aceptar**.
+    El menú Directiva de copia de seguridad se cierra y se abre el menú **Seleccionar máquinas virtuales**.
+5. En el menú **Seleccionar máquinas virtuales**, elija las máquinas virtuales que quiere asociar a la directiva especificada y haga clic en **Aceptar**.
 
     ![Seleccionar carga de trabajo](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     Se valida la máquina virtual seleccionada. Si no ve las máquinas virtuales que espera ver, compruebe que existen en la misma ubicación de Azure que el almacén de Recovery Services y que no estén ya protegidas. La ubicación del almacén de Recovery Services se muestra en el panel del almacén.
 
-6. Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en **Habilitar copia de seguridad** para implementar la directiva en el almacén y en las máquinas virtuales. La implementación de la directiva de copia de seguridad no crea el punto de recuperación inicial para la máquina virtual.
+6. Ahora que ha definido toda la configuración del almacén, en el menú Copia de seguridad, haga clic en **Habilitar copia de seguridad** para implementar la directiva en el almacén y las máquinas virtuales. La implementación de la directiva de copia de seguridad no crea el punto de recuperación inicial para la máquina virtual.
 
     ![Habilitar copia de seguridad](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 Después de habilitar correctamente la copia de seguridad, la directiva de copia de seguridad se ejecutará en la programación. Sin embargo, proceda a iniciar el primer trabajo de copia de seguridad.
 
 ## <a name="initial-backup"></a>Copia de seguridad inicial
-Una vez que se ha implementado una directiva de copia de seguridad en la máquina virtual, no significa que se copiarán los datos. De forma predeterminada, la primera copia de seguridad programada (tal y como se define en la directiva de copia de seguridad) es la copia de seguridad inicial. Hasta que se realice la copia de seguridad inicial, el estado de la última copia aparecerá como **Advertencia (copia de seguridad inicial pendiente)** en la hoja **Trabajos de copia de seguridad**.
+Una vez que se ha implementado una directiva de copia de seguridad en la máquina virtual, no significa que se copiarán los datos. De forma predeterminada, la primera copia de seguridad programada (tal y como se define en la directiva de copia de seguridad) es la copia de seguridad inicial. Hasta que se realice la copia de seguridad inicial, el estado de la última copia aparecerá como **Advertencia (copia de seguridad inicial pendiente)** en el menú **Trabajos de copia de seguridad**.
 
 ![Copia de seguridad pendiente](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
@@ -259,11 +260,11 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 1. En el panel del almacén, haga clic en el número situado bajo **Elementos de copia de seguridad** o haga clic en el icono **Elementos de copia de seguridad**. <br/>
   ![Icono Configuración](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  Se abrirá la hoja **Elementos de copia de seguridad** .
+  Se abrirá el menú **Elementos de copia de seguridad**.
 
   ![Elementos de copias de seguridad](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. En la hoja **Elementos de copia de seguridad**, seleccione el elemento.
+2. En el menú **Elementos de copia de seguridad**, seleccione el elemento.
 
   ![Icono Configuración](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
@@ -283,11 +284,11 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 
   ![Menú contextual](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Se abre la hoja Realizar copia de seguridad ahora.
+  Se abrirá el menú Realizar copia de seguridad ahora.
 
-  ![muestra la hoja Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![muestra el menú Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. En la hoja Realizar copia de seguridad ahora, haga clic en el icono del calendario, use el control del calendario para seleccionar el último día en el que se mantendrá este punto de recuperación y haga clic en **Copia de seguridad**.
+5. En el menú Realizar copia de seguridad ahora, haga clic en el icono del calendario, use el control de calendario para seleccionar el último día en que se mantendrá este punto de recuperación y haga clic en **Copia de seguridad**.
 
   ![establece el último día en que se mantiene el punto de recuperación de Realizar copia de seguridad ahora](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
@@ -297,11 +298,11 @@ Para ejecutar el trabajo de copia de seguridad inicial:
 
   ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  Se abrirá la hoja Trabajos de copia de seguridad.
+  Se abrirá el menú Trabajos de copia de seguridad.
 
   ![Icono de Trabajos de copia de seguridad](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  En la hoja **Trabajos de copia de seguridad** , puede ver el estado de todos los trabajos. Compruebe si el trabajo de copia de seguridad para la máquina virtual aún está en curso o si se ha terminado. Cuando finalice un trabajo de copia de seguridad, el estado será *Completado*.
+  En el menú **Trabajos de copia de seguridad**, puede ver el estado de todos los trabajos. Compruebe si el trabajo de copia de seguridad para la máquina virtual aún está en curso o si se ha terminado. Cuando finalice un trabajo de copia de seguridad, el estado será *Completado*.
 
   > [!NOTE]
   > Como parte de la operación de copia de seguridad, el servicio Azure Backup emite un comando a la extensión de copia de seguridad en cada máquina virtual para vaciar toda la escritura y tomar una instantánea coherente.

@@ -1,11 +1,11 @@
 ---
-title: "Invocación de programas Spark desde Azure Data Factory | Microsoft Docs"
-description: "Obtenga información sobre cómo invocar programas Spark desde Azure Data Factory mediante la actividad MapReduce."
+title: Invocación de programas Spark desde Azure Data Factory | Microsoft Docs
+description: Obtenga información sobre cómo invocar programas Spark desde Azure Data Factory mediante la actividad MapReduce.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocación de programas Spark desde canalizaciones de Azure Data Factory
 
@@ -59,7 +59,7 @@ Estos son los pasos habituales para crear una canalización de Data Factory con 
 
 2. Cree un clúster de Spark en HDInsight siguiendo las instrucciones del tutorial: [Creación de un clúster de Spark en HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Asocie la cuenta de almacenamiento creada en el paso 1 con este clúster.
 
-3. Descargue y revise el archivo de script de Python **test.py** ubicado en: [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Descargue y revise el archivo de script de Python **test.py** ubicado en [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Cargue **test.py** en la carpeta **pyFiles** del contenedor **adfspark** de Blob Storage. Cree el contenedor y la carpeta si no existen.
 
@@ -84,7 +84,7 @@ Para crear una factoría de datos, siga estos pasos:
 7. Seleccione **Crear**.
 
    > [!IMPORTANT]
-   > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
+   > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
 
 8. Verá que la factoría de datos se creará en el panel de Azure Portal.
 
@@ -347,7 +347,7 @@ La actividad de Spark no es compatible con un script en línea, al contrario que
 
 Cree la siguiente estructura de carpetas en la instancia de Blob Storage a la que hace referencia el servicio vinculado de HDInsight. Luego, cargue los archivos dependientes en las subcarpetas adecuadas de la carpeta raíz que representa **entryFilePath**. Por ejemplo, cargue los archivos de Python en la subcarpeta pyFiles y los archivos JAR en la subcarpeta jars de la carpeta raíz. En el entorno de tiempo de ejecución, el servicio Data Factory espera la siguiente estructura de carpetas en la instancia de Blob Storage: 
 
-| Ruta de acceso | DESCRIPCIÓN | Obligatorio | type |
+| Ruta de acceso | DESCRIPCIÓN | Obligatorio | Escriba |
 | ---- | ----------- | -------- | ---- |
 | . | Ruta de acceso raíz del trabajo de Spark en el servicio vinculado de almacenamiento. | Sí | Carpeta |
 | &lt;Definida por el usuario&gt; | Ruta de acceso que apunta al archivo de entrada del trabajo de Spark. | Sí | Archivo |

@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9dfd600a0e3271afff0dd7ce634c78bf87ab314f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Preguntas sobre el servicio Azure Backup
 En este artículo se responden a preguntas habituales sobre los componentes de Azure Backup. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. Para realizar cualquier pregunta acerca de Azure Backup, haga clic en **Comentarios** (a la derecha). Los comentarios aparecen en la parte inferior de este artículo. Para poder escribir comentarios se requiere una cuenta de Livefyre. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,10 +30,10 @@ Para examinar rápidamente las secciones de este artículo, use los vínculos de
 ## <a name="recovery-services-vault"></a>Almacén de Recovery Services
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription-br"></a>¿Hay algún límite del número de almacenes que se pueden crear en cada suscripción de Azure? <br/>
-Sí. A partir de enero de 2018, se pueden crear hasta 25 almacenes de Recovery Services por cada región admitida de Azure Backup y por suscripción. Si necesita más almacenes, cree otra suscripción.
+Sí. Se pueden crear hasta 500 almacenes de Recovery Services por cada región admitida de Azure Backup por suscripción. Si necesita más almacenes, cree otra suscripción.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>¿Hay algún límite en el número de servidores o máquinas que se pueden registrar en cada almacén? <br/>
-Puede registrar hasta 200 máquinas virtuales de Azure por almacén. Si usa el agente de MAB, puede registrar hasta 50 agentes por almacén. Y puede registrar 50 servidores de MAB o servidores DPM en un almacén.
+Puede registrar hasta 1000 máquinas virtuales de Azure por almacén. Si usa el agente de MAB, puede registrar hasta 50 agentes de MAB por almacén. Y puede registrar 50 servidores de MAB o servidores DPM en un almacén.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Si la organización tiene un almacén, ¿cómo se pueden aislar los datos de un servidor desde otro servidor al restaurar los datos?<br/>
 Los servidores registrados en el mismo almacén podrán recuperar los datos cuya copia de seguridad hayan realizado otros servidores *que usen la misma frase de contraseña*. Si tiene servidores cuyos datos de copia de seguridad desee aislar de otros servidores de la organización, utilice una frase de contraseña específica para dichos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
@@ -81,13 +81,13 @@ Nº Todos los datos transferidos al almacén, antes de que se cancelara el traba
 Si cancela un trabajo de copia de seguridad para una máquina virtual de Azure, se omiten los datos transferidos. El siguiente trabajo de copia de seguridad transfiere los datos incrementales desde el último trabajo de copia de seguridad correcto.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>¿Existen límites sobre cuándo y cuántas veces se puede programar un trabajo de copia de seguridad?<br/>
-Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de copia de seguridad se pueden ejecutar un máximo de tres veces al día. Sin embargo, en System Center DPM, los trabajos de copia de seguridad se pueden ejecutar un máximo de dos veces al día. Por último, en las máquinas virtuales de IaaS solo se puede ejecutar un trabajo de copia de seguridad al día. Puede usar la directiva de programación para estaciones de trabajo de Windows o Windows Server para especificar programaciones diarias o semanales. Mediante System Center DPM, puede especificar programaciones diarias, semanales, mensuales y anuales.
+Sí. Sí, en estaciones de trabajo de Windows o Windows Server los trabajos de copia de seguridad se pueden ejecutar un máximo de tres veces al día. Sin embargo, en System Center DPM, los trabajos de copia de seguridad se pueden ejecutar un máximo de dos veces al día. Por último, en las máquinas virtuales de IaaS solo se puede ejecutar un trabajo de copia de seguridad al día. Use la directiva de programación para estaciones de trabajo de Windows o Windows Server para especificar programaciones diarias o semanales. Con System Center DPM, puede especificar programaciones diarias, semanales, mensuales y anuales.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos de los que he hecho copia de seguridad?<br/>
  Todos los datos de los que se realiza una copia de seguridad desde el agente de Azure Backup o SCDPM o de Azure Backup Server se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de Recovery Services se reduce entre un 30 % y un 40 %.
 
 ## <a name="what-can-i-back-up"></a>¿De qué puedo hacer copia de seguridad?
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>¿Qué sistemas operativos admite Azure Backup? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>¿Qué sistemas operativos admite Azure Backup? <br/>
 Azure Backup admite la siguiente lista de sistemas operativos para la copia de seguridad de archivos y carpetas y aplicaciones de carga de trabajo protegidas con el Azure Backup Server y System Center Data Protection Manager (DPM).
 
 | Sistema operativo | Plataforma | SKU |
@@ -112,7 +112,7 @@ Azure Backup admite la siguiente lista de sistemas operativos para la copia de s
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad? <br/>
-No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad en un almacén de datos. Azure Backup limita el tamaño máximo del origen de datos; sin embargo, estos límites son grandes. A partir de agosto de 2015, el tamaño máximo del origen de datos del sistema operativo compatible es:
+Azure Backup impone un tamaño máximo para un origen de datos, pero los límites para el origen son grandes. A partir de agosto de 2015, el tamaño máximo del origen de datos del sistema operativo compatible es:
 
 | S.No | Sistema operativo | Tamaño máximo del origen de datos |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ La tabla siguiente explica cómo se determina el tamaño de cada origen de datos
 | Microsoft Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad |
 | Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad |
 
-Para la copia de seguridad de máquinas virtuales de Azure, cada máquina virtual puede tener hasta 16 discos de datos con un tamaño cada uno de 4095 GB o inferior. <br>
+Para copia de seguridad de la máquina virtual de IaaS de Azure, cada máquina virtual puede tener hasta 16 discos de datos y cada disco de datos puede tener un tamaño de hasta 4095 GB.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos contenidos en un almacén de Recovery Services?
+No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad en un almacén de Recovery Services.
 
 ## <a name="retention-policy-and-recovery-points"></a>Puntos de recuperación y directiva de retención
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>¿Hay alguna diferencia entre las directiva de retención de DPM y Windows Server o cliente de Windows (es decir, en Windows Server sin DPM)?<br/>
 No, tanto DPM como Windows Server o el cliente Windows tienen directivas de retención diarias, semanales, mensuales y anuales.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?<br/>
 Sí, la estructura de retención de Azure Backup permite tener una flexibilidad completa en la definición de la directiva de retención según sus requisitos.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>¿Puedo programar una copia de seguridad a las 6 p.m. y establecer las directivas de retención a una hora diferente?<br/>

@@ -1,12 +1,12 @@
 ---
-title: "Implementación en Azure App Service mediante el complemento de Jenkins | Microsoft Docs"
-description: "Aprenda a usar el complemento de Jenkins de Azure App Service para implementar una aplicación web de Java para Azure en Jenkins."
+title: Implementación en Azure App Service mediante el complemento de Jenkins | Microsoft Docs
+description: Aprenda a usar el complemento de Jenkins de Azure App Service para implementar una aplicación web de Java para Azure en Jenkins.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementación en Azure App Service mediante el complemento de Jenkins 
 
@@ -39,7 +39,7 @@ Si aún no tiene un servidor maestro de Jenkins, comience con la [plantilla de l
 * [Complemento de cliente de Git de Jenkins](https://plugins.jenkins.io/git-client), versión 2.4.6 
 * [Complemento Docker Commons](https://plugins.jenkins.io/docker-commons), versión 1.4.0
 * [Credenciales de Azure](https://plugins.jenkins.io/azure-credentials), versión 1.2
-* [Azure App Service](https://plugins.jenkins.io/azure-app-server), versión 0.1
+* [Azure App Service](https://plugins.jenkins.io/azure-app-service), versión 0.1
 
 Puede usar el complemento de Jenkins para implementar una aplicación web en cualquier lenguaje que sea compatible con Web Apps, como C#, PHP, Java y Node.js. En este tutorial, usamos una [sencilla aplicación web de Java para Azure](https://github.com/azure-devops/javawebappsample). Para bifurcar el repositorio en su propia cuenta de GitHub, seleccione el botón **Bifurcar** de la esquina superior derecha de la interfaz de GitHub.  
 > [!NOTE]

@@ -1,8 +1,8 @@
 ---
 title: Apache Storm con componentes de Python - Azure HDInsight | Microsoft Docs
-description: "Aprenda a crear una topología de Apache Storm que use componentes de Python."
+description: Aprenda a crear una topología de Apache Storm que use componentes de Python.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ebfc9d5aa1c3a650a938c0a9f5fc3d047f90458d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Desarrollo de topologías Apache Storm con Python en HDInsight
 
@@ -140,7 +138,7 @@ Para detener la topología, use __Ctrl+C__.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Puede usar la interfaz de usuario de Storm para ver la topología en el clúster. Esta interfaz de usuario web se encuentra en https://mycluster.azurehdinsight.net/stormui. Reemplace `mycluster` por el nombre del clúster.
+3. Puede usar la interfaz de usuario de Storm para ver la topología en el clúster. La interfaz de usuario de Storm se encuentra en https://mycluster.azurehdinsight.net/stormui. Reemplace `mycluster` por el nombre del clúster.
 
 > [!NOTE]
 > Cuando se ha iniciado una topología Storm, esta se ejecuta hasta que se detiene. Para detener la topología, use uno de los siguientes métodos:

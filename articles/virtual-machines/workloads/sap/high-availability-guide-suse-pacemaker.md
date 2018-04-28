@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82380c20c9ec631d9fea338404a25f167277701
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -52,6 +52,14 @@ En primer lugar debe crear una máquina virtual de destino iSCSI, si aún no tie
    sudo zypper update
    </code></pre>
 
+1. Quitar paquetes
+
+   Para evitar un problema conocido con targetcli y SLES 12 SP3, desinstale los siguientes paquetes. Puede omitir los errores acerca de los paquetes que no se encuentran.
+   
+   <pre><code>
+   sudo zypper remove lio-utils python-rtslib python-configshell targetcli
+   </code></pre>
+   
 1. Instale paquetes de destino iSCSI.
 
    <pre><code>
@@ -61,9 +69,7 @@ En primer lugar debe crear una máquina virtual de destino iSCSI, si aún no tie
 1. Habilite el servicio de destino iSCSI.
 
    <pre><code>   
-   sudo systemctl enable target
    sudo systemctl enable targetcli
-   sudo systemctl start target
    sudo systemctl start targetcli
    </code></pre>
 
@@ -99,7 +105,6 @@ sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create i
 
 # save the targetcli changes
 sudo targetcli saveconfig
-sudo systemctl restart target
 </code></pre>
 
 ### <a name="set-up-sbd-device"></a>Configuración de un dispositivo SBD
@@ -396,7 +401,7 @@ El dispositivo STONITH usa una entidad de servicio para la autorización de Micr
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creación de un rol personalizado para el agente de barrera
 
-La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell#create-a-custom-role) o la [CLI de Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli#create-a-custom-role).
+La entidad de servicio no tiene permiso para tener acceso a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role).
 
 Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el contenido a sus suscripciones; esto es, reemplace c276fc76-9cd4-44c9-99a7-4fd71546436e y e91d47c4-76f3-4271-a796-21b4ecfe3624 por los identificadores de su suscripción. Si solo tiene una suscripción, quite la segunda entrada en AssignableScopes.
 

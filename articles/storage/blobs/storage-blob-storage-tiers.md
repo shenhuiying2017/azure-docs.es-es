@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: c62f3a92e6199f6467556054c9f58c20b6ceba2c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: niveles de almacenamiento de archivo, esporádico y frecuente
 
@@ -32,7 +32,7 @@ Cada uno de los escenarios de acceso a los datos se beneficia de una capa de alm
 
 ## <a name="storage-accounts-that-support-tiering"></a>Cuentas de almacenamiento que admiten niveles
 
-Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso frecuente, esporádico o de archivo en cuentas de Blob Storage o de General Purpose v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Sin embargo, los clientes pueden convertir fácilmente sus cuentas de GPv1 o de Blob Storage existentes a cuentas de GPv2 mediante un simple clic en Azure Portal. GPv2 proporciona una nueva estructura de precios para blobs, archivos y colas, junto con acceso a otras diversas características de almacenamiento nuevas. Además, en adelante algunas nuevas características y reducciones de precio solo se ofrecerán en cuentas de GPv2. Por lo tanto, los clientes deben valorar el uso de las cuentas de GPv2, pero solo deben usarlas después de revisar el precio de todos los servicios, dado que algunas cargas de trabajo pueden ser más caras en GPv2 que en GPv1. Para más información, consulte [Opciones de la cuenta de Azure Storage](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Solo puede disponer los datos de almacenamiento de objetos en niveles de acceso frecuente, esporádico o de archivo en cuentas de Blob Storage o de uso general v2 (GPv2). Las cuentas de General Purpose v1 (GPv1) no admiten niveles. Sin embargo, los clientes pueden convertir fácilmente sus cuentas de GPv1 o de Blob Storage existentes a cuentas de GPv2 mediante un simple clic en Azure Portal. GPv2 proporciona una nueva estructura de precios para blobs, archivos y colas, junto con acceso a otras diversas características de almacenamiento nuevas. Además, en adelante algunas nuevas características y reducciones de precio solo se ofrecerán en cuentas de GPv2. Por lo tanto, los clientes deben valorar el uso de las cuentas de GPv2, pero solo deben usarlas después de revisar el precio de todos los servicios, dado que algunas cargas de trabajo pueden ser más caras en GPv2 que en GPv1. Para más información, consulte [Opciones de la cuenta de Azure Storage](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Las cuentas de Blob Storage y de GPv2 exponen el atributo **access tier** en el nivel de cuenta, que le permite especificar el nivel de almacenamiento predeterminado como frecuente o esporádico para cualquier blob de la cuenta de almacenamiento que no tenga el nivel establecido en el nivel de objeto. En el caso de objetos con el nivel establecido en el nivel de objeto, el nivel de cuenta no se aplica. El nivel de archivo solo puede aplicarse en el nivel de objeto. Puede cambiar entre estos niveles de almacenamiento en cualquier momento.
 
@@ -81,7 +81,7 @@ Los blobs en los tres niveles de almacenamiento pueden coexistir dentro de la mi
 
 Cuando un blob se mueve a un nivel más esporádico (frecuente -> esporádico, frecuente -> archivo o esporádico -> archivo), la operación se factura como una operación de escritura del nivel de destino, donde se aplican los cargos de la operación de escritura (por 10 000) y de la escritura de datos (por GB) del nivel de destino. Si un blob se mueve a un nivel menos esporádico (archivo -> esporádico, archivo -> frecuente -> o esporádico -> frecuente), la operación se factura como lectura desde el nivel de origen, donde aplican los cargos de la operación de lectura (por 10 000) y de la recuperación de datos (por GB) del nivel de origen.
 
-Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por esto. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo.
+Si cambia el nivel de acceso de la cuenta de frecuente a esporádico, solo se le cobrarán las operaciones de escritura (por 10 000) de todos los blobs sin un nivel establecido en las cuentas de GPv2. En las cuentas de Blob Storage no se realiza ningún cargo por esto. Si cambia el nivel de acceso de su cuenta de Blob Storage o de GPv2 de esporádico a frecuente, se le cobran tanto las operaciones de lectura (por 10 000) como las de recuperación de datos (por GB). También podrían aplicarse cargos por la eliminación temprana de algún blob que se haya trasladado desde el nivel de acceso esporádico o de archivo.
 
 ### <a name="cool-and-archive-early-deletion"></a>Eliminación temprana en los niveles de acceso esporádico y de archivo
 
@@ -102,14 +102,14 @@ En la tabla siguiente se muestra una comparación de los niveles de almacenamien
 | **Objetivos de escalabilidad y rendimiento** | Igual que las cuentas de almacenamiento de uso general | Igual que las cuentas de almacenamiento de uso general | Igual que las cuentas de almacenamiento de uso general |
 
 > [!NOTE]
-> Las cuentas de Blob Storage admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
+> Las cuentas de Almacenamiento de blobs admiten los mismos objetivos de rendimiento y escalabilidad que las cuentas de almacenamiento de uso general. Consulte [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para obtener más información.
 
 ## <a name="quickstart-scenarios"></a>Escenarios de inicio rápido
 
 En esta sección se muestran los siguientes escenarios mediante Azure Portal:
 
-* Cómo cambiar el nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage
-* Cómo cambiar el nivel de acceso de un blob en una cuenta de GPv2 o de Blob Storage
+* Cambio del nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage.
+* Cambio del nivel de acceso de un blob en una cuenta de GPv2 o de Blob Storage.
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Cambio del nivel de acceso predeterminado en una cuenta de GPv2 o de Blob Storage
 
@@ -147,7 +147,7 @@ Sí. El atributo **access tier** establecido en el nivel de cuenta es el nivel p
 
 **¿Puedo cambiar el nivel de almacenamiento predeterminado de la cuenta de Blob Storage o de GPv2?**
 
-Sí, puede cambiar el nivel de almacenamiento predeterminado mediante la definición del atributo **access tier** en la cuenta de almacenamiento. El cambio del nivel de almacenamiento se aplica a todos los objetos almacenados en la cuenta que no tengan un nivel explícito establecido. Al cambiar el nivel de almacenamiento de frecuente a esporádico se generan cargos de operaciones de escritura (por 10 000) en todos los blobs sin un nivel establecido en cuentas de GPv2, y al cambiar de esporádico a frecuente se generan cargos de operaciones de lectura (por 10 000) y de recuperación de datos (por GB) en todos los blobs en cuentas de Blob Storage y de GPv2.
+Sí, puede cambiar el nivel de almacenamiento predeterminado mediante la definición del atributo **access tier** en la cuenta de almacenamiento. El cambio del nivel de almacenamiento se aplica a todos los objetos almacenados en la cuenta que no tengan un nivel explícito establecido. Al cambiar el nivel de almacenamiento de frecuente a esporádico se generan cargos de operaciones de escritura (por 10 000) en todos los blobs sin un nivel establecido en cuentas de GPv2, y al cambiar de esporádico a frecuente se generan cargos de operaciones de lectura (por 10 000) y de recuperación de datos (por GB) en todos los blobs en cuentas de Blob Storage y de GPv2.
 
 **¿Puedo establecer el nivel de acceso de cuenta predeterminado en archivo?**
 

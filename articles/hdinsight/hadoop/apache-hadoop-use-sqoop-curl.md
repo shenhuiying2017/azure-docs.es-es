@@ -1,8 +1,8 @@
 ---
 title: Uso de Sqoop en Hadoop con Curl en HDInsight (Azure)| Microsoft Docs
-description: "Obtenga información sobre cómo enviar remotamente trabajos a HDInsight usando Curl."
+description: Obtenga información sobre cómo enviar remotamente trabajos a HDInsight usando Curl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 39798321-78ca-428c-bcfe-322e49af4059
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 08e7288d4d9d06f3a74464817892c2b03ae8a86c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 66c82cc22b9b460281928c4892dab8308ccf1098
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Ejecución de trabajos de Sqoop con Hadoop en HDInsight con Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -63,7 +61,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
    * **-u** : el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
    * **-G** : indica que esta es una solicitud GET.
      
-     El comienzo del identificador URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver un estado de WebHCat (también conocido como Templeton) al servidor. 
+     El principio de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, es el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver un estado de WebHCat (también conocido como Templeton) al servidor. 
 2. Para enviar el trabajo de sqoop, use lo siguiente:
 
     ```bash

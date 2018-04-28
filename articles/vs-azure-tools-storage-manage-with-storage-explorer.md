@@ -1,11 +1,11 @@
 ---
-title: "Introducción al Explorador de Storage (versión preliminar) | Microsoft Docs"
-description: "Administración de recursos de Azure Storage con el Explorador de Storage (versión preliminar)"
+title: Introducción al Explorador de Storage | Microsoft Docs
+description: Administre recursos de Azure Storage con el Explorador de Storage.
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
@@ -14,33 +14,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 27b3775d81ec6dc093dae4ee46167c5d5a9c9e19
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e8ebbd1a0ac2153913a2e5f506505ffb481b3822
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="get-started-with-storage-explorer-preview"></a>Introducción al Explorador de Storage (versión preliminar)
+# <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 ## <a name="overview"></a>Información general
-El Explorador de Azure Storage (versión preliminar) es una aplicación independiente que permite trabajar fácilmente con datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
+El Explorador de Azure Storage es una aplicación independiente que permite trabajar fácilmente con datos de Azure Storage en Windows, macOS y Linux. En este artículo aprenderá varias maneras de conectarse a cuentas de Azure Storage y de administrarlas.
 
-![Explorador de Microsoft Azure Storage (versión preliminar)][0]
+![Explorador de Microsoft Azure Storage][0]
 
 ## <a name="prerequisites"></a>requisitos previos
-* [Descargue e instale el Explorador de Storage (versión preliminar)](http://www.storageexplorer.com)
 
-> [!NOTE]
-> En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
-> * libgconf-2-4
-> * libsecret
-> * Up-to-date GCC
->
-> Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
->
->
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+El Explorador de Azure Storage es compatible con las siguientes versiones de Windows:
+
+* Windows 10 (recomendado)
+* Windows 8
+* Windows 7
+
+[Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
+
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+El Explorador de Azure Storage es compatible con las siguientes versiones de macOS:
+
+* macOS 10.12 "Sierra" y versiones posteriores
+
+[Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+El Explorador de Azure Storage es compatible con las siguientes distribuciones de Linux:
+
+* Ubuntu 16.04 x64 (recomendado)
+* Ubuntu 17.10 x64
+* Ubuntu 14.04 x64
+
+El Explorador de Azure Storage puede funcionar en otras distribuciones, pero solo son oficialmente compatibles las mencionadas anteriormente.
+
+También debe tener las siguientes dependencias/bibliotecas instaladas para ejecutar el Explorador de Azure Storage en Linux:
+
+* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* libsecret (nota: libsecret-1.so.0 debe estar disponible en su equipo. Si tiene una versión diferente de libsecret instalada, puede intentar vincular temporalmente su archivo. so a libsecret-1.so.0).
+* libgconf-2-4
+* GCC actualizado
+
+Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Azure Storage contienen pasos específicos para algunas distribuciones.
+
+[Descarga e instalación del Explorador de Storage](http://www.storageexplorer.com)
+
+---
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Conexión a una cuenta de almacenamiento o servicio
-El Explorador de Storage (versión preliminar) proporciona varias maneras de conectar con las cuentas de almacenamiento. Por ejemplo, puede:
+El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar con las cuentas de almacenamiento. Por ejemplo, puede:
 * Conectar con las cuentas de almacenamiento asociadas a las suscripciones de Azure.
 * Conectar con las cuentas de almacenamiento y los servicios que se comparten desde otras suscripciones de Azure.
 * Conectar con el almacenamiento local, y administrarlo, mediante el Emulador de Azure Storage. 
@@ -60,7 +87,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 >
 >
 
-1. En el Explorador de Storage (versión preliminar), seleccione **Manage Accounts** (Administrar cuentas) para ir a **Account Management Panel** (Panel de administración de cuentas).
+1. En el Explorador de Storage, seleccione **Manage Accounts** (Administrar cuentas) para ir a **Account Management Panel** (Panel de administración de cuentas).
 
     ![Administración de cuentas][1]
 
@@ -79,7 +106,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
     ![Suscripciones de Azure seleccionadas][4]
 
 ## <a name="work-with-local-development-storage"></a>Trabajo con el almacenamiento de desarrollo local
-Con el Explorador de Storage (versión preliminar), puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite simular el trabajo con Azure Storage sin necesidad de tener una cuenta de almacenamiento implementada en Azure, ya que el Emulador de Azure Storage emula dicha cuenta.
+Con el Explorador de Storage, puede trabajar con el almacenamiento local mediante el Emulador de Azure Storage. Este enfoque le permite simular el trabajo con Azure Storage sin necesidad de tener una cuenta de almacenamiento implementada en Azure, ya que el Emulador de Azure Storage emula dicha cuenta.
 
 > [!NOTE]
 > El Emulador de Azure Storage actualmente solo se admite para Windows.
@@ -91,7 +118,7 @@ Con el Explorador de Storage (versión preliminar), puede trabajar con el almace
 >
 >
 
-1. En el panel izquierdo del Explorador de Storage (versión preliminar), expanda el nodo **(Local and Attached)** >  (Local y asociada) **Storage Accounts** >  (Cuentas de almacenamiento) **(Development)** >  (Desarrollo) **Blob Containers** (Contenedores de blobs).
+1. En el panel izquierdo del Explorador de Storage, expanda el nodo **(Local and Attached)** >  (Local y asociada) **Cuentas de almacenamiento** > **(Desarrollo)** > **Contenedores de blobs**.
 
     ![Nodo de desarrollo local][5]
 
@@ -102,12 +129,9 @@ Con el Explorador de Storage (versión preliminar), puede trabajar con el almace
 3. Después de que el emulador se ha instalado, puede crear tablas, colas y blobs locales, y trabajar con ellos. Para aprender a trabajar con cada tipo de cuenta de almacenamiento, consulte las siguientes guías:
 
     * [Administración de recursos de Azure Blob Storage](vs-azure-tools-storage-explorer-blobs.md)
-    * Administración de recursos de almacenamiento de recurso compartido de archivos de Azure; *próximamente*
-    * Administración de recursos de Azure Queue Storage; *próximamente*
-    * Administración de recursos de Azure Table Storage; *próximamente*
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Conexión a almacenamiento externo
-Con el Explorador de Storage (versión preliminar), puede conectarse a cuentas de almacenamiento externas, lo que facilita el uso compartido de las cuentas de almacenamiento. En esta sección se explica cómo asociar (y desasociar) cuentas de almacenamiento externo.
+Con el Explorador de Storage, puede conectarse a cuentas de almacenamiento externas, lo que facilita el uso compartido de las cuentas de almacenamiento. En esta sección se explica cómo asociar (y desasociar) cuentas de almacenamiento externo.
 
 ### <a name="get-the-storage-account-credentials"></a>Obtención de las credenciales de la cuenta de almacenamiento
 Para compartir una cuenta de almacenamiento externa, su propietario debe obtener primero las credenciales (nombre y clave de cuenta) de esta, y compartir dicha información con la persona que desea asociar a dicha cuenta. Puede obtener las credenciales de la cuenta de almacenamiento mediante Azure Portal siguiendo estos pasos:
@@ -129,9 +153,9 @@ Para compartir una cuenta de almacenamiento externa, su propietario debe obtener
     ![Claves de acceso][8]
 
 ### <a name="attach-to-an-external-storage-account"></a>Asociación de una cuenta de almacenamiento externo
-Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección "Obtención de las credenciales de la cuenta de almacenamiento" se explica cómo obtener estos valores desde el portal de Azure. Sin embargo, en el portal, la clave de cuenta se denomina **key1**. Por tanto, cuando el Explorador de Storage (versión preliminar) solicite una clave de cuenta, escriba el valor **key1**.
+Para la asociación a una cuenta de almacenamiento externa, se necesitan el nombre y la clave de la misma. En la sección "Obtención de las credenciales de la cuenta de almacenamiento" se explica cómo obtener estos valores desde el portal de Azure. Sin embargo, en el portal, la clave de cuenta se denomina **key1**. Por tanto, cuando el Explorador de Storage solicite una clave de cuenta, escriba el valor **key1**.
 
-1. En el Explorador de Storage (versión preliminar), abra el **cuadro de diálogo de conexión**.
+1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
 
@@ -172,10 +196,10 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 
 2. El Usuario A comparte esta cadena con la persona (Usuario B, en este ejemplo) que quiere acceder a la cuenta de almacenamiento.  
 
-3. El Usuario B usa el Explorador de Storage (versión preliminar) para conectarse a la cuenta que pertenece al Usuario A, con la SAS proporcionada.
+3. El Usuario B usa el Explorador de Storage para conectarse a la cuenta que pertenece al Usuario A, con la SAS proporcionada.
 
 ### <a name="generate-a-sas-connection-string-for-the-account-you-want-to-share"></a>Generación de una cadena de conexión de SAS para la cuenta que quiere compartir
-1. En el Explorador de Storage (versión preliminar), haga clic con el botón derecho en la cuenta de almacenamiento que quiere compartir y seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
+1. En el Explorador de Storage, haga clic con el botón derecho en la cuenta de almacenamiento que quiere compartir y seleccione **Get Shared Access Signature**(Obtener firma de acceso compartido).
 
     ![Opción de menú contextual para obtener la SAS][14]
 
@@ -186,7 +210,7 @@ Para ilustrar este escenario, supongamos que el Usuario A es administrador de un
 3. Junto al cuadro de texto **Connection String** (Cadena de conexión), seleccione **Copy** (Copiar) para copiarla en el portapapeles y, luego, haga clic en **Close** (Cerrar).
 
 ### <a name="attach-to-a-storage-account-by-using-a-sas-connection-string"></a>Asociación de una cuenta de almacenamiento mediante una cadena de conexión de SAS
-1. En el Explorador de Storage (versión preliminar), abra el **cuadro de diálogo de conexión**.
+1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
 
@@ -213,12 +237,9 @@ En la sección "Asociación de una cuenta de almacenamiento mediante una SAS" se
 En este contexto, un servicio puede ser un contenedor de blobs, una cola, una tabla o un recurso compartido de archivos. Para generar la SAS para un servicio enumerado, consulte:
 
 * [Get the SAS for a blob container (Obtención de la SAS para un contenedor de blobs)](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
-* Obtención de la SAS para un recurso compartido de archivos; *próximamente*
-* Obtención de la SAS para una cola; *próximamente*
-* Obtención de la SAS para una tabla; *próximamente*
 
 ### <a name="attach-to-the-shared-account-service-by-using-a-sas-uri"></a>Asociación del servicio de cuenta compartida mediante un URI de SAS
-1. En el Explorador de Storage (versión preliminar), abra el **cuadro de diálogo de conexión**.
+1. En el Explorador de Storage, abra el **cuadro de diálogo de conexión**.
 
     ![Opción de conexión a Almacenamiento de Azure][9]
 
@@ -251,7 +272,7 @@ Además de administrar cuentas de Azure Cosmos DB a través de una suscripción 
 
  ## <a name="connect-to-azure-data-lake-store-by-uri"></a>Conexión a Azure Data Lake Store mediante el URI
 Si desea acceder a recursos que no existen en su suscripción, a cuyos URI le conceden acceso otros usuarios, se puede conectar a Data Lake Store con el URI una vez iniciada la sesión. Consulte los pasos siguientes.
-1. Abra el Explorador de Storage (versión preliminar).
+1. Abra el Explorador de Storage.
 2. En el panel izquierdo, expanda **Local and Attached** (Local y asociada).
 3. Haga clic con el botón derecho en **Data Lake Store** y, en el menú contextual, seleccione **Connect to Data Lake Store...** (Conectar a Data Lake Store...).
 
@@ -276,9 +297,9 @@ A medida que escribe en el cuadro de búsqueda, en el panel izquierdo se muestra
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Administración de recursos de Azure Blob Storage con el Explorador de Storage (versión preliminar)](vs-azure-tools-storage-explorer-blobs.md)
+* [Administración de recursos de Azure Blob Storage con el Explorador de Storage](vs-azure-tools-storage-explorer-blobs.md)
 * [Administración de Azure Cosmos DB en el Explorador de Azure Storage (versión preliminar)](./cosmos-db/storage-explorer.md)
-* [Administración de recursos de Azure Data Lake Store con el Explorador de Storage (versión preliminar)](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Administración de recursos de Azure Data Lake Store en el Explorador de Storage](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

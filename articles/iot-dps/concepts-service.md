@@ -1,28 +1,28 @@
 ---
 title: Conceptos del servicio Azure IoT Hub Device Provisioning | Microsoft Docs
-description: "Describe conceptos del servicio de aprovisionamiento específicos de los dispositivos con DPS e IoT Hub"
+description: Describe conceptos del servicio de aprovisionamiento específicos de los dispositivos con DPS e IoT Hub
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 10/03/2017
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2bc58514ea716954ec3ac96151549168fedc2ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceptos del servicio IoT Hub Device Provisioning
 
-IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning pueden aprovisionar millones de dispositivos de forma segura y escalable.
+IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning puede [aprovisionar automáticamente](concepts-auto-provisioning.md) millones de dispositivos de forma segura y escalable.
 
-El aprovisionamiento de dispositivos es un proceso de dos partes. La primera consiste en establecer la conexión inicial entre el dispositivo y la solución de IoT *registrando* el dispositivo. La segunda es aplicar la *configuración* apropiada en el dispositivo en función de los requisitos específicos de la solución. Una vez que ha completado ambos pasos, podemos decir que el dispositivo ha sido totalmente *aprovisionado*. El servicio Device Provisioning automatiza ambos pasos para proporcionar una experiencia perfecta de aprovisionamiento para el dispositivo.
+El aprovisionamiento de dispositivos es un proceso de dos partes. La primera consiste en establecer la conexión inicial entre el dispositivo y la solución de IoT *registrando* el dispositivo. La segunda es aplicar la *configuración* apropiada en el dispositivo en función de los requisitos específicos de la solución. Una vez completados ambos pasos, el dispositivo se considera totalmente *aprovisionado*. El servicio Device Provisioning automatiza ambos pasos para proporcionar una experiencia perfecta de aprovisionamiento para el dispositivo.
 
 Este artículo proporciona información general sobre los conceptos de aprovisionamiento más aplicables a la administración del *servicio*. Este artículo es más apropiado para las personas implicadas en [el paso de configuración en la nube](about-iot-dps.md#cloud-setup-step) para preparar un dispositivo para la implementación.
 
@@ -32,7 +32,7 @@ El punto de conexión de las operaciones del servicio es para administrar la con
 
 ## <a name="device-provisioning-endpoint"></a>Punto de conexión de aprovisionamiento de dispositivos
 
-El punto de conexión de aprovisionamiento de dispositivos es el central con el que todos los dispositivos hablan para el aprovisionamiento. La dirección URL es la misma para todos los servicios de aprovisionamiento a fin de evitar tener que volver a programar los dispositivos con nueva información de conexión en escenarios de la cadena de suministro. El [ámbito de identificador](#id-scope) garantiza el aislamiento de los inquilinos.
+El punto de conexión de aprovisionamiento de dispositivos es el único que usan todos los dispositivos para el aprovisionamiento automático. La dirección URL es la misma para todas las instancias de los servicios de aprovisionamiento a fin de evitar tener que volver a programar los dispositivos con nueva información de conexión en escenarios de la cadena de suministro. El [ámbito de identificador](#id-scope) garantiza el aislamiento de los inquilinos.
 
 ## <a name="linked-iot-hubs"></a>Centros de IoT vinculados
 
@@ -47,21 +47,27 @@ La configuración del nivel de servicio que determina la forma en que el servici
 
 ## <a name="enrollment"></a>Inscripción
 
-Una inscripción es el registro de dispositivos o grupos de dispositivos que pueden registrarse en algún momento. El registro de inscripción contiene la información sobre el dispositivo o el grupo de dispositivos, incluido el método de atestación para los dispositivos y la configuración inicial deseada opcionalmente, el centro de IoT deseado y el identificador del dispositivo deseado. Hay dos tipos de inscripciones que admite el servicio Device Provisioning.
+Una inscripción es el registro de dispositivos o grupos de dispositivos que pueden registrarse con el aprovisionamiento automático. El registro de inscripción contiene información sobre el dispositivo o grupo de dispositivos, como:
+- el [mecanismo de atestación](concepts-security.md#attestation-mechanism) que emplea el dispositivo
+- la configuración inicial deseada (opcional)
+- el centro de IoT preferido
+- el identificador de dispositivo elegido
+
+Hay dos tipos de inscripciones que admite el servicio Device Provisioning:
 
 ### <a name="enrollment-group"></a>Grupo de inscripción
 
-Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Todos los dispositivos del grupo de inscripción presentan los certificados X.509 que han sido firmados por la misma CA raíz. Los grupos de inscripción solo pueden utilizar el mecanismo de atestación X.509. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
+Un grupo de inscripción es un grupo de dispositivos que comparten un mecanismo de atestación específico. Todos los dispositivos del grupo de inscripción presentan los certificados X.509 que han sido firmados por la misma entidad de certificación raíz o intermedia. Los grupos de inscripción solo pueden utilizar el mecanismo de atestación X.509. Tanto el nombre del grupo de inscripción como el nombre del certificado deben ser alfanuméricos, estar en minúsculas y pueden contener guiones.
 
 > [!TIP]
 > Se recomienda usar un grupo de inscripción para un gran número de dispositivos que compartan la configuración inicial deseada o para dispositivos que vayan todos al mismo inquilino.
 
 ### <a name="individual-enrollment"></a>Inscripción individual
 
-Una inscripción individual es una entrada para el registro de un único dispositivo. Las inscripciones individuales pueden usar certificados X.509 o tokens de SAS (en un módulo de plataforma segura real o virtual) como mecanismos de atestación. El identificador de registro de una inscripción individual está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones. En las inscripciones individuales se puede especificar el identificador de dispositivo del centro de IoT deseado.
+Una inscripción individual es una entrada para el registro de un único dispositivo. Las inscripciones individuales pueden usar certificados X.509 de hoja o tokens de SAS (de un módulo de plataforma segura físico o virtual) como mecanismos de atestación. El identificador de registro de una inscripción individual está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones. En las inscripciones individuales se puede especificar el identificador de dispositivo del centro de IoT deseado.
 
 > [!TIP]
-> Se recomiendan las inscripciones individuales para los dispositivos que requieran configuraciones iniciales únicas o para los dispositivos que solo se puedan utilizar tokens de SAS a través de módulos de plataforma segura reales o virtuales como mecanismo de atestación.
+> Se recomiendan las inscripciones individuales para los dispositivos que requieran configuraciones iniciales únicas o para los dispositivos que solo permitan la autenticación mediante tokens de SAS a través de TPM como mecanismo de atestación.
 
 ## <a name="registration"></a>Registro
 

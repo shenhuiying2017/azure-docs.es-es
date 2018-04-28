@@ -1,36 +1,34 @@
 ---
-title: "Acceso a los registros de aplicación de YARN de Hadoop mediante programación - Azure | Microsoft Docs"
-description: "La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight."
+title: Acceso a los registros de aplicación de YARN de Hadoop mediante programación - Azure | Microsoft Docs
+description: La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90323af4a1f4526ab9b26811c8679337076112d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Acceso a registros de aplicación de YARN en HDInsight basado en Windows
-En este tema se explica cómo acceder a los registros de aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que finalicen en un clúster Hadoop basado en Windows en Azure HDInsight.
+En este documento se explica cómo acceder a los registros de aplicaciones de YARN que finalicen en un clúster Hadoop en HDInsight de Azure basado en Windows.
 
 > [!IMPORTANT]
 > La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Para obtener información sobre cómo acceder a registros de YARN en clústeres de HDInsight basados en Linux, vea [Acceso a registros de aplicación de YARN en Hadoop basado en Linux en HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>requisitos previos
 * Un clúster de HDInsight basado en Windows  Consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de escala de tiempo de YARN
@@ -46,17 +44,22 @@ La información genérica sobre aplicaciones incluye los siguientes tipos de dat
 * La información acerca de los intentos realizados para completar la aplicación.
 * Los contenedores usados por cualquier intento de aplicación concreto.
 
-En los clústeres de HDInsight, esta información la almacenará el Administrador de recursos de Azure en un almacén de historial en el contenedor predeterminado de la cuenta de almacenamiento predeterminada de Azure. Estos datos genéricos sobre aplicaciones completadas se pueden recuperar a través de una API de REST:
+En los clústeres de HDInsight, esta información la almacena Azure Resource Manager. La información se guarda en el almacén de historial del almacenamiento predeterminado del clúster. Estos datos genéricos sobre aplicaciones completadas se pueden recuperar a través de una API de REST:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
 ## <a name="yarn-applications-and-logs"></a>Registros y aplicaciones de YARN
-YARN admite varios modelos de programación (MapReduce es uno de ellos) al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Esto se realiza mediante un *Resource Manager* (RM) global, por nodo de trabajo *Administradores de nodos* (NM) y por aplicación *Maestros de aplicación* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
+YARN admite varios modelos de programación al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Así, usa una instancia de *Resource Manager* (RM) global por nodo de trabajo *NodeManagers* (NM) y por aplicación *ApplicationMasters* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
 
-Además, cada aplicación puede constar de varios *intentos de aplicación* para completar la aplicación en el caso de bloqueos o debido a la pérdida de comunicación entre un AM y un RM. Por lo tanto, los contenedores se conceden a un intento específico de una aplicación. En cierto sentido, un contenedor ofrece el contexto para la unidad básica de trabajo realizado por una aplicación YARN, y todo el trabajo que se realiza en el contexto de un contenedor se lleva a cabo en el nodo de trabajo concreto en el que se ha asignado el contenedor. Consulte [Conceptos de YARN][YARN-concepts] como referencia adicional.
+* Cada aplicación puede constar de varios *intentos de aplicación*. 
+* Los contenedores se conceden a un intento específico de una aplicación. 
+* Un contenedor proporciona el contexto para una unidad de trabajo básica. 
+* El trabajo que se realiza en el contexto de un contenedor se realiza solo en el nodo de trabajo en el que se asignó el contenedor. 
 
-Los registros de aplicación (y los registros de contenedor asociados) son fundamentales en la depuración de las aplicaciones de Hadoop problemáticas. YARN proporciona un buen marco para recopilar, agregar y almacenar registros de aplicaciones con la característica de [agregación de registros][log-aggregation]. La característica Agregación de registro hace que el acceso a los registros de aplicaciones sea más determinante, ya que agrega los registros en todos los contenedores en un nodo de trabajo y los almacena como un archivo de registro agregado por nodo de trabajo en el sistema de archivos predeterminado después de que se complete una aplicación. Su aplicación puede utilizar cientos o miles de contenedores, pero los registros para todos los contenedores que se ejecutan en un nodo de trabajo único se agregarán siempre en un archivo único, lo que da como resultado un archivo de registro por nodo de trabajo usado por la aplicación. La agregación de registro está habilitada de forma predeterminada en los clústeres de HDInsight (versión 3.0 y posteriores). Los registros agregados se pueden encontrar en el contenedor predeterminado del clúster en la siguiente ubicación:
+Para más información, consulte los [conceptos de YARN][YARN-concepts].
+
+Los registros de aplicación (y los registros de contenedor asociados) son fundamentales en la depuración de las aplicaciones de Hadoop problemáticas. YARN proporciona un buen marco para recopilar, agregar y almacenar registros de aplicaciones con la característica de [agregación de registros][log-aggregation]. La característica Agregación de registro hace que el acceso a los registros de aplicaciones sea más determinante, ya que agrega los registros en todos los contenedores en un nodo de trabajo y los almacena como un archivo de registro agregado por nodo de trabajo en el sistema de archivos predeterminado después de que se complete una aplicación. Su aplicación puede utilizar cientos o miles de contenedores, pero los registros para todos los contenedores que se ejecutan en un nodo de trabajo único se agregan siempre en un archivo único, lo que da como resultado un archivo por nodo de trabajo que usa la aplicación. La agregación de registro está habilitada de forma predeterminada en los clústeres de HDInsight (versión 3.0 y posteriores). Los registros agregados se pueden encontrar en el contenedor predeterminado del clúster en la siguiente ubicación:
 
     wasb:///app-logs/<user>/logs/<applicationId>
 

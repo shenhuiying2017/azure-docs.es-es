@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 02b4e8cb4963a5c12b528630e8e7906d6c5307fe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: aa24c3197af28101b2f3a0acda6d0ae81b9e96d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conexión de Azure SQL Database a Azure Search con indexadores
 
@@ -61,7 +61,7 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 1. Cree el origen de datos:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2016-09-01
+    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -80,7 +80,7 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 3. Cree el indexador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 
@@ -93,7 +93,7 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 
 Un indizador creado de esta forma no tiene una programación. Se ejecuta automáticamente una vez en cuanto se crea. Puede volver a ejecutarlo en cualquier momento mediante una solicitud **ejecutar indizador** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2016-09-01
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
     api-key: admin-key
 
 Puede personalizar varios aspectos del comportamiento del indexador, como el tamaño de lote y el número de documentos que se puede omitir antes de que la ejecución de un indexador produzca un error. Para más información, consulte [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(API para crear índices).
@@ -102,7 +102,7 @@ Puede que necesite permitir que los servicios de Azure se conecten a la base de 
 
 Para supervisar el estado del indizador y el historial de ejecución (número de elementos indizados, errores, etc.), use una solicitud **estado del indizador** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2016-09-01
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
     api-key: admin-key
 
 La respuesta debe ser similar a la siguiente:
@@ -144,7 +144,7 @@ Puede encontrar información adicional sobre la respuesta en [Obtener el estado 
 ## <a name="run-indexers-on-a-schedule"></a>Ejecutar indexadores según una programación
 También puede disponer que el indizador se ejecute periódicamente según una programación. Para ello, agregue la propiedad **schedule** al crear o actualizar el indexador. El ejemplo siguiente muestra una solicitud PUT para actualizar el indizador:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2016-09-01
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: admin-key
 

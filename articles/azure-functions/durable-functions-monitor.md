@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7e520429e5f5e219e05a77eb4ca18d0d6b6b3977
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Escenario de supervisión en Durable Functions: ejemplo de supervisión meteorológica
 
@@ -38,7 +38,7 @@ En este ejemplo se supervisan las condiciones meteorológicas actuales de una ub
 * Las supervisiones pueden finalizar cuando se cumple alguna condición o cuando otro proceso las finaliza.
 * Las supervisiones pueden aceptar parámetros. El ejemplo muestra cómo se puede aplicar el mismo proceso de supervisión meteorológica a cualquier ubicación y número de teléfono solicitados.
 * Las supervisiones son escalables. Debido a que cada supervisión es una instancia de orquestación, se pueden crear múltiples supervisiones sin tener que crear nuevas funciones ni definir más código.
-* Las supervisiones se integran fácilmente en flujos de trabajo mayores. Una supervisión puede ser una sección de una función de orquestación más compleja, o una [suborquestación](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Las supervisiones se integran fácilmente en flujos de trabajo mayores. Una supervisión puede ser una sección de una función de orquestación más compleja, o una [suborquestación](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## <a name="configuring-twilio-integration"></a>Configuración de la integración de Twilio
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -85,7 +85,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí: [solo niveles Premium y Crítico para la empresa](sql-database-in-memory.md) | Sin  |
 | [Compatibilidad con datos JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Sí | Sí |
 | [Elementos de lenguaje](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La mayoría; consulte el artículo sobre elementos. |  Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-| [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md). | Solo con SQL Server |
+| [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md). | Solo para SQL Server y SQL Database |
 | [Trasvase de registros](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | Sin  | Sin  |
 | [Registro mínimo durante la importación en bloque](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | Sin  | Sin  |

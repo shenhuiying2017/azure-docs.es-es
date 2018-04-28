@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -36,7 +36,7 @@ Para elegir un plan de tarifa, use la siguiente tabla como punto de partida.
 | Uso general | La mayoría de las cargas de trabajo de empresa que requieren un equilibrio entre proceso y memoria con rendimiento de E/S escalable. Por ejemplo, servidores para hospedar aplicaciones web y móviles, y otras aplicaciones empresariales.|
 | Memoria optimizada | Cargas de trabajo de base de datos de alto rendimiento que requieren rendimiento en memoria para un procesamiento de transacciones más rápido y una mayor simultaneidad. Por ejemplo, servidores para procesar datos en tiempo real y aplicaciones de análisis y transacciones de alto rendimiento.|
 
-Después de crear un servidor, el número de núcleos virtuales se puede aumentar o reducir en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. Para más información, consulte la sección "Escalado de recursos".
+Después de crear un servidor, el número de núcleos virtuales se puede aumentar o reducir (en el mismo plan de tarifa) en cuestión de segundos. También puede ajustar de forma independiente la cantidad de almacenamiento y aumentar o reducir el período de retención sin que las aplicaciones experimenten tiempo de inactividad. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. Para más información, consulte la sección [Escalado de recursos](#scale-resources).
 
 ## <a name="compute-generations-vcores-and-memory"></a>Generaciones de procesos, núcleos virtuales y memoria
 
@@ -53,13 +53,13 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Oeste de EE. UU. 2 |  | X |
 | Centro de Canadá | X | X |
 | Este de Canadá | X | X |
-| Sur de Brasil | X |  |
+| Sur de Brasil | X | X |
 | Europa del Norte | X | X |
 | Europa occidental | X | X |
 | Oeste de Reino Unido |  | X |
 | Sur del Reino Unido 2 |  | X |
 | Asia oriental | X |  |
-| Sudeste asiático | X |  |
+| Sudeste asiático | X | X |
 | Australia Oriental |  | X |
 | India Central | X |  |
 | Oeste de la India | X |  |
@@ -90,7 +90,7 @@ El servicio realiza automáticamente copias de seguridad del servidor. El perío
 
 ## <a name="scale-resources"></a>Escalado de recursos
 
-Después de crear el servidor, puede cambiar los núcleos virtuales, la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. Los núcleos virtuales y el período de retención de copia de seguridad se pueden escalar o reducir verticalmente. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. Para ver un ejemplo de escalado con la CLI de Azure, consulte [Supervisión y escalado de un servidor de Azure Database for MySQL mediante la CLI de Azure](scripts/sample-scale-server.md).
+Después de crear el servidor, puede cambiar los núcleos virtuales, la cantidad de almacenamiento y el período de retención de copia de seguridad de manera independiente. No puede cambiar el plan de tarifa o el tipo de almacenamiento de copia de seguridad. El número de núcleos virtuales se pueden escalar o reducir verticalmente dentro del mismo plan de tarifa. El período de retención de copia de seguridad se puede escalar o reducir verticalmente de 7 a 35 días. El tamaño de almacenamiento solo se puede aumentar. El escalado de los recursos puede realizarse a través del portal o la CLI de Azure. Para ver un ejemplo de escalado con la CLI de Azure, consulte [Supervisión y escalado de un servidor de Azure Database for MySQL mediante la CLI de Azure](scripts/sample-scale-server.md).
 
 Al cambiar el número de núcleos virtuales, se crea una copia del servidor original con la nueva asignación de proceso. Una vez que el nuevo servidor está en funcionamiento, las conexiones se transfieren a él. Durante el breve espacio de tiempo en que el sistema cambia al nuevo servidor, no se puede establecer ninguna nueva conexión y todas las transacciones no confirmadas se revierten. Esta ventana varía, pero en la mayoría de los casos es inferior a un minuto.
 

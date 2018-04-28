@@ -1,14 +1,14 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de un clúster de ACS con DC/OS | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de un clúster de ACS con DC/OS"
+title: 'Ejemplo de script de la CLI de Azure: creación de un clúster de ACS con DC/OS | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de un clúster de ACS con DC/OS'
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: neilpeterson
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: acs, azure-container-service
 keywords: Docker, contenedores, microservicios, Kubernetes, DC/OS, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 1d08dc6b1b39a6908ce5851b5f57756701fc39eb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 18ee5eb7f097d8d8738d72a29bcb73b8265b5416
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-an-azure-container-service-dcos-cluster"></a>Creación de un clúster de Azure Container Service con DC/OS
 

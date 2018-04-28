@@ -6,14 +6,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importación de un archivo BACPAC en una base de datos de Azure SQL Database
 
@@ -31,6 +31,9 @@ Para importar una base de datos mediante Azure Portal, abra la página del servi
    ![Importación de base de datos](./media/sql-database-import/import.png)
 
 Para supervisar el progreso de la operación de importación, abra la página del servidor lógico que contiene la base de datos que se va a importar. Desplácese hacia abajo hasta **Operaciones** y, después, haga clic en el historial de **Import/Export**.
+
+> [!NOTE]
+> [Instancia administrada de Azure SQL Database](sql-database-managed-instance.md) admitía la importación desde un archivo BACPAC mediante otros métodos de este artículo, pero no admite la migración a través de Azure Portal.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>Supervisión del progreso de la operación de importación
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 Para ver otro ejemplo de script, consulte [Importación de una base de datos desde un archivo BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="import-using-other-methods"></a>Importación mediante otros métodos
+
+También puede usar estos asistentes:
+
+- [Asistente para importación de una aplicación de capa de datos en SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [Asistente para importación y exportación de SQL Server](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para aprender a conectarse a una base de datos de SQL Database importada y realizar consultas en ella, consulte [Conexión a SQL Database con SQL Server Management Studio y ejecución de una consulta T-SQL de ejemplo](sql-database-connect-query-ssms.md).

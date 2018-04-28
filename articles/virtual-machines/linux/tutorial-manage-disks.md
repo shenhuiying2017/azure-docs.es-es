@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1207ae8160739bcf27a651880dd58ea6893ebf37
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3153c57d6504346f6985823860623dc37977b79f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-azure-disks-with-the-azure-cli"></a>Administración de discos de Azure con la CLI de Azure
 
@@ -44,13 +44,13 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Cuando se crea una máquina virtual de Azure, se conectan dos discos automáticamente a la máquina virtual. 
 
-**Disco del sistema operativo**: hospedan el sistema operativo de las máquinas virtuales. Se puede cambiar su tamaño hasta 1 terabyte. El disco del sistema operativo lleva de forma predeterminada la etiqueta */dev/sda* . La configuración de almacenamiento en caché del disco del sistema operativo está optimizada para el rendimiento del sistema operativo. Debido a esta configuración, el disco del sistema operativo **no debe** hospedar aplicaciones o datos. Para aplicaciones y datos, use discos de datos, que se detallan más adelante en este artículo. 
+**Disco del sistema operativo**: hospedan el sistema operativo de las máquinas virtuales. Se puede cambiar su tamaño hasta 1 terabyte. El disco del sistema operativo lleva de forma predeterminada la etiqueta */dev/sda*. La configuración de almacenamiento en caché del disco del sistema operativo está optimizada para el rendimiento del sistema operativo. Debido a esta configuración, el disco del sistema operativo **no debe** hospedar aplicaciones o datos. Para aplicaciones y datos, use discos de datos, que se detallan más adelante en este artículo. 
 
 **Disco temporal**: los discos temporales usan una unidad de estado sólido que se encuentra en el mismo host de Azure que la máquina virtual. Los discos temporales son muy eficiente y se pueden usar para operaciones tales como el procesamiento temporal de los datos. Sin embargo, si la máquina virtual se mueve a un nuevo host, los datos almacenados en un disco temporal se eliminarán. El tamaño del disco temporal se determina por el tamaño de la máquina virtual. Los discos temporales llevan la etiqueta */dev/sdb* y tienen un punto de montaje de */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Tamaños de disco temporal
 
-| type | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
+| Escriba | Tamaño de VM | Tamaño máximo de disco temporal (GB) |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 800 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 800 |
@@ -65,7 +65,7 @@ Se pueden agregar discos de datos adicionales para instalar aplicaciones y almac
 
 ### <a name="max-data-disks-per-vm"></a>Discos de datos máximos por máquina virtual
 
-| type | Tamaño de VM | Discos de datos máximos por máquina virtual |
+| Escriba | Tamaño de VM | Discos de datos máximos por máquina virtual |
 |----|----|----|
 | [Uso general](sizes-general.md) | Series A y D | 32 |
 | [Proceso optimizado](sizes-compute.md) | Serie F | 32 |
@@ -108,16 +108,17 @@ Cree un grupo de recursos con el comando [az group create](https://docs.microsof
 az group create --name myResourceGroupDisk --location eastus
 ```
 
-Cree una máquina virtual mediante el comando [az vm create]( /cli/azure/vm#az_vm_create). El argumento `--datadisk-sizes-gb` se usa para especificar que se debe crear y conectar un disco adicional a la máquina virtual. Para crear y conectar más de un disco, use una lista delimitada por espacios de valores de tamaño de disco. En el ejemplo siguiente, se crea una máquina virtual con dos discos de datos, ambos de 128 GB. Dado que los tamaños de disco son de 128 GB, estos discos se configuran ambos como P10s, que proporcionan el número máximo de 500 IOPS por disco.
+Cree una máquina virtual mediante el comando [az vm create]( /cli/azure/vm#az_vm_create). En el ejemplo siguiente, se crea una máquina virtual denominada *myVM*, se agrega una cuenta de usuario denominada *azureuser* y se generan claves SSH, si no existen. El argumento `--datadisk-sizes-gb` se usa para especificar que se debe crear y conectar un disco adicional a la máquina virtual. Para crear y conectar más de un disco, use una lista delimitada por espacios de valores de tamaño de disco. En el ejemplo siguiente, se crea una máquina virtual con dos discos de datos, ambos de 128 GB. Dado que los tamaños de disco son de 128 GB, estos discos se configuran ambos como P10s, que proporcionan el número máximo de 500 IOPS por disco.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroupDisk \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --data-disk-sizes-gb 128 128 \
-  --generate-ssh-keys
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
 
 ### <a name="attach-disk-to-existing-vm"></a>Conexión del disco a máquina virtual existente

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: ae1c6628492de208f7c11e0b4e9d3133774ae184
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usar Azure PowerShell con Azure Storage
 
@@ -46,10 +46,10 @@ Para más información sobre las cuentas de almacenamiento, vea [Introducción a
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando `Login-AzureRmAccount` y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccount` y siga las instrucciones de la pantalla.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Enumeración de las cuentas de almacenamiento de la suscripción

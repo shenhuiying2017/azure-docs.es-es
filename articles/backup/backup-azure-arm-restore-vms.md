@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup: restauración de máquinas virtuales mediante Azure Portal | Microsoft Docs"
-description: "Restauración de una máquina virtual de Azure desde un punto de recuperación con Azure Portal"
+title: 'Azure Backup: restauración de máquinas virtuales mediante Azure Portal | Microsoft Docs'
+description: Restauración de una máquina virtual de Azure desde un punto de recuperación con Azure Portal
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "restaurar copias de seguridad; cómo restaurar; punto de recuperación;"
+editor: ''
+keywords: restaurar copias de seguridad; cómo restaurar; punto de recuperación;
 ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 84fb2cc08e97541d2d9d327ca2b6865ff9a6fe20
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -211,7 +211,7 @@ Azure Backup permite restaurar máquinas virtuales de copia de seguridad en el c
 ## <a name="restore-domain-controller-vms"></a>Restauración de máquinas virtuales de controlador de dominio
 La copia de seguridad de las máquinas virtuales de controlador de dominio (DC) es un escenario admitido con Azure Backup. Sin embargo, se debe tener cuidado durante el proceso de restauración. El proceso de restauración correcto depende de la estructura del dominio. El caso más simple es tener un único DC en un solo dominio. El caso más común en las cargas de producción es tener un solo dominio con varios DC y, quizás, algún DC local. Por último, puede tener un bosque con varios dominios. 
 
-Desde la perspectiva de Active Directory, una máquina virtual de Azure es como cualquier otra máquina virtual de un hipervisor admitido moderno. La principal diferencia respecto a los hipervisores locales es que no hay ninguna consola de máquina virtual disponible en Azure. Se necesita una consola para determinados escenarios, como para la recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén de Backup es una sustitución completa para una BMR. El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. Para más información, consulte [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/en-us/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) y [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/en-us/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Planeamiento de la recuperación de bosques de Active Directory).
+Desde la perspectiva de Active Directory, una máquina virtual de Azure es como cualquier otra máquina virtual de un hipervisor admitido moderno. La principal diferencia respecto a los hipervisores locales es que no hay ninguna consola de máquina virtual disponible en Azure. Se necesita una consola para determinados escenarios, como para la recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén de Backup es una sustitución completa para una BMR. El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. Para más información, consulte [Consideraciones relacionadas con la copia de seguridad y la restauración para controladores de dominio virtualizados](https://technet.microsoft.com/library/virtual_active_directory_domain_controller_virtualization_hyperv(v=ws.10).aspx#backup_and_restore_considerations_for_virtualized_domain_controllers) y [Planning for Active Directory Forest Recovery](https://technet.microsoft.com/library/planning-active-directory-forest-recovery(v=ws.10).aspx) (Planeamiento de la recuperación de bosques de Active Directory).
 
 ### <a name="single-dc-in-a-single-domain"></a>Controlador de dominio único en un solo dominio
 La máquina virtual se puede restaurar (como cualquier otra máquina virtual) desde Azure Portal o mediante PowerShell.
@@ -242,7 +242,7 @@ Con el fin de volver a crear completamente las máquinas virtuales después de r
 
    a. Cree una máquina virtual en el servicio en la nube con el [equilibrador de carga interno ](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Cree una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Cree una máquina virtual para conectarse al [equilibrador de carga accesible desde Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Cree una máquina virtual con [varias NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 

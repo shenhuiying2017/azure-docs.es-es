@@ -6,7 +6,7 @@ documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1f0166f44661483c1c8118ddf85263166a248118
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Creación y administración de máquinas virtuales Linux con la CLI de Azure
 
@@ -54,10 +54,15 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 Cree la máquina virtual con el comando [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create). 
 
-Al crear una máquina virtual, están disponibles varias opciones, como la imagen de sistema operativo, tamaño de disco y credenciales administrativas. En este ejemplo, se crea una máquina virtual llamada *myVM* que se ejecuta en Ubuntu. 
+Al crear una máquina virtual, hay varias opciones disponibles, como la imagen del sistema operativo, el tamaño del disco y las credenciales administrativas. En el ejemplo siguiente se crea una máquina virtual denominada *myVM* en la que se ejecuta Ubuntu Server. Se crea una cuenta de usuario denominada *azureuser* en la máquina virtual, y se generan claves SSH, si no existen en la ubicación de la clave predeterminada (*~/.ssh*):
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
+```azurecli-interactive
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
 La creación de la máquina virtual puede tardar unos minutos. Una vez creada la máquina virtual, la CLI de Azure ofrece como salida información sobre la máquina virtual. Tome nota de `publicIpAddress`; una dirección que se puede usar para acceder a la máquina virtual. 
@@ -150,7 +155,7 @@ El tamaño de la máquina virtual determina la cantidad de recursos de proceso, 
 
 En la tabla siguiente se clasifican los tamaños en casos de uso.  
 
-| type                     | Tamaños           |    DESCRIPCIÓN       |
+| Escriba                     | Tamaños           |    DESCRIPCIÓN       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Uso general](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
 | [Proceso optimizado](sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |

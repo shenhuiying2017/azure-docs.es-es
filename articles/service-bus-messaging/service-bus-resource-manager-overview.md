@@ -1,24 +1,24 @@
 ---
-title: "Creación de recursos de Azure Service Bus con las plantillas de Resource Manager | Microsoft Docs"
-description: "Uso de las plantillas de Azure Resource Manager para automatizar la creación de recursos de Service Bus"
+title: Creación de recursos de Azure Service Bus con las plantillas de Resource Manager | Microsoft Docs
+description: Uso de las plantillas de Azure Resource Manager para automatizar la creación de recursos de Service Bus
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 0ceeb138a7432e51cabe2597c680cb01ea9eac4a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8d84de608ccf3d9a9293c20c07c10a00b73da68
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creación de recursos de Service Bus con las plantillas de Azure Resource Manager
 
@@ -61,7 +61,7 @@ Instale Azure PowerShell siguiendo las instrucciones de [Getting started with Az
 
 ### <a name="create-a-template"></a>Creación de una plantilla
 
-Clone o copie la plantilla [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) de GitHub:
+Clone el repositorio o copie la plantilla [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) de GitHub:
 
 ```json
 {
@@ -163,7 +163,7 @@ Para obtener más información, consulte el artículo [Parámetros](../azure-res
 En una secuencia de comandos de PowerShell, ejecute el siguiente comando:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Se le solicitará que inicie sesión en la cuenta de Azure. Después de iniciar sesión, ejecute el siguiente comando para ver sus suscripciones disponibles:
@@ -180,7 +180,7 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Configuración del grupo de recursos
 
-Si no tiene un grupo de recursos existente, cree uno con el comando **New-AzureRmResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo:
+Si no tiene un grupo de recursos existente, cree uno con el comando **New-AzureRmResourceGroup**. Proporcione el nombre del grupo de recursos y la ubicación que desee utilizar. Por ejemplo: 
 
 ```powershell
 New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"

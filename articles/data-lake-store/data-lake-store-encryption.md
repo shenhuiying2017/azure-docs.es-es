@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Cifrado de datos en Azure Data Lake Store
 
@@ -79,7 +79,7 @@ Al elegir el modo de las claves de cifrado maestras, es importante recordar lo s
 
 Son tres los tipos de claves que se usan en el diseño del cifrado de datos. En la tabla siguiente se proporciona un resumen:
 
-| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | type       | Notas                                                                                                   |
+| Clave                   | Abreviatura | Asociada a | Ubicación de almacenamiento                             | Escriba       | Notas                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Clave de cifrado maestra | MEK          | Cuenta de Data Lake Store | Key Vault                              | Asimétrica | Puede administrarla Data Lake Store o usted.                                                              |
 | Clave de cifrado de datos   | DEK          | Cuenta de Data Lake Store | Almacenamiento persistente, administrada por el servicio Data Lake Store | Simétrica  | La DEK se cifra mediante la clave de cifrado maestra. La DEK cifrada es lo que se almacena en el medio persistente. |
@@ -138,3 +138,6 @@ Tenga en cuenta que si usa las opciones predeterminadas para el cifrado, los dat
     ![Captura de pantalla de la ventana Data Lake Store con el mensaje y Rotar clave resaltado](./media/data-lake-store-encryption/rotatekey.png)
 
 Esta operación tardará menos de dos minutos y no hay ningún tiempo de inactividad previsto debido a la rotación de claves. Una vez completada la operación, la nueva versión de la clave está en uso.
+
+> [!IMPORTANT]
+> Una vez completada la operación de rotación de claves, la versión anterior de la clave ya no se usa de un modo activo para cifrar los datos.  Sin embargo, en algunos casos de error inesperado en los que se ven afectadas incluso copias redundantes de los datos, los datos se pueden restaurar desde una copia de seguridad que utiliza aún la clave antigua. Para asegurarse de que los datos son accesibles en estas circunstancias poco habituales, guarde una copia de la versión anterior de la clave de cifrado. Consulte la [Guía de recuperación ante desastres para los datos en Data Lake Store](data-lake-store-disaster-recovery-guidance.md) para ver los procedimientos recomendados para el planeamiento de la recuperación ante desastres. 

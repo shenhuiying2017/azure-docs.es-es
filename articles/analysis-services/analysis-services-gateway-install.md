@@ -1,25 +1,18 @@
 ---
 title: Instalación de puerta de enlace de datos local | Microsoft Docs
 description: Aprenda a instalar y configurar una puerta de enlace de datos local.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 Se requiere una puerta de enlace de datos local cuando uno o varios servidores de Azure Analysis Services de la misma región se conectan a orígenes de datos locales. Para más información acerca de la puerta de enlace, consulte [Puerta de enlace de datos local](analysis-services-gateway.md).
@@ -44,7 +37,7 @@ Se requiere una puerta de enlace de datos local cuando uno o varios servidores d
 * Instale la puerta de enlace en un equipo que permanezca encendido y no entre en suspensión.
 * No instale la puerta de enlace en un equipo conectado de forma inalámbrica a la red. Puede disminuir el rendimiento.
 * Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
-* La puerta de enlace (unificada) que se describe aquí no se admite en Azure Government (Fairfax). Utilice la puerta de enlace local dedicada para Azure Analysis Services. La puerta de enlace dedicada no admite servicios adicionales, como Power BI y Power Apps. La puerta de enlace dedicada se instala desde los servidores de inicio rápido en el portal.
+* La puerta de enlace (unificada) que se describe aquí no se admite en Azure Government ni en las regiones soberanas Azure Alemania y Azure China. Use una **puerta de enlace local específica para Azure Analysis Services**, instalada desde el **Inicio rápido** del servidor en el portal. 
 
 
 ## <a name="download"></a>Descarga

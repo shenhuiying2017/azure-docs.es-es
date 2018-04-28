@@ -5,8 +5,8 @@ services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: ea6fc67a0f5bdfe09435a00c4d2651f312695d25
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: e8a2350744e7b967cc19d0e73686f32edf980eac
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advisor-security-recommendations"></a>Recomendaciones sobre seguridad de Advisor
 
@@ -26,7 +26,7 @@ Azure Advisor proporciona una vista coherente y consolidada de recomendaciones p
 
 El Centro de seguridad ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando el Centro de seguridad identifica vulnerabilidades de seguridad potenciales, crea recomendaciones. Las recomendaciones lo guían en el proceso de configuración de los controles necesarios. 
 
-Para obtener más información sobre las recomendaciones de seguridad, consulte [Administración de recomendaciones de seguridad en Azure Security Center](https://azure.microsoft.com/en-us/documentation/articles/security-center-recommendations/).
+Para obtener más información sobre las recomendaciones de seguridad, consulte [Administración de recomendaciones de seguridad en Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
 
 ## <a name="how-to-access-security-recommendations-in-azure-advisor"></a>Obtención de acceso a las recomendaciones sobre seguridad en Azure Advisor
 

@@ -1,25 +1,25 @@
 ---
-title: "Ejemplo de JSON de Azure Policy: Usar red virtual aprobada para las interfaces de red de máquinas virtuales | Microsoft Docs"
+title: 'Ejemplo de JSON de Azure Policy: Usar red virtual aprobada para las interfaces de red de máquinas virtuales | Microsoft Docs'
 description: Esta directiva de ejemplo de JSON requiere que las interfaces de red usen una red virtual aprobada.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 72514ea0259c066e7a8ca79b373f720843ecda04
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 34b849a8df6fc1a7d16dd28890402ea748b9407d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-approved-vnet-for-vm-network-interfaces"></a>Usar red virtual aprobada para las interfaces de red de máquinas virtuales
 

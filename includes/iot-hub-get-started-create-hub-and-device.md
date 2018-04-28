@@ -19,8 +19,8 @@ En este tutorial de configuración, no necesita esta cadena de conexión iothubo
 
 1. En [Azure Portal](https://portal.azure.com/), abra su centro de IoT.
 
-2. Haga clic en **Explorador de dispositivos**.
-3. En el panel Explorador del dispositivo, haga clic en **Agregar** para agregar un dispositivo a su centro de IoT. A continuación, haga lo siguiente:
+2. Haga clic en **Dispositivos de IoT**.
+3. En el panel Dispositivos de IoT, haga clic en **Agregar** para agregar un dispositivo a su IoT Hub. A continuación, haga lo siguiente:
 
    **Id. de dispositivo**: escriba el identificador del nuevo dispositivo. Los identificadores de dispositivos distinguen mayúsculas de minúsculas.
 
@@ -30,12 +30,15 @@ En este tutorial de configuración, no necesita esta cadena de conexión iothubo
 
    **Connect device to IoT Hub** (Conectar dispositivos a IoT Hub): haga clic en **Habilitar**.
 
-   ![Agregar un dispositivo en Device Explorer de su centro de IoT](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Agregar un dispositivo en Dispositivos de IoT de su IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Haga clic en **Save**(Guardar).
-5. Después de crear el dispositivo, ábralo en el panel **Explorador de dispositivos**.
+5. Después de crear el dispositivo, ábralo en el panel **Dispositivos de IoT**.
+
+   ![Lista de dispositivos de IoT en IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Anote la clave principal de la cadena de la cadena de conexión.
 
-   ![Obtener la cadena de conexión del dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Obtener la cadena de conexión del dispositivo](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

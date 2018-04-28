@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (administración de configuración)"
-description: "Aplicaciones web para FedRAMP: administración de configuración"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (administración de configuración)'
+description: 'Aplicaciones web para FedRAMP: administración de configuración'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-management-cm"></a>Administración de configuración (CM)
 
@@ -567,7 +567,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa DSC de Azure Automation. DSC de Automation, que forma parte de Operations Management Suite (OMS) de Azure, puede configurarse para generar una alerta o solucionar errores de configuración cuando se detecten. |
+| **Cliente** | Esta instancia de Blueprint implementa DSC de Azure Automation. DSC de Automatización puede configurarse para generar una alerta o solucionar errores de configuración cuando se detecten. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

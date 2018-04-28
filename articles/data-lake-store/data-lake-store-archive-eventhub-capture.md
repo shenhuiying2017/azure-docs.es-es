@@ -2,7 +2,7 @@
 title: Capturar datos de Event Hubs en Azure Data Lake Store | Microsoft Docs
 description: Usar Azure Data Lake Store para capturar datos de Event Hubs
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Store para capturar datos de Event Hubs
 
@@ -58,9 +58,12 @@ En esta sección, creará una carpeta en la cuenta en que quiere capturar los da
 
     c. En **Asignar permisos**, haga clic en **Seleccionar permisos**. Establezca **Permisos** en **Ejecutar**. Establezca **Agregar a** en **Esta carpeta y todos los elementos secundarios**. Establezca **Agregar como** en **Una entrada de permiso de acceso y una entrada de permiso predeterminado**.
 
-    ![Asignar permisos a la raíz de Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Asignar permisos a la raíz de Data Lake Store")
+> [!IMPORTANT]
+> Al crear una nueva jerarquía de carpetas para capturar datos recibidos por Azure Event Hubs, esta es una manera sencilla de garantizar el acceso a la carpeta de destino.  Sin embargo, es posible que la adición de permisos a todos los elementos secundarios de una carpeta de nivel superior con muchos archivos y carpetas secundarios tarde mucho tiempo.  Si la carpeta raíz contiene una gran cantidad de archivos y carpetas, es posible que sea más rápido agregar permisos de **ejecución** para `Microsoft.EventHubs` individualmente a cada carpeta de la ruta a la carpeta de destino final. 
 
-    Haga clic en **OK**.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Asigne permisos a la carpeta en la cuenta de Data Lake Store en que quiere capturar los datos.
 

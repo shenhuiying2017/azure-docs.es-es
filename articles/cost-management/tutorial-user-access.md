@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Asignación de acceso en Azure Cost Management | Microsoft Docs"
-description: "En este tutorial, aprenderá a asignar acceso a los datos de administración de costos con cuentas de usuario que definen los niveles de acceso para las entidades."
+title: 'Tutorial: Asignación de acceso en Azure Cost Management | Microsoft Docs'
+description: En este tutorial, aprenderá a asignar acceso a los datos de administración de costos con cuentas de usuario que definen los niveles de acceso para las entidades.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/27/2018
+ms.date: 04/09/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 6434eb9780eefdcd492273f11f8675668d8d6479
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db5cdecc57cf07876ca8d4e981860615643cfd79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Asignación de acceso a los datos de administración de costos
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Usted ya tiene acceso de administrador, pero puede que los compañeros de su organización también lo necesiten. En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **User Management** (Administración de usuarios). Haga clic en **Add New User** (Agregar nuevo usuario) para agregar un usuario nuevo.
 
-Especifique la información del usuario obligatoria. Puede dejar vacío el campo de contraseña para que el usuario pueda definir una contraseña nueva cuando inicie sesión por primera vez. Si selecciona **Notify user by email** (Notificar al usuario por correo electrónico), se envía al usuario un correo de Cloudyn que contiene vínculo con información de inicio de sesión. Elija Allow User Management (Permitir administración de usuarios) para que el usuario pueda crear y modificar otros usuarios. La opción Recipient Lists Management (Administración de listas de destinatarios) permite al usuario editar listas de destinatarios.
+Especifique la información del usuario obligatoria. El identificador de inicio de sesión debe ser una dirección de correo electrónico válida. Elija Allow User Management (Permitir administración de usuarios) para que el usuario pueda crear y modificar otros usuarios. La administración de listas de destinatarios permite al usuario editar las listas de destinatarios. Si selecciona **Notify user by email** (Notificar al usuario por correo electrónico), se envía al usuario un correo de Cloudyn que contiene vínculo con información de inicio de sesión. En el primer inicio de sesión, el usuario establece una contraseña.
 
 En **User has admin access** (El usuario tiene acceso de administrador), se selecciona la entidad raíz de la organización. Deje la raíz seleccionada y guarde la información de usuario. Al seleccionar la entidad raíz, se permite al usuario tener permiso de administrador no solo para la entidad raíz del árbol, sino también para todas sus entidades secundarias.  
   ![agregar usuario nuevo con acceso de administrador](.\media\tutorial-user-access\new-admin-access.png)
@@ -64,7 +64,7 @@ Al crear el árbol, considere cómo quiere o necesita ver sus costos separados p
 
 Cuando registró su cuenta o contrato de Azure con Cloudyn, se copiaron los datos de recursos de Azure, como el uso, el rendimiento, la facturación y los datos de etiquetas de las suscripciones a su cuenta de Cloudyn. Sin embargo, debe crear manualmente el árbol de entidades. Si omitió el registro de Azure Resource Manager, solo estarán disponibles en el portal de Cloudyn los datos de facturación y algunos informes de recursos.
 
-En el portal de Cloudyn, haga clic en **Settings** (Configuración) en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube). Empiece con una sola entidad (raíz) y cree el árbol de entidades a partir de la raíz. A continuación se incluye un ejemplo de una jerarquía de entidad que puede ser similar a muchas organizaciones de TI una vez completado el árbol:
+En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube). Empiece con una sola entidad (raíz) y cree el árbol de entidades a partir de la raíz. A continuación se incluye un ejemplo de una jerarquía de entidad que puede ser similar a muchas organizaciones de TI una vez completado el árbol:
 
 ![árbol de entidades](.\media\tutorial-user-access\entity-tree.png)
 

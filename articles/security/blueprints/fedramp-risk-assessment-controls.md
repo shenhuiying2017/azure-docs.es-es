@@ -1,6 +1,6 @@
 ---
-title: "Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (evaluación de riesgos)"
-description: "Automatización de aplicaciones web para FedRAMP: evaluación de riesgos"
+title: 'Plano de cumplimiento y seguridad de Azure: automatización de aplicaciones web para FedRAMP (evaluación de riesgos)'
+description: 'Automatización de aplicaciones web para FedRAMP: evaluación de riesgos'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Evaluación de riesgos (RA)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de base de referencia evalúa un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. La evaluación de actualizaciones evalúa el estado de las actualizaciones disponibles en todas las máquinas virtuales implementadas. |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de base de referencia evalúa un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. La evaluación de actualizaciones evalúa el estado de las actualizaciones disponibles en todas las máquinas virtuales implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Para los problemas identificados, se asigna un nivel de gravedad. Los identificadores de Common Configuration Enumeration (CCE) se proporcionan para las reglas de evaluación de la base de referencia.  |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Para los problemas identificados, se asigna un nivel de gravedad. Los identificadores de Common Configuration Enumeration (CCE) se proporcionan para las reglas de evaluación de la base de referencia.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. Los criterios en los que se evalúan estas soluciones se actualizan automáticamente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -259,7 +259,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de actualizaciones realiza una evaluación en las máquinas virtuales Windows y Linux. La evaluación de base de referencia realiza una evaluación en máquinas virtuales Windows mediante una base de referencia desarrollada por Microsoft basada en los procedimientos recomendados del sector. |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Dentro de la solución, hay disponibles dos dominios de seguridad, la evaluación de actualizaciones y la evaluación de base de referencia. La evaluación de actualizaciones realiza una evaluación en las máquinas virtuales Windows y Linux. La evaluación de base de referencia realiza una evaluación en máquinas virtuales Windows mediante una base de referencia desarrollada por Microsoft basada en los procedimientos recomendados del sector. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -301,7 +301,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | OMS proporciona la funcionalidad para crear iconos del panel de información personalizados para analizar los datos que recopila Log Analytics y Microsoft Monitoring Agent. Estos iconos se pueden personalizar para mostrar las tendencias con el tiempo. |
+| **Cliente** | Azure proporciona la funcionalidad para crear iconos del panel de información personalizados para analizar los datos que recopilan Log Analytics y Microsoft Monitoring Agent. Estos iconos se pueden personalizar para mostrar las tendencias con el tiempo. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,5 +329,5 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Este plano implementa la solución OMS de Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel de información Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de OMS implementadas. |
+| **Cliente** | En este proyecto se implementa la solución Security and Audit. Esta solución proporciona una visión completa de la actitud frente a la seguridad. El panel de información Security and Audit proporciona un punto de vista de alto nivel sobre el estado de seguridad de los recursos implementados con los datos disponibles a través de las soluciones de administración implementadas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |

@@ -1,29 +1,24 @@
 ---
-title: "Tutorial de consulta elástica con Azure SQL Data Warehouse | Microsoft Docs"
-description: "Aprenda a usar la consulta elástica con Azure SQL Data Warehouse."
+title: 'Tutorial: consulta elástica con Azure SQL Data Warehouse | Microsoft Docs'
+description: En este tutorial se utiliza la característica Consulta elástica para consultar a Azure SQL Data Warehouse desde Azure SQL Database.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67g
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 11/03/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/14/2018
 ms.author: elbutter
-ms.openlocfilehash: 20bbdbbde7edc4351563685761785874870a3c82
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: igorstan
+ms.openlocfilehash: a31f035b5ec086a046028956c4a9c0de0d6a313d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="configure-elastic-query-with-sql-data-warehouse"></a>Configuración de consultas elásticas con SQL Data Warehouse
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Tutorial: uso de Consulta elástica para acceder a los datos de Azure SQL Data Warehouse desde Azure SQL Database
 
-En este tutorial, aprenderá a usar la consulta elástica para enviar una consulta desde SQL Database hasta SQL Data Warehouse. La consulta elástica es la funcionalidad que existe entre los productos de Azure SQL. Para más información sobre el concepto de consulta elástica, vea [**How to use Elastic Query with SQL Data Warehouse**][How to use Elastic Query with SQL Data Warehouse] (Uso de consultas elásticas con SQL Data Warehouse).
+En este tutorial se utiliza la característica Consulta elástica para consultar a Azure SQL Data Warehouse desde Azure SQL Database. 
 
 ## <a name="prerequisites-for-the-tutorial"></a>Requisitos previos para el tutorial
 
@@ -128,7 +123,7 @@ En los siguientes pasos se creará una tabla en la instancia de almacenamiento d
 
 5. Observe que ahora tiene una definición de tabla externa en la **instancia de base de datos SQL**.
 
-   ![definición de tabla externa de consulta elástica](./media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
+   ![definición de tabla externa de consulta elástica](media/sql-data-warehouse-elastic-query-with-sql-database/elastic-query-external-table.png)
 
 
 6. Envíe la siguiente consulta, que consulta la instancia del almacenamiento de datos. Debería recibir los cinco valores que insertó en el paso 2. 
@@ -143,15 +138,5 @@ SELECT * FROM [dbo].[OrderInformation];
 
 Enhorabuena, ha configurado los aspectos básicos de la consulta elástica. 
 
-
-
-
-<!--Image references-->
-
-<!--Article references-->
-
-[How to use Elastic Query with SQL Data Warehouse]: ./how-to-use-elastic-query-with-sql-data-warehouse.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener recomendaciones, consulte [Procedimientos recomendados para utilizar la consultas elásticas en Azure SQL Database para acceder a los datos de Azure SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md).

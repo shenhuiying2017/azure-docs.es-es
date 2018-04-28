@@ -1,23 +1,23 @@
 ---
 title: 'Copia de seguridad y restauración de Azure SQL Data Warehouse: instantáneas y redundancia geográfica | Microsoft Docs'
-description: Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria o use copias de seguridad con redundancia geográfica para restaurar a una región geográfica diferente.
+description: Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria. Use copias de seguridad con redundancia geográfica para restaurar en una región geográfica distinta.
 services: sql-data-warehouse
-author: ronortloff
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
-ms.date: 03/28/2018
-ms.author: rortloff
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
-Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria o use copias de seguridad con redundancia geográfica para restaurar a una región geográfica diferente. 
+Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria. Use copias de seguridad con redundancia geográfica para restaurar en una región geográfica distinta. 
 
 ## <a name="what-is-backup-and-restore"></a>¿Qué es la copia de seguridad y la restauración?
 Una *copia de seguridad de almacenamiento de datos* es la copia de su base de datos, que se puede usar para restaurar un almacenamiento de datos.  Dado que SQL Data Warehouse es un sistema distribuido, una copia de seguridad de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Una copia de seguridad de almacenamiento de datos incluye las instantáneas de base de datos local y geográfica de todas las bases de datos y todos los archivos que están asociados a un almacén de datos. 

@@ -1,40 +1,33 @@
 ---
-title: "Asignación de variables en SQL Data Warehouse | Microsoft Docs"
-description: "Sugerencias para la asignación de variables de Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
+title: Asignación de variables en Azure SQL Data Warehouse | Microsoft Docs
+description: Sugerencias para la asignación de variables de T-SQL en Azure SQL Data Warehouse para desarrollar soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 09b0ee336ce00eb20ea501cd97833dfdd6540b30
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="assign-variables-in-sql-data-warehouse"></a>Asignación de variables en el Almacenamiento de datos SQL
-Las variables en el Almacenamiento de datos SQL se establecen mediante las instrucciones `DECLARE` o `SET`.
-
-A continuación se indican formas totalmente válidas para establecer el valor de una variable:
+# <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Asignación de variables en Azure SQL Data Warehouse
+Sugerencias para la asignación de variables de T-SQL en Azure SQL Data Warehouse para desarrollar soluciones.
 
 ## <a name="setting-variables-with-declare"></a>Configuración de variables con DECLARE
-Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el Almacenamiento de datos SQL.
+Las variables en SQL Data Warehouse se establecen mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en SQL Data Warehouse.
 
 ```sql
 DECLARE @v  int = 0
 ;
 ```
 
-También puede utilizar DECLARE para establecer más de una variable a la vez. No se puede utilizar `SELECT` o `UPDATE` para ello:
+También puede utilizar DECLARE para establecer más de una variable a la vez. No se puede usar SELECT ni UPDATE para hacer lo siguiente:
 
 ```sql
 DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 'Smith')
@@ -42,7 +35,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-No se puede inicializar y utilizar una variable en la misma instrucción DECLARE. Para ilustrar esta cuestión, el ejemplo siguiente **no** está permitido como @p1, porque se inicializa y se utiliza en la misma instrucción DECLARE. Esto generará un error.
+No se puede inicializar ni utilizar una variable en la misma instrucción DECLARE. Para ilustrar esta cuestión, el ejemplo siguiente **no** está permitido, ya que @p1 se inicializa y se utiliza en la misma instrucción DECLARE. El siguiente ejemplo produce un error.
 
 ```sql
 DECLARE @p1 int = 0
@@ -53,7 +46,7 @@ DECLARE @p1 int = 0
 ## <a name="setting-values-with-set"></a>Configuración de valores con SET
 SET es un método muy común para configurar una sola variable.
 
-Todos los ejemplos siguientes son formas válidas de establecer una variable con SET:
+Las instrucciones siguientes son formas válidas de establecer una variable con SET:
 
 ```sql
 SET     @v = (Select max(database_id) from sys.databases);
@@ -62,19 +55,11 @@ SET     @v = @v+1;
 SET     @v +=1;
 ```
 
-Solo puede establecer una variable al mismo tiempo con SET. Sin embargo, como hemos visto anteriormente, se admiten los operadores compuestos.
+Solo puede establecer una variable al mismo tiempo con SET. Aunque los operadores compuestos están permitidos.
 
 ## <a name="limitations"></a>Limitaciones
 Puede usar SELECT o UPDATE para la asignación de variables.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
+Para obtener más sugerencias sobre desarrollo, vea la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

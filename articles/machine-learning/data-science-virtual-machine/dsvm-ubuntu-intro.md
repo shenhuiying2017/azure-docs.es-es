@@ -5,24 +5,24 @@ services: machine-learning
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionamiento de Data Science Virtual Machine para Linux (Ubuntu)
 
-Data Science Virtual Machine para Linux es una imagen de máquina virtual basada en Ubuntu que facilita comenzar a trabajar con aprendizaje profundo en Azure. Las herramientas de aprendizaje profundo incluyen las siguientes:
+Data Science Virtual Machine para Linux es una imagen de máquina virtual basada en Ubuntu que facilita comenzar a trabajar con aprendizaje automático, incluido el aprendizaje profundo, en Azure. Las herramientas de aprendizaje profundo incluyen las siguientes:
 
   * [Caffe](http://caffe.berkeleyvision.org/): entorno de aprendizaje profundo diseñado para lograr velocidad, expresividad y modularidad
   * [Caffe2](https://github.com/caffe2/caffe2): versión multiplataforma de Caffe
@@ -31,6 +31,7 @@ Data Science Virtual Machine para Linux es una imagen de máquina virtual basada
   * [Keras](https://keras.io/): API de red neuronal de alto nivel en Python para Theano y TensorFlow
   * [MXNet](http://mxnet.io/): biblioteca de aprendizaje profundo flexible y eficaz con muchos enlaces de lenguaje
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): sistema gráfico que simplifica las tareas comunes de aprendizaje profundo
+  * [PyTorch](http://pytorch.org/): una biblioteca de Python de alto nivel con compatibilidad para redes dinámicas
   * [TensorFlow](https://www.tensorflow.org/): biblioteca de código abierto para inteligencia automática de Google
   * [Theano](http://deeplearning.net/software/theano/): biblioteca de Python para definir, optimizar y evaluar de manera eficaz expresiones matemáticas que implican matrices multidimensionales
   * [Torch](http://torch.ch/): entorno informático científico con amplia compatibilidad con algoritmos de aprendizaje automático
@@ -113,6 +114,14 @@ A continuación le indicamos los pasos para crear una instancia de Data Science 
 El aprovisionamiento tardará entre 5 y 10 minutos. El estado del aprovisionamiento se muestra en el Portal de Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Acceso a Data Science Virtual Machine para Linux
+
+Puede tener acceso a la DSVM Ubuntu mediante tres métodos:
+1. SSH para sesiones de terminal
+2. X2Go para sesiones de gráficas
+3. JupyterHub y JupyterLab para instancias de Jupyter Notebook
+
+### <a name="ssh"></a>SSH
+
 Después de crear la máquina virtual, puede iniciar sesión en ella mediante SSH. Utilice las credenciales de la cuenta que haya creado en la sección **Aspectos básicos** del paso 3 para la interfaz de shell de texto. En Windows, puede descargar una herramienta de cliente SSH como [Putty](http://www.putty.org). Si prefiere un escritorio gráfico (X Windows System), puede usar el reenvío de X11 en Putty o instalar el cliente X2Go.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ Después de crear la máquina virtual, puede iniciar sesión en ella mediante SS
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Instalación y configuración del cliente X2Go
+### <a name="x2go"></a>X2Go
 La VM de Linux ya está provista del servidor X2Go y está preparada para aceptar conexiones de cliente. Para conectarse al escritorio gráfico de la máquina virtual Linux, lleve a cabo el siguiente procedimiento en el cliente:
 
 1. Descargue e instale el cliente X2Go para su plataforma cliente desde [aquí](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ La VM de Linux ya está provista del servidor X2Go y está preparada para acepta
    * **Carpetas compartidas**: Si quiere que los directorios de las máquinas cliente se monten en la VM de Linux, agregue en esta pestaña los directorios de máquina cliente que quiere compartir con la VM.
 
 Una vez que inicie sesión en la máquina virtual mediante el cliente SSH o el escritorio gráfico XFCE a través del cliente X2Go, ya podrá empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. En XFCE, puede ver accesos directos del menú de aplicaciones e iconos de escritorio para muchas de las herramientas.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub y JupyterLab
+
+La DSVM DE Ubuntu ejecuta [JupyterHub](https://github.com/jupyterhub/jupyterhub), un servidor de Jupyter multiusuario. Para conectarse, vaya a https://your-vm-ip:8000 en su equipo de escritorio o portátil, escriba el nombre de usuario y la contraseña que usó para crear la máquina virtual e inicie sesión. Puede elegir algún cuaderno de ejemplo (hay muchos disponibles) y probar.
+
+JupyterLab, la siguiente generación de los cuadernos de Jupyter y JupyterHub, también está disponible. Para acceder, inicie sesión en JupyterHub y, a continuación, vaya a la dirección URL https://your-vm-ip:8000/lab. Puede establecer JupyterLab como servidor de cuadernos predeterminado agregando esta línea a /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Herramientas instaladas en Data Science Virtual Machine para Linux
 ### <a name="deep-learning-libraries"></a>Bibliotecas de aprendizaje profundo
@@ -193,30 +210,32 @@ Para iniciar la consola de R, simplemente escriba **R** en el shell. Esto le dir
 También hay un script de R para que pueda instalar los [20 paquetes principales de R](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) si lo desea. Este script se puede ejecutar una vez que esté en la interfaz interactiva de R, a la que se puede acceder (como se mencionó anteriormente) escribiendo **R** en el shell.  
 
 ### <a name="python"></a>Python
-Para el desarrollo con Python, se ha instalado Anaconda Python Distribution 2.7 y 3.5. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que integra las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. Se proporciona un acceso directo a Spyder en el escritorio gráfico.
+Anaconda Python se instala con los entornos Python 2.7 y 3.5. El entorno 2.7 se denomina _root_, y el entorno 3.5 se denomina _py35_. Esta distribución contiene Python base, junto con aproximadamente 300 de los paquetes de matemáticas, ingeniería y análisis de datos más populares. 
 
-Ya que tenemos tanto Python 2.7 como 3.5, necesita activar específicamente la versión de Python (entorno conda) con la que quiera trabajar en la sesión actual. El proceso de activación establece la variable PATH de acuerdo con la versión deseada de Python.
+El entorno py35 es el predeterminado. Para activar el entorno de raíz (2.7):
 
-Para activar el entorno conda Python 2.7, ejecute el siguiente comando en el shell:
+    source activate root
 
-    source /anaconda/bin/activate root
+Para volver a activar el entorno py35:
 
-Python 2.7 se instalará en */anaconda/bin*.
+    source activate py35
 
-Para activar el entorno conda Python 3.5, ejecute lo siguiente en el shell:
+Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. 
 
-    source /anaconda/bin/activate py35
+Instale bibliotecas adicionales de Python con ```conda``` o ````pip````. Para pip, active el entorno correcto en primer lugar si no desea el valor predeterminado:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 se instalará en */anaconda/envs/py35/bin*.
+O bien, especifique la ruta de acceso completa a pip:
 
-Después, para invocar la sesión interactiva de Python, escriba **python** en el shell. Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para iniciar el IDE de PyCharm Python.
+    /anaconda/bin/pip install <package>
+    
+Para conda, siempre debe especificar el nombre del entorno (_py35_ o _root_):
 
-Para instalar bibliotecas adicionales de Python, debe ejecutar el comando ```conda``` o ````pip```` en sudo y proporcionar la ruta de acceso completa del administrador de paquetes de Python (conda o pip) para instalar en el entorno correcto de Python. Por ejemplo: 
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Si se encuentra en una interfaz gráfica o tiene la configuración de reenvío de X11, puede escribir **pycharm** para iniciar el IDE de PyCharm Python. Puede usar los editores de texto predeterminados. Además, puede usar Spyder, un IDE de Python que integra las distribuciones de Anaconda Python. Spyder necesita un escritorio gráfico o el reenvío de X11. Se proporciona un acceso directo a Spyder en el escritorio gráfico.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 La distribución de Anaconda también incluye un cuaderno de Jupyter Notebook, un entorno para compartir código y análisis. Se accede a Jupyter Notebook mediante JupyterHub. Inicie sesión con su nombre de usuario y contraseña de Linux local.

@@ -5,18 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/16/2018
+ms.topic: tutorial
+ms.date: 04/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7dd0bfbd96e6ba7b5d2174334419797c4fd60a51
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d1bc6fcb17732da7f6b0985122dd2cff3c2c9cdf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
 
@@ -77,7 +74,7 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
-Si utiliza un firewall basado en IP, proxy o reglas NSG para controlar la conectividad saliente, los siguientes intervalos de direcciones IP tienen que estar en la lista de permitidos. Descargue una lista de intervalos de los siguientes vínculos:
+Si desea controlar la conectividad de salida con direcciones IP en lugar de con direcciones URL, incluya en la lista de permitidos los intervalos del centro de datos correspondientes, las direcciones de Office 365 y las direcciones de los puntos de conexión de servicio para los firewall basados en IP, el servidor proxy o las reglas de NSG.
 
   - [Intervalos de direcciones IP del centro de datos de Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
   - [Intervalos de direcciones IP del centro de datos de Windows Azure en Alemania](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
@@ -85,7 +82,7 @@ Si utiliza un firewall basado en IP, proxy o reglas NSG para controlar la conect
   - [Direcciones URL e intervalos de direcciones IP de Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Direcciones IP de puntos de conexión del servicio Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Utilice estas listas para configurar los controles de acceso de red en la red. Puede utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para crear las reglas NSG requeridas.
+Puede utilizar este [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) para crear las reglas NSG requeridas.
 
 ## <a name="verify-azure-vm-certificates"></a>Comprobación de los certificados de la máquina virtual de Azure
 
@@ -105,7 +102,7 @@ Azure Site Recovery proporciona tres roles integrados para controlar las operaci
 
 - **Lector de Site Recovery**: este rol tiene permisos para ver todas las operaciones de administración de Site Recovery. Este rol es ideal para un ejecutivo de supervisión de TI que puede supervisar el estado actual de protección y crear vales de soporte.
 
-Más información sobre [roles integrados del control de acceso basado en rol de Azure](../active-directory/role-based-access-built-in-roles.md)
+Más información sobre [roles integrados del control de acceso basado en rol de Azure](../role-based-access-control/built-in-roles.md)
 
 ## <a name="enable-replication"></a>Habilitar replicación
 

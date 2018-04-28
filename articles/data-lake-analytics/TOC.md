@@ -4,7 +4,7 @@
 ## [¿Qué es Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Introducción
-## [Portal de Azure](data-lake-analytics-get-started-portal.md)
+## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # Procedimientos
 
 ## Administración con Data Lake Analytics
-### [Portal de Azure](data-lake-analytics-manage-use-portal.md)
+### [Azure Portal](data-lake-analytics-manage-use-portal.md)
 ### [CLI de Azure](data-lake-analytics-manage-use-cli.md)
 ### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### [.NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -46,7 +46,7 @@
 ### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
 
 # Referencia
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-analytics)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)

@@ -1,8 +1,8 @@
 ---
-title: "Uso de la tunelización de SSH para acceder a Azure HDInsight | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar un túnel SSH para ir con seguridad a los recursos web alojados en los nodos de HDInsight basados en Linux."
+title: Uso de la tunelización de SSH para acceder a Azure HDInsight | Microsoft Docs
+description: Obtenga información acerca de cómo usar un túnel SSH para ir con seguridad a los recursos web alojados en los nodos de HDInsight basados en Linux.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Uso de la tunelización SSH para tener acceso a la interfaz de usuario Ambari Web, JobHistory, NameNode, Oozie y otras interfaces de usuario web
 
@@ -115,7 +113,7 @@ Una vez que se completa el comando, el tráfico enviado al puerto 9876 de la má
    > [!NOTE]
    > La selección de **DNS remoto** resuelve las solicitudes del sistema de nombres de dominio (DNS) mediante el uso del clúster de HDInsight. Esta configuración resuelve el DNS con el nodo principal del clúster.
 
-2. Compruebe que el túnel funciona, para ello, visite un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/). La dirección IP devuelta debe ser una que use el centro de datos de Microsoft Azure.
+2. Compruebe que el túnel funciona; para ello, visite un sitio como [http://www.whatismyip.com/](http://www.whatismyip.com/). La dirección IP devuelta debe ser una que use el centro de datos de Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Compruebe con la interfaz de usuario web de Ambari
 
@@ -124,7 +122,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
 1. En el explorador, vaya a http://headnodehost:8080. La dirección `headnodehost` se envía al clúster a través del túnel y se resuelve en el nodo principal en el que se ejecuta Ambari. Cuando se le solicite, escriba el nombre de usuario administrador (admin) y la contraseña del clúster. Es posible que se le pida una segunda vez mediante la interfaz de usuario web de Ambari. Si es así, vuelva a escribir la información.
 
    > [!NOTE]
-   > Si utiliza la dirección de http://headnodehost:8080 para conectarse al clúster, se está conectando a través del túnel. La comunicación se protege si usa el túnel SSH en lugar de HTTPS. Para conectarse a través de Internet mediante HTTPS, use https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
+   > Si utiliza la dirección http://headnodehost:8080 para conectarse al clúster, se estará conectando a través del túnel. La comunicación se protege si usa el túnel SSH en lugar de HTTPS. Para conectarse a través de Internet mediante HTTPS, use https://CLUSTERNAME.azurehdinsight.net, donde **CLUSTERNAME** es el nombre del clúster.
 
 2. En la interfaz de usuario de Ambari Web, seleccione HDFS en la lista de la izquierda de la página.
 
@@ -144,7 +142,7 @@ Una vez que se ha establecido el clúster, siga estos pasos para comprobar que p
     ![Imagen de la interfaz de usuario de NameNode](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Observe la dirección URL de esta página, debe ser similar a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
+   > Observe la dirección URL de esta página, que debe ser similar a **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Este identificador URI usa el nombre de dominio completo interno (FQDN) del nodo y solo es accesible si se usa un túnel SSH.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

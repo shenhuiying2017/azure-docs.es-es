@@ -6,7 +6,7 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funciones de recursos para las plantillas de Azure Resource Manager
 
 El Administrador de recursos ofrece las siguientes funciones para obtener valores de recursos:
 
-* [listKeys y list{Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -36,19 +38,21 @@ Para obtener valores de parámetro, variables o la implementación actual, consu
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys y list{Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets y list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Devuelve los valores para cualquier tipo de recurso que admite la operación list. El uso más común es `listKeys`. 
+Devuelve los valores para cualquier tipo de recurso que admite la operación list. Los usos más habituales son `listKeys` y `listSecrets`. 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sí |cadena |Identificador único para el recurso. |
-| apiVersion |Sí |cadena |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
+| resourceName o resourceIdentifier |Sí |string |Identificador único para el recurso. |
+| apiVersion |Sí |string |Versión de API de estado en tiempo de ejecución de un recurso. Por lo general, en el formato, **aaaa-mm-dd**. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -151,10 +155,10 @@ Devuelve información acerca de un proveedor de recursos y sus tipos de recursos
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Sí |cadena |Espacio de nombres del proveedor |
-| resourceType |Sin  |cadena |El tipo de recurso en el espacio de nombres especificado. |
+| providerNamespace |Sí |string |Espacio de nombres del proveedor |
+| resourceType |Sin  |string |El tipo de recurso en el espacio de nombres especificado. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -239,11 +243,11 @@ Devuelve un objeto que representa el estado de tiempo de ejecución de un recurs
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| resourceName o resourceIdentifier |Sí |cadena |Nombre o identificador único de un recurso. |
-| apiVersion |Sin  |cadena |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. |
-| 'Full' |Sin  |cadena |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
+| resourceName o resourceIdentifier |Sí |string |Nombre o identificador único de un recurso. |
+| apiVersion |Sin  |string |Versión de la API del recurso especificado. Incluya este parámetro cuando el recurso no esté aprovisionado en la misma plantilla. Por lo general, en el formato, **aaaa-mm-dd**. |
+| 'Full' |Sin  |string |Valor que especifica si se devuelve el objeto de recurso completo. Si no se especifica `'Full'`, se devuelve solo el objeto de propiedades del recurso. El objeto completo incluye valores como el identificador de recurso y la ubicación. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -531,13 +535,13 @@ Devuelve el identificador único de un recurso. Utilice esta función cuando el 
 
 ### <a name="parameters"></a>Parámetros
 
-| . | Obligatorio | type | DESCRIPCIÓN |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Sin  |Cadena (en formato de GUID) |El valor predeterminado es la suscripción actual. Especifique este valor cuando necesite recuperar un recurso en otra suscripción. |
-| resourceGroupName |Sin  |cadena |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
-| resourceType |Sí |cadena |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
-| resourceName1 |Sí |cadena |Nombre del recurso. |
-| resourceName2 |Sin  |cadena |Siguiente segmento de nombre de recurso si el recurso está anidado. |
+| resourceGroupName |Sin  |string |El valor predeterminado es el grupo de recursos actual. Especifique este valor cuando necesite recuperar un recurso en otro grupo de recursos. |
+| resourceType |Sí |string |Tipo de recurso, incluido el espacio de nombres del proveedor de recursos. |
+| resourceName1 |Sí |string |Nombre del recurso. |
+| resourceName2 |Sin  |string |Siguiente segmento de nombre de recurso si el recurso está anidado. |
 
 ### <a name="return-value"></a>Valor devuelto
 

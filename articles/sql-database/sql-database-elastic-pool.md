@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -74,7 +74,7 @@ Las siguientes reglas generales relacionadas con el recuento de base de datos y 
 
 ### <a name="minimum-number-of-databases"></a>Número mínimo de bases de datos
 
-Si la cantidad de recursos para una única base de datos es superior a 1,5 veces los recursos necesarios para el grupo, un grupo elástico resultaría más rentable.
+Si la cantidad total de recursos para una única base de datos es superior a 1,5 veces los recursos necesarios para el grupo, un grupo elástico resultaría más rentable.
 
 ***Ejemplo de modelo de compra basado en DTU***<br>
 : al menos dos bases de datos S3 o 15 bases de datos S0 son necesarias para que un grupo de 100 eDTU sea más rentable que usar niveles de rendimiento para bases de datos únicas.
@@ -177,7 +177,7 @@ Si desea supervisar las bases de datos dentro de su grupo, puede hacer clic en *
 
 Puede editar el gráfico y la página de métricas para mostrar otras métricas, como el porcentaje de CPU, el porcentaje de E/S de datos y el porcentaje de E/S de registro usados.
 
-En el formulario **Editar gráfico**, puede seleccionar un intervalo de tiempo fijo o hacer clic en **personalizado** para seleccionar cualquier ventana de 24 horas en las dos últimas semanas, y luego seleccionar los recursos para supervisar.
+En el formulario **Editar gráfico**, puede seleccionar un intervalo de tiempo fijo o hacer clic en **personalizado** para seleccionar cualquier ventana de 24 horas en las dos últimas semanas y, a continuación, seleccionar los recursos para supervisar.
 
 #### <a name="to-select-databases-to-monitor"></a>Selección de las bases de datos que se supervisarán
 

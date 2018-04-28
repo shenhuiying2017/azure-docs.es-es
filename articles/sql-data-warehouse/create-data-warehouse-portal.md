@@ -1,20 +1,20 @@
 ---
-title: Creación y consulta de una instancia de Azure SQL Data Warehouse - Azure Portal | Microsoft Docs
-description: Cree una instancia de Azure SQL Data Warehouse en Azure Portal y, a continuación, realice consultas en ella.
+title: 'Guía de inicio rápido: Creación y consulta de una instancia de Azure SQL Data Warehouse en Azure Portal | Microsoft Docs'
+description: Cree un almacenamiento de datos con Azure SQL Data Warehouse en Azure Portal, y realización de consultas en él.
 services: sql-data-warehouse
-author: hirokib
-manager: jhubbard
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: quickstart
-ms.component: implement
-ms.date: 03/28/2018
-ms.author: elbutter
-ms.reviewer: jrj
-ms.openlocfilehash: 97738b37f81cac3e7eef263fecc2095c9ef4b7ff
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
 
@@ -22,9 +22,14 @@ Cree rápidamente una instancia de Azure SQL Data Warehouse en Azure Portal, y r
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
+> [!NOTE]
+> La creación de una instancia de SQL Data Warehouse puede dar lugar a un nuevo servicio facturable.  Para más información, consulte [Precios de Azure SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+>
+>
+
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS).
+Descargue e instale la versión más reciente de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.
 
@@ -32,7 +37,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Creación del almacenamiento de datos
 
-Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](performance-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-features.md). 
+Una instancia de Azure SQL Data Warehouse se crea con un conjunto definido de [recursos de proceso](memory-and-concurrency-limits.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server). 
 
 Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los datos de ejemplo AdventureWorksDW. 
 

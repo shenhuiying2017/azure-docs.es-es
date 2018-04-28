@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: cf77eaa07d45222cecf0450fb33fe62e556bcd9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/16/2018
+---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y una colección. 
 
 1. Haga clic en **Explorador de datos** > **Nueva colección**. 
@@ -12,7 +28,7 @@ Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear u
     ---|---|---
     Id. de base de datos|Tareas|Escriba *Tareas* como nombre de la nueva base de datos. Los nombres de base de datos tiene que tener entre 1 y 255 caracteres y no pueden contener /, \\; #, ?, o un espacio al final.
     Id. de colección|Elementos|Escriba *Elementos* como nombre de la nueva colección. Los identificadores de las colecciones tienen los mismos requisitos de caracteres que los nombres de las bases de datos.
-    Capacidad de almacenamiento| Fija (10 GB)|Cambie el valor a **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
+    Capacidad de almacenamiento| Fija (10 GB)|Use el valor predeterminado **Fija (10 GB)**. Este valor corresponde a la capacidad de almacenamiento de la base de datos.
     Throughput|400 RU|Cambie el rendimiento a 400 unidades de solicitud por segundo (RU/s). La capacidad de almacenamiento debe estar establecida en **Fija (10 GB)** con el fin de establecer el rendimiento en 400 RU/s. Si quiere reducir la latencia, puede escalar verticalmente el rendimiento más adelante. 
     
     Además de la configuración anterior, puede agregar opcionalmente **claves únicas** para la colección. En este ejemplo vamos a dejar el campo en blanco. Las claves únicas proporcionan a los desarrolladores la capacidad de agregar una capa de integridad de datos a la base de datos. Mediante la creación de una directiva de clave única al crear una colección, se garantiza la unicidad de uno o varios valores por clave de partición. Para más información, consulte el artículo [Claves únicas en Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).

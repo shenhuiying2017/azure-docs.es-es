@@ -1,24 +1,26 @@
 ---
 title: Entrega y reintento de entrega de Azure Event Grid
-description: "Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados."
+description: Describe cómo Azure Event Grid entrega eventos y cómo administra los mensajes no entregados.
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: cdf6a4e999d55196e8f4eac5695163a7e5a933de
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 017cb5850788bd230c4a4ba256997f2776c07bec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega y reintento de entrega de mensajes de Event Grid 
 
 En este artículo se describe cómo Azure Event Grid administra los eventos cuando no se confirma la entrega.
 
-Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al webhook registrado de cada suscripción. Si un webhook no acusa recibo de un evento en los 60 segundos siguientes al primer intento, Event Grid reintenta la entrega del evento.
+Event Grid ofrece entrega duradera. Entrega cada mensaje por lo menos una vez en cada suscripción. Los eventos se envían inmediatamente al webhook registrado de cada suscripción. Si un webhook no acusa recibo de un evento en los 60 segundos siguientes al primer intento, Event Grid reintenta la entrega del evento. 
+
+Actualmente, Event Grid envía cada evento individualmente a los suscriptores. El suscriptor recibe una matriz con un solo evento.
 
 ## <a name="message-delivery-status"></a>Estado de entrega de mensajes
 

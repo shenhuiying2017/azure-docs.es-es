@@ -14,11 +14,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: 8003951fb0c80bda56de4718cbe94526dc118b61
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -36,6 +36,11 @@ Esta es la leyenda de las imágenes del artículo:
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | Escenario no admitido |![Escenario no admitido](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
+
+> [!IMPORTANT]
+> Microsoft no admite la modificación ni el funcionamiento de la sincronización de Azure AD Connect con configuraciones o acciones distintas a estas que se documentan formalmente. Cualquiera de estas configuraciones o acciones pueden provocar un estado incoherente o incompatible de sincronización de Azure AD Connect. Como resultado, Microsoft no ofrece soporte técnico para estas implementaciones.
+
+
 ## <a name="single-forest-single-azure-ad-tenant"></a>Un único bosque, un único inquilino de Azure AD
 ![Topología para un único bosque y un solo inquilino](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
@@ -51,7 +56,7 @@ No se pueden tener varios servidores de Azure AD Connect Sync conectados al mism
 
 Muchas organizaciones tienen entornos con varios bosques de Active Directory locales. Existen varias razones para tener más de un bosque de Active Directory local. Los ejemplos más habituales son los diseños con bosques de cuenta-recurso o los que resultan de una fusión o adquisición.
 
-Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. No es necesario unir el servidor a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ y subred filtrada).
+Cuando hay varios bosques, todos los bosques deben ser accesibles mediante un único servidor de Azure AD Connect Sync. No es necesario unir el servidor a un dominio. Si es necesario para llegar a todos los bosques, puede colocar el servidor en una red perimetral (también conocida como DMZ, zona desmilitarizada y subred filtrada).
 
 El asistente para la instalación de Azure AD Connect ofrece varias opciones para consolidar los usuarios representados en varios bosques. El objetivo es que un usuario esté representado solo una vez en Azure AD. Hay algunas topologías habituales que puede configurar en la ruta de acceso de instalación personalizada del Asistente para instalación. En la página **Identificación de forma exclusiva de usuarios**, seleccione la opción correspondiente que representa su topología. La consolidación solo se configura para los usuarios. Los grupos duplicados no se consolidan con la configuración predeterminada.
 
@@ -181,7 +186,7 @@ Los inquilinos de Azure AD están aislados por diseño. No se admiten las siguie
 
 Puede usar FIM 2010 o MIM 2016 local para sincronizar los usuarios (mediante GALSync) entre dos organizaciones de Exchange. Los usuarios de una organización se mostrarán como usuarios o contactos externos en la otra organización. Estas instancias de Active Directory locales se pueden sincronizar después con sus propios inquilinos de Azure AD.
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre cómo instalar Azure AD Connect en estos escenarios, consulte [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

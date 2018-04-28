@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft Genomics: preguntas frecuentes | Microsoft Docs'
 titleSuffix: Azure
-description: "Aquí encontrará respuestas a las preguntas que hicieron los clientes sobre Microsoft Genomics."
+description: Aquí encontrará respuestas a las preguntas que hicieron los clientes sobre Microsoft Genomics.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,15 +11,15 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 2077eeb5177b07c458476ae900f81b72e35f0dc3
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b3f30dc5d185615370a8273f71554f784d286cd9
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: preguntas frecuentes
 
-En este artículo se enumeran las principales consultas que pueden surgir en relación con Microsoft Genomics. Para obtener más información sobre el servicio de Microsoft Genomics, consulte [What is Microsoft Genomics?](overview-what-is-genomics.md) (¿qué es Microsoft Genomics?). 
+En este artículo se enumeran las principales consultas que pueden surgir en relación con Microsoft Genomics. Para más información acerca del servicio de Microsoft Genomics, consulte [¿Qué es Microsoft Genomics?](overview-what-is-genomics.md). Para más información acerca de cómo solucionar problemas, consulte el documento [Troubleshooting guide](troubleshooting-guide-genomics.md) (Guía para la solución de problemas). 
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>¿Qué es el SLA de Microsoft Genomics?
@@ -74,7 +74,7 @@ Se ignora el espacio en blanco.
 
  |Argumento de línea de comandos            | Línea del archivo de configuración |
  |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://URL*    |
+ |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
  |`-k/--access-key KEY`            | *access_key:KEY*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 

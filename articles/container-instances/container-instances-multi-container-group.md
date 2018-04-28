@@ -3,17 +3,17 @@ title: Implementación de grupos de varios contenedores en Azure Container Insta
 description: Obtenga información sobre cómo implementar un grupo de contenedores con varios contenedores en Azure Container Instances.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5447598286e6f0dd8578af11f1789a8c5f477d5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-a-container-group"></a>Implementación de un grupo de contenedores
 
@@ -108,7 +108,7 @@ En este ejemplo, se definen un grupo de contenedores con dos contenedores, una d
 }
 ```
 
-Para usar un registro de imagen de contenedor privado, agregue un objeto al documento JSON con el formato siguiente.
+Para usar un registro de imagen de contenedor privado, agregue un objeto al documento JSON con el formato siguiente. Para ver una implementación de ejemplo de esta configuración, consulte el documento [Referencia de plantilla de Resource Manager de ACI][template-reference].
 
 ```json
 "imageRegistryCredentials": [
@@ -210,3 +210,4 @@ En este artículo se explican los pasos necesarios para implementar una instanci
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

@@ -1,5 +1,5 @@
 ---
-title: "Plano técnico de procesamiento de pagos de Azure: requisitos de Firewall"
+title: 'Plano técnico de procesamiento de pagos de Azure: requisitos de Firewall'
 description: Requisito 1 de PCI DSS
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Requisitos de firewall para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>Requisito 1 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Instalación y mantenimiento de una configuración de firewall para proteger los datos de los titulares de tarjetas**
 
 > [!NOTE]
-> El [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para el sector de tarjetas de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos (DDS) para la PCI, versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de comprobación e instrucciones para cada requisito.
+> El [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para el sector de tarjetas de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos (DDS) para la PCI, versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 Los firewalls son dispositivos que controlan el tráfico permitido entre las redes de una entidad (internas) y las que no son de confianza (externas), así como el tráfico entrante y saliente de zonas de mayor confidencialidad de las redes de confianza internas de una entidad. El entorno de datos de los titulares de tarjetas es un ejemplo de un área de mayor confidencial dentro de la red de confianza de una entidad.
 Un firewall examina todo el tráfico de red y bloquea las transmisiones que no cumplan los criterios de seguridad especificados.
@@ -43,7 +43,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona firewalls para el CDE mediante aislamiento de PaaS, y una implementación de App Service Environment garantiza la protección de la entrada y salida de datos del CDE.<br /><br />[App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) es un plan de servicio Premium que se usa por motivos normativos. Para más información sobre los controles y configuración de ASE, vea [Guía de PCI: App Service Environment](payment-processing-blueprint.md#app-service-environment).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona firewalls para el CDE mediante aislamiento de PaaS, y una implementación de App Service Environment garantiza la protección de la entrada y salida de datos del CDE.<br /><br />[App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) es un plan de servicio Premium que se usa por motivos normativos. Para más información sobre los controles y configuración de ASE, vea [Guía de PCI: App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -57,7 +57,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Una instancia de la tienda web de Contoso establece un modelo DevOps de CI/CD para garantizar que todos los cambios se administren correctamente. [Operations Management Suite (OMS)](/azure/operations-management-suite/) proporciona un registro completo de los cambios. Se puede revisar y comprobar la exactitud de los cambios. Para obtener instrucciones más específicas, vea [Guía de PCI: Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) proporciona una visión centralizada del estado de la seguridad de todos los recursos de Azure. De un vistazo, puede comprobar que los controles de seguridad adecuados se hayan implementado y configurado correctamente, así como identificar rápidamente los recursos que requieran atención.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Una instancia de la tienda web de Contoso establece un modelo DevOps de CI/CD para garantizar que todos los cambios se administren correctamente. Log Analytics proporciona un registro completo de los cambios. Se puede revisar y comprobar la exactitud de los cambios. Para obtener instrucciones más específicas, vea [Guía de PCI: Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Security Center](https://azure.microsoft.com/services/security-center/) proporciona una visión centralizada del estado de la seguridad de todos los recursos de Azure. De un vistazo, puede comprobar que los controles de seguridad adecuados se hayan implementado y configurado correctamente, así como identificar rápidamente los recursos que requieran atención.|
 
 
 
@@ -70,7 +70,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Consulte la documentación de diseño y arquitectura de referencia de la tienda web de Contoso que se proporciona como parte del patrón de instalación de la solución.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Consulte la documentación de diseño y arquitectura de referencia de la tienda web de Contoso que se proporciona como parte del patrón de instalación de la solución.|
 
 
 
@@ -83,7 +83,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Consulte el DFD de la tienda web de Contoso y el Modelo de riesgos.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Consulte el DFD de la tienda web de Contoso y el Modelo de riesgos.|
 
 
 
@@ -96,7 +96,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emplea dispositivos de protección de límites, como puertas de enlace, listas de control de acceso de red y firewalls de aplicación para controlar las comunicaciones en los límites externos e internos en el nivel de plataforma. Después, el cliente los configura de acuerdo a sus requisitos y especificaciones. Microsoft Azure filtra la comunicación cuando llega a la plataforma. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona una red perimetral mediante aislamiento de PaaS, y una implementación de App Service Environment garantiza la protección de la entrada y salida de datos de CDE.<br /><br />[App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) es un plan de servicio Premium que se usa por motivos normativos. Para más información sobre los controles y configuración de ASE, vea [Guía de PCI: App Service Environment](payment-processing-blueprint.md#app-service-environment).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona una red perimetral mediante aislamiento de PaaS, y una implementación de App Service Environment garantiza la protección de la entrada y salida de datos de CDE.<br /><br />[App Service Environment (ASE)](/azure/app-service-web/app-service-app-service-environment-intro) es un plan de servicio Premium que se usa por motivos normativos. Para más información sobre los controles y configuración de ASE, vea [Guía de PCI: App Service Environment](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -109,7 +109,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso usa [Control de acceso basado en roles de Azure (RBAC)](/azure/active-directory/role-based-access-control-configure) para aislar los roles de usuario. RBAC permite la administración de acceso con precisión para Azure. Existen configuraciones específicas para el acceso a la suscripción y a Azure Key Vault.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso usa [Control de acceso basado en roles de Azure (RBAC)](/azure/role-based-access-control/role-assignments-portal) para aislar los roles de usuario. RBAC permite la administración de acceso con precisión para Azure. Existen configuraciones específicas para el acceso a la suscripción y a Azure Key Vault.|
 
 
 
@@ -122,7 +122,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso solo se abren los puertos y protocolos requeridos en el diseño de RA. Los detalles sobre el flujo de datos se pueden ver en el DFD y el modelo de riesgos.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso solo se abren los puertos y protocolos requeridos en el diseño de RA. Los detalles sobre el flujo de datos se pueden ver en el DFD y el modelo de riesgos.|
 
 
 
@@ -135,7 +135,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso, los conjuntos de reglas de firewall se revisan para garantizar que no se incluya ninguna regla innecesaria o que no se vaya a usar. De forma predeterminada, la demostración se implementa con una huella de privilegios mínimos y ruta de acceso de menor tamaño.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso, los conjuntos de reglas de firewall se revisan para garantizar que no se incluya ninguna regla innecesaria o que no se vaya a usar. De forma predeterminada, la demostración se implementa con una huella de privilegios mínimos y ruta de acceso de menor tamaño.|
 
 
 
@@ -151,7 +151,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | El CDE de la tienda web de Contoso se define en la documentación de implementación y RA. Las redes que no son de confianza se deniegan de forma predeterminada.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | El CDE de la tienda web de Contoso se define en la documentación de implementación y RA. Las redes que no son de confianza se deniegan de forma predeterminada.|
 
 
 
@@ -164,7 +164,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | El CDE de la tienda web de Contoso se define en la documentación de implementación y RA. Las redes que no son de confianza se deniegan de forma predeterminada. En la demostración de la tienda web de Contoso el firewall de aplicaciones de Microsoft Azure se configura para permitir que solo los intervalos IP especificados tengan acceso a los servicios de Microsoft Azure. La tienda web de Contoso proporciona un firewall de denegación en todos los límites del CDE. Todas las configuraciones se realizan durante la instalación inicial de la implementación.
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | El CDE de la tienda web de Contoso se define en la documentación de implementación y RA. Las redes que no son de confianza se deniegan de forma predeterminada. En la demostración de la tienda web de Contoso el firewall de aplicaciones de Microsoft Azure se configura para permitir que solo los intervalos IP especificados tengan acceso a los servicios de Microsoft Azure. La tienda web de Contoso proporciona un firewall de denegación en todos los límites del CDE. Todas las configuraciones se realizan durante la instalación inicial de la implementación.
 
 > [!NOTE]
 > En esta solución se usa App Service Environment (ASE) para aislar el CDE, pero es fundamental que el Asesor de seguridad certificado (QSA) evalúe esta solución, dado que ASE implementa un aislamiento de red perimetral que le permite establecer conexiones de salida. PCI DSS requiere que se bloqueen todas las conexiones de entrada y de salida que no sean necesarias. Para que ASE funcione correctamente, ASE establecerá las conexiones de salida necesarias según se define en [Consideraciones de red para una instancia de App Service Environment](/azure/app-service/app-service-environment/network-info). Los clientes deben evaluar las conexiones de salida con su QSA antes de implementar la solución en un entorno de producción para asegurarse de que cumplirá los requisitos. |
@@ -180,7 +180,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona configuraciones sincronizadas para controles de red nativos de Microsoft Azure.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona configuraciones sincronizadas para controles de red nativos de Microsoft Azure.|
 
 
 
@@ -193,7 +193,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso no tiene ninguna funcionalidad ni solución inalámbrica habilitada.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso no tiene ninguna funcionalidad ni solución inalámbrica habilitada.|
 
 
 
@@ -206,7 +206,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure emplea dispositivos de protección de límite basados en red y en host, como firewalls, equilibradores de carga y listas de control de acceso. Estos dispositivos usan mecanismos como el aislamiento de VLAN, NAT y filtrado de paquetes para separar el tráfico de cliente del tráfico de Internet y administración. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En el momento de la implementación, la tienda web de Contoso proporciona las configuraciones del firewall de aplicaciones de Azure para permitir que solo los intervalos IP especificados tengan acceso al sitio, incluidas las máquinas virtuales de Azure del bastión de su CDE.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En el momento de la implementación, la tienda web de Contoso proporciona las configuraciones del firewall de aplicaciones de Azure para permitir que solo los intervalos IP especificados tengan acceso al sitio, incluidas las máquinas virtuales de Azure del bastión de su CDE.|
 
 
 
@@ -220,7 +220,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La implementación de la tienda web de Contoso de su red perimetral garantiza que solo los servicios autorizados se puedan conectar con el CDE.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La implementación de la tienda web de Contoso de su red perimetral garantiza que solo los servicios autorizados se puedan conectar con el CDE.|
 
 
 
@@ -233,7 +233,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La implementación de la tienda web de Contoso de su red perimetral garantiza que solo los servicios autorizados se puedan conectar con el CDE.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La implementación de la tienda web de Contoso de su red perimetral garantiza que solo los servicios autorizados se puedan conectar con el CDE.|
 
 
 
@@ -246,7 +246,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa filtrado de red para impedir el tráfico falsificado y restringir el tráfico de entrada y salida a los componentes de plataformas seguras. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -260,7 +260,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La arquitectura de la tienda web de Contoso evita el tráfico de salida no autorizado desde el entorno dentro del ámbito a Internet. Esto se consigue mediante la configuración de listas de control de acceso de tráfico de salida para los protocolos y puertos aprobados en Microsoft Azure. Estos controles incluyen el acceso al CDE en la base de datos de SQL Server. <br /><br />Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La arquitectura de la tienda web de Contoso evita el tráfico de salida no autorizado desde el entorno dentro del ámbito a Internet. Esto se consigue mediante la configuración de listas de control de acceso de tráfico de salida para los protocolos y puertos aprobados en Microsoft Azure. Estos controles incluyen el acceso al CDE en la base de datos de SQL Server. <br /><br />Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -274,7 +274,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure implementa filtrado de red para impedir el tráfico falsificado y restringir el tráfico de entrada y salida a los componentes de plataformas seguras. La red de Microsoft Azure está segregada para separar el tráfico de clientes del tráfico de administración. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -288,7 +288,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure usa la segregación de redes y NAT para separar el tráfico de clientes del tráfico de administración. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La arquitectura de la tienda web de Contoso evita el tráfico de salida no autorizado desde el entorno dentro del ámbito a Internet. Esto se consigue mediante la configuración de listas de control de acceso de tráfico de salida para los protocolos y puertos aprobados en Microsoft Azure. Estos controles incluyen el acceso al CDE en la base de datos de SQL Server. <br /><br />Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La arquitectura de la tienda web de Contoso evita el tráfico de salida no autorizado desde el entorno dentro del ámbito a Internet. Esto se consigue mediante la configuración de listas de control de acceso de tráfico de salida para los protocolos y puertos aprobados en Microsoft Azure. Estos controles incluyen el acceso al CDE en la base de datos de SQL Server. <br /><br />Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -309,7 +309,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure usa Traducción de direcciones de red (NAT) y segregación de redes para separar el tráfico de clientes del tráfico de administración. Los dispositivos de Azure se identifican de manera única mediante sus UUID y se autentican mediante Kerberos. Los dispositivos de red administrados de Azure se identifican por la dirección IP 1918 de RFC. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso coloca todos los datos de los titulares de tarjetas detrás de firewalls o servidores proxy, y usa el espacio de direcciones de RFC1918 de forma interna.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso coloca todos los datos de los titulares de tarjetas detrás de firewalls o servidores proxy, y usa el espacio de direcciones de RFC1918 de forma interna.|
 
 
 
@@ -324,7 +324,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso no proporciona la protección de los dispositivos de usuario final. Se puede usar [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) para administrar los dispositivos móviles que los trabajadores usan para tener acceso a los datos de la empresa.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso no proporciona la protección de los dispositivos de usuario final. Se puede usar [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) para administrar los dispositivos móviles que los trabajadores usan para tener acceso a los datos de la empresa.|
 
 
 
@@ -337,7 +337,7 @@ Otros componentes del sistema pueden proporcionar funcionalidad de firewall, sie
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En el momento de la implementación, la tienda web de Contoso proporciona las configuraciones del firewall de aplicaciones de Azure para permitir que solo los intervalos IP especificados tengan acceso al sitio, incluidas las máquinas virtuales de Azure del bastión de su CDE.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En el momento de la implementación, la tienda web de Contoso proporciona las configuraciones del firewall de aplicaciones de Azure para permitir que solo los intervalos IP especificados tengan acceso al sitio, incluidas las máquinas virtuales de Azure del bastión de su CDE.|
 
 
 

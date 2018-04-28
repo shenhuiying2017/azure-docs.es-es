@@ -1,11 +1,11 @@
 ---
-title: "Cambio de la oferta de suscripción de Azure | Microsoft Docs"
-description: "Aprenda a cambiar su suscripción de Azure y a pasar a una oferta diferente mediante el Centro de cuentas de Azure"
-services: 
-documentationcenter: 
+title: Cambio de la oferta de suscripción de Azure | Microsoft Docs
+description: Aprenda a cambiar su suscripción de Azure y a pasar a una oferta diferente mediante el Centro de cuentas de Azure
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Cambie la suscripción de pago por uso de Azure a otra oferta
 
@@ -105,7 +105,7 @@ El mismo día que se realiza el cambio se genera una factura por todos los cargo
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>¿Puedo migrar de la suscripción de pago por uso a la de [Proveedor de soluciones en la nube](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) o a la de [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* Para migrar a CSP, vea [Azure Pas-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp) (Migración de la suscripción de pago por uso de Azure a CSP).
+* Para migrar a CSP, consulte [Migrar las suscripciones de Azure de Pago por uso a CSP de Azure](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Para migrar a EA, indique a su administrador de inscripciones que agregue su cuenta a dicho EA. Siga las instrucciones que aparecen en el correo electrónico de invitación para mover las suscripciones bajo la inscripción EA. Para más información, consulte [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Asociar una cuenta existente) en el portal EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>¿Puedo migrar datos y servicios a nueva una suscripción?

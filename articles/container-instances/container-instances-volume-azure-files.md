@@ -1,19 +1,19 @@
 ---
 title: Montaje de un volumen de Azure Files en Azure Container Instances
-description: "Obtenga información sobre cómo montar un volumen de Azure Files para conservar el estado con Azure Container Instances"
+description: Obtenga información sobre cómo montar un volumen de Azure Files para conservar el estado con Azure Container Instances
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98be7e65c2280aa58cf904cbca265f87610eff55
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 239150c1e752ce6a4f2a19fa1192cd1a910ebea9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montaje de un recurso compartido de archivos de Azure en Azure Container Instances
 
@@ -137,7 +137,7 @@ Para ver un ejemplo de implementación de instancias de contenedor con una plant
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información acerca de cómo montar otros tipos de volúmenes en Azure Container Instances:
+Aprenda a montar otros tipos de volúmenes en Azure Container Instances:
 
 * [Montaje de un volumen de emptyDir en Azure Container Instances](container-instances-volume-emptydir.md)
 * [Montaje de un volumen de gitRepo en Azure Container Instances](container-instances-volume-gitrepo.md)

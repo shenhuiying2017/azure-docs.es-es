@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 04/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: e675600b326bb5269f8bb91aaa067a5842c0f8dd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 87fc79a525ec61f3ce15a60ee2d07efd178fb4d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -43,10 +43,10 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | --- | --- | --- |
 | **Norteamérica** |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Montreal, Ciudad de Quebec, Toronto |
 | **Sudamérica** |Sur de Brasil |São Paulo |
-| **Europa** |Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
+| **Europa** |Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Dublín, Londres, Newport(Wales)+, París |
 | **Asia** |Este de Asia y Sudeste de Asia |Hong Kong, Singapur, Singapur2 |
 | **Japón** |Oeste de Japón y Este de Japón |Osaka, Tokyo |
-| **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
+| **Australia** |Sudeste de Australia, Este de Australia, Centro de Australia, Centro de Australia 2 |Melbourne, Sidney |
 | **India** |India occidental, India central, India del Sur |Chennai, Mumbai |
 | **Corea del Sur** |Corea Central, Corea del Sur |Busan, Seúl |
 
@@ -186,6 +186,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |Nueva York, Washington DC |
 | **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokio |
+| **[Axtel](http://alestra.mx/landing/expressrouteazure/)** |Equinix |Dallas|
 | **[Bezeq International Ltd.](https://www.bezeqint.net/english)** | euNetworks | Londres |
 | **[BICS](https://bics.com/bics-solutions-suite/cloud-connect/)** | Equinix | Ámsterdam, Fráncfort, Londres, Singapur, Washington DC |
 | **[BroadBand Tower, Inc.](http://www.bbtower.co.jp/product-service/data-center/network/dcconnect-for-azure/)** | Equinix | Tokio |
@@ -207,7 +208,9 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | Ámsterdam |
 | **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | Washington DC |
 | **[NexGen Networks](http://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | Londres |
-| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Ámsterdam, Fráncfort |  
+| **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Telecity | Ámsterdam, Fráncfort |
+| **[Post](https://www.teralinksolutions.com/cloud-connectivity/cloudbridge-to-azure-expressroute/)**|Equinix | Ámsterdam |
+| **[Proximus](https://www.proximus.be/en/id_b_cl_proximus_external_cloud_connect/companies-and-public-sector/discover/magazines/expert-blog/proximus-external-cloud-connect.html)**|Equinix | Ámsterdam, Dublín, Londres, París |
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | Fráncfort |  
 | **Rogers** | Cologix y Equinix | Montreal, Toronto |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | Londres | 

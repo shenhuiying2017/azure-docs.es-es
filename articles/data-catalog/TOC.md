@@ -26,7 +26,7 @@
 ## [Visualización de los recursos de datos relacionados](data-catalog-how-to-view-related-data-assets.md) 
 
 # Referencia
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=data-catalog)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-catalog)
 ## [REST](/rest/api/datacatalog/)
 ## [Búsqueda de referencia de sintaxis](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [Conceptos para desarrollador](data-catalog-developer-concepts.md)

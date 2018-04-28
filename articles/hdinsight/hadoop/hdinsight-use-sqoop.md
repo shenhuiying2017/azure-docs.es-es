@@ -1,26 +1,24 @@
 ---
-title: "Ejecución de trabajos de Apache Sqoop con Azure HDInsight (Hadoop) | Microsoft Docs"
-description: "Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y exportación en Sqoop entre un clúster de Hadoop y una base de datos SQL de Azure."
+title: Ejecución de trabajos de Apache Sqoop con Azure HDInsight (Hadoop) | Microsoft Docs
+description: Aprenda a utilizar Azure PowerShell desde una estación de trabajo para ejecutar la importación y exportación en Sqoop entre un clúster de Hadoop y una base de datos SQL de Azure.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e96003de4a0dd4a5d8b060bb5883e51291827316
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e72585906b972c3d7ffb2513fceb27e3e8bc1c5
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Uso de Sqoop con Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -62,7 +60,7 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Utilice los dos ejemp
 En este tutorial, usará estos dos conjuntos de datos para probar los procesos de importación y exportación de Sqoop.
 
 ## <a name="create-cluster-and-sql-database"></a>Creación del clúster y la base de datos SQL
-En esta sección se muestra cómo crear un clúster, una instancia de SQL Database y los esquemas de SQL Database para ejecutar el tutorial con Azure Portal y una plantilla de Azure Resource Manager. La plantilla se puede encontrar en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). La plantilla de Resource Manager llama a un paquete de bacpac para que implemente los esquemas de tabla en SQL Database.  El paquete de bacpac se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
+En esta sección se muestra cómo crear un clúster, una instancia de SQL Database y los esquemas de SQL Database para ejecutar el tutorial con Azure Portal y una plantilla de Azure Resource Manager. La plantilla se puede encontrar en [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). La plantilla de Resource Manager llama a un paquete de bacpac para que implemente los esquemas de tabla en SQL Database.  El paquete bacpac se encuentra en un contenedor de blobs público, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Si desea usar un contenedor privado para los archivos bacpac, utilice los siguientes valores en la plantilla:
    
 ```json
 "storageKeyType": "Primary",
@@ -221,7 +219,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    > Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
    > 
    > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](../../vpn-gateway/vpn-gateway-point-to-site-create.md) .
-   > * **Azure HDInsight:**consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
+   > * **Azure HDInsight:** consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) para obtener más información sobre cómo crear un clúster en una red virtual.
    > * **SQL Server 2014**: configurado para permitir la autenticación y la ejecución del paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
    > 
    > 
@@ -308,7 +306,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create Azure resouce group

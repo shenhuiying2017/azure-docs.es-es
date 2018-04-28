@@ -1,6 +1,6 @@
 ---
-title: 'Invocación del paquete de SSIS mediante Azure Data Factory: actividad de procedimiento almacenado | Microsoft Docs'
-description: En este artículo se describe cómo invocar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de procedimiento almacenado.
+title: Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory | Microsoft Docs
+description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de procedimiento almacenado.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 00a4401a9116d8ebbfefa56194fe45802bcf198e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
-En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
+# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
+En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, consulte el tema sobre la [invocación de paquetes de SSIS mediante una actividad de procedimiento almacenado en la versión 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
@@ -85,12 +85,13 @@ En este paso, usa la interfaz de Data Factory para crear una canalización. Agre
 4. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     1. Seleccione **Azure SQL Database** para **Type** (Tipo).
-    2. Seleccione la instancia de Azure SQL Server que hospeda la base de datos SSISDB para el campo **Server name** (Nombre del servidor).
-    3. Seleccione **SSISDB** para el campo **Database name** (Nombre de la base de datos).
-    4. En **User name** (Nombre de usuario), escriba el nombre del usuario que tiene acceso a la base de datos.
-    5. En **Password** (Contraseña), escriba la contraseña del usuario. 
-    6. Para probar la conexión con la base de datos, haga clic en el botón **Test connection** (Prueba de conexión).
-    7. Guarde el servicio vinculado con un clic en el botón **Save** (Guardar). 
+    2. Seleccione la instancia de Azure Integration Runtime **predeterminada** para conectarse a Azure SQL Database que hospeda la base de datos `SSISDB`.
+    3. Seleccione la instancia de Azure SQL Database que hospeda la base de datos SSISDB para el campo **Server name** (Nombre del servidor).
+    4. Seleccione **SSISDB** para el campo **Database name** (Nombre de la base de datos).
+    5. En **User name** (Nombre de usuario), escriba el nombre del usuario que tiene acceso a la base de datos.
+    6. En **Password** (Contraseña), escriba la contraseña del usuario. 
+    7. Para probar la conexión con la base de datos, haga clic en el botón **Test connection** (Prueba de conexión).
+    8. Guarde el servicio vinculado con un clic en el botón **Save** (Guardar). 
 
         ![Servicio vinculado a Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. En la ventana de propiedades, cambie a la pestaña **Stored Procedure** (Procedimiento almacenado) de la pestaña **SQL Account** (Cuenta de SQL) y lleve a cabo estos pasos: 
@@ -121,14 +122,18 @@ En esta sección, desencadena una ejecución de canalización y luego la supervi
 
 1. Para desencadenar una ejecución de canalización, haga clic en **Trigger** (Desencadenar) en la barra de herramientas y en **Trigger now** (Desencadenar ahora). 
 
-    ![Trigger now (Desencadenar ahora)](./media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+    ![Trigger now (Desencadenar ahora)](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
+
 2. En la ventana **Pipeline Run** (Ejecución de canalización), seleccione **Finish** (Finalizar). 
 3. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización y su estado junto con otro tipo de información (como la hora de inicio de la ejecución). Para actualizar la vista, haga clic en **Refresh** (Actualizar).
 
     ![Ejecuciones de la canalización](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
+
 3. Haga clic en el vínculo **View Activity Runs** (Ver ejecuciones de actividad) de la columna **Actions** (Acciones). Solo verá una ejecución de actividad porque la canalización solo tiene una actividad (actividad de procedimiento almacenado).
 
-    ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png) 4. Puede ejecutar la **consulta** siguiente en la base de datos SSISDB en la instancia de Azure SQL Server para comprobar la ejecución del paquete. 
+    ![Ejecuciones de actividad](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
+
+4. Puede ejecutar la **consulta** siguiente en la base de datos SSISDB en el servidor de Azure SQL para comprobar la ejecución del paquete. 
 
     ```sql
     select * from catalog.executions

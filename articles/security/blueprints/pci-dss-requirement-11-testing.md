@@ -1,5 +1,5 @@
 ---
-title: "Plano técnico de procesamiento de pagos de Azure: requisitos de pruebas"
+title: 'Plano técnico de procesamiento de pagos de Azure: requisitos de pruebas'
 description: Requisito 11 de PCI DSS
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>Requisitos de pruebas para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-11"></a>Requisito 11 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Pruebas frecuentes de los procesos y sistemas de seguridad**
 
 > [!NOTE]
-> El [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para el sector de tarjetas de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos (DDS) para la PCI, versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de comprobación e instrucciones para cada requisito.
+> [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para la industria de tarjeta de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos PCI (PCI DSS), versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 Usuarios malintencionados y investigadores continuamente descubren vulnerabilidades en los sistemas y consiguen introducirse mediante software nuevo. Los componentes del sistema, los procesos y el software personalizado se deben probar con frecuencia para garantizar que los controles de seguridad sigan reflejando un entorno cambiante.
 
@@ -44,7 +44,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Azure no admite ni permite las conexiones inalámbricas en el entorno de red de Azure. Los equipos de seguridad interna analizan los sistemas en busca de señales inalámbricas no autorizadas de forma trimestral. Dichas señales se investigan y se eliminan. No se permite a los clientes implementar tecnología inalámbrica en el entorno de Azure. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
 
 
 
@@ -57,7 +57,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Vea la sección "Microsoft Azure" del [Requisito 11.1](#pci-dss-requirement-11-1). |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
 
 
 
@@ -71,7 +71,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Vea la sección "Microsoft Azure" del [Requisito 11.1](#pci-dss-requirement-11-1). |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
 
 
 
@@ -89,7 +89,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Azure lleva a cabo exámenes de vulnerabilidades internas y externas trimestrales. Los exámenes los realiza personal cualificado. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
 
 
 
@@ -102,7 +102,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure realiza exámenes en busca de vulnerabilidades en la infraestructura subyacente en el ámbito. Microsoft Azure implementa el examen de vulnerabilidades en sistemas operativos de servidor, bases de datos y dispositivos de red con las herramientas de examen de vulnerabilidades adecuadas. Las aplicaciones web de Azure se examinan con las soluciones de análisis adecuadas del sector. Los exámenes de vulnerabilidades se realizan de forma trimestral.<br /><br />Los nuevos exámenes se realizan según sea necesario en todos los sistemas hasta que se resuelven todas las vulnerabilidades de "alto riesgo" (de acuerdo con lo identificado en el Requisito 6.1). |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
 
 
 
@@ -119,7 +119,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure realiza exámenes externos en busca de vulnerabilidades en la infraestructura subyacente en el ámbito a la que se tiene acceso de forma externa. Los exámenes los realiza un Proveedor aprobado de análisis (ASV).<br /><br />Microsoft Azure se suscribe a notificaciones de revisión mensuales de MSRC/OSSC y examina los sistemas en busca de vulnerabilidades al menos de forma trimestral. Las vulnerabilidades identificadas se evalúan y corrigen por cada escala de tiempo establecida según el nivel de riesgo.<br /><br />Para identificar vulnerabilidades de seguridad, cada trimestre se realiza un examen de las vulnerabilidades de seguridad completo y dirigido de los componentes prioritarios del entorno de Microsoft Azure. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Al implementar la tienda web de Contoso, los clientes de la demostración son responsables de realizar exámenes y nuevos exámenes trimestrales de vulnerabilidades externas según sea necesario en todas las instancias de PaaS en su entorno de datos de los titulares de tarjetas (CDE), mediante un Proveedor aprobado de análisis (ASV) aprobado por el Consejo de estándares de seguridad para la industria de tarjeta de pago.<br /><br />|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Al implementar la tienda web de Contoso, los clientes de la demostración son responsables de realizar exámenes y nuevos exámenes trimestrales de vulnerabilidades externas según sea necesario en todas las instancias de PaaS en su entorno de datos de los titulares de tarjetas (CDE), mediante un Proveedor aprobado de análisis (ASV) aprobado por el Consejo de estándares de seguridad para la industria de tarjeta de pago.<br /><br />|
 
 
 
@@ -132,7 +132,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Los resultados se notifican a las partes interesadas, y el equipo de seguridad de Azure realiza el seguimiento de la corrección hasta el cierre. Los resultados de las pruebas de Azure se pueden compartir con los clientes conforme al acuerdo de confidencialidad. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Los clientes son responsables de realizar exámenes trimestrales de las vulnerabilidades internas y externas, y nuevos exámenes según sea necesario en todas las instancias de PaaS en su CDE. Los exámenes deben realizarse después de aplicar cambios significativos en el entorno dentro del ámbito.<br /><br />Los exámenes los debe realizar un ASV o personal independiente de la organización.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de realizar exámenes trimestrales de las vulnerabilidades internas y externas, y nuevos exámenes según sea necesario en todas las instancias de PaaS en su CDE. Los exámenes deben realizarse después de aplicar cambios significativos en el entorno dentro del ámbito.<br /><br />Los exámenes los debe realizar un ASV o personal independiente de la organización.|
 
 
 
@@ -153,7 +153,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure valida los servicios mediante pruebas de penetración de terceros según las diez principales de OWASP (Proyectos de seguridad de aplicaciones web abiertas) con evaluadores con certificación CREST. El seguimiento de los resultados de las pruebas se realiza a través de un registro de riesgos que se audita y revisa de forma periódica para garantizar el cumplimiento con las prácticas de seguridad. <br /><br />Microsoft también usa simulacros de ataque contra la infraestructura, servicios y aplicaciones administrados por Microsoft. Durante el proceso de simulacros de ataque y pruebas de penetración de sitios activos no se usa deliberadamente ningún tipo de datos de los clientes finales. Las pruebas se realizan en la infraestructura y plataformas de Microsoft Azure, así como en las propias aplicaciones y datos de Microsoft. Nunca se usan inquilinos, aplicaciones ni datos del cliente hospedados en Azure.<br /><br />Microsoft Azure ha contratado a un evaluador independiente para desarrollar un plan de evaluación del sistema y realizar una evaluación de los controles. Las evaluaciones de los controles se realizan anualmente y los resultados se notifican a las partes relevantes. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
 
 
 
@@ -166,7 +166,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Vea la sección "Microsoft Azure" del [Requisito 11.3](#pci-dss-requirement-11-3). |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
 
 
 
@@ -179,7 +179,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure contrata asesores independientes para realizar pruebas de penetración del límite de Microsoft Azure. También se realizan ejercicios de simulacro de ataques regularmente y los resultados se usan para realizar mejoras de seguridad. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Se han realizado pruebas de penetración en la tienda web de Contoso y se han examinado las vulnerabilidades en un esfuerzo "tal cual". Los resultados de las pruebas de penetración se pueden duplicar mediante herramientas comunes, como nmap o pentest-tools.com. Los resultados de la prueba de penetración proporcionarán una superficie expuesta a ataques no concluyente, sin elementos infringibles. Además, [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan información y corrección de vulnerabilidades.|
 
 
 
@@ -192,7 +192,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Se han establecido procedimientos para supervisar los componentes de la plataforma de Microsoft Azure en busca de vulnerabilidades de seguridad conocidas. <br /><br /><br /><br />Para identificar vulnerabilidades de seguridad, cada trimestre se realiza un examen de las vulnerabilidades de seguridad completo y dirigido de los componentes prioritarios del entorno de producción de Azure. Los resultados se notifican a las partes interesadas y el equipo realiza el seguimiento de la corrección hasta el cierre. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
 
 
 
@@ -205,7 +205,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Se han establecido procedimientos para supervisar los componentes de la plataforma de Microsoft Azure en busca de vulnerabilidades de seguridad conocidas. <br /><br /><br /><br />Para identificar vulnerabilidades de seguridad, cada trimestre se realiza un examen de las vulnerabilidades de seguridad completo y dirigido de los componentes prioritarios del entorno de producción de Azure. Los resultados se notifican a las partes interesadas y el equipo realiza el seguimiento de la corrección hasta el cierre. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
 
 
 
@@ -222,7 +222,7 @@ Con independencia de los métodos que se usen, deben ser suficientes para detect
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Vea la sección "Microsoft Azure" del [Requisito 11.3.4](#pci-dss-requirement-11-3-4). |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations), que proporcionan información y corrección de vulnerabilidades, se han usado para asegurarse de que se corrigieron todos los problemas para el CDE de demostración de la tienda web de Contoso.|
 
 
 
@@ -236,7 +236,7 @@ Mantenga actualizados los motores, las líneas base y las firmas de detección y
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure realiza análisis en tiempo real de los eventos dentro de su entorno operativo, y los sistemas IDS generan alertas casi en tiempo real sobre los eventos que podrían poner en peligro el sistema. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso es un servicio de PaaS y la prevención y detección de intrusiones de red es responsabilidad de Azure. [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan alertas y corrección de intrusiones.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso es un servicio de PaaS y la prevención y detección de intrusiones de red es responsabilidad de Azure. [Azure Security Center](https://azure.microsoft.com/services/security-center/) y [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporcionan alertas y corrección de intrusiones.|
 
 
 
@@ -252,7 +252,7 @@ Mantenga actualizados los motores, las líneas base y las firmas de detección y
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure mantiene y notifica a los clientes los posibles cambios y eventos que pueden afectar a la seguridad o disponibilidad de los servicios a través de un panel de servicios en línea. Los cambios en los compromisos y obligaciones de seguridad de los clientes de Microsoft Azure se actualizan en el sitio web de Microsoft Azure de manera puntual.<br /><br />La instalación o los cambios de software en el entorno de producción de Microsoft Azure se restringen al personal de administración autorizado y se rigen por los procedimientos de administración de cambios. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La demostración de la tienda web de Contoso es un servicio de PaaS y la detección de cambios se ha implementado mediante OMS. Para más información, vea [Guía de PCI: Soluciones de OMS preinstaladas](payment-processing-blueprint.md#oms-solutions).<br /><br />|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La demostración de la tienda web de Contoso es un servicio de PaaS y la detección de cambios se ha implementado mediante Log Analytics. Para más información, consulte [Guía de PCI: soluciones de administración preinstaladas](payment-processing-blueprint.md#management-solutions).<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ Mantenga actualizados los motores, las líneas base y las firmas de detección y
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Las reglas del evento de supervisión de Azure proporcionan un mayor nivel de supervisión para operaciones y recursos de alto riesgo. El cumplimiento normativo de los dispositivos de red administrados por Azure se supervisa con estándares de seguridad establecidos. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Las alertas de cambios de la tienda web de Contoso se proporcionan con la implementación de OMS. Para más información, vea [Guía de PCI: Soluciones de OMS preinstaladas](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Las alertas de cambios de la tienda web de Contoso se proporcionan con la implementación de Log Analytics. Para más información, consulte [Guía de PCI: soluciones de administración preinstaladas](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ Mantenga actualizados los motores, las líneas base y las firmas de detección y
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Las alertas de cambios de la tienda web de Contoso se proporcionan con la implementación de OMS. Para más información, vea [Guía de PCI: Soluciones de OMS preinstaladas](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Las alertas de cambios de la tienda web de Contoso se proporcionan con la implementación de Log Analytics. Para más información, consulte [Guía de PCI: soluciones de administración preinstaladas](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 

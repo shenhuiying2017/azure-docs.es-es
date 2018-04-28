@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 17ea97e34deb375123de12508c2c0845cd25c27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -284,7 +284,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 26. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes: 
 
     1. Escriba **AzureStorageLinkedService** en **Name** (Nombre). 
-    2. Seleccione la cuenta de Azure Storage de **Storage account name** (Nombre de la cuenta de Storage).
+    2. Seleccione la cuenta de Azure Storage en **Storage account name** (Nombre de la cuenta de Storage).
     3. Haga clic en **Save**(Guardar). 
 
         ![Servicio vinculado de Azure Storage: configuración](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
@@ -299,7 +299,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
 29. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Stored Procedure** (Procedimiento almacenado) del cuadro de herramientas **Actividades** para colocarla en la superficie del diseñador de canalizaciones. **Conecte** el resultado verde (correcto) de la actividad **Copy** (Copiar) con la actividad **Stored Procedure** (Procedimiento almacenado). 
     
     ![Actividad de copia: origen](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Seleccione **Storage Procedure Activity** (Actividad Procedimiento almacenado) en el diseñador de canalizaciones y cámbiele el nombre a **StoredProceduretoWriteWatermarkActivity**. 
+24. Seleccione **Stored Procedure Activity** (Actividad Procedimiento almacenado) en el diseñador de canalizaciones y cambie el nombre a **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Actividad de procedimiento almacenado: nombre](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Cambie a la pestaña **SQL Account** (Cuenta de SQL) y seleccione *AzureSqlDatabaseLinkedService** como **Linked service** (Servicio vinculado). 

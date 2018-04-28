@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning 
 
-IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning pueden aprovisionar millones de dispositivos de forma segura y escalable. Este artículo proporciona información general sobre conceptos de *seguridad* implicados en el aprovisionamiento de dispositivos. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
+IoT Hub Device Provisioning es un servicio auxiliar de IoT Hub que se utiliza para configurar el aprovisionamiento de dispositivos sin interacción de un centro IoT especificado. Con el servicio Device Provisioning puede [aprovisionar automáticamente](concepts-auto-provisioning.md) millones de dispositivos de forma segura y escalable. Este artículo proporciona información general sobre conceptos de *seguridad* implicados en el aprovisionamiento de dispositivos. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
 
 ## <a name="attestation-mechanism"></a>Mecanismo de atestación
 
@@ -46,6 +46,8 @@ Los secretos de dispositivo también pueden almacenarse con software (en memoria
 
 Un módulo de plataforma segura puede hacer referencia a un estándar para almacenar de forma segura las claves usadas para autenticar la plataforma, o puede hacer referencia a la interfaz de E/S que se utiliza para interactuar con los módulos que implementan el estándar. Los módulos de plataforma segura pueden existir como hardware discreto, hardware integrado, basados en firmware o basados en software. Más información sobre [TPM y atestación con TPM](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). El servicio Device Provisioning solo admite TPM 2.0.
 
+La atestación de TPM se basa en un reto nonce, que usa claves raíz de almacenamiento y aprobación para presentar un token de firma de acceso compartido (SAS) firmado.
+
 ### <a name="endorsement-key"></a>Clave de aprobación
 
 La clave de aprobación es una clave asimétrica que se encuentra dentro del módulo de plataforma segura que se generó internamente o se insertó en el momento de la fabricación y es único para cada TPM. La clave de aprobación no se puede cambiar ni quitar. La parte privada de la clave de aprobación nunca se difunde fuera del módulo de plataforma segura, mientras que la parte pública se utiliza para reconocer un módulo auténtico. Más información sobre la [clave de aprobación](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ La clave raíz de almacenamiento se almacena en el modulo de plataforma segura y
 
 ## <a name="x509-certificates"></a>Certificados X.509
 
-El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esto establece una cadena de confianza delegada a partir del certificado raíz generado por una entidad de certificación (CA) raíz de confianza que va descendiendo a través de cada entidad de certificación intermedia hasta el certificado de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+El uso de certificados X.509 como un mecanismo de atestación es una manera excelente para escalar la producción y simplificar el aprovisionamiento de dispositivos. Los certificados X.509 normalmente están organizados en una cadena de certificados de confianza en la que cada certificado de la cadena está firmado por la clave privada del certificado superior siguiente y así sucesivamente, terminando en un certificado raíz autofirmado. Esto establece una cadena de confianza delegada a partir del certificado raíz generado por una entidad de certificación (CA) raíz de confianza que va descendiendo mediante cada entidad de certificación intermedia hasta el certificado "de hoja" de entidad final instalado en un dispositivo. Para más información consulte [Autenticación de dispositivos mediante certificados de entidades de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-A menudo la cadena de certificados representa alguna jerarquía lógica o física asociada con los dispositivos. Por ejemplo, un fabricante puede emitir un certificado de entidad de certificación raíz autofirmado, utilizar ese certificado para generar un único certificado de CA intermedio para cada fábrica, usar los certificados de cada fábrica para generar un único certificado de CA intermedio para cada línea de producción en la planta y por último, utilizar el certificado de la línea de producción para generar un certificado de dispositivo (entidad final) único para cada dispositivo que se fabrica en la línea. Para más información consulte [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+A menudo la cadena de certificados representa alguna jerarquía lógica o física asociada con los dispositivos. Por ejemplo, un fabricante puede:
+- emitir un certificado raíz de entidad de certificación autofirmado
+- usar el certificado raíz para generar un certificado de entidad de certificación intermedia único para cada fábrica
+- usar el certificado de cada fábrica para generar un certificado de entidad de certificación intermedia único para cada línea de producción en la planta
+- y, por último, utilizar el certificado de la línea de producción para generar un certificado de dispositivo único (entidades finales) para cada dispositivo que se fabrica en la línea. 
+
+Para más información consulte [Explicación de los conceptos de certificados de entidad de certificación X.509 en el sector de IoT](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Certificado raíz
 
-Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
+Un certificado raíz es un certificado X.509 autofirmado que representa una entidad de certificación (CA). Es el término o anclaje de veracidad de la cadena de certificados. Una organización puede emitir sus propios certificados raíz o puede adquirirlos a través de una entidad de certificación raíz. Para más información, consulte [Obtención de certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). También se puede hacer referencia al certificado raíz como un certificado de CA raíz.
 
 ### <a name="intermediate-certificate"></a>Certificado intermedio
 
 Un certificado intermedio es un certificado X.509 que ha sido firmado por el certificado raíz (o por otro certificado que actúa como certificado intermedio en la cadena hasta el certificado raíz). El último certificado intermedio en una cadena se usa para firmar el certificado de hoja. También se puede hacer referencia a un certificado intermedio como un certificado de CA intermedio.
 
-### <a name="leaf-certificate"></a>Certificado de hoja
+### <a name="end-entity-leaf-certificate"></a>Certificado de entidad final "de hoja"
 
-El certificado de hoja, o certificado de entidad final, identifica al titular del certificado. Tiene el certificado raíz en su cadena de certificados, así como cero o más certificados intermedios. El certificado de hoja no se usa para firmar otros certificados. Identifica de forma exclusiva al dispositivo ante el servicio de aprovisionamiento, y a veces se conoce como certificado del dispositivo. Durante la autenticación, el dispositivo usa la clave privada asociada con este certificado para responder a una prueba de desafío de posesión del servicio. Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+El certificado de hoja, o certificado de entidad final, identifica al titular del certificado. Tiene el certificado raíz en su cadena de certificados, así como cero o más certificados intermedios. El certificado de hoja no se usa para firmar otros certificados. Identifica de forma exclusiva al dispositivo ante el servicio de aprovisionamiento, y a veces se conoce como certificado del dispositivo. Durante la autenticación, el dispositivo usa la clave privada asociada con este certificado para responder a una prueba de desafío de posesión del servicio. Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509
 

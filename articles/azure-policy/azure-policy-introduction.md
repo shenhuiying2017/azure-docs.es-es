@@ -3,19 +3,19 @@ title: Introducción a Azure Policy | Microsoft Docs
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 services: azure-policy
 keywords: ''
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.reviewer: nini
-ms.date: 03/29/2018
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f9cd00aec025748170a6576fe3ee4dbf794edfdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 886026f8548cf3d7416b5034995399368de8c419
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
@@ -53,13 +53,17 @@ En Azure Portal, se ofrecen algunas directivas integradas que están disponibles
 - **Forzar etiqueta y su valor**: esta directiva fuerza una etiqueta necesaria y su valor en un recurso.
 - **Tipos de recursos no permitidos**: esta directiva permite especificar los tipos de recursos que la organización no puede implementar.
 
-Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure.
+Puede asignar cualquiera de estas directivas a través de Azure Portal, PowerShell o la CLI de Azure. Después de hacer cambios en la definición de una directiva, la reevaluación de la directiva tiene lugar aproximadamente una vez cada hora.
 
 Para más información sobre las estructuras de las definiciones de directiva, consulte este artículo: [Estructura de definición de directiva](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Asignación de directiva
 
-Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un grupo de administración a un grupo de recursos. El término *ámbito* hace referencia a todos los grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. De este modo, si una directiva se aplica a un grupo de recursos, también es aplicable a todos los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva. Por ejemplo, en el ámbito de la suscripción, puede asignar una directiva que impida la creación de recursos de red. Sin embargo, excluye un grupo de recursos dentro de la suscripción que está diseñado para la infraestructura de red. Concede acceso a este grupo de recursos de red a los usuarios de confianza con la creación de recursos de red.
+Una asignación de directiva es una definición de directiva que se asignó para que ocurra dentro de un ámbito específico. Este ámbito puede ir desde un grupo de administración a un grupo de recursos. El término *ámbito* hace referencia a todos los grupos de recursos, suscripciones o grupos de administración a los que se asigna la definición de directiva. Todos los recursos secundarios heredan las asignaciones de directivas. De este modo, si una directiva se aplica a un grupo de recursos, también es aplicable a todos los recursos de dicho grupo. Sin embargo, puede excluir un subámbito de la asignación de directiva.
+
+Por ejemplo, en el ámbito de la suscripción, puede asignar una directiva que impida la creación de recursos de red. Sin embargo, excluye un grupo de recursos dentro de la suscripción que está diseñado para la infraestructura de red. Concede acceso a este grupo de recursos de red a los usuarios de confianza con la creación de recursos de red.
+
+En otro ejemplo, es posible que desee asignar una directiva de lista de permitidos de tipos de recursos al nivel de grupo de administración. Y después asigne una directiva más permisiva (para permitir más tipos de recursos) en un grupo de administración secundario o incluso directamente en las suscripciones. Sin embargo, este ejemplo podría no funcionar porque la directiva es un sistema de denegación explícito. En su lugar, debe excluir el grupo de administración secundario o la suscripción de la asignación de directivas a nivel de grupo de administración. Después, asigne la directiva más permisiva en el grupo de administración secundario o en el nivel de suscripción. Para resumir, si alguna directiva tiene como resultado la denegación de un recurso, la única manera de permitir el recurso es modificar la directiva de denegación.
 
 Para más información sobre la configuración de las definiciones y asignaciones de directiva, vea [Creación de una asignación de directiva para identificar recursos no compatibles en el entorno de Azure](assign-policy-definition.md).
 

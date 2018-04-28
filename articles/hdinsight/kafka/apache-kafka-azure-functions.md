@@ -1,24 +1,24 @@
 ---
 title: Uso de Azure Functions para enviar datos a Kafka en HDInsight | Microsoft Docs
-description: "Aprenda a usar una función de Azure para escribir datos en Kafka en HDInsight."
+description: Aprenda a usar una función de Azure para escribir datos en Kafka en HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Uso de Kafka en HDInsight desde una aplicación de función de Azure
 
@@ -70,7 +70,7 @@ La información de esta sección prepara el clúster de Kafka para aceptar datos
 
 De manera predeterminada, Zookeeper devuelve el nombre de dominio de los agentes de Kafka a los clientes. Esta configuración no funciona sin un servidor DNS, dado que el cliente (Azure Functions) no puede resolver nombres de la red virtual. Para esta configuración, use los pasos siguientes para configurar Kafka con el fin de anunciar direcciones IP en lugar de nombres de dominio:
 
-1. En el explorador web, vaya a https://CLUSTERNAME.azurehdinsight.net. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
+1. Vaya a https://CLUSTERNAME.azurehdinsight.net desde un explorador web. Reemplace __CLUSTERNAME__ por el nombre del clúster de Kafka en HDInsight.
 
     Cuando se le solicite, use el nombre de usuario y la contraseña HTTPS para el clúster. Aparece la interfaz de usuario web de Ambari para el clúster.
 

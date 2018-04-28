@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (control de acceso)"
-description: "Automatización de aplicaciones web para FedRAMP (control de acceso)"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (control de acceso)'
+description: Automatización de aplicaciones web para FedRAMP (control de acceso)
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-ac"></a>Control de acceso (CA)
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. |
+| **Cliente** | En este proyecto se implementa el panel Identidad y acceso de la solución Security and Audit. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -203,7 +203,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Se puede configurar OMS para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
+| **Cliente** | En este proyecto se implementa el panel Identidad y acceso de la solución Security and Audit. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Se puede configurar para enviar alertas cuando se sospeche de alguna actividad inusual o cuando se produzcan otros eventos predefinidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -245,7 +245,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Las acciones de administración de cuentas de Azure Active Directory generan un evento en el registro de actividad de Azure, y las acciones de administración de cuentas a nivel de sistema operativo generan un evento en el registro del sistema. Estos registros los recopila Log Analytics y se almacenan en el repositorio de OMS. Se puede configurar OMS par que envíe alertas cuando se producen eventos predefinidos.  |
+| **Cliente** | Esta instancia de Blueprint implementa los siguientes tipos de cuentas del sistema: usuarios de Azure Active Directory, usuarios del sistema operativo Windows y cuenta de servicio de SQL Server. Las acciones de administración de cuentas de Azure Active Directory generan un evento en el registro de actividad de Azure, y las acciones de administración de cuentas a nivel de sistema operativo generan un evento en el registro del sistema. Log Analytics recopila estos registros y los almacena en el área de trabajo de Log Analytics. Se puede configurar Log Analytics para que envíe alertas cuando se produzcan eventos predefinidos.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -287,7 +287,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Esta solución se puede consultar para informar de las asignaciones de roles con privilegios. |
+| **Cliente** | En este proyecto se implementa el panel Identidad y acceso de la solución Security and Audit. Este panel permite a los administradores de cuentas supervisar el uso de las cuentas del sistema de información. Esta solución se puede consultar para informar de las asignaciones de roles con privilegios. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -315,7 +315,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos que implementó esta instancia de Blueprint. |
+| **Cliente** | No hay ninguna cuenta compartida o de grupo habilitada en los recursos implementados con este plano técnico. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -329,7 +329,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | No se habilita ninguna cuenta compartida o de grupo en los recursos que implementó esta instancia de Blueprint. |
+| **Cliente** | No hay ninguna cuenta compartida o de grupo habilitada en los recursos implementados con este plano técnico. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -343,7 +343,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se puede establecer una directiva de grupo en Active Directory y configurarla para implementar restricciones para horas del día u otras condiciones de uso de las cuentas. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Se puede establecer una directiva de grupo en Active Directory y configurarla para implementar restricciones para horas del día u otras condiciones de uso de las cuentas. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -357,7 +357,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. |
+| **Cliente** | En este proyecto se implementa el panel Identidad y acceso de la solución Security and Audit. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -371,7 +371,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el panel Identidad y acceso de la solución Security and Audit de OMS. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. Se puede configurar esta solución para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
+| **Cliente** | En este proyecto se implementa el panel Identidad y acceso de la solución Security and Audit. Este panel permite a los administradores de cuentas supervisar los intentos de acceso a los recursos implementados. Se puede configurar esta solución para enviar alertas cuando se sospecha de alguna actividad inusual o cuando se producen otros eventos predefinidos. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -609,7 +609,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa el servicio de Log Analytics en OMS. Las cuentas de almacenamiento de Azure Diagnostics y de las máquinas virtuales implementadas son orígenes conectados a Log Analytics que garantizan la auditoría de la ejecución de las funciones con privilegios. |
+| **Cliente** | En este proyecto se implementa el servicio Log Analytics. Las cuentas de almacenamiento de Azure Diagnostics y de las máquinas virtuales implementadas son orígenes conectados a Log Analytics que garantizan la auditoría de la ejecución de las funciones con privilegios. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -679,7 +679,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. Nota: La instancia de Blueprint implementa una notificación de uso del sistema de ejemplo. El cliente debe editar este texto para cumplir los requisitos del organismo regulador o de la organización. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. Nota: La instancia de Blueprint implementa una notificación de uso del sistema de ejemplo. El cliente debe editar este texto para cumplir los requisitos del organismo regulador o de la organización. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -693,7 +693,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. El usuario debe confirmar la notificación para iniciar sesión. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa una notificación de uso del sistema que se muestra a los usuarios antes de que inicien sesión. El usuario debe confirmar la notificación para iniciar sesión. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -735,7 +735,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios pueden activar el bloqueo manualmente. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios pueden activar el bloqueo manualmente. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -749,7 +749,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios deben volver a autenticarse para desbloquear la sesión.  |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. Los usuarios deben volver a autenticarse para desbloquear la sesión.  |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -763,7 +763,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. El bloqueo de sesión oculta información que antes estaba visible. |
+| **Cliente** | Con este plano técnico se implementa un controlador de dominio al que se unen todas las máquinas virtuales implementadas. Una directiva de grupo implementa un bloqueo de inactividad para las sesiones de RDP. El bloqueo de sesión oculta información que antes estaba visible. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -875,7 +875,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | Esta instancia de Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, mediante una conexión al Escritorio remoto a través de un JumpBox y a través de una aplicación web que implementó el cliente. Los accesos a través de Azure Portal y las sesiones de Escritorio remoto están sujetos a auditoría y se supervisan a través de OMS. El cliente debe implementar controles de acceso remoto, según sea necesario, a la aplicación web. |
+| **Cliente** | Esta instancia de Blueprint proporciona acceso remoto al sistema de información a través de Azure Portal, mediante una conexión al Escritorio remoto a través de un JumpBox y a través de una aplicación web que implementó el cliente. Los accesos mediante Azure Portal y las sesiones de Escritorio remoto están sujetos a auditoría y se supervisan mediante Log Analytics. El cliente debe implementar controles de acceso remoto, según sea necesario, a la aplicación web. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 
@@ -889,7 +889,7 @@ ms.lasthandoff: 02/11/2018
 
 |||
 |---|---|
-| **Cliente** | El acceso remoto a los recursos que implementó esta instancia de Blueprint, como Azure Portal, la conexión al Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. |
+| **Cliente** | El acceso remoto a los recursos implementados por este plano, como Azure Portal, Conexión a Escritorio remoto y la puerta de enlace de aplicación web, está protegido mediante TLS. |
 | **Proveedor (Microsoft Azure)** | No aplicable |
 
 

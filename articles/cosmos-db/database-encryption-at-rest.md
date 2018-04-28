@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: voellm
-ms.openlocfilehash: c32c85c560e9dfe587e79e77aa4b1262e347bed4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 831fa2b6b9afb39bff715ef54cc41e11ee903e50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Cifrado de base de datos en reposo en Azure Cosmos DB
 
@@ -65,4 +65,4 @@ R: El emulador es una herramienta de desarrollo o prueba independiente y no empl
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener información general sobre la seguridad y las últimas mejoras de Cosmos DB, consulte [Seguridad de base de datos de Azure Cosmos DB](database-security.md).
-Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/en-us/support/trust-center/).
+Para obtener más información sobre las certificaciones de Microsoft, visite el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/).

@@ -1,26 +1,24 @@
 ---
-title: "Personalización de clústeres de HDInsight mediante acciones de script - Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo personalizar clústeres de HDInsight mediante la acción de script."
+title: Personalización de clústeres de HDInsight mediante acciones de script - Azure | Microsoft Docs
+description: Obtenga información acerca de cómo personalizar clústeres de HDInsight mediante la acción de script.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: ec95b6d66c71b4278dd1e16807fcc75f5e8b1c36
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)
 **acción de script** se puede usar para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante el proceso de creación de clústeres para instalar software adicional en un clúster.
@@ -30,7 +28,7 @@ La información de este artículo es específica de los clústeres de HDInsight 
 > [!IMPORTANT]
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Los clústeres de HDInsight se pueden personalizar de muchas maneras distintas, por ejemplo, con la inclusión de cuentas de almacenamiento de Azure adicionales, mediante el cambio de archivos de configuración de Hadoop (core-site.xml, hive-site.xml, etc.) o mediante la adición de bibliotecas compartidas (por ejemplo, Oozie o Hive) en ubicaciones comunes en el clúster. Estas personalizaciones pueden realizarse a través de Azure PowerShell, el SDK para .NET de HDInsight de Azure o Azure Portal. Para obtener más información, consulte [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster].
+Los clústeres de HDInsight se pueden personalizar de muchas maneras distintas, por ejemplo, con la inclusión de cuentas de Azure Storage adicionales, mediante el cambio de archivos de configuración de Hadoop (core-site.xml, hive-site.xml, etc.) o mediante la adición de bibliotecas compartidas (por ejemplo, Oozie o Hive) en ubicaciones comunes en el clúster. Estas personalizaciones pueden realizarse a través de Azure PowerShell, el SDK para .NET de HDInsight de Azure o Azure Portal. Para obtener más información, consulte [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster].
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -52,7 +50,7 @@ Cada clúster puede aceptar varias acciones de script, que se invocan en el orde
 
 HDInsight proporciona varios scripts para instalar los siguientes componentes en clústeres de HDInsight:
 
-| Nombre | Script |
+| NOMBRE | Script |
 | --- | --- |
 | **Instalar Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Vea [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]. |
 | **Instalar R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Consulte [Instalación y uso de R en clústeres de HDInsight][hdinsight-install-r]. |
@@ -70,7 +68,7 @@ HDInsight proporciona varios scripts para instalar los siguientes componentes en
 
     <table border='1'>
         <tr><th>Propiedad</th><th>Valor</th></tr>
-        <tr><td>Nombre</td>
+        <tr><td>NOMBRE</td>
             <td>Especifique un nombre para la acción de script.</td></tr>
         <tr><td>Identificador URI de script</td>
             <td>Especifique el identificador URI al script que se ha invocado para personalizar el clúster. s</td></tr>
@@ -87,7 +85,7 @@ HDInsight proporciona varios scripts para instalar los siguientes componentes en
 Este script de PowerShell muestra cómo instalar Spark en un clúster de HDInsight basado en Windows.  
 
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -110,7 +108,7 @@ Este script de PowerShell muestra cómo instalar Spark en un clúster de HDInsig
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
 
@@ -285,7 +283,7 @@ En el ejemplo siguiente se muestra cómo instalar Spark en un clúster de HDInsi
 5. Presione **F5** para ejecutar la aplicación.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Soporte técnico para el software de código abierto utilizado en clústeres de HDInsight
-El servicio HDInsight de Microsoft Azure es una plataforma flexible que permite compilar aplicaciones con grandes volúmenes de datos en la nube mediante el ecosistema de tecnologías de código abierto formadas en torno a Hadoop. Microsoft Azure ofrece un nivel general de soporte técnico para las tecnologías de código abierto, tal como se describe en la sección **Ámbito de soporte técnico** del <a href="http://azure.microsoft.com/support/faq/" target="_blank">sitio web de Preguntas más frecuentes de soporte técnico de Azure</a>. Además, el servicio de HDInsight ofrece un nivel adicional de soporte técnico para algunos de los componentes, como se describe a continuación.
+El servicio Microsoft Azure HDInsight es una plataforma flexible que permite compilar aplicaciones con grandes volúmenes de datos en la nube mediante el ecosistema de tecnologías de código abierto formadas en torno a Hadoop. Microsoft Azure ofrece un nivel general de soporte técnico para las tecnologías de código abierto, tal como se describe en la sección **Ámbito de soporte técnico** del <a href="http://azure.microsoft.com/support/faq/" target="_blank">sitio web de Preguntas más frecuentes de soporte técnico de Azure</a>. Además, el servicio de HDInsight ofrece un nivel adicional de soporte técnico para algunos de los componentes, como se describe a continuación.
 
 Hay dos tipos de componentes de código abierto que están disponibles en el servicio de HDInsight:
 
@@ -297,7 +295,7 @@ Los componentes integrados son totalmente compatibles, y el soporte técnico de 
 > [!WARNING]
 > Los componentes ofrecidos con HDInsight son totalmente compatibles. Además, el soporte técnico de Microsoft le ayudará a aislar y resolver problemas relacionados con estos componentes.
 >
-> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Además, los proyectos de Apache tienen sitios del proyecto en [http://apache.org](http://apache.org), por ejemplo, [Hadoop](http://hadoop.apache.org/) y [Spark](http://spark.apache.org/).
+> Los componentes personalizados reciben soporte técnico comercialmente razonable para ayudarle a solucionar el problema. Esto podría resolver el problema o pedirle que forme parte de los canales disponibles para las tecnologías de código abierto donde se encuentra la más amplia experiencia para esa tecnología. Por ejemplo, hay diversos sitios de la comunidad que se pueden usar, como el [foro de MSDN para HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Los proyectos de Apache también tienen sitios de proyecto en [http://apache.org](http://apache.org), por ejemplo: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 >
 >
 
@@ -310,7 +308,7 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 ## <a name="develop-script-action-scripts"></a>Desarrollo de scripts de acción de script
 Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-write-script].
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 * En [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
 * [Desarrollo de acciones de script con HDInsight][hdinsight-write-script]
 * [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]

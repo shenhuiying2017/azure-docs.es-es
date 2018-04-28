@@ -9,11 +9,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 61632bfc8848fb5a5bcbcda7c1e60e763448ce23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76d14b0d9bf14c6b9f342b0aae8fd42e871ea18d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
 
@@ -81,7 +81,7 @@ El runbook que acaba de crear aún está en modo de borrador. Tiene que publicar
 12. Puede hacer clic en este trabajo para abrir el mismo panel Trabajo que vio cuando se inició el runbook. Esto permite volver atrás en el tiempo y ver los detalles de cualquier trabajo que se creó para un runbook determinado.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Paso 5: agregar autenticación para administrar recursos de Azure
-Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere que administre recursos de Azure. Sin embargo, no podrá hacerlo a menos que lo autentique con las credenciales que se mencionan en los [requisitos previos](#prerequisites). Esto se hace con el cmdlet **Add-AzureRmAccount**.
+Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere que administre recursos de Azure. Sin embargo, no podrá hacerlo a menos que lo autentique con las credenciales que se mencionan en los [requisitos previos](#prerequisites). Esto se hace con el cmdlet **Connect-AzureRmAccount**.
 
 1. Haga clic en **Editar** en la página MyFirstRunbook-PowerShell para abrir el editor de texto.
 2. Ya no necesita la línea **Write-Output**, así que elimínela.
@@ -89,7 +89,7 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
    <br>
@@ -99,11 +99,11 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Paso 6: Incorporación de una actividad para iniciar una máquina virtual
 Ahora que el runbook está autenticado en la suscripción a Azure, puede administrar los recursos. Agregue un comando para iniciar una máquina virtual. Puede seleccionar cualquier máquina virtual de la suscripción de Azure. Por ahora, codificará ese nombre directamente en el runbook.
 
-1. Después de *Add-AzureRmAccount*, escriba *Start-AzureRmVM -Name 'NombreVM' -ResourceGroupName 'NombreGrupoRecursos'* y proporcione el nombre y el nombre del grupo de recursos de la máquina virtual que se iniciará.  
+1. Tras *Connect-AzureRmAccount*, escriba *Start-AzureRmVM -Name 'NombreVM' -ResourceGroupName 'NombreGrupoRecursos'* y proporcione el nombre y el nombre del grupo de recursos de la máquina virtual que se iniciará.  
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
@@ -122,7 +122,7 @@ Actualmente, el runbook inicia la máquina virtual que codificó directamente en
     [string]$ResourceGroupName
    )
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```

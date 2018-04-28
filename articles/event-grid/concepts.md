@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/16/2018
 ms.author: babanisa
-ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e5499fca98118de6ef8e08c8ce278b90520425e6
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -20,7 +20,7 @@ Los principales conceptos de Azure Event Grid son:
 
 ## <a name="events"></a>Eventos
 
-Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema.  Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único.  Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor `lastTimeModified`. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio. Cada evento tiene 64 KB de datos como máximo.
+Una evento es la cantidad mínima de información que describe completamente algo que se ha producido en el sistema. Todos los eventos tienen información común, como: origen del evento, hora en que el evento ha tenido lugar e identificador único. Cada evento tiene además información específica que solo es relevante para el tipo de evento concreto. Por ejemplo, un evento sobre un nuevo archivo que se crea en Azure Storage contiene detalles sobre el archivo, como, por ejemplo, el valor `lastTimeModified`. O bien, un evento sobre un reinicio de máquina virtual contiene el nombre de la máquina virtual y el motivo de reinicio. Cada evento tiene 64 KB de datos como máximo.
 
 ## <a name="event-sourcespublishers"></a>Orígenes/publicadores de eventos
 
@@ -32,7 +32,7 @@ Los publicadores clasifican los eventos en temas. El tema incluye un punto de co
 
 Los temas del sistema son temas integrados que ofrecen los servicios de Azure. Los temas personalizados son temas de terceros y de aplicación.
 
-Cundo diseñe la aplicación, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Cuando se suscriba al tema personalizado, el controlador de eventos puede filtrar por tipo de evento.
+Cuando diseñe la aplicación, tiene flexibilidad al decidir cuántos temas se crean. Para soluciones grandes, cree un tema personalizado para cada categoría de eventos relacionados. Por ejemplo, considere una aplicación que envía eventos relacionados con la modificación de las cuentas de usuario y el procesamiento de pedidos. Es poco probable que algún controlador de eventos quiera ambas categorías de eventos. Cree dos temas personalizados y deje que los controladores de eventos se suscriban a uno que les interese. Para soluciones pequeñas, puede que prefiera enviar todos los eventos a un solo tema. Los suscriptores de eventos se pueden filtrar por los tipos de evento que desean.
 
 ## <a name="event-subscriptions"></a>Suscripciones a eventos
 
@@ -40,7 +40,7 @@ Una suscripción indica a Event Grid los eventos sobre un tema que a un suscript
 
 ## <a name="event-handlers"></a>Controladores de eventos
 
-Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento.  Event Grid admite varios tipos de suscriptor. Según el tipo de suscriptor, Event Grid sigue distintos procedimiento para garantizar la entrega del evento.  En el caso de los controladores de eventos de webhook HTTP, el evento se reintenta hasta que el controlador devuelve un código de estado de `200 – OK`. En la cola de Azure Storage, los eventos se reintentan hasta que Queue service puede procesar correctamente la inserción del mensaje en la cola.
+Desde la perspectiva de Event Grid, un controlador de eventos es el lugar al que se envía el evento. El controlador realiza alguna acción adicional para procesar el evento. Event Grid admite varios tipos de suscriptor. Según el tipo de suscriptor, Event Grid sigue distintos procedimiento para garantizar la entrega del evento. En el caso de los controladores de eventos de webhook HTTP, el evento se reintenta hasta que el controlador devuelve un código de estado de `200 – OK`. En la cola de Azure Storage, los eventos se reintentan hasta que Queue service puede procesar correctamente la inserción del mensaje en la cola.
 
 ## <a name="filters"></a>Filtros
 

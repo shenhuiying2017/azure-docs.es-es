@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: hero-article
-ms.date: 01/29/2018
+ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: aca9f822bf3fd3b26e554240a4fee2474b89143d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cc0c26d83794cfb0b398e668ae89e268901df345
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure"></a>Implementación paquetes de SQL Server Integration Services en Azure
 En este tutorial se describen los pasos necesarios para usar Azure Portal para aprovisionar Integration Runtime de SSIS de Azure en Azure Data Factory. Posteriormente, puede usar SQL Server Data Tools o SQL Server Management Studio para implementar paquetes de SQL Server Integration Services (SSIS) en este entorno de ejecución de Azure. Para obtener información conceptual acerca de Integration Runtime para la integración de SSIS en Azure, consulte [Introducción a Integration Runtime de SSIS de Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -41,7 +41,7 @@ En este tutorial, va a completar los siguientes pasos:
 
 > [!NOTE]
 > - Puede crear una factoría de datos de la versión 2 en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Sudeste Asiático y Europa Occidental. 
-> - Puede crear una instancia de IR de SSIS de Azure en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Europa del Norte, Europa Occidental y Este de Australia. 
+> - Puede crear una instancia de IR para la integración de SSIS en Azure en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Centro de EE. UU., Oeste de EE. UU. 2, Europa del Norte, Europa Occidental, Sur de Reino Unido y Este de Australia. 
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
@@ -128,7 +128,7 @@ En este tutorial, va a completar los siguientes pasos:
    >
    > El servicio Data Factory se conecta a la base de datos Azure SQL para preparar el catálogo de SSIS (base de datos SSISDB). El script también configura los permisos y las opciones de la red virtual, si se especifica. Asimismo, une la nueva instancia de Integration Runtime para la integración de SSIS en Azure a la red virtual.
    > 
-   > Al aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure, también se instala el paquete de características de Azure para SSIS y el acceso redistribuible. Estos componentes proporcionan conectividad a los archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de los admitidos por los componentes integrados. No se puede instalar componentes de terceros para SSIS en este momento. Esta restricción incluye a componentes de terceros de Microsoft, como los de Oracle y Teradata de Attunity y los componentes de inteligencia empresarial de SAP.
+   > Al aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure, también se instala el paquete de características de Azure para SSIS y el acceso redistribuible. Estos componentes proporcionan conectividad a los archivos de Excel y Access, y a diversos orígenes de datos de Azure, además de los admitidos por los componentes integrados. También puede instalar componentes adicionales. Para más información, consulte [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Instalación personalizada de la instancia de Integration Runtime para la integración de SSIS en Azure).
 
 7. En la pestaña **Connections** (Conexiones), cambie a **Integration Runtimes**, si es necesario. Seleccione **Refresh** (Actualizar) para actualizar el estado. 
 

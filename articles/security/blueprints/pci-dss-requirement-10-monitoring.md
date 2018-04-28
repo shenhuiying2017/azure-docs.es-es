@@ -1,5 +1,5 @@
 ---
-title: "Plano técnico de procesamiento de pagos de Azure: requisitos de supervisión"
+title: 'Plano técnico de procesamiento de pagos de Azure: requisitos de supervisión'
 description: Requisito 10 de PCI DSS
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>Requisitos de supervisión para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-10"></a>Requisito 10 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Realizar un seguimiento y una supervisión de todos los accesos a recursos de red y datos de los titulares de tarjetas**
 
 > [!NOTE]
-> Estos requisitos los define el [Consejo de Estándares de Seguridad para la Industria de Tarjeta de Pago (PCI)](https://www.pcisecuritystandards.org/pci_security/) como parte del [Estándar de Seguridad de Datos PCI (DSS) versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de pruebas e instrucciones para cada requisito.
+> [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para la industria de tarjeta de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos PCI (PCI DSS), versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 Los mecanismos de registro y la capacidad de realizar un seguimiento de las actividades del usuario son fundamentales para evitar, detectar o minimizar el impacto de poner en riesgo datos. La presencia de registros en todos los entornos permite obtener análisis, alertas y seguimientos exhaustivos cuando se produce algún error. Determinar la causa de haber puesto en riesgo los datos es muy difícil, si no imposible, sin registros de actividad del sistema.
 
@@ -39,7 +39,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe el acceso a herramientas administrativas y de diagnóstico a personal autorizado con una responsabilidad de trabajo importante. Microsoft Azure restringe el acceso con privilegios a las herramientas usadas en el entorno de producción en función de los principios de privilegios mínimos. Microsoft Azure guarda y mantiene un registro de todos los accesos de usuarios individuales a los componentes del sistema de Microsoft Azure en el entorno de plataforma.<br /><br />Los componentes de la plataforma de Microsoft Azure (incluido el sistema operativo, CloudNet, Fabric, etc.) están configurados para registrar y recopilar eventos de seguridad. Se registra la actividad del administrador en la plataforma de Microsoft Azure. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -59,7 +59,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure restringe el acceso a herramientas administrativas y de diagnóstico a personal autorizado con una responsabilidad de trabajo importante. Microsoft Azure restringe el acceso con privilegios a las herramientas usadas en el entorno de producción en función de los principios de privilegios mínimos. Microsoft Azure guarda y mantiene un registro de todos los accesos de usuarios individuales a los componentes del sistema de Microsoft Azure en el entorno de plataforma.<br /><br />Los componentes de la plataforma de Microsoft Azure (incluido el sistema operativo, CloudNet, Fabric, etc.) están configurados para registrar y recopilar eventos de seguridad. Se registra la actividad del administrador en la plataforma de Microsoft Azure. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario, incluido el inicio de sesión de CHD. Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario, incluido el inicio de sesión de CHD. Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -78,7 +78,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha establecido procedimientos para sincronizar los servidores y dispositivos de red del entorno de Microsoft Azure con los servidores de hora de capa 1 de NTP sincronizados con los satélites del sistema de posicionamiento global (GPS). La sincronización se realiza automáticamente cada cinco minutos. Microsoft Azure es responsable de garantizar que los hosts de servicio sincronicen la hora correctamente. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore registra la identificación del usuario, el tipo de evento, la marca de tiempo de fecha, eventos que no se realizaron correctamente, el origen del evento y el nombre del recurso según lo requiere el control 10.3.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore registra la identificación del usuario, el tipo de evento, la marca de tiempo de fecha, eventos que no se realizaron correctamente, el origen del evento y el nombre del recurso según lo requiere el control 10.3.|
 
 
 
@@ -93,7 +93,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha establecido procedimientos para sincronizar los servidores y dispositivos de red del entorno de Microsoft Azure con los servidores de hora de capa 1 de NTP sincronizados con los satélites del sistema de posicionamiento global (GPS). La sincronización se realiza automáticamente cada cinco minutos. Microsoft Azure es responsable de garantizar que los hosts de servicio sincronicen la hora correctamente. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
 
 
 
@@ -106,7 +106,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
 
 
 
@@ -119,7 +119,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
 
 
 
@@ -132,7 +132,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.4](#pci-dss-requirement-10-4). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Azure realiza la sincronización de hora para el servicio de PaaS.|
 
 
 
@@ -145,7 +145,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Las herramientas de FIM e identificadores se implementan dentro del entorno de Microsoft Azure. Microsoft Azure usa EWS para admitir el análisis en tiempo real de los eventos dentro de su entorno operativo. Los MA y AIM generan alertas próximas en tiempo real acerca de los eventos que podrían poner en peligro el sistema. <br /><br />El registro de eventos de seguridad, servicio y usuario (registros de servidor web, registros de servidor FTP, etc.) está habilitado y se conserva de forma centralizada. Azure restringe el acceso a los registros de auditoría para el personal autorizado según las responsabilidades de trabajo. Los registros de eventos se archivan en la infraestructura de archivo segura de Azure y se conservan durante 180 días. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -197,7 +197,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -210,7 +210,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.5](#pci-dss-requirement-10-5). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos a OMS. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona lo necesario para realizar la auditoría de todos los elementos de Azure. Las copias de seguridad de un origen externo pueden realizarse mediante [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -226,7 +226,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Las herramientas de FIM e identificadores se implementan dentro del entorno de Microsoft Azure. Microsoft Azure usa EWS para admitir el análisis en tiempo real de los eventos dentro de su entorno operativo. Los MA y AIM generan alertas próximas en tiempo real acerca de los eventos que podrían poner en peligro el sistema. <br /><br />El registro de eventos de seguridad, servicio y usuario (registros de servidor web, registros de servidor FTP, etc.) está habilitado y se conserva de forma centralizada. Azure restringe el acceso a los registros de auditoría para el personal autorizado según las responsabilidades de trabajo. Los registros de eventos se archivan en la infraestructura de archivo segura de Azure y se conservan durante 180 días. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
 
 
 
@@ -243,7 +243,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
 
 
 
@@ -256,7 +256,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
 
 
 
@@ -269,7 +269,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Consulte la sección "Microsoft Azure" del [Requisito 10.6](#pci-dss-requirement-10-6). |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore usa [Azure Security Center](https://azure.microsoft.com/services/security-center/) para supervisar y evitar las anomalías, así como para informar sobre estas. [Azure Advisor](/azure/advisor/advisor-security-recommendations) proporciona una vista coherente y consolidada de recomendaciones para todos los recursos de Azure.|
 
 
 
@@ -282,7 +282,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure conserva los registros de auditoría durante un año, con los 3 meses más recientes inmediatamente accesibles a través de su portal interno. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -299,7 +299,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 - Controles de segmentación (en caso de que se usen) 
 
 > [!NOTE]
-> Este requisito es un procedimiento recomendado hasta el 31 de enero de 2018. Después, será un requisito.
+> Este requisito se va a considerar un procedimiento recomendado hasta el 31 de enero de 2018. A partir de esa fecha, pasará a convertirse en un requisito.
 
 
 
@@ -308,7 +308,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure usa EWS para admitir el análisis en tiempo real de los eventos dentro de su entorno operativo. Los MA y AIM generan alertas próximas en tiempo real acerca de los eventos que podrían poner en peligro el sistema. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -331,7 +331,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure usa EWS para admitir el análisis en tiempo real de los eventos dentro de su entorno operativo. Los MA y AIM generan alertas próximas en tiempo real acerca de los eventos que podrían poner en peligro el sistema. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore tiene un registro completo de todo el sistema, así como de la actividad del usuario (incluido el inicio de sesión de CHD). Para obtener más información, consulte [Guía de PCI: registro](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -345,7 +345,7 @@ Los mecanismos de registro y la capacidad de realizar un seguimiento de las acti
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona un caso de uso y una descripción sobre cómo se administra y protege el CHD.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore proporciona un caso de uso y una descripción sobre cómo se administra y protege el CHD.|
 
 
 

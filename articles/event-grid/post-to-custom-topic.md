@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicación en un tema personalizado de Azure Event Grid
 
@@ -73,7 +73,7 @@ Para los temas personalizados, los datos de nivel superior contienen los mismos 
 ]
 ```
 
-Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md).
+Para obtener una descripción de estas propiedades, vea [Esquema de eventos de Azure Event Grid](event-schema.md). Al publicar eventos en un tema de Event Grid, la matriz puede tener un tamaño total de hasta 1 MB. Cada evento de la matriz tiene 64 KB como máximo.
 
 Por ejemplo, un esquema de datos de evento válido es:
 
@@ -98,9 +98,10 @@ Después de publicar en el punto de conexión del tema, recibirá una respuesta.
 |Resultado  |Response  |
 |---------|---------|
 |Correcto  | 200 OK  |
-|Punto de conexión incorrecto | 404 No encontrado |
-|Clave de acceso no válida | 401 No autorizado |
 |Los datos del evento tienen un formato incorrecto | 400 - Solicitud incorrecta |
+|Clave de acceso no válida | 401 No autorizado |
+|Punto de conexión incorrecto | 404 No encontrado |
+|La matriz o el evento superan los límites de tamaño | 413 Carga demasiado grande |
 
 Si hay errores, el cuerpo del mensaje tiene el formato siguiente:
 

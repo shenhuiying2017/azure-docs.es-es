@@ -1,8 +1,8 @@
 ---
-title: "Implementación y administración de topologías de Apache Storm en HDInsight | Microsoft Docs"
-description: "Aprenda a implementar, supervisar y administrar topologías de Apache Storm mediante el panel de Storm en HDInsight. Utilice herramientas de Hadoop para Visual Studio"
+title: Implementación y administración de topologías de Apache Storm en HDInsight | Microsoft Docs
+description: Aprenda a implementar, supervisar y administrar topologías de Apache Storm mediante el panel de Storm en HDInsight. Utilice herramientas de Hadoop para Visual Studio
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implementación y administración de topologías de Apache Storm en HDInsight basado en Windows
 
@@ -33,7 +31,7 @@ El panel de Storm y las características de Storm de las herramientas de HDInsig
 >
 > Para más información sobre la implementación y la administración de topologías de Storm con un clúster de HDInsight que usa Linux, consulte [Implementación y administración de topologías de Apache Storm en HDInsight basado en Linux](apache-storm-deploy-monitor-topology-linux.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Apache Storm en HDInsight**: consulte [Introducción a Apache Storm en HDInsight](apache-storm-tutorial-get-started-linux.md) para conocer los pasos para la creación de un clúster.
 
@@ -51,7 +49,7 @@ El panel de Storm y las características de Storm de las herramientas de HDInsig
 
   * Visual Studio 2017 (cualquier edición)
 
-## <a name="storm-dashboard"></a>panel de Storm
+## <a name="storm-dashboard"></a>Panel de Storm
 
 El panel de Storm es una página web disponible en el clúster de Storm. La dirección URL es **https://&lt;clustername>.azurehdinsight.net/**, donde **clustername** es el nombre del clúster de Storm en HDInsight.
 
@@ -94,7 +92,7 @@ Si selecciona un vínculo desde la sección **Resumen de la topología** , se mo
 
   * **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster.
 
-      Para obtener más información, consulte [Understanding the parallelism of a Storm topology (Descripción del paralelismo de una topología de Storm) (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Para más información, consulte la entrada de blog [Understanding the parallelism of a Storm topology (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) [Información sobre el paralelismo de una topología Storm].
 
   * **Eliminar**: finaliza una topología de Storm tras el tiempo de espera especificado.
 
@@ -161,7 +159,7 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
    > Las topologías de Storm continúan ejecutándose hasta que se detengan o se elimine el clúster.
 
 
-## <a name="rest-api"></a>API de REST
+## <a name="rest-api"></a>API DE REST
 
 La interfaz de usuario de Storm se basa en la API de REST, lo que permite realizar una funcionalidad similar de administración y supervisión mediante la API de REST. Puede usar la API de REST para crear herramientas personalizadas para administrar y supervisar las topologías de Storm.
 

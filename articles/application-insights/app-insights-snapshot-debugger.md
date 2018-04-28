@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5a2b3dbce1d969eaa9937ad866fd055ae72e6529
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0ba58f1384d7c93af30f9b175a5a154811c9a1e0
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 
@@ -42,7 +42,7 @@ Se admiten los siguientes entornos:
 
 1. [Habilite Application Insights en su aplicación web](app-insights-asp-net.md), si aún no lo ha hecho.
 
-2. Incluya el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación. 
+2. Incluya el paquete NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación.
 
 3. Revise las opciones predeterminadas que el paquete ha agregado a [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
@@ -92,10 +92,18 @@ Se admiten los siguientes entornos:
 
 3. Modifique la clase `Startup` de la aplicación para agregar y configurar el procesador de telemetría del recopilador de instantáneas.
 
+    Agregue las siguientes instrucciones using a `Startup.cs`
+
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;
    using Microsoft.Extensions.Options;
-   ...
+   using Microsoft.ApplicationInsights.AspNetCore;
+   using Microsoft.ApplicationInsights.Extensibility;
+   ```
+
+   Agregue la siguiente clase `SnapshotCollectorTelemetryProcessorFactory` a la clase `Startup`.
+
+   ```csharp
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
@@ -111,11 +119,11 @@ Se admiten los siguientes entornos:
                return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
            }
        }
+       ...
+    ```
+    Agregue los servicios `SnapshotCollectorConfiguration` y `SnapshotCollectorTelemetryProcessorFactory` a la canalización de inicio:
 
-       public Startup(IConfiguration configuration) => Configuration = configuration;
-
-       public IConfiguration Configuration { get; }
-
+    ```csharp
        // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
@@ -178,7 +186,7 @@ Se admiten los siguientes entornos:
         }
    }
     ```
-    
+
 ## <a name="grant-permissions"></a>Concesión de permisos
 
 Los propietarios de la suscripción de Azure pueden inspeccionar instantáneas. Otros usuarios deben obtener permiso de un propietario.
@@ -208,7 +216,7 @@ En la vista de depuración instantánea, verá una pila de llamadas y un panel d
 Las instantáneas pueden contener información confidencial y, de forma predeterminada, no están visibles. Para ver las instantáneas, debe tener asignado el rol `Application Insights Snapshot Debugger`.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Depuración de instantáneas con Visual Studio Enterprise 2017
-1. Haga clic en el botón **Descargar instantánea** para descargar un archivo `.diagsession`, que puede abrirse en Visual Studio Enterprise 2017. 
+1. Haga clic en el botón **Descargar instantánea** para descargar un archivo `.diagsession`, que puede abrirse en Visual Studio Enterprise 2017.
 
 2. Para abrir el archivo `.diagsession`, debe primero [descargar e instalar la extensión del Depurador de instantáneas para Visual Studio](https://aka.ms/snapshotdebugger).
 
@@ -312,7 +320,7 @@ Debe disponer del espacio necesario para al menos dos instantáneas simultáneas
 Por ejemplo, si la aplicación usa 1 GB de espacio de trabajo total, debe asegurarse de que hay al menos 2 GB de espacio en disco para almacenar las instantáneas.
 Siga estos pasos para configurar el rol del servicio en la nube con un recurso local dedicado para las instantáneas.
 
-1. Agregue un nuevo recurso local a su servicio en la nube editando el archivo de definición (.csdf) del servicio en la nube. En el ejemplo siguiente se define un recurso llamado `SnapshotStore` con un tamaño de 5 GB.
+1. Agregue un nuevo recurso local a su servicio en la nube editando el archivo de definición (.csdef) del servicio en la nube. En el ejemplo siguiente se define un recurso llamado `SnapshotStore` con un tamaño de 5 GB.
    ```xml
    <LocalResources>
      <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
@@ -379,5 +387,5 @@ Si sigue sin ver una excepción con ese identificador de instantánea, significa
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Establezca puntos de ajuste en el código](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) para obtener instantáneas sin tener que esperar una excepción.
-* En el artículo sobre cómo [diagnosticar excepciones en aplicaciones web](app-insights-asp-net-exceptions.md) se explica cómo hacer más visibles las excepciones en Application Insights. 
+* En el artículo sobre cómo [diagnosticar excepciones en aplicaciones web](app-insights-asp-net-exceptions.md) se explica cómo hacer más visibles las excepciones en Application Insights.
 * [Detección inteligente](app-insights-proactive-diagnostics.md) detecta automáticamente las anomalías de rendimiento.

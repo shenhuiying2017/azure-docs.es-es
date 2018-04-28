@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Crear alertas del registro de actividad mediante la nueva experiencia de alertas (versión preliminar)
 
@@ -103,13 +103,13 @@ Utilice el siguiente procedimiento:
 
     **Lógica de alerta**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Nivel de evento**: gravedad del evento (**detallado, informativo, advertencia, error** o **crítico**).
+     - **Estado**: estado del evento (**Iniciado, Error** o **Correcto**).
+     - **Evento iniciado por**: también conocido como autor de la llamada; dirección de correo electrónico o identificador de Azure Active Directory del usuario que realizó la operación.
 
-        **Sample signal graph with alert logic applied** :
+        **Gráfico de señal de ejemplo con la lógica de alerta aplicada**:
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ criterios seleccionados](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. En la opción que permite **definir los detalles de las reglas de alertas**, proporcione los datos siguientes:
 

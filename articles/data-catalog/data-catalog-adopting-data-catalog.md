@@ -1,12 +1,12 @@
 ---
-title: "Método y proceso de adopción de Azure Data Catalog | Microsoft Docs"
-description: "En este artículo se presenta un enfoque y un proceso para las organizaciones que están pensando en adoptar Azure Data Catalog, incluida la definición de una visión, la identificación de casos de uso y la elección de un proyecto piloto."
+title: Método y proceso de adopción de Azure Data Catalog | Microsoft Docs
+description: En este artículo se presenta un enfoque y un proceso para las organizaciones que están pensando en adoptar Azure Data Catalog, incluida la definición de una visión, la identificación de casos de uso y la elección de un proyecto piloto.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: d092613d88a4186c17c8c91046bb598c4f60b307
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7c104fa9b136df8ac4b94ee1e444100e2a2f969
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Método y proceso de adopción de Azure Data Catalog
 Este artículo le ayudará a empezar a adoptar **Azure Data Catalog** en su organización. Para adoptar correctamente **Azure Data Catalog**, es aconsejable que se centre en tres elementos clave: definir la visión, identificar los principales casos de uso empresariales de la organización y elegir un proyecto piloto.
@@ -142,7 +142,7 @@ Estas son algunas sugerencias para comenzar:
 Antes de que el equipo piloto comience a usar Data Catalog, programe una reunión de puesta en marcha para debatir las expectativas del proyecto piloto y proporcione una formación inicial.
 
 ### <a name="set-expectations"></a>Definición de las expectativas
-El establecimiento de excepciones y objetivos ayuda a los usuarios empresariales a centrarse en los resultados específicos. Para que el proyecto discurra según lo planeado, asigne regularmente (por ejemplo, de forma diaria o semanal según el ámbito y la duración del proyecto piloto) tareas para casa. Una de las funcionalidades más valiosas de Data Catalog es el micromecenazgo de los activos de datos, con el fin de que los usuarios empresariales puedan beneficiarse del conocimiento de los datos de la empresa. Una asignación de tareas para casa excelente es que cada miembro del equipo piloto registre o anote al menos un origen de datos que se haya utilizado. Consulte [Registro de orígenes de datos](data-catalog-get-started.md) y [Anotación de orígenes de datos registrados](data-catalog-get-started.md).
+Establecer expectativas y objetivos ayuda a los usuarios empresariales a centrarse en resultados específicos. Para que el proyecto discurra según lo planeado, asigne regularmente (por ejemplo, de forma diaria o semanal según el ámbito y la duración del proyecto piloto) tareas para casa. Una de las funcionalidades más valiosas de Data Catalog es el micromecenazgo de los activos de datos, con el fin de que los usuarios empresariales puedan beneficiarse del conocimiento de los datos de la empresa. Una asignación de tareas para casa excelente es que cada miembro del equipo piloto registre o anote al menos un origen de datos que se haya utilizado. Consulte [Registro de orígenes de datos](data-catalog-get-started.md) y [Anotación de orígenes de datos registrados](data-catalog-get-started.md).
 
 Reúnase con el equipo con regularidad para revisar algunas de las anotaciones. La esencia de una adopción satisfactoria de Data Catalog son unas buenas anotaciones acerca de los orígenes de datos, ya que proporcionan información significativa de los orígenes de datos en una ubicación central. Sin unas buenas anotaciones, el conocimiento acerca de los orígenes de datos permanece disperso por toda la empresa. Consulte [Anotación de orígenes de datos registrados](data-catalog-get-started.md).
 

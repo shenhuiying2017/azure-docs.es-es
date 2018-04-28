@@ -1,28 +1,27 @@
 ---
-title: Opciones de Group by en SQL Data Warehouse | Microsoft Docs
-description: Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
+title: Uso de las opciones de Group by en Azure SQL Data Warehouse | Microsoft Docs
+description: Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: queries
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en Almacenamiento de datos SQL
-La cláusula [GROUP BY][GROUP BY] se usa para agregar datos a un conjunto de filas de resumen. También cuenta con algunas opciones que amplían su funcionalidad y que es necesario solucionar ya que no son directamente compatibles con Almacenamiento de datos SQL de Azure.
+# <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en SQL Data Warehouse
+Sugerencias para implementar opciones de Group by en Azure SQL Data Warehouse para el desarrollo de soluciones.
+
+## <a name="what-does-group-by-do"></a>¿Qué hace GROUP BY?
+
+La cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) de T-SQL se usa para agregar datos a un conjunto de filas de resumen. GROUP BY tiene algunas opciones que no admite SQL Data Warehouse. Estas opciones tienen soluciones alternativas.
 
 Estas opciones son:
 
@@ -31,10 +30,9 @@ Estas opciones son:
 * GROUP BY con CUBE
 
 ## <a name="rollup-and-grouping-sets-options"></a>Opciones Rollup y Grouping sets
-Aquí, la opción más sencilla consiste en usar `UNION ALL` en su lugar para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo
+Aquí, la opción más sencilla consiste en usar UNION ALL en su lugar para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo
 
-A continuación se muestra un ejemplo de una instrucción Group by mediante el uso de la opción `ROLLUP` :
-
+En el siguiente ejemplo se utiliza la instrucción GROUP BY con la opción de ROLLUP:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -48,13 +46,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Mediante el uso de ROLLUP hemos solicitado las agregaciones siguientes:
+Al utilizar ROLLUP, en el ejemplo anterior se solicitan las agregaciones siguientes:
 
 * País y región
 * País
 * Total general
 
-Para reemplazar esta operación, deberá usar `UNION ALL`y especificar las agregaciones necesarias explícitamente para devolver los mismos resultados:
+Para reemplazar ROLLUP y obtener los mismos resultados, puede utilizar UNION ALL y especificar explícitamente las agregaciones necesarias:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,7 +79,7 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Para GROUPING SETS, todo lo que tenemos que hacer es adoptar la misma entidad de seguridad pero solo crear secciones UNION ALL para los niveles de agregación que queramos ver.
+Para reemplazar GROUPING SETS, se aplica el principio de ejemplo. Basta con crear secciones UNION ALL para los niveles de agregación que desea ver.
 
 ## <a name="cube-options"></a>Opciones de Cube
 Es posible crear una cláusula GROUP BY WITH CUBE con el método UNION ALL. El problema es que el código puede volverse rápidamente complicado y difícil de manejar. Para mitigar esta situación, puede usar este enfoque más avanzado.
@@ -119,9 +117,9 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Los resultados de CTAS pueden verse a continuación:
+A continuación se muestran los resultados de CTAS:
 
-![][1]
+![Agrupar por cubo](media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png)
 
 El segundo paso es especificar una tabla de destino para almacenar los resultados temporales:
 
@@ -170,7 +168,7 @@ BEGIN
 END
 ```
 
-Por último, podemos devolver los resultados simplemente leyendo en la tabla temporal #Results
+Por último, se pueden devolver los resultados simplemente leyendo en la tabla temporal #Results.
 
 ```sql
 SELECT *
@@ -182,16 +180,5 @@ ORDER BY 1,2,3
 Al dividir el código en secciones y generar una construcción de bucle, el código resulta más fácil de administrar y mantener.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][development overview].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
-
-
-<!--Other Web references-->

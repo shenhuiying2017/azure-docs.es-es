@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión de Media Services | Microsoft Docs"
-description: "Notas de la versión de Media Services"
+title: Notas de la versión de Media Services | Microsoft Docs
+description: Notas de la versión de Media Services
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
@@ -47,7 +47,7 @@ Para obtener información sobre el historial de versiones de la API de REST de M
 
 ## <a name="october-2017-release"></a>Versión de octubre de 2017
 > [!IMPORTANT] 
-> Media Services está dejando el soporte técnico para las claves de autenticación de Azure Access Control Service. A partir del 1 de junio de 2018, ya no se podrá usar código para autenticarse en el back-end de Media Services con claves de Access Control Service. Debe actualizar el código para que use Azure Active Directory (Azure AD) por [autenticación basada en Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Inspeccione las advertencias sobre este cambio en Azure Portal.
+> Media Services está dejando el soporte técnico para las claves de autenticación de Azure Access Control Service. A partir del 22 de junio de 2018, ya no se podrá usar código para autenticarse en el back-end de Media Services con claves de Access Control Service. Debe actualizar el código para que use Azure Active Directory (Azure AD) por [autenticación basada en Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Inspeccione las advertencias sobre este cambio en Azure Portal.
 
 ### <a name="updates-for-october-2017"></a>Actualizaciones de octubre de 2017
 #### <a name="sdks"></a>SDK
@@ -190,7 +190,7 @@ Media Services ofrece ahora la posibilidad de proteger tanto vídeo bajo demanda
 
 Para más información, vea [este blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
   
-Puede usar el [SDK de Media Services para .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API de REST para configurar AssetDeliveryConfiguration para usar Widevine. 
+Puede usar el [SDK de .NET de Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (a partir de la versión 3.5.1) o la API REST para configurar AssetDeliveryConfiguration para usar Widevine. 
 * Media Services agregó compatibilidad para vídeos ProRes de Apple. Ahora puede cargar sus archivos de vídeos de origen QuickTime que usan ProRes de Apple u otros códecs. Para más información, vea [este blog](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 * Ahora puede usar Media Encoder Standard para realizar recortes secundarios y extracción de archivos en vivo. Para más información, vea [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 * Se realizaron las siguientes actualizaciones de filtrado: 

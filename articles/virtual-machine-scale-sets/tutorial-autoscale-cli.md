@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 10e5b1a261f28391bed8cf3f111b1124b52d7816
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6f184ac0b2af3a66affecd1a3a9c247a96e616f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Tutorial: escalado automático de un conjunto de escalado de máquinas virtuales con la CLI de Azure 2.0
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
@@ -322,7 +322,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
            6  True                  eastus      myScaleSet_6  Creating             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 
-Cuando se detiene **stress** en las instancias de máquina virtual iniciales, la carga media de CPU vuelve al estado normal. Después de otros 5 minutos, las reglas de escalado automático reducen horizontalmente el número de instancias de máquina virtual. Con las acciones de reducción horizontal se eliminan instancias de máquina virtual en orden, empezando por los identificadores mayores. En la salida de ejemplo siguiente se muestra la eliminación de una instancia de máquina virtual con la reducción horizontal del conjunto de escalado:
+Cuando se detiene **stress** en las instancias de máquina virtual iniciales, la carga media de CPU vuelve al estado normal. Después de otros 5 minutos, las reglas de escalado automático reducen horizontalmente el número de instancias de máquina virtual. Con las acciones de reducción horizontal se eliminan instancias de máquina virtual en orden, empezando por los identificadores mayores. Cuando un conjunto de escalado usa conjuntos de disponibilidad o zonas de disponibilidad, las acciones de reducción horizontal se distribuyen por igual entre esas instancias de máquina virtual. En la salida de ejemplo siguiente se muestra la eliminación de una instancia de máquina virtual con la reducción horizontal del conjunto de escalado:
 
 ```bash
            6  True                  eastus      myScaleSet_6  Deleting             MYRESOURCEGROUP  9e4133dd-2c57-490e-ae45-90513ce3b336

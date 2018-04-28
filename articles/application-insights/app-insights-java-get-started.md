@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: f772485dd49a730e34ec856768fa91bc3fdd114b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e1c4ea08b71c2e99b6c8e839e1fddc3172ca251d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
@@ -30,7 +30,7 @@ Application Insights es compatible con aplicaciones Java que se ejecutan en Linu
 
 Necesita:
 
-* Oracle o Zulu JRE versión 1.7 o 1.8
+* JRE versión 1.7 o 1.8
 * Una suscripción a [Microsoft Azure](https://azure.microsoft.com/).
 
 *Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*

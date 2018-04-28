@@ -5,7 +5,7 @@
 ## [PIM para recursos de Azure](azure-pim-resource-rbac.md)
 ## [Flujo de trabajo de aprobación de PIM](azure-ad-pim-approval-workflow.md)
 ## [Roles](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Flujos de trabajo de aprobación de Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+
 
 
 # Introducción

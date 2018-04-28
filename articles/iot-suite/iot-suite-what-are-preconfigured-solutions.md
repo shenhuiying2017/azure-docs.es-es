@@ -1,12 +1,12 @@
 ---
-title: "Introducción a las soluciones preconfiguradas de Azure IoT Suite | Microsoft Docs"
-description: "Descripción de las soluciones preconfiguradas de Azure IoT Suite y de sus arquitecturas con vínculos a recursos adicionales."
-services: 
+title: Introducción a las soluciones preconfiguradas de Azure IoT Suite | Microsoft Docs
+description: Descripción de las soluciones preconfiguradas de Azure IoT Suite y de sus arquitecturas con vínculos a recursos adicionales.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: b29c5fe9543c5fe6da9ff52da6549fdcacff868f
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b7b9f61a8fb46d5d591b317049cfd60b723a7e77
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>¿Qué es Azure IoT Suite?
 
@@ -97,7 +97,7 @@ Al implementar una solución preconfigurada, el proceso de aprovisionamiento con
 * [Azure Time Series Insights](../time-series-insights/index.yml). Las soluciones preconfiguradas utilizan este servicio para analizar y mostrar los datos de telemetría de los dispositivos.
 * [Azure Container Service](../container-service/index.yml). Este servicio hospeda y administra los microservicios en las soluciones preconfiguradas.
 * [Azure Cosmos DB](../cosmos-db/index.yml) y [Azure Storage](../storage/index.yml) para el almacenamiento de datos.
-* [Azure Stream Analytics](../stream-analytics/index.md). La solución preconfigurada de mantenimiento predictivo utiliza este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Esta solución preconfigurada también usa Stream Analytics para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de los comandos de los dispositivos.
+* [Azure Stream Analytics](../stream-analytics/index.yml). La solución preconfigurada de mantenimiento predictivo utiliza este servicio para procesar la telemetría entrante, realizar la agregación y detectar eventos. Esta solución preconfigurada también usa Stream Analytics para procesar los mensajes informativos que contienen datos como los metadatos y las respuestas de los comandos de los dispositivos.
 * [Azure Web Apps](../app-service/index.yml) para hospedar el código de aplicación personalizado en las soluciones preconfiguradas.
 
 Para una introducción a la arquitectura de una solución de IoT típica, consulte [Microsoft Azure e Internet de las cosas](iot-suite-what-is-azure-iot.md).

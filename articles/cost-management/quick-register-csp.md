@@ -1,20 +1,20 @@
 ---
-title: "Registrarse con información de asociado de CSP en Administración de costos de Azure | Documentos de Microsoft"
-description: "Use la información de asociado de CSP para registrarse en Azure Cost Management."
+title: Registrarse con información de asociado de CSP en Administración de costos de Azure | Documentos de Microsoft
+description: Use la información de asociado de CSP para registrarse en Azure Cost Management.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: ''
 ms.service: cost-management
-manager: carmonm
-ms.openlocfilehash: cf4fb7e82529388a030fd37da9469bf17c8dc343
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+manager: dougeby
+ms.openlocfilehash: 839f99153e0b7458d205c1afb61a05c75cbe0fb7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrarse con el programa de asociados de CSP y ver los datos de costo
 
@@ -32,9 +32,9 @@ Para más información, consulte [cómo conectarse a Partner Center API](https:/
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-- Inicie sesión en Azure Portal: http://portal.azure.com/.
+- Inicie sesión en Azure Portal en http://portal.azure.com.
 
-## <a name="create-a-trial-registration"></a>Crear un registro de evaluación
+## <a name="register-with-azure-cost-management"></a>Regístrese en Azure Cost Management
 
 1. En Azure Portal, haga clic en **Administración de costos + facturación** en la lista de servicios.
 2. En **Overview** (Información general), haga clic en **Administración de costos**.  

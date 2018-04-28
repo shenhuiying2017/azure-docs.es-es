@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: ac9c762327dd8d2eb9e4dd9a79fc2bfa87241f14
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 52c910609930bbeecd21b75549c71ee9ed4e1e3b
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -31,7 +31,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si utiliza el portal, abra https://portal.azure.com e inicie sesión con una cuenta que tenga los [permisos necesarios](#permissions) para trabajar con emparejamientos.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.5.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si está ejecutando PowerShell localmente, también debe ejecutar `Login-AzureRmAccount` con una cuenta que tenga los [permisos necesarios](#permissions) para trabajar con emparejamiento, para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.5.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si está ejecutando PowerShell localmente, también debe ejecutar `Connect-AzureRmAccount` con una cuenta que tenga los [permisos necesarios](#permissions) para trabajar con emparejamiento, para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.29 de la CLI de Azure, o cualquier versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si está ejecutando la CLI de Azure localmente, también debe ejecutar `az login` con una cuenta que tenga los [permisos necesarios](#permissions) para trabajar con emparejamiento, para crear una conexión con Azure.
 
 ## <a name="create-a-peering"></a>Creación de un emparejamiento
@@ -129,8 +129,8 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 - Las suscripciones en las que se encuentran las ambas redes virtuales que quiere emparejar deben estar asociadas al mismo inquilino de Azure Active Directory. Si todavía no tiene un inquilino de AD, puede [crear uno](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant) rápidamente. Puede usar una instancia de [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar dos redes virtuales que existen en distintas suscripciones asociadas a diferentes inquilinos de Active Directory.
 - Una red virtual puede emparejarse con otra red virtual y también conectarse a otra red virtual con una puerta de enlace de red virtual de Azure. Cuando las redes virtuales están conectadas mediante emparejamiento y una puerta de enlace, el tráfico entre las redes virtuales fluye a través de la configuración de emparejamiento, en lugar de la puerta de enlace.
 - Hay un cargo nominal para el tráfico de entrada y salida que utiliza un emparejamiento de red virtual. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network)para obtener más información.
-* <a name="cross-region"></a>Puede emparejar redes virtuales de las mismas regiones o de diferentes. No se aplican las siguientes restricciones cuando ambas redes virtuales están en la *misma* región, pero se aplican cuando las redes virtuales se encuentran en regiones *diferentes*: 
-    - Las redes virtuales solo pueden existir en las siguientes regiones: Corea del Sur, Sur de Reino Unido, Oeste de Reino Unido, Este de Canadá, Sur de la India, Centro de la India, Oeste de la India, Centro-oeste de EE. UU., Centro de Canadá y Oeste de EE. UU. 2.
+* <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. No se aplican las siguientes restricciones cuando ambas redes virtuales están en la *misma* región, pero se aplican cuando las redes virtuales están emparejadas globalmente: 
+    - Las redes virtuales solo pueden existir en las siguientes regiones: Centro-oeste de EE. UU. (Wyoming), Oeste de EE. UU. 2 (Washington), Centro de EE. UU. (Iowa), Este de EE. UU. 2 (Virginia), Centro de Canadá (Toronto), Este de Canadá (Ciudad de Quebec), Sudeste Asiático (Singapur), Sur de Corea del Sur (Buscan), India del Sur (Chennai), Centro de la India (Pune), Oeste de la India (Bombay), Sur de Reino Unido (London), Oeste de Reino Unido (Cardiff), Europa Occidental (Países Bajos)
     - Los recursos en una red virtual no pueden comunicarse con la dirección IP de un equilibrador de carga interno de Azure en la red virtual emparejada. El equilibrador de carga y los recursos que se comunican con él deben estar en la misma red virtual.
     - No se pueden utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace. Para usar puertas de enlace remotas o permitir el tránsito de puerta de enlace, ambas redes virtuales del emparejamiento deben existir en la misma región. 
 
@@ -140,12 +140,12 @@ Las cuentas que use para crear un emparejamiento de redes virtuales deben tener 
     
 |Red virtual|Modelo de implementación|Rol|Permisos|
 |---|---|---|---|
-|myVnetA|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Clásico|[Colaborador de la red clásica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|myVnetB|Resource Manager|[Colaborador de la red](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Clásico|[Colaborador de la red clásica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+|myVnetA|Resource Manager|[Colaborador de la red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Clásico|[Colaborador de la red clásica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
+|myVnetB|Resource Manager|[Colaborador de la red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Clásico|[Colaborador de la red clásica](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
-Obtenga más información sobre los [roles integrados](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y la asignación de permisos específicos a [roles personalizados](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
+Obtenga más información sobre los [roles integrados](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y la asignación de permisos específicos a [roles personalizados](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (solo Resource Manager).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

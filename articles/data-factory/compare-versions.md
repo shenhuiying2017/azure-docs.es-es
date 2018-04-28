@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/24/2018
+ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Comparación de Azure Data Factory V1 y V2
 En este artículo se comparan las versiones 2 y 1 de Azure Data Factory. Para ver una introducción a la versión 1, consulte [Introducción a Azure Data Factory](v1/data-factory-introduction.md). Para ver una introducción a la versión 2, consulte [Introducción a Azure Data Factory](introduction.md).
@@ -139,11 +139,7 @@ Los SDK que se actualizan para la versión 2 no son compatibles con los clientes
 
 ## <a name="roles-and-permissions"></a>Roles y permisos
 
-Para crear y administrar recursos secundarios de una instancia de Data Factory v2:
-
--   No se puede usar el rol de colaborador de Data Factory versión 1 para crear y administrar recursos de v2.
--   El rol de colaborador de ARM estándar, creado en el recurso de Data Factory, es suficiente para crear y administrar recursos secundarios de una instancia de Data Factory v2 implementada con PowerShell o los SDK. No es suficiente crear y administrar recursos secundarios para una instancia de Data Factory v2 implementada desde Azure Portal o con la implementación de plantillas de ARM.
--   Para crear y administrar recursos secundarios para una instancia de Data Factory v2 implementada desde Azure Portal o con la implementación de plantillas de ARM, debe ser miembro del rol Operador de trabajos de Automation a nivel de grupo de recursos o a nivel de suscripción. La organización también puede crear un rol personalizado que contenga "Microsoft.Resources/deployments/*" en la lista "Acciones", tal como se describe en [Creación de roles personalizados para el control de acceso basado en roles de Azure](../active-directory/role-based-access-control-custom-roles.md).
+Se puede usar el rol de colaborador de Data Factory versión 1 para crear y administrar recursos de Data Factory v2.
 
 ## <a name="monitoring-experience"></a>Experiencia de supervisión
 En la versión 2, también puede supervisar factorías de datos mediante [Azure Monitor](monitor-using-azure-monitor.md). Los nuevos cmdlets de PowerShell admiten la supervisión de [instancias de Integration Runtime](monitor-integration-runtime.md). Tanto la versión 1 como la versión 2 admiten la supervisión visual a través de una aplicación de supervisión que se puede iniciar desde Azure Portal.

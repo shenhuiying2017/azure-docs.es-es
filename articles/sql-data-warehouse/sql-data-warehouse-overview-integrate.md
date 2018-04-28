@@ -1,78 +1,62 @@
 ---
-title: "Creación de soluciones integradas con SQL Data Warehouse | Microsoft Docs"
-description: 'Herramientas y asociados con soluciones que se integran con Almacenamiento de datos SQL. '
+title: Creación de soluciones integradas con SQL Data Warehouse | Microsoft Docs
+description: 'Herramientas y asociados con soluciones que se integran con SQL Data Warehouse. '
 services: sql-data-warehouse
-documentationcenter: NA
-author: mlee3gsd
-manager: jhubbard
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+author: kavithaj
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 10/31/2016
-ms.author: martinle;barbkess
-ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/17/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
+ms.openlocfilehash: f198a99fc03a079be77c7f8167580bb7b758579e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/19/2018
 ---
-# <a name="leverage-other-services-with-sql-data-warehouse"></a>Aprovechamiento de otros servicios con Almacenamiento de datos SQL
-Además de su funcionalidad básica, Almacenamiento de datos SQL permite a los usuarios aprovechar muchos de los otros servicios de Azure.  En concreto, hemos tomado medidas para que realizar una estrecha integración con lo siguiente:
+# <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrar otros servicios con SQL Data Warehouse
+Además de su funcionalidad básica, SQL Data Warehouse permite a los usuarios integrar muchos de los otros servicios de Azure. Algunos de estos servicios son:
 
 * Power BI
-* Factoría de datos de Azure
-* Aprendizaje automático de Azure
-* Análisis de transmisiones de Azure
+* Azure Data Factory
+* Azure Machine Learning
+* Azure Stream Analytics
 
-Estamos trabajando para conectar con más servicios en el ecosistema de Azure.
+SQL Data Warehouse se sigue integrando con más servicios en Azure y más [asociados de integración](sql-data-warehouse-partner-data-integration.md).
 
 ## <a name="power-bi"></a>Power BI
-La integración de Power BI le permite aprovechar en gran medida la capacidad de procesamiento de Almacenamiento de datos SQL con los informes dinámicos y la visualización de Power BI. La integración de Power BI actualmente incluye:
+La integración de Power BI le permite combinar la capacidad de procesamiento de SQL Data Warehouse con los informes dinámicos y la visualización de Power BI. La integración de Power BI actualmente incluye:
 
-* **Conexión directa**: una conexión más avanzada con aplicación de lógica en Almacenamiento de datos SQL.  Esto proporciona un análisis más rápido a mayor escala.
-* **Open in Power BI**: el botón ‘Open in Power BI’ (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
+* **Conexión directa**: una conexión más avanzada con aplicación de lógica en SQL Data Warehouse. La aplicación proporciona un análisis más rápido a mayor escala.
+* **Open in Power BI**: el botón "Open in Power BI" (Abrir en Power BI) pasa la información de la instancia a Power BI para lograr una conexión más fluida.
 
-Consulte [Integración con Power BI](sql-data-warehouse-integrate-power-bi.md) o la [documentación de Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx) para más información.
+Para más información, consulte [Integración con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o la [documentación de Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
-## <a name="azure-data-factory"></a>Factoría de datos de Azure
-Factoría de datos de Azure ofrece a los usuarios una plataforma administrada para crear canalizaciones complejas de extracción y carga.  La integración de Almacenamiento de datos SQL con Factoría de datos de Azure incluye lo siguiente:
+## <a name="azure-data-factory"></a>Azure Data Factory
+Azure Data Factory ofrece a los usuarios una plataforma administrada para crear canalizaciones complejas de extracción y carga. La integración de SQL Data Warehouse con Azure Data Factory incluye lo siguiente:
 
-* **Procedimientos almacenados**: coordinar la ejecución de procedimientos almacenados en Almacenamiento de datos SQL.
-* **Copia**: use ADF para mover datos a Almacenamiento de datos SQL.  Esta operación puede utilizar el mecanismo estándar de movimiento de datos de ADF o PolyBase en segundo plano. 
+* **Procedimientos almacenados**: coordinar la ejecución de procedimientos almacenados en SQL Data Warehouse.
+* **Copia**: use ADF para mover datos a SQL Data Warehouse. Esta operación puede utilizar el mecanismo estándar de movimiento de datos de ADF o PolyBase en segundo plano. 
 
-Consulte [Integración con Azure Data Factory](sql-data-warehouse-integrate-azure-data-factory.md) o la [documentación de Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) para más información.
+Para más información, consulte el tema sobre la [integración con Azure Data Factory](sql-data-warehouse-get-started-visualize-with-power-bi.md).
 
-## <a name="azure-machine-learning"></a>Aprendizaje automático de Azure
-Aprendizaje automático de Azure es un servicio de análisis totalmente administrado que permite a los usuarios crear modelos complejos aprovechando un amplio conjunto de herramientas de predicción.  Almacenamiento de datos SQL se admite como origen y destino para estos modelos con la siguiente funcionalidad:
+## <a name="azure-machine-learning"></a>Azure Machine Learning
+Azure Machine Learning es un servicio de análisis totalmente administrado que permite crear modelos complejos aprovechando un amplio conjunto de herramientas de predicción. SQL Data Warehouse se admite como origen y destino para estos modelos con la siguiente funcionalidad:
 
-* **Lectura de datos:** producir modelos a escala usando T-SQL en Almacenamiento de datos SQL.
-* **Escritura de datos:** confirmar los cambios de cualquier modelo en Almacenamiento de datos SQL.
+* **Lectura de datos:** producir modelos a escala usando T-SQL en SQL Data Warehouse.
+* **Escritura de datos:** confirmar los cambios de cualquier modelo en SQL Data Warehouse.
 
-Consulte [Integración con Azure Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md) o la[ documentación de Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) para más información.
+Para más información, consulte el tema sobre la [integración con Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 
-## <a name="azure-stream-analytics"></a>Análisis de transmisiones de Azure
-Análisis de transmisores de Azure es una infraestructura compleja y totalmente administrada para el procesamiento y consumo de datos de eventos generados por el Centro de eventos de Azure.  La integración con Almacenamiento de datos SQL permite que los datos de transmisión se procesen y almacenen junto con los datos relacionales para permitir un análisis más profundo y avanzado de los datos.  
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
+Azure Stream Analytics es una infraestructura compleja y totalmente administrada para el procesamiento y consumo de datos de eventos generados por el Centro de eventos de Azure.  La integración con SQL Data Warehouse permite que los datos de transmisión se procesen y almacenen junto con los datos relacionales para permitir un análisis más profundo y avanzado de los datos.  
 
-* **Resultado del trabajo:** enviar los resultados de los trabajos de Análisis de transmisiones directamente al Almacenamiento de datos SQL.
+* **Resultado del trabajo:** enviar los resultados de los trabajos de Stream Analytics directamente a SQL Data Warehouse.
 
-Consulte [Integración con Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md) o la [documentación de Azure Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/) para más información.
+Para más información, consulte el tema sobre la [integración con Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
-<!--Image references-->
+## <a name="next-steps"></a>Pasos siguientes
+Para la integración con Azure SQL Database, consulte el tema sobre la [configuración de la consulta elástica de SQL Database](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md).
 
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop/
-
-[Azure Data Factory]: sql-data-warehouse-integrate-azure-data-factory.md
-[Azure Machine Learning]: sql-data-warehouse-integrate-azure-machine-learning.md
-[Azure Stream Analytics]: sql-data-warehouse-integrate-azure-stream-analytics.md
-[Power BI]: sql-data-warehouse-integrate-power-bi.md
-[Partners]: sql-data-warehouse-partner-business-intelligence.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

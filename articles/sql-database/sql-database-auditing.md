@@ -9,11 +9,11 @@ ms.custom: security
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3824e4ae72c469ac183a5386d08d2d7f141e27bc
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 La auditoría de base de datos SQL de Azure realiza el seguimiento de eventos de base de datos y los registra en un registro de auditoría de la cuenta de Azure Storage. La auditoría también:
@@ -165,8 +165,18 @@ En el entorno de producción, es probable que actualice periódicamente las clav
 3. Vuelva a la hoja de configuración de auditoría, cambie el valor de la clave de acceso de almacenamiento de Secundaria a Principal y haga clic en **Aceptar**. Después, haga clic en **Guardar** en la parte superior de la hoja de configuración de auditoría.
 4. Vuelva a la hoja de configuración de almacenamiento y vuelva a generar la clave de acceso secundaria (como preparación para el siguiente ciclo de actualización de claves).
 
-## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Administración de auditorías de SQL Database mediante Azure PowerShell
+## <a name="additional-information"></a>Información adicional
 
+* Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > La auditoría de Azure SQL Database almacena 4000 caracteres de datos para los campos de caracteres en un registro de auditoría. Cuando los valores de **statement** o **data_sensitivity_information** devueltos por una acción auditable contienen más de 4000 caracteres, todos los datos a partir de los primeros 4000 caracteres **se truncan y no se auditan**.
+
+* Los registros de auditoría se escriben en **Anexar blobs** en Azure Blob Storage en la suscripción de Azure.
+   * **Premium Storage** actualmente **no es compatible** con Append Blobs.
+   * **El almacenamiento en VNet** actualmente **no se admite**.
+
+## <a name="manage-sql-database-auditing-using-azure-powershell"></a>Administración de auditorías de SQL Database mediante Azure PowerShell
 
 * **Cmdlets de PowerShell**:
 

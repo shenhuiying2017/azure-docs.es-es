@@ -1,12 +1,12 @@
 ---
-title: "Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI"
-description: "Preguntas más frecuentes relacionadas con las colecciones de área de trabajo de Power BI."
+title: Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
+description: Preguntas más frecuentes relacionadas con las colecciones de área de trabajo de Power BI.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 6b33f497a5dbc889945e2147586f79edf1bd9aeb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Preguntas más frecuentes sobre las colecciones de áreas de trabajo de Power BI
 
@@ -66,7 +66,7 @@ Consulte la documentación del servicio para más información sobre cómo utili
 Sí. Puede usar su suscripción de Azure existente para aprovisionar y usar el servicio Colección de áreas de trabajo de Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>¿Necesitan los usuarios finales de mi aplicación una licencia de Power BI?
-No. Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](http://go.microsoft.com/fwlink/?LinkId=760527).
+Nº Los usuarios finales de su aplicación no tienen que comprar una suscripción de Power BI por separado para acceder a las visualizaciones de datos en aplicación. En el modelo de las colecciones de áreas de trabajo de Power BI, al proveedor de la aplicación se le factura el servicio mediante el medidor de consumo de Azure. Consulte la [página de precios y licencia](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>¿Cómo funciona la autenticación de usuarios con las colecciones de áreas de trabajo de Power BI?
 El servicio Colección de áreas de trabajo de Power BI usa tokens de aplicación para realizar la autenticación y la autorización en lugar de la autenticación explícita de usuario final. En el modelo de token de aplicación, la aplicación administra la autenticación y la autorización de sus usuarios finales. A continuación, cuando sea necesario, la aplicación crea

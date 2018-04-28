@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 7a775b6d23c144c81650bb3608ee6a117475a9ba
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1de7e58eecc80e306920ab17884290dfddf8efa8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Supervisión de contenedores con Log Analytics
  
-En este artículo se tratan los pasos necesarios para configurar la supervisión del contenedor para el clúster. Para más información, vea [Supervisión de contenedores en Service Fabric](service-fabric-diagnostics-event-analysis-oms.md#monitoring-containers). Para consultar un tutorial detallado sobre este tema, vea [Supervisión de contenedores de Windows en Service Fabric mediante OMS](service-fabric-tutorial-monitoring-wincontainers.md).
+En este artículo se describen los pasos necesarios para configurar el contenedor de Log Analytics de OMS que supervisa la solución para ver eventos de contenedor. Para configurar el clúster a fin de recopilar eventos de contenedor, consulte este [tutorial paso a paso](service-fabric-tutorial-monitoring-wincontainers.md).
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configuración de la solución de supervisión de contenedores
 
@@ -35,9 +35,22 @@ En este artículo se tratan los pasos necesarios para configurar la supervisión
 
     ![Adición de la solución Containers](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Cree la solución dentro de la misma área de trabajo que ya se ha creado para el clúster. Este cambio desencadena automáticamente el agente para iniciar la recopilación de datos de Docker en los contenedores. En unos 15 minutos, debería ver la solución iluminada con registros y estadísticas entrantes.
+3. Cree la solución dentro de la misma área de trabajo que ya se ha creado para el clúster. Este cambio desencadena automáticamente el agente para iniciar la recopilación de datos de Docker en los contenedores. En unos 15 minutos, debería ver la solución iluminada con registros y estadísticas entrantes, como se muestra en la imagen siguiente.
+
+    ![Panel de OMS básico](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+
+El agente habilita la recopilación de varios registros específicos de contenedores que se pueden consultar en OMS o se usan para los indicadores de rendimiento visualizados. Los tipos de registro que se recopilan son:
+
+* ContainerInventory: muestra información acerca de la ubicación, nombre e imágenes del contenedor
+* ContainerImageInventory: información acerca de las imágenes implementadas, lo que incluye sus identificadores o tamaños
+* ContainerLog: registros de error concretos, registros de docker (stdout, etc.) y otras entradas
+* ContainerServiceLog: comandos de demonio de docker que se han ejecutado
+* Perf: contadores de rendimiento, entre los que se incluyen la cpu del contenedor, la memoria, el tráfico de red, la e/s de disco y métricas personalizadas de los equipos host
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
+* Obtenga más información sobre la [solución de Supervisión de contenedores de Azure Log Analytics](../log-analytics/log-analytics-containers.md).
 * Obtenga más información sobre la orquestación de contenedores en Service Fabric en [Service Fabric y contenedores](service-fabric-containers-overview.md)
 * Familiarícese con las funciones de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de Log Analytics
 * Configure en Log Analytics reglas de [alertas automáticas](../log-analytics/log-analytics-alerts.md) que ayuden en la detección y el diagnóstico

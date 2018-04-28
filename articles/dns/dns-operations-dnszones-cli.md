@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: kumud
-ms.openlocfilehash: d384f8867ddfd28acaf78a47a7d32729e87c5580
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3fee44e282424caa0a9e57dae1228d8af075e4a6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>Cómo administrar zonas DNS en Azure DNS con la CLI de Azure 2.0
 
@@ -47,7 +47,7 @@ Antes de comenzar con la configuración, compruebe que dispone de los elementos 
 
 ### <a name="sign-in-to-your-azure-account"></a>Inicio de sesión en la cuenta de Azure.
 
-Abra una ventana de consola y autentíquese con sus credenciales. Para más información, consulte [Inicio de sesión en Azure desde la CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+Abra una ventana de consola y autentíquese con sus credenciales. Para más información, consulte [Inicio de sesión en Azure desde la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ```
 az login

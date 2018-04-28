@@ -1,30 +1,26 @@
 ---
-title: "Introducción al diseño de tablas: Azure SQL Data Warehouse | Microsoft Docs"
-description: "Introducción al diseño de tablas en Azure SQL Data Warehouse."
+title: 'Diseño de tablas: Azure SQL Data Warehouse | Microsoft Docs'
+description: Introducción al diseño de tablas en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 01/18/2018
-ms.author: barbkess
-ms.openlocfilehash: 5c163880a7508d69bce0019cc5379bca8c704d59
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: d299ff0d8e719040d503852af6056d9d87738b7d
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introducción al diseño de tablas en Azure SQL Data Warehouse
+# <a name="designing-tables-in-azure-sql-data-warehouse"></a>Diseño de tablas en Azure SQL Data Warehouse
 
 Aprenda conceptos clave para diseñar tablas en Azure SQL Data Warehouse. 
 
-## <a name="determining-table-category"></a>Determinación de la categoría de tabla 
+## <a name="determine-table-category"></a>Determinación de la categoría de tabla 
 
 Un [esquema de estrella](https://en.wikipedia.org/wiki/Star_schema) organiza los datos en tablas de hechos y dimensiones. Algunas tablas se utilizan para datos de integración o de almacenamiento provisional antes de que se pasen a una tabla de hechos o dimensiones. Al diseñar una tabla, decidirá si los datos de la misma pertenecen a una tabla de hechos, dimensiones o integración. Esta decisión informa de la distribución y estructura de tabla adecuadas. 
 
@@ -46,7 +42,7 @@ CREATE SCHEMA wwi;
 Para mostrar la organización de las tablas en SQL Data Warehouse, puede utilizar fact, dim e int como prefijos para los nombres de tabla. En la tabla siguiente se muestran algunos de los nombres de esquema y tabla para WideWorldImportersDW. En ella se comparan los nombres en SQL Server con los de SQL Data Warehouse. 
 
 | Tabla WideWorldImportersDW  | Tipo de tabla | SQL Server | SQL Data Warehouse |
-|:-----|:-----|:------|
+|:-----|:-----|:------|:-----|
 | City | Dimension Data | Dimension.City | wwi.DimCity |
 | Orden | Hechos | Fact.Order | wwi.FactOrder |
 
@@ -70,7 +66,7 @@ Una tabla temporal solo existe mientras dura la sesión. Una tabla temporal se p
 Una tabla externa apunta a datos ubicados en Azure Storage Blob o Azure Data Lake Store. Cuando se utiliza en combinación con la instrucción CREATE TABLE AS SELECT, la selección de una tabla externa importa datos en SQL Data Warehouse. Las tablas externas, por tanto, son útiles para cargar datos. Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Tipos de datos
-SQL Data Warehouse admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte los [tipos de datos en la referencia de CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) de la instrucción CREATE TABLE. Minimizar el tamaño de los tipos de datos ayuda a mejorar el rendimiento de las consultas. Para una guía sobre el uso de los tipos de datos, vea [Guía para definir los tipos de datos para las tablas en SQL Data Warehouse](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse admite los tipos de datos usados más frecuentemente. Para obtener una lista de los tipos de datos admitidos, consulte los [tipos de datos en la referencia de CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) de la instrucción CREATE TABLE. Minimizar el tamaño de los tipos de datos ayuda a mejorar el rendimiento de las consultas. Para una guía sobre el uso de los tipos de datos, vea [Guía para definir los tipos de datos para las tablas en SQL Data Warehouse](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
 Una característica fundamental de SQL Data Warehouse es la forma en que puede almacenar y operar en tablas en 60 [distribuciones](massively-parallel-processing-mpp-architecture.md#distributions).  Las tablas se distribuyen mediante el método round robin, hash o replicación.
@@ -106,7 +102,7 @@ Una tabla con particiones almacena y realiza operaciones en las filas de la tabl
 ## <a name="columnstore-indexes"></a>Índices de almacén de columnas
 De forma predeterminada, SQL Data Warehouse almacena una tabla como índice de almacén de columnas agrupado. Esta forma de almacenamiento de datos logra una compresión de datos y rendimiento de las consultas altos en tablas grandes.  El índice de almacén de columnas agrupado suele ser la mejor opción, pero en algunos casos un índice agrupado o un montón es la estructura de almacenamiento adecuada.
 
-Para una lista de características de almacén de columnas, vea [Novedades de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para mejorar el rendimiento del índice de almacén de columnas, vea [Maximización de la calidad del grupo de filas del almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+Para una lista de características de almacén de columnas, vea [Novedades de los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-whats-new). Para mejorar el rendimiento del índice de almacén de columnas, vea [Maximización de la calidad del grupo de filas del almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estadísticas
 El optimizador de consultas utiliza estadísticas de columna cuando crea el plan de ejecución de una consulta. Para mejorar el rendimiento de las consultas, es importante crear estadísticas en columnas individuales, especialmente en las columnas que se usan en combinaciones de consultas. La creación y actualización de estadísticas no se realiza automáticamente. [Cree las estadísticas](/sql/t-sql/statements/create-statistics-transact-sql) después de crear una tabla. Actualice las estadísticas cuando se agregue o cambie un número significativo de filas. Por ejemplo, actualice las estadísticas después de una carga. Para más información, consulte [Administración de estadísticas en tablas en SQL Data Warehouse](sql-data-warehouse-tables-statistics.md).
@@ -143,7 +139,7 @@ SQL Data Warehouse admite muchas, pero no todas, de las características de tabl
 - [Tipos definidos por el usuario](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Consultas de tamaño de tabla
-Una forma sencilla de identificar el espacio y las filas que consume una tabla en cada una de las sesenta distribuciones es usar [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Una forma sencilla de identificar el espacio y las filas que consume una tabla en cada una de las 60 distribuciones es usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
@@ -342,4 +338,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para un tutorial sobre la carga, consulte [Uso de PolyBase para cargar de datos de Azure Blob Storage en Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+Después de crear las tablas para el almacenamiento de datos, el paso siguiente es cargar datos en la tabla.  Para obtener un tutorial de carga, consulte [Carga de datos en Azure SQL Data Warehouse](load-data-wideworldimportersdw.md).

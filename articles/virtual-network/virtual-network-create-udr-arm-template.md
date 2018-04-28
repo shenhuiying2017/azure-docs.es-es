@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.openlocfilehash: a00b908f9811822f262d2c6113e3ff5fc364b1b4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Creación de rutas definidas por el usuario (UDR) con una plantilla
 
@@ -186,7 +186,7 @@ Para implementar la plantilla de Azure Resource Manager mediante la CLI de Azure
 
         info:    New mode is arm
 
-3. En el explorador, vaya a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo en el equipo. En este escenario, copie los valores siguientes a un archivo denominado **c:\udr\azuredeploy.parameters.json**.
+3. En el explorador, navegue a **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, copie el contenido del archivo json y péguelo en un archivo nuevo del equipo. En este escenario, copie los valores siguientes a un archivo denominado **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {

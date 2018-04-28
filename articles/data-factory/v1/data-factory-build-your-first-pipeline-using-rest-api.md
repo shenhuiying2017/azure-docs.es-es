@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c9b4408e6ac92a2f86a10f63ddd254486b82b3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b24d4b15d83d746c5a514725bcd474828c62001
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Compilación de la primera instancia de Azure Data Factory con la API de REST de Data Factory
 > [!div class="op_single_selector"]
@@ -55,10 +55,10 @@ La canalización de este tutorial tiene una actividad: **actividad de HDInsight 
   4. Asigne la aplicación **ADFGetStartedApp** al rol **Colaborador de Data Factory**.
 * Instale [Azure PowerShell](/powershell/azure/overview).
 * Inicie **PowerShell** y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
-  1. Ejecute **Login-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en el Portal de Azure.
+  1. Ejecute **Connect-AzureRmAccount** y escriba el mismo nombre de usuario y contraseña que utiliza para iniciar sesión en Azure Portal.
   2. Ejecute **Get-AzureRmSubscription** para ver todas las suscripciones de esta cuenta.
   3. Ejecute **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** para seleccionar la suscripción con la que desea trabajar. Reemplace **NameOfAzureSubscription** por el nombre de su suscripción de Azure.
-* Cree un grupo de recursos de Azure denominado **ADFTutorialResourceGroup** , para lo que debe ejecutar el siguiente comando en PowerShell:
+* Cree un grupo de recursos de Azure denominado **ADFTutorialResourceGroup**, para lo que debe ejecutar el siguiente comando en PowerShell:
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -316,7 +316,7 @@ Tenga en cuenta los siguientes puntos:
 
 * El nombre de Azure Data Factory debe ser único de forma global. Si ve el siguiente error en los resultados: **El nombre “ADFCopyTutorialDF” de factoría de datos no está disponible**, siga estos pasos:
   1. Cambie el nombre (por ejemplo, yournameFirstDataFactoryREST) en el archivo **datafactory.json** . Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
-  2. En el primer comando, donde se asigna un valor a la variable **$cmd** , reemplace FirstDataFactoryREST por el nuevo nombre y ejecute el comando.
+  2. En el primer comando, donde se asigna un valor a la variable **$cmd**, reemplace FirstDataFactoryREST por el nuevo nombre y ejecute el comando.
   3. Ejecute los dos comandos siguientes para invocar la API de REST para crear la factoría de datos e imprimir los resultados de la operación.
 * Para crear instancias de Data Factory, debe ser administrador o colaborador de la suscripción de Azure.
 * El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, que sea visible públicamente.

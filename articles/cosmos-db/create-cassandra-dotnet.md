@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 7cd8c61f19e09900267cdc93c1d478f5b0f75afe
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3445551ba259f7cbe794870b8b6475399a274bea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Guía de inicio rápido: compilación de una aplicación Cassandra con .NET y Azure Cosmos DB
 
@@ -46,13 +46,19 @@ Además:
 
 Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación de la API de Cassandra desde GitHub, establecer la cadena de conexión y ejecutarla. Verá lo fácil que es trabajar con datos mediante programación. 
 
-1. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a una carpeta para instalar la aplicación de ejemplo. 
+1. Abra un símbolo del sistema, cree una carpeta nueva denominada ejemplos de GIT y, después, cierre el símbolo del sistema.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra una ventana de terminal de Git, como git bash y utilice el comando `cd` para cambiar a la nueva carpeta para instalar la aplicación de ejemplo.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
+3. Ejecute el comando siguiente para clonar el repositorio de ejemplo. Este comando crea una copia de la aplicación de ejemplo en el equipo.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
@@ -62,7 +68,7 @@ Ahora vamos a empezar a trabajar con el código. Vamos a clonar una aplicación 
 
 ## <a name="review-the-code"></a>Revisión del código
 
-Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se toman del archivo `Program.cs` instalado en la carpeta C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string).
+Este paso es opcional. Si está interesado en aprender cómo se crean los recursos de base de datos en el código, puede revisar los siguientes fragmentos de código. Todos los fragmentos de código se han tomado del archivo Program.cs instalado en la carpeta C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample. En caso contrario, puede ir directamente a [Actualización de la cadena de conexión](#update-your-connection-string).
 
 * Inicialice la sesión mediante la conexión a un punto de conexión del clúster de Cassandra. La API de Cassandra API en Azure Cosmos DB solo admite TLSv1.2. 
 
@@ -100,7 +106,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
    }
     ```
     
- * Realice una consulta para obtener la información de un único usuario.
+* Realice una consulta para obtener la información de un único usuario.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
@@ -134,7 +140,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
 
     La línea 15 de Program.cs debe tener ahora un aspecto similar a 
 
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
 5. Guarde el archivo Program.cs.
     

@@ -1,32 +1,32 @@
-# <a name="azure-premium-storage-design-for-high-performance"></a>Almacenamiento premium de Azure: diseño de alto rendimiento
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 ## <a name="overview"></a>Información general
-Este artículo proporciona instrucciones para crear aplicaciones de alto rendimiento con Almacenamiento premium de Azure. Puede usar las instrucciones proporcionadas en este documento junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas por la aplicación. Para ilustrar las directrices, hemos usado SQL Server en Almacenamiento premium como ejemplo en este documento.
+Este artículo proporciona instrucciones para crear aplicaciones de alto rendimiento con Azure Premium Storage. Puede usar las instrucciones proporcionadas en este documento junto con los procedimientos recomendados de rendimiento aplicables a las tecnologías usadas por la aplicación. Para ilustrar las directrices, hemos usado SQL Server en Premium Storage como ejemplo en este documento.
 
-Si bien en este artículo se tratan los escenarios de rendimiento de la capa de almacenamiento, deberá optimizar la capa de la aplicación. Por ejemplo, si hospeda una granja de SharePoint en Almacenamiento premium de Azure, puede usar los ejemplos de SQL Server de este artículo para optimizar el servidor de bases de datos. Además, optimice el servidor web y el servidor de aplicaciones de la granja de SharePoint para obtener el máximo rendimiento.
+Si bien en este artículo se tratan los escenarios de rendimiento de la capa de almacenamiento, deberá optimizar la capa de la aplicación. Por ejemplo, si hospeda una granja de SharePoint en Azure Premium Storage, puede usar los ejemplos de SQL Server de este artículo para optimizar el servidor de bases de datos. Además, optimice el servidor web y el servidor de aplicaciones de la granja de SharePoint para obtener el máximo rendimiento.
 
-Este artículo le ayudará a responder a las siguientes preguntas habituales acerca de cómo optimizar el rendimiento de las aplicaciones en Almacenamiento premium de Azure:
+Este artículo le ayudará a responder a las siguientes preguntas habituales acerca de cómo optimizar el rendimiento de las aplicaciones en Azure Premium Storage:
 
 * ¿Cómo medir el rendimiento de las aplicaciones?  
 * ¿Por qué no se ve el alto rendimiento esperado?  
-* ¿Qué factores influyen en el rendimiento de las aplicaciones en Almacenamiento premium?  
-* ¿Cómo influyen estos factores en el rendimiento de las aplicaciones en Almacenamiento premium?  
+* ¿Qué factores influyen en el rendimiento de las aplicaciones en Premium Storage?  
+* ¿Cómo influyen estos factores en el rendimiento de las aplicaciones en Premium Storage?  
 * ¿Cómo puede optimizar para IOPS, el ancho de banda y la latencia?  
 
-Proporcionamos estas directrices específicamente para Almacenamiento premium porque las cargas de trabajo que se ejecutan en Almacenamiento premium dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Almacenamiento estándar.
+Proporcionamos estas directrices específicamente para Premium Storage porque las cargas de trabajo que se ejecutan en Premium Storage dependen mucho del rendimiento. Se proporcionan ejemplos donde corresponda. También puede aplicar algunas de estas instrucciones a las aplicaciones que se ejecutan en máquinas virtuales de IaaS con discos de Standard Storage.
 
-Antes de comenzar, si no está familiarizado con Premium Storage, lea primero los artículos [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md) y [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/common/storage-scalability-targets.md).
+Antes de comenzar, si no está familiarizado con Premium Storage, lea primero los artículos [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md) y [Objetivos de escalabilidad y rendimiento de Azure Storage](../articles/storage/common/storage-scalability-targets.md).
 
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 Evaluamos si una aplicación tiene un buen rendimiento o no mediante indicadores de rendimiento como: la rapidez con la que una aplicación procesa una solicitud del usuario, la cantidad de datos que una aplicación procesa por solicitud, cuántas solicitudes procesa una aplicación en un determinado período, cuánto tiempo tiene que esperar un usuario para obtener una respuesta después de enviar su solicitud. Los términos técnicos para estos indicadores de rendimiento son IOPS, latencia y rendimiento o ancho de banda.
 
-En esta sección, trataremos los indicadores de rendimiento comunes en el contexto de Almacenamiento premium. En la siguiente sección, Reunión de los requisitos de rendimiento de las aplicaciones, obtendrá información sobre cómo medir estos indicadores de rendimiento de las aplicaciones. Más adelante, en Optimización del rendimiento de las aplicaciones, obtendrá información acerca de los factores que afectan a estos indicadores de rendimiento y recomendaciones para optimizarlos.
+En esta sección, trataremos los indicadores de rendimiento comunes en el contexto de Premium Storage. En la siguiente sección, Reunión de los requisitos de rendimiento de las aplicaciones, obtendrá información sobre cómo medir estos indicadores de rendimiento de las aplicaciones. Más adelante, en Optimización del rendimiento de las aplicaciones, obtendrá información acerca de los factores que afectan a estos indicadores de rendimiento y recomendaciones para optimizarlos.
 
 ## <a name="iops"></a>E/S
 IOPS es el número de solicitudes que la aplicación envía a los discos de almacenamiento en un segundo. Una operación de entrada y salida se puede de lectura o escritura, secuencial o aleatoria. Las aplicaciones OLTP como un sitio web de venta directa en línea necesita procesar muchas solicitudes de usuario simultáneas inmediatamente. Las solicitudes de usuario suponen insertar y actualizar transacciones con un uso intensivo de las bases de datos y que la aplicación debe procesar rápidamente. Por lo tanto, las aplicaciones OLTP requieren IOPS muy alta. Dichas aplicaciones controlan millones de solicitudes de E/S pequeñas y aleatorias. Si tiene este tipo de aplicación, debe diseñar la infraestructura de aplicaciones para optimizar la IOPS. En la sección siguiente, *Optimización del rendimiento de las aplicaciones*, analizaremos en detalle todos los factores que debe tener en cuenta para obtener una IOPS alta.
 
 Cuando conecte un disco de Almacenamiento premium a la máquina virtual a gran escala, Azure aprovisiona automáticamente un número garantizado de IOPS según la especificación del disco. Por ejemplo, un disco P50 aprovisiona 7500 IOPS. Cada tamaño de máquina virtual a gran escala también tiene un límite de IOPS específico que puede admitir. Por ejemplo, una máquina virtual GS5 estándar tiene un límite de 80.000 IOPS.
 
-## <a name="throughput"></a>Rendimiento
+## <a name="throughput"></a>Throughput
 El rendimiento o ancho de banda es la cantidad de datos que la aplicación envía a los discos de almacenamiento en un intervalo especificado. Si la aplicación está realizando operaciones de entrada y salida con  tamaños de unidad de E/S grandes, requiere un alto rendimiento. Las aplicaciones de almacenamiento de datos tienden a emitir operaciones con un uso intensivo de análisis que acceden a grandes porciones de datos a la vez y suelen llevar a cabo operaciones masivas. En otras palabras, estas aplicaciones requieren un mayor rendimiento. Si tiene este tipo de aplicación, debe diseñar su infraestructura para optimizar el rendimiento. En la sección siguiente, analizamos en detalle los factores que se deben optimizar para lograrlo.
 
 Cuando conecte un disco de Almacenamiento premium a la máquina virtual a gran escala, Azure aprovisiona el rendimiento según la especificación del disco. Por ejemplo, un disco P50 aprovisiona 250 MB por capacidad de proceso del segundo disco. Cada tamaño de máquina virtual a gran escala también tiene un límite de rendimiento específico que puede admitir. Por ejemplo, la máquina virtual GS5 estándar tiene un rendimiento máximo de 2.000 MB por segundo. 
@@ -38,12 +38,12 @@ Hay una relación entre el rendimiento y la IOPS, tal como se muestra en la sigu
 Por lo tanto, es importante determinar los valores óptimos de rendimiento e IOPS que requiere su aplicación. Si intenta optimizar uno, el otro también se ve afectado. En una sección posterior, *Optimización del rendimiento de las aplicaciones*, trataremos con más detalle cómo optimizar el rendimiento y la IOPS.
 
 ## <a name="latency"></a>Latency
-La latencia es el tiempo que tarda una aplicación en recibir una sola solicitud, enviarla a los discos de almacenamiento y enviar la respuesta al cliente. Se trata de una medida crítica del rendimiento de una aplicación, además de la IOPS y el rendimiento. La latencia de un disco de almacenamiento premium es el tiempo que tarda en recuperar la información de una solicitud y comunicarla de nuevo a la aplicación. Almacenamiento premium proporciona latencias bajas coherentes. Si habilita el almacenamiento en caché de host ReadOnly en discos de almacenamiento premium, puede obtener una latencia de lectura mucho menor. Trataremos el almacenamiento en caché de disco con más detalle en la sección *Optimización del rendimiento de las aplicaciones*.
+La latencia es el tiempo que tarda una aplicación en recibir una sola solicitud, enviarla a los discos de almacenamiento y enviar la respuesta al cliente. Se trata de una medida crítica del rendimiento de una aplicación, además de la IOPS y el rendimiento. La latencia de un disco de almacenamiento premium es el tiempo que tarda en recuperar la información de una solicitud y comunicarla de nuevo a la aplicación. Premium Storage proporciona latencias bajas coherentes. Si habilita el almacenamiento en caché de host ReadOnly en discos de almacenamiento premium, puede obtener una latencia de lectura mucho menor. Trataremos el almacenamiento en caché de disco con más detalle en la sección *Optimización del rendimiento de las aplicaciones*.
 
 Cuando se optimiza la aplicación para obtener una IOPS y un rendimiento mayores, afectará a la latencia de la aplicación. Después de ajustar el rendimiento de las aplicaciones, siempre se evalúa la latencia de la aplicación para evitar un comportamiento inesperado de alta latencia.
 
 ## <a name="gather-application-performance-requirements"></a>Reunión de los requisitos de rendimiento de las aplicaciones
-El primer paso para diseñar aplicaciones de alto rendimiento que se ejecutan en Almacenamiento premium de Azure es entender los requisitos de rendimiento de las aplicaciones. Después de reunir los requisitos de rendimiento, puede optimizar la aplicación para lograr un rendimiento óptimo.
+El primer paso para diseñar aplicaciones de alto rendimiento que se ejecutan en Azure Premium Storage es entender los requisitos de rendimiento de las aplicaciones. Después de reunir los requisitos de rendimiento, puede optimizar la aplicación para lograr un rendimiento óptimo.
 
 En la sección anterior, explicamos los indicadores de rendimiento comunes: IOPS, rendimiento y latencia. Debe identificar cuál de estos indicadores de rendimiento son fundamentales para que la aplicación proporcione la experiencia de usuario deseada. Por ejemplo, una IOPS alta es más importante para las aplicaciones OLTP que procesan millones de transacciones en un segundo. Por otra parte, un alto rendimiento es fundamental para las aplicaciones de Almacenamiento de datos que procesan grandes cantidades de datos en un segundo. Una latencia extremadamente baja es fundamental para las aplicaciones en tiempo real, como sitios web de streaming de vídeo en directo.
 
@@ -60,7 +60,7 @@ A continuación, mida los requisitos para obtener el máximo rendimiento de sus 
 | Porcentaje de operaciones secuenciales | | | |
 | Tamaño de las solicitudes de E/S | | | |
 | Rendimiento medio | | | |
-| Máx. Rendimiento | | | |
+| Máx. Throughput | | | |
 | Mín. Latency | | | |
 | Latencia media | | | |
 | Máx. CPU | | | |
@@ -74,16 +74,16 @@ A continuación, mida los requisitos para obtener el máximo rendimiento de sus 
 >
 >
 
-Si tiene una aplicación existente y desea cambiar a Almacenamiento premium, primero prepare la lista de comprobación anterior para la aplicación existente. A continuación, cree un prototipo de la aplicación en Almacenamiento premium y diseñe la aplicación de acuerdo con las directrices descritas en *Optimización del rendimiento de las aplicaciones* , en una sección posterior de este documento. La siguiente sección describe las herramientas que puede usar para recopilar las mediciones de rendimiento.
+Si tiene una aplicación existente y desea cambiar a Premium Storage, primero prepare la lista de comprobación anterior para la aplicación existente. A continuación, cree un prototipo de la aplicación en Premium Storage y diseñe la aplicación de acuerdo con las directrices descritas en *Optimización del rendimiento de las aplicaciones* , en una sección posterior de este documento. La siguiente sección describe las herramientas que puede usar para recopilar las mediciones de rendimiento.
 
-Cree una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. Consulte la sección [Pruebas comparativas](#benchmarking) para obtener más información. Gracias a ello, puede determinar si Almacenamiento premium puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.
+Cree una lista de comprobación similar a la aplicación existente para el prototipo. Con herramientas de pruebas comparativas puede simular las cargas de trabajo y medir el rendimiento de las aplicaciones de prototipo. Consulte la sección [Pruebas comparativas](#benchmarking) para obtener más información. Gracias a ello, puede determinar si Premium Storage puede alcanzar o superar los requisitos de rendimiento de las aplicaciones. A continuación, puede implementar las mismas directrices para la aplicación de producción.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para medir los requisitos de rendimiento de las aplicaciones
 La mejor forma de medir los requisitos de rendimiento de las aplicaciones es usar las herramientas de supervisión del rendimiento proporcionadas por el sistema operativo del servidor. Puede usar PerfMon para Windows e iostat para Linux. Estas herramientas capturan contadores correspondientes a cada medida explicada en la sección anterior. Debe capturar los valores de estos contadores cuando la aplicación funciona con cargas de trabajo normales, pico y valle.
 
 Los contadores de rendimiento están disponibles para el procesador y la memoria, así como en cada disco lógico y físico del servidor. Al usar discos de Almacenamiento premium con una máquina virtual, los contadores del disco físico son para cada disco de Almacenamiento premium y los contadores del disco lógico son para cada volumen creado en los discos de Almacenamiento premium. Debe capturar los valores de los discos que hospedan la carga de trabajo de la aplicación. Si hay una asignación uno a uno entre los discos lógicos y físicos, puede hacer referencia a los contadores del disco físico; de lo contrario, haga referencia a los contadores del disco lógico. En Linux, el comando iostat genera un informe de uso de CPU y disco. El informe de uso del disco proporciona estadísticas por cada dispositivo físico o partición. Si tiene un servidor de bases de datos con sus datos e inicia sesión en discos independientes, recopile estos datos para ambos discos. La tabla siguiente describe los contadores de los discos, el procesador y la memoria:
 
-| Contador | Description | PerfMon | Iostat |
+| Contador | DESCRIPCIÓN | PerfMon | Iostat |
 | --- | --- | --- | --- |
 | **E/S por segundo o transacciones por segundo** |Número de solicitudes de E/S emitidas en el disco de almacenamiento por segundo. |Lecturas de disco/s  <br> Escrituras en disco/s |tps  <br> r/s  <br> w/s |
 | **Escrituras y lecturas de disco** |Porcentaje de operaciones de lectura y escritura realizadas en el disco. |% de tiempo de lectura de disco  <br> % de tiempo de escritura de disco |r/s  <br> w/s |
@@ -94,10 +94,10 @@ Los contadores de rendimiento están disponibles para el procesador y la memoria
 | **Máx. memoria** |Cantidad de memoria necesaria para ejecutar la aplicación sin problemas |% de bytes confirmados en uso |Use vmstat |
 | **Máx. CPU** |Cantidad de CPU necesaria para ejecutar la aplicación sin problemas |% de tiempo de procesador |%util |
 
-Obtenga más información sobre [iostat](http://linuxcommand.org/man_pages/iostat1.html) y [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Obtenga más información sobre [iostat](https://linux.die.net/man/1/iostat) y [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Optimización del rendimiento de las aplicaciones
-Los principales factores que influyen en el rendimiento de una aplicación que se ejecuta en Almacenamiento premium son la naturaleza de las solicitudes de E/S, el tamaño de la máquina virtual, el tamaño del disco, el número de discos, la caché de disco, el multithreading y la profundidad de la cola. Puede controlar algunos de estos factores con mecanismos proporcionados por el sistema. Es posible que la mayoría de las aplicaciones no le de opción de modificar el tamaño de E/S y la profundidad de la cola directamente. Por ejemplo, si usa SQL Server, no puede elegir la profundidad de la cola y el tamaño de E/S. SQL Server selecciona los valores de tamaño de E/S y profundidad de la cola óptimos para obtener el máximo rendimiento. Es importante comprender los efectos de ambos tipos de factores en rendimiento de su aplicación para poder aprovisionar los recursos adecuados para satisfacer las necesidades de rendimiento.
+Los principales factores que influyen en el rendimiento de una aplicación que se ejecuta en Premium Storage son la naturaleza de las solicitudes de E/S, el tamaño de la máquina virtual, el tamaño del disco, el número de discos, la caché de disco, el multithreading y la profundidad de la cola. Puede controlar algunos de estos factores con mecanismos proporcionados por el sistema. Es posible que la mayoría de las aplicaciones no le de opción de modificar el tamaño de E/S y la profundidad de la cola directamente. Por ejemplo, si usa SQL Server, no puede elegir la profundidad de la cola y el tamaño de E/S. SQL Server selecciona los valores de tamaño de E/S y profundidad de la cola óptimos para obtener el máximo rendimiento. Es importante comprender los efectos de ambos tipos de factores en rendimiento de su aplicación para poder aprovisionar los recursos adecuados para satisfacer las necesidades de rendimiento.
 
 En esta sección, consulte la lista de comprobación de los requisitos de la aplicación que creó para averiguar la cantidad que necesita para optimizar el rendimiento de las aplicaciones. En función de ello, podrá determinar qué factores de esta sección debe optimizar. Para ver los efectos de cada factor en el rendimiento de las aplicaciones, ejecute las herramientas de pruebas comparativas en la configuración de su aplicación. Vea la sección [Pruebas comparativas](#Benchmarking) al final de este artículo para conocer los pasos para ejecutar las herramientas de pruebas comparativas comunes en las máquinas virtuales de Windows y de Linux.
 
@@ -115,7 +115,7 @@ La tabla siguiente resume todos los factores de rendimiento y los pasos necesari
 | **Almacenamiento en caché de disco** |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener una mayor IOPS de lectura. | &nbsp; |Habilite la caché de solo lectura en los discos de almacenamiento premium con operaciones intensivas de lectura para obtener latencias de lectura muy bajas. |
 | **Seccionamiento del disco** |Use varios discos y secciónelos conjuntamente para conseguir un límite de IOPS y rendimiento combinado superior. Tenga en cuenta que el límite combinado por máquina virtual debe ser mayor que los límites combinados de los discos premium conectados. | &nbsp; | &nbsp; |
 | **Tamaño de franja** |Un menor tamaño de franja para un patrón de E/S pequeño y aleatorio visto en las aplicaciones OLTP. Por ejemplo, puede usar un tamaño de franja de 64 KB para aplicaciones OLTP de SQL Server. |Un mayor tamaño de franja para un patrón de E/ grande y secuencial visto en las aplicaciones de Almacenamiento de datos. Por ejemplo, puede usar un tamaño de franja de 256 KB para aplicaciones de Almacenamiento de datos de SQL Server. | &nbsp; |
-| **Multithreading** |Use el multithreading para insertar un mayor número de solicitudes en Almacenamiento premium, lo que dará lugar a una mayor IOPS y rendimiento. Por ejemplo, en SQL Server establezca un valor MAXDOP alto para asignar más CPU a SQL Server. | &nbsp; | &nbsp; |
+| **Multithreading** |Use el multithreading para insertar un mayor número de solicitudes en Premium Storage, lo que dará lugar a una mayor IOPS y rendimiento. Por ejemplo, en SQL Server establezca un valor MAXDOP alto para asignar más CPU a SQL Server. | &nbsp; | &nbsp; |
 | **Profundidad de la cola** |Una profundidad de la cola mayor produce una IOPS mayor. |Una profundidad de la cola mayor produce un mayor rendimiento. |Una profundidad de la cola menor produce latencias más bajas. |
 
 ## <a name="nature-of-io-requests"></a>Naturaleza de las solicitudes de E/S
@@ -155,7 +155,7 @@ Para obtener una IOPS y un ancho de banda mayores que el valor máximo de un sol
 Para ver los efectos del tamaño de E/S en el rendimiento de las aplicaciones, puede ejecutar las herramientas de pruebas comparativas en la máquina virtual y los discos. Cree varias ejecuciones de pruebas y use un tamaño de E/S diferente para cada ejecución para ver el impacto. Consulte la sección [Pruebas comparativas](#Benchmarking) al final de este artículo para más detalles.
 
 ## <a name="high-scale-vm-sizes"></a>Tamaños de máquina virtual a gran escala
-Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Almacenamiento premium viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local. Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Almacenamiento premium son las máquinas virtuales de las series DS, DSv2 y GS.
+Al empezar a diseñar una aplicación, una de las primeras cosas que hay que hacer es elegir una máquina virtual para hospedar la aplicación. Premium Storage viene con tamaños de máquina virtual a gran escala que pueden ejecutar aplicaciones que requieren una mayor capacidad de proceso y un alto rendimiento de E/S del disco local Estas máquinas virtuales proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco local. Algunos ejemplos de máquinas virtuales a gran escala que admiten Premium Storage son las máquinas virtuales de las series DS, DSv2 y GS.
 
 Las máquinas virtuales a gran escala están disponibles en distintos tamaños con un número diferente de núcleos de CPU, memoria, sistema operativo y tamaño del disco temporal. Cada tamaño de máquina virtual también tiene el número máximo de discos de datos que se puede conectar a la máquina virtual. Por lo tanto, el tamaño de máquina virtual seleccionado afectará al procesamiento, la memoria y la capacidad de almacenamiento que están disponibles para su aplicación. También afecta al proceso y los costos de almacenamiento. Por ejemplo, a continuación se proporcionan las especificaciones del mayor tamaño de máquina virtual en una serie DS, una serie DSv2 y una serie GS:
 
@@ -172,15 +172,15 @@ Los límites máximos de IOPS por máquina virtual y por disco son diferentes e 
 Por ejemplo, suponga que el requisito de la aplicación es un máximo de 4.000 IOPS. Para lograrlo, aprovisiona un disco P30 en una máquina virtual DS1. El disco P30 puede proporcionar hasta 5.000 IOPS. Sin embargo, la máquina virtual DS1 está limitada a 3.200 IOPS. Por consiguiente, el rendimiento de las aplicaciones estará limitado a 3.200 IOPS por el límite de la máquina virtual y el rendimiento disminuirá. Para evitar esta situación, elija un tamaño de máquina virtual y de disco que cumplan los requisitos de la aplicación.
 
 *Costo de operación*  
-En muchos casos, es posible que el costo general de operación con Almacenamiento premium sea inferior al uso del almacenamiento estándar.
+En muchos casos, es posible que el costo general de operación con Premium Storage sea inferior al uso de Standard Storage.
 
 Por ejemplo, considere una aplicación que requiere más de 16.000 IOPS. Para obtener este rendimiento, necesitará una VM IaaS de Azure Standard\_D14, que puede proporcionar una IOPS máxima de 16.000 con 32 discos de 1 TB de almacenamiento estándar. Cada disco de almacenamiento estándar de 1 TB puede alcanzar un máximo de 500 IOPS. El costo estimado de esta máquina virtual por mes será de 1.570 USD. El costo mensual de 32 discos de almacenamiento estándar será de 1.638 USD. El costo mensual total estimado será de 3.208 USD.
 
-Sin embargo, si hospeda la misma aplicación en Almacenamiento premium, necesitará un tamaño de máquina virtual menor y menos discos de almacenamiento premium, lo que reduce el costo total. Una VM Standard\_DS13 puede cumplir los requisitos de 16.000 IOPS con cuatro discos P30. La máquina virtual DS13 tiene un máximo de 25.600 IOPS y cada disco P30 tiene un máximo de 5.000 IOPS. En general, esta configuración puede lograr 5.000 x 4 = 20.000 IOPS. El costo estimado de esta máquina virtual al mes será de 1.003 USD. El costo mensual de cuatro discos P30 de almacenamiento Premium será de 544,34 USD. El costo mensual total estimado será de 1,544 USD.
+Sin embargo, si hospeda la misma aplicación en Premium Storage, necesitará un tamaño de máquina virtual menor y menos discos de Premium Storage, lo que reduce el costo total. Una VM Standard\_DS13 puede cumplir los requisitos de 16.000 IOPS con cuatro discos P30. La máquina virtual DS13 tiene un máximo de 25.600 IOPS y cada disco P30 tiene un máximo de 5.000 IOPS. En general, esta configuración puede lograr 5.000 x 4 = 20.000 IOPS. El costo estimado de esta máquina virtual al mes será de 1.003 USD. El costo mensual de cuatro discos P30 de almacenamiento Premium será de 544,34 USD. El costo mensual total estimado será de 1,544 USD.
 
-La tabla siguiente resume el análisis de costos de este escenario de Almacenamiento premium y estándar.
+La tabla siguiente resume el análisis de costos de este escenario de Premium Storage y estándar.
 
-| &nbsp; | **Standard** | **Premium** |
+| &nbsp; | **Estándar** | **Premium** |
 | --- | --- | --- |
 | **Costo de máquina virtual al mes** |1570,58 USD (Standard\_D14) |1003,66 USD (Standard\_DS13) |
 | **Costo de discos al mes** |1.638,40 USD (32 discos x 1 TB) |544,34 USD (4 discos x P30) |
@@ -188,12 +188,12 @@ La tabla siguiente resume el análisis de costos de este escenario de Almacenami
 
 *Linux Distros*  
 
-Con Almacenamiento premium de Azure, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa [aquí](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
+Con Azure Premium Storage, obtendrá el mismo nivel de rendimiento para las máquinas virtuales de Windows y de Linux. Se admiten muchas versiones de las distribuciones de Linux; puede ver la lista completa [aquí](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Es importante tener en cuenta que son adecuadas distintas distribuciones para diferentes tipos de carga de trabajo. Podrá ver diferentes niveles de rendimiento según la distribución en la que se ejecuta la carga de trabajo. Pruebe las distribuciones de Linux con su aplicación y elija la que mejor se adapte.
 
-Cuando ejecute Linux con Almacenamiento premium, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
+Cuando ejecute Linux con Premium Storage, compruebe las actualizaciones más recientes acerca de los controladores necesarios para garantizar un alto rendimiento.
 
-## <a name="premium-storage-disk-sizes"></a>Tamaños de disco de Almacenamiento premium
-Azure Premium Storage ofrece actualmente siete tamaños de disco. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Almacenamiento premium adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los siete tamaños y sus capacidades. Los tamaños P4 y P6 solo se admiten actualmente para Managed Disks.
+## <a name="premium-storage-disk-sizes"></a>Tamaños de disco de Premium Storage
+Azure Premium Storage ofrece actualmente siete tamaños de disco. Cada tamaño de disco tiene un límite de escala diferente de IOPS, ancho de banda y almacenamiento. Elija el tamaño de disco de Premium Storage adecuado según los requisitos de la aplicación y el tamaño de la máquina virtual a gran escala. En la tabla siguiente se muestran los siete tamaños y sus capacidades. Los tamaños P4 y P6 solo se admiten actualmente para Managed Disks.
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -219,17 +219,17 @@ Por ejemplo, si un requisito de la aplicación es un máximo de 250 MB/s de rend
 *Número de discos*  
 Para determinar el número de discos que necesitará, evalúe los requisitos de la aplicación. Cada tamaño de máquina virtual también tiene un límite en el número de discos que puede conectar a la máquina virtual. Normalmente, es dos veces el número de núcleos. Asegúrese de que el tamaño de la máquina virtual que elija puede admitir el número de discos necesario.
 
-Recuerde que los discos de Almacenamiento premium tienen capacidades de rendimiento superiores en comparación con los discos de almacenamiento estándar. Por tanto, si va a migrar la aplicación de la máquina virtual IaaS de Azure del almacenamiento estándar a Almacenamiento premium, probablemente necesitará menos discos premium para conseguir un rendimiento igual o superior para la aplicación.
+Recuerde que los discos de Premium Storage tienen capacidades de rendimiento superiores en comparación con los discos de Standard Storage. Por tanto, si va a migrar la aplicación de la máquina virtual IaaS de Azure Standard Storage a Premium Storage, probablemente necesitará menos discos premium para conseguir un rendimiento igual o superior para la aplicación.
 
 ## <a name="disk-caching"></a>Almacenamiento en caché de disco
-Las máquinas virtuales a gran escala que aprovechan Almacenamiento premium de Azure tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Almacenamiento premium persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Almacenamiento premium. Con la caché de disco habilitada en los discos de Almacenamiento premium, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
+Las máquinas virtuales a gran escala que aprovechan Azure Premium Storage tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Premium Storage persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Premium Storage. Con la caché de disco habilitada en los discos de Premium Storage, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
 
 > [!WARNING]
 > Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco.
 >
 >
 
-Para más información acerca del funcionamiento de BlobCache, consulte la publicación de blog [Almacenamiento premium de Azure](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
+Para más información acerca del funcionamiento de BlobCache, consulte la publicación de blog [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/).
 
 Es importante habilitar la memoria caché en el conjunto de discos correcto. Si debe habilitar el almacenamiento en caché de disco en un disco de premium o no dependerá del patrón de la carga de trabajo que el disco manejará. La tabla siguiente muestra el valor predeterminado de las opciones de caché para discos del sistema operativo y datos.
 
@@ -247,15 +247,15 @@ A continuación se muestra la configuración de caché de disco recomendada para
 | ReadWrite |Configure la caché de host como ReadWrite solo si la aplicación maneja correctamente la escritura de datos en caché a discos persistentes cuando es necesario. |
 
 *ReadOnly*  
-Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Almacenamiento premium, puede lograr una baja latencia de lectura y obtener una IOPS de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
+Mediante la configuración del almacenamiento en caché ReadOnly en discos de datos de Premium Storage, puede lograr una baja latencia de lectura y obtener una IOPS de lectura y un rendimiento de la aplicación muy altos. Esto se debe a dos razones:
 
 1. Las lecturas realizadas desde la memoria caché, que se encuentra en la memoria de la máquina virtual y el SSD local, son mucho más rápidas que las lecturas desde el disco de datos, que se encuentra en el almacenamiento de blobs de Azure.  
-2. Almacenamiento premium no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
+2. Premium Storage no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores.
 
 *ReadWrite*  
 De forma predeterminada, los discos del sistema operativo tienen habilitada la caché ReadWrite. Recientemente hemos agregado también compatibilidad para el almacenamiento en caché ReadWrite en los discos de datos. Si usa el almacenamiento en caché ReadWrite, debe tener una manera adecuada de escribir los datos de la memoria caché en discos persistentes. Por ejemplo, SQL Server administra por sí mismo la escritura de los datos en caché en los discos de almacenamiento persistentes. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
 
-Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Almacenamiento premium del modo siguiente:
+Por ejemplo, puede aplicar estas directrices a un SQL Server que funciona en Premium Storage del modo siguiente:
 
 1. Configure la caché "ReadOnly" de los discos de Premium Storage que hospedan archivos de datos.  
    a.  Las rápidas lecturas de la caché reducen el tiempo de consulta de SQL Server, ya que las páginas de datos se recuperan mucho más rápido de la memoria caché que directamente desde los discos de datos.  
@@ -277,7 +277,7 @@ Una configuración importante en el seccionamiento del disco es el tamaño de fr
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Almacenamiento premium. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
 
 > [!NOTE]
 > Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
@@ -285,7 +285,7 @@ Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tama�
 >
 
 ## <a name="multi-threading"></a>Multithreading
-Azure ha diseñado la plataforma Almacenamiento premium para ser enormemente paralela. Por lo tanto, una aplicación multiproceso logra un rendimiento mucho mayor que una aplicación uniproceso. Una aplicación multiproceso divide sus tareas en varios subprocesos y aumenta la eficacia de su ejecución mediante el uso de los recursos de la máquina virtual y el disco al máximo.
+Azure ha diseñado la plataforma Premium Storage para ser enormemente paralela. Por lo tanto, una aplicación multiproceso logra un rendimiento mucho mayor que una aplicación uniproceso. Una aplicación multiproceso divide sus tareas en varios subprocesos y aumenta la eficacia de su ejecución mediante el uso de los recursos de la máquina virtual y el disco al máximo.
 
 Por ejemplo, si la aplicación se ejecuta en una máquina virtual de un solo núcleo que usa dos subprocesos, la CPU puede cambiar entre los dos subprocesos para lograr la eficiencia. Mientras un subproceso está esperando que se complete la E/S del disco, la CPU puede cambiar a otro subproceso. De esta manera, dos subprocesos pueden lograr más que un único subproceso. Si la máquina virtual tiene más de un núcleo, reduce aún más el tiempo de ejecución, ya que cada núcleo puede ejecutar tareas en paralelo.
 
@@ -324,14 +324,14 @@ Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemen
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitaciones
-Almacenamiento premium de Azure aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Almacenamiento premium lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, un rendimiento menor o una IOPS menor. Si Almacenamiento premium no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación,  aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
+Azure Premium Storage aprovisiona un número especificado de IOPS y rendimiento de acuerdo con los tamaños de la máquina virtual y de disco que elija. Cada vez que la aplicación intenta que la IOPS o el rendimiento estén por encima de los límites que puede administrar la máquina virtual o el disco, Premium Storage lo limitará. Esto se manifiesta en forma de una disminución del rendimiento de la aplicación. Esto puede significar una latencia mayor, un rendimiento menor o una IOPS menor. Si Premium Storage no lo limita, la aplicación podría fallar completamente al exceder lo que sus recursos son capaces de conseguir. Por lo tanto, para evitar problemas de rendimiento debido a la limitación,  aprovisione siempre suficientes recursos para su aplicación. Tenga en cuenta lo que hemos explicado en las secciones anteriores sobre los tamaños de la máquina virtual y el disco. Las pruebas comparativas son la mejor forma de averiguar qué recursos necesitará para hospedar su aplicación.
 
 ## <a name="benchmarking"></a>Pruebas comparativas
-Las pruebas comparativas consisten en el proceso de simular cargas de trabajo diferentes en la aplicación y medir el rendimiento de las aplicaciones para cada carga de trabajo. Mediante los pasos descritos en una sección anterior, recopiló los requisitos de rendimiento de las aplicaciones. Al ejecutar las herramientas de pruebas comparativas en las máquinas virtuales en las que se hospeda la aplicación, puede determinar los niveles de rendimiento que la aplicación puede lograr con Almacenamiento premium. En esta sección se proporcionan ejemplos de pruebas comparativas realizados con una máquina virtual estándar de DS14 aprovisionada con discos de Almacenamiento premium de Azure.
+Las pruebas comparativas consisten en el proceso de simular cargas de trabajo diferentes en la aplicación y medir el rendimiento de las aplicaciones para cada carga de trabajo. Mediante los pasos descritos en una sección anterior, recopiló los requisitos de rendimiento de las aplicaciones. Al ejecutar las herramientas de pruebas comparativas en las máquinas virtuales en las que se hospeda la aplicación, puede determinar los niveles de rendimiento que la aplicación puede lograr con Premium Storage. En esta sección se proporcionan ejemplos de pruebas comparativas realizados con una máquina virtual estándar de DS14 aprovisionada con discos de Azure Premium Storage.
 
 Hemos usado las herramientas de pruebas comparativas comunes Iometer y FIO, para Windows y Linux respectivamente. Estas herramientas generan varios subprocesos que simulan una carga de trabajo de producción y miden el rendimiento del sistema. Con estas herramientas, también puede configurar parámetros como la profundidad de la cola y el tamaño de bloque, que normalmente no se puede cambiar de una aplicación. Esto proporciona más flexibilidad para controlar el rendimiento máximo en una máquina virtual a gran escala aprovisionada con discos premium para diferentes tipos de cargas de trabajo de la aplicación. Para más información sobre la herramienta de pruebas comparativas, visite [Iometer](http://www.iometer.org/) y [FIO](http://freecode.com/projects/fio).
 
-Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 11 discos de Almacenamiento premium a la máquina virtual. De los once discos, configure diez con almacenamiento en caché de host como "None" y secciónelos en un volumen denominado NoCacheWrites. Configure el almacenamiento en caché de host como "ReadOnly" en el disco restante y cree un volumen denominado CacheReads con dicho disco. Con esta configuración, podrá ver el rendimiento máximo de lectura y escritura de una máquina virtual estándar DS14. Para ver pasos detallados sobre la creación de una máquina virtual DS14 con discos premium, lea la sección [Creación y uso de una cuenta de Premium Storage para un disco de datos de la máquina virtual](../articles/virtual-machines/windows/premium-storage.md).
+Para seguir estos ejemplos, cree una máquina virtual estándar DS14 y conecte 11 discos de Premium Storage a la máquina virtual. De los once discos, configure diez con almacenamiento en caché de host como "None" y secciónelos en un volumen denominado NoCacheWrites. Configure el almacenamiento en caché de host como "ReadOnly" en el disco restante y cree un volumen denominado CacheReads con dicho disco. Con esta configuración, podrá ver el rendimiento máximo de lectura y escritura de una máquina virtual estándar DS14. Para ver pasos detallados sobre la creación de una máquina virtual DS14 con discos premium, lea la sección [Creación y uso de una cuenta de Premium Storage para un disco de datos de la máquina virtual](../articles/virtual-machines/windows/premium-storage.md).
 
 *Preparación de la memoria caché*  
 El disco con almacenamiento en caché de host ReadOnly podrá proporcionar una IOPS mayor que el límite del disco. Para obtener este máximo rendimiento de lectura de la caché de host, primero debe preparar la memoria caché de este disco. Esto garantiza que las E/S de lectura en las qué la herramienta de pruebas comparativas manejará el volumen de CacheReads alcanzan realmente la memoria caché y no en el disco directamente. Los aciertos de caché generan IOPS adicionales desde el único disco con la memoria caché habilitada.
@@ -374,24 +374,24 @@ Realice los siguientes pasos para preparar la memoria caché
 
 1. Cree dos especificaciones de acceso con los valores que se muestran a continuación:
 
-   | Nombre | Tamaño de la solicitud | % aleatorio | % lectura |
+   | NOMBRE | Tamaño de la solicitud | % aleatorio | % lectura |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 2. Ejecute la prueba Iometer para inicializar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
-   | Escenario | Volumen de destino | Nombre | Duración |
+   | Escenario | Volumen de destino | NOMBRE | Duration |
    | --- | --- | --- | --- |
    | Inicializar caché de disco |CacheReads |RandomWrites\_1MB |2 horas |
 3. Ejecute la prueba Iometer para el preparar el disco de la caché con los parámetros siguientes. Use tres subprocesos de trabajo para el volumen de destino y una profundidad de la cola de 128. Establezca la duración del “tiempo de ejecución” de la prueba en 2 horas en la pestaña "Test Setup" (Configuración de prueba).
 
-   | Escenario | Volumen de destino | Nombre | Duración |
+   | Escenario | Volumen de destino | NOMBRE | Duración |
    | --- | --- | --- | --- |
    | Preparación de la caché de disco |CacheReads |RandomReads\_1MB |2 horas |
 
 Una vez preparado el disco de memoria caché, continúe con los escenarios de prueba que se muestran a continuación. Para ejecutar la prueba Iometer, use al menos tres subprocesos de trabajo para **cada** volumen de destino. Para cada subproceso de trabajo, seleccione el volumen de destino, establezca la profundidad de la cola y seleccione una de las especificaciones de prueba guardadas, tal como se muestra en la tabla siguiente, para ejecutar el escenario de prueba correspondiente. La tabla también muestra los resultados esperados para IOPS y rendimiento al ejecutar estas pruebas. Para todos los escenarios, se usa un tamaño pequeño de E/S de 8 KB y una profundidad de la cola alta de 128.
 
-| Escenario de prueba | Volumen de destino | Nombre | Resultado |
+| Escenario de prueba | Volumen de destino | NOMBRE | Resultado |
 | --- | --- | --- | --- |
 | Máx. IOPS de lectura |CacheReads |RandomWrites\_8K |50.000 E/S por segundo  |
 | Máx. IOPS de escritura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
@@ -411,7 +411,7 @@ A continuación se muestran capturas de pantalla de los resultados de la prueba 
 ![](media/premium-storage-performance/image10.png)
 
 ### <a name="fio"></a>FIO
-FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Almacenamiento premium. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar dichas pruebas.
+FIO es una popular herramienta para el almacenamiento de información de referencia en las máquinas virtuales de Linux. Tiene flexibilidad para seleccionar distintos tamaños de E/S y lecturas y escrituras secuenciales o aleatorias. Genera subprocesos de trabajo o procesos para realizar las operaciones de E/S especificadas. Puede especificar el tipo de operaciones de E/S que debe realizar cada subproceso de trabajo con archivos de trabajo. Hemos creado un archivo de trabajo por escenario que se ilustra en los ejemplos siguientes. Puede cambiar las especificaciones de estos archivos de trabajo para tener referencia de diferentes cargas de trabajo en Premium Storage. En los ejemplos, usamos una máquina virtual estándar 14 DS  que ejecuta **Ubuntu**. Use la misma configuración descrita al principio de la [sección Pruebas comparativas](#Benchmarking) y prepare la memoria caché antes de ejecutar dichas pruebas.
 
 Antes de comenzar, [descargue FIO](https://github.com/axboe/fio) e instálelo en la máquina virtual.
 
@@ -564,11 +564,11 @@ Mientras se ejecuta la prueba, podrá ver el número de IOPS de lectura y escrit
 Para obtener el rendimiento de lectura y escritura combinado máximo, use un tamaño de bloque y la profundidad de la cola más grandes con varios subprocesos que realizan lecturas y escrituras. Puede usar un tamaño de bloque de 64 KB y una profundidad de la cola de 128.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Más información sobre Almacenamiento premium de Azure:
+Más información sobre Premium Azure Premium Storage:
 
-* [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Storage: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../articles/virtual-machines/windows/premium-storage.md)  
 
 Para los usuarios de SQL Server, lea artículos sobre procedimientos recomendados para SQL Server:
 
-* [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Almacenamiento premium de Azure proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Procedimientos recomendados para SQL Server en Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage proporciona el máximo rendimiento para SQL Server en una máquina virtual de Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

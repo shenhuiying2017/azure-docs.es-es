@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Control de acceso en Azure Data Lake Store
 
@@ -150,7 +150,7 @@ En Azure, una cuenta de Data Lake Store tiene varios roles de Azure, incluidos:
 * Colaboradores
 * Lectores
 
-Todos los miembros del rol **Propietarios** de una cuenta de Data Lake Store son automáticamente superusuarios de dicha cuenta. Para más información, consulte el artículo sobre el [control de acceso basado en roles](../active-directory/role-based-access-control-configure.md).
+Todos los miembros del rol **Propietarios** de una cuenta de Data Lake Store son automáticamente superusuarios de dicha cuenta. Para más información, consulte el artículo sobre el [control de acceso basado en roles](../role-based-access-control/role-assignments-portal.md).
 Si desea crear un rol de control de acceso basado en roles (RBAC) personalizado que tenga permisos de superusuario, debe tener los permisos siguientes:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -184,7 +184,7 @@ El grupo propietario se puede cambiar por:
 * El usuario propietario, si el usuario propietario también es miembro del grupo de destino.
 
 > [!NOTE]
-> El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.
+> El grupo propietario *no puede* cambiar las ACL de un archivo o carpeta.  Aunque el grupo propietario se establece en el usuario que creó la cuenta en el caso de la carpeta raíz, **Caso 1** anterior, una única cuenta de usuario no es válida para proporcionar los permisos mediante el grupo propietario.  Puede asignar este permiso a un grupo de usuarios válidos si es aplicable.
 
 ## <a name="access-check-algorithm"></a>Algoritmo de comprobación de acceso
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/03/2018
+ms.date: 04/17/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: 34b03cf1fda29706936968ab93cb35a6a2510c65
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: af253525ce5a77ece72e810642abcaf7931e39d8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>Administración de la capacidad de memoria física para Azure Stack
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 Para aumentar la capacidad de memoria total disponible para Azure Stack, puede agregar más memoria. En Azure Stack, al servidor físico también se le conoce como un *nodo de unidad de escalado*. Todos los nodos de unidad de escalado que sean miembros de una sola unidad de escalado deben tener la misma cantidad de memoria.
 
 > [!note]  
-> Antes de continuar, consulte la documentación del fabricante de hardware para ver si admite la actualización de una memoria física. El contrato de soporte técnico del proveedor de hardware de OEM puede requerir que el proveedor realice la colocación del bastidor del servidor físico y la actualización de firmware del dispositivo.
+> Antes de continuar, consulte la documentación del fabricante de hardware para ver si el proveedor admite una actualización de la memoria física. El contrato de soporte técnico del proveedor de hardware OEM puede requerir que realice la colocación del bastidor del servidor físico y la actualización del firmware del dispositivo.
 
 En el siguiente diagrama de flujo se muestra el proceso general para agregar memoria a cada nodo de la unidad de escalado.
 

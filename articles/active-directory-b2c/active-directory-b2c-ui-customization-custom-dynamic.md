@@ -11,13 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configuración de la interfaz de usuario con contenido dinámico utilizando directivas personalizadas
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 Mediante el uso de las directivas personalizadas de Azure Active Directory B2C (Azure AD B2C), puede enviar un parámetro en una cadena de consulta. Al pasar dicho parámetro al punto de conexión HTML, puede cambiar de forma dinámica el contenido de la página. Por ejemplo, puede cambiar la imagen de fondo en la página de inicio de sesión o de registro de Azure AD B2C en función de un parámetro que se pasa desde la aplicación web o dispositivo móvil. 
 
 ## <a name="prerequisites"></a>requisitos previos
@@ -193,7 +196,7 @@ La plantilla HTML5 está lista para usarse. Sin embargo, no está disponible en 
     >Para comprobar que el sitio donde va a albergar el contenido ha habilitado CORS y puede probar las solicitudes CORS, vaya al sitio web [test-cors.org](http://test-cors.org/). 
 
 * El contenido servido es seguro sobre **HTTPS**.
-* Está usando *direcciones URL absolutas* como *https://yourdomain/content* para todos los vínculos, el contenido de CSS y las imágenes.
+* Está usando *direcciones URL absolutas* como *https://yourdomain/content*, para todos los vínculos, el contenido de CSS y las imágenes.
 
 ## <a name="step-5-configure-your-content-definition"></a>Paso 5: Configuración de la definición de contenido
 Para configurar `ContentDefinition` haga lo siguiente:

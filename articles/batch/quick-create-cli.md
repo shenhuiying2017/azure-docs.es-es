@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido de Azure - Ejecución de un trabajo de Batch - CLI"
-description: "Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de Azure."
+title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - CLI
+description: Aprenda rápidamente a ejecutar un trabajo de Batch con la CLI de Azure.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8d0e827dd3658d711de3830453c92af581786ad0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de0ff088b3a61c48ddcbdff01f105884870886e1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Inicio rápido: ejecute su primer trabajo de Batch con la CLI de Azure
 
@@ -40,7 +40,7 @@ az group create \
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cualquier cuenta de almacenamiento de uso general de Azure se puede vincular con una cuenta de Batch. Aunque no es necesaria para esta guía de inicio rápido, la cuenta de almacenamiento es útil para implementar aplicaciones y almacenar los datos de entrada y salida de la mayoría de las cargas de trabajo reales. Cree una cuenta de almacenamiento en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Puede vincular una cuenta de Azure Storage con su cuenta de Batch. Aunque no es necesaria para esta guía de inicio rápido, la cuenta de almacenamiento es útil para implementar aplicaciones y almacenar los datos de entrada y salida de la mayoría de las cargas de trabajo reales. Cree una cuenta de almacenamiento en el grupo de recursos con el comando [az storage account create](/cli/azure/storage/account#az_storage_account_create).
 
 ```azurecli-interactive
 az storage account create \

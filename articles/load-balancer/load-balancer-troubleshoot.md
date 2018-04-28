@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solución de problemas de Azure Load Balancer
 
@@ -103,9 +103,7 @@ Si una máquina virtual no responde al tráfico de datos, puede deberse a que el
 
 Si uno o varios grupos de seguridad de red configurados en la subred o en la máquina virtual bloquean la dirección IP de origen o el puerto, la máquina virtual no puede responder.
 
-* Enumere los grupos de seguridad de red configurados en la máquina virtual de back-end. Para más información, consulte:
-    -  [Administración de grupos de seguridad de red mediante el portal](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [Administración de grupos de seguridad de red mediante PowerShell](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* Enumere los grupos de seguridad de red configurados en la máquina virtual de back-end. Para más información, consulte el artículo sobre la [administración de los grupos de seguridad de red](../virtual-network/manage-network-security-group.md).
 * En la lista de grupos de seguridad de red, compruebe si:
     - el tráfico entrante o saliente del puerto de datos tiene interferencias. 
     - hay una regla de grupos de seguridad de red **Deny All** en la NIC de la máquina virtual o la subred que tenga una prioridad mayor que la regla predeterminada que permite los sondeos del equilibrador de carga y de tráfico (los grupos de seguridad de red deben permitir la dirección IP del equilibrador de carga 168.63.129.16, que es el puerto de sondeo) 

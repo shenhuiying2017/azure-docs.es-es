@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f0df9b02e7672faec3a1d94997c9b27ffca275e5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Preguntas frecuentes sobre la API de uso de Azure Stack
 En este artículo se responde a algunas preguntas frecuentes sobre la API de uso de Azure Stack.
@@ -68,7 +68,7 @@ Se informa del uso para los siguientes proveedores de recursos:
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>¿Cómo se comparan las API de uso de Azure Stack con la [API de uso de Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (actualmente en versión preliminar pública)?
 * La API de uso de inquilinos es coherente con la API de Azure, con una excepción: actualmente, la marca *showDetails* no se admite en Azure Stack.
 * La API de uso de proveedor solo se aplica a Azure Stack.
-* Actualmente, la [API RateCard](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx) disponible en Azure no se encuentra disponible en Azure Stack.
+* Actualmente, la [API RateCard](https://msdn.microsoft.com/library/azure/mt219004.aspx) disponible en Azure no se encuentra disponible en Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>¿Cuál es la diferencia entre el tiempo notificado y el tiempo de uso?
 Los informes de datos de uso tienen dos valores de tiempo principales:

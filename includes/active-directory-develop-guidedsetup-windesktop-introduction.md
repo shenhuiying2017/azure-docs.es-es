@@ -1,4 +1,27 @@
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a la API Graph de Microsoft desde una aplicación de escritorio de Windows
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 79b6b8e5d81d3885f9c125f971f3e32e695cf2b1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/28/2018
+---
+# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
 Esta guía muestra cómo una aplicación nativa .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a Microsoft Graph API u otras API que requieren tokens de acceso desde un punto de conexión de Azure Active Directory v2.
 
@@ -7,7 +30,7 @@ Cuando haya completado la guía, la aplicación podrá llamar a una API protegid
 > [!NOTE] 
 > Esta guía requiere Visual Studio 2015 Update 3 o Visual Studio 2017.  ¿No tiene ninguna de estas versiones? [Descargue Visual Studio 2017 de manera gratuita](https://www.visualstudio.com/downloads/).
 
-## <a name="how-this-guide-works"></a>Funcionamiento de esta guía
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 
 ![Funcionamiento de esta guía](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 

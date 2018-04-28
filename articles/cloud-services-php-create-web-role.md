@@ -1,38 +1,37 @@
 ---
-title: "Creación de roles web y de trabajo de Azure para PHP | Microsoft Docs"
-description: "Una guía para crear roles web y de trabajo de PHP en un servicio en la nube de Azure y configurar el tiempo en ejecución de PHP."
-services: 
+title: Creación de roles web y de trabajo de Azure para PHP
+description: Una guía para crear roles web y de trabajo de PHP en un servicio en la nube de Azure y configurar el tiempo en ejecución de PHP.
+services: ''
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: 
+author: msangapu
+manager: cfowler
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
-ms.openlocfilehash: 214fdcfe20f3fa4ebcbe41308404f8b7e7d15310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/11/2018
+ms.author: msangapu
+ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="how-to-create-php-web-and-worker-roles"></a>Creación de roles de trabajo y web de PHP
 ## <a name="overview"></a>Información general
 En esta guía se explica cómo crear roles de trabajo o web de PHP en un entorno de desarrollo de Windows, elegir una versión específica de PHP de versiones "integradas" disponibles, cambiar la configuración de PHP, habilitar extensiones y, por último, implementar en Azure. También se describe cómo configurar un rol web o de trabajo para usar un tiempo de ejecución de PHP (con las extensiones y la configuración personalizada) proporcionado por el usuario.
 
 ## <a name="what-are-php-web-and-worker-roles"></a>¿Qué son los roles web y de trabajo de PHP?
-Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: Servicio de aplicaciones de Azure, Máquinas virtuales de Azure y Servicios en la nube de Azure. Los tres modelos admiten PHP. Servicios en la nube, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)*. Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
+Azure ofrece tres modelos de proceso para la ejecución de aplicaciones: Azure App Service, Azure Virtual Machines y Azure Cloud Services. Los tres modelos admiten PHP. Cloud Services, que incluye roles web y de trabajo, ofrece el modelo *Plataforma como servicio (PaaS)*. Dentro de un servicio en la nube, un rol web proporciona un servidor web de Internet Information Services (IIS) dedicado para hospedar aplicaciones web front-end. Un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas, independientes de la entrada o la interacción del usuario.
 
 Para más información sobre estas opciones, consulte [Cálculo de las opciones de hospedaje proporcionadas por Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
 El [SDK de Azure para PHP] tiene varios componentes. Este artículo usará dos de ellos: los emuladores de Azure PowerShell y de Azure. Estos dos componentes se pueden instalar a través del instalador de la plataforma web de Microsoft. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
 
-## <a name="create-a-cloud-services-project"></a>de un proyecto de servicio en la nube
+## <a name="create-a-cloud-services-project"></a>Creación de un proyecto de Cloud Services
 El primer paso para crear un rol web o de trabajo de PHP es crear un proyecto del servicio de Azure. El primer paso para crear un rol web o de trabajo de PHP es crear un proyecto del servicio de Azure. Un proyecto del servicio de Azure sirve como un contenedor lógico para roles web y de trabajo y contiene los archivos de [definición del servicio (.csdef)] y [configuración del servicio (.cscfg)] del proyecto.
 
 Para crear un proyecto nuevo del servicio de Azure, ejecute Azure PowerShell como administrador y, a continuación, ejecute el comando siguiente:

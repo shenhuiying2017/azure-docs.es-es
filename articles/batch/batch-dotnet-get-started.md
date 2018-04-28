@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbd96187ad73a9c7e27b28f137e25fe66e2944ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Introducción a la creación de soluciones con la biblioteca de cliente de Batch para .NET
 
@@ -40,12 +40,8 @@ En este artículo se asume que tiene conocimientos prácticos de C# y Visual Stu
 ### <a name="accounts"></a>Cuentas
 * **Cuenta de Azure**: si aún no tiene ninguna suscripción a Azure, [cree una cuenta gratuita de Azure][azure_free_account].
 * **Cuenta de Batch**: una vez que tenga una suscripción a Azure, [cree una cuenta de Azure Batch](batch-account-create-portal.md).
-* **Cuenta de almacenamiento**: consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de Azure Storage](../storage/common/storage-create-storage-account.md).
+* **Cuenta de almacenamiento**: para conocer las opciones de cuenta de almacenamiento en Batch, consulte la [introducción a las características de Batch](batch-api-basics.md#azure-storage-account).
 
-> [!IMPORTANT]
-> Actualmente, Batch *solo* admite el tipo de cuenta de almacenamiento **de uso general**, tal y como se describe en el paso 5 de la sección [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md#create-a-storage-account) del artículo [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
->
->
 
 ### <a name="visual-studio"></a>Visual Studio
 Debe tener **Visual Studio 2015 o superior** para compilar el proyecto de ejemplo. Puede encontrar versiones de prueba y de evaluación gratuita de Visual Studio en la [información general de los productos de Visual Studio][visual_studio].
@@ -101,11 +97,6 @@ private const string BatchAccountUrl  = "";
 private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
-
-> [!IMPORTANT]
-> Como ya se ha mencionado, ahora debe especificar las credenciales de una cuenta de almacenamiento de **uso general** en Azure Storage. Las aplicaciones de Batch usan almacenamiento de blobs en la cuenta de almacenamiento de **uso general**. No especifique las credenciales de una cuenta de Storage que se haya creado mediante la selección del tipo de cuenta *Blob Storage*.
->
->
 
 Puede buscar las credenciales de las cuentas de Batch y de Storage en la hoja de la cuenta de cada uno de estos servicios en [Azure Portal][azure_portal]:
 

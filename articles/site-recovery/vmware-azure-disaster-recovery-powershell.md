@@ -9,11 +9,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: bsiva
-ms.openlocfilehash: cbb76aafe97e9e9b45c48a2b13bd1a6566b51fa5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2a0f183770a07cd05963e88c672452cfeb80e567
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicación y conmutación por error de máquinas virtuales de VMware a Azure con PowerShell
 
@@ -42,10 +42,10 @@ Antes de comenzar:
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Inicio de sesión en la suscripción de Microsoft Azure
 
-Iniciar sesión en su suscripción de Azure con el cmdlet Login-AzureRmAccount
+Inicio de sesión en su suscripción de Azure con el cmdlet Connect-AzureRmAccount
 
 ```azurepowershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 Seleccione la suscripción de Azure en la que quiere replicar sus máquinas virtuales de VMware. Use el cmdlet Get-AzureRmSubscription para obtener la lista de suscripciones de Azure a las que tiene acceso. Seleccione la suscripción de Azure con la que quiere trabajar mediante el cmdlet Select-AzureRmSubscription.
 

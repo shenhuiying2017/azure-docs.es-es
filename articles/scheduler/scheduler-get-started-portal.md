@@ -1,11 +1,11 @@
 ---
-title: "Introducción al Programador de Azure en Azure Portal | Microsoft Docs"
-description: "Introducción al Programador de Azure en el Portal de Azure"
+title: Introducción a Azure Scheduler en Azure Portal | Microsoft Docs
+description: Introducción a Azure Scheduler en Azure Portal
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introducción al Programador de Azure en el Portal de Azure
-Es fácil crear trabajos programados en el Programador de Azure. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración del Programador.
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Introducción a Azure Scheduler en Azure Portal
+Es fácil crear trabajos programados en Azure Scheduler. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración de Scheduler.
 
 ## <a name="create-a-job"></a>Creación de un trabajo
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).  
-2. Haga clic en **+Nuevo** > escriba *Programador* en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
+2. Haga clic en **+Nuevo** > escriba *Programador* en el cuadro de búsqueda > seleccione **Scheduler** en resultados > haga clic en **Crear**.
    
     ![][marketplace-create]
-3. Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador** , escriba la siguiente información:
+3. Vamos a crear un trabajo que simplemente visita http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo de Scheduler**, escriba la siguiente información:
    
    1. **Nombre:**`getmicrosoft`  
    2. **Suscripción** : su suscripción a Azure.   
@@ -53,7 +53,7 @@ Es fácil crear trabajos programados en el Programador de Azure. En este tutoria
 ## <a name="manage-and-monitor-jobs"></a>Administración y supervisión de trabajos
 Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga clic en el trabajo y se abrirá una nueva ventana con las pestañas siguientes:
 
-1. Propiedades  
+1. Properties (Propiedades)  
 2. Configuración de la acción  
 3. Schedule  
 4. Historial
@@ -61,8 +61,8 @@ Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga cli
    
    ![][job-overview]
 
-### <a name="properties"></a>Propiedades
-Estas propiedades de solo lectura describen los metadatos de administración para el trabajo del Programador.
+### <a name="properties"></a>Properties (Propiedades)
+Estas propiedades de solo lectura describen los metadatos de administración para el trabajo de Scheduler.
 
    ![][job-properties]
 
@@ -89,9 +89,9 @@ Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la f
    ![][job-schedule]
 
 ### <a name="history"></a>Historial
-La pestaña **Historial** muestra métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
+La pestaña **Historial** muestra métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado de Scheduler:
 
-1. Estado  
+1. Status  
 2. Detalles  
 3. Número de reintentos
 4. Periodicidad: 1ª, 2ª, 3ª, etc.
@@ -105,26 +105,26 @@ Puede hacer clic en una ejecución para ver su información en **Detalles del hi
    ![][job-history-details]
 
 ### <a name="users"></a>Usuarios
-El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso al Programador de Azure. Para aprender a usar la pestaña Usuarios, consulte [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md)
+El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso a Azure Scheduler. Para aprender a usar la pestaña Usuarios, consulte [Control de acceso basado en rol de Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="see-also"></a>Otras referencias
- [¿Qué es Programador?](scheduler-intro.md)
+ [¿Qué es Scheduler?](scheduler-intro.md)
 
- [Jerarquía de entidades, terminología y conceptos del Programador](scheduler-concepts-terms.md)
+ [Jerarquía de entidades, terminología y conceptos de Scheduler](scheduler-concepts-terms.md)
 
- [Planes y facturación en Programador de Azure](scheduler-plans-billing.md)
+ [Planes y facturación en Azure Scheduler](scheduler-plans-billing.md)
 
- [Creación de programaciones complejas y periodicidad avanzada con Programador de Azure](scheduler-advanced-complexity.md)
+ [Creación de programaciones complejas y periodicidad avanzada con Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Referencia de API de REST del Programador](https://msdn.microsoft.com/library/mt629143)
+ [Referencia de API de REST de Scheduler](https://msdn.microsoft.com/library/mt629143)
 
- [Referencia de cmdlets de PowerShell del Programador](scheduler-powershell-reference.md)
+ [Referencia de cmdlets de PowerShell de Scheduler](scheduler-powershell-reference.md)
 
- [Alta disponibilidad y confiabilidad del Programador](scheduler-high-availability-reliability.md)
+ [Alta disponibilidad y confiabilidad de Scheduler](scheduler-high-availability-reliability.md)
 
- [Límites, valores predeterminados y códigos de error de Programador](scheduler-limits-defaults-errors.md)
+ [Límites, valores predeterminados y códigos de error de Scheduler](scheduler-limits-defaults-errors.md)
 
- [Autenticación de salida del Programador](scheduler-outbound-authentication.md)
+ [Autenticación de salida de Scheduler](scheduler-outbound-authentication.md)
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

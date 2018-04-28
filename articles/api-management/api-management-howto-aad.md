@@ -1,11 +1,11 @@
 ---
-title: "Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management | Microsoft Docs"
+title: Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management | Microsoft Docs
 description: Aprenda a autorizar a los usuarios mediante Azure Active Directory en API Management.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -62,7 +62,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
     Aparece el panel **Crear** a la derecha. Aquí es donde especifica información pertinente de la aplicación de Azure AD.
 17. Escriba un nombre para la aplicación.
 18. Para el tipo de aplicación, seleccione **Aplicación web o API**.
-19. Como dirección URL de inicio de sesión, escriba la del portal para desarrolladores. En este ejemplo, la dirección URL de inicio de sesión es: https://apimwithaad.portal.azure-api.net/signin.
+19. Como dirección URL de inicio de sesión, escriba la del portal para desarrolladores. En este ejemplo, la dirección URL de inicio de sesión es https://apimwithaad.portal.azure-api.net/signin.
 20. Haga clic en **Crear** para crear la aplicación.
 21. Para buscar la aplicación, seleccione **Registros de aplicación** y busque por el nombre.
 
@@ -104,7 +104,7 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 
     Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe:
     
-    a. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent).
+    a. Ir a `https://<URL of your developer portal>/aadadminconsent` (por ejemplo, https://contoso.portal.azure-api.net/aadadminconsent)).
     
     b. Escribir el nombre de dominio del inquilino de Azure AD al que desea dar acceso.
     

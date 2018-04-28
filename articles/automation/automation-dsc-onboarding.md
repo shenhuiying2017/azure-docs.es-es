@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0da6bd56a684657d8275ca8c781847f31f8e05c5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10e0e0df4bf71c7a21a3cc06b5b1c16930d54ec6
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Incorporación de máquinas para administrarlas con DSC de Azure Automation
 
@@ -53,7 +53,7 @@ Para buscar la dirección URL de registro y la clave de la cuenta de Automation 
 ```powershell
 # log in to both Azure Service Management and Azure Resource Manager
 Add-AzureAccount
-Add-AzureRmAccount
+Connect-AzureRmAccount
 
 # fill in correct values for your VM/Automation account here
 $VMName = ""
@@ -329,7 +329,7 @@ Para incorporar genéricamente cualquier máquina a DSC de Azure Automation, se 
 Si los valores predeterminados del Administrador de configuración local de DSC de PowerShell coinciden con su caso de uso, y quiere incorporar máquinas de modo que ambas extraigan de DSC de Azure Automation y notifiquen allí, los cmdlets de Azure Automation ofrecen un método simplificado de generar las configuraciones de DSC necesarias:
 
 1. Abra la consola de PowerShell o PowerShell ISE como administrador en una máquina de su entorno local.
-2. Conéctese a Azure Resource Manager con **Add-AzureRmAccount**
+2. Conéctese a Azure Resource Manager con **Connect-AzureRmAccount**
 3. Descargue las metaconfiguraciones de DSC de PowerShell para las máquinas que quiere incorporar desde la cuenta de Automation a la que quiere incorporar nodos:
 
     ```powershell

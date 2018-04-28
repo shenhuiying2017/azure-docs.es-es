@@ -1,24 +1,24 @@
 ---
-title: "Creación de la primera aplicación de microservicios de Azure en Linux con C#| Microsoft Docs"
-description: "Creación e implementación de una aplicación de Service Fabric con C#"
+title: Creación de la primera aplicación de microservicios de Azure en Linux con C#| Microsoft Docs
+description: Creación e implementación de una aplicación de Service Fabric con C#
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9a97a560034b288823d662d83d6366383c9e1706
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 30ed7eb736b2012a0e9ed4c10d4bfd1aff35faac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
   ```bash
   sudo npm install -g yo
   ```
-3. Instalación del generador de aplicaciones Java Yeo de Service Fabric desde NPM
+3. Instalación del generador de aplicaciones Yeoman C# de Service Fabric desde NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp
@@ -105,7 +105,7 @@ La aplicación compilada se implementa de la misma forma que cualquier otra apli
 
 Los parámetros de estos comandos se pueden encontrar en los manifiestos generados dentro del paquete de aplicación.
 
-Una vez que se haya implementado la aplicación, abra un explorador y navegue hasta el [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
+Una vez que se haya implementado la aplicación, abra un explorador y vaya a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) en [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Luego, expanda el nodo **Applications** y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de dicho tipo.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error
 Los proyectos de actor no hacen nada por sí solos. Necesitan que otro servicio o cliente les envíe mensajes. La plantilla de actor incluye un sencillo script de prueba que puede usar para interactuar con el servicio de actor.

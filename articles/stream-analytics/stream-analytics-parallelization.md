@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
-ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.date: 04/27/2018
+ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -29,21 +29,13 @@ El escalado de un trabajo de Stream Analytics aprovecha las particiones en la en
 
 ### <a name="inputs"></a>Entradas
 Todas las entradas de Azure Stream Analytics pueden aprovechar la creación de particiones:
--   EventHub (la clave de partición se debe establecer explícitamente)
--   IoT Hub (la clave de partición se debe establecer explícitamente)
+-   EventHub (la clave de partición se debe establecer explícitamente con la palabra clave PARTITION BY)
+-   IoT Hub (la clave de partición se debe establecer explícitamente con la palabra clave PARTITION BY)
 -   Almacenamiento de blobs
 
 ### <a name="outputs"></a>Salidas
 
-Cuando trabaja con Stream Analytics, puede aprovechar la creación de particiones en las salidas:
--   Azure Data Lake Storage
--   Azure Functions
--   tabla de Azure
--   Almacenamiento de blobs
--   CosmosDB (la clave de partición se debe establecer explícitamente)
--   EventHub (la clave de partición se debe establecer explícitamente)
--   IoT Hub (la clave de partición se debe establecer explícitamente)
--   Azure Service Bus
+Cuando trabaja con Stream Analytics, puede aprovechar la creación de particiones en la mayoría de los receptores de salida. Para más información acerca de las particiones de salida que están disponibles en la [sección de creación de particiones de la página de salida](stream-analytics-define-outputs.md#partitioning).
 
 Las salidas de PowerBI, SQL y SQL Data Warehouse no admiten la creación de particiones. Sin embargo, de todos modos puede crear particiones de la entrada, tal como se describe en [está sección](#multi-step-query-with-different-partition-by-values) 
 
@@ -56,7 +48,7 @@ Para más información sobre las particiones, vea los siguientes artículos:
 ## <a name="embarrassingly-parallel-jobs"></a>Trabajos embarazosamente paralelos
 Un trabajo *embarazosamente paralelo* es el escenario más escalable que tenemos en Azure Stream Analytics. Conecta una partición de la entrada en una instancia de la consulta a una partición de la salida. Este paralelismo tiene los siguientes requisitos:
 
-1. Si la lógica de la consulta depende de la misma clave que procesa la misma instancia de consulta, ha de asegurarse de que los eventos vayan a la misma partición de la entrada. En Event Hubs, esto significa que los datos del evento deben tener establecido el valor **PartitionKey**. También puede usar remitentes con particiones. En Blob Storage, esto significa que los eventos se envían a la misma carpeta de partición. Si la lógica de consulta no requiere que la misma instancia de consulta procese la misma clave, puede ignorar este requisito. Un ejemplo de esta lógica sería una sencilla consulta select-project-filter.  
+1. Si la lógica de la consulta depende de la misma clave que procesa la misma instancia de consulta, ha de asegurarse de que los eventos vayan a la misma partición de la entrada. En Event Hubs o IoT Hub, esto significa que los datos del evento deben tener establecido el valor **PartitionKey**. También puede usar remitentes con particiones. En Blob Storage, esto significa que los eventos se envían a la misma carpeta de partición. Si la lógica de consulta no requiere que la misma instancia de consulta procese la misma clave, puede ignorar este requisito. Un ejemplo de esta lógica sería una sencilla consulta select-project-filter.  
 
 2. Una vez dispuestos los datos en la salida, hay que asegurarse de que la consulta está particionada. Esto requiere el uso de **PARTITION BY** en todos los pasos. Se pueden usar varios pasos, pero todos deben particionarse con la misma clave. Actualmente, la clave de partición debe establecerse en **PartitionId** para que el trabajo sea totalmente paralelo.  
 
@@ -66,6 +58,7 @@ Un trabajo *embarazosamente paralelo* es el escenario más escalable que tenemos
 
    * Ocho particiones de entrada de Event Hubs y ocho particiones de salida de Event Hubs
    * Ocho particiones de entrada de Event Hubs y salida de Blob Storage  
+   * Ocho particiones de entrada de Event Hubs y ocho particiones de salida de Event Hubs
    * Ocho particiones de entrada de Blob Storage y salida de Blob Storage  
    * Ocho particiones de entrada de Blob Storage y ocho particiones de salida de Event Hubs  
 

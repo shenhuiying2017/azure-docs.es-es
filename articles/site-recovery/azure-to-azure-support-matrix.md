@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: sujayt
-ms.openlocfilehash: 4ddad2d8e5c5323b632b65efaf87d3df7ce8d707
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a20ec14181e49443b5caf6ed0bcfaedcd4601b1c
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de compatibilidad para replicar desde una región de Azure a otra
 
@@ -168,6 +168,8 @@ Cifrado en reposo (SSE) | Compatible | Para las cuentas de almacenamiento de des
 Azure Disk Encryption (ADE) | No compatible |
 Agregar/quitar disco en caliente | No compatible | Si agrega o quita un disco de datos en la máquina virtual, deberá deshabilitar la replicación y habilitarla de nuevo para la máquina virtual.
 Excluir el disco | No compatible|   El disco temporal se excluye de forma predeterminada.
+Espacios de almacenamiento directo  | No compatible|
+Servidor de archivos de escalado horizontal  | No compatible|
 LRS | Compatible |
 GRS | Compatible |
 RA-GRS | Compatible |

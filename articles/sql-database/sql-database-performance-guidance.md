@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajuste del rendimiento en Azure SQL Database
 
@@ -28,7 +28,7 @@ Estos son métodos manuales porque necesita decidir qué [niveles de servicio](s
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del nivel de rendimiento de su base de datos
 
-Azure SQL Database ofrece cuatro [niveles de servicio](sql-database-service-tiers.md) que puede elegir de entre: Básico, Estándar y Premium RS (el rendimiento se mide en unidades de procesamiento de base de datos o [DTU](sql-database-what-is-a-dtu.md)). Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
+Azure SQL Database ofrece dos modelos de compra, uno basado en DTU y el otro en núcleos virtuales. Cada modelo tiene varios [niveles de servicio](sql-database-service-tiers.md) en los que puede elegir. Cada nivel de servicio aísla estrictamente los recursos que puede usar la base de datos SQL y garantiza un rendimiento predecible para ese nivel de servicio. En este artículo se ofrecen instrucciones que pueden ayudarle a elegir el nivel de servicio para su aplicación. También analizamos formas de optimizar la aplicación para obtener el máximo provecho de Azure SQL Database.
 
 > [!NOTE]
 > Este artículo se centra en la guía de rendimiento para bases de datos únicas de Azure SQL Database. Para obtener instrucciones sobre rendimiento relativas a los grupos elásticos, consulte las [consideraciones de precio y rendimiento para grupos elásticos](sql-database-elastic-pool-guidance.md). Observe, sin embargo, que muchas de las recomendaciones de optimización de este artículo se pueden aplicar a bases de datos de un grupo elástico y obtener ventajas de rendimiento similares.

@@ -1,11 +1,11 @@
 ---
 title: Uso de Azure PowerShell para configurar la carga de archivos | Microsoft Docs
-description: "Cómo usar los cmdlets de Azure PowerShell para configurar su centro de IoT para habilitar cargas de archivos desde dispositivos conectados. Incluye información sobre cómo configurar la cuenta de Azure Storage."
+description: Cómo usar los cmdlets de Azure PowerShell para configurar su centro de IoT para habilitar cargas de archivos desde dispositivos conectados. Incluye información sobre cómo configurar la cuenta de Azure Storage.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c6966fd4a60681643c2a690013035bde20abee78
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22d331342504aa7cc3d4fe86777ef9c2595a27ac
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
 
@@ -35,12 +35,12 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Inicio de sesión y configuración de la cuenta de Azure
 
-Inicie sesión en su cuenta de Azure y seleccione la suscripción.
+Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
-1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Login-AzureRmAccount**:
+1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Connect-AzureRmAccount**:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Si tiene varias suscripciones de Azure, el inicio de sesión en Azure le concede acceso a todas las suscripciones de Azure asociadas a sus credenciales. Use el siguiente comando para mostrar las suscripciones de Azure que están disponibles para su uso:
@@ -136,7 +136,7 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
 * [Guía para desarrolladores de IoT Hub][lnk-devguide]
-* [Implementación de AI en dispositivos perimetrales con Azure IoT Edge][lnk-iotedge]
+* [Implementación de Azure IoT Edge en un dispositivo simulado en Linux: versión preliminar][lnk-iotedge]
 * [Protección total de la solución de IoT][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md

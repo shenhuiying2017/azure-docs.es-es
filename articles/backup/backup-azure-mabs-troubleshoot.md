@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de Azure Backup Server | Microsoft Docs"
-description: "Solucionar problemas de instalación, registro de Azure Backup Server y copia de seguridad y restauración de las cargas de trabajo de la aplicación."
+title: Solución de problemas de Azure Backup Server | Microsoft Docs
+description: Solucionar problemas de instalación, registro de Azure Backup Server y copia de seguridad y restauración de las cargas de trabajo de la aplicación.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: e9517672138a4ea7577af1295dea13771733983e
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: db0d3d9ff2b27ac0be86b73926563d226d0e5d59
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Solución de problemas de Azure Backup Server
 
@@ -88,4 +88,4 @@ Para resolver este problema, siga [estos pasos](https://docs.microsoft.com/azure
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 | Operación | Detalles del error | Solución alternativa |
 | --- | --- | --- |
-| Configurar notificaciones por correo electrónico con una cuenta de Office 365 |Id. de error: 2013| **Causa:**<br> Intentar usar la cuenta de Office 365 <br>**Acción recomendada:**<ol><li> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción para el servidor DPM, está configurada en Exchange. Para obtener más información acerca de cómo configurarlo, vea [Permitir la retransmisión anónima en un conector de recepción](http://technet.microsoft.com/en-us/library/bb232021.aspx) en TechNet.</li> <li> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. Configure el servidor DPM para [retransmitir el protocolo SMTP a Office 365 con IIS](https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANTE:** asegúrese de usar el formato user@domain.com y *no* dominio\usuario.<br><br><li>Apunte a DMP para usar el nombre del servidor local como servidor SMTP, puerto 587. A continuación, apunte al correo electrónico del usuario del que deberían provenir los correos electrónicos.<li> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser para una cuenta de dominio en la que el dominio DPM está habilitado. </li><br> **NOTA**: Al cambiar la dirección del servidor SMTP, realice el cambio a la nueva configuración, cierre el cuadro de configuración y, después, vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para que la nueva configuración entre en vigor, de modo que se recomienda realizar esta prueba.<br><br>En cualquier momento durante este proceso, puede borrar esta configuración si cierra la consola de DPM y edita las siguientes claves del Registro: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notificación\ <br/> Eliminar las claves de SMTPPassword and SMTPUserName**. Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.
+| Configurar notificaciones por correo electrónico con una cuenta de Office 365 |Id. de error: 2013| **Causa:**<br> Intentar usar la cuenta de Office 365 <br>**Acción recomendada:**<ol><li> En primer lugar, hay que asegurarse de que la opción para permitir la retransmisión anónima en un conector de recepción para el servidor DPM, está configurada en Exchange. Para obtener más información acerca de cómo configurarlo, vea [Permitir la retransmisión anónima en un conector de recepción](http://technet.microsoft.com/library/bb232021.aspx) en TechNet.</li> <li> Si no puede usar una retransmisión SMTP interna y necesita configurarla con un servidor Office 365, puede configurar IIS para que actúe como retransmisión. Configure el servidor DPM para [retransmitir el protocolo SMTP a Office 365 con IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANTE:** asegúrese de usar el formato user@domain.com y *no* dominio\usuario.<br><br><li>Apunte a DMP para usar el nombre del servidor local como servidor SMTP, puerto 587. A continuación, apunte al correo electrónico del usuario del que deberían provenir los correos electrónicos.<li> El nombre de usuario y la contraseña en la página de configuración SMTP de DPM deben ser para una cuenta de dominio en la que el dominio DPM está habilitado. </li><br> **NOTA**: Al cambiar la dirección del servidor SMTP, realice el cambio a la nueva configuración, cierre el cuadro de configuración y, después, vuelva a abrirlo para asegurarse de que refleja el nuevo valor.  No basta con cambiar y probar para que la nueva configuración entre en vigor, de modo que se recomienda realizar esta prueba.<br><br>En cualquier momento durante este proceso, puede borrar esta configuración si cierra la consola de DPM y edita las siguientes claves del Registro: **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notificación\ <br/> Eliminar las claves de SMTPPassword and SMTPUserName**. Puede agregarlas de nuevo en la interfaz de usuario cuando la inicie otra vez.

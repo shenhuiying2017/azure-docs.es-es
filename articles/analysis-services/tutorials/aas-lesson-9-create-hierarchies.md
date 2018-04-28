@@ -1,25 +1,18 @@
 ---
-title: "Lección 9 del tutorial de Azure Analysis Services: Creación de jerarquías"
-description: 
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Lección 9 del tutorial de Azure Analysis Services: Creación de jerarquías'
+description: Describe cómo crear jerarquías en un modelo tabular.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 041096b1a93fdc671939b6d6715a7836d1977e3c
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.reviewer: minewiskan
+ms.openlocfilehash: bb32736e5837c939b696e131746f9af2b9340acb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hierarchies"></a>Creación de jerarquías
 
@@ -29,7 +22,7 @@ Para crear jerarquías, use el diseñador de modelos de *Vista de diagrama*. La 
   
 Tiempo estimado para completar esta lección: **20 minutos**  
   
-## <a name="prerequisites"></a>Requisitos previos  
+## <a name="prerequisites"></a>requisitos previos  
 Este tema forma parte de un tutorial de modelado tabular, que se debe completar en orden. Antes de realizar las tareas de esta lección, debe haber completado la lección anterior: [Lección 8: Creación de perspectivas](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Creación de jerarquías  

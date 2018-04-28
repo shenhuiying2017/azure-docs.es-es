@@ -1,8 +1,8 @@
 ---
-title: "Creación de clústeres de Hadoop con la API de REST de Azure - Azure | Microsoft Docs"
-description: "Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure."
+title: Creación de clústeres de Hadoop con la API de REST de Azure - Azure | Microsoft Docs
+description: Aprenda a crear clústeres de HDInsight enviando plantillas de Azure Resource Manager a la API de REST de Azure.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: larryfr
-ms.openlocfilehash: 4fcdde200fa9d54c7eb5b0ffe151aff3fbd0ed85
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a71a73d8d54e6a24c9a491bd02c7270f56823003
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Hadoop mediante la API de REST de Azure
 
@@ -34,13 +32,13 @@ La API de REST de Azure permite realizar operaciones de administración en servi
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
-> Los pasos descritos en este documento usan la utilidad [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicarse con la API de REST de Azure.
+> En los pasos que se describen en este documento, se usa la utilidad [curl (https://curl.haxx.se/)](https://curl.haxx.se/) para comunicarse con la API REST de Azure.
 
 ## <a name="create-a-template"></a>Creación de una plantilla
 
 Las plantillas de Azure Resource Manager son documentos JSON que describen un **grupo de recursos** y todos los recursos incluidos (por ejemplo, HDInsight). Este enfoque basado en la plantilla le permite definir todos los recursos que necesita para HDInsight en una plantilla.
 
-El siguiente documento JSON es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), que crea un clúster basado en Linux, con una contraseña para proteger la cuenta de usuario de SSH.
+El siguiente documento JSON es una combinación de los archivos de plantilla y de parámetros de [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password) creados por un clúster basado en Linux con una contraseña para proteger la cuenta de usuario de SSH.
 
    ```json
    {

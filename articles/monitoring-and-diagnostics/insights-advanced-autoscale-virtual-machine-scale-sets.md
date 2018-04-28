@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1ac5c4c44386fc05e3ee87ccdbbc4f652a94a1c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales
 Puede reducir y escalar horizontalmente los conjuntos de escalado de máquinas virtuales según umbrales de métricas de rendimiento, siguiendo una programación periódica o por una fecha determinada. También puede configurar notificaciones de correo electrónico y webhook para las acciones de escalado. Este tutorial muestra un ejemplo de configuración de todos estos objetos utilizando una plantilla de Resource Manager en un conjunto de escalado de máquinas virtuales.
@@ -200,7 +200,7 @@ En este tutorial, usaremos el [Explorador de recursos de Azure](https://resource
             }
           }
     ```
-    Para los campos compatibles y sus valores, consulte la [documentación de la API de REST de escalado automático](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). La configuración de escalado automático contiene ahora los tres perfiles explicados anteriormente.
+    Para los campos compatibles y sus valores, consulte la [documentación de la API de REST de escalado automático](https://msdn.microsoft.com/library/azure/dn931928.aspx). La configuración de escalado automático contiene ahora los tres perfiles explicados anteriormente.
 
 7. Por último, echemos un vistazo a la sección de **notificación** del escalado automático. Las notificaciones de escalado automático le permiten hacer tres cosas cuando se desencadena correctamente un escalado o una reducción horizontal.
    - Notificar a los administradores y coadministradores de su suscripción

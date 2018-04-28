@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP"
-description: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP'
+description: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP
 
@@ -76,10 +76,9 @@ Esta solución usa los siguientes servicios de Azure. Los detalles de la arquite
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) Área de trabajo de Log Analytics
 * **Azure Automation**
     - (1) Cuenta de Automation
-* **Operations Management Suite**
-    - (1) Área de trabajo de OMS
 
 ## <a name="deployment-architecture"></a>Arquitectura de implementación
 
@@ -136,7 +135,7 @@ Azure Disk Encryption se utiliza para los discos cifrados de máquinas virtuales
 
 ### <a name="logging-and-auditing"></a>Registro y auditoría
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) proporciona un registro completo de la actividad de usuario y del sistema, así como mantenimiento del sistema. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) proporciona un registro completo de la actividad de usuario y del sistema, así como mantenimiento del sistema. 
 
 - **Registros de actividad:** [los registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) proporcionan información detallada sobre las operaciones que se realizaron en los recursos de la suscripción.
 - **Registros de diagnóstico:** [los registros de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) son todos los registros emitidos por todos los recursos. Estos registros incluyen registros del sistema de eventos de Windows, registros de Azure Storage, registros de auditoría de Key Vault, y registros de firewall y acceso a Application Gateway.
@@ -154,7 +153,7 @@ En esta solución se usa Azure Key Vault para administrar las claves y los secre
 Las siguientes tecnologías proporcionan funcionalidades de administración de identidad en el entorno de Azure.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) es el directorio multiinquilino basado en la nube y el servicio de administración de identidades de Microsoft.
 - La autenticación para una aplicación web implementada por el cliente puede realizarse mediante Azure AD. Para obtener más información, consulte [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- El [control de acceso basado en rol de Azure (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción se limita al administrador de la suscripción y el acceso a los recursos se puede limitar según el rol de usuario.
+- El [control de acceso basado en rol de Azure (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) permite administrar al detalle el control de acceso de Azure. El acceso a la suscripción se limita al administrador de la suscripción y el acceso a los recursos se puede limitar según el rol de usuario.
 - Una instancia implementada de Active Directory de IaaS proporciona administración de identidades en el nivel de sistema operativo para máquinas virtuales implementadas de IaaS.
    
 ### <a name="compute-resources"></a>Recursos de proceso
@@ -182,17 +181,17 @@ Un jumpbox de administración (host de tipo bastión) proporciona una conexión 
 
 ### <a name="patch-management"></a>Administración de revisiones
 
-Las máquinas virtuales Windows que implementó esta instancia de Azure Security and Compliance Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation de OMS a través de la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
+Las máquinas virtuales Windows que implementó esta instancia de Azure Security and Compliance Blueprint Automation se configuran de forma predeterminada para recibir actualizaciones automáticas del servicio Windows Update. Esta solución también implementa la solución Azure Automation mediante la cual se pueden crear implementaciones de actualizaciones para implementar revisiones en servidores Windows cuando sea necesario.
 
 ### <a name="operations-management"></a>Administración de operaciones
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) es un servicio de Operations Management Suite (OMS) que le permite recopilar y analizar los datos generados por los recursos en los entornos locales o en Azure.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) es un servicio que permite recopilar y analizar los datos generados por los recursos en los entornos locales o en Azure.
 
-#### <a name="oms-solutions"></a>Soluciones de OMS
+#### <a name="management-solutions"></a>Soluciones de administración
 
-Las siguientes soluciones de OMS se instalaron previamente como parte de esta solución:
+Las siguientes soluciones de administración se instalaron previamente como parte de esta solución:
 - [Evaluación de AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Evaluación de antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

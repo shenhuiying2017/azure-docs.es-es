@@ -1,43 +1,39 @@
 ---
 title: 'Inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse (PowerShell) | Microsoft Docs'
-description: Tareas de PowerShell para escalar horizontalmente los recursos de procesos mediante el ajuste de unidades de almacenamiento de datos.
+description: Escale procesos en Azure SQL Data Warehouse en PowerShell. Escale horizontalmente un proceso para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Guía de inicio rápido: Escalabilidad horizontal de un proceso en Azure SQL Data Warehouse en PowerShell
 
-Escale procesos en Azure SQL Data Warehouse en PowerShell. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos. 
+Escale procesos en Azure SQL Data Warehouse en PowerShell. [Escale horizontalmente un proceso](sql-data-warehouse-manage-compute-overview.md) para aumentar el rendimiento, o bien revierta la escalabilidad del proceso para ahorrar costos.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md) (Instalación y configuración de Azure PowerShell). 
+Para realizar este tutorial, es necesaria la versión 5.1.1 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión que tiene actualmente. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps.md) (Instalación y configuración de Azure PowerShell).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse que puede escalar. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**. 
+En este inicio rápido se da por supuesto que ya tiene una instancia de SQL Data Warehouse que puede escalar. Si tiene que crear una, consulte [Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella](create-data-warehouse-portal.md) para crear un almacenamiento de datos denominado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en la suscripción de Azure con el comando [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) y siga las instrucciones de la pantalla.
+Inicie sesión en la suscripción de Azure con el comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) y siga las instrucciones de la pantalla.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Para ver qué suscripción está usando, ejecute [AzureRmSubscription Get](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -54,13 +50,13 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## <a name="look-up-data-warehouse-information"></a>Buscar información del almacenamiento de datos
 
-Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos para el almacenamiento de datos que tiene previsto pausar y reanudar. 
+Busque el nombre de la base de datos, el nombre del servidor y el grupo de recursos para el almacenamiento de datos que tiene previsto pausar y reanudar.
 
 Siga estos pasos para buscar información de ubicación para el almacenamiento de datos.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En la página izquierda de Azure Portal, haga clic en **Bases de datos SQL**.
-3. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abrirá el almacenamiento de datos. 
+3. Seleccione **mySampleDataWarehouse** en la página **Bases de datos SQL**. Se abrirá el almacenamiento de datos.
 
     ![Nombre del servidor y grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -88,7 +84,7 @@ $database
 
 El resultado será similar a este:
 
-```powershell   
+```powershell
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse
@@ -114,7 +110,7 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Puede comprobar el **Estado** de la base de datos en la salida. En este caso, puede ver esta base de datos está en línea.  Al ejecutar este comando, debería recibir uno de los siguientes valores de Estado: En línea, Pausando, Reanudando, Escalando o Pausado. 
+Puede comprobar el **Estado** de la base de datos en la salida. En este caso, puede ver esta base de datos está en línea.  Al ejecutar este comando, debería recibir uno de los siguientes valores de Estado: En línea, Pausando, Reanudando, Escalando o Pausado.
 
 Para ver el estado del servicio, use el comando siguiente:
 

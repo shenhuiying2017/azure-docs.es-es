@@ -1,5 +1,5 @@
 ---
-title: "Plano técnico del procesamiento de pagos de Azure: requisitos de acceso físico"
+title: 'Plano técnico del procesamiento de pagos de Azure: requisitos de acceso físico'
 description: Requisito 9 de PCI DSS
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Requisitos de acceso físico para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Requisito 9 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Restricción del acceso físico a datos de los titulares de tarjetas**
 
 > [!NOTE]
-> El [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para el sector de tarjetas de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos (DDS) para la PCI, versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de comprobación e instrucciones para cada requisito.
+> [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para la industria de tarjeta de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos PCI (PCI DSS), versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 Cualquier acceso físico a los datos o sistemas que almacenan datos de titulares de tarjetas ofrece la oportunidad a usuarios individuales de tener acceso a los dispositivos o datos, y de quitar sistemas o copias impresas, y deben restringirse de forma adecuada. Para los fines del Requisito 9, "personal interno" hace referencia a los empleados a jornada completa y a tiempo parcial, empleados temporales, contratistas y consultores que se encuentran físicamente presentes en las instalaciones de la entidad. Un "visitante" hace referencia a un proveedor, invitado de cualquier personal interno, personal de mantenimiento o cualquiera que necesite entrar en las instalaciones durante un período corto de tiempo, normalmente no más de un día. "Medios" hace referencia a todos los soportes físicos en papel y electrónicos que contienen datos de los titulares de tarjetas.
 
@@ -39,7 +39,7 @@ Cualquier acceso físico a los datos o sistemas que almacenan datos de titulares
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de implementar, aplicar y supervisar la seguridad de acceso físico para los centros de datos. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -55,7 +55,7 @@ Cualquier acceso físico a los datos o sistemas que almacenan datos de titulares
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de implementar, aplicar y supervisar mecanismos de control de acceso de CCTV y biométricos para los centros de datos. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -70,7 +70,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | En la plataforma de Microsoft Azure no hay ningún conector de red de acceso público. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -83,7 +83,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | El acceso físico al hardware de red de Microsoft Azure se controla de forma estricta mediante listas de acceso, varias formas de autenticación o barreras de entrada físicas, y es necesario aprobar el requisito para la empresa para tener acceso al equipo. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -99,7 +99,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de implementar, aplicar y supervisar la seguridad del acceso físico y la identificación de empleados y contratistas cuando visiten los centros de datos. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -114,7 +114,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Las autorizaciones de acceso a los centros de datos de Microsoft se controlan mediante una lista de acceso autorizado aprobada por el equipo del centro de datos según el principio de privilegios mínimos. La lista de control de acceso se revisa, comprueba y actualiza de forma trimestral.<br /><br />En los centros de datos de Microsoft Azure se usan dispositivos de acceso físico, como puertas perimetrales, lectores de tarjetas de acceso electrónico, lectores biométricos, sistemas de puertas tipo esclusa y dispositivos antiefracción. Los dispositivos con tarjeta de acceso se supervisan de forma continua. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -127,7 +127,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de garantizar que las entregas previamente aprobadas se reciben en una plataforma de carga segura aislada físicamente de las instalaciones de procesamiento de información y se supervisan por personal autorizado. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -141,7 +141,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de garantizar que las entregas previamente aprobadas se reciben en una plataforma de carga segura aislada físicamente de las instalaciones de procesamiento de información y se supervisan por personal autorizado. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -154,7 +154,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | El acceso a los centros de datos de Microsoft debe estar previamente aprobado, y los visitantes autorizados tienen que registrarse con la seguridad física en el punto de llegada y proporcionar una identificación válida antes de entrar. Las tarjetas deben identificar claramente a los empleados. Los contratistas y visitantes recibirán tarjetas temporales que se deben devolver al salir de la instalación. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -167,7 +167,7 @@ Por ejemplo, los conectores de red ubicados en áreas públicas y zonas accesibl
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Los visitantes tienen que entregar las tarjetas al salir de cualquier instalación de Microsoft. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -182,7 +182,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure es responsable de mantener un registro de visitantes como un código de seguimiento físico de la actividad del visitante en las instalaciones, así como en las salas informáticas y centros de datos donde se almacenan o transmiten los datos de titulares de tarjetas. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -195,7 +195,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -208,7 +208,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -221,7 +221,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -234,7 +234,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -247,7 +247,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -260,7 +260,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -273,7 +273,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -287,7 +287,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -300,7 +300,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -313,7 +313,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, vea [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso almacena todos los datos en Azure SQL Database. Las instancias de SQL Database de PaaS se usan para mostrar las medidas de seguridad de base de datos. Para más información, consulte la [PCI Guidance - Azure SQL Database](payment-processing-blueprint.md#azure-sql-database) (Guía de PCI: Azure SQL Database).|
 
 
 
@@ -326,7 +326,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Las técnicas de destrucción de datos varían según el tipo de objeto de datos que se destruye, ya sean suscripciones, almacenamiento, máquinas virtuales o bases de datos. En el entorno multiempresa de Microsoft Azure, se presta especial atención para garantizar que los datos de un cliente no se "filtran" a los datos de otro cliente, o bien que cuando un cliente elimina datos, ningún otro (incluido, en la mayoría de los casos, el cliente al que pertenecían antes los datos) pueda obtener acceso a esos datos eliminados.<br /><br />Microsoft Azure sigue las directrices NIST 800-88 de saneamiento de medios, que solucionan el problema principal de garantizar que los datos no se liberen accidentalmente. Estas directrices incluyen tanto el saneamiento electrónico como físico. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso se puede eliminar por completo si se elimina el grupo de recursos que se usó durante la implementación.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso se puede eliminar por completo si se elimina el grupo de recursos que se usó durante la implementación.|
 
 
 
@@ -342,7 +342,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso se usa OMS para registrar todos los cambios en el sistema.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) proporciona un registro completo de los cambios. Se puede revisar y comprobar la exactitud de los cambios. Para obtener instrucciones más específicas, vea [Guía de PCI: Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso se usa Azure para registrar todos los cambios en el sistema.<br /><br />Log Analytics proporciona un registro completo de los cambios. Se puede revisar y comprobar la exactitud de los cambios. Para instrucciones más específicas, consulte la [Guía de PCI: registro y auditoría](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -358,7 +358,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona una arquitectura de referencia y una lista de todos los servicios que se usan en su documentación de implementación.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso proporciona una arquitectura de referencia y una lista de todos los servicios que se usan en su documentación de implementación.|
 
 
 
@@ -374,7 +374,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -391,7 +391,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 
@@ -404,7 +404,7 @@ Es necesario conservar este registro durante un período mínimo de tres meses, 
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | No aplicable.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | No aplicable.|
 
 
 

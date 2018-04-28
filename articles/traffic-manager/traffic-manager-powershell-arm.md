@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1cd7bd7e32c96398d72c7cd3b51e2b456d60f01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 951e845e23a1ed0cbdc83fc24a97a545f00c52ad
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso de PowerShell para administrar Traffic Manager
 
@@ -35,7 +35,7 @@ Cada perfil de Traffic Manager se representa mediante un recurso de tipo "Traffi
 
 En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente artículo se explica cómo instalar y configurar Azure PowerShell.
 
-* [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview)
+* [Instalación y configuración de Azure PowerShell](/powershell/azure/overview)
 
 En los ejemplos de este artículo se da por supuesto que ya tiene un grupo de recursos. Puede crear uno mediante el siguiente comando:
 
@@ -56,9 +56,9 @@ $profile = New-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName M
 
 En la siguiente tabla se describen los parámetros:
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
-| Nombre |Nombre del recurso del perfil de Traffic Manager. Los perfiles del mismo grupo de recursos deben tener nombres únicos. Este nombre es independiente del nombre DNS que se utiliza para las consultas de DNS. |
+| NOMBRE |Nombre del recurso del perfil de Traffic Manager. Los perfiles del mismo grupo de recursos deben tener nombres únicos. Este nombre es independiente del nombre DNS que se utiliza para las consultas de DNS. |
 | ResourceGroupName |Nombre del grupo de recursos que contiene el recurso de perfil. |
 | TrafficRoutingMethod |Especifica el método de enrutamiento del tráfico que se usa para determinar qué punto de conexión se devuelve en respuesta a una consulta de DNS. Los valores posibles son "Performance", "Weighted" o "Priority". |
 | RelativeDnsName |Especifica la parte correspondiente al nombre de host del nombre DNS proporcionado por este perfil de Traffic Manager. Este valor se combina con el nombre de dominio DNS usado por Azure Traffic Manager para formar el nombre de dominio completo (FQDN) del perfil. Por ejemplo, con el valor "contoso", se obtiene "contoso.trafficmanager.net". |
@@ -112,7 +112,7 @@ En los tres casos, se pueden agregar puntos de conexión de dos maneras:
 
 Los puntos de conexión de Azure hacen referencia a servicios hospedados en Azure. Se admiten dos tipos de puntos de conexión de Azure:
 
-1. Aplicaciones web de Azure 
+1. Azure Web Apps
 2. Recursos de PublicIpAddress de Azure (que pueden estar asociados a un equilibrador de carga o a una NIC de máquina virtual). PublicIpAddress debe tener un nombre DNS asignado para usarse en Traffic Manager.
 
 En cada caso:
@@ -203,6 +203,18 @@ En este ejemplo, agregamos un perfil secundario existente como punto de conexió
 ```powershell
 $child = Get-AzureRmTrafficManagerEndpoint -Name child -ResourceGroupName MyRG
 New-AzureRmTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceGroupName MyRG -Type NestedEndpoints -TargetResourceId $child.Id -EndpointStatus Enabled -EndpointLocation "North Europe" -MinChildEndpoints 2
+```
+
+## <a name="adding-endpoints-from-another-subscription"></a>Adición de puntos de conexión desde otra suscripción
+
+Traffic Manager puede trabajar con puntos de conexión procedentes de distintas suscripciones. Debe cambiar a la suscripción con el punto de conexión que se va a agregar para recuperar la entrada necesaria para Traffic Manager. A continuación, debe cambiar a la suscripción con el perfil de Traffic Manager y agregarle el punto de conexión. En el ejemplo siguiente se muestra cómo llevar a cabo este procedimiento con una dirección IP pública.
+
+```powershell
+Set-AzureRmContext -SubscriptionId $EndpointSubscription
+$ip = Get-AzureRmPublicIpAddress -Name $IpAddresName -ResourceGroupName $EndpointRG
+
+Set-AzureRmContext -SubscriptionId $trafficmanagerSubscription
+New-AzureRmTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -ResourceGroupName $TrafficManagerRG -Type AzureEndpoints -TargetResourceId $ip.Id -EndpointStatus Enabled
 ```
 
 ## <a name="update-a-traffic-manager-endpoint"></a>Actualización de un punto de conexión de Administrador de tráfico

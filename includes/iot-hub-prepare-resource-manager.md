@@ -8,7 +8,7 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
 1. Inicie sesión en su suscripción de Azure con el siguiente comando:
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Si tiene varias suscripciones de Azure, el inicio de sesión en Azure le concede acceso a todas las suscripciones de Azure asociadas a sus credenciales. Use el siguiente comando para mostrar las suscripciones de Azure que están disponibles para su uso:
@@ -28,8 +28,8 @@ En los pasos siguientes se muestra cómo configurar la autenticación de contras
 3. Cree una nueva aplicación de Azure Active Directory con el siguiente comando, reemplazando los marcadores de posición:
    
    * **{Nombre para mostrar}**: nombre para mostrar de la aplicación, por ejemplo, **MySampleApp**.
-   * **{Dirección URL de la página principal}**: la dirección URL de la página principal de la aplicación, por ejemplo, **http://mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
-   * **{Identificador de aplicación}**: identificador único, por ejemplo, **http://mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
+   * **{Home page URL}:** URL de la página principal de la aplicación, como **http://mysampleapp/home**. Esta dirección URL no tiene que señalar a una aplicación real.
+   * **{Application identifier}:** identificador único, como **http://mysampleapp**. Esta dirección URL no tiene que señalar a una aplicación real.
    * **{Contraseña}:** una contraseña que se usa para autenticarse en la aplicación.
      
      ```powershell

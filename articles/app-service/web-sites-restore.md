@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar una aplicación en Azure
 En este artículo se muestra cómo restaurar una aplicación de [Azure App Service](../app-service/app-service-web-overview.md) de la que ha realizado previamente una copia de seguridad (consulte [Realizar una copia de seguridad de la aplicación en Azure](web-sites-backup.md)). Puede restaurar la aplicación con sus bases de datos vinculadas a petición a un estado anterior o crear una nueva aplicación basada en una copia de seguridad de la aplicación original. Azure App Service admite las siguientes bases de datos para copia de seguridad y restauración:
-- [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql)
-- [Azure Database para PostgreSQL](https://azure.microsoft.com/en-us/services/postgres)
+- [SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Azure Database para PostgreSQL](https://azure.microsoft.com/services/postgres)
 - [MySQL en aplicación](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 La restauración de las copias de seguridad está disponible para las aplicaciones que se ejecutan en el nivel **Estándar** y **Premium**. Para obtener más información sobre la escalación de su aplicación, vea [Escalación de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). El nivel **premium** permite realizar un mayor número de copias de seguridad diarias que se van a realizar en el nivel **estándar**.

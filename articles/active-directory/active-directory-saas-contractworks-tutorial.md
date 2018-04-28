@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e5ad805bbb25d2431944e2ede1f22630956356
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c986810f3d994b956d4c81fd80b38d9dfee4f50
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integración de Azure Active Directory con ContractWorks
 
@@ -99,7 +99,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo Configurar inicio de sesión único][4]
 
 2. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
+
     ![Cuadro de diálogo Inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
 3. En la sección **ContractWorks Domain and URLs** (Dominio y direcciones URL de ContractWorks), realice los siguientes pasos si quiere configurar la aplicación en el modo iniciado por **IDP**:
@@ -121,7 +121,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 6. En la sección **Atributos de usuario** del cuadro de diálogo **Inicio de sesión único**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
     
     | Nombre del atributo | Valor de atributo |
-    | ---------------| --------------- |    
+    | ---------------| --------------- |
     | mail | user.mail |
     | DisplayName | user.displayname |
 
@@ -139,34 +139,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     d. Haga clic en **Aceptar**.
 
-7. Haga clic en el botón **Guardar** .
+7. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+    
+    ![Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_metadataurl.png)
+     
+8. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-8. Para generar la **dirección URL de Metadatos**, lleve a cabo los pasos siguientes:
-
-    a. Haga clic en **Registros de aplicaciones**.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
-   
-    b. Haga clic en **Puntos de conexión** para abrir el cuadro de diálogo **Puntos de conexión**.  
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
-
-    c. Haga clic en el botón Copiar para copiar la dirección URL del **DOCUMENTO DE METADATOS DE FEDERACIÓN** y péguela en el Bloc de notas.
-    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
-     
-    d. Ahora, vaya a la página de propiedades de **ContractWorks** y copie el **identificador de la aplicación** con el botón **Copiar** y péguelo en el Bloc de notas.
- 
-    ![Configurar inicio de sesión único](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
-
-    e. Genere la **Dirección URL de metadatos** con el patrón siguiente: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Para configurar el inicio de sesión único en **ContractWorks**, hay que enviar la **dirección URL de metadatos** generada al [equipo de soporte técnico de ContractWorks](mailto:support@contractworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+9. Para configurar el inicio de sesión único en **ContractWorks**, hay que enviar la **dirección URL de metadatos de federación de la aplicación** generada al [equipo de soporte técnico de ContractWorks](mailto:support@contractworks.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

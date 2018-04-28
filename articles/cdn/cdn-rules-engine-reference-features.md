@@ -1,9 +1,9 @@
 ---
 title: Características del motor de reglas de la red CDN de Azure | Microsoft Docs
-description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure.
+description: Documentación de referencia sobre las características del motor de reglas de Azure CDN.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/10/2018
+ms.author: v-deasim
+ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
 
-La tercera parte de una regla es la característica. Una característica define el tipo de acción que se aplica al tipo de solicitud identificado con un conjunto de condiciones de coincidencia.
+La tercera parte de una regla es la característica. Una característica define el tipo de acción que se aplica al tipo de solicitud que se identifica con un conjunto de condiciones de coincidencia.
 
 ## <a name="access-features"></a>Características de acceso
 
@@ -314,7 +314,7 @@ Información importante:
 - Especifique uno o varios nombres de parámetro de consulta y separe cada nombre de parámetro con un solo espacio.
 - Esta característica determina si los parámetros de cadena de consulta se incluyen o excluyen de la clave de caché. En la tabla siguiente se proporciona información adicional para cada opción.
 
-type|DESCRIPCIÓN
+Escriba|DESCRIPCIÓN
 --|--
  Include|  Indica que cada parámetro especificado debe estar incluido en la clave de caché. Se genera una clave de caché única para cada solicitud que contenga un valor único para un parámetro de cadena de consulta definido en esta característica. 
  Include All  |Indica que se crea una clave de caché única para cada solicitud a un recurso que incluya una cadena de consulta única. Normalmente no se recomienda este tipo de configuración porque puede dar lugar a un pequeño porcentaje de aciertos de caché. Un bajo número de aciertos de caché aumenta la carga en el servidor de origen, porque debe atender más solicitudes. Esta configuración reproduce el comportamiento de almacenamiento en caché que se conoce como "cache única" en la página Almacenamiento en caché de cadenas de consulta. 
@@ -428,14 +428,32 @@ Un error de caché parcial normalmente se produce después de que un usuario anu
 
 Deje la configuración predeterminada de la plataforma HTTP Large, ya que reduce la carga en el servidor de origen del cliente y aumenta la velocidad con la que los clientes descargan el contenido.
 
-Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: Cname perimetral, Literal de encabezado de solicitud, Carácter comodín de encabezado de solicitud, Literal de consulta de dirección URL y Carácter comodín de consulta de dirección URL.
-
 Valor|Resultado
 --|--
 habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
 Disabled|Evita que un punto de presencia realice una captura en segundo plano del recurso. Como resultado, la próxima solicitud de ese recurso realizada desde esa región hace que un punto de presencia lo solicite desde el servidor de origen del cliente.
 
 **Comportamiento predeterminado**: habilitado.
+
+#### <a name="compatibility"></a>Compatibilidad
+Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
+- Número de sistema autónomo (AS)
+- Dirección IP de cliente
+- Parámetro de cookie
+- Regex de parámetro de cookie
+- País
+- Dispositivo
+- Cname perimetral
+- Dominio de referencia
+- Literal de encabezado de solicitud
+- Regex de encabezado de solicitud
+- Carácter comodín de encabezado de solicitud
+- Método de solicitud
+- Esquema de solicitud
+- Literal de consulta de dirección URL
+- Regex de consulta de dirección URL
+- Carácter comodín de consulta de dirección URL
+- Parámetro de consulta de dirección URL
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -497,16 +515,16 @@ Información importante:
 
 ---
 ### <a name="debug-cache-response-headers"></a>Depurar encabezados de respuesta de la caché
-**Propósito:** determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug, que proporciona información sobre la directiva de caché para el recurso solicitado.
+**Propósito:** determina si una respuesta puede incluir el encabezado de respuesta [X-EC-Debug](cdn-http-debug-headers.md), que proporciona información sobre la directiva de caché para el recurso solicitado.
 
 Los encabezados de respuesta de depuración de caché se incluirán en la respuesta cuando se cumplan las dos condiciones siguientes:
 
-- La característica Encabezados de respuesta de caché de depuración esté habilitada en la solicitud deseada.
-- La solicitud anterior define el conjunto de encabezados de respuesta de caché de depuración que se incluirán en la respuesta.
+- La característica Encabezados de respuesta de caché de depuración se ha habilitado en la solicitud especificada.
+- La solicitud especificada define el conjunto de encabezados de respuesta de caché de depuración que se incluirán en la respuesta.
 
-Para solicitar los encabezados de respuesta de caché de depuración, incluya el siguiente encabezado y las directivas deseadas en la solicitud:
+Para solicitar los encabezados de respuesta de caché de depuración, incluya el siguiente encabezado y las directivas especificadas en la solicitud:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Ejemplo:**
 
@@ -538,16 +556,28 @@ Información importante:
     - Especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.). Este valor define el intervalo de max-age interna predeterminada.
 
 - Establezca la unidad de tiempo en "Desactivado" para asignar un intervalo interno de max-age, predeterminado y de 7 días para las solicitudes que no tienen asignada una indicación de max-age en su encabezado `Cache-Control` o `Expires`.
-- Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
-    - perimetral 
-    - Cname
-    - Literal de encabezado de solicitud
-    - Carácter comodín de encabezado de solicitud
-    - Método de solicitud
-    - Literal de consulta de dirección URL
-    - Carácter comodín de consulta de dirección URL
 
 **Valor predeterminado:** 7 días
+
+#### <a name="compatibility"></a>Compatibilidad
+Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
+- Número de sistema autónomo (AS)
+- Dirección IP de cliente
+- Parámetro de cookie
+- Regex de parámetro de cookie
+- País
+- Dispositivo
+- Cname perimetral
+- Dominio de referencia
+- Literal de encabezado de solicitud
+- Regex de encabezado de solicitud
+- Carácter comodín de encabezado de solicitud
+- Método de solicitud
+- Esquema de solicitud
+- Literal de consulta de dirección URL
+- Regex de consulta de dirección URL
+- Carácter comodín de consulta de dirección URL
+- Parámetro de consulta de dirección URL
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -642,16 +672,28 @@ Información importante:
     - Especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.). Este valor define el intervalo de max-age interna de la solicitud.
 
 - Al establecer la unidad de tiempo en "Off" se deshabilitará esta característica. No se asignará un intervalo de max-age interna a los recursos solicitados. Si el encabezado original no incluye instrucciones de almacenamiento en caché, el recurso se almacenará en caché según la configuración activa de la característica Max-Age interna predeterminada.
-- Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
-    - perimetral 
-    - Cname
-    - Literal de encabezado de solicitud
-    - Carácter comodín de encabezado de solicitud
-    - Método de solicitud
-    - Literal de consulta de dirección URL
-    - Carácter comodín de consulta de dirección URL
 
 **Comportamiento predeterminado:** desactivado
+
+#### <a name="compatibility"></a>Compatibilidad
+Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
+- Número de sistema autónomo (AS)
+- Dirección IP de cliente
+- Parámetro de cookie
+- Regex de parámetro de cookie
+- País
+- Dispositivo
+- Cname perimetral
+- Dominio de referencia
+- Literal de encabezado de solicitud
+- Regex de encabezado de solicitud
+- Carácter comodín de encabezado de solicitud
+- Método de solicitud
+- Esquema de solicitud
+- Literal de consulta de dirección URL
+- Regex de consulta de dirección URL
+- Carácter comodín de consulta de dirección URL
+- Parámetro de consulta de dirección URL
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -664,7 +706,7 @@ Información importante:
 Información importante:
 
 - Defina un conjunto de extensiones de nombre de archivo H.264 permitidas, delimitadas por espacios, en la opción File Extensions (Extensiones de archivo). La opción File Extensions (Extensiones de archivo) invalidará el comportamiento predeterminado. Para mantener la compatibilidad con MP4 y F4V, incluya esas extensiones de nombre de archivo al establecer esta opción. 
-- Asegúrese de incluir un punto al especificar cada extensión de nombre de archivo (por ejemplo, .mp4, .f4v).
+- Incluya un punto al especificar cada extensión de nombre de archivo (por ejemplo, _.mp4_, _.f4v_).
 
 **Comportamiento predeterminado:** la descarga progresiva HTTP es compatible con medios MP4 y F4V de forma predeterminada.
 
@@ -685,7 +727,7 @@ Disabled|Restablece el comportamiento predeterminado. El comportamiento predeter
 
 Para todo el tráfico de producción, se recomienda dejar esta característica deshabilitada de forma predeterminada. De lo contrario, los servidores de origen no estarán protegidos frente a usuarios finales que accidentalmente podrían desencadenar muchas solicitudes de no almacenar en caché al actualizar las páginas web, o frente a muchos reproductores de medios populares que están codificados para enviar un encabezado de no almacenar en caché con cada solicitud de vídeo. No obstante, esta característica puede ser útil para aplicarla a determinados directorios de ensayo o pruebas que no son de producción, para poder extraer contenido nuevo a petición desde el servidor de origen.
 
-El estado de la caché que se notificará para una solicitud que se puede reenviar a un servidor de origen debido a esta característica es TCP_Client_Refresh_Miss. El informe Estados de la memoria caché, que está disponible en el módulo principal de informes, proporciona información estadística por estado de la caché. Esto le permite realizar un seguimiento del número y el porcentaje de solicitudes que se reenvían a un servidor de origen debido a esta característica.
+El estado de la caché que se notificará para una solicitud que se puede reenviar a un servidor de origen debido a esta característica es `TCP_Client_Refresh_Miss`. El informe Estados de la memoria caché, que está disponible en el módulo principal de informes, proporciona información estadística por estado de la caché. Este informe le permite realizar un seguimiento del número y el porcentaje de solicitudes que se reenvían a un servidor de origen debido a esta característica.
 
 **Comportamiento predeterminado**: deshabilitado.
 
@@ -707,16 +749,28 @@ Información importante:
 - Para configurar esta característica, defina una lista delimitada por espacios de códigos de estado para los que se pasarán por alto las directivas mencionadas anteriormente.
 - El conjunto de códigos de estados válidos para esta característica son: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 y 505.
 - Para deshabilitar esta característica, establézcala en un valor en blanco.
-- Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
-    - perimetral 
-    - Cname
-    - Literal de encabezado de solicitud
-    - Carácter comodín de encabezado de solicitud
-    - Método de solicitud
-    - Literal de consulta de dirección URL
-    - Carácter comodín de consulta de dirección URL
 
 **Comportamiento predeterminado:** el comportamiento predeterminado es respetar las directivas mencionadas anteriormente.
+
+#### <a name="compatibility"></a>Compatibilidad
+Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
+- Número de sistema autónomo (AS)
+- Dirección IP de cliente
+- Parámetro de cookie
+- Regex de parámetro de cookie
+- País
+- Dispositivo
+- Cname perimetral
+- Dominio de referencia
+- Literal de encabezado de solicitud
+- Regex de encabezado de solicitud
+- Carácter comodín de encabezado de solicitud
+- Método de solicitud
+- Esquema de solicitud
+- Literal de consulta de dirección URL
+- Regex de consulta de dirección URL
+- Carácter comodín de consulta de dirección URL
+- Parámetro de consulta de dirección URL
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -758,16 +812,28 @@ Información importante:
     - Especifique un valor entero y seleccione la unidad de tiempo que desee (por ejemplo, segundos, minutos, horas, etc.). Este valor define el tiempo máximo de vigencia interno que se aplicará.
 
 - Al establecer la unidad de tiempo en "Off" se deshabilitará esta característica. No se proporcionarán recursos almacenados en caché más allá de la fecha de expiración normal.
-- Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
-    - perimetral 
-    - Cname
-    - Literal de encabezado de solicitud
-    - Carácter comodín de encabezado de solicitud
-    - Método de solicitud
-    - Literal de consulta de dirección URL
-    - Carácter comodín de consulta de dirección URL
 
 **Comportamiento predeterminado:** dos minutos
+
+#### <a name="compatibility"></a>Compatibilidad
+Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta característica no se puede asociar con las siguientes condiciones de coincidencia: 
+- Número de sistema autónomo (AS)
+- Dirección IP de cliente
+- Parámetro de cookie
+- Regex de parámetro de cookie
+- País
+- Dispositivo
+- Cname perimetral
+- Dominio de referencia
+- Literal de encabezado de solicitud
+- Regex de encabezado de solicitud
+- Carácter comodín de encabezado de solicitud
+- Método de solicitud
+- Esquema de solicitud
+- Literal de consulta de dirección URL
+- Regex de consulta de dirección URL
+- Carácter comodín de consulta de dirección URL
+- Parámetro de consulta de dirección URL
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -792,7 +858,7 @@ Disabled|Restablece el comportamiento predeterminado. El comportamiento predeter
 ### <a name="maximum-keep-alive-requests"></a>Número máximo de solicitudes de conexión persistente
 **Propósito**: define el número máximo de solicitudes de conexión persistente antes de que se cierre.
 
-Es muy recomendable no establecer un valor bajo en el número máximo de solicitudes porque puede afectar negativamente al rendimiento.
+Es recomendable no establecer un valor bajo en el número máximo de solicitudes porque puede dar como resultado una degradación del rendimiento.
 
 Información importante:
 
@@ -818,9 +884,9 @@ En un encabezado de solicitud se puede realizar una de las siguientes acciones:
 
 Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
-Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/> **Valor de encabezado de solicitud (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de solicitud:**Valor1Valor2
-Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/>**Valor de encabezado de solicitud (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de solicitud:**Valor2 <br/>
-Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado de solicitud (cliente):**Valor1 <br/> **Modificar configuración de encabezado de solicitud de cliente:** elimina el encabezado de solicitud en cuestión. <br/>**Resultado:** el encabezado de solicitud especificado no se reenviará al servidor de origen.
+Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/> **Valor de encabezado de solicitud (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de solicitud:** Valor1Valor2
+Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/>**Valor de encabezado de solicitud (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de solicitud:** Valor2 <br/>
+Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/> **Modificar configuración de encabezado de solicitud de cliente:** elimina el encabezado de solicitud en cuestión. <br/>**Resultado:** el encabezado de solicitud especificado no se reenviará al servidor de origen.
 
 Información importante:
 
@@ -856,8 +922,8 @@ En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
 Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
-Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor1Valor2
-Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):**Valor2 <br/>**Nuevo valor de encabezado de respuesta:**Valor2 <br/>
+Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de respuesta:** Valor1Valor2
+Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de respuesta:** Valor2 <br/>
 Eliminar|Elimina el encabezado de respuesta especificado.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/> **Modificar configuración de encabezado de respuesta de cliente:** elimina el encabezado de respuesta en cuestión. <br/>**Resultado:** el encabezado de respuesta especificado no se reenviará al solicitante.
 
 Información importante:
@@ -924,12 +990,22 @@ Información importante:
 
 ---
 ### <a name="proxy-special-headers"></a>Encabezados de proxy especiales
-**Propósito**: define el conjunto de encabezados de solicitud específicos de la red CDN que se reenviará desde un punto de presencia a un servidor de origen.
+**Propósito**: define el conjunto de [encabezados de solicitud HTTP específicos de Verizon](cdn-verizon-http-headers.md) que se reenviará desde un servidor POP a un servidor de origen.
 
 Información importante:
 
-- Cada encabezado de solicitud específico de la red CDN definido en esta característica se reenviará a un servidor de origen.
-- Para evitar que un encabezado de solicitud específico de la red CDN se reenvíe a un servidor de origen, elimínelo de esta lista.
+- Cada encabezado de solicitud específico de la red CDN definido en esta característica se reenviará a un servidor de origen. No se reenviarán los encabezados excluidos.
+- Para impedir que se reenvíe un encabezado de solicitud específico de la red CDN, quítelo de la lista separada por espacios en el campo de lista de encabezados.
+
+En la lista predeterminada, se incluyen los siguientes encabezados HTTP:
+- Via
+- X-Forwarded-For
+- X-Forwarded-Proto
+- X-Host
+- X-Midgress
+- X-Gateway-List
+- X-EC-Name
+- Host
 
 **Comportamiento predeterminado:** se reenviarán todos los encabezados de solicitud específica de la red CDN al servidor de origen.
 
@@ -1041,12 +1117,17 @@ Si está habilitada la autenticación basada en token, solo se admitirán las so
 
 La clave de cifrado que se usa para cifrar y descifrar los valores del token se determina según la clave principal y las opciones de clave de copia de seguridad en la página de autenticación del token. Tenga en cuenta que las claves de cifrado son específicas de la plataforma.
 
+**Comportamiento predeterminado**: deshabilitado.
+
+Esta característica tiene prioridad sobre la mayoría de las características con la excepción de la característica Reescritura de direcciones URL.
+
 Valor | Resultado
 ------|---------
 habilitado | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir la configuración de la autenticación basada en token para determinar si se protegerá una solicitud.
 
-**Comportamiento predeterminado**: deshabilitado.
+#### <a name="compatibility"></a>Compatibilidad
+No use la autenticación de token con una condición de coincidencia Siempre. 
 
 [Volver arriba](#azure-cdn-rules-engine-features)
 
@@ -1056,8 +1137,6 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 ### <a name="token-auth-denial-code"></a>Código de denegación de autorización de token
 **Propósito**: determina el tipo de respuesta que se devolverá al usuario cuando se deniegue una solicitud debido a la autenticación basada en token.
 
-El código de denegación de autorización de token no se puede usar con una condición de coincidencia Siempre. En su lugar, use la sección **Custom Denial Handling** (Control de denegación personalizado) en la página **Token de autenticación** del portal **Administrar**. Para más información, consulte [Protección de los activos de Azure CDN con autenticación por tokens](cdn-token-auth.md).
-
 Los códigos de respuesta disponibles se enumeran en la tabla siguiente.
 
 Código de respuesta|Nombre de la respuesta|DESCRIPCIÓN
@@ -1066,8 +1145,11 @@ Código de respuesta|Nombre de la respuesta|DESCRIPCIÓN
 302|Encontrado|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación. Este código de estado es el método estándar del sector para llevar a cabo una redirección.
 307|Redirección temporal|Este código de estado redirige a los usuarios no autorizados a la dirección URL especificada en el encabezado Ubicación.
 401|No autorizado|La combinación de este código de estado con el encabezado de respuesta WWW-Authenticate permite solicitar la autenticación al usuario.
-403|Prohibido|Este es el mensaje de estado estándar 403 Prohibido que un usuario no autorizado verá al intentar obtener acceso a contenido protegido.
+403|Prohibido|Este es el mensaje de estado estándar 403 Prohibido que un usuario no autorizado verá al intentar acceder a contenido protegido.
 404|Archivo no encontrado|Este código de estado indica que el cliente HTTP fue capaz de comunicarse con el servidor, pero no se encontró el contenido solicitado.
+
+#### <a name="compatibility"></a>Compatibilidad
+No use el Código de denegación de autorización de token con una condición de coincidencia Siempre. En su lugar, use la sección **Custom Denial Handling** (Control de denegación personalizado) en la página **Token de autenticación** del portal **Administrar**. Para más información, consulte [Protección de los activos de Azure CDN con autenticación por tokens](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>Redirección de URL
 
@@ -1152,7 +1234,7 @@ Para configurar esta característica hay que establecer las siguientes opciones:
 Opción|DESCRIPCIÓN
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
-Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
+Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
 Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
 
@@ -1177,7 +1259,7 @@ Esta redirección de URL se puede realizar con la siguiente configuración:![](.
     - Escenario de ejemplo 3: 
         - Solicitud de ejemplo (dirección URL de servidor perimetral CNAME): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - Dirección URL de solicitud (después de redirección): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- La variable de esquema de solicitud (%{scheme}) se utiliza en la opción Destination (Destino). Esto garantiza que el esquema de la solicitud no cambiará después de la redirección.
+- La variable Esquema de solicitud (%{scheme}) se utiliza en la opción Destino, lo que garantiza que el esquema de la solicitud no cambiará después de la redirección.
 - Los segmentos de dirección URL que se capturaron de la solicitud se anexan a la nueva dirección URL a través de "$1".
 
 [Volver arriba](#azure-cdn-rules-engine-features)
@@ -1194,9 +1276,9 @@ Información importante:
 
 Opción|DESCRIPCIÓN
 -|-
- Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Se trata de la sección "/XXXX/" y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
+ Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
  Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
- Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Esto significa que el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
+ Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Es decir, el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
 **Escenario de ejemplo 1**
 
@@ -1220,7 +1302,6 @@ Esta redirección de URL se puede realizar con la siguiente configuración:![](.
 - Los segmentos de dirección URL que se capturaron de la solicitud se anexan a la nueva dirección URL a través de "$1".
 
 #### <a name="compatibility"></a>Compatibilidad
-
 Esta característica incluye los criterios de coincidencia que deben cumplirse para poder aplicarla a una solicitud. Para evitar configurar criterios de coincidencia que generen conflictos, esta característica es incompatible con las siguientes condiciones de coincidencia:
 
 - Número de sistema autónomo (AS)

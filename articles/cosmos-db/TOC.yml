@@ -1,6 +1,5 @@
-metadata: {}
 items:
-  - name: Documentación sobre Cosmos DB
+  - name: Documentación sobre Azure Cosmos DB
     href: index.yml
   - name: Información general
     items:
@@ -67,100 +66,27 @@ items:
             href: create-cassandra-dotnet.md
           - name: Python
             href: create-cassandra-python.md
-  - name: Tutoriales
-    items:
-      - name: 1 - Creación
-        items:
-          - name: SQL
-            href: tutorial-develop-sql-api-dotnet.md
-          - name: MongoDB con .NET
-            href: tutorial-develop-mongodb.md
-          - name: MongoDB con Angular
-            href: tutorial-develop-mongodb-nodejs.md
-          - name: MongoDB con React
-            href: tutorial-develop-mongodb-react.md
-          - name: Tabla
-            href: tutorial-develop-table-dotnet.md
-          - name: Grafo
-            href: tutorial-develop-graph-dotnet.md
-          - name: Cassandra
-            href: tutorial-develop-cassandra-java.md
-      - name: 2 - Importación
-        items:
-          - name: SQL
-            href: import-data.md
-          - name: MongoDB
-            href: mongodb-migrate.md
-          - name: Tabla
-            href: table-import.md
-          - name: Cassandra
-            href: cassandra-import-data.md
-      - name: 3 - Consulta
-        items:
-          - name: SQL
-            href: tutorial-query-sql-api.md
-          - name: MongoDB
-            href: tutorial-query-mongodb.md
-          - name: Tabla
-            href: tutorial-query-table.md
-          - name: Grafo
-            href: tutorial-query-graph.md
-      - name: 4 - Distribución global
-        items:
-          - name: SQL
-            href: tutorial-global-distribution-sql-api.md
-          - name: MongoDB
-            href: tutorial-global-distribution-mongodb.md
-          - name: Tabla
-            href: tutorial-global-distribution-table.md
-          - name: Grafo
-            href: tutorial-global-distribution-graph.md
-      - name: 5 - Desarrollo local
-        items:
-          - name: Uso del emulador
-            href: local-emulator.md
-          - name: Exportación de certificados
-            href: local-emulator-export-ssl-certificates.md
-      - name: 6 - Integración con funciones
-        items:
-          - name: Desencadenador HTTP
-            href: tutorial-functions-http-trigger.md
-  - name: Ejemplos
-    items:
-      - name: Azure CLI
-        href: cli-samples.md
-      - name: PowerShell
-        href: powershell-samples.md
-      - name: Plantillas del Administrador de recursos de Azure
-        href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
   - name: Conceptos
     items:
-      - name: Base de datos sin servidor
-        href: serverless-computing-database.md
       - name: Distribución global
         href: distribute-data-globally.md
       - name: Creación de particiones
         href: partition-data.md
-      - name: Claves únicas
-        href: unique-keys.md
-      - name: Coherencia
-        href: consistency-levels.md
       - name: Throughput
         href: request-units.md
-      - name: API de varios modelos
-        items:
-          - name: SQL
-            href: sql-api-introduction.md
-          - name: MongoDB
-            href: mongodb-introduction.md
-          - name: Tabla
-            href: table-introduction.md
-          - name: Grafo
-            href: graph-introduction.md
-          - name: Cassandra
-            href: cassandra-introduction.md
+      - name: Coherencia
+        href: consistency-levels.md
+      - name: Claves únicas
+        href: unique-keys.md
+      - name: Base de datos sin servidor
+        href: serverless-computing-database.md
       - name: Seguridad
         href: database-security.md
+        items:
+          - name: Cifrado en reposo
+            href: database-encryption-at-rest.md
+          - name: Protección del acceso a los datos
+            href: secure-access-to-data.md
       - name: TCO
         href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casos de uso
@@ -168,40 +94,18 @@ items:
         items:
           - name: Aplicaciones de redes sociales
             href: social-media-apps.md
-  - name: Guías de procedimientos
+  - name: Varios modelos
+    expanded: true
     items:
-      - name: Desarrollo
+      - name: Documentos de la API de SQL
         items:
-          - name: API DE SQL
-            href: sql-api-index.md
+          - name: Información general
             items:
-              - name: Recursos
-                href: sql-api-resources.md
-              - name: Consultas SQL
-                href: sql-api-sql-query.md
-              - name: Rendimiento de consultas SQL
-                href: sql-api-sql-query-metrics.md
-              - name: Área de juegos de SQL
-                href: 'https://aka.ms/cosmos-db-playground'
-              - name: Creación de particiones de datos de SQL
-                href: sql-api-partition-data.md
-              - name: 'procedimientos almacenados, desencadenadores y UDF'
-                href: programming.md
-              - name: Pruebas de rendimiento
-                href: performance-testing.md
-              - name: Sugerencias de rendimiento para Async Java
-                href: performance-tips-async-java.md
-              - name: Sugerencias de rendimiento para .NET
-                href: performance-tips.md
-              - name: Sugerencias de rendimiento para Java
-                href: performance-tips-java.md
-              - name: Configuración de varios maestros
-                href: multi-region-writers.md
-              - name: DateTimes
-                href: working-with-dates.md
-              - name: Modelado de datos del documento
-                href: modeling-data.md
-              - name: Tutoriales
+              - name: Acerca de la API de SQL
+                href: sql-api-introduction.md
+          - name: Tutoriales
+            items:
+              - name: 1 - Creación
                 items:
                   - name: Escritura de la primera aplicación
                     items:
@@ -227,30 +131,179 @@ items:
                         href: sql-api-java-application.md
                       - name: Python Flask
                         href: sql-api-python-application.md
-              - name: Ejemplos
+              - name: 2 - Importación
+                href: import-data.md
+              - name: 3 - Consulta
+                href: tutorial-query-sql-api.md
+              - name: 4 - Distribución global
+                href: tutorial-global-distribution-sql-api.md
+              - name: 5 - Desarrollo local
                 items:
-                  - name: Ejemplos de .NET
-                    href: sql-api-dotnet-samples.md
-                  - name: Ejemplos de Java
-                    href: sql-api-java-samples.md
-                  - name: Ejemplos de Node.js
-                    href: sql-api-nodejs-samples.md
-                  - name: Ejemplos de Python
-                    href: sql-api-python-samples.md
+                  - name: Uso del emulador
+                    href: local-emulator.md
+                  - name: Exportación de certificados
+                    href: local-emulator-export-ssl-certificates.md
+              - name: 6 - Integración con funciones
+                items:
+                  - name: Desencadenador HTTP
+                    href: tutorial-functions-http-trigger.md
+          - name: Ejemplos
+            items:
+              - name: Azure CLI
+                href: cli-samples.md
+              - name: PowerShell
+                href: powershell-samples.md
+              - name: Ejemplos de .NET
+                href: sql-api-dotnet-samples.md
+              - name: Ejemplos de Node.js
+                href: sql-api-nodejs-samples.md
+              - name: Ejemplos de Python
+                href: sql-api-python-samples.md
+              - name: Ejemplos de Java
+                href: sql-api-java-samples.md
+          - name: Conceptos
+            items:
               - name: Recursos
+                href: sql-api-resources.md
+              - name: Datos del documento de modelo
+                href: modeling-data.md
+              - name: Configuración de varios maestros
+                href: multi-region-writers.md
+          - name: Guías de procedimientos
+            items:
+              - name: Consultar
                 items:
-                  - name: Hoja de referencia rápida de gramática de SQL
-                    href: sql-api-sql-query-cheat-sheet.md
-                  - name: Vídeos
-                    href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
-                  - name: Actualizaciones del servicio
-                    href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                  - name: Documento sobre indexación independiente del esquema
-                    href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
-                  - name: 'Retirada de S1, S2, S3'
-                    href: performance-levels.md
-          - name: MongoDB API
-            href: mongodb-index.md
+                  - name: Realizar consultas SQL
+                    href: sql-api-sql-query.md
+                  - name: Ajustar rendimiento de consulta
+                    href: sql-api-sql-query-metrics.md
+              - name: Índice
+                href: indexing-policies.md
+              - name: Creación de particiones de datos de SQL
+                href: sql-api-partition-data.md
+              - name: 'procedimientos almacenados, desencadenadores y UDF'
+                href: programming.md
+              - name: Fuente de cambios
+                href: change-feed.md
+              - name: Tipos de datos
+                items:
+                  - name: DateTimes
+                    href: working-with-dates.md
+                  - name: Geoespaciales
+                    href: geospatial.md
+              - name: Ajustar rendimiento
+                items:
+                  - name: Prueba de rendimiento
+                    href: performance-testing.md
+                  - name: Sugerencias de rendimiento para Async Java
+                    href: performance-tips-async-java.md
+                  - name: Sugerencias de rendimiento para .NET
+                    href: performance-tips.md
+                  - name: Sugerencias de rendimiento para Java
+                    href: performance-tips-java.md
+              - name: Integración con otros servicios de Azure
+                items:
+                  - name: Implementación de una arquitectura lambda con HDInsight
+                    href: lambda-architecture.md
+                  - name: Conexión a Spark
+                    href: spark-connector.md
+                  - name: Streaming con Kafka y Spark en HDInsight
+                    href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Implementación de un sitio web en Azure App Service
+                    href: create-website.md
+                  - name: Registro de aplicaciones con Logic Apps
+                    href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
+                  - name: Enlazado con Azure Functions
+                    href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Integración con Azure Search
+                    href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
+                  - name: Traslado de datos con Azure Data Factory
+                    href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
+                  - name: Análisis de datos en tiempo real con Azure Stream Analytics
+                    href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
+                  - name: Cambio del registro HL7 FHIR mediante Logic Apps
+                    href: change-feed-hl7-fhir-logic-apps.md
+                  - name: Procesamiento de datos de sensores en tiempo real
+                    href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
+                  - name: Visualización de datos con Power BI
+                    href: powerbi-visualize.md
+                  - name: Aprovechamiento del controlador ODBC para la visualización de datos
+                    href: odbc-driver.md
+                  - name: Uso de Spring Boot Starter con las API de SQL
+                    href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
+          - name: Referencia
+            items:
+              - name: Async Java
+                href: sql-api-sdk-async-java.md
+              - name: Java
+                href: sql-api-sdk-java.md
+              - name: .NET
+                href: sql-api-sdk-dotnet.md
+              - name: Fuente de cambios de .NET
+                href: sql-api-sdk-dotnet-changefeed.md
+              - name: .NET Core
+                href: sql-api-sdk-dotnet-core.md
+              - name: Node.js
+                href: sql-api-sdk-node.md
+              - name: Python
+                href: sql-api-sdk-python.md
+              - name: REST
+                href: /rest/api/cosmos-db/
+              - name: Proveedor de recursos de REST
+                href: /rest/api/cosmos-db-resource-provider/
+              - name: SQL
+                href: sql-api-sql-query-reference.md
+          - name: Recursos
+            items:
+              - name: Extensión de Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+              - name: Documento sobre indexación independiente del esquema
+                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
+              - name: Área de juegos de SQL
+                href: 'https://aka.ms/cosmos-db-playground'
+      - name: Documentos de la API de MongoDB
+        items:
+          - name: Información general
+            items:
+              - name: Acerca de la API de MongoDB
+                href: mongodb-introduction.md
+              - name: Soporte técnico de MongoDB
+                href: mongodb-feature-support.md
+          - name: Tutoriales
+            items:
+              - name: 1 - Creación
+                items:
+                  - name: Node.js
+                    href: mongodb-samples.md
+                  - name: Node.js y Angular
+                    items:
+                      - name: 'Parte 1: Introducción'
+                        href: tutorial-develop-mongodb-nodejs.md
+                      - name: 'Parte 2: Creación de aplicaciones de nodo'
+                        href: tutorial-develop-mongodb-nodejs-part2.md
+                      - name: 'Parte 3: Incorporación de la interfaz de usuario de Angular'
+                        href: tutorial-develop-mongodb-nodejs-part3.md
+                      - name: 'Parte 4: Creación de instancia de Cosmos DB'
+                        href: tutorial-develop-mongodb-nodejs-part4.md
+                      - name: 'Parte 5: Conexión a Cosmos DB'
+                        href: tutorial-develop-mongodb-nodejs-part5.md
+                      - name: 'Parte 6: Escritura en la aplicación'
+                        href: tutorial-develop-mongodb-nodejs-part6.md
+                  - name: Node.js y React
+                    href: tutorial-develop-mongodb-react.md
+              - name: 2 - Importación
+                href: mongodb-migrate.md
+              - name: 3 - Consulta
+                href: tutorial-query-mongodb.md
+              - name: 4 - Distribución global
+                href: tutorial-global-distribution-mongodb.md
+              - name: 5 - Desarrollo local
+                items:
+                  - name: Uso del emulador
+                    href: local-emulator.md
+                  - name: Exportación de certificados
+                    href: local-emulator-export-ssl-certificates.md
+          - name: Guías de procedimientos
             items:
               - name: Conexión a una cuenta de MongoDB
                 href: connect-mongodb-account.md
@@ -264,182 +317,144 @@ items:
                 href: mongodb-readpreference.md
               - name: Indización
                 href: mongodb-indexing.md
-              - name: Compatibilidad con las características de MongoDB
-                href: mongodb-feature-support.md
-              - name: Serie de tutoriales sobre Angular
-                items:
-                  - name: 'Parte 2: Creación de aplicaciones de nodo'
-                    href: tutorial-develop-mongodb-nodejs-part2.md
-                  - name: 'Parte 3: Incorporación de la interfaz de usuario de Angular'
-                    href: tutorial-develop-mongodb-nodejs-part3.md
-                  - name: 'Parte 4: Creación de instancia de Cosmos DB'
-                    href: tutorial-develop-mongodb-nodejs-part4.md
-                  - name: 'Parte 5: Conexión a Cosmos DB'
-                    href: tutorial-develop-mongodb-nodejs-part5.md
-                  - name: 'Parte 6: Escritura en la aplicación'
-                    href: tutorial-develop-mongodb-nodejs-part6.md
-              - name: Tutoriales adicionales
-                items:
-                  - name: Aplicación de consola de Node.js
-                    href: mongodb-samples.md
-          - name: Graph API
+              - name: Visualización de datos con Power BI
+                href: powerbi-visualize.md
+          - name: Recursos
             items:
+              - name: Extensión de Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+      - name: Documentos de Graph API
+        items:
+          - name: Información general
+            items:
+              - name: Acerca de Graph API
+                href: graph-introduction.md
               - name: Compatibilidad con Gremlin
                 href: gremlin-support.md
+          - name: Tutoriales
+            items:
+              - name: 1 - Creación
+                href: tutorial-develop-graph-dotnet.md
+              - name: 2 - Consulta
+                href: tutorial-query-graph.md
+              - name: 3 - Distribución global
+                href: tutorial-global-distribution-graph.md
+          - name: Guías de procedimientos
+            items:
               - name: Creación de particiones de Graph
                 href: graph-partitioning.md
-          - name: Table API
+              - name: Integrate
+                items:
+                  - name: Conexión a Spark GraphX
+                    href: spark-connector-graph.md
+          - name: Referencia
             items:
+              - name: .NET
+                href: graph-sdk-dotnet.md
+          - name: Recursos
+            items:
+              - name: Extensión de Visual Studio Code
+                href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+      - name: Documentos de Table API
+        items:
+          - name: Información general
+            items:
+              - name: Acerca de Table API
+                href: table-introduction.md
               - name: Desarrollo de tablas
                 href: table-support.md
-              - name: Operaciones de Table API con PowerShell
-                href: table-powershell.md
-              - name: Almacenamiento de tablas de Azure
-                items:
-                  - name: Información general de Table Storage
-                    href: table-storage-overview.md
-                  - name: Guía de diseño de almacenamiento en tablas
-                    href: table-storage-design-guide.md
-                  - name: API de REST de Table Storage
-                    href: /rest/api/storageservices/Table-Service-Concepts
-                  - name: Desarrollo
-                    items:
-                      - name: .NET
-                        href: table-storage-how-to-use-dotnet.md
-                      - name: 'F#'
-                        href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-                      - name: Node.js
-                        href: table-storage-cloud-service-nodejs.md
-                      - name: Java
-                        href: table-storage-how-to-use-java.md
-                      - name: Node.js
-                        href: table-storage-how-to-use-nodejs.md
-                      - name: C++
-                        href: table-storage-how-to-use-c-plus.md
-                      - name: PHP
-                        href: table-storage-how-to-use-php.md
-                      - name: Python
-                        href: table-storage-how-to-use-python.md
-                      - name: Ruby
-                        href: table-storage-how-to-use-ruby.md
-                      - name: PowerShell
-                        href: table-storage-how-to-use-powershell.md
-          - name: Fuente de cambios
-            href: change-feed.md
-          - name: Geoespaciales
-            href: geospatial.md
-          - name: Indización
-            href: indexing-policies.md
-      - name: administración
-        items:
-          - name: Escrituras y lecturas rentables
-            href: key-value-store-cost.md
-          - name: Expiración automática de los datos
-            href: time-to-live.md
-          - name: Creación de copias de seguridad y restauración de datos
-            href: online-backup-and-restore.md
-          - name: Conmutación por error regional
-            href: regional-failover.md
-          - name: Establecimiento del rendimiento
-            href: set-throughput.md
-          - name: Supervisión del Acuerdo de Nivel de Servicio
-            href: monitor-accounts.md
-          - name: Uso de métricas
-            href: use-metrics.md
-          - name: Registro de diagnósticos
-            href: logging.md
-          - name: Administración de claves y coherencia
-            href: manage-account.md
-          - name: Control de acceso
-            href: access-control.md
-          - name: Explorador de Azure Storage
-            href: storage-explorer.md
-          - name: Seguridad
+          - name: Tutoriales
             items:
-              - name: Cifrado en reposo
-                href: database-encryption-at-rest.md
-              - name: Funcionalidad de firewall
-                href: firewall-support.md
-              - name: Protección del acceso a los datos
-                href: secure-access-to-data.md
-      - name: Integrate
+              - name: 1 - Creación
+                href: tutorial-develop-table-dotnet.md
+              - name: 2 - Importación
+                href: table-import.md
+              - name: 3 - Consulta
+                href: tutorial-query-table.md
+              - name: 4 - Distribución global
+                href: tutorial-global-distribution-table.md
+          - name: Ejemplos
+            items:
+              - name: .NET
+                href: table-storage-how-to-use-dotnet.md
+              - name: 'F#'
+                href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+              - name: Node.js
+                href: table-storage-cloud-service-nodejs.md
+              - name: Java
+                href: table-storage-how-to-use-java.md
+              - name: Node.js
+                href: table-storage-how-to-use-nodejs.md
+              - name: C++
+                href: table-storage-how-to-use-c-plus.md
+              - name: PHP
+                href: table-storage-how-to-use-php.md
+              - name: Python
+                href: table-storage-how-to-use-python.md
+              - name: Ruby
+                href: table-storage-how-to-use-ruby.md
+              - name: PowerShell
+                href: table-storage-how-to-use-powershell.md
+          - name: Referencia
+            items:
+              - name: .NET
+                href: table-sdk-dotnet.md
+              - name: Java
+                href: table-sdk-java.md
+              - name: Node.js
+                href: table-sdk-nodejs.md
+              - name: Python
+                href: table-sdk-python.md
+          - name: Recursos
+            items:
+              - name: Información general de Table Storage
+                href: table-storage-overview.md
+              - name: Guía de diseño de almacenamiento en tablas
+                href: table-storage-design-guide.md
+              - name: API de REST de Table Storage
+                href: /rest/api/storageservices/Table-Service-Concepts
+      - name: Documentos de Cassandra API
         items:
-          - name: Implementación de una arquitectura lambda con HDInsight
-            href: lambda-architecture.md
-          - name: Conexión a Spark
-            href: spark-connector.md
-          - name: Conexión a Spark GraphX
-            href: spark-connector-graph.md
-          - name: Streaming con Kafka y Spark en HDInsight
-            href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
-          - name: Implementación de un sitio web en Azure App Service
-            href: create-website.md
-          - name: Registro de aplicaciones con Logic Apps
-            href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
-          - name: Enlazado con Azure Functions
-            href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
-          - name: Integración con Azure Search
-            href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
-          - name: Traslado de datos con Azure Data Factory
-            href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
-          - name: Análisis de datos en tiempo real con Azure Stream Analytics
-            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
-          - name: Cambio del registro HL7 FHIR mediante Logic Apps
-            href: change-feed-hl7-fhir-logic-apps.md
-          - name: Procesamiento de datos de sensores en tiempo real
-            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
-          - name: Visualización de datos con Power BI
-            href: powerbi-visualize.md
-          - name: Aprovechamiento del controlador ODBC para la visualización de datos
-            href: odbc-driver.md
-          - name: Uso de Spring Boot Starter con las API de SQL
-            href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
-  - name: Referencia
+          - name: Información general
+            items:
+              - name: Acerca de Cassandra API
+                href: cassandra-introduction.md
+          - name: Tutoriales
+            items:
+              - name: 1 - Creación
+                href: tutorial-develop-cassandra-java.md
+              - name: 2 - Importación
+                href: cassandra-import-data.md
+  - name: Guías de procedimientos
     items:
-      - name: Ejemplos de código
-        href: 'https://azure.microsoft.com/resources/samples/?service=cosmos-db'
-      - name: API de SQL
-        items:
-          - name: Async Java
-            href: sql-api-sdk-async-java.md
-          - name: Java
-            href: sql-api-sdk-java.md
-          - name: .NET
-            href: sql-api-sdk-dotnet.md
-          - name: Fuente de cambios de .NET
-            href: sql-api-sdk-dotnet-changefeed.md
-          - name: .NET Core
-            href: sql-api-sdk-dotnet-core.md
-          - name: Node.js
-            href: sql-api-sdk-node.md
-          - name: Python
-            href: sql-api-sdk-python.md
-          - name: REST
-            href: /rest/api/cosmos-db/
-          - name: Proveedor de recursos de REST
-            href: /rest/api/cosmos-db-resource-provider/
-          - name: SQL
-            href: sql-api-sql-query-reference.md
-      - name: Table API
-        items:
-          - name: .NET
-            href: table-sdk-dotnet.md
-          - name: Java
-            href: table-sdk-java.md
-          - name: Node.js
-            href: table-sdk-nodejs.md
-          - name: Python
-            href: table-sdk-python.md
-      - name: Graph API
-        items:
-          - name: .NET
-            href: graph-sdk-dotnet.md
+      - name: Claves y coherencia
+        href: manage-account.md
+      - name: Throughput
+        href: set-throughput.md
+      - name: Funcionalidad de firewall
+        href: firewall-support.md
+      - name: Métricas
+        href: use-metrics.md
+      - name: Supervisión del Acuerdo de Nivel de Servicio
+        href: monitor-accounts.md
+      - name: Creación de copias de seguridad y restauración de datos
+        href: online-backup-and-restore.md
+      - name: Conmutación por error regional
+        href: regional-failover.md
+      - name: Registro de diagnósticos
+        href: logging.md
+      - name: Escrituras y lecturas rentables
+        href: key-value-store-cost.md
+      - name: Expiración automática de los datos
+        href: time-to-live.md
   - name: Recursos
     items:
       - name: Hoja de referencia rápida de consultas
         href: query-cheat-sheet.md
       - name: 20 días de sugerencias
         href: 20-days-of-tips.md
+      - name: Vídeos
+        href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
       - name: Azure Roadmap
         href: 'https://azure.microsoft.com/roadmap/'
       - name: Pruebe gratis Azure Cosmos DB
@@ -450,5 +465,3 @@ items:
         href: faq.md
       - name: Coherencia de los datos explicada a través del béisbol
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-      - name: Solución de problemas de Azure Cosmos DB
-        href: troubleshoot-azure-cosmosdb.md

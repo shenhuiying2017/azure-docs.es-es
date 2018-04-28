@@ -1,8 +1,8 @@
 ---
-title: "Directrices para la optimización del rendimiento de Azure Data Lake Store | Microsoft Docs"
-description: "Directrices para la optimización del rendimiento de Azure Data Lake Store"
+title: Directrices para la optimización del rendimiento de Azure Data Lake Store | Microsoft Docs
+description: Directrices para la optimización del rendimiento de Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 15832f94b73057a8bfce7be27e3fd57c7771940d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Optimización del rendimiento de Azure Data Lake Store
 
@@ -42,13 +42,13 @@ Si usa máquinas locales o máquinas virtuales en Azure, debe seleccionar cuidad
 
 ### <a name="network-connectivity-to-azure-data-lake-store"></a>Conectividad de red a Azure Data Lake Store
 
-La conectividad de red entre los datos de origen y Azure Data Lake Store a veces puede constituir un cuello de botella. Cuando los datos de origen están en local, considere el uso de un vínculo dedicado con [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/). Si los datos de origen están en Azure, el rendimiento será el mejor cuando los datos se encuentren en la misma región de Azure que Data Lake Store.
+La conectividad de red entre los datos de origen y Azure Data Lake Store a veces puede constituir un cuello de botella. Cuando los datos de origen están en local, considere el uso de un vínculo dedicado con [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si los datos de origen están en Azure, el rendimiento será el mejor cuando los datos se encuentren en la misma región de Azure que Data Lake Store.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configuración de herramientas de ingesta de datos para lograr una paralelización máxima
 
 Una vez haya solucionado los cuellos de botella de la conectividad de la red y del hardware de origen, estará listo para configurar las herramientas de ingesta. En la tabla siguiente se resume la configuración básica de varias herramientas de ingesta populares y se ofrecen artículos detallados sobre la optimización del rendimiento relacionados con ellas.  Para más información sobre la herramienta adecuada para su escenario, consulte este [artículo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
-| Herramienta               | Configuración     | Más detalles                                                                 |
+| Herramienta               | Settings     | Más detalles                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Vínculo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
 | AdlCopy    | Unidades de Azure Data Lake Analytics  |   [Vínculo](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
@@ -142,6 +142,6 @@ Además de las directrices generales anteriores, cada aplicación tiene diferent
 | [MapReduce en HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm en HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de procesos de trabajo</li><li>Número de instancias de ejecutor de spout</li><li>Número de instancias de ejecutor de bolt </li><li>Número de tareas de spout</li><li>Número de tareas de bolt</li></ul>|
 
-## <a name="see-also"></a>Consulte también
-* [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+## <a name="see-also"></a>Otras referencias
+* [Información general de Azure Data Lake Store](data-lake-store-overview.md)
 * [Tutorial: Introducción a Análisis de Azure Data Lake mediante el Portal de vista previa de Azure](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
