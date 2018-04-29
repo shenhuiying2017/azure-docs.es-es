@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: bfbcf8ff3f24b69b49b9a2bd5d567e1ead57d974
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 A lo largo del ciclo de vida de las aplicaciones, puede que tenga la necesidad de modificar o actualizar el conjunto de escalado de máquinas virtuales. Estas actualizaciones pueden incluir cómo actualizar la configuración del conjunto de escalado o cambiar la configuración de la aplicación. En este artículo se describe cómo modificar un conjunto de escalado existente con las API REST, Azure PowerShell o la CLI de Azure 2.0.
@@ -373,12 +373,12 @@ Si una aplicación se implementa en un conjunto de escalado mediante extensiones
 También es habitual que las aplicaciones se implementen mediante una imagen personalizada. Este escenario se explica en la siguiente sección.
 
 ### <a name="os-updates"></a>Actualizaciones de SO
-Si usa imágenes de plataforma de Azure, puede actualizar la imagen mediante la modificación de la propiedad *imageReference* (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Si usa imágenes de plataforma de Azure, puede actualizar la imagen mediante la modificación de la propiedad *imageReference* (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
 > Con imágenes de plataforma, es habitual especificar la versión más reciente de la referencia de imagen. Al realizar procedimientos de creación, escalado horizontal y restablecimiento de imagen inicial, las máquinas virtuales se crean con la última versión disponible. Sin embargo, **no** significa que la imagen del sistema operativo se actualice automáticamente con el tiempo a medida que se lanzan nuevas versiones de imágenes. Existe actualmente una característica distinta en versión preliminar que proporciona actualizaciones automáticas del sistema operativo. Para más información, consulte la [documentación de actualizaciones automáticas del sistema operativo](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Si usa imágenes personalizadas, puede actualizar la imagen mediante la actualización del identificador de *imageReference* (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Si usa imágenes personalizadas, puede actualizar la imagen mediante la actualización del identificador de *imageReference* (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Ejemplos
 

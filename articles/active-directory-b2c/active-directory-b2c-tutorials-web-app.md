@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: 59e23344d235bac8f69bba76cfff2922bc41fd0f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 10e7c6a8e9e92a559352886095e367585dc484ef
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Habilitación de una aplicación web para autenticarse con cuentas mediante Azure Active Directory B2C
 
@@ -142,7 +142,7 @@ Ahora que tiene una aplicación web registrada y las directivas creadas, debe co
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-La aplicación web para ASP.NET de ejemplo es una aplicación de lista de tareas sencilla para crear y actualizar una lista de tareas pendientes. La aplicación utiliza [componentes de middleware de Microsoft OWIN](https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/) para permitir que los usuarios se registren para usar la aplicación en su inquilino de Azure AD B2C. Al crear una directiva de Azure AD B2C, los usuarios pueden utilizar una cuenta de las redes sociales o crear una cuenta para utilizarla como su identidad al acceder a la aplicación. 
+La aplicación web para ASP.NET de ejemplo es una aplicación de lista de tareas sencilla para crear y actualizar una lista de tareas pendientes. La aplicación utiliza [componentes de middleware de Microsoft OWIN](https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/) para permitir que los usuarios se registren para usar la aplicación en su inquilino de Azure AD B2C. Al crear una directiva de Azure AD B2C, los usuarios pueden utilizar una cuenta de las redes sociales o crear una cuenta para utilizarla como su identidad al acceder a la aplicación. 
 
 Hay dos proyectos en la solución de ejemplo:
 

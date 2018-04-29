@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: d60c5766b22e31c33d0dd4a743fa297470109ac6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Registro del MXChip IoT DevKit con IoT Hub mediante el aprovisionamiento automático con el servicio Azure IoT Hub Device Provisioning
 
@@ -54,7 +54,7 @@ Para conectar DevKit a la instancia del servicio Device Provisioning que ha crea
 4. Abra Visual Studio Code, conecte DevKit a su equipo y abra la carpeta que contiene el código que ha clonado.
 
 5. Abra **DevKitDPS.ino**. Busque y reemplace `[Global Device Endpoint]` y `[ID Scope]` por los valores que acababa de anotar.
-  ![Punto de conexión de DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Puede dejar el valor de **registrationId** en blanco. La aplicación genera uno automáticamente en función de la versión de firmware y dirección MAC. Si quiere personalizar el identificador de registro, debe usar solo combinaciones de caracteres alfanuméricos, minúsculas y guiones hasta una longitud máxima de 128 caracteres. Para más información, consulte [Administración de inscripciones de dispositivos con Azure Portal](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments).
+  ![Punto de conexión de DPS](./media/how-to-connect-mxchip-iot-devkit/endpoint.png) Puede dejar el valor de **registrationId** en blanco. La aplicación genera uno automáticamente en función de la versión de firmware y dirección MAC. Si quiere personalizar el identificador de registro, debe usar solo combinaciones de caracteres alfanuméricos, minúsculas y guiones hasta una longitud máxima de 128 caracteres. Para más información, consulte [Administración de inscripciones de dispositivos con Azure Portal](https://docs.microsoft.com/azure/iot-dps/how-to-manage-enrollments).
 
 6. Use Quick Open en VS Code (Windows: `Ctrl+P`, macOS: `Cmd+P`) y escriba *task device-upload* para crear y cargar el código en DevKit.
 

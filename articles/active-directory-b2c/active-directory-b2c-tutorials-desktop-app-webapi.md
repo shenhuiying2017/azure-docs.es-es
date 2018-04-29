@@ -9,11 +9,11 @@ ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: da3b8c42fc98f0957f2fa1a1ac95e12737528863
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ef92a7fbbc3b84195eff251b0224cb0fd51a6c88
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Concesión de acceso a una API web de Node.js desde una aplicación de escritorio mediante Azure Active Directory B2C
 
@@ -145,9 +145,10 @@ Ejecute la API web de Node.Js:
 3. Ejecute los comandos siguientes:
     ```
     npm install && npm update
+    ```
+    ```
     node index.js
     ```
-
 Ejecute la aplicación de escritorio:
 
 1. Presione **F5** para ejecutar la aplicación de escritorio.

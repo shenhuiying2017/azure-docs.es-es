@@ -1,11 +1,11 @@
 ---
-title: "Información sobre la mensajería de dispositivo a nube de Azure IoT Hub | Microsoft Docs"
-description: "Guía del desarrollador: cómo utilizar la mensajería de dispositivo a nube con IoT Hub. Incluye información acerca del envío de datos de telemetría y datos sin telemetría, y del uso del enrutamiento para entregar los mensajes."
+title: Información sobre la mensajería de dispositivo a nube de Azure IoT Hub | Microsoft Docs
+description: 'Guía del desarrollador: cómo utilizar la mensajería de dispositivo a nube con IoT Hub. Incluye información acerca del envío de datos de telemetría y datos sin telemetría, y del uso del enrutamiento para entregar los mensajes.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 48b904818c80b9175d45b88345634f11cf4a4812
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envío de mensajes de dispositivo a nube a IoT Hub
 
@@ -32,7 +32,7 @@ La mensajería de dispositivo a nube con IoT Hub tiene las siguientes caracterí
 * Los mensajes de dispositivo a nube son duraderos y se conservan en el punto de conexión **messages/events** predeterminado de una instancia de IoT Hub hasta siete días.
 * Los mensajes de dispositivo a nube pueden tener como máximo 256 KB y se pueden agrupar en lotes para optimizar los envíos. Los lotes pueden tener un tamaño máximo de 256 KB.
 * Como se explica en la sección [Control del acceso a IoT Hub][lnk-devguide-security], IoT Hub habilita la autenticación y el control de acceso por dispositivo.
-* IoT Hub le permite crear hasta 10 puntos de conexión personalizados. Los mensajes se entregan a los puntos de conexión según las rutas configuradas en su IoT Hub. Para obtener más información, consulte [Reglas de enrutamiento](#routing-rules).
+* IoT Hub le permite crear hasta 10 puntos de conexión personalizados. Los mensajes se entregan a los puntos de conexión según las rutas configuradas en su IoT Hub. Para obtener más información, consulte [Reglas de enrutamiento](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
 * IoT Hub habilita millones de dispositivos conectados al mismo tiempo (consulte [Cuotas y limitación][lnk-quotas]).
 * IoT Hub no permite el particionamiento arbitrario. Los mensajes de dispositivo a nube se dividen en particiones en función de su valor de **deviceId**de origen.
 

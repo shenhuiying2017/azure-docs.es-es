@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3acfa51351ac49456f5f9fcac8aa4f4f339b9ea3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d869a21230661e473ffff6bbdb1ea29b1ea336d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configuración de las notificaciones de rol emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
 
@@ -54,7 +54,7 @@ Si la aplicación espera que se pasen roles personalizados a la respuesta de SAM
 
 5. Una vez agregada la aplicación, vaya a la página **Propiedades** y copie el **identificador de objeto**.
 
-    ![Página de propiedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
+    ![Página de propiedades](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.PNG)
 
 6. Abra el sitio del [Probador de Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer) en otra ventana.
 
@@ -253,7 +253,7 @@ Para eliminar un rol existente, realice los pasos siguientes:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [documentación de la aplicación ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) para conocer los pasos adicionales.
+Consulte la [documentación de la aplicación ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) para conocer los pasos adicionales.
 
 <!--Image references-->
 <!--Image references-->

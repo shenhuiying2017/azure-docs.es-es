@@ -1,24 +1,24 @@
 ---
 title: Repositorios de Azure Container Registry en Azure Portal
-description: "Visualización de los repositorios de Azure Container Registry en Azure Portal."
+description: Visualización de los repositorios de Azure Container Registry en Azure Portal.
 services: container-registry
 author: cristy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 593972e972207a27d1232fcb0c1bf220ac3a8def
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 4479c78eb2eb4138dbacfa3619616a3b16d51121
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 
 Azure Container Registry permite almacenar imágenes de contenedor Docker en repositorios. Mediante el almacenamiento de imágenes en repositorios, puede almacenar grupos de imágenes (o versiones de imágenes) en entornos aislados. Puede especificar estos repositorios al insertar imágenes en el registro y ver el contenido en Azure Portal.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Registro de contenedor**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
 * **CLI de Docker**: instale [Docker][docker-install] en la máquina local, lo que proporciona la interfaz de la línea de comandos de Docker.
