@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Incorporación de un proveedor de recursos de App Service a un entorno de Azure Stack desconectado protegido por AD FS
 
@@ -86,11 +86,11 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 
     ![Instalador de App Service][4]
 
-8. Ahora tiene la opción de realizar la implementación en una red virtual existente, configurada mediante los pasos [aquí](azure-stack-app-service-before-you-get-started.md#virtual-network) descritos, o permitir que el instalador de App Service cree una red virtual y las subredes asociadas.
+8. Ahora tiene la opción de realizar la implementación en una instancia existente de Virtual Network, configurada mediante los pasos [aquí](azure-stack-app-service-before-you-get-started.md#virtual-network) descritos, o permitir que el instalador de App Service cree una red virtual y las subredes asociadas.
     1. Seleccione **Create VNet with default settings** (Crear red virtual con la configuración predeterminada), acepte los valores predeterminados y haga clic en **Next** (Siguiente).
     2. O, seleccione **Use existing VNet and Subnets** (Usar red virtual y subredes existentes).
-        1. Seleccione el **grupo de recursos** que contiene la red virtual.
-        2. Elija el nombre correcto de la **red virtual** en la que quiere realizar la implementación.
+        1. Seleccione el **grupo de recursos** que contiene la instancia de Virtual Network.
+        2. Elija el nombre correcto de la instancia de **Virtual Network** en la que quiere realizar la implementación.
         3. Seleccione los valores correctos de **subred** para cada una de las subredes de rol necesarias.
         4. Haga clic en **Siguiente**
 
@@ -184,6 +184,19 @@ Para implementar App Service en un entorno desconectado, primero debe crear un p
 2. En la información general del estado, compruebe que en **Estado** se muestra **Todos los roles están listos**.
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Si decide implementar en una red virtual existente y una dirección IP interna para conectar a su servidor de archivos, debe agregar una regla de seguridad de salida, lo que habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+> * Origen: Cualquiera
+> * Intervalo de puertos de origen: *
+> * Destino: Direcciones IP
+> * Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
+> * Intervalo de puertos de destino: 445
+> * Protocolo: TCP
+> * Acción: Permitir
+> * Prioridad: 700
+> * Nombre: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Prueba de App Service en Azure Stack
 

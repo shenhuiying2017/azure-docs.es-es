@@ -3,16 +3,16 @@ title: Referencia de esquema de webhook de Azure Container Registry
 description: Referencia de carga de solicitud JSON de webhook para Azure Container Registry.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
 ms.author: marsma
-ms.openlocfilehash: 84f0277a7b1a5bd7dfe2178f78f34140b1dd2642
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Referencia de webhook de Azure Container Registry
 
@@ -40,33 +40,33 @@ Webhook que se desencadena cuando se inserta una imagen de contenedor en un repo
 
 ### <a name="push-event-payload"></a>Carga del evento de inserción
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|string|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|string|La acción que desencadenó el evento de webhook.|
 |[Destino](#target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
 ### <a name="target"></a>Destino
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
+|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
 |`size`|Int32|El número de bytes del contenido. Igual que el campo de longitud.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
 |`length`|Int32|El número de bytes del contenido. Igual que el campo de tamaño.|
-|`repository`|String|El nombre del repositorio.|
-|`tag`|String|El nombre de etiqueta de imagen.|
+|`repository`|string|El nombre del repositorio.|
+|`tag`|string|El nombre de etiqueta de imagen.|
 
 ### <a name="request"></a>request
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|String|El identificador de la solicitud que inició el evento.|
-|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|String|El método de la solicitud que generó el evento.|
-|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
+|`id`|string|El identificador de la solicitud que inició el evento.|
+|`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|string|El método de la solicitud que generó el evento.|
+|`useragent`|string|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-push-event"></a>Ejemplo de carga: evento de inserción
 
@@ -104,30 +104,30 @@ Webhook que se desencadena cuando se elimina un repositorio o un manifiesto. No 
 
 ### <a name="delete-event-payload"></a>Carga del evento de eliminación
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |-------------|----------|-----------|
-|`id`|String|El identificador del evento de webhook.|
-|`timestamp`|DateTime|La hora en la que se desencadenó el evento de webhook.|
-|`action`|String|La acción que desencadenó el evento de webhook.|
+|`id`|string|El identificador del evento de webhook.|
+|`timestamp`|Datetime|La hora en la que se desencadenó el evento de webhook.|
+|`action`|string|La acción que desencadenó el evento de webhook.|
 |[Destino](#delete_target)|Tipo complejo|El destino del evento que desencadenó el evento de webhook.|
 |[Solicitud](#delete_request)|Tipo complejo|La solicitud que generó el evento de webhook.|
 
 ### <a name="delete_target"></a> destino
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`mediaType`|String|El tipo MIME del objeto al que se hace referencia.|
-|`digest`|String|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
-|`repository`|String|El nombre del repositorio.|
+|`mediaType`|string|El tipo MIME del objeto al que se hace referencia.|
+|`digest`|string|El resumen del contenido, de acuerdo con la especificación de API HTTP V2 del registro.|
+|`repository`|string|El nombre del repositorio.|
 
 ### <a name="delete_request"></a> solicitud
 
-|Elemento|Escriba|Descripción|
+|Elemento|Escriba|DESCRIPCIÓN|
 |------------------|----------|-----------|
-|`id`|String|El identificador de la solicitud que inició el evento.|
-|`host`|String|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
-|`method`|String|El método de la solicitud que generó el evento.|
-|`useragent`|String|El encabezado de agente de usuario de la solicitud.|
+|`id`|string|El identificador de la solicitud que inició el evento.|
+|`host`|string|El nombre de host accesible desde el exterior de la instancia del registro, según lo especificado por el encabezado de host HTTP en las solicitudes entrantes.|
+|`method`|string|El método de la solicitud que generó el evento.|
+|`useragent`|string|El encabezado de agente de usuario de la solicitud.|
 
 ### <a name="payload-example-delete-event"></a>Ejemplo de carga: evento de eliminación
 

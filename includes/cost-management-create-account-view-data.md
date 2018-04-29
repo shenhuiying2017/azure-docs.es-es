@@ -1,3 +1,20 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: cost-management
+author: bandersmsft
+ms.service: cost-management
+ms.topic: include
+ms.date: 04/26/2018
+ms.author: banders
+manager: dougeby
+ms.custom: include file
+ms.openlocfilehash: 1b65775ef5ad40ca9e9c1e2c96fe1c2b8d92afdc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="view-cost-data"></a>Visualización de datos de costos
 
 La administración de costos de Azure por Cloudyn proporciona acceso a todos los datos de recursos en la nube. Desde los informes de panel, puede buscar informes estándar y personalizados en una vista con pestañas. Los siguientes son ejemplos de un panel y un informe populares que muestran los datos de costo inmediatamente.

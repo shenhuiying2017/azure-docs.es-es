@@ -1,6 +1,6 @@
 ---
-title: "Copia de seguridad y restauración de Service Fabric | Microsoft Docs"
-description: "Documentación conceptual para la copia de seguridad y la restauración de Service Fabric"
+title: Copia de seguridad y restauración de Service Fabric | Microsoft Docs
+description: Documentación conceptual para la copia de seguridad y la restauración de Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: d276ce9233da9137c49faf8c4d975bd1dcf2ff81
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dd8042620b6b9829e49f3124ecdee1c038f8c12f
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Copia de seguridad y restauración de Reliable Services y Reliable Actors
 Azure Service Fabric es una plataforma de alta disponibilidad que replica el estado entre varios nodos para mantener esta disponibilidad alta.  Por lo tanto, incluso si se produce un error en un nodo del clúster, los servicios siguen estando disponibles. Aunque esta redundancia integrada proporcionada por la plataforma puede ser suficiente para algunos casos, en otros es conveniente que el servicio haga una copia de seguridad de los datos (en un almacén externo).
@@ -241,12 +241,12 @@ Es importante asegurarse de que se hace una copia de seguridad de los datos y qu
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Bajo el capó: Más detalles sobre la copia de seguridad y la restauración
 A continuación se proporcionan más detalles sobre la copia de seguridad y la restauración.
 
-### <a name="backup"></a>Copia de seguridad
+### <a name="backup"></a>Backup
 El Administrador de estado fiable proporciona la capacidad de crear copias de seguridad coherentes sin bloquear ninguna operación de lectura ni escritura. Para ello, usa un mecanismo de persistencia de registro y punto de control.  El Administrador de estado fiable instaura puntos de control aproximados (ligeros) en determinados puntos para aliviar la presión sobre el registro transaccional y mejorar los tiempos de recuperación.  Cuando se llama a `BackupAsync`, Reliable State Manager indica a todos los objetos Reliable que copien los archivos de punto de control más recientes en una carpeta local de copia de seguridad.  Después, el Administrador de estado confiable copia todas las entradas del registro desde el "puntero de inicio" hasta la entrada del registro más reciente en la carpeta de copia de seguridad.  Como todas las entradas del registro, de la primera a la última, se incluyen en la copia de seguridad y Reliable State Manager conserva el registro de escritura previa, Reliable State Manager garantiza que todas las transacciones confirmadas (aquellas en las que se devuelva `CommitAsync` correctamente) estarán incluidas en la copia de seguridad.
 
 Cualquier transacción que se confirme después de la llamada a `BackupAsync` puede estar o no incluida en la copia de seguridad.  Una vez que la plataforma rellene la carpeta de copia de seguridad (es decir, el tiempo de ejecución completó la copia de seguridad local), se invoca la devolución de llamada de la copia de seguridad del servicio.  Esta devolución de llamada se encarga de mover la carpeta de copia de seguridad a una ubicación externa, como Azure Storage.
 
-### <a name="restore"></a>Restauración
+### <a name="restore"></a>Restore
 Reliable State Manager ofrece la posibilidad de restaurar los datos de una copia de seguridad mediante la API `RestoreAsync`.  
 El método `RestoreAsync` de `RestoreContext` solo puede invocarse desde el método `OnDataLossAsync`.
 El valor booleano devuelto por `OnDataLossAsync` indica si el servicio restauró su estado a partir de un origen externo.
@@ -255,12 +255,7 @@ Esto supone que, en el caso de los implementadores de StatefulService, no se va 
 Después, se invocará `OnDataLossAsync` en la nueva réplica principal.
 Hasta que un servicio complete esta API correctamente (y devuelva true o false) y finalice la reconfiguración pertinente, se seguirá llamando a la API de uno en uno.
 
-En primer lugar, `RestoreAsync` quita todos los estados existentes en la réplica principal donde se han realizado las llamadas.  
-Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad.  
-A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad.  
-Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación.  
-Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad.  
-Este paso garantiza que el estado recuperado sea coherente.
+En primer lugar, `RestoreAsync` quita todos los estados existentes en la réplica principal donde se han realizado las llamadas. Después, el Administrador de estado confiable crea todos los objetos confiables que existen en la carpeta de copia de seguridad. A continuación, se indica a los objetos confiables que restauren a partir de sus puntos de control en la carpeta de copia de seguridad. Por último, el Administrador de estado confiable recupera su propio estado de las entradas del registro en la carpeta de copia de seguridad y realiza la recuperación. Como parte del proceso de recuperación, se reproducen en los objetos confiables las operaciones a partir del "punto de partida" que tengan entradas de registro de confirmación en la carpeta de copia de seguridad. Este paso garantiza que el estado recuperado sea coherente.
 
 ## <a name="next-steps"></a>Pasos siguientes
   - [Colecciones confiables](service-fabric-work-with-reliable-collections.md)
@@ -268,4 +263,5 @@ Este paso garantiza que el estado recuperado sea coherente.
   - [Notificaciones de Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configuración de Reliable Services](service-fabric-reliable-services-configuration.md)
   - [Referencia para desarrolladores de colecciones confiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Restauración y copia de seguridad periódicas de Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
 

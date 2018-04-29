@@ -1,19 +1,19 @@
 ---
-title: 'Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante el Explorador de Azure Storage | Microsoft Docs'
-description: En esta guía de inicio rápido, puede usar el Explorador de Azure Storage para crear una cuenta de almacenamiento y un contenedor. Después, puede usar este explorador para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
+title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con el Explorador de Azure Storage | Microsoft Docs'
+description: En esta guía de inicio rápido, utilizará el Explorador de Azure Storage en el almacenamiento de objetos (Blob). Después, puede usar este explorador para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 176d2fffa9f9e3c43a4e5c922aed58cebdbe2b1d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante el Explorador de Azure Storage
 

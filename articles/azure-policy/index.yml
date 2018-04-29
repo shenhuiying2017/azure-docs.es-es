@@ -1,27 +1,27 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación de Azure Policy"
+title: Documentación de Azure Policy
 metadata:
-  title: "Documentación de Azure Policy: tutoriales y referencia de API | Microsoft Docs"
-  description: "Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas."
+  title: 'Documentación de Azure Policy: tutoriales y referencia de API | Microsoft Docs'
+  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas.
   services: azure-policy
-  author: czeumault
-  manager: carolz
+  author: DCtheGeek
+  manager: carmonm
   ms.service: azure-policy
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/18/2017
-  ms.author: carolz
-  ms.openlocfilehash: 6082601b46ab4b420575fbc4d04b176c96225f72
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.author: dacoulte
+  ms.openlocfilehash: 0ca9efe0c1c1871265da127acfd76e90126b59ad
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
-  description: "Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas."
+  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y acciones a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas.
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
     text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
@@ -47,8 +47,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"/azure/azure-policy/create-manage-policy\">Creación y administración de Azure Policy</a>"
-- title: Muestras
+    - html: <a href="/azure/azure-policy/create-manage-policy">Creación y administración de Azure Policy</a>
+- title: Ejemplos
   items:
   - type: paragraph
     text: Los siguientes ejemplos de JSON pueden ayudarle a crear definiciones de directivas en Azure.
@@ -63,7 +63,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: "Línea de comandos"
+    - title: Línea de comandos
       html: <p><a href="https://docs.microsoft.com/cli/azure/policy">CLI de Azure</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>

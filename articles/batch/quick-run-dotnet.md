@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido de Azure - Ejecución de un trabajo de Batch - .NET"
-description: "Ejecute rápidamente un trabajo y tareas de Batch con la biblioteca cliente de .NET de Batch."
+title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - .NET
+description: Ejecute rápidamente un trabajo y tareas de Batch con la biblioteca cliente de .NET de Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/16/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: efa697482b5b27846f2be129998c100787466467
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Inicio rápido: ejecute su primer trabajo de Azure Batch con la API de .NET
 
@@ -28,7 +28,7 @@ En esta guía de inicio rápido se ejecuta un trabajo de Azure Batch desde una a
 
 * [IDE de Visual Studio](https://www.visualstudio.com/vs) (Visual Studio 2015 o una versión más reciente). 
 
-* Una cuenta de Batch y una de Storage de uso general vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md). 
+* Una cuenta de Batch y una cuenta de Azure Storage vinculada. Para crear estas cuentas, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

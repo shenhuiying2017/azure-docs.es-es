@@ -1,33 +1,35 @@
 ---
-title: Terraform con una ranura de implementación del proveedor de Azure
-description: Tutorial de Terraform con una ranura de implementación del proveedor de Azure
+title: Terraform con espacios de implementación del proveedor de Azure
+description: Tutorial sobre el uso de Terraform con espacios de implementación del proveedor de Azure
 keywords: terraform, devops, máquina virtual, Azure, ranuras de implementación
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 4/05/2018
 ms.topic: article
-ms.openlocfilehash: 34b16b5fb2b5b574d166693db346ebba15eaa1f9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="using-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Uso de Terraform para aprovisionar una infraestructura con ranuras de implementación de Azure
+# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Aprovisionamiento de una infraestructura con espacios de implementación de Azure con Terraform
 
-Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-publishing) le permiten intercambiar entre distintas versiones de la aplicación (como de producción y de ensayo) para minimizar el impacto de las implementaciones rotas. Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un "espacio de producción", mientras que la segunda se hospeda en un espacio de "ensayo". (los nombres "producción" y "ensayo" son arbitrarios y pueden ser cualesquiera otros que desee que representen el escenario). Una vez que se hayan configurado las ranuras de implementación, puede usar Terraform para intercambiar entre ambas según sea necesario.
+Puede usar [espacios de implementación de Azure](/azure/app-service/web-sites-staged-publishing) para cambiar de una versión de la aplicación a otra. Esa capacidad ayuda a minimizar el impacto de las implementaciones rotas. 
 
-## <a name="prerequisites"></a>Requisitos previos
+Este artículo muestra un ejemplo del uso de las ranuras de implementación, en el que se le guía a través de la implementación de dos aplicaciones mediante GitHub y Azure. Una aplicación se hospeda en un espacio de producción. La segunda aplicación se hospeda en un espacio de ensayo. (los nombres "producción" y "ensayo" son arbitrarios y pueden ser cualesquiera otros que desee que representen el escenario). Una vez configurados los espacios de implementación, puede usar Terraform para cambiar de uno a otro según sea necesario.
 
-- **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
+## <a name="prerequisites"></a>requisitos previos
+
+- **Suscripción de Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 - **Cuenta de GitHub**: se necesita una cuenta de [GitHub](http://www.github.com) para bifurcar y usar el repositorio de GitHub de prueba.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Creación y aplicar el plan de Terraform
 
-1. Vaya a [Azure Portal](http://portal.azure.com)
+1. Vaya a [Azure Portal](http://portal.azure.com).
 
-1. Abra [Azure Cloud Shell](/azure/cloud-shell/overview) y, si no lo ha hecho anteriormente, seleccione **Bash** como entorno.
+1. Abra [Azure Cloud Shell](/azure/cloud-shell/overview). Si no seleccionó un entorno previamente, seleccione **Bash** como entorno.
 
     ![Aviso de Cloud Shell](./media/terraform-slot-walkthru/azure-portal-cloud-shell-button-min.png)
 
@@ -49,7 +51,7 @@ Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-pu
     mkdir swap
     ```
 
-1. Compruebe que ambos directorios se han creado correctamente mediante el comando de bash `ls`.
+1. Use el comando de bash `ls` para verificar que ha creado ambos directorios correctamente.
 
     ![Cloud Shell después de crear directorios](./media/terraform-slot-walkthru/cloud-shell-after-creating-dirs.png)
 
@@ -59,18 +61,18 @@ Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-pu
     cd deploy
     ```
 
-1. Mediante el [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), cree un archivo denominado `deploy.tf`, que contendrá la [configuración de Terraform](https://www.terraform.io/docs/configuration/index.html).
+1. Mediante el [editor vi](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html), cree un archivo llamado `deploy.tf`. Este archivo contendrá la [configuración de Terraform](https://www.terraform.io/docs/configuration/index.html).
 
     ```bash
     vi deploy.tf
     ```
 
-1. Entre en el modo de inserción, para lo que debe presionar la tecla de la letra `i`.
+1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     resource "azurerm_resource_group" "slotDemo" {
@@ -104,15 +106,15 @@ Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-pu
     }
     ```
 
-1. Presione la tecla  **&lt;Esc >** para salir del modo de inserción.
+1. Seleccione la tecla Esc para salir del modo de inserción.
 
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando y, después, presionar **&lt;Entrar>**:
+1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
 
     ```bash
     :wq
     ```
 
-1. Una vez creado el archivo, puede comprobar su contenido.
+1. Ahora que ha creado el archivo, verifique el contenido.
 
     ```bash
     cat deploy.tf
@@ -130,7 +132,7 @@ Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-pu
     terraform plan
     ```
 
-1. Aprovisione los recursos definidos en el archivo de configuración `deploy.tf`. (para confirmar la acción escriba `yes` en el aviso).
+1. Aprovisione los recursos que se definen en el archivo de configuración `deploy.tf`. (para confirmar la acción escriba `yes` en el aviso).
 
     ```bash
     terraform apply
@@ -140,13 +142,13 @@ Las [ranuras de implementación de Azure](/azure/app-service/web-sites-staged-pu
 
 1. En el menú principal de Azure Portal, seleccione **Grupos de recursos**.
 
-    ![Grupos de recursos de Azure Portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
+    ![Selección de "Grupos de recursos" en el portal](./media/terraform-slot-walkthru/resource-groups-menu-option.png)
 
 1. En la pestaña **Grupos de recursos**, seleccione **slotDemoResourceGroup**.
 
     ![Grupo de recursos creado por Terraform](./media/terraform-slot-walkthru/resource-group.png)
 
-Cuando termine, verá todos los recursos que ha creado Terraform.
+Ahora verá todos los recursos que ha creado Terraform.
 
 ![Recursos creados por Terraform](./media/terraform-slot-walkthru/resources.png)
 
@@ -156,7 +158,7 @@ Para poder probar la creación y cambiar de un espacio de implementación a otro
 
 1. Vaya al [repositorio awesome-terraform on GitHub](https://github.com/Azure/awesome-terraform).
 
-1. Bifurque el **repositorio awesome-terraform**.
+1. Bifurque el repositorio **awesome-terraform**.
 
     ![Bifurcar el repositorio awesome-terraform de GitHub](./media/terraform-slot-walkthru/fork-repo.png)
 
@@ -164,7 +166,7 @@ Para poder probar la creación y cambiar de un espacio de implementación a otro
 
 ## <a name="deploy-from-github-to-your-deployment-slots"></a>Implementación desde GitHub a sus ranuras de implementación
 
-Una vez que bifurque el repositorio del proyecto de prueba, configure las ranuras de implementación, para lo que debe seguir estos pasos:
+Una vez bifurcado el repositorio del proyecto de prueba, siga estos pasos para configurar los espacios de implementación:
 
 1. En el menú principal de Azure Portal, seleccione **Grupos de recursos**.
 
@@ -182,7 +184,7 @@ Una vez que bifurque el repositorio del proyecto de prueba, configure las ranura
 
 1. Una vez que Azure crea la conexión y muestra todas las opciones, seleccione **Autorización**.
 
-1. En la pestaña **Autorización**, seleccione **Autorizar**y especifique las credenciales necesarias para que Azure acceda a su cuenta de GitHub. 
+1. En la pestaña **Autorización**, seleccione **Autorizar** y especifique las credenciales que Azure necesita para acceder a la cuenta de GitHub. 
 
 1. Una vez que Azure valida las credenciales de GitHub, se muestra un mensaje que indica que se ha completado el proceso de autorización. Seleccione **Aceptar** para cerrar la pestaña **Autorización**.
 
@@ -204,17 +206,17 @@ Una vez que bifurque el repositorio del proyecto de prueba, configure las ranura
 
 Ya ha implementado el espacio de producción. Para implementar la zona de ensayo, realice todos los pasos anteriores de esta sección con únicamente las modificaciones siguientes:
 
-- En el paso 3, recurso **slotAppServiceSlotOne**.
+- En el paso 3, seleccione el recurso **slotAppServiceSlotOne**.
 
-- En el paso 13, seleccione la rama "de trabajo", en lugar de la rama maestra.
+- En el paso 13, seleccione la rama de trabajo en lugar de la maestra.
 
-    ![Elegir rama de trabajo](./media/terraform-slot-walkthru/choose-branch-working.png)
+    ![Elección de rama de trabajo](./media/terraform-slot-walkthru/choose-branch-working.png)
 
 ## <a name="test-the-app-deployments"></a>Prueba de las implementaciones de aplicaciones
 
-En las secciones anteriores, se configuraron dos ranuras (**slotAppService** y **slotAppServiceSlotOne**), con el fin de poder realizar implementaciones desde distintas bifurcaciones de GitHub. Vamos a realizar una versión preliminar de las aplicaciones web para validar que se han implementado correctamente.
+En las secciones anteriores, se configuraron dos espacios (**slotAppService** y **slotAppServiceSlotOne**), con el fin de poder realizar implementaciones desde distintas bifurcaciones de GitHub. Vamos a realizar una versión preliminar de las aplicaciones web para validar que se han implementado correctamente.
 
-Realice estos pasos dos veces. En la primera, en el paso 3, seleccione **slotAppService** la primera vez, mientras que en la segunda debe seleccionar **slotAppServiceSlotOne**:
+Lleve a cabo los siguiente pasos dos veces. En el paso 3, se selecciona **slotAppService** la primera vez, mientras que la segunda, se debe seleccionar **slotAppServiceSlotOne**.
 
 1. En el menú principal de Azure Portal, seleccione **Grupos de recursos**.
 
@@ -239,7 +241,7 @@ En el caso de la aplicación web **slotAppService**, verá una página azul con 
 
 Para probar el intercambio de las dos ranuras de implementación, siga estos pasos:
  
-1. Cambie a la pestaña del explorador en que se ejecuta **slotAppService** (la aplicación con la página azul). 
+1. Cambie a la pestaña del explorador en la que se ejecuta **slotAppService** (la aplicación con la página azul). 
 
 1. Vuelva a Azure Portal en otra pestaña.
 
@@ -257,12 +259,12 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     vi swap.tf
     ```
 
-1. Entre en el modo de inserción, para lo que debe presionar la tecla de la letra `i`.
+1. Seleccione la tecla I para acceder al modo de inserción.
 
 1. Pegue el siguiente código en el editor:
 
     ```JSON
-    # Configure the Azure Provider
+    # Configure the Azure provider
     provider "azurerm" { }
 
     # Swap the production slot and the staging slot
@@ -273,9 +275,9 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     }
     ```
 
-1. Presione la tecla  **&lt;Esc >** para salir del modo de inserción.
+1. Seleccione la tecla Esc para salir del modo de inserción.
 
-1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando y, después, presionar **&lt;Entrar>**:
+1. Guarde el archivo y salga del editor vi, para lo que debe escribir el siguiente comando:
 
     ```bash
     :wq
@@ -293,22 +295,22 @@ Para probar el intercambio de las dos ranuras de implementación, siga estos pas
     terraform plan
     ```
 
-1. Aprovisione los recursos definidos en el archivo de configuración `swap.tf`. (para confirmar la acción escriba `yes` en el aviso).
+1. Aprovisione los recursos que se definen en el archivo de configuración `swap.tf`. (para confirmar la acción escriba `yes` en el aviso).
 
     ```bash
     terraform apply
     ```
 
-1. Cuando Terraform haya acabado de intercambiar las ranuras, vuelva al explorador que representa la página web **slotAppService** y actualice la página. 
+1. Cuando Terraform haya acabado de intercambiar los espacios, vuelva al explorador que representa la aplicación web **slotAppService** y actualice la página. 
 
 La aplicación web del espacio de ensayo **slotAppServiceSlotOne** se ha intercambiado por el espacio de producción y ahora se representa en verde. 
 
 ![Las ranuras de implementación se han intercambiado](./media/terraform-slot-walkthru/slots-swapped.png)
 
-Para volver a la versión de producción original de la aplicación, vuelva a aplicar el plan de Terraform creado a partir del archivo de configuración `swap.tf`.
+Para volver a la versión de producción original de la aplicación, vuelva a aplicar el plan de Terraform que creó a partir del archivo de configuración `swap.tf`.
 
 ```bash
 terraform apply
 ```
 
-Tras el intercambio se ve la configuración original.
+Tras el intercambio de la aplicación, se ve la configuración original.

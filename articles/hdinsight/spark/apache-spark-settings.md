@@ -1,30 +1,28 @@
 ---
-title: "Configuración de las opciones de Spark: Azure HDInsight | Microsoft Docs"
-description: "Cómo configurar Spark para un clúster de HDInsight."
+title: 'Configuración de las opciones de Spark: Azure HDInsight | Microsoft Docs'
+description: Cómo configurar Spark para un clúster de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: maxluk
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
 ms.author: maxluk
-ms.openlocfilehash: 1dd0ff26cdb39feacec697d7900ad7abaa5f1996
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 2ee496eae0767de22d070a0c5689692f0200515b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-spark-settings"></a>Configuración de opciones de Spark
 
-Un clúster de HDInsight Spark incluye una instalación de la biblioteca de Apache Spark.  Cada clúster de HDInsight incluye parámetros de configuración predeterminados para todos sus servicios instalados, incluido Spark.  Un aspecto clave de la administración de un clúster de HDInsight Hadoop es la supervisión de la carga de trabajo, incluido los trabajos de Spark, para asegurarse de que están ejecutándose de una manera predecible. Para ejecutar mejor los trabajos de Spark, considere la configuración física del clúster al determinar cómo optimizar la configuración lógica del clúster.
+Un clúster de HDInsight Spark incluye una instalación de la biblioteca de Apache Spark.  Cada clúster de HDInsight incluye parámetros de configuración predeterminados para todos sus servicios instalados, incluido Spark.  Un aspecto clave de la administración de un clúster de HDInsight Hadoop es la supervisión de la carga de trabajo, lo que incluye los trabajos de Spark, para asegurarse de que estos se ejecutan de una manera predecible. Para ejecutar mejor los trabajos de Spark, considere la configuración física del clúster al determinar cómo optimizar la configuración lógica del clúster.
 
 El clúster de HDInsight Apache Spark predeterminado incluye los siguientes nodos: tres nodos de ZooKeeper, dos nodos principales y uno o más nodos de trabajo:
 
@@ -34,9 +32,13 @@ El número de máquinas virtuales y el tamaño de las máquinas virtuales, para 
 
 ## <a name="spark-versions"></a>Versiones de Spark
 
-También debería considerar la mejor versión de Spark para el clúster.  Spark 2.x puede ejecutar mucho mejor que Spark 1.x. Spark 2.x tiene un número de optimizaciones de rendimiento, como Tungsten, optimización de consulta de Catalyst y mucho más.  El servicio HDInsight incluye varias versiones tanto de Spark como del mismo HDInsight.  Cada versión de Spark incluye un conjunto de configuración de clúster predeterminadas.  Al crear un nuevo clúster, estas son las versiones actuales de Spark para elegir:
+Utilice la mejor versión de Spark para el clúster.  El servicio HDInsight incluye varias versiones tanto de Spark como del propio HDInsight.  Cada versión de Spark incluye un conjunto de configuración de clúster predeterminadas.  
+
+Al crear un nuevo clúster, estas son las versiones actuales de Spark para elegir:
 
 ![Versiones de Spark](./media/apache-spark-settings/spark-version.png)
+
+Spark 2.x puede ejecutar mucho mejor que Spark 1.x. Spark 2.x tiene un número de optimizaciones de rendimiento, como Tungsten, optimización de consulta de Catalyst y mucho más.  
 
 > [!NOTE]
 > La versión predeterminada de Apache Spark en el servicio HDInsight puede cambiar sin previo aviso. Microsoft recomienda especificar la versión particular al crear clústeres con el .NET SDK, Azure PowerShell y la CLI de Azure, si tiene una dependencia de versiones.
@@ -47,7 +49,7 @@ Apache Spark cuenta con tres ubicaciones de configuración del sistema:
 * Se pueden utilizar variables de entorno para establecer la configuración por máquina, como la dirección IP, a través del script `conf/spark-env.sh` en cada nodo.
 * Puede configurar el registro mediante `log4j.properties`.
 
-Al seleccionar una versión concreta de Spark, el clúster incluye las opciones de configuración predeterminadas.  Puede cambiar los valores de configuración predeterminados de Spark proporcionando un archivo de configuración personalizado de Spark.  A continuación se muestra un ejemplo.
+Al seleccionar una versión concreta de Spark, el clúster incluye las opciones de configuración predeterminadas.  Para los valores predeterminados de la configuración de Spark, utilice un archivo de configuración personalizado de Spark.  A continuación se muestra un ejemplo.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -57,7 +59,7 @@ Al seleccionar una versión concreta de Spark, el clúster incluye las opciones 
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco parámetros de configuración de Spark.  Estos son el códec de compresión, el tamaño mínimo de división de Hadoop MapReduce y los tamaños de bloques de Parquet, así como la partición Spar SQL y los valores predeterminados de los tamaños de archivos abiertos.  Estos cambios de configuración se eligen porque los datos y trabajos asociados (en este ejemplo, datos genómicos) tienen características particulares que se ejecutarán mejor con estos ajustes de configuración personalizados.
+El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco parámetros de configuración de Spark.  Estos son el códec de compresión, el tamaño mínimo de división de Hadoop MapReduce y los tamaños de bloques de Parquet, así como la partición Spar SQL y los valores predeterminados de los tamaños de los archivos abiertos.  Estos cambios de configuración se eligen porque los datos y trabajos asociados (en este ejemplo, los datos genómicos) tienen características concretas que se ejecutarán mejor con estos valores de configuración personalizados.
 
 ---
 
@@ -86,7 +88,7 @@ Si crea un conjunto de valores de configuración no predeterminados, también pu
 
 ## <a name="configuring-spark-executors"></a>Configuración de los ejecutores de Spark
 
-El diagrama siguiente muestra los principales objetos de Spark: el programa del controlador y su contexto de Spark asociado, y el administrador del clúster y sus nodos de trabajo *n*.  Cada nodo de trabajo incluye un ejecutor, una caché y las instancias de tareas *n*.
+El diagrama siguiente muestra los principales objetos de Spark: el programa del controlador y su contexto de Spark asociado, y el administrador del clúster y sus *n* nodos de trabajo.  Cada uno de estos nodos incluye un Ejecutor, una cache y *n* instancias de tarea.
 
 ![Objetos de clúster](./media/apache-spark-settings/spark-arch.png)
 
@@ -126,7 +128,7 @@ YARN controla la suma máxima de memoria que usan los contenedores en cada nodo 
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Cambio de los parámetros de una aplicación que se ejecuta en un cuaderno de Jupyter Notebook
 
-Los clústeres de Spark en HDInsight incluyen un número de componentes de forma predeterminada. Cada uno de estos componentes incluyen los valores de configuración predeterminados que se pueden reemplazar según sea necesario.
+Los clústeres de Spark en HDInsight incluyen un número de componentes de forma predeterminada. Cada uno de estos componentes incluyen unos valores de configuración predeterminados que se pueden reemplazar según sea necesario.
 
 * Spark Core: Spark Core, Spark SQL, API de Spark Streaming, GraphX y MLlib
 * Anaconda: un administrador de paquetes de Python
@@ -148,7 +150,7 @@ El código siguiente muestra cómo cambiar la configuración de una aplicación 
 
 ## <a name="conclusion"></a>Conclusión
 
-Hay una serie de valores de configuración básicos que necesita supervisar y ajustar para garantizar que los trabajos de Spark se ejecuten de forma predecible y eficaz. Estas opciones ayudan a determinar la mejor configuración del clúster de Spark para las cargas de trabajo determinadas.  También debe supervisar la ejecución de los trabajos de Spark de larga duración o que consumen recursos.  La mayor dificultad se centra en la presión de memoria, debido a las configuraciones inadecuadas (en especial, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas.
+Hay una serie de valores de configuración básicos que necesita supervisar y ajustar para garantizar que los trabajos de Spark se ejecuten de forma predecible y eficaz. Estas opciones ayudan a determinar la mejor configuración del clúster de Spark para las cargas de trabajo determinadas.  También debe supervisar la ejecución de los trabajos de Spark de larga duración o que consumen recursos.  Las mayores dificultades están relacionadas con la presión de memoria, debido a las configuraciones inadecuadas (en concreto, al tamaño incorrecto de los ejecutores), las operaciones de ejecución prolongada y las tareas que dan lugar a operaciones cartesianas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

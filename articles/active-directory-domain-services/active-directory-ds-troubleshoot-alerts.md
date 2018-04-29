@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0c8fc2551f529fbff647d3400144fa2a9600bbd9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services: solución de problemas de alertas
 En este artículo se brinda guías para la solución de problemas de cualquier alerta que pueda recibir en su dominio administrado.
@@ -130,7 +130,7 @@ Dentro de la red virtual, las máquinas pueden realizar solicitudes a los recurs
 
 **Resolución:**
 
-Para restaurar el servicio, [renueve su suscripción de Azure](https://docs.microsoft.com/en-us/azure/billing/billing-subscription-become-disable) asociada con el dominio administrado.
+Para restaurar el servicio, [renueve su suscripción de Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) asociada con el dominio administrado.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Suspensión debida a una configuración no válida
 

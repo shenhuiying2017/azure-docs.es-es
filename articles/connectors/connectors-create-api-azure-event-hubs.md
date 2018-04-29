@@ -1,14 +1,14 @@
 ---
-title: "Configuración de la supervisión de eventos con Azure Event Hubs para Azure Logic Apps | Microsoft Docs"
-description: "Supervisión de flujos de datos para recibir y enviar eventos con aplicaciones lógicas en Azure Event Hubs"
+title: Configuración de la supervisión de eventos con Azure Event Hubs para Azure Logic Apps | Microsoft Docs
+description: Supervisión de flujos de datos para recibir y enviar eventos con aplicaciones lógicas en Azure Event Hubs
 services: logic-apps
-keywords: "flujo de datos, supervisión de eventos, centros de eventos"
+keywords: flujo de datos, supervisión de eventos, centros de eventos
 author: ecfan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 tags: connectors
-ms.assetid: 
+ms.assetid: ''
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 076f7dd11ca8c153046727861ecb755e88f32b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8de56cd64f38791fb27d9bcce1e16641fb162c2f
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Supervisar, recibir y enviar eventos con el conector de Event Hubs
 
@@ -76,11 +76,28 @@ Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e
 3. Seleccione el centro de eventos que se desea supervisar y configure el intervalo y la frecuencia que determinan cuándo comprobarlo.
 
     ![Especificar Event Hub o grupo de consumidores](./media/connectors-create-api-azure-event-hubs/select-event-hub.png)
+    
+    > [!NOTE]
+    > Todos los desencadenadores de Event Hub son de *sondeo largo*, lo que significa que, cuando se activa cualquiera de ellos, procesa todos los eventos y espera 30 segundos a que aparezcan más eventos en Event Hub.
+    > Si no se recibe ningún evento en 30 segundos, se omite la ejecución del desencadenador. De lo caso contrario, el desencadenador sigue leyendo eventos hasta que Event Hub está vacío.
+    > El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
 
-    > [!TIP]
-    > Si desea, opcionalmente, seleccionar un grupo de consumidores para leer los eventos, elija **Mostrar opciones avanzadas**.
 
-4. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
+4. Para seleccionar opcionalmente algunas de las opciones avanzadas del desencadenador, elija **Mostrar opciones avanzadas**.
+
+    ![Opciones avanzadas de desencadenador](./media/connectors-create-api-azure-event-hubs/event-hubs-trigger-advanced.png)
+
+    | Propiedad | Detalles |
+    | --- | --- |
+    | Tipo de contenido  |Seleccione el tipo de contenido de los eventos en la lista desplegable. De forma predeterminada, se selecciona application/octet-stream. |
+    | Esquema de contenido |Especifique el esquema de contenido en JSON para los eventos que se leen de Event Hub. |
+    | Nombre del grupo de consumidores |Escriba el [nombre del grupo de consumidores](../event-hubs/event-hubs-features.md#consumer-groups) de Event Hub para leer los eventos. Cuando no se especifica ningún nombre, se usa el grupo de consumidores predeterminado. |
+    | Clave de partición mínima |Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) mínima que va a leer. De forma predeterminada, se leen todas las particiones. |
+    | Clave de partición máxima |Escriba el identificador de la [partición](../event-hubs/event-hubs-features.md#partitions) máxima que va a leer. De forma predeterminada, se leen todas las particiones. |
+    | Número máximo de eventos |Escriba el valor del número máximo de eventos. El desencadenador devuelve entre uno y el número de eventos que especifica esta propiedad. |
+    |||
+
+5. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
 
 Ahora, cuando la aplicación lógica comprueba el centro de eventos seleccionado y encuentra un evento nuevo, el desencadenador ejecuta las acciones de la aplicación lógica para el evento encontrado.
 

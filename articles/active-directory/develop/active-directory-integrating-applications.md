@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integración de aplicaciones con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -101,7 +101,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
   > La concesión explícita de consentimiento con el botón **Conceder permisos** se requiere actualmente para aplicaciones de página única (SPA) que usan ADAL.js. En caso contrario, se produce un error en la aplicación cuando se solicita el token de acceso.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configuración de una aplicación cliente para tener acceso a las API web
-Para que una aplicación cliente web o confidencial pueda participar en un flujo de concesión de autorización que requiera autenticación (y obtener un token de acceso), debe establecer credenciales seguras. El método de autenticación predeterminado compatible con Azure Portal es un identificador de cliente y una clave secreta. En esta sección se describen los pasos de configuración necesarios para proporcionar la clave secreta para las credenciales de cliente.
+Para que una aplicación cliente web o confidencial pueda participar en un flujo de concesión de autorización que requiera autenticación (y obtener un token de acceso), debe establecer credenciales seguras. El método de autenticación predeterminado compatible con Azure Portal es un identificador de cliente y una clave secreta. En esta sección se describen los pasos de configuración necesarios para proporcionar la clave secreta con las credenciales del cliente.
 
 Además, para que un cliente pueda tener acceso a una API web expuesta por una aplicación de recursos (como Microsoft Graph API), el marco de consentimiento garantiza que el cliente obtenga la concesión de los permisos necesarios en función de los solicitados. De forma predeterminada, todas las aplicaciones pueden elegir permisos de "Windows Azure Active Directory" (Graph API) y "Windows Azure Service Management API." El [permiso de "inicio de sesión y lectura del perfil de usuario" de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) también se selecciona de forma predeterminada. Si el cliente está registrado en un inquilino que tiene cuentas con suscripciones a Office 365, las API web y los permisos para SharePoint y Exchange Online están disponibles para seleccionarse. Puede seleccionar entre [dos tipos de permisos](active-directory-dev-glossary.md#permissions) para cada API web que desee:
 
@@ -233,7 +233,7 @@ Hacer que una aplicación sea multiinquilino requiere cambios tanto en el regist
 Si está escribiendo una aplicación que quiere poner a disposición de clientes o asociados externos a la organización, debe actualizar la definición de la aplicación en Azure Portal.
 
 > [!IMPORTANT]
-> Azure AD necesita que el URI del identificador de las aplicaciones multiinquilino sea único globalmente. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo. Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino. En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos. El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD. Por ejemplo, si el nombre del inquilino es contoso.onmicrosoft.com, un URI del identificador de aplicación válido sería https://contoso.onmicrosoft.com/myapp. Si el inquilino tiene el dominio comprobado contoso.com, un URI del identificador de aplicación válido también sería https://contoso.com/myapp. Si el URI de id. de aplicación no sigue este patrón, la configuración de una aplicación como multiinquilino dará error.
+> Azure AD necesita que el URI del identificador de las aplicaciones multiinquilino sea único globalmente. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo. Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino. En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos. El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD. Por ejemplo, si el nombre del inquilino es contoso.onmicrosoft.com, un identificador URI de id. de aplicación válido sería https://contoso.onmicrosoft.com/myapp. Si el inquilino tiene el dominio comprobado contoso.com, un URI del identificador de aplicación válido también sería https://contoso.com/myapp. Si el URI de id. de aplicación no sigue este patrón, la configuración de una aplicación como multiinquilino dará error.
 > 
 
 Para dar a los usuarios externos acceso a la aplicación: 

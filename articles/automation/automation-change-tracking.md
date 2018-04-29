@@ -9,11 +9,11 @@ ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a093a44106ad861449b6defb140532698fa668
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e4abf8ae491c9992dd3d21a0d657ba9cd214b740
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
@@ -23,18 +23,19 @@ Los cambios en los demonios de Linux, en el registro y los archivos de Windows, 
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 
-
 Para iniciar el seguimiento de cambios, debe habilitar la solución Change Tracking e Inventory para la cuenta de Automation.
 
 1. En Azure Portal, vaya a la cuenta de Automation
 1. Seleccione **Change Tracking** en **Configuración**.
-2. Seleccione un área de trabajo de Log Analytics existente o **Crear un área de trabajo nueva** y haga clic en **Habilitar**.
+1. Seleccione un área de trabajo de Log Analytics existente o **Crear un área de trabajo nueva** y haga clic en **Habilitar**.
 
 Esto habilita la solución para la cuenta de Automation. La habilitación de la solución puede tardar hasta 15 minutos. Un banner azul le avisa cuando la solución está habilitada. Vuelva a la página **Change Tracking** para administrar la solución.
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Configuración de Change Tracking e Inventory
 
-Para obtener información sobre cómo incorporar equipos a la solución, consulte: [Soluciones de automatización de la incorporación](automation-onboard-solutions-from-automation-account.md). Cuando se habilita un nuevo archivo o una clave del registro para realizar su seguimiento, está habilitado tanto para Change Tracking como para Inventory.
+Para obtener información sobre cómo incorporar equipos a la solución, consulte: [Soluciones de automatización de la incorporación](automation-onboard-solutions-from-automation-account.md). Una vez que tenga la incorporación de una máquina con las soluciones Change Tracking e Inventory puede configurar los elementos a los que se va a realizar un seguimiento. Cuando se habilita un nuevo archivo o una clave del registro para realizar su seguimiento, está habilitado tanto para Change Tracking como para Inventory.
+
+Para realizar el seguimiento de los cambios en los archivos de Windows y Linux, se utilizan los algoritmos hash MD5 de los archivos. Estos algoritmos hash se utilizan para detectar si se ha realizado algún cambio desde el último inventario.
 
 ### <a name="configure-linux-files-to-track"></a>Configuración de los archivos de Linux de los que se realizará un seguimiento
 
@@ -109,6 +110,7 @@ Otras limitaciones:
 ## <a name="known-issues"></a>Problemas conocidos
 
 Actualmente, la solución Change Tracking tiene los siguientes problemas:
+
 * Actualizaciones de revisiones que no se recopilan en las máquinas con Windows 10 Creators Update y Windows Server 2016 Core RS3.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalles de la recopilación de datos de seguimiento de cambios
@@ -117,13 +119,13 @@ En la tabla siguiente se muestra la frecuencia de recopilación de datos para lo
 
 | **Tipo de cambio** | **Frecuencia** |
 | --- | --- |
-| Registro de Windows | 50 minutos | 
-| Archivo de Windows | 30 minutos | 
-| Archivo de Linux | 15 minutos | 
-| Servicios de Windows | 30 minutos | 
+| Registro de Windows | 50 minutos |
+| Archivo de Windows | 30 minutos |
+| Archivo de Linux | 15 minutos |
+| Servicios de Windows | 30 minutos |
 | Demonios de Linux | 5 minutos |
-| Software de Windows | 30 minutos | 
-| Software Linux | 5 minutos | 
+| Software de Windows | 30 minutos |
+| Software Linux | 5 minutos |
 
 ### <a name="registry-key-change-tracking"></a>Seguimiento de cambios en las claves del Registro
 

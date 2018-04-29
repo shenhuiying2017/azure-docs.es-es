@@ -1,11 +1,11 @@
 ---
-title: "Guía del protocolo de conexiones híbridas de Retransmisión de Azure | Microsoft Docs"
-description: "Guía del protocolo de conexiones híbridas de Azure Relay."
+title: Guía del protocolo de conexiones híbridas de Retransmisión de Azure | Microsoft Docs
+description: Guía del protocolo de conexiones híbridas de Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexiones híbridas de Azure Relay
-Relay de Azure es uno de los pilares básicos de las funcionalidades de la plataforma Azure Service Bus. La nueva funcionalidad *Conexiones híbridas* de Relay es una evolución segura y de protocolo abierto basada en HTTP y WebSockets. Sustituye a la antigua característica de *BizTalk Services* con el mismo nombre que se basaba en un protocolo propietario. La integración de Conexiones híbridas en Azure App Service seguirá funcionando de la misma forma.
+Relay de Azure es uno de los pilares básicos de las funcionalidades de la plataforma Azure Service Bus. La nueva funcionalidad *Conexiones híbridas* de Relay es una evolución segura y de protocolo abierto basada en HTTP y WebSockets. Sustituye a la antigua característica *BizTalk Services* con el mismo nombre que se basaba en un protocolo propietario. La integración de Conexiones híbridas en Azure App Service seguirá funcionando de la misma forma.
 
 Conexiones híbridas permite establecer una comunicación de secuencias binaria y bidireccional entre dos aplicaciones en red durante la que una de las partes, o ambas, pueden residir detrás de firewalls o mecanismos NAT. En este artículo se describen las interacciones del lado cliente con la característica de retransmisión de Conexiones híbridas para conectar clientes con los roles de agente de escucha y remitente. Además, se explica cómo los agentes de escucha aceptan nuevas conexiones.
 
 ## <a name="interaction-model"></a>Modelo de interacción
 El servicio de retransmisión de Conexiones híbridas conecta dos partes mediante la creación de un punto de encuentro en la nube de Azure que ambas partes pueden detectar y a la que pueden conectarse desde su propia red. Ese punto de encuentro se denomina "Conexión híbrida" en esta documentación y en otros artículos, en las API y también en Azure Portal. Al punto de conexión del servicio Conexiones híbridas nos referiremos como el "servicio" en el resto de este artículo. El modelo de interacción se basa en la nomenclatura que han establecido muchas otras API de red.
 
-Hay un agente de escucha que, primero, indica que está preparado para controlar las conexiones entrantes y, después, las acepta a medida que llegan. Por otro lado, hay un cliente de conexión que se conecta con el agente de escucha, de modo que se espera que se acepte dicha conexión para establecer una ruta de comunicación bidireccional.
+Hay un agente de escucha que, primero, indica que está preparado para controlar las conexiones entrantes y, después, las acepta a medida que llegan. Por otro lado, hay un cliente de conexión que ofrece una conexión con el agente de escucha, de modo que se espera que se acepte dicha conexión para establecer una ruta de comunicación bidireccional.
 "Conectar", "escuchar" y "aceptar" son los mismos términos que encontrará en la mayoría de las API de socket.
 
-En cualquier modelo de comunicación retransmitida, las partes establecen las conexiones salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" en el uso coloquial, y también puede causar otras sobrecargas terminológicas. Por consiguiente, esta es la terminología precisa que usamos en Conexiones híbridas:
+En cualquier modelo de comunicación retransmitida, ambas partes establecen las conexiones salientes hacia un punto de conexión de servicio, lo que provoca que al "agente de escucha" también se le conozca como "cliente" coloquialmente, y también puede causar otras sobrecargas terminológicas. Por consiguiente, esta es la terminología precisa que usamos en Conexiones híbridas:
 
 Los programas de ambos extremos de la conexión se denominan "clientes", ya que son clientes del servicio. El cliente que espera y acepta conexiones es el "agente de escucha" o que asume el "rol de escucha". El cliente que inicia una nueva conexión hacia un agente de escucha a través del servicio se denominará "remitente" o que asume el "rol de remitente".
 
@@ -40,7 +40,7 @@ El agente de escucha tiene cuatro interacciones con el servicio. Más adelante, 
 
 #### <a name="listen"></a>Escuchar
 Para indicar al servicio que un agente de escucha está listo para aceptar conexiones, crea una conexión WebSocket de salida. El protocolo de enlace de la conexión incluye el nombre de una conexión híbrida configurada en el espacio de nombres de Relay y un token de seguridad que concede el derecho de "escucha" a dicho nombre.
-Cuando el servicio acepta WebSocket, se completa el registro y el WebSocket web establecido se mantiene activo como "canal de control" para habilitar todas las interacciones posteriores. El servicio admite hasta 25 agentes de escucha simultáneos en una conexión híbrida. Si hay dos, o más, agentes de escucha activos, las conexiones entrantes se reparten entre ellos en orden aleatorio, por lo que no se garantiza que la distribución sea equitativa.
+Cuando el servicio acepta WebSocket, se completa el registro y el WebSocket establecido se mantiene activo como "canal de control" para habilitar todas las interacciones posteriores. El servicio admite hasta 25 agentes de escucha simultáneos en una conexión híbrida. Si hay dos, o más, agentes de escucha activos, las conexiones entrantes se reparten entre ellos en orden aleatorio, por lo que no se garantiza que la distribución sea equitativa.
 
 #### <a name="accept"></a>Accept
 Cuando un remitente abre una nueva conexión en el servicio, este elige a uno de los agentes de escucha activos de la conexión híbrida y le envía una notificación. Esta se envía al agente de escucha a través del canal de control abierto en forma de mensaje JSON que contiene la dirección URL del punto de conexión de WebSocket al que debe conectarse el agente de escucha para aceptar la conexión.
@@ -195,7 +195,7 @@ Cuando se completa correctamente, este protocolo de enlace genera un error de fo
 | 500 |Error interno |Se ha producido un error en el servicio. |
 
 ### <a name="listener-token-renewal"></a>Renovación del token del agente de escucha
-Cuando el token del agente de escucha está a punto de expirar, puede reemplazarse con el envío de un mensaje en un marco de texto al servicio a través del canal de control establecido. El mensaje contiene un objeto JSON llamado `renewToken`, que define las siguientes propiedades:
+Cuando el token del agente de escucha está a punto de expirar, el agente de escucha puede reemplazarlo al enviar un mensaje en un marco de texto al servicio a través del canal de control establecido. El mensaje contiene un objeto JSON llamado `renewToken`, que define las siguientes propiedades:
 
 * **token**: un token válido de acceso compartido de Service Bus y con codificación URL para el espacio de nombres o la conexión híbrida que concede el derecho de **escucha**.
 

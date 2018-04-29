@@ -1,11 +1,11 @@
 ---
 title: Uso de Azure IoT Hub | Microsoft Docs
-description: "Como desarrollador, ¿cómo uso las distintas características de IoT Hub?"
+description: Como desarrollador, ¿cómo uso las distintas características de IoT Hub?
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: b451ea2d42f0ff2f64746bcb296fb9128472fea8
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9b112d2d7fc1756b74e98335831175f5d4c13320
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-use-azure-iot-hub"></a>Uso de Azure IoT Hub
 
@@ -52,7 +52,7 @@ Si prefiere obtener información sobre características específicas de IoT Hub 
 
 - [Uso de las propiedades deseadas para configurar dispositivos][lnk-properties-tutorial]. En este tutorial se explica cómo usar las propiedades deseadas y notificadas del dispositivo gemelo, para configurarlo de forma remota.
 
-- [Uso de trabajos de dispositivo para iniciar una actualización de firmware de un dispositivo][lnk-jobs-tutorial]. En este tutorial se explica cómo usar las características clave de administración de dispositivos, como los dispositivos gemelos y los métodos directos. Se ofrece información sobre cómo usar estas características para actualizar el firmware del dispositivo de forma remota.
+- [Uso de la administración de dispositivos para actualizar firmware del dispositivo][lnk-jobs-tutorial]. En este tutorial se explica cómo usar las características clave de administración de dispositivos, como los dispositivos gemelos y los métodos directos. Se ofrece información sobre cómo usar estas características para actualizar el firmware del dispositivo de forma remota.
 
 - [Programación y difusión de trabajos][lnk-schedule-tutorial]. Este tutorial le muestra cómo utilizar las propiedades deseadas y los métodos directos para interactuar con varios dispositivos a una hora programada.
 

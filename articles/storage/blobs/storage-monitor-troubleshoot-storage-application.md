@@ -1,6 +1,6 @@
 ---
-title: "Supervisión de una aplicación de almacenamiento en la nube en Azure y solucionar sus problemas | Microsoft Docs"
-description: "Use herramientas de diagnóstico, métricas y alertas para solucionar problemas de una aplicación en la nube y supervisar esta."
+title: Supervisión de una aplicación de almacenamiento en la nube en Azure y solucionar sus problemas | Microsoft Docs
+description: Use herramientas de diagnóstico, métricas y alertas para solucionar problemas de una aplicación en la nube y supervisar esta.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: a1b3a1d4bb397e19f033b8f3bfe68ca6a63725c4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Supervisión de una aplicación de almacenamiento en la nube y solución de sus problemas
 
@@ -41,11 +41,11 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com)
 
 En el menú izquierdo, seleccione **Grupos de recursos**, seleccione **myResourceGroup** y luego seleccione la cuenta de almacenamiento en la lista de recursos.
 
-En **Diagnósticos** establezca **Estado** en **Activado**. Asegúrese de que las casillas **Métricas agregadas de blob**, **Métricas por API de blob** y **Registros de blob** están habilitadas.
+En **Diagnósticos** establezca **Estado** en **Activado**. Asegúrese de que todas las opciones que aparecen en **Propiedades del blob** estén habilitadas.
 
 Cuando haya terminado, haga clic en **Guardar**.
 
-![Panel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Panel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## <a name="enable-alerts"></a>Habilitación de alertas
 

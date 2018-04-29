@@ -1,19 +1,19 @@
 ---
-title: "Inicio rápido de Azure: Carga, descarga y enumeración de blobs de Azure Storage mediante Azure Portal | Microsoft Docs"
-description: "En esta guía de inicio rápido, puede usar Azure Portal para crear una cuenta de almacenamiento y un contenedor. Después, puede usar Azure Portal para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor."
+title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos con Azure Portal | Microsoft Docs'
+description: En esta guía de inicio rápido, utilizará Azure Portal en el almacenamiento de objetos (Blob). Después, puede usar Azure Portal para cargar un blob en Azure Storage, descargar un blob o enumerar los blobs de un contenedor.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: b03c3a26a6218bea8317749f43b4f74f6b3b4101
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Azure Portal
 

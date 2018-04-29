@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: administración de sesión de inicio de sesión único (SSO)
 
@@ -47,6 +47,9 @@ Como el nombre indica, este proveedor no hace nada. Este proveedor se puede util
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Este proveedor se puede utilizar para almacenar notificaciones en una sesión. Se suele hacer referencia a dicho proveedor en un perfil técnico que se usa para administrar cuentas locales. 
+
+> [!NOTE]
+> Cuando use DefaultSSOSessionProvider para almacenar notificaciones en una sesión, debe asegurarse de que todas las que deben devolverse a la aplicación o las que deben usar las condiciones previas en los pasos posteriores, se almacenan en la sesión o se aumentan por una lectura desde el perfil del usuario en el directorio. Esto garantizará que no se producirán errores del proceso de autenticación en las notificaciones que faltan.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

@@ -1,8 +1,8 @@
 ---
-title: "Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs"
-description: "Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage."
+title: Supervisión, diagnóstico y solución de problemas de Azure Storage | Microsoft Docs
+description: Use características como análisis de almacenamiento, registro del lado cliente y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: fhryo-msft
 manager: jahogg
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -474,7 +474,7 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 | Origen | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica en https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
+| Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
 | Microsoft.WindowsAzure.Storage |Warning (Advertencia) |2 |85d077ab -… |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (403) Prohibido. |
 | Microsoft.WindowsAzure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -519,24 +519,24 @@ Entradas del registro:
 
 | Id. de solicitud | Texto de operación |
 | --- | --- |
-| 07b26a5d-... |Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Esperando respuesta. |
 | 07b26a5d-... |Respuesta recibida. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag =    &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | 07b26a5d-... |Descargando el cuerpo de respuesta. |
 | 07b26a5d-... |Operación completada correctamente. |
-| 07b26a5d-... |Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| 07b26a5d-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Esperando respuesta. |
 | 07b26a5d-... |Respuesta recibida. Código de estado = 202, Id. de solicitud = 6ab2a4cf-..., Content-MD5 = , ETag = . |
 | 07b26a5d-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | 07b26a5d-... |Descargando el cuerpo de respuesta. |
 | 07b26a5d-... |Operación completada correctamente. |
-| e2d06d78-... |Iniciando solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
+| e2d06d78-... |A partir de una solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td> |
 | e2d06d78-... |StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Esperando respuesta. |
-| de8b1c3c-... |Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
+| de8b1c3c-... |A partir de una solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
 | de8b1c3c-... |Preparándose para escribir datos de solicitud. |
 | e2d06d78-... |Se inició una excepción mientras se esperaba respuesta: el servidor remoto devolvió un error: (404) No encontrado... |
@@ -544,7 +544,7 @@ Entradas del registro:
 | e2d06d78-... |Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación. |
 | e2d06d78-... |Descargando el cuerpo de respuesta. |
 | e2d06d78-... |Operación completada correctamente. |
-| e2d06d78-... |Iniciando solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
+| e2d06d78-... |A partir de una solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | e2d06d78-... |StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | e2d06d78-... |Esperando respuesta. |
 | de8b1c3c-... |Escribiendo datos de solicitud. |

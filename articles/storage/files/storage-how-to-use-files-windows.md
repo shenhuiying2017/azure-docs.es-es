@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 04/11/2018
 ms.author: renash
-ms.openlocfilehash: 8905b708101e78691c14168edf7afd659afa92a4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Montaje de un recurso compartido de archivos de Azure y acceso al recurso compartido en Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden montar en Windows y Windows Server. En este artículo se muestran tres maneras diferentes para montar un recurso compartido de archivos de Azure en Windows: con la interfaz del explorador de archivos, a través de PowerShell y mediante el símbolo del sistema. 
 
 Para montar un recurso compartido de archivos de Azure fuera de la región de Azure en la que se hospeda, bien sea en local o en una región distinta de Azure, el sistema operativo debe admitir SMB 3.0. 
 
-Puede montar recursos compartidos de Azure File en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el montaje de recursos compartidos de archivo en cada entorno:
+Puede montar recursos compartidos de Azure File en una instalación de Windows que se ejecute en una máquina virtual de Azure o en el entorno local. En la tabla siguiente se ilustran las versiones del sistema operativo que admiten el montaje de recursos compartidos de archivos en cada entorno:
 
 | Versión de Windows        | Versión de SMB | Se puede montar en una máquina virtual de Azure | Se puede montar en el entorno local |
 |------------------------|-------------|-----------------------|----------------------|
@@ -49,7 +49,16 @@ Puede montar recursos compartidos de Azure File en una instalación de Windows q
 
 * **Clave de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará la clave principal (o secundaria) de la cuenta de almacenamiento. Actualmente no se admiten claves SAS para el montaje.
 
-* **Asegúrese de que el puerto 445 está abierto**: Azure Files usa el protocolo SMB. SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente.
+* **Asegúrese de que el puerto 445 está abierto**: Azure Files usa el protocolo SMB. SMB se comunica a través del puerto TCP 445: compruebe que el firewall no bloquea el puerto TCP 445 en el equipo cliente. Puede usar Portqry para comprobar si el puerto TCP 445 está abierto. Si el puerto TCP 445 se muestra como filtrado, significa que el puerto TCP está bloqueado. Aquí se muestra una consulta de ejemplo:
+
+    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+
+    Si el puerto TCP 445 está bloqueado por una regla a lo largo de la ruta de acceso de red, verá la siguiente salida:
+
+    `TCP port 445 (Microsoft-ds service): FILTERED`
+
+    Para más información sobre el uso de Portqry, consulte [Descripción de la utilidad de línea de comandos Portqry.exe](https://support.microsoft.com/help/310099).
+
 
 ## <a name="persisting-connections-across-reboots"></a>Conexiones persistentes entre reinicios
 ### <a name="cmdkey"></a>CmdKey
@@ -102,7 +111,7 @@ Una vez que se han almacenado las credenciales, ya no tiene que proporcionarlas 
     
     ![El recurso compartido de archivos de Azure ahora está montado](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Cuando esté listo para desmontar (o desconectar) el recurso compartido de archivos de Azure, puede hacerlo haciendo clic en la entrada para el recurso compartido en "Ubicaciones de red" en el explorador de archivos y seleccionando "Desconectar"**.
+7. **Cuando esté listo para desmontar (o desconectar) el recurso compartido de archivos de Azure, puede hacerlo si hace clic con el botón derecho en la entrada del recurso compartido en "Ubicaciones de red" en el Explorador de archivos y selecciona "Desconectar"**.
 
 ## <a name="mount-the-azure-file-share-with-powershell"></a>Montaje del recurso compartido de archivos de Azure con PowerShell
 1. **Use el siguiente comando para montar el recurso compartido de archivos de Azure**: no olvide reemplazar `<storage-account-name>`, `<share-name>`, `<storage-account-key>` y `<desired-drive-letter>` con la información correcta.

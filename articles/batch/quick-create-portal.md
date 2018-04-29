@@ -1,6 +1,6 @@
 ---
-title: "Inicio rápido de Azure - Ejecución de un trabajo de Batch - Portal"
-description: "Aprenda rápidamente a ejecutar un trabajo de Batch con Azure Portal."
+title: Inicio rápido de Azure - Ejecución de un trabajo de Batch - Portal
+description: Aprenda rápidamente a ejecutar un trabajo de Batch con Azure Portal.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a00c8ea07c31d2ab4ba2638f2a7e4adcf5ca4a10
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Inicio rápido: ejecute su primer trabajo de Batch en Azure Portal
 
@@ -31,13 +31,13 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 Siga estos pasos para crear una cuenta de Batch de ejemplo para hacer pruebas. Necesita una cuenta de Batch para crear grupos y trabajos. Como se muestra aquí, cualquier cuenta de Azure Storage se puede vincular con la cuenta de Batch. Aunque no es necesaria para esta guía de inicio rápido, la cuenta de almacenamiento es útil para implementar aplicaciones y almacenar los datos de entrada y salida de la mayoría de las cargas de trabajo reales.
 
 
-1. Haga clic en **Nuevo** > **Proceso** > **Servicio Batch**. 
+1. Haga clic en **Nuevo** > **Proceso** > **Servicio de Batch**. 
 
   ![Batch en Marketplace][marketplace_portal]
 
 2. Escriba los valores de **Nombre de cuenta** y **Grupo de recursos**. El nombre de cuenta debe ser único en la **ubicación** de Azure seleccionada, debe constar solo de caracteres en minúsculas o números, y contener entre 3 y 24 caracteres. 
 
-3. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento de uso general existente o créela.
+3. **Cuenta de almacenamiento**: seleccione una cuenta de almacenamiento existente o cree una.
 
 4. En el resto mantenga los valores predeterminados y haga clic en **Crear** para crear la cuenta.
 

@@ -1,6 +1,6 @@
 ---
 title: Preguntas más frecuentes sobre DNS de Azure | Microsoft Docs
-description: Preguntas más frecuentes sobre Azure DNS
+description: Preguntas más frecuentes sobre DNS de Azure
 services: dns
 documentationcenter: na
 author: KumudD
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre Azure DNS
+# <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
-## <a name="about-azure-dns"></a>Más información sobre Azure DNS
+## <a name="about-azure-dns"></a>Más información sobre DNS de Azure
 
 ### <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
 El sistema de nombres de dominio, o DNS, es responsable de traducir (o resolver) el nombre del sitio web o del servicio en su dirección IP. DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure.
 
-Los dominios DNS de Azure DNS se hospedan en la red global de servidores de nombres DNS de Azure. Este utiliza redes de difusión por proximidad, con el fin de que cada consulta de DNS la responda el servidor DNS disponible más cercano disponible. Azure DNS ofrece no solo un rendimiento rápido, sino también una alta disponibilidad para su dominio.
+Los dominios DNS de DNS de Azure se hospedan en la red global de servidores de nombres DNS de Azure. Este utiliza redes de difusión por proximidad, con el fin de que cada consulta de DNS la responda el servidor DNS disponible más cercano disponible. Azure DNS ofrece no solo un rendimiento rápido, sino también una alta disponibilidad para su dominio.
 
 El servicio DNS de Azure se basa en Azure Resource Manager. Como tal, se beneficia de características Resource Manager, como control de acceso basado en roles, registros de auditoría y bloqueo de recursos. Los dominios y registros pueden administrarse mediante Azure Portal, cmdlets de Azure PowerShell y la CLI de Azure multiplataforma. Las aplicaciones que requieren la administración automática de DNS pueden integrarse con el servicio a través de los SDK y API de REST.
 
@@ -46,6 +46,7 @@ Para más información, vea la [página del SLA de DNS de Azure](https://azure.m
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>¿Qué es una "zona DNS"? ¿Es lo mismo que un dominio DNS? 
 
 Un dominio es un nombre exclusivo dentro del sistema de nombres de dominio, como por ejemplo “contoso.com”.
+
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Por ejemplo, puede que el dominio "contoso.com" contenga varios registros DNS, como "mail.contoso.com" (para un servidor de correo) y "www.contoso.com" (para un sitio web). Estos registros se hospedarían en la zona DNS "contoso.com".
 
@@ -90,6 +91,14 @@ Transferencia de zona es una característica de la que se realiza seguimiento en
 Nº Los servicios de redireccionamiento de dirección URL realmente no son un servicio DNS; funcionan a nivel de HTTP, en lugar de a nivel de DNS. Algunos proveedores DNS incluyen un servicio de redireccionamiento de dirección URL como parte de su oferta general. Esto solo se admite actualmente en DNS de Azure.
 
 Redireccionamiento de URL es una característica de la que se realiza seguimiento en el trabajo pendiente de Azure DNS. Puede usar el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>¿Azure DNS admite la codificación ASCII extendida (8 bits) en conjuntos de registros TXT?
+
+Sí. Azure DNS admite la codificación ASCII extendida en los conjuntos de registros TXT si se utiliza la última versión de las API REST, los SDK, PowerShell y CLI de Azure (las versiones anteriores a 2017-10-01 o SDK 2.1 no admiten el conjunto de ASCII extendido). Por ejemplo, si un usuario proporciona una cadena como valor de un registro TXT que tiene un carácter ASCII extendido \128 (por ejemplo, "abcd\128efgh"), Azure DNS usará el valor de bytes de este carácter (que es 128) en una representación interna. En ese momento, se devolverá en la respuesta la resolución de DNS junto con el valor de bytes. Debe tener en cuenta también que "abc" y "\097\098\099" son intercambiables en lo que respecta a la resolución. 
+
+Seguimos las reglas de secuencias de escape de caracteres maestros de archivos de zona [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) para los registros TXT. Por ejemplo, según la RFC, ‘\’ actúa ahora como secuencia de escape. Si especifica "A\B" como valor del registro TXT, se representará y resolverá simplemente como "AB". Si realmente desea que el registro TXT sea "A\B" en la resolución, tendrá que volver a utilizar una secuencia de escape con "\"; por ejemplo, especificarlo como "A\\B". 
+
+Tenga en cuenta que esta compatibilidad no está disponible actualmente para los registros TXT creados desde Azure Portal. 
 
 ## <a name="using-azure-dns"></a>Uso de DNS de Azure
 
@@ -149,7 +158,7 @@ Puede configurar los nombres de dominio internacionales (IDN) en Azure DNS convi
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-### <a name="does-azure-dns-support-private-domains"></a>¿Azure DNS admite dominios "privados"?
+### <a name="does-azure-dns-support-private-domains"></a>¿DNS de Azure admite dominios "privados"?
 La compatibilidad con dominios "privados" se implementa mediante la característica de zonas privadas.  Esta característica está actualmente en versión preliminar pública.  Las zonas privadas se administran con las mismas herramientas que las zonas de Azure DNS con conexión a Internet, pero solo se pueden resolver desde dentro de las redes virtuales especificadas.  Para más información, consulte la [introducción](private-dns-overview.md).
 
 En este momento no se admiten zonas privadas en Azure Portal. 
@@ -169,7 +178,7 @@ Nº Las zonas privadas funcionan en conjunción con las redes virtuales y permit
 Sí. Los clientes pueden asociar hasta 10 redes virtuales de resolución con una única zona privada.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>¿Se puede agregar una red virtual que pertenece a otra suscripción como red virtual de resolución a una zona privada? 
-Sí, siempre que el usuario tenga permiso de escritura tanto en las redes virtuales como en la zona de DNS privado. Tenga en cuenta que el permiso de escritura se puede asignar a varios roles de RBAC. Por ejemplo, el rol de RBAC Colaborador de la red virtual clásica tiene permisos de escritura en las redes virtuales. Para más información acerca de los roles de RBAC, consulte [Introducción al control de acceso basado en roles en Azure Portal](../active-directory/role-based-access-control-what-is.md)
+Sí, siempre que el usuario tenga permiso de escritura tanto en las redes virtuales como en la zona de DNS privado. Tenga en cuenta que el permiso de escritura se puede asignar a varios roles de RBAC. Por ejemplo, el rol de RBAC Colaborador de la red virtual clásica tiene permisos de escritura en las redes virtuales. Para más información acerca de los roles de RBAC, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>¿Se eliminarán automáticamente los registros de DNS de una red virtual registrada automáticamente cuando el cliente elimine las máquinas virtuales?
 Sí. Si elimina una máquina virtual en una red virtual de registro, eliminaremos automáticamente los registros de DNS de la zona, ya que esta es una red virtual de registro. 

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronización de datos entre varias bases de datos locales y de la nube con SQL Data Sync (versión preliminar)
 
@@ -44,7 +44,7 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 
 ## <a name="when-to-use-data-sync"></a>Cuándo usar Data Sync
 
-Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos Azure SQL Database o bases de datos de SQL Server. Estos son los casos de uso principales de Data Sync:
+Data Sync es útil en los casos en que es necesario mantener los datos actualizados entre varias bases de datos de Azure SQL Database o de SQL Server. Estos son los casos de uso principales de Data Sync:
 
 -   **Sincronización de datos híbridos:** con la sincronización de datos, puede mantener los datos sincronizados entre bases de datos locales e instancias de Azure SQL Databases para habilitar aplicaciones híbridas. Esta funcionalidad puede interesar a los clientes que se plantean realizar la migración a la nube y les gustaría colocar algunas de sus aplicaciones en Azure.
 
@@ -138,6 +138,11 @@ Sí. Debe tener una cuenta de SQL Database para hospedar la base de datos centra
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>¿Puedo usar Data Sync para realizar la sincronización solo bases de datos locales de SQL Server? 
 No directamente. Sin embargo, es posible realizar una sincronización indirecta entre bases de datos locales de SQL Server, mediante la creación de una base de datos central en Azure y la posterior incorporación de bases de datos locales al grupo de sincronización.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>¿Puedo usar Data Sync para sincronizar instancias de SQL Database que pertenecen a suscripciones diferentes?
+Sí. Puede sincronizar instancias de SQL Database que pertenecen a grupos de recursos de distintas suscripciones.
+-   Si las suscripciones pertenecen al mismo inquilino y tiene permiso en todas las suscripciones, puede configurar el grupo de sincronización en Azure Portal.
+-   De lo contrario, tendrá que usar PowerShell para agregar los miembros de sincronización que pertenecen a suscripciones diferentes.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>¿Puedo usar Data Sync para propagar datos de mi base de datos de producción a una base de datos vacía y, después, mantenerlos sincronizados? 
 Sí. Cree el esquema manualmente en la base de datos nueva mediante la generación de scripts del original. Después de crear el esquema, agregue las tablas a un grupo de sincronización para copiar los datos y mantenerlos sincronizados.
@@ -147,6 +152,12 @@ Sí. Cree el esquema manualmente en la base de datos nueva mediante la generaci�
 No se recomienda usar SQL Data Sync (versión preliminar) para crear una copia de seguridad de los datos. No se puede realizar una copia de seguridad y restaurar a un momento específico porque las sincronizaciones de SQL Data Sync (versión preliminar) no tienen asignada una versión. Además, SQL Data Sync (versión preliminar) no realiza una copia de seguridad de otros objetos SQL, como procedimientos almacenados, ni hace el equivalente a una operación de restauración rápidamente.
 
 Consulte [Copiar una base de datos Azure SQL Database](sql-database-copy.md) para ver una técnica de copia de seguridad recomendada.
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>¿Puede Data Sync sincronizar tablas y columnas cifradas?
+
+-   Si una base de datos utiliza Always Encrypted, puede sincronizar solo las tablas y columnas que *no* estén cifrados. No se pueden sincronizar las columnas cifradas, porque la Data Sync no puede descifrar los datos.
+
+-   Si una columna utiliza el cifrado de nivel de columna (CLE), puede sincronizar la columna, siempre que el tamaño de fila sea menor que 24 Mb (tamaño máximo). Data Sync trata a la columna que se ha cifrado mediante clave (CLE) como datos binarios normales. Para descifrar los datos de otros miembros de la sincronización, necesita el mismo certificado.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>¿Se admite la intercalación en SQL Data Sync?
 

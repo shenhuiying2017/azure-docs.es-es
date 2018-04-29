@@ -2,24 +2,24 @@
 title: 'Ejemplo de JSON de Azure Policy: Requerir el cifrado de la cuenta de almacenamiento | Microsoft Docs'
 description: La directiva de ejemplo de JSON requiere que la cuenta de almacenamiento use el cifrado de BLOB.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 32af55c80045c24c911051ec9ee76748e24b2c4e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 4448c4b3643a98e3c3bf786a49e11c1b16161ea1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="require-storage-account-encryption"></a>Requisito de cifrado de la cuenta de almacenamiento
 

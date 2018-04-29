@@ -10,11 +10,11 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 131424b4a09beeca7c2e318a04e454bea7dab6a7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Tutorial: Adición de una red CDN a Azure App Service
 
@@ -47,7 +47,7 @@ Para crear la aplicación web con la que va a trabajar, siga el [tutorial de ini
 
 ### <a name="have-a-custom-domain-ready"></a>Tenga listo un dominio personalizado
 
-Para realizar el paso de dominio personalizado de este tutorial, debe tener un dominio personalizado y tener acceso al Registro DNS del proveedor de dominios (por ejemplo, GoDaddy). Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe tener acceso para configurar las opciones de configuración DNS del dominio raíz `contoso.com`.
+Para realizar el paso del dominio personalizado de este tutorial, debe tener un dominio personalizado y tener acceso al registro DNS del proveedor de dominios. Por ejemplo, para agregar entradas DNS para `contoso.com` y `www.contoso.com`, debe tener acceso para configurar las opciones de configuración DNS del dominio raíz `contoso.com`.
 
 Si aún no tiene un nombre de dominio, puede seguir el tutorial [Comprar y configurar un nombre de dominio personalizado en Azure App Service](custom-dns-web-site-buydomains-web-app.md) para comprar un dominio mediante Azure Portal. 
 

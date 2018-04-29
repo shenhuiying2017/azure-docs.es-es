@@ -1,8 +1,8 @@
 ---
 title: Suscripciones de Privileged Identity Management - Azure | Microsoft Docs
-description: "Explica los requisitos de suscripción y licencia para administrar y usar Azure AD Privileged Identity Management en su inquilino"
+description: Explica los requisitos de suscripción y licencia para administrar y usar Azure AD Privileged Identity Management en su inquilino
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
 editor: mwahl
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: b04544c6a1d288524783ed6d323146c0ef7bfe95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisitos de suscripción de Azure Active Directory Privileged Identity Management
 
@@ -40,7 +40,7 @@ Este comando recupera una lista de las suscripciones en el inquilino. Si no se d
 
 Si este comando devuelve una línea en la que SkuPartNumber es "AAD_PREMIUM_P2" o "EMSPREMIUM" e IsTrial es "True", significa que hay una prueba de Azure AD Premium P2 en el inquilino.  Si el estado de la suscripción no está habilitado y no tiene una compra de suscripción de Azure AD Premium P2 o EMS E5, debe adquirir una suscripción de Azure AD Premium P2 o EMS E5 para seguir usando Azure AD Privileged Identity Management.
 
-Azure AD Premium P2 se encuentra disponible a través del [Contrato Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), el programa de [licencias por volumen abiertas](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) y el [programa de proveedores de soluciones en la nube](https://partner.microsoft.com/en-US/cloud-solution-provider). Los suscriptores de Azure y Office 365 también pueden comprar Azure AD Premium P2 en línea.  Encontrará más información sobre precios de Azure AD Premium y cómo realizar la solicitud en línea en [Precios de Azure Active Directory](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Azure AD Premium P2 se encuentra disponible a través del [Contrato Microsoft Enterprise](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), el programa de [licencias por volumen abiertas](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) y el [programa de proveedores de soluciones en la nube](https://partner.microsoft.com/en-US/cloud-solution-provider). Los suscriptores de Azure y Office 365 también pueden comprar Azure AD Premium P2 en línea.  Encontrará más información sobre precios de Azure AD Premium y cómo realizar la solicitud en línea en [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management no está disponible en el inquilino
 
@@ -52,7 +52,7 @@ Azure AD Privileged Identity Management ya no estará disponible en el inquilino
 Cuando una suscripción de Azure AD Premium P2 o EMS E5 expira, o una organización que estaba usando Azure AD Privileged Identity Management en versión preliminar no obtiene una suscripción de Azure AD Premium P2 o EMS E5:
 
 - Las asignaciones de roles permanentes para roles de Azure AD no se verán afectadas.
-- La extensión de Azure AD Privileged Identity Management en Azure Portal, así como los cmdlets de API Graph y las interfaces de PowerShell de Azure AD Privileged Identity Management, ya no estarán disponibles para que los usuarios activen roles con privilegios, administren el acceso con privilegios o realicen revisiones de acceso de roles con privilegios.
+- La extensión de Azure AD Privileged Identity Management en Azure Portal, así como los cmdlets de Graph API y las interfaces de PowerShell de Azure AD Privileged Identity Management, ya no estarán disponibles para que los usuarios activen roles con privilegios, administren el acceso con privilegios o realicen revisiones de acceso de roles con privilegios.
 - Se quitarán las asignaciones de roles elegibles de roles de Azure AD, puesto que los usuarios ya no podrán activar roles con privilegios.
 - Las revisiones de acceso en curso de roles de Azure AD finalizarán y las opciones de configuración de Azure AD Privileged Identity Management se quitarán.
 - Azure AD Privileged Identity Management no volverá a enviar correos electrónicos cuando se produzcan cambios de asignación de rol.

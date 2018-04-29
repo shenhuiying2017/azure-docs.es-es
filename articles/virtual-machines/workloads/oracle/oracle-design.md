@@ -1,13 +1,13 @@
 ---
-title: "Diseño e implementación de una base de datos de Oracle en Azure | Microsoft Docs"
-description: "Diseño e implementación de una base de datos de Oracle en el entorno de Azure."
+title: Diseño e implementación de una base de datos de Oracle en Azure | Microsoft Docs
+description: Diseño e implementación de una base de datos de Oracle en el entorno de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/22/2017
 ms.author: rclaus
-ms.openlocfilehash: c8f858bf249c4b56ad4fe60654ab489676eceb1f
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b291066137df004625029aef12c3db4d5441a89c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran algunas de las diferencias entre una implement
 > | **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (aplicación de revisiones o actualizaciones administradas por Azure) |
 > | **Recurso** |Dedicado  |Compartido con otros clientes|
 > | **Regiones** |Centros de datos |[Pares de región](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
-> | **Almacenamiento** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Storage** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Escala** |Escalado vertical |Escalado horizontal|
 
 
@@ -136,7 +136,7 @@ El rendimiento total de la red se calcula en función de la siguiente informaci�
 
 ![Captura de pantalla del rendimiento de SQL*Net](./media/oracle-design/sqlnet_info.png)
 
-En función de los requisitos de ancho de banda de red, puede elegir diferentes tipos de puerta de enlace. Entre los tipos se incluyen Básica, VpnGw y Azure ExpressRoute. Para más información, consulte la [página de precios de VPN Gateway](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/?v=17.23h).
+En función de los requisitos de ancho de banda de red, puede elegir diferentes tipos de puerta de enlace. Entre los tipos se incluyen Básica, VpnGw y Azure ExpressRoute. Para más información, consulte la [página de precios de VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Recomendaciones**
 

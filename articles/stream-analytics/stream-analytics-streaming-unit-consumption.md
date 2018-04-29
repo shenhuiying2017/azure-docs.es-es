@@ -8,32 +8,31 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: ede0c0aa7b0e795760123246366f947889224b2d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/12/2018
+ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Descripción y ajuste de las unidades de streaming
 
-Azure Stream Analytics agrega el "peso" de rendimiento de ejecutar un trabajo en unidades de streaming (SU). Las SU representan los recursos informáticos que se usan para ejecutar un trabajo. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Esta capacidad le permite centrarse en la lógica de consulta y elimina la necesidad de conocer las consideraciones de rendimiento de los niveles de almacenamiento, de asignar memoria para su trabajo manualmente y de aproximar el número de núcleos de CPU para ejecutar su trabajo de manera oportuna.
+Azure Stream Analytics agrega el "peso" de rendimiento de ejecutar un trabajo en unidades de streaming (SU). Las SU representan los recursos informáticos que se usan para ejecutar un trabajo. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Esta función le permite centrarse en la lógica de consulta y abstrae la necesidad de administrar el hardware para ejecutar el trabajo de Stream Analytics de manera oportuna.
 
 Con el fin de lograr un procesamiento de streaming de latencia baja, los trabajos de Azure Stream Analytics realizan todo el procesamiento en memoria. El trabajo de streaming presenta un error cuando se queda sin memoria. Como resultado, en el caso de un trabajo de producción, resulta importante supervisar el uso de recursos de un trabajo de streaming, y debe asegurarse de que hay recursos asignados suficientes para mantener los trabajos en ejecución de manera ininterrumpida.
 
-La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo de streaming con una superficie mínima, la métrica de porcentaje de uso de SU suele estar entre 10 % y 20 %. Se recomienda mantener la métrica por debajo del 80 % para tener en cuenta las subidas ocasionales.  Puede establecer una alerta en la métrica (consulte [aquí para configurar las alertas de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-alerts-portal)).
-
-
+La métrica es un número de porcentaje que va de 0 % a 100 %. Para un trabajo de streaming con una superficie mínima, la métrica de porcentaje de uso de SU suele estar entre 10 % y 20 %. Se recomienda mantener la métrica por debajo del 80 % para tener en cuenta las subidas ocasionales. Microsoft recomienda establecer una alerta en un 80 % de métrica de uso de SU para evitar el agotamiento de recursos. Para obtener más información, consulte [Configuración de alertas en Azure Stream Analytics](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configuración de las unidades de streaming (SU) de Stream Analytics
 1. Inicie sesión en [Azure Portal](http://portal.azure.com/)
+
 2. En la lista de recursos, busque el trabajo de Stream Analytics que quiere escalar y ábralo. 
-3. En la página del trabajo, en Configurar, haga clic en **Escala**. 
+
+3. En la página del trabajo, en el encabezado **Configurar**, seleccione **Escalar**. 
 
     ![Configuración del trabajo de Stream Analytics en Azure Portal][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use el control deslizante para establecer las unidades de streaming del trabajo. Tenga en cuenta que está limitado a la configuración de unidades de streaming específica. 
-
 
 ## <a name="monitor-job-performance"></a>Supervisión del rendimiento del trabajo
 Mediante Azure Portal, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo:
@@ -41,7 +40,6 @@ Mediante Azure Portal, puede realizar el seguimiento de la capacidad de procesam
 ![Trabajos de supervisión de Azure Stream Analytics][img.stream.analytics.monitor.job]
 
 Calcule la capacidad de procesamiento esperada de la carga de trabajo. Si la capacidad de procesamiento es inferior a la esperada, ajuste la partición de entrada, ajuste la consulta y agregue unidades de streaming al trabajo.
-
 
 ## <a name="how-many-sus-are-required-for-a-job"></a>¿Cuántas SU son necesarias para un trabajo?
 
@@ -54,69 +52,92 @@ Para más información sobre cómo elegir el número correcto de SU, consulte es
 > [!Note]
 > La elección del número de unidades de streaming que se necesitan para un trabajo en concreto depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Puede seleccionar como máximo su cuota en unidades de streaming para un trabajo. De manera predeterminada, cada suscripción de Azure tiene una cuota máxima de 200 SU en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de sus suscripciones, contacte con [Soporte técnico de Microsoft](http://support.microsoft.com). Los valores válidos para unidades de streaming por trabajo son 1, 3, 6 y más en incrementos de 6.
 
+## <a name="factors-that-increase-su-utilization"></a>Factores que aumentar el uso de porcentaje de SU 
+
+Los elementos de consulta temporal (orientados al tiempo) son el conjunto básico de operadores con estado proporcionados por Stream Analytics. Stream Analytics administra el estado de estas operaciones internamente en nombre de usuario, mediante la administración del consumo de memoria, los puntos de comprobación para la resistencia y la recuperación del estado durante las actualizaciones de servicio. Aunque Stream Analytics administra totalmente los estados, hay una serie de prácticas recomendadas que los usuarios deberían tener en cuenta.
+
+## <a name="stateful-query-logic-in-temporal-elements"></a>Lógica de consulta con estado en elementos temporales
+Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva información de estado. El tamaño máximo de la ventana para estos elementos de consulta es siete días. 
+
+El concepto de ventana temporal aparece en varios elementos de consulta de Stream Analytics:
+1. Agregados en ventanas: GROUP BY de ventanas de saltos de tamaño constante, de salto y deslizantes
+
+2. Combinaciones temporales : función JOIN con DATEDIFF
+
+3. Funciones analíticas temporales: ISFIRST, LAST y LAG con LIMIT DURATION
+
+Los siguientes factores influyen en la memoria utilizada (que forma parte de la métrica de unidades de streaming) por los trabajos de Stream Analytics:
+
+## <a name="windowed-aggregates"></a>Agregados en ventanas
+La memoria utilizada (tamaño de estado) para un agregado en ventanas no siempre es directamente proporcional al tamaño de la ventana. En su lugar, la memoria utilizada es proporcional a la cardinalidad de los datos o el número de grupos de cada ventana temporal.
 
 
-## <a name="factors-increasing-su-utilization"></a>Factores que aumentan el porcentaje de uso de SU 
-### <a name="stateful-query-logic"></a>Lógica de consulta con estado 
-Una funcionalidad única de un trabajo de Azure Stream Analytics es realizar procesamiento con estado, como funciones de análisis temporal, combinaciones temporales y agregados en ventanas. Cada uno de estos operadores conserva algunos estados. 
-#### <a name="windowed-aggregates"></a>Agregados en ventanas
-El tamaño del estado de un agregado en ventanas es proporcional al número de grupos (cardinalidad) del grupo por operador. Por ejemplo, en la consulta siguiente, el número asociado con clusterid es la cardinalidad de la consulta. 
+Por ejemplo, en la consulta siguiente, el número asociado con `clusterid` es la cardinalidad de la consulta. 
 
-    SELECT count(*)
-    FROM input 
-    GROUP BY  clusterid, tumblingwindow (minutes, 5)
+   ```sql
+   SELECT count(*)
+   FROM input 
+   GROUP BY  clusterid, tumblingwindow (minutes, 5)
+   ```
 
+Con el fin de mejorar los problemas causados por la cardinalidad alta en la consulta anterior, puede enviar eventos a Event Hub particionados por `clusterid` y escalar horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra en el ejemplo siguiente:
 
-Con el fin de mejorar los problemas causados por la cardinalidad alta en la consulta anterior, puede enviar eventos a Event Hub particionados por "clusterid" y escalar horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra en el ejemplo siguiente:
+   ```sql
+   SELECT count(*) 
+   FROM PARTITION BY PartitionId
+   GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
+   ```
 
+Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de valores `clusterid` que entra en cada nodo se reduce, lo que disminuye la cardinalidad del grupo por operador. 
 
-    SELECT count(*) 
-    FROM PARTITION BY PartitionId
-    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
+Las particiones de Event Hub se deben particionar según la clave de agrupación para evitar la necesidad de un paso de reducción. Para obtener más información, consulte [Información general sobre Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md). 
 
-Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de clusterid que entra en cada nodo se reduce, lo que disminuye la cardinalidad del grupo por operador. 
-
-Las particiones de Event Hub se deben particionar según la clave de agrupación para evitar la necesidad de un paso de reducción. [Aquí](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview) se describen detalles adicionales. 
-#### <a name="temporal-join"></a>Combinación temporal
-El tamaño del estado de una combinación temporal es proporcional al número de eventos en el espacio de ondulación temporal de la combinación, que es la tasa de entrada del evento multiplicada por el tamaño del espacio de ondulación. 
+## <a name="temporal-joins"></a>Combinaciones temporales
+La memoria consumida (tamaño del estado) de una combinación temporal es proporcional al número de eventos en el espacio de ondulación temporal de la combinación, que es la tasa de entrada del evento multiplicada por el tamaño del espacio de ondulación. En otras palabras, la memoria utilizada por las combinaciones es proporcional al intervalo de tiempo DateDiff multiplicado por la tasa media de los eventos.
 
 La cantidad de eventos no coincidentes en la combinación afecta el uso de memoria de la consulta. La consulta siguiente busca las impresiones de anuncios que generan clics:
 
-    SELECT clicks.id
-    FROM clicks 
-    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+   ```sql
+   SELECT clicks.id
+   FROM clicks 
+   INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+   ```
 
 En este ejemplo, es posible que se muestren muchos anuncios, pero que pocas personas hagan clic en ellos, por lo que es necesario mantener todos los eventos en la ventana de tiempo. La memoria consumida es proporcional al tamaño de ventana y la tasa de eventos. 
 
 Para corregir esto, envíe eventos a Event Hub particionados por las claves de combinación (en este caso, el identificador) y escale horizontalmente la consulta permitiendo que el sistema procese de manera independiente cada partición de entrada con **PARTITION BY**, como se muestra a continuación:
 
-    SELECT clicks.id
-    FROM clicks PARTITION BY PartitionId
-    INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
-</code>
+   ```sql
+   SELECT clicks.id
+   FROM clicks PARTITION BY PartitionId
+   INNER JOIN impressions PARTITION BY PartitionId 
+   ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+   ```
 
 Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que disminuye el tamaño del estado que se conserva en la ventana de la combinación. 
-#### <a name="temporal-analytic-function"></a>Función de análisis temporal
-El tamaño del estado de una función de análisis temporal es proporcional a la tasa de eventos multiplicada por la duración. La solución es similar a la combinación temporal. Puede escalar horizontalmente la consulta con **PARTITION BY**. 
 
-### <a name="out-of-order-buffer"></a>Búfer desordenado 
+## <a name="temporal-analytic-functions"></a>Funciones de análisis temporal
+La memoria consumida (tamaño del estado) de una función de análisis temporal es proporcional a la tasa de eventos multiplicada por la duración. La memoria utilizada por las funciones analíticas no es proporcional al tamaño de la ventana, sino más bien a la cantidad de particiones de cada ventana temporal.
+
+La solución es similar a la combinación temporal. Puede escalar horizontalmente la consulta con **PARTITION BY**. 
+
+## <a name="out-of-order-buffer"></a>Búfer desordenado 
 El usuario puede configurar el tamaño de búfer desordenado en el panel de configuración de la ordenación de eventos. El búfer se usa para contener entradas para la duración de la ventana y para reordenarlas. El tamaño del búfer es proporcional a la tasa de entrada de eventos multiplicada por el tamaño de la ventana desordenada. El tamaño predeterminado de la ventana es 0. 
 
-Para corregir esto, escale horizontalmente la consulta con **PARTITION BY**. Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que disminuye el número de eventos en cada búfer de reordenación. 
+Para corregir el desbordamiento del búfer desordenado, escale la consulta horizontalmente con **PARTITION BY**. Una vez que la consulta está particionada, se extiende por varios nodos. Como resultado, el número de eventos que entra en cada nodo se reduce, lo que disminuye el número de eventos en cada búfer de reordenación. 
 
-### <a name="input-partition-count"></a>Número de particiones de entrada 
-Cada partición de entrada de una entrada del trabajo tiene un búfer. Mientras más grande sea la cantidad de particiones de entrada, más recursos consume el trabajo. Para cada SU, Azure Stream Analytics puede procesar aproximadamente 1 MB/s de entrada, por lo que es posible que desee hacer coincidir el número de SU de ASA con la cantidad de particiones de Event Hub. Por lo general, un trabajo de 1 SU es suficiente para Event Hub con dos particiones (que es el mínimo para Event Hub). Si Event Hub tiene más particiones, el trabajo de ASA consume más recursos, pero no consume necesariamente el rendimiento adicional que proporciona Event Hub. En el caso de un trabajo de 6 SU, podría necesitar 4 u 8 particiones de Event Hub. Usar una instancia de Event Hub con 16 particiones o más en un trabajo de 1 SU a menudo contribuye a un uso excesivo de los recursos, por lo que se debe evitar. 
+## <a name="input-partition-count"></a>Número de particiones de entrada 
+Cada partición de entrada de una entrada del trabajo tiene un búfer. Mientras más grande sea la cantidad de particiones de entrada, más recursos consume el trabajo. Para cada unidad de streaming, Azure Stream Analytics puede procesar aproximadamente 1 MB/s de entrada. Por lo tanto, es posible mejorarlo haciendo coincidir el número de unidades de streaming de Stream Analytics con el número de particiones de Event Hub. 
 
-### <a name="reference-data"></a>Datos de referencia 
+Por lo general, un trabajo configurado con una unidad de streaming es suficiente para un Event Hub con dos particiones (que es el valor mínimo para el Event Hub). Si Event Hub tiene más particiones, el trabajo de Stream Analytics consume más recursos, pero no consume necesariamente el rendimiento adicional que proporciona Event Hub. 
+
+En el caso de un trabajo de 6 unidades de streaming, podría necesitar 4 u 8 particiones de Event Hub. Sin embargo, evite demasiadas particiones innecesarias, porque provoca un uso de recursos excesivo. Por ejemplo, un Event Hub con 16 particiones o más en un trabajo de Stream Analytics que tiene 1 unidad de streaming. 
+
+## <a name="reference-data"></a>Datos de referencia 
 Los datos de referencia en ASA se cargan en la memoria para poder realizar una búsqueda rápida. Con la implementación actual, cada operación de combinación con datos de referencia conserva una copia de estos datos en la memoria, incluso si se combina varias veces con los mismos datos de referencia. Para consultas con **PARTITION BY**, cada partición tiene una copia de los datos de referencia, por lo que las particiones están completamente desacopladas. Con el efecto multiplicador, el uso de la memoria puede aumentar muchísimo rápidamente si combina con datos de referencia varias veces con varias particiones.  
 
-#### <a name="use-of-udf-functions"></a>Uso de las funciones UDF
+### <a name="use-of-udf-functions"></a>Uso de las funciones UDF
 Cuando agrega una función UDF, Azure Stream Analytics carga el entorno de tiempo de ejecución de Java en la memoria. Esto afectará el porcentaje de SU.
-
-
-## <a name="get-help"></a>Obtención de ayuda
-Para obtener ayuda adicional, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de consultas que se pueden paralelizar en Azure Stream Analytics](stream-analytics-parallelization.md)
