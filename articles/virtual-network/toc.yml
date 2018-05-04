@@ -31,6 +31,8 @@
       href: powershell-samples.md
     - name: Plantillas de Resource Manager
       href: template-samples.md
+    - name: Plantillas de Azure Policy
+      href: policy-samples.md
 - name: Conceptos
   items:
     - name: Seguridad

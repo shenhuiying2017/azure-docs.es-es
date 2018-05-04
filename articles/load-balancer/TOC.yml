@@ -22,6 +22,8 @@
       href: powershell-samples.md
 - name: Tutoriales
   items:
+    - name: Equilibrio de carga del tráfico interno a las máquinas virtuales
+      href: tutorial-load-balancer-basic-internal-portal.md
     - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica

@@ -76,6 +76,8 @@
           href: stream-analytics-high-frequency-trading.md
         - name: Procesamiento de datos de streaming de IoT
           href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Reglas basadas en umbrales
+          href: stream-analytics-threshold-based-rules.md
     - name: Supervisión
       items:
         - name: 'Supervisión de trabajos: Azure Portal'

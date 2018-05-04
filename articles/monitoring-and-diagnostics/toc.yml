@@ -73,6 +73,8 @@
           href: monitoring-enable-alerts-using-template.md
         - name: Copia de alertas del portal de OMS a Azure Portal
           href: monitoring-alerts-extend-tool.md
+        - name: Alertas con umbrales dinámicos
+          href: monitoring-alerts-dynamic-thresholds.md
     - name: Usar grupos de acciones con alertas
       items:
         - name: Información sobre el esquema de webhook

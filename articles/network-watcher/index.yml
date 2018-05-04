@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/24/2018
   ms.author: jdial
-  ms.openlocfilehash: d8f4996aedec1083ccdb3e05e17bf068bdeffe22
-  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+  ms.openlocfilehash: 65f301d231a3a5c4da9edfe30f3871bf95a9c02c
+  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/01/2018
+  ms.lasthandoff: 05/03/2018
 abstract:
   description: Aprenda a usar Azure Network Watcher. Guías de inicio rápido, tutoriales, etc, que le muestran cómo conseguir información sobre su instancia de Azure Virtual Network con herramientas como la captura de paquetes y los registros de flujos de grupos de seguridad de red, para diagnosticar problemas con el filtrado y enrutamiento del tráfico, y para supervisar las conexiones.
 sections:
@@ -49,7 +49,9 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnóstico de problemas de enrutamiento en una red de máquinas virtuales</a>
-    - html: <a href="/azure/network-watcher/connection-monitor">Supervisión de la conexión de red entre una máquina virtual y un punto de conexión</a>
+    - html: <a href="/azure/network-watcher/connection-monitor">Supervisión de la comunicación de red entre dos máquinas virtuales</a>
+    - html: <a href="/azure/network-watcher/diagnose-communication-problem-between-networks">Diagnóstico de un problema de comunicación entre redes</a>
+    - html: <a href="/azure/network-watcher/network-watcher-nsg-flow-logging-portal">Registro del tráfico de red hacia una máquina virtual y desde esta</a>
 - title: Vídeo gratuito de aprendizaje de PluralSight
   items:
   - type: list

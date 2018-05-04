@@ -123,6 +123,8 @@
           href: durable-functions-versioning.md
         - name: Rendimiento y escala
           href: durable-functions-perf-and-scale.md
+        - name: Recuperación ante desastres y distribución geográfica
+          href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Guías de procedimientos
   items:
     - name: Desarrollo

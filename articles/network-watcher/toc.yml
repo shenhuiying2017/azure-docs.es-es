@@ -17,8 +17,12 @@
   items:
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
       href: diagnose-vm-network-routing-problem.md
-    - name: Supervisión de conexiones de red
+    - name: Supervisión de la comunicación entre las máquinas virtuales
       href: connection-monitor.md
+    - name: Diagnóstico de un problema de comunicación entre redes
+      href: diagnose-communication-problem-between-networks.md
+    - name: Registro del tráfico de red de VM
+      href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceptos
   items:
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
@@ -93,8 +97,6 @@
       items:
         - name: Configuración de registros de flujo para NSG
           items:
-            - name: Azure Portal
-              href: network-watcher-nsg-flow-logging-portal.md
             - name: Azure PowerShell
               href: network-watcher-nsg-flow-logging-powershell.md
             - name: Azure CLI
@@ -136,8 +138,6 @@
       items:
         - name: Solución de problemas
           items:
-            - name: Azure Portal
-              href: network-watcher-troubleshoot-manage-portal.md
             - name: Azure PowerShell
               href: network-watcher-troubleshoot-manage-powershell.md
             - name: Azure CLI

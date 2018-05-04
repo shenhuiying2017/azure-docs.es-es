@@ -105,7 +105,11 @@
         - name: Habilitar el acelerador de escritura
           href: how-to-enable-write-accelerator.md
         - name: Solución de problemas en los discos duros virtuales conectados
-          href: troubleshoot-vhds.md
+          items:
+            - name: Errores de eliminación de recursos de almacenamiento
+              href: storage-resource-deletion-errors.md
+            - name: Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados
+              href: unexpected-reboots-attached-vhds.md
     - name: Redes
       href: network-overview.md
     - name: Aplicaciones de escalado automático
