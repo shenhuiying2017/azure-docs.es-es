@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 98f20e8a185e1c36f4114d3a196db61a9dccc3c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 90cd9b4b29c0860355d318201df49262afd82de5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service
 
@@ -134,12 +134,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 ```
 
 > [!TIP] 
-> Puede ser incluso más restrictivo con su regla de firewall [usando solo las direcciones IP de salida utilizadas por su aplicación](app-service-ip-addresses.md#find-outbound-ips).
+> Puede ser incluso más restrictivo con su regla de firewall [usando solo las direcciones IP de salida que utiliza su aplicación](app-service-ip-addresses.md#find-outbound-ips).
 >
 
 ### <a name="create-a-database"></a>Creación de una base de datos
 
-Cree una base de datos con un [nivel de rendimiento S0](../sql-database/sql-database-service-tiers.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
+Cree una base de datos con un [nivel de rendimiento S0](../sql-database/sql-database-service-tiers-dtu.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create).
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0

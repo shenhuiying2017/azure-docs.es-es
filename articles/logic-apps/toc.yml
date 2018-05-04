@@ -61,6 +61,8 @@
           href: logic-apps-content-type.md
         - name: Control de errores y excepciones
           href: logic-apps-exception-handling.md
+        - name: Control de mensajes grandes
+          href: logic-apps-handle-large-messages.md
         - name: Protección de las aplicaciones lógicas
           href: logic-apps-securing-a-logic-app.md
         - name: Desarrollo de conectores personalizados

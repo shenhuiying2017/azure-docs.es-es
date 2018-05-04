@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 24723f268e59103c712b98b4bd895472b034afc0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9a18193ee0d216416cda3145c85c8357813f794d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones
 
@@ -145,7 +145,7 @@ Para establecer la directiva de lista de permitidos o de denegación, use el cmd
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-Para obtener la directiva, use el cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo: 
+Para obtener la directiva, use el cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo: 
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 

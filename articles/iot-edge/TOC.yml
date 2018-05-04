@@ -53,6 +53,8 @@
           href: how-to-vscode-debug-csharp-module.md
         - name: Depuración de Azure Functions
           href: how-to-vscode-debug-azure-function.md
+    - name: Integración y entrega continuas en VSTS
+      href: how-to-ci-cd.md
     - name: Almacenamiento de datos en el perímetro
       href: sql-storage.md
     - name: Solución de problemas

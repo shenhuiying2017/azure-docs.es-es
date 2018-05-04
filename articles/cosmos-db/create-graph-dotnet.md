@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 3585acb550bdf408b0912f1fb2d7244eaa5b7011
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilación de una aplicación .NET Framework o Core mediante Graph API
 
@@ -69,7 +69,7 @@ Ahora, vamos a clonar una aplicación de Graph API desde GitHub, establecer la c
 5. Restaure los paquetes de NuGet en el proyecto. Debe incluir el controlador Gremlin.Net, así como el paquete Newtonsoft.Json.
 
 
-6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net

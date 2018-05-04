@@ -15,11 +15,11 @@ ms.date: 07/20/2017
 ms.author: asmalser
 ms.custom: aaddev
 ms.reviewer: dastrock
-ms.openlocfilehash: f94889c234299c2dceb49c0ab554c1eb4b68d2c0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 55ff6b7a70bcdcceacb1484f9969337f9853ce50
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
@@ -95,7 +95,7 @@ También puede copiar el valor de **SAMLrequest** y utilizar otro descodificador
 
 Visite la guía de solución de problemas [Error en la página de la aplicación después de iniciar sesión](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML) para más información sobre lo que puede que falte o que sea incorrecto en la respuesta SAML.
 
-Para más información sobre cómo revisar la respuesta SAML visite el artículo [Protocolo SAML de inicio de sesión único](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
+Para más información sobre cómo revisar la respuesta SAML visite el artículo [Protocolo SAML de inicio de sesión único](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML#response).
 
 
 ## <a name="related-articles"></a>Artículos relacionados
