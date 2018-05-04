@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: c733f919189dadcf1181ddbe2a1057b2bcf66fc4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: directivas integradas
 
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Creación de una directiva de registro o de inicio de sesión
 
-Esta directiva controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los consumidores se les lleva por la ruta correcta (registro o inicio de sesión) según el contexto. También describe el contenido de los tokens que recibirá la aplicación cuando el registro o el inicio de sesión sean correctos.  [Aquí puede encontrar](active-directory-b2c-devquickstarts-web-dotnet-susi.md)código de ejemplo de la directiva de registro o de inicio de sesión.  Le recomendamos que use esta directiva en vez de una directiva de registro y una directiva de inicio de sesión.  
+Esta directiva controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los consumidores se les lleva por la ruta correcta (registro o inicio de sesión) según el contexto. También describe el contenido de los tokens que recibirá la aplicación cuando el registro o el inicio de sesión sean correctos.  **Aquí puede encontrar**código de ejemplo de la [directiva de registro o de inicio de sesión](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Le recomendamos que use esta directiva en vez de una directiva de **registro** y una directiva de **inicio de sesión**.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -85,16 +85,16 @@ Esta directiva controla las experiencias de registro y de inicio de sesión del 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>¿Cómo puedo vincular una directiva de inicio de sesión o de registro con una directiva de restablecimiento de contraseña?
-Al crear una directiva de inicio de sesión o de registro (con cuentas locales), verá el vínculo **¿Olvidó la contraseña?** en la primera página de la experiencia. Al hacer clic en este vínculo, no se desencadena automáticamente ninguna directiva de restablecimiento de contraseña, 
+Al crear una directiva de **inicio de sesión o de registro** (con cuentas locales), verá el vínculo **¿Olvidó la contraseña?** en la primera página de la experiencia. Al hacer clic en este vínculo, no se desencadena automáticamente ninguna directiva de restablecimiento de contraseña, 
 
 sino que se devuelve a la aplicación el código de error **`AADB2C90118`**. La aplicación debe controlar este código de error invocando una directiva de restablecimiento de contraseña específica. Para obtener más información, consulte un [ejemplo en el que se muestra el método para vincular directivas](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>¿Debo usar una directiva de inicio de sesión o de registro o una directiva de inicio de sesión y una directiva de registro?
-Le recomendamos que use una directiva de inicio de sesión o de registro en vez de una directiva de inicio de sesión y una directiva de registro.  
+Le recomendamos que use una directiva de **inicio de sesión o de registro** en vez de una directiva de **inicio de sesión** y una directiva de **registro**.  
 
-La directiva de inicio de sesión o de registro tiene más capacidades que la directiva de inicio de sesión. También le permite usar la personalización de la interfaz de usuario de la página y tiene una mejor compatibilidad con la localización. 
+La directiva de **inicio de sesión o de registro** tiene más funcionalidades que la directiva de **inicio de sesión**. También le permite usar la personalización de la interfaz de usuario de la página y tiene una mejor compatibilidad con la localización. 
 
-La directiva de inicio de sesión se recomienda si no necesita localizar las directivas, solo necesita unas capacidades de personalización secundarias para la personalización de marca y quiere que el restablecimiento de contraseña esté integrado en ella.
+La directiva de **inicio de sesión** se recomienda si no necesita localizar las directivas, solo necesita unas funcionalidades de personalización secundarias para la personalización de marca y quiere que el restablecimiento de contraseña esté integrado en ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md)

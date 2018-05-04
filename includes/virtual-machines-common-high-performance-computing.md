@@ -154,7 +154,7 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
-### <a name="containers"></a>Contenedores
+### <a name="containers"></a>Containers
 * [Servicio Contenedor](../articles/container-service/dcos-swarm/container-service-intro.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
@@ -181,7 +181,7 @@ Estos son ejemplos de clientes que han resuelto problemas empresariales con las 
 * Obtenga más información sobre las soluciones de Big Compute para [simulación de ingeniería](https://simulation.azure.com/), [representación](https://simulation.azure.com/), [los mercados de capital y banca](https://finance.azure.com/) y [genómica](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Para los anuncios más recientes, lea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Uso del servicio administrado y escalable Azure [Batch](https://azure.microsoft.com/services/batch/) para ejecutar cargas de trabajo de proceso intensivo, sin tener que administrar la infraestructura subyacente [Más información](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Uso del servicio administrado y escalable Azure [Batch](https://azure.microsoft.com/services/batch/) para ejecutar cargas de trabajo de proceso intensivo, sin tener que administrar la infraestructura subyacente [Más información](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

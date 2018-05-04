@@ -1,11 +1,11 @@
 ---
-title: "Carga de un certificado de administración de servicios de Azure | Microsoft Docs"
-description: "Aprenda a cargar el certificado de administración de servicios para Azure Portal."
+title: Carga de un certificado de administración de servicios de Azure | Microsoft Docs
+description: Aprenda a cargar el certificado de administración de servicios para Azure Portal.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: na
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: adegeo
-ms.openlocfilehash: a865290602f64335e8b7cbfadf00d83234ae812d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: be548a8e823d4c7109951183886764738a66ecea
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carga de un certificado de administración de servicios de Azure
 Los certificados de administración le permiten autenticar con el modelo de implementación clásica que proporciona Azure. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. 
@@ -30,7 +30,7 @@ Los certificados de administración le permiten autenticar con el modelo de impl
 
 Si deseara más información acerca de los certificados de Azure (incluido cómo crear un certificado autofirmado), consulte [Introducción a los certificados para Azure Cloud Services](cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
-También puede usar [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/) para autenticar el código de cliente para fines de automatización.
+También puede usar [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar el código de cliente para fines de automatización.
 
 **Nota:** Debe ser coadministrador en la suscripción para realizar cualquier operación en certificados de administración. [Más información](https://go.microsoft.com/fwlink/?linkid=849300) acerca de cómo agregar o quitar coadministradores en el nuevo Azure Portal 
 

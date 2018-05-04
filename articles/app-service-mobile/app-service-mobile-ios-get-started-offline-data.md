@@ -1,10 +1,10 @@
 ---
-title: "Habilitación de la sincronización sin conexión con aplicaciones móviles iOS | Microsoft Docs"
-description: "Aprenda a usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en aplicaciones iOS."
+title: Habilitación de la sincronización sin conexión con aplicaciones móviles iOS | Microsoft Docs
+description: Aprenda a usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en aplicaciones iOS.
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: b676b51241e4883fb1b4c40caba8e281bfa68a4c
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 2f415f1886c654f3bdd880cdccaadc7aa3e69892
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitación de la sincronización sin conexión con aplicaciones móviles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -158,7 +158,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 ![Atributos de la tabla MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | type |
+| Atributo | Escriba |
 | --- | --- |
 | id | Integer 64 |
 | itemId | string |
@@ -171,7 +171,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![Atributos de la tabla MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | type |
+| Atributo | Escriba |
 | --- | --- |
 | id |string |
 | operationId |Integer 64 |
@@ -182,7 +182,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | type |
+| Atributo | Escriba |
 | --- | --- |
 | id |string |
 | key |string |
@@ -194,7 +194,7 @@ Cuando use la característica de sincronización sin conexión, defina las tres 
 
 **TodoItem**
 
-| Atributo | type | Nota: |
+| Atributo | Escriba | Nota: |
 | --- | --- | --- |
 | id | Cadena, marcado obligatorio |Clave principal en almacén remoto |
 | complete | boolean | Campo de tarea pendiente |
@@ -285,4 +285,4 @@ Cuando el almacén local se sincroniza con el servidor, se usa el método **MSSy
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
 [Cloud Cover: sincronización sin conexión en Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

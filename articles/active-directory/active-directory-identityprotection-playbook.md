@@ -1,9 +1,9 @@
 ---
-title: "Guía de Azure Active Directory Identity Protection | Microsoft Docs"
-description: "Aprenda cómo Azure AD Identity Protection permite limitar la capacidad de un atacante para aprovechar una identidad o un dispositivo en peligro y asegurar una identidad o un dispositivo que antes fue sospechoso o que se sabe que estuvo en peligro."
+title: Guía de Azure Active Directory Identity Protection | Microsoft Docs
+description: Aprenda cómo Azure AD Identity Protection permite limitar la capacidad de un atacante para aprovechar una identidad o un dispositivo en peligro y asegurar una identidad o un dispositivo que antes fue sospechoso o que se sabe que estuvo en peligro.
 services: active-directory
-keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
-documentationcenter: 
+keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f4240c9196796c2e83c408271fe81b20842ab722
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 210d097f0719725a0ecf145ce536875a383b04e6
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guía de Azure Active Directory Identity Protection
 
@@ -50,7 +50,7 @@ Para completar el procedimiento siguiente, necesitará:
 
 **Para simular un inicio de sesión desde una IP anónima, realice los siguientes pasos**:
 
-1. Use [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) para ir a [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+1. Mediante [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en), vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).   
 2. Escriba las credenciales de la cuenta que desee que aparezcan en el informe **Inicios de sesión desde direcciones IP anónimas** .
 
 El inicio de sesión se mostrará en el panel de Identity Protection en un plazo máximo de 10 o 15 minutos. 
@@ -76,7 +76,7 @@ Para completar el procedimiento siguiente, necesitará una cuenta de usuario con
 **Para simular un inicio de sesión desde una ubicación desconocida, realice los siguientes pasos**:
 
 1. Al iniciar sesión en su cuenta de prueba, no supere el desafío MFA.
-2. Mediante la VPN nueva, navegue hasta [https://myapps.microsoft.com](https://myapps.microsoft.com) y escriba las credenciales de la cuenta de prueba.
+2. Mediante la VPN nueva, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com) y escriba las credenciales de la cuenta de prueba.
    
 
 El inicio de sesión se mostrará en el panel de Identity Protection en un plazo máximo de 10 o 15 minutos.
@@ -90,7 +90,7 @@ Simular la condición de viaje imposible es complicado porque el algoritmo utili
 
 **Para simular un viaje imposible a una ubicación inusual, realice los pasos siguientes**:
 
-1. Mediante el explorador estándar, vaya a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+1. Use su explorador habitual para ir a [https://myapps.microsoft.com](https://myapps.microsoft.com).  
 2. Escriba las credenciales de la cuenta para la que desea generar un evento de riesgo de viaje imposible.
 3. Cambie el agente de usuario. Puede cambiar el agente de usuario en Internet Explorer desde Herramientas de desarrollo, o bien en Firefox o Chrome con un complemento modificador del agente de usuario.
 4. Cambie la dirección IP. Puede cambiar la dirección IP mediante una VPN, un complemento de Tor, o iniciando una máquina nueva en Azure en otro centro de datos.
@@ -101,7 +101,7 @@ El inicio de sesión se mostrará en el panel de Identity Protection entre 2 y 4
 ## <a name="simulating-vulnerabilities"></a>Simulación de puntos vulnerables
 Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede ser aprovechados por un actor perjudicial. Actualmente se exponen 3 tipos de puntos vulnerables en Azure AD Identity Protection que aprovechan otras características de Azure AD. Estos puntos vulnerables se mostrará en el panel de Identity Protection automáticamente una vez configuradas estas características.
 
-* Azure AD [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+* Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)de Azure AD. 
 
@@ -120,7 +120,7 @@ Para obtener más información, consulte [Directiva de seguridad de riesgo del u
 
 **Para probar una directiva de seguridad de riesgo del usuario, realice los pasos siguientes**:
 
-1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com) con las credenciales de administrador global para el inquilino.
+1. Inicie sesión en [https://portal.azure.com](https://portal.azure.com) con las credenciales de administrador global del inquilino.
 2. Vaya a **Identity Protection**. 
 3. En la página **Azure AD Identity Protection**, haga clic en **Directiva de riesgo de usuario**.
 4. En la sección **Asignaciones**, seleccione los usuarios (y grupos) deseados y el nivel de riesgo del usuario.
@@ -145,7 +145,7 @@ Para obtener más información, consulte [Directiva de seguridad de riesgo del u
 
 **Para probar la directiva de riesgo de inicio de sesión, realice los pasos siguientes:**
 
-1. Inicie sesión en [https://portal.azure.com ](https://portal.azure.com) con las credenciales de administrador global para el inquilino.
+1. Inicie sesión en [https://portal.azure.com ](https://portal.azure.com) con las credenciales de administrador global del inquilino.
 
 2. Vaya a **Azure AD Identity Protection**.
 

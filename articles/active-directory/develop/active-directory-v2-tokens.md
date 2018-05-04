@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4479b3d34824b88f0a666b6185a6bc89337358a9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referencia de tokens de Azure Active Directory v2.0
 El punto de conexión de Azure Active Directory (Azure AD) v2.0 emite varios tipos de tokens de seguridad en cada [flujo de autenticación](active-directory-v2-flows.md). Esta referencia describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -73,9 +73,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario.  También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`.  Esto significa que puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph.  Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada.  Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 
 ### <a name="access-tokens"></a>Tokens de acceso
-Actualmente, solo los servicios Microsoft pueden consumir los tokens de acceso que emite el punto de conexión de la versión 2.0. Las aplicaciones no necesitan realizar ninguna validación o inspección de los tokens de acceso para ninguno de los escenarios admitidos actualmente. Los tokens de acceso se pueden tratar como completamente opacos. Solo son cadenas que la aplicación puede pasar a Microsoft en las solicitudes HTTP.
 
-En un futuro próximo, el extremo de la versión 2.0 podrá hacer que la aplicación reciba los tokens de acceso de otros clientes. En ese momento, la información que aparece en este tema de referencia se actualizará con la información que necesita para que la aplicación realice la validación del token de acceso y otras tareas similares.
+El punto de conexión de v2.0 permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información sobre cómo configurar una aplicación para emitir tokens de acceso, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Al registrar la aplicación con el punto de conexión v2.0, el desarrollador puede especificar niveles de acceso, denominados **ámbitos**, para los que se pueden emitir tokens de acceso. Por ejemplo, el ámbito **calendars.read** definido en Microsoft Graph API concede permiso para leer el calendario del usuario. Cuando la aplicación recibe un token de acceso del punto de conexión v2.0, debe validar la firma del token, el emisor, la audiencia, la hora de expiración y cualquier otra notificación según el escenario. 
 
 Cuando solicitas un token de acceso desde el punto de conexión de la versión 2.0, este punto de acceso también devuelve metadatos sobre el token de acceso para el uso de la aplicación. Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido. La aplicación usa estos metadatos para realizar un almacenamiento en caché inteligente de los tokens de acceso sin tener que analizar y abrir el token de acceso mismo.
 

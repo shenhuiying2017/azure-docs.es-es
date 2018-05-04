@@ -1,25 +1,22 @@
 ---
-title: Cambios realizados en un proyecto de WebAPI al conectarse a Azure AD | Microsoft Docs
+title: Cambios realizados en un proyecto de WebAPI al conectarse a Azure AD
 description: Se describe lo que sucede en el proyecto de WebAPI al conectarse a Azure AD mediante Visual Studio.
 services: active-directory
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: fc6506ccb7b4c9b7fa43a378df47094de92c73b6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b8303ccf6fc96e8d0708c9e414fdf511e0cf2fdf
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -35,7 +32,7 @@ Para más información sobre cómo trabajar con el servicio conectado, consulte 
 
 Afecta al archivo de proyecto (referencias de .NET) y `packages.config` (referencias de NuGet).
 
-| type | Referencia |
+| Escriba | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.Owin |
 | .NET; NuGet | Microsoft.Owin.Host.SystemWeb |
@@ -48,7 +45,7 @@ Afecta al archivo de proyecto (referencias de .NET) y `packages.config` (referen
 
 Referencias adicionales si ha seleccionado la opción **Leer datos de directorio**:
 
-| type | Referencia |
+| Escriba | Referencia |
 | --- | --- |
 | .NET; NuGet | EntityFramework |
 | .NET        | EntityFramework.SqlServer (solo Visual Studio 2015) |
@@ -62,7 +59,7 @@ Referencias adicionales si ha seleccionado la opción **Leer datos de directorio
 
 Se quitan las referencias siguientes (solo proyectos de ASP.NET 4, como en Visual Studio 2015):
 
-| type | Referencia |
+| Escriba | Referencia |
 | --- | --- |
 | .NET; NuGet | Microsoft.AspNet.Identity.Core |
 | .NET; NuGet | Microsoft.AspNet.Identity.EntityFramework |

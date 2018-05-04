@@ -1,9 +1,31 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 0ed42e4ace17db1e681152589cc46d82c26dddff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/28/2018
+---
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
-¿Quiere descargar este proyecto de Android Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) y vaya al [paso de configuración](#create-an-application-express) para configurar el código de ejemplo antes de ejecutarlo.
+¿Quiere descargar este proyecto de Android Studio de ejemplo en su lugar? [Descargue un proyecto](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) y vaya al [paso de configuración](#register-your-application) para configurar el código de ejemplo antes de ejecutarlo.
 
-### <a name="create-a-new-project"></a>Crear un nuevo proyecto 
+### <a name="create-a-new-project"></a>Creación de un nuevo proyecto 
 1.  Abra Android Studio y seleccione **File** > **New** > **New Project** (Archivo > Nuevo > Nuevo proyecto).
 2.  Dé un nombre a la aplicación y seleccione **Next** (Siguiente).
 3.  Asegúrese de seleccionar **API 21 o posterior (Android 5.0)** y haga clic en **Next** (Siguiente).

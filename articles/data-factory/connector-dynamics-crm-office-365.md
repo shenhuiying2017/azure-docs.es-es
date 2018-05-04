@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e68f8d4405ae82cfaae59b1e4d9dcea8b361baff
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -63,7 +63,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 |:--- |:--- |:--- |
 | Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"Online"** para Dynamics Online. | Sí |
-| organizationName | El nombre de la organización de la instancia de Dynamics. | No, se debe especificar cuando hay más de una instancia de Dynamics asociada al usuario |
+| serviceUri | Dirección URL de la instancia de Dynamics, por ejemplo, `https://adfdynamics.crm.dynamics.com`. | Sí |
 | authenticationType | Tipo de autenticación para conectarse a un servidor de Dynamics. Especifique **"Office365"** para Dynamics Online. | Sí |
 | nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
 | contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
@@ -71,6 +71,9 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 >[!IMPORTANT]
 >Al copiar datos a Dynamics, no podrá utilizarse el entorno de ejecución de integración predeterminado de Azure para ejecutar la copia. En otras palabras, si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración, [cree explícitamente un entorno de ejecución de integración de Azure](create-azure-integration-runtime.md#create-azure-ir) con una ubicación cercana a la de la instancia de Dynamics. Asócielo al servicio vinculado de Dynamics como en el ejemplo siguiente.
+
+>[!NOTE]
+>El conector de Dynamics permite utilizar la propiedad opcional "organizationName" para identificar la instancia de Dynamics CRM/365 Online. Mientras siga funcionando, es preferible especificar la nueva propiedad "serviceUri" en su lugar para un mejor rendimiento de detección de la instancia.
 
 **Ejemplo: Dynamics Online mediante la autenticación de Office 365**
 
@@ -82,7 +85,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {

@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ac6c3e428148a6609b264b0b8f8cff416b0fa4d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Escenario 1: Evaluación de las cargas de trabajo locales para la migración a Azure
 
@@ -24,7 +24,7 @@ Para dar los primeros pasos y conocer mejor las tecnologías implicadas, evalúa
 --- | --- | ---
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA evalúa y detecta problemas de compatibilidad que pueden afectar a la funcionalidad de la base de datos en Azure. Además, evalúa y presenta la paridad entre el origen y el destino de SQL Server, y ofrece recomendaciones para mejorar el rendimiento y la confiabilidad en su entorno de destino. | Es una herramienta que se puede descargar de forma gratuita. 
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Este servicio le ayuda a evaluar equipos locales para su migración a Azure. Evalúa la idoneidad de la migración de los equipos y proporciona cálculos de tamaño y costo de la ejecución en Azure. En la actualidad, el servicio Azure Migrate puede evaluar las máquinas virtuales de VMware locales para la migración a Azure. | Actualmente (abril de 2018) el uso de este servicio no tiene costo alguno.
-[Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate usa Service Map para mostrar las dependencias entre los equipos que se desea migrar. |  Service Map forma parte de Azure Log Analytics. Actualmente se puede utilizar durante 180 días sin ningún costo. 
+[Mapa de servicio](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate usa Service Map para mostrar las dependencias entre los equipos que se desea migrar. |  Service Map forma parte de Azure Log Analytics. Actualmente se puede utilizar durante 180 días sin ningún costo. 
 
 En este escenario, descargaremos y ejecutaremos DMA para evaluar la base de datos local de SQL Server de nuestra aplicación de viajes. Usaremos Azure Migrate con la asignación de dependencias para evaluar las máquinas virtuales de la aplicación antes de migrarlas a Azure.
 
@@ -45,7 +45,7 @@ En este escenario:
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para implementar este escenario, necesitará lo siguiente:
 
@@ -279,13 +279,13 @@ Antes de empezar, tenga en cuenta que actualmente el recopilador solo admite "In
     > [!NOTE]
     > Suponemos que la máquina virtual tiene acceso directo a Internet, sin un proxy.
 
-    ![Comprobar los requisitos previos](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
+    ![Verificar los requisitos previos](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
     
 
 5. En **Specify vCenter Server details** (Especificar detalles de vCenter Server), haga lo siguiente:
     - Especifique el nombre (FQDN) o la dirección IP del servidor vCenter.
     - En **Username** (Nombre de usuario) y **Password** (Contraseña), especifique las credenciales de la cuenta de solo lectura que utilizará el recopilador para detectar las máquinas virtuales en vCenter Server.
-    - En **Seleccionar ámbito**, especifique un ámbito para la detección de máquinas virtuales. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1000 VM. 
+    - En **Seleccionar ámbito**, especifique un ámbito para la detección de máquinas virtuales. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1500 máquinas virtuales. 
 
     ![Conectarse a vCenter](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 

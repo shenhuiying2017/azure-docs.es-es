@@ -1,23 +1,23 @@
 ---
-title: "Entidad de servicio del clúster de Azure Kubernetes"
-description: "Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en AKS"
+title: Entidad de servicio del clúster de Azure Kubernetes
+description: Cree y administre una entidad de servicio de Azure Active Directory para un clúster de Kubernetes en AKS
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 02/24/2018
+ms.date: 04/19/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a7c80b64a33f4f71c694f80bf3e68f39ecd01828
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 81f455668e81c2a6c21b66d85199da3f475e7265
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de servicio con Azure Container Service (AKS)
 
-Un clúster de AKS requiere una [entidad de servicio de Azure Active Directory][aad-service-principal] para interactuar con las API de Azure. La entidad de servicio se necesita para administrar dinámicamente recursos como las [rutas definidas por el usuario][user-defined-routes] y [Azure Load Balancer de nivel 4][azure-load-balancer-overview].
+Un clúster de AKS requiere una [entidad de servicio de Azure Active Directory][aad-service-principal] para interactuar con las API de Azure. La entidad de servicio se necesita para crear y administrar dinámicamente recursos como [Azure Load Balancer][azure-load-balancer-overview].
 
 Este artículo muestra distintas opciones para configurar una entidad de servicio para un clúster de Kubernetes en AKS.
 
@@ -80,10 +80,10 @@ Cuando trabaje con entidades de servicio de AKS y Azure AD, tenga en cuenta lo s
 
 * La entidad de servicio para Kubernetes forma parte de la configuración del clúster. Sin embargo, no use la identidad para implementar el clúster.
 * Cada entidad de servicio está asociada a una aplicación de Azure AD. La entidad de servicio de un clúster de Kubernetes puede asociarse con cualquier nombre de aplicación de Azure AD válido (por ejemplo, `https://www.contoso.org/example`). La dirección URL de la aplicación no tiene por qué ser un punto de conexión real.
-* Si especifica el valor **Id. de cliente** para la entidad de servicio, puede usar el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
+* Al especificar el valor de **Identificador de cliente** de la entidad de servicio, use el valor de `appId` (como se muestra en este artículo) o la entidad de servicio correspondiente `name` (por ejemplo, `https://www.contoso.org/example`).
 * En las máquinas virtuales principal y nodo del clúster de Kubernetes, las credenciales de la entidad de servicio se almacenan en el archivo `/etc/kubernetes/azure.json`.
-* Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/acsServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
-* Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Puede usar `az ad sp delete --id $clientID` para eliminarlo.
+* Cuando use el comando `az aks create` para generar la entidad de servicio automáticamente, sus credenciales se escriben en el archivo `~/.azure/aksServicePrincipal.json` de la máquina que se usa para ejecutar el comando.
+* Al eliminar un clúster de AKS creado mediante `az aks create`, no se eliminará la entidad de servicio que se creó automáticamente. Use `az ad sp delete --id $clientID` para eliminarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

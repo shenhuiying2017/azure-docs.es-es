@@ -111,6 +111,8 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: Acerca de Azure Traffic Manager con Site Recovery
       href: concepts-traffic-manager-with-site-recovery.md
+    - name: Acerca de ExpressRoute con Site Recovery
+      href: concepts-expressroute-with-site-recovery.md
     - name: Preguntas más frecuentes
       href: site-recovery-faq.md
 - name: Guías de procedimientos
@@ -119,16 +121,20 @@
       items:
         - name: Redes
           items:
-            - name: Administración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres (versión preliminar)
+            - name: Administración de redes de las máquinas virtuales de Azure en caso de recuperación ante desastres
               href: azure-to-azure-about-networking.md
             - name: Preparación de la asignación de redes durante la recuperación ante desastres de las máquinas virtuales de Azure
               href: azure-to-azure-network-mapping.md
             - name: Configuración de direcciones IP para la conmutación por error
               href: site-recovery-retain-ip-azure-vm-failover.md
+            - name: ExpressRoute con recuperación ante desastres de las máquinas virtuales de Azure
+              href: azure-vm-disaster-recovery-with-expressroute.md
         - name: Recuperación ante desastres
           items:
             - name: Recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Recuperación ante desastres de máquinas virtuales de Azure con PowerShell
+              href: azure-to-azure-powershell.md
         - name: 'Replicación, conmutación por error y conmutación por recuperación'
           items:
             - name: Habilitación de la replicación de Azure a Azure

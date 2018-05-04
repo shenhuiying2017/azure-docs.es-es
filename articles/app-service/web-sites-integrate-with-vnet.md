@@ -1,8 +1,8 @@
 ---
-title: "Integración de una aplicación con una instancia de Azure Virtual Network"
-description: "Muestra cómo conectar una aplicación de Azure App Service a una red virtual de Azure nueva o existente"
+title: Integración de una aplicación con una instancia de Azure Virtual Network
+description: Muestra cómo conectar una aplicación de Azure App Service a una red virtual de Azure nueva o existente
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
 editor: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: ccompy
-ms.openlocfilehash: b755197af7e8791e01273bcc25f72c0d92ef6bc2
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 83f5c64926eb9b718463c415a5478af374245f31
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integración de su aplicación con una instancia de Azure Virtual Network
 En este documento, se describe la característica Integración con redes virtuales de Azure App Service y se muestra cómo configurarla con aplicaciones en el [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Si no conoce las redes virtuales de Azure, se trata de una funcionalidad que le permite colocar muchos de sus recursos de Azure en una red no enrutable sin conexión a Internet cuyo acceso se controla. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre las redes virtuales de Azure, consulte: [Información general sobre Azure Virtual Network][VNETOverview]. 
@@ -57,7 +57,8 @@ Le recordamos algunos aspectos que debe tener en cuenta antes de conectar su apl
 
 * Integración con red virtual solo funciona con aplicaciones en un plan de precios **Estándar**, **Premium** o **Aislado**. Si habilita la característica y después escala su plan de App Service a un plan de precios no admitido, las aplicaciones pierden la conexión a las redes virtuales que estén usando. 
 * Si su red virtual de destino ya existe, debe tener habilitada la VPN de punto a sitio con una puerta de enlace de enrutamiento dinámico para que se pueda conectar a una aplicación. Si la puerta de enlace está configurada con enrutamiento estático, no puede habilitar una red privada virtual (VPN) de punto a sitio.
-* La red virtual debe compartir la misma suscripción que el plan de App Service (ASP). 
+* La red virtual debe compartir la misma suscripción que el plan de App Service (ASP).
+* Si la puerta de enlace ya existe con la conexión de punto a sitio habilitada y no está en el SKU básico, IKEV2 debe estar deshabilitado en la configuración de punto a sitio.
 * Las aplicaciones que se integran con una red virtual usarán el DNS que se especifique para esa red virtual.
 * De forma predeterminada, las aplicaciones que se integran solo enrutan el tráfico hacia la red virtual según las rutas definidas en la red virtual. 
 

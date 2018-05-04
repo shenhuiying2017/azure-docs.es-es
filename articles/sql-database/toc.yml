@@ -74,8 +74,10 @@
       href: sql-database-servers-databases.md
     - name: Instancia administrada
       href: sql-database-managed-instance.md
-    - name: Niveles de servicio
-      href: sql-database-service-tiers.md
+    - name: Niveles de servicio basados en DTU
+      href: sql-database-service-tiers-dtu.md
+    - name: Niveles de servicio basados en núcleos virtuales
+      href: sql-database-service-tiers-vcore.md
     - name: Escalado horizontal de lectura
       href: sql-database-read-scale-out.md
     - name: Límites de los recursos basados en DTU
@@ -412,8 +414,12 @@
               href: saas-tenancy-schema-management.md
             - name: Informes entre inquilinos
               href: saas-tenancy-cross-tenant-reporting.md
-            - name: 'Extracción, transformación y carga de datos para Analytics'
-              href: saas-tenancy-tenant-analytics.md
+            - name: Análisis de inquilinos
+              items:
+                - name: Con SQL Database
+                  href: saas-tenancy-tenant-analytics.md
+                - name: Con SQL DW
+                  href: saas-tenancy-tenant-analytics-adf.md
             - name: Recuperación ante desastres mediante la restauración geográfica
               href: saas-dbpertenant-dr-geo-restore.md
             - name: Recuperación ante desastres mediante la replicación geográfica de bases de datos

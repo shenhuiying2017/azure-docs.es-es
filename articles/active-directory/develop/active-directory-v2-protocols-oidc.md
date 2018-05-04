@@ -1,11 +1,11 @@
 ---
 title: Azure Active Directory v2.0 y el protocolo OpenID Connect | Microsoft Docs
-description: "Cree aplicaciones web mediante la implementación de Azure AD v2.0 del protocolo de autenticación OpenID Connect."
+description: Cree aplicaciones web mediante la implementación de Azure AD v2.0 del protocolo de autenticación OpenID Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 568c2128a12abd4f3c366eae943e3ea8c1af2532
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3f5b6a68cf6ee38d1dc2317381ec33f035c57569
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 y el protocolo OpenID Connect
 OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se puede usar para que un usuario inicie sesión de forma segura en una aplicación web. Cuando usa la implementación de OpenID Connect del punto de conexión v2.0, puede agregar inicio de sesión y acceso a API a las aplicaciones basadas en web. En este artículo se muestra cómo hacerlo, independientemente del lenguaje. Describiremos cómo enviar y recibir mensajes HTTP sin usar ninguna biblioteca de código abierto de Microsoft.
@@ -29,7 +29,7 @@ OpenID Connect es un protocolo de autenticación basado en OAuth 2.0 que se pued
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). Se recomienda usar OpenID Connect si compila una [aplicación web](active-directory-v2-flows.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) amplía el protocolo de *autorización* de OAuth 2.0 para usarlo como un protocolo de *autenticación*, lo que le permite realizar inicios de sesión únicos mediante OAuth. OpenID Connect presenta el concepto de un *token de identificador*, que es un token de seguridad que permite al cliente comprobar la identidad del usuario. El token de identificador también obtiene información de perfil básica sobre el usuario. Como OpenID Connect amplía OAuth 2.0, las aplicaciones pueden adquirir de forma segura *tokens de acceso*, que se pueden usar para obtener acceso a los recursos protegidos mediante un [servidor de autorización](active-directory-v2-protocols.md#the-basics). El punto de conexión de v2.0 también permite que las aplicaciones de terceros registradas con Azure AD emitan tokens de acceso para los recursos protegidos, como las API web. Para más información acerca de cómo configurar una aplicación para emitir tokens de acceso, consulte [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Se recomienda usar OpenID Connect si compila una [aplicación web](active-directory-v2-flows.md#web-apps) hospedada en un servidor y a la que se obtiene acceso a través de un explorador.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: inicio de sesión
 El diagrama siguiente muestra los pasos de un flujo de inicio de sesión más básico. En este artículo se describe detalladamente cada paso.
@@ -45,7 +45,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
-| Valor | Descripción |
+| Valor | DESCRIPCIÓN |
 | --- | --- |
 | `common` |Los usuarios con una cuenta personal de Microsoft y una cuenta profesional o educativa de Azure Active Directory (Azure AD) pueden iniciar sesión en la aplicación. |
 | `organizations` |Solo los usuarios con cuentas profesionales o educativas de Azure AD pueden iniciar sesión en la aplicación. |
@@ -78,7 +78,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 * El parámetro `response_type` debe incluir `id_token`.
 * La solicitud debe incluir el parámetro `nonce` .
 
-Por ejemplo:
+Por ejemplo: 
 
 ```
 // Line breaks are for legibility only.
@@ -99,7 +99,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > 
 > 
 
-| Parámetro | Condición | Descripción |
+| . | Condición | DESCRIPCIÓN |
 | --- | --- | --- |
 | tenant |Obligatorio |Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Obligatorio |El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
@@ -128,7 +128,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | ID_token |El token de identificador que la aplicación solicitó. Puede usar el parámetro `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. Para más detalles sobre los tokens de identificador y su contenido, consulte la [referencia a los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
 | state |Si un parámetro `state` está incluido en la solicitud, debería aparecer el mismo valor en la respuesta. La aplicación debería comprobar que los valores de estado de la solicitud y la respuesta son idénticos. |
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que puede usar para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |
@@ -152,7 +152,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 ### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de error correspondientes a errores de puntos de conexión de autorización
 En la tabla siguiente se describen los códigos de error que puede devolver el parámetro `error` de la respuesta de error:
 
-| Código de error | Descripción | Acción del cliente |
+| Código de error | DESCRIPCIÓN | Acción del cliente |
 | --- | --- | --- |
 | invalid_request |Error de protocolo, como un parámetro obligatorio que falta. |Corrija el error y vuelva a enviar la solicitud. Se trata de un error de desarrollo que habitualmente se detecta durante las pruebas iniciales. |
 | unauthorized_client |La aplicación cliente no puede solicitar un código de autorización. |Este error suele producirse cuando la aplicación cliente no está registrada en Azure AD o no se ha agregado al inquilino de Azure AD del usuario. La aplicación puede pedir al usuario consentimiento para instalar la aplicación y agregarla a Azure AD. |
@@ -188,7 +188,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parámetro | Condición | Descripción |
+| . | Condición | DESCRIPCIÓN |
 | ----------------------- | ------------------------------- | ------------ |
 | post_logout_redirect_uri | Recomendado | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si no se incluye el parámetro, se muestra al usuario un mensaje genérico que genera el punto de conexión v2.0. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones.  |
 
@@ -239,7 +239,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | ID_token |El token de identificador que la aplicación solicitó. Puede usar el token de identificador para comprobar la identidad del usuario y comenzar una sesión con el usuario. Encontrará más detalles sobre los tokens de identificador y su contenido en la [referencia a los tokens del punto de conexión v2.0](active-directory-v2-tokens.md). |
 | código |El código de autorización que la aplicación solicitó. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Un código de autorización tiene una duración muy breve. Habitualmente, un código de autorización expira en alrededor de 10 minutos. |
@@ -256,7 +256,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Parámetro | Description |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | error |Una cadena de código de error que puede usar para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
 | error_description |Un mensaje de error específico que puede ayudarlo a identificar la causa raíz de un error de autenticación. |

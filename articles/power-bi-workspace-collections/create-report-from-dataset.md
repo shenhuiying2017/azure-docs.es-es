@@ -1,33 +1,33 @@
 ---
-title: "Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI | Microsoft Docs"
-description: "Los informes de Colección de áreas de trabajo de Power BI ahora se pueden crear a partir de un conjunto de datos de su propia aplicación."
+title: Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI | Microsoft Docs
+description: Los informes de Colección de áreas de trabajo de Power BI ahora se pueden crear a partir de un conjunto de datos de su propia aplicación.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Creación de un nuevo informe a partir de un conjunto de datos en Colecciones de áreas de trabajo de Power BI
 
 Los informes de Colección de áreas de trabajo de Power BI ahora se pueden crear a partir de un conjunto de datos de su propia aplicación.
 
 > [!IMPORTANT]
-> Colecciones de áreas de trabajo de Power BI está en desuso y estará disponible hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para obtener más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de la colección de áreas de trabajo de Power BI Embedded a Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
+> Las colecciones de áreas de trabajo de Power BI están en desuso y estarán disponibles hasta junio de 2018 o hasta cuando lo indique su contrato. Se recomienda planear la migración a Power BI Embedded para evitar la interrupción de la aplicación. Para más información sobre cómo migrar los datos a Power BI Embedded, consulte [Migración de contenido de Colección de áreas de trabajo de Power BI a Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
 El método de autenticación es similar al de la inserción de informes. Se basa en tokens de acceso que son específicos de un conjunto de datos. Los tokens que se usan para PowerBI.com los emite Azure Active Directory (AAD). Los tokens de Colección de áreas de trabajo de Power BI los emite su propia ampliación.
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Creación de un informe en blanco nuevo
 
-Para crear un informe nuevo, debe proporcionarse la configuración de creación. Aquí se debe incluir el token de acceso y los valores de embedURL y el datasetID con los que deseamos crear el informe. Esto requiere instalar el paquete NuGet [Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). El valor de embedUrl será https://embedded.powerbi.com/appTokenReportEmbed.
+Para crear un informe nuevo, debe proporcionarse la configuración de creación. Aquí se debe incluir el token de acceso y los valores de embedURL y el datasetID con los que deseamos crear el informe. Esto requiere instalar el paquete NuGet [Power BI JavaScript](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). El valor de embedUrl será simplemente https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Puede usar el [ejemplo de inserción de informe JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/) para probar la funcionalidad. También proporciona ejemplos de código de las distintas operaciones que están disponibles.
@@ -203,8 +203,8 @@ var embedCreateConfiguration = {
 
 [Get started with Microsoft Power BI Embedded sample (Introducción a Microsoft Power BI Embedded: ejemplo)](get-started-sample.md)  
 [Almacenamiento de informes](save-reports.md)  
-[Embed a report in Power BI Embedded](embed-report.md) (Inserción de un informe en Power BI Embedded)  
-[Autenticación y autorización con Colecciones de áreas de trabajo de Power BI](app-token-flow.md)  
+[Inserción de un informe](embed-report.md)  
+[Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md) (Autenticación y autorización en las colecciones de áreas de trabajo de Power BI)  
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/) (Ejemplo de inserción de JavaScript)  
 [Paquete NuGet Power BI Core](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  

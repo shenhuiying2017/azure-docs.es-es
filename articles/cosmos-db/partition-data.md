@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/14/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f4825d7393b4507b1cd512f3e33c5637fea8ba2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 35636543ac4cbd260e9db2f6ca5d1548a7329858
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partición y escalado en Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Cuando un contenedor cumple los [requisitos previos de la creación de particion
 En resumen, la creación de particiones funciona en Azure Cosmos DB de la siguiente manera:
 
 * Va a aprovisionar un contenedor de Azure Cosmos DB con una capacidad de proceso de **T** RU/s (solicitudes por segundo).
-* En un segundo plano, Azure Cosmos DB aprovisiona las particiones necesarias para atender **T** solicitudes por segundo. Si **T** es superior al rendimiento máximo por partición **t**,Azure Cosmos DB aprovisiona **N = T/t** particiones.
+* En un segundo plano, Azure Cosmos DB aprovisiona las particiones necesarias para atender **T** solicitudes por segundo. Si **T** es superior al rendimiento máximo por partición **t**,Azure Cosmos DB aprovisiona **N = T/t** particiones. El valor de rendimiento máximo por partición(t) se configura mediante Azure Cosmos DB, y dicho valor se asigna en función del rendimiento aprovisionado total y de la configuración de hardware que se utiliza. 
 * Azure Cosmos DB asigna el espacio de claves de los hash de claves de partición uniformemente en las **N** particiones. De este modo, cada partición (partición física) hospeda **1/N** valores de clave de partición (particiones lógicas).
 * Si una partición física **p** alcanza su límite de almacenamiento, Azure Cosmos DB divide **p** en dos nuevas particiones, **p1** y **p2**. Distribuye los valores correspondientes a la mitad de las claves, aproximadamente, a cada una de las nuevas particiones. Esta operación de división es completamente invisible para la aplicación. Si una partición física alcanza su límite de almacenamiento y todos los datos en la partición física pertenecen a la misma clave de partición lógica, no tiene lugar la operación de división. Esto se debe a que todos los datos de una clave de partición lógica única deben residir en la misma partición física. En este caso se debe emplear una estrategia de claves de partición diferente.
 * Si el rendimiento que aprovisiona es mayor que **t*N**, Azure Cosmos DB divide una o varias de sus particiones para respaldar el rendimiento más alto.

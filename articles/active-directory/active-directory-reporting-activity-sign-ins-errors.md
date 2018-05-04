@@ -1,25 +1,25 @@
 ---
-title: "Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs"
-description: "Referencia sobre los códigos de error de los informes de actividad de inicio de sesión."
+title: Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory | Microsoft Docs
+description: Referencia sobre los códigos de error de los informes de actividad de inicio de sesión.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e5d477aa74d3d0588e33363888d84e860d4b2f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -65,6 +65,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |50055|La contraseña no es válida o ha expirado.|
 |50057|La cuenta de usuario está deshabilitada.|
 |50058|No se encontró información acerca de la identidad del usuario entre las credenciales proporcionadas, o no se encontró al usuario en el inquilino, o se envió una solicitud de inicio de sesión silenciosa pero ningún usuario inició sesión, o el servicio no pudo autenticar al usuario.|
+|50072|El usuario debe inscribirse para el segundo factor de autenticación (interactivo).|
 |50074|El usuario no superó el desafío MFA.|
 |50079|El usuario debe inscribirse para el segundo factor de autenticación.|
 |50089|Error de validación del token de flujo, porque este ha caducado.|
@@ -97,7 +98,6 @@ En la siguiente sección se proporciona una información general completa de tod
 |81013|No se encuentra el objeto de usuario con la información del vale de Kerberos del usuario.|
 |90014|Se utiliza en varios casos cuando un campo esperado no está presente en la credencial.|
 |90093|Se devolvió un gráfico con un código de error prohibido para la solicitud.|
-
 
 
 ## <a name="next-steps"></a>Pasos siguientes

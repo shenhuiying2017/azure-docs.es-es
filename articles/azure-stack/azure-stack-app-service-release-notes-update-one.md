@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fedf511e06243d5c0652e422b397bb00da3b42c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notas de la versión de App Service en la actualización 1 de Azure Stack
 
@@ -39,7 +39,7 @@ El número de compilación de la actualización 1 de App Service en Azure Stack 
 ### <a name="prerequisites"></a>requisitos previos
 
 > [!IMPORTANT]
-> Las nuevas implementaciones de Azure App Service en Azure Stack requieren ahora un [certificado comodín con tres firmantes](azure-stack-app-service-before-you-get-started.md#get-certificates) debido a las mejoras en la forma en que se trata SSO para Kudu en este momento en Azure App Service.  El nuevo tema es ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Las nuevas implementaciones de Azure App Service en Azure Stack requieren ahora un [certificado comodín con tres firmantes](azure-stack-app-service-before-you-get-started.md#get-certificates) debido a las mejoras en la forma en que se trata SSO para Kudu en este momento en Azure App Service. El nuevo tema es ** *. sso.appservice.<region>. <domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Remítase a la [documentación de introducción](azure-stack-app-service-before-
 
 La actualización 1 de Azure App Service en Azure Stack incluye las siguientes correcciones y mejoras:
 
-- **Alta disponibilidad de Azure App Service**: la actualización 1802 de Azure Stack permitía que las cargas de trabajo se implementaran en dominios con errores.  Por lo tanto, la infraestructura de App Service es tolerante a errores ya que se implementará en dominios con error.  De forma predeterminada, todas las nuevas implementaciones de Azure App Service tendrán esta funcionalidad; sin embargo, para las implementaciones secundarias completadas antes de que se aplicara la actualización 1802 de Azure Stack, consulte la [documentación del dominio de error de App Service](azure-stack-app-service-fault-domain-update.md).
+- **Alta disponibilidad de Azure App Service**: la actualización 1802 de Azure Stack permitía que las cargas de trabajo se implementaran en dominios con errores. Por lo tanto, la infraestructura de App Service es tolerante a errores ya que se implementará en dominios con error. De forma predeterminada, todas las nuevas implementaciones de Azure App Service tienen esta funcionalidad. Para las implementaciones completadas antes de aplicarse la actualización 1802 de Azure Stack, consulte la [documentación del dominio de error de App Service](azure-stack-app-service-fault-domain-update.md).
 
-- **Implementación en la red virtual existente**: los clientes ahora pueden implementar App Service en Azure Stack dentro de una red virtual existente.  La implementación de una red virtual existente permite a los clientes conectarse al servidor de archivos y a SQL Server, lo que es necesario para Azure App Service, a través de puertos privados.  Durante la implementación, los clientes pueden seleccionar llevarla a cabo en una red virtual existente, sin embargo [deben crear subredes para que App Service las use](azure-stack-app-service-before-you-get-started.md#virtual-network) antes de la implementación.
+- **Implementación en la red virtual existente**: los clientes ahora pueden implementar App Service en Azure Stack dentro de una red virtual existente. La implementación de una red virtual existente permite a los clientes conectarse al servidor de archivos y a SQL Server, lo que es necesario para Azure App Service, a través de puertos privados. Durante la implementación, los clientes pueden seleccionar llevarla a cabo en una red virtual existente, sin embargo [deben crear subredes para que App Service las use](azure-stack-app-service-before-you-get-started.md#virtual-network) antes de la implementación.
 
-- Actualizaciones de las **herramientas de Kudu, los portales de Functions, Admin e inquilino de App Service**.  Es coherente con la versión del SDK de Azure Stack Portal.
+- Actualizaciones de las **herramientas de Kudu, los portales de Functions, Admin e inquilino de App Service**. Es coherente con la versión del SDK de Azure Stack Portal.
 
 - **Actualizaciones de las herramientas y plataformas de aplicaciones siguientes**:
     - Se agregó compatibilidad con **.Net Core 2.0**
@@ -105,11 +105,11 @@ La actualización 1 de Azure App Service en Azure Stack incluye las siguientes c
 
 - Errores de validación de certificados
 
-Algunos clientes han experimentado problemas al proporcionar los certificados al instalador de App Service al realizar la implementación sobre un sistema integrado, debido a la validación demasiado restrictiva del instalador.  El instalador de App Service se ha lanzado de nuevo, así que los clientes deben [descargar la versión actualizada](https://aka.ms/appsvconmasinstaller).  Si sigue experimentando problemas al validar los certificados con el instalador actualizado, póngase en contacto con el soporte técnico.
+Algunos clientes han experimentado problemas al proporcionar los certificados al instalador de App Service al realizar la implementación sobre un sistema integrado, debido a la validación demasiado restrictiva del instalador. El instalador de App Service se ha lanzado de nuevo, así que los clientes deben [descargar la versión actualizada](https://aka.ms/appsvconmasinstaller). Si sigue experimentando problemas al validar los certificados con el instalador actualizado, póngase en contacto con el soporte técnico.
 
 - Problema al recuperar el certificado raíz de Azure Stack del sistema integrado
 
-Un error en Get-AzureStackRootCert.ps1 hizo que los clientes no pudieran recuperar el certificado raíz de Azure Stack al ejecutar el script en una máquina que no tiene instalado dicho certificado.  El script también se ha vuelto a lanzar, lo que resuelve el problema, y se solicita a los clientes que [descarguen los scripts auxiliares actualizados](https://aka.ms/appsvconmashelpers).  Si sigue experimentando problemas al recuperar el certificado raíz con el script actualizado, póngase en contacto con el soporte técnico.
+Un error en Get-AzureStackRootCert.ps1 hizo que los clientes no pudieran recuperar el certificado raíz de Azure Stack al ejecutar el script en una máquina que no tiene instalado dicho certificado. El script también se ha vuelto a lanzar, lo que resuelve el problema, y se solicita a los clientes que [descarguen los scripts auxiliares actualizados](https://aka.ms/appsvconmashelpers). Si sigue experimentando problemas al recuperar el certificado raíz con el script actualizado, póngase en contacto con el soporte técnico.
 
 ### <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
@@ -119,12 +119,12 @@ Un error en Get-AzureStackRootCert.ps1 hizo que los clientes no pudieran recuper
 
 - El intercambio de espacios no funciona
 
-El intercambio de espacios del sitio se ha interrumpido en esta versión.  Para restaurar la funcionalidad, siga estos pasos:
+El intercambio de espacios del sitio se ha interrumpido en esta versión. Para restaurar la funcionalidad, siga estos pasos:
 
-1. Modifique el grupo de seguridad de red ControllersNSG para **permitir** conexiones de Escritorio remoto a las instancias de controlador de App Service.  Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
+1. Modifique el grupo de seguridad de red ControllersNSG para **permitir** conexiones de Escritorio remoto a las instancias de controlador de App Service. Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ El intercambio de espacios del sitio se ha interrumpido en esta versión.  Para 
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Vaya a **CN0-VM** en Virtual Machines en el portal del administrador de Azure Stack y haga clic en **Connect** (Conectar) para abrir una sesión de Escritorio remoto con la instancia de controlador.  Use las credenciales especificadas durante la implementación de App Service.
+2. Vaya a **CN0-VM** en Virtual Machines en el portal del administrador de Azure Stack y haga clic en **Connect** (Conectar) para abrir una sesión de Escritorio remoto con la instancia de controlador. Use las credenciales especificadas durante la implementación de App Service.
 3. Inicie **PowerShell como administrador** y ejecute el siguiente script:
 
     ```powershell
@@ -171,11 +171,11 @@ El intercambio de espacios del sitio se ha interrumpido en esta versión.  Para 
     ```
 
 4. Cierre la sesión de Escritorio remoto.
-5. Revierta el grupo de seguridad de red ControllersNSG para **denegar** las conexiones de Escritorio remoto a las instancias de controlador de App Service.  Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
+5. Revierta el grupo de seguridad de red ControllersNSG para **denegar** las conexiones de Escritorio remoto a las instancias de controlador de App Service. Reemplace AppService.local por el nombre del grupo de recursos en el que implementó App Service.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ El intercambio de espacios del sitio se ha interrumpido en esta versión.  Para 
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- Los trabajos no pueden llegar al servidor de archivos cuando App Service está implementada en una red virtual existente y el servidor de archivos solo está disponible en la red privada.
+ 
+Si decide implementar en una red virtual existente y usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida, que habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos. Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+ * Origen: Cualquiera
+ * Intervalo de puertos de origen: *
+ * Destino: Direcciones IP
+ * Intervalo de direcciones IP de destino: intervalo de direcciones IP del servidor de archivos
+ * Intervalo de puertos de destino: 445
+ * Protocolo: TCP
+ * Acción: Permitir
+ * Prioridad: 700
+ * Nombre: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemas conocidos para los administradores en la nube que trabajan con Azure App Service en Azure Stack
 

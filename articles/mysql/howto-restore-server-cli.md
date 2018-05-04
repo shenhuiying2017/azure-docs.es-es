@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Copia de seguridad y restauración de un servidor en Azure Database for MySQL mediante la CLI de Azure
 
@@ -68,14 +68,14 @@ Elija la configuración del servidor para copias de seguridad con redundancia lo
 
 Al crear un servidor mediante el comando `az mysql server create`, el parámetro `--geo-redundant-backup` decide la opción de redundancia de copia de seguridad. Si `Enabled`, se toman las copias de seguridad con redundancia geográfica. O si `Disabled`, se toman las copias de seguridad con redundancia local. 
 
-El período de retención de la copia de seguridad se configura mediante el parámetro `--backup-retention-days`. 
+El período de retención de la copia de seguridad se configura mediante el parámetro `--backup-retention`. 
 
 Para más información acerca de cómo establecer estos valores durante la creación, consulte la [guía de inicio rápido de la CLI del servidor de Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 El período de retención de copia de seguridad de un servidor se puede cambiar de la forma siguiente:
 
 ```azurecli-interactive
-az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az mysql server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 En el ejemplo anterior se cambia el período de retención de copia de seguridad de mydemoserver a 10 días.

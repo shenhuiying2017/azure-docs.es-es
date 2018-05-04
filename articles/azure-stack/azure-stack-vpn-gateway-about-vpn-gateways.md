@@ -1,11 +1,11 @@
 ---
 title: Acerca de VPN Gateway para Azure Stack | Microsoft Docs
-description: "Obtenga información y configure las puertas de enlace VPN que se utilizan con Azure Stack."
+description: Obtenga información y configure las puertas de enlace VPN que se utilizan con Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
 ms.service: azure-stack
 ms.workload: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: ba9642d8c51f57623aded44b84d7127334806bc1
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca de VPN Gateway para Azure Stack
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 
 Antes de poder enviar tráfico de red entre una red virtual de Azure y un sitio local, es preciso crear una puerta de enlace de red virtual para la red virtual.
@@ -42,11 +42,11 @@ Cada red virtual solo puede tener dos puertas de enlace de red virtual, pero sol
 ## <a name="configuring-a-vpn-gateway"></a>Configuración de una instancia de VPN Gateway
 Una conexión de puerta de enlace de VPN se basa en varios recursos con una configuración específica. La mayoría de los recursos puede configurarse por separado, aunque en algunos casos es necesario seguir un orden determinado.
 
-### <a name="settings"></a>Configuración
+### <a name="settings"></a>Settings
 La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información acerca de los recursos individuales y la configuración de VPN Gateway, consulte [VPN gateway configuration settings for Azure Stack](azure-stack-vpn-gateway-settings.md) (Acerca de la configuración de VPN Gateway para Azure Stack). Puede encontrar información que le ayude a conocer los tipos de puerta de enlace, los tipos de VPN, los tipos de conexión, las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que puede tener en cuenta.
 
 ### <a name="deployment-tools"></a>Herramientas de implementación
-Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en Azure Portal. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica.
+Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como el portal de Azure. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en el portal de Azure. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica.
 
 ## <a name="connection-topology-diagrams"></a>Diagramas de topologías de conexión
 Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. En las secciones siguientes, puede ver información y diagramas de topología sobre las siguientes conexiones de VPN Gateway. En las secciones siguientes se incluyen tablas que enumeran:
@@ -87,13 +87,14 @@ Al seleccionar un SKU, considere los siguientes factores:
 ## <a name="estimated-aggregate-throughput-by-sku"></a>Rendimiento agregado estimado por SKU
 En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento agregado estimado por SKU de puerta de enlace.
 
-|   | Rendimiento de VPN Gateway *(1)* |Túneles IPsec máx. de VPN Gateway |
+|   | Rendimiento de VPN Gateway *(1)* | Túneles IPsec máx. de VPN Gateway *(2)* |
 |-------|-------|-------|
-|**SKU de nivel Básico** ***(2)***    | 100 Mbps  | 10    |
+|**SKU Básico** ***(3)***    | 100 Mbps  | 10    |
 |**SKU estándar**       | 100 Mbps  | 10    |
-|**SKU de alto rendimiento** | 200 Mbps    | 30    |
+|**SKU de alto rendimiento** | 200 Mbps    | 5 |
 ***(1)*** El rendimiento de la VPN no está garantizado para las conexiones entre locales a través de Internet. Es el valor máximo posible del rendimiento.  
-***(2)*** BGP no es compatible con la SKU de nivel Básico.
+***(2)*** El número de túneles máximo es el total por cada implementación de Azure Stack para TODAS las suscripciones.
+***(3)*** BGP no es compatible con la SKU de nivel Básico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información acerca de la [configuración de las puertas de enlace VPN](azure-stack-vpn-gateway-settings.md) para Azure Stack.

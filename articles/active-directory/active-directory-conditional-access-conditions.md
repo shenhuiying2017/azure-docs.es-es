@@ -1,30 +1,30 @@
 ---
 title: Condiciones del acceso condicional de Azure Active Directory | Microsoft Docs
-description: "Aprenda cómo se utilizan las asignaciones en el acceso condicional a Azure Active Directory para desencadenar una directiva."
+description: Aprenda cómo se utilizan las asignaciones en el acceso condicional a Azure Active Directory para desencadenar una directiva.
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2415a2c2c0143b4abeb8ec1ecab379a204456874
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 168301bbd0e7a59330ee6c87d1821db3fca39f67
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condiciones del acceso condicional de Azure Active Directory 
 
-Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, se define la respuesta ("hacer esto") a una motivo para desencadenar la directiva ("cuando esto sucede"). 
+Con el [acceso condicional de Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md), puede controlar el modo en que los usuarios autorizados acceden a las aplicaciones en la nube. En una directiva de acceso condicional, definirá la respuesta ("haga esto") al motivo para desencadenarla ("cuando esto suceda"). 
 
 ![Control](./media/active-directory-conditional-access-conditions/10.png)
 
@@ -71,7 +71,7 @@ La condición de aplicaciones de nube es obligatoria en una directiva de acceso 
 
 Puede seleccionar:
 
-- **Todas las aplicaciones en la nube** para establecer como referencia las directivas de línea de base que se aplicarán a toda la organización. Un caso de uso común para esta selección es una directiva que requiere autenticación multifactor cuando se detecta un riesgo de inicio de sesión en cualquier aplicación de nube.
+- **Todas las aplicaciones en la nube** para establecer como referencia las directivas de línea de base que se aplicarán a toda la organización. Un caso de uso común para esta selección es una directiva que requiere autenticación multifactor cuando se detecta un riesgo de inicio de sesión en cualquier aplicación de nube. Una directiva que se aplica a **todas las aplicaciones en la nube** se aplica al acceso a todos los sitios web y servicios. Este valor no se limita solo a las aplicaciones en la nube que aparecen en la lista **Seleccionar aplicaciones en la nube**.
 
 - Aplicaciones de nube individuales para dirigir servicios específicos por directiva. Por ejemplo, puede requerir que los usuarios tengan un [dispositivo compatible](active-directory-conditional-access-policy-connected-applications.md) para acceder a SharePoint Online. Esta directiva también se aplica a otros servicios cuando se accede al contenido de SharePoint, por ejemplo, Microsoft Teams. 
 

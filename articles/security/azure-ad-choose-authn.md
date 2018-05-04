@@ -9,11 +9,11 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: e7f894733546fa8949902a82f4ae3a9c62b749c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 102fa06be3734fa6993616f752922433ee0dee7f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="choosing-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selección del método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory 
 
@@ -87,7 +87,7 @@ Para ver los pasos de implementación, consulte [Implementación de la sincroniz
 
 * **Experiencia del usuario:** se recomienda que las organizaciones implementen el inicio de sesión único completo con la autenticación de paso a través con el fin de mejorar la experiencia de inicio de sesión del usuario, ya que se evitan mensajes innecesarios una vez que han iniciado la sesión.
 
-* **Escenarios avanzados:** la autenticación de paso a través garantiza que las solicitudes de autenticación se deniegan inmediatamente cuando el estado de la cuenta de un usuario local es deshabilitada, bloqueada o contraseña expirada. Las organizaciones que requieren la autenticación multifactor con autenticación de paso a través deben usar la autenticación multifactor de Azure AD y no pueden usar métodos de autenticación multifactor locales o de terceros. Características avanzadas, como el informe de credenciales filtradas de Identity Protection requieren que se implemente la sincronización de hash de contraseñas con independencia de si se elige la autenticación de paso a través.
+* **Escenarios avanzados:** la autenticación de paso a través garantiza que las solicitudes de autenticación se deniegan inmediatamente cuando el estado de la cuenta de un usuario local es deshabilitada, bloqueada, contraseña expirada o no se encuentra dentro de las horas de inicio de sesión permitidas del usuario. Las organizaciones que requieren la autenticación multifactor con autenticación de paso a través deben usar la autenticación multifactor de Azure AD y no pueden usar métodos de autenticación multifactor locales o de terceros. Características avanzadas, como el informe de credenciales filtradas de Identity Protection requieren que se implemente la sincronización de hash de contraseñas con independencia de si se elige la autenticación de paso a través.
 
 * **Continuidad empresarial:** se recomienda implementar dos agentes de paso a través adicionales, además del primer agente, en el servidor de Azure AD Connect para garantizar la alta disponibilidad de las solicitudes de autenticación. Cuando hay tres agentes implementados, un agente puede dejar de funcionar cuando otro agente está inactivo por mantenimiento. Otra ventaja de implementar la sincronización de hash de contraseñas además de la autenticación de paso a través, es que puede funcionar como método de autenticación de reserva cuando el método de autenticación principal deje de estar disponible; por ejemplo, cuando los servidores locales no están disponibles.
 

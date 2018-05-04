@@ -1,12 +1,12 @@
 ---
 title: 'Control de errores con Durable Functions: Azure'
-description: "Aprenda a controlar errores en la extensión Durable Functions para Azure Functions."
+description: Aprenda a controlar errores en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ee5362d33bb9dadadb4194457cfd7726f4825f56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 108c6020956b398effb8ba9dd4471190362359d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Control de errores con Durable Functions (Azure Functions)
 
@@ -26,7 +26,7 @@ Las orquestaciones de Durable Functions se implementan en el código y pueden ut
 
 ## <a name="errors-in-activity-functions"></a>Errores en funciones de actividad
 
-Cualquier excepción que se produce en una función de actividad se devuelve a la función de orquestador en el búfer y se inicia como `TaskFailedException`. Puede escribir código de control y compensación de errores que se adapte a sus necesidades en la función de orquestador.
+Cualquier excepción que se produce en una función de actividad se devuelve a la función de orquestador en el búfer y se inicia como `FunctionFailedException`. Puede escribir código de control y compensación de errores que se adapte a sus necesidades en la función de orquestador.
 
 Por ejemplo, considere la siguiente función de orquestador que transfiere fondos de una cuenta a otra:
 
@@ -80,7 +80,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }

@@ -12,24 +12,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: af09df52fe733b69cfe4470de2fd6e978f126ca0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3d6a47ba184b4bbbd290a61c581ae8b83b9361af
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configuración de Log Analytics para un clúster
 
-Puede configurar un área de trabajo de Log Analytics mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si realiza el mantenimiento de una plantilla actualizada de Resource Manager de su implementación para usarla en un futuro, use la misma plantilla para configurar el entorno de OMS. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar OMS, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
+Log Analytics es nuestra recomendación para supervisar eventos de nivel de clúster. Puede configurar un área de trabajo de Log Analytics mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si realiza el mantenimiento de una plantilla actualizada de Resource Manager de su implementación para usarla en un futuro, use la misma plantilla para configurar el entorno de Log Analytics. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
 
 > [!NOTE]
-> Para configurar Log Analytics con el fin de supervisar el clúster, debe haber habilitado los diagnósticos para ver los eventos de nivel de plataforma o de clúster.
+> Para configurar Log Analytics con el fin de supervisar el clúster, debe haber habilitado los diagnósticos para ver los eventos de nivel de plataforma o de clúster. Consulte [cómo configurar diagnósticos en clústeres de Windows](service-fabric-diagnostics-event-aggregation-wad.md) y [cómo configurar diagnósticos en clústeres de Linux](service-fabric-diagnostics-event-aggregation-lad.md) para más información
 
-## <a name="deploy-oms-by-using-azure-marketplace"></a>Implementación de OMS mediante Azure Marketplace
+## <a name="deploy-a-log-analytics-workspace-by-using-azure-marketplace"></a>Implementación de un área de trabajo de Log Analytics mediante Azure Marketplace
 
-Si quiere agregar un área de trabajo de OMS después de haber implementado un clúster, vaya a Azure Marketplace en el portal y busque **Service Fabric Analytics**:
+Si quiere agregar un área de trabajo de Log Analytics después de haber implementado un clúster, vaya a Azure Marketplace en el portal y busque **Service Fabric Analytics**. Esta es una solución personalizada para implementaciones de Service Fabric que tiene datos específicos de Service Fabric. En este proceso creará tanto la solución (el panel para ver información) como el área de trabajo (la agregación de los datos del clúster subyacentes).
 
 1. Haga clic en **Nuevo** en el menú de navegación de la izquierda. 
 
@@ -39,7 +39,7 @@ Si quiere agregar un área de trabajo de OMS después de haber implementado un c
 
     ![SF Analytics en OMS con Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. En la ventana de creación de Service Fabric Analytics, haga clic en **Seleccione un área de trabajo** para el campo **Área de trabajo de OMS** y haga clic en **Create a new workspace** (Crear un área de trabajo). Rellene las entradas necesarias. El único requisito en este caso es que la suscripción del clúster de Service Fabric sea la misma que la del área de trabajo de OMS. Después de haber validado las entradas, el área de trabajo de OMS comienza la implementación. Esta operación solo tarda unos minutos.
+4. En la ventana de creación de Service Fabric Analytics, haga clic en **Seleccione un área de trabajo** para el campo **Área de trabajo de OMS** y haga clic en **Create a new workspace** (Crear un área de trabajo). Rellene las entradas necesarias. El único requisito en este caso es que la suscripción del clúster de Service Fabric sea la misma que la del área de trabajo. Después de haber validado las entradas, el área de trabajo comienza la implementación. Esta operación solo tarda unos minutos.
 
 5. Cuando termine, seleccione **Crear** de nuevo en la parte inferior de la ventana de creación de Service Fabric Analytics. Asegúrese de que la nueva área de trabajo aparece en **Área de trabajo de OMS**. Esta acción agrega la solución al área de trabajo que ha creado.
 
@@ -48,9 +48,9 @@ Si usa Windows, continúe con los siguientes pasos para conectar OMS a la cuenta
 >[!NOTE]
 >La habilitación de esta experiencia para clústeres de Linux aún no está disponible. 
 
-### <a name="connect-the-oms-workspace-to-your-cluster"></a>Conexión del área de trabajo de OMS al clúster 
+### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conexión del área de trabajo de Log Analytics al clúster 
 
-1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfOMSWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución, la configuración del área de trabajo y acceder al portal de OMS.
+1. El área de trabajo debe conectarse a los datos de diagnóstico que proceden del clúster. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione **ServiceFabric\<nameOfWorkspace\>** y vaya a su página de información general. Desde allí, puede cambiar la configuración de la solución, la configuración del área de trabajo y acceder al portal de OMS.
 
 2. En el menú de navegación izquierdo, haga clic en **Orígenes de datos del área de trabajo**, seleccione **Registros de las cuentas de almacenamiento**.
 

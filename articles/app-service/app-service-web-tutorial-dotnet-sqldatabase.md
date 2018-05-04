@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Creación de una aplicación ASP.NET en Azure con SQL Database
 
@@ -145,6 +145,9 @@ Se genera un nombre de servidor único. Este nombre se usa como parte de la dire
 Agregue un nombre de usuario y una contraseña de administrador. Para conocer los requisitos de complejidad de la contraseña, consulte [Directivas de contraseñas](/sql/relational-databases/security/password-policy).
 
 Recuerde este nombre de usuario y esta contraseña. Los necesitará más adelante para administrar la instancia del servidor lógico.
+
+> [!IMPORTANT]
+> Aunque la contraseña de las cadenas de conexión está enmascarada (en Visual Studio y también en App Service), el hecho de que se conserva en otro lugar se suma a la superficie expuesta a ataques de la aplicación. App Service puede usar [identidades de servicio administradas](app-service-managed-service-identity.md) para quitar este riesgo eliminando por completo la necesidad de conservar secretos en el código o en la configuración de la aplicación. Para más información, consulte la sección [Pasos siguientes](#next-steps).
 
 ![Creación de una instancia de SQL Server](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -413,8 +416,6 @@ De forma predeterminada, el portal muestra la página **Información general**. 
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
@@ -427,7 +428,7 @@ En este tutorial aprendió lo siguiente:
 > * Transmitir registros desde Azure a un terminal
 > * Administrar la aplicación en Azure Portal
 
-Pase al siguiente tutorial para saber cómo asignar un nombre DNS personalizado a la aplicación web.
+Avance hasta el siguiente tutorial para aprender a mejorar fácilmente la seguridad de la conexión con Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Asignar un nombre DNS personalizado a Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Acceso seguro a SQL Database mediante una identidad de servicio administrada](app-service-web-tutorial-connect-msi.md)

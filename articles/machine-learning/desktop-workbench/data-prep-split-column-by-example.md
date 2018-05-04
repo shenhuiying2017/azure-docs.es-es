@@ -1,6 +1,6 @@
 ---
-title: "Transformación Dividir columna por ejemplo mediante Azure Machine Learning Workbench"
-description: "Documento de referencia para la transformación \"Dividir columna por ejemplo\""
+title: Transformación Dividir columna por ejemplo mediante Azure Machine Learning Workbench
+description: Documento de referencia para la transformación "Dividir columna por ejemplo"
 services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
@@ -12,10 +12,10 @@ ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
 ms.openlocfilehash: 497c1725fc4554792add11c0ec069d1628a89fbd
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="split-column-by-example-transformation"></a>Transformación Dividir columna por ejemplo
 Esta transformación divide de forma predictiva el contenido de una columna en límites significativos sin que sea necesaria la intervención del usuario. El algoritmo de división selecciona los límites después de analizar el contenido de la columna. Estos límites se podrían definir por:
@@ -132,8 +132,8 @@ Se divide así:
 
 |logtext_1|logtext_2|logtext_3|logtext_4|logtext_5|logtext_6|logtext_7|logtext_8|logtext_9|logtext_10|logtext_11|logtext_12|logtext_13|logtext_14|logtext_15|
 |:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
-|192.128.138.20|16/oct/2016|16:22:33|-0200|GET|images/picture.gif|HTTP|1.1|234|343|www.yahoo.com|http://www.ejemplo.com/|Mozilla|4.0|compatible; MSIE 4|
-|10.128.72.213|17/oct/2016|12:43:12|+0300|GET|news/stuff.html|HTTP|1.1|200|6233|www.aol.com|http://www.ejemplo.com/|Mozilla|5.0|MSIE|
+|192.128.138.20|16/oct/2016|16:22:33|-0200|GET|images/picture.gif|HTTP|1.1|234|343|www.yahoo.com|http://www.example.com/|Mozilla|4.0|compatible; MSIE 4|
+|10.128.72.213|17/oct/2016|12:43:12|+0300|GET|news/stuff.html|HTTP|1.1|200|6233|www.aol.com|http://www.sample.com/|Mozilla|5.0|MSIE|
 |192.165.71.165|12/nov/2016|14:22:44|-0500|GET|sample.ico|HTTP|1.1|342|7342|www.facebook.com|-|Mozilla|5.0|Windows; U; Windows NT 5.1; rv:1.7.3|
 |10.166.64.165|23/nov/2016|01:52:45|-0800|GET|style.css|HTTP|1.1|200|2552|www.google.com|http://www.test.com/index.html|Mozilla|5.0|Windows|
 |192.167.1.193|16/ene/2017|22:34:56|+0200|GET|js/ads.js|HTTP|1.1|200|23462|www.microsoft.com|http://www.illustration.com/index.html|Mozilla|5.0|Windows|

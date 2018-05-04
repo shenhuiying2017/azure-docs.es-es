@@ -6,7 +6,7 @@
 ## [Habilitación de la seguridad operativa](../azure-operational-security.md)
 ## [Gobierno en Azure](../governance-in-azure.md)
 ## [Aislamiento en la nube de Azure](../azure-isolation.md)
-## [Arquitectura de red híbrida segura](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
+## [Arquitectura de red híbrida segura](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json)
 ## [Funcionalidades técnicas de seguridad](../azure-security-technical-capabilities.md)
 
 # [Seguridad y cifrado de datos](../security-azure-encryption-overview.md)

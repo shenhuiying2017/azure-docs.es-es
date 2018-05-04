@@ -1,25 +1,25 @@
 ---
-title: "Introducción a los planes, ofertas, cuotas y suscripciones de Azure Stack | Microsoft Docs"
+title: Introducción a los planes, ofertas, cuotas y suscripciones de Azure Stack | Microsoft Docs
 description: Como operador de nube, es importante que comprenda los planes, ofertas, cuotas y suscripciones de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 7c395dfcdfcd509d8b32028badd1c1310ea67657
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: ''
+ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Introducción a los planes, ofertas, cuotas y suscripciones
 
@@ -32,10 +32,10 @@ Las ofertas contienen uno o varios planes y cada plan incluye uno o varios servi
 - la cantidad de esos recursos que los usuarios pueden consumir
 - qué regiones tienen acceso a los recursos
 
-Al ofrecer un servicio, seguirá estos pasos de alto nivel:
+Al ofrecer un servicio, siga estos pasos de alto nivel:
 
 1. Agregar un servicio que quiere proporcionar a los usuarios.
-2. Crear un plan que contenga uno o varios servicios. Al crear un plan, seleccionará o creará cuotas que definen los límites de recursos de cada servicio en el plan.
+2. Crear un plan que contenga uno o varios servicios. Al crear un plan, seleccione o cree cuotas que definan los límites de recursos de cada servicio en el plan.
 3. Crear una oferta que contenga uno o varios planes (incluidos los planes base y planes complementarios opcionales).
 
 Después de haber creado la oferta, los usuarios pueden suscribirse a ella para acceder a los servicios y recursos que proporciona. Los usuarios pueden suscribirse a todas las ofertas que quieran. En el diagrama siguiente se muestra un ejemplo sencillo de un usuario que se ha suscrito a dos ofertas. Cada oferta tiene un plan o dos, y cada plan le proporciona acceso a los servicios.
@@ -52,13 +52,15 @@ Para ayudarle a administrar la capacidad de la nube, seleccione o cree una cuota
 
 Las cuotas se pueden configurar por región. Por ejemplo, un plan que contiene servicios de proceso de la Región A podría tener una cuota de dos máquinas virtuales, 4 GB de RAM y 10 núcleos de CPU. En el Kit de desarrollo de Azure Stack, solo hay una región (denominada *local*) disponible.
 
+Obtenga más información sobre los [tipos de cuota en Azure Stack](azure-stack-quota-types.md). 
+
 ### <a name="base-plan"></a>Plan base
 
 Al crear una oferta, el administrador de servicios puede incluir un plan base. Estos planes se incluyen de forma predeterminada cuando un usuario se suscribe a la oferta. Cuando un usuario se suscribe, tiene acceso a todos los proveedores de recursos especificados en dichos planes base (con las cuotas correspondientes).
 
 ### <a name="add-on-plans"></a>Planes complementarios
 
-También puede incluir planes complementarios opcionales en una oferta. Dichos planes no se incluyen de forma predeterminada en la suscripción. Los planes complementarios son planes adicionales (cuotas) disponibles en una oferta que un suscriptor puede agregar a sus suscripciones. Por ejemplo, puede ofrecer un plan base con recursos limitados para una versión de prueba y un plan complementario con recursos más abundantes para los clientes que decidan adoptar el servicio.
+Los planes complementarios son planes opcionales que puede agregar a una oferta. Dichos planes no se incluyen de forma predeterminada en la suscripción. Los planes complementarios son planes adicionales (cuotas) disponibles en una oferta que un suscriptor puede agregar a sus suscripciones. Por ejemplo, puede ofrecer un plan base con recursos limitados para una versión de prueba y un plan complementario con recursos más abundantes para los clientes que decidan adoptar el servicio.
 
 ## <a name="offers"></a>Ofertas
 

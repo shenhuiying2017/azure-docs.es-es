@@ -26,12 +26,12 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Subredes por red virtual |1000 |10000 |
 | Emparejamientos de redes virtuales por red virtual |10 |50 |
 | Servidores DNS por red virtual |9 |25 |
-| Direcciones IP privadas por red virtual |4096 |8192 |
+| Direcciones IP privadas por red virtual |16384** |16384 |
 | Direcciones IP privadas por interfaz de red |256 |1024 |
 | Conexiones TCP concurrentes o flujo UDP por NIC de una máquina virtual o instancia de rol |500 KB |500 KB |
-| Interfaces de red (NIC) |350 |20000 |
+| Interfaces de red (NIC) |24000** |24000 |
 | Grupos de seguridad de red (NSG) |100 |5000 |
-| Reglas de NSG por NSG |200 |1000 |
+| Reglas de NSG por NSG |1000** |1000 |
 | Direcciones IP y rangos especificados para el origen o destino en un grupo de seguridad |2000 |4000 |
 | Grupos de seguridad de aplicaciones |200 |500 |
 | Grupos de seguridad de aplicaciones por configuración de IP, por NIC |10 |20 |
@@ -43,6 +43,8 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Direcciones IP públicas - estáticas |(Básico) 20 |ponerse en contacto con el servicio de soporte técnico |
 | Direcciones IP públicas - estáticas |(Estándar) 20 |ponerse en contacto con el servicio de soporte técnico |
 | Certificados raíz de punto a sitio por VPN Gateway |20 |20 |
+
+**Estos límites predeterminados se aplican a las suscripciones cuyos límites no habían aumentado anteriormente mediante soporte técnico
 
 #### <a name="load-balancer"></a>Límites de Load Balancer
 

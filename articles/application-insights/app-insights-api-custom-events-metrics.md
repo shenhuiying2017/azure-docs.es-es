@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 072ce2952e3cdea47b02ef7656ca67d4bc0ae8f1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -79,7 +79,7 @@ Obtenga una instancia de `TelemetryClient` (excepto en JavaScript en páginas we
 
 TelemetryClient es seguro para subprocesos.
 
-Para proyectos ASP.NET y Java, las solicitudes HTTP entrantes se capturan automáticamente. Puede que quiera crear instancias adicionales de TelemetryClient para otro módulo de la aplicación. Por ejemplo, puede tener una instancia de TelemetryClient en la clase de middleware para notificar eventos de la lógica de negocios. Puede establecer propiedades como UserId y DeviceId para identificar la máquina. Esta información se adjunta a todos los eventos que envía la instancia. 
+Para proyectos ASP.NET y Java, las solicitudes HTTP entrantes se capturan automáticamente. Puede que quiera crear instancias adicionales de TelemetryClient para otro módulo de la aplicación. Por ejemplo, puede tener una instancia de TelemetryClient en la clase de middleware para notificar eventos de la lógica de negocios. Puede establecer propiedades como UserId y DeviceId para identificar la máquina. Esta información se adjunta a todos los eventos enviados por la instancia. 
 
 *C#*
 

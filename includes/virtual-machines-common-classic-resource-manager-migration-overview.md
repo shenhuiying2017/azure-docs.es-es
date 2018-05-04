@@ -16,12 +16,12 @@ Estos recursos de IaaS clásicos se admiten durante la migración
 * Virtual Networks
 * Puertas de enlace de VPN
 * Puertas de enlace de ExpressRoute _(en la misma suscripción que solo Virtual Network)_
-* Grupos de seguridad de red 
-* Tablas de ruta 
-* Direcciones IP reservadas 
+* Grupos de seguridad de red
+* Tablas de ruta
+* Direcciones IP reservadas
 
 ## <a name="supported-scopes-of-migration"></a>Ámbitos admitidos de la migración
-Hay 4 maneras diferentes de completar la migración de los recursos de proceso, red y almacenamiento. Dichas maneras son 
+Hay 4 maneras diferentes de completar la migración de los recursos de proceso, red y almacenamiento. Dichas maneras son
 
 * Migración de máquinas virtuales (NO en una red virtual)
 * Migración de máquinas virtuales (en una red virtual)
@@ -77,7 +77,7 @@ Actualmente no se admiten las siguientes características. Opcionalmente, puede 
 | Proceso | Imágenes de máquina virtual. | Los blobs de VHD que hay detrás de estos discos se migrarán cuando lo haga la cuenta de almacenamiento |
 | Red | ACL de puntos de conexión. | Quitar las ACL de los puntos de conexión y vuelva a intentar la migración. |
 | Red | Application Gateway | Quite Application Gateway antes de comenzar la migración y, después, vuelva a crearlo una vez que la migración se complete. |
-| Red | Redes virtuales que usan el emparejamiento de VNET. | Migrar Virtual Network a Resource Manager y, después, del mismo nivel. Más información acerca del [emparejamiento de VNET](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Red | Redes virtuales que usan el emparejamiento de VNET. | Migrar Virtual Network a Resource Manager y, después, del mismo nivel. Más información acerca del [emparejamiento de VNET](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Configuraciones no admitidas
 Actualmente no se admiten las siguientes configuraciones.
@@ -85,7 +85,7 @@ Actualmente no se admiten las siguientes configuraciones.
 | Servicio | Configuración | Recomendación |
 | --- | --- | --- |
 | Resource Manager |Control de acceso basado en rol para recursos clásicos |Puesto que el identificador URI de los recursos se modifica después de la migración, se recomienda planear las actualizaciones de directiva del control de acceso basado en rol que deben producirse después de la migración. |
-| Proceso |Varias subredes asociadas con una máquina virtual |Actualice la configuración de la subred para que solo haga referencia a las subredes. |
+| Proceso |Varias subredes asociadas con una máquina virtual |Actualice la configuración de subred para que solo haga referencia a una subred. Puede que para ello sea necesario quitar una NIC secundaria (que hace referencia a otra subred) de la máquina virtual y asociarla de nuevo una vez finalizada la migración. |
 | Proceso |Máquinas virtuales que pertenecen a una red virtual, pero no tienen una subred explícita asignada |Opcionalmente, puede eliminar la máquina virtual. |
 | Proceso |Máquinas virtuales que tienen alertas, directivas de escalado automático |Se efectúa la migración y se descartan estos valores. Es muy recomendable evaluar el entorno antes de realizar la migración. Como alternativa, puede reconfigurar los valores de las alertas una vez completada la migración. |
 | Proceso |Extensiones XML de máquina virtual (BGInfo 1.*, depurador de Visual Studio, Web Deploy y depuración remota) |ya que no es compatible. Se recomienda que quite estas extensiones de la máquina virtual para continuar la migración o se quitarán automáticamente durante el proceso. |

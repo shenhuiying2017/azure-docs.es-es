@@ -12,13 +12,13 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/14/2018
+  ms.date: 04/26/2018
   ms.author: mimig
-  ms.openlocfilehash: 017130095fc8de6a83cbff075f47cbff9fd48089
-  ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+  ms.openlocfilehash: 83cb9b2f0bf1082efb13e1c92eb8e42945a6000e
+  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2018
+  ms.lasthandoff: 04/28/2018
 abstract:
   description: Azure Cosmos DB es un servicio de base de datos de varios modelos distribuido globalmente. Use estos inicios rápidos, tutoriales y ejemplos para desarrollar bases de datos de documentos, de clave-valor, basadas en columnas y de grafos mediante API conocidas y modelos de programación. Después, aprenda a replicar los datos en varias regiones de Azure y a escalar el rendimiento independientemente del almacenamiento, al tiempo que se beneficia de unos exhaustivos Acuerdos de Nivel de Servicio.
   aside:
@@ -31,25 +31,70 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/build-2017-azure-cosmos-db-build-planet-scale-mobile-apps-in-minutes/
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cosmos-db/distribute-data-globally/
+      html: <p>Obtenga información acerca de la distribución global, la creación de particiones, la indexación y otros conceptos que se aplican a todas las API de Azure Cosmos DB.</p>
+      image:
+        src: media/index/azure-cosmos-db-icon.png
+      title: Conceptos
+    - href: /azure/cosmos-db/sql-api-introduction/
+      html: <p>Si quiere crear una nueva base de datos de documentos no relacional y quiere realizar consultas mediante la conocida sintaxis SQL, utilice la API de SQL.</p>
+      image:
+        src: media/index/sql-api.svg
+      title: API DE SQL
+    - href: /azure/cosmos-db/graph-introduction/
+      html: <p>Si quiere crear una base de datos de gráficos para modelar y atravesar las relaciones entre entidades, utilice la API de Gremlin.</p>
+      image:
+        src: media/index/graph-api.svg
+      title: API de Gremlin
+    - href: /azure/cosmos-db/mongodb-introduction/
+      html: <p>Si quiere migrar datos de una base de datos de MongoDB al servicio completamente administrado de Azure Cosmos DB, utilice la API de MongoDB.</p>
+      image:
+        src: media/index/mongodb-api.svg
+      title: MongoDB API
+    - href: /azure/cosmos-db/table-introduction/
+      html: <p>Si quiere migrar datos de Azure Table Storage a la oferta de tablas premium de Azure Cosmos DB, utilice Table API.</p>
+      image:
+        src: media/index/table-api.svg
+      title: Table API
+    - href: /azure/cosmos-db/cassandra-introduction/
+      html: <p>Si quiere migrar datos de Cassandra al servicio completamente administrado de Azure Cosmos DB, utilice Cassandra API.</p>
+      image:
+        src: media/index/cassandra-api.png
+      title: Cassandra API
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Aprenda a usar Azure Cosmos DB para crear una base de datos distribuida globalmente mediante alguna de las API de varios modelos:'
+    text: 'Aprenda a utilizar Azure Cosmos DB para crear una base de datos distribuida globalmente mediante alguno de los siguientes inicios rápidos de las API de varios modelos:'
   - type: table
     style: dataMatrix
     columns:
     - image:
         src: media/index/logo_java.svg
+      title: Java
     - image:
         src: media/index/logo_net.svg
+      title: .NET
     - image:
         src: media/index/logo_nodejs.svg
+      title: Node.js
     - image:
         src: media/index/logo_python.svg
+      title: Python
     - image:
         src: media/index/logo_gremlin.svg
+      title: Gremlin
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+      title: Go
     - image:
         src: media/index/logo_xamarin.svg
+      title: Xamarin
     rows:
     - title: API DE SQL
       values:
@@ -58,7 +103,8 @@ sections:
       - href: /azure/cosmos-db/create-sql-api-nodejs
       - href: /azure/cosmos-db/create-sql-api-python
       - href: 
-      - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet.md
+      - href: 
+      - href: /azure/cosmos-db/create-sql-api-xamarin-dotnet
     - title: MongoDB API
       values:
       - href: /azure/cosmos-db/create-mongodb-java
@@ -66,8 +112,9 @@ sections:
       - href: /azure/cosmos-db/create-mongodb-nodejs
       - href: /azure/cosmos-db/create-mongodb-flask
       - href: 
+      - href: /azure/cosmos-db/create-mongodb-golang
       - href: 
-    - title: Graph API
+    - title: API de Gremlin
       values:
       - href: /azure/cosmos-db/create-graph-java
       - href: /azure/cosmos-db/create-graph-dotnet
@@ -75,12 +122,14 @@ sections:
       - href: /azure/cosmos-db/create-graph-python
       - href: /azure/cosmos-db/create-graph-gremlin-console
       - href: 
+      - href: 
     - title: Table API
       values:
       - href: /azure/cosmos-db/create-table-java
       - href: /azure/cosmos-db/create-table-dotnet
       - href: /azure/cosmos-db/create-table-nodejs
       - href: /azure/cosmos-db/create-table-python
+      - href: 
       - href: 
       - href: 
     - title: Cassandra API
@@ -91,6 +140,7 @@ sections:
       - href: /azure/cosmos-db/create-cassandra-python
       - href: 
       - href: 
+      - href: 
 - title: Tutoriales detallados
   items:
   - type: paragraph
@@ -98,31 +148,25 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Desarrollo de una aplicación con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
+    - html: Desarrollo de una aplicación con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Table</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
     - html: Importación de datos en Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Table</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
     - html: Consulta de datos con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
     - html: Replicación de base de datos global con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
     - html: <a href="local-emulator">Desarrollo de la aplicación localmente mediante el emulador</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Creación de un desencadenador HTTP con un enlace de entrada de Azure Cosmos DB</a>
-- title: Ejemplos
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/cosmos-db/cli-samples">CLI de Azure</a>
-    - html: <a href="/azure/cosmos-db/powershell-samples">Azure PowerShell</a>
 - title: Referencia
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: API de SQL
-      html: <p><a href="sql-api-sdk-dotnet">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Fuente de cambios de .NET</a></p><p><a href="sql-api-sdk-dotnet-core">.NET Core</a></p><p><a href="sql-api-sdk-node">Node.js</a></p><p><a href="sql-api-sdk-async-java">Async Java</a></p><p><a href="sql-api-sdk-java">Java</a></p><p><a href="sql-api-sdk-python">Python</a></p><p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">Proveedor de recursos de REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
+    - title: API DE SQL
+      html: <p><a href="/rest/api/cosmos-db/">REST</a></p><p><a href="https://aka.ms/acdbnetref">.NET</a></p><p><a href="sql-api-sdk-dotnet-changefeed">Fuente de cambios de .NET</a></p><p><a href="https://aka.ms/acdbnetcoreref">.NET Core</a></p><p><a href="https://aka.ms/acdbnoderef">Node.js</a></p><p><a href="https://aka.ms/acdbjavaref">Java</a></p><p><a href="https://aka.ms/acdbpythonref">Python</a></p><p><a href="/rest/api/cosmos-db-resource-provider/">Proveedor de recursos de REST</a></p><p><a href="sql-api-sql-query-reference">SQL</a></p>
     - title: MongoDB API
       html: <p><a href="https://docs.mongodb.com/manual/reference/mongodb-wire-protocol/">Protocolo de conexión</a></p><p><a href="https://mongodb.github.io/node-mongodb-native/ ">Node.js</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/csharp/">C#</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/java/">Java</a></p><p><a href="https://docs.mongodb.com/ecosystem/drivers/python/">Python</a></p><p><a href="https://docs.mongodb.com/ruby-driver/master/">Ruby</a></p>
     - title: Table API
       html: <p><a href="/rest/api/storageservices/fileservices/Table-Service-Concepts">REST</a></p><p><a href="/azure/cosmos-db/table-sdk-dotnet">.NET</a></p><p><a href="/azure/cosmos-db/table-sdk-nodejs">Node.js</a></p><p><a href="/azure/cosmos-db/table-sdk-java">Java</a></p><p><a href="/azure/cosmos-db/table-sdk-python">Python</a></p>
-    - title: Gremlin API
+    - title: API de Gremlin
       html: <p><a href="http://tinkerpop.apache.org/docs/current/reference/">Gremlin</a></p><p><a href="/azure/cosmos-db/graph-sdk-dotnet">.NET</a></p><p><a href="https://github.com/ZEROFAIL/goblin">Python</a></p><p><a href="http://tinkerpop.apache.org/docs/current/reference/#connecting-via-java">Java</a></p><p><a href="https://github.com/jbmusso/gremlin-javascript">JavaScript</a></p>
+    - title: Cassandra API
+      html: <p><a href="https://github.com/datastax/nodejs-driver">Node.js</a></p><p><a href="https://github.com/datastax/python-driver">Python</a></p><p><a href="https://github.com/datastax/java-driver">Java</a></p>

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Consola serie de máquina virtual (versión preliminar) 
 
@@ -109,7 +109,7 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para mos
 
 En esta sección se incluyen ejemplos de comandos para realizar tareas comunes en escenarios donde puede ser necesario usar SAC para acceder a la máquina virtual, como cuando necesita solucionar errores de conexión de RDP.
 
-SAC se ha incluido en todas las versiones de Windows desde Windows Server 2003, pero está deshabilitado de forma predeterminada. SAC se basa en el controlador de kernel `sacdrv.sys`, el servicio `Special Administration Console Helper` (`sacsvr`) y el proceso `sacsess.exe`. Para más información, consulte [Emergency Management Services Tools and Settings](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Herramientas y configuraciones de Servicios de administración de emergencias).
+SAC se ha incluido en todas las versiones de Windows desde Windows Server 2003, pero está deshabilitado de forma predeterminada. SAC se basa en el controlador de kernel `sacdrv.sys`, el servicio `Special Administration Console Helper` (`sacsvr`) y el proceso `sacsess.exe`. Para más información, consulte [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)) (Herramientas y configuraciones de Servicios de administración de emergencias).
 
 SAC le permite conectarse a su sistema operativo a través del puerto serie. Cuando se inicia CMD desde SAC, `sacsess.exe` inicia `cmd.exe` dentro del sistema operativo en ejecución. Esto se puede ver en Task Manager si se conecta mediante RDP a su máquina virtual al mismo tiempo que está conectado a SAC mediante la característica de la consola serie. El CMD al que se accede a través de SAC es el mismo `cmd.exe` que usa cuando se conecta mediante RDP. Están disponibles las mismas herramientas y comandos, incluida la posibilidad de iniciar PowerShell desde esa instancia de CMD. Hay una diferencia importante entre SAC y el Entorno de recuperación de Windows (WinRE) y es que SAC le permite administrar su sistema operativo en ejecución, mientras que WinRE se inicia en un sistema operativo mínimo diferente. Aunque las máquinas virtuales no admiten la posibilidad de acceder a WinRE, con la característica de la consola serie las máquinas virtuales de Azure se pueden administrar mediante SAC.
 
@@ -266,11 +266,11 @@ En este ejemplo se devuelve la versión del archivo del controlador NIC virtual,
 #### <a name="scan-for-system-file-corruption"></a>Examinar los archivos del sistema en busca de daños
 `sfc /scannow`
 
-Consulte también [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Reparación de una imagen de Windows).
+Consulte también [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Reparación de una imagen de Windows).
 #### <a name="scan-for-system-file-corruption"></a>Examinar los archivos del sistema en busca de daños
 `dism /online /cleanup-image /scanhealth`
 
-Consulte también [Repair a Windows Image](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/repair-a-windows-image) (Reparación de una imagen de Windows).
+Consulte también [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image) (Reparación de una imagen de Windows).
 #### <a name="export-file-permissions-to-text-file"></a>Exportar los permisos de archivo a un archivo de texto
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 #### <a name="save-file-permissions-to-acl-file"></a>Guardar los permisos de archivo en el archivo ACL
@@ -516,7 +516,7 @@ Puede consultar los metadatos de instancia de Azure desde la máquina virtual de
 
 Para consultar los metadatos de instancia se requiere una buena conectividad de la red del invitado, dado que se realiza una llamada REST a través del host de Azure al servicio de metadatos de instancia. De modo que, si puede consultar los metadatos de instancia, significa que su invitado puede comunicarse a través de la red a un servicio hospedado por Azure.
 
-Para más información, consulte [Servicio de metadatos de instancia de Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service).
+Para más información, consulte [Servicio de metadatos de instancia de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
 
 #### <a name="instance-metadata"></a>Metadatos de instancia
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

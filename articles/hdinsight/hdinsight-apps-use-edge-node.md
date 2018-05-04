@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 04/19/2018
 ms.author: jgao
-ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales en clústeres vacíos en HDInsight
 
@@ -69,6 +69,9 @@ Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH
 >
 > Si usa una tecnología de Apache, es posible que encuentre asistencia a través de los sitios de los proyectos de Apache en [http://apache.org](http://apache.org), por ejemplo, en el sitio de [Hadoop](http://hadoop.apache.org/).
 
+> [!NOTE]
+> Del mismo modo que los clústeres, los nodos perimetrales también se administran mediante revisiones.  Para más información, consulte [Aplicación de revisión del SO para HDInsight](./hdinsight-os-patching.md).
+
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adición de un nodo perimetral a un clúster existente
 En esta sección, usará una plantilla de Resource Manager para agregar un nodo perimetral a un clúster de HDInsight existente.  La plantilla de Resource Manager se puede encontrar en [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). La plantilla de Resource Manager llama a una acción de script situada en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. El script no realiza ninguna acción.  Sirve para demostrar la llamada a la acción de script desde una plantilla de Resource Manager.
 
@@ -115,6 +118,10 @@ En esta sección, usará una plantilla de Resource Manager para crear un clúste
      
      Algunas propiedades han sido codificadas de forma rígida en la plantilla: tipo de clúster, número de nodos de trabajo del clúster, tamaño del nodo perimetral y nombre del nodo perimetral.
 4. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, haga clic en **Comprar** para crear el clúster con el nodo perimetral.
+
+## <a name="add-multiple-edge-nodes"></a>Agregar varios nodos perimetrales
+
+Puede agregar varios nodos perimetrales a un clúster de HDInsight.  La configuración de varios nodos perimetrales solo se puede realizar mediante plantillas de Azure Resource Manager.  Vea la plantilla de ejemplo al principio de este artículo.  Debe actualizar **targetInstanceCount** para reflejar el número de nodos perimetrales que desea crear.
 
 ## <a name="access-an-edge-node"></a>Acceso a un nodo perimetral
 El punto de conexión ssh del nodo perimetral es &lt;NombreNodoPerimetral>.&lt;NombreClúster>-ssh.azurehdinsight.net:22.  Por ejemplo, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

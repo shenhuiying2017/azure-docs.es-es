@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/08/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: ccad1f12e4f99074763f116596b4467e822d9f35
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: fe5d344eaaecc40f6d1937943603eda0404a1ca9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artículos de la guía del desarrollador de Azure AD
 A continuación se muestra una lista de todos los temas que se tratan en la guía del desarrollador de Azure Active Directory.
@@ -43,7 +43,7 @@ En estos artículos se describen conceptos y características específicos de Az
 | [Panel de vendedores de Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Cómo publicar una aplicación en el panel de vendedores de O365 |
 | [Servicios conectados de Visual Studio](vs-active-directory-dotnet-getting-started.md)                                               | Cómo usar la integración de Azure AD con proyectos de MVC en Visual Studio |
 | [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers) | Cómo integrarse con la implementación local de Active Directory mediante ADFS |
-| [Procedimientos recomendados para el control de errores de ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Cómo crear el control de errores resistente y habilitar el registro |
+| [Procedimientos recomendados para el control de errores de ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling) | Cómo crear el control de errores resistente y habilitar el registro |
 
 ## <a name="reference"></a>Referencia
 Estos artículos proporcionan información básica sobre las API de REST y de la biblioteca de autenticación, los protocolos, los errores, los ejemplos de código y los puntos de conexión.

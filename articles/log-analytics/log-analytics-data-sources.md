@@ -1,8 +1,8 @@
 ---
-title: "Configuración de orígenes de datos en Azure Log Analytics | Microsoft Docs"
-description: "Los orígenes de datos definen los datos que Log Analytics recopila de agentes y otros orígenes conectados.  En este artículo se describe el concepto de cómo Log Analytics usa los orígenes de datos, se explican los detalles de cómo configurarlos y se brinda un resumen de los distintos orígenes de datos disponibles."
+title: Configuración de orígenes de datos en Azure Log Analytics | Microsoft Docs
+description: Los orígenes de datos definen los datos que Log Analytics recopila de agentes y otros orígenes conectados.  En este artículo se describe el concepto de cómo Log Analytics usa los orígenes de datos, se explican los detalles de cómo configurarlos y se brinda un resumen de los distintos orígenes de datos disponibles.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 04/19/2018
 ms.author: bwren
-ms.openlocfilehash: 4237df0934d6191b77ff82c86a66585e72191ac9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="data-sources-in-log-analytics"></a>Orígenes de datos en Log Analytics
 Log Analytics recopila datos de los orígenes conectados y los almacena en el área de trabajo de Log Analytics.  Los orígenes de datos que configura definen los datos que se recopilan de cada uno de ellos.  Los datos de Log Analytics se almacenan como un conjunto de registros.  Cada origen de datos crea registros de un tipo determinado, donde cada tipo tiene su propio conjunto de propiedades.
@@ -29,16 +29,19 @@ Los orígenes de datos son distintos de las [soluciones de administración](log-
 
 
 ## <a name="summary-of-data-sources"></a>Resumen de orígenes de datos
-En la tabla siguiente se enumeran los orígenes de datos que actualmente se encuentran disponibles en Log Analytics.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.
+En la tabla siguiente se enumeran los orígenes de datos que actualmente se encuentran disponibles en Log Analytics.  Cada uno de ellos tiene un vínculo a un artículo independiente, donde se proporcionan detalles con respecto al origen de datos determinado.   También se proporciona información sobre el método y la frecuencia de recopilación de datos en Log Analytics.  Puede usar la información de este artículo para identificar las diferentes soluciones disponibles y comprender los requisitos de conexión y flujo de datos de las distintas soluciones de administración. Para una explicación de las columnas, consulte [Data collection details for management solutions in Azure](../monitoring/monitoring-solutions-inventory.md) (Detalles de la recopilación de datos para las soluciones de administración en Azure).
 
-| Origen de datos | Tipo de evento | DESCRIPCIÓN |
-|:--- |:--- |:--- |
-| [Registros personalizados](log-analytics-data-sources-custom-logs.md) |\<nombreDeRegistro\>_CL |Archivos de texto en agentes de Windows o Linux que contienen información de registro. |
-| [Registros de eventos de Windows](log-analytics-data-sources-windows-events.md) |Evento |Eventos recopilados del registro de eventos en los equipos Windows. |
-| [Contadores de rendimiento de Windows](log-analytics-data-sources-performance-counters.md) |Perf |Contadores de rendimiento recopilados de equipos con Windows. |
-| [Contadores de rendimiento de Linux](log-analytics-data-sources-performance-counters.md) |Perf |Contadores de rendimiento recopilados de equipos con Linux. |
-| [Registros de IIS](log-analytics-data-sources-iis-logs.md) |W3CIISLog |Registros de Internet Information Services en el formato W3C. |
-| [Syslog](log-analytics-data-sources-syslog.md) |syslog |Eventos de Syslog en equipos con Windows o Linux. |
+
+| Origen de datos | Plataforma | Microsoft Monitoring Agent | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| [Registros personalizados](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | a la llegada |
+| [Registros personalizados](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | a la llegada |
+| [Registros de IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minutos |
+| [Contadores de rendimiento](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |mínimo de 10 segundos, según lo programado |
+| [Contadores de rendimiento](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |mínimo de 10 segundos, según lo programado |
+| [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |De Almacenamiento de Azure: 10 minutos; del agente: a la llegada |
+| [Registros de eventos de Windows](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | a la llegada |
+
 
 ## <a name="configuring-data-sources"></a>Configuración de orígenes de datos
 Los orígenes de datos se configuran en el menú **Datos** en **Configuración avanzada** de Log Analytics.  Cualquier configuración se proporciona a todos los orígenes conectados del área de trabajo.  Actualmente, no puede excluir ningún agente de esta configuración.
@@ -63,5 +66,5 @@ Todos los datos que recopila Log Analytics se almacenan en el área de trabajo c
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca las [soluciones](log-analytics-add-solutions.md) que agregan funcionalidad a Log Analytics y que también recopilan datos del área de trabajo.
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de soluciones y orígenes de datos.  
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.  
 * Configure [alertas](log-analytics-alerts.md) que le notifiquen de manera proactiva acerca de los datos críticos recopilados de soluciones y orígenes de datos.

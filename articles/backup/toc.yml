@@ -69,16 +69,18 @@
               href: backup-mabs-unattended-install.md
         - name: Protección de cargas de trabajo
           items:
-            - name: Uso de Azure Backup Server para hacer copia de seguridad de un servidor de VMware
+            - name: Servidor de VMware
               href: backup-azure-backup-server-vmware.md
-            - name: Uso de Azure Backup Server para hacer copia de seguridad de Exchange
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Uso del Azure Backup Server para hacer copia de seguridad de una granja de SharePoint
+            - name: Granja de SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
-            - name: Uso del Azure Backup Server para hacer copia de seguridad de SQL
+            - name: SQL Server
               href: backup-azure-sql-mabs.md
             - name: Protección del estado del sistema y reconstrucción completa
               href: backup-mabs-system-state-and-bmr.md
+            - name: Archivos y aplicaciones en Azure Stack
+              href: backup-mabs-files-applications-azure-stack.md
         - name: Recuperación de datos de Azure Backup Server
           href: backup-azure-alternate-dpm-server.md
     - name: Recursos compartidos de archivos de Azure

@@ -36,7 +36,7 @@
 ##### [¿Cómo funciona?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Preguntas más frecuentes](active-directory-aadconnect-sso-faq.md)
 ##### [Solución de problemas](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD](active-directory-aadconnect-sso-gdpr.md)
 #### [Autenticación de paso a través](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Inicio rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Limitaciones actuales](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Preguntas más frecuentes](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Solución de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Análisis a fondo de la seguridad](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [Privacidad del usuario y autenticación de paso a través de Azure Active Directory](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Compatibilidad con varios dominios para la federación](active-directory-aadconnect-multiple-domains.md)
 ### [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Uso de un proveedor de identidades (IdP) de SAML 2.0 para un inicio de sesión único](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,8 @@
 
 
 ## Administración de Azure AD Connect Sync
-### [Cumplimiento de GDPR y Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Privacidad del usuario y Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Ubicación preferida de los datos para los recursos de Office 365](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Sincronización de hash de contraseñas](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Cuenta de servicio de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [Recuperación del límite de 10 GB de LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Referencia
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Sincronización de identidades y resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [La identidad híbrida requería puertos y protocolos](active-directory-aadconnect-ports.md)
 ## [Características en versión preliminar](active-directory-aadconnect-feature-preview.md)

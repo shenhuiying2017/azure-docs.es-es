@@ -62,7 +62,7 @@ Obtener información más detallada sobre cloud-init en Azure:
 
 
 ## <a name="powershell-dsc"></a>PowerShell DSC
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. DSC también se puede utilizar en Linux mediante el [servidor de infraestructura de administración abierta (OMI)](https://collaboration.opengroup.org/omi/).
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) es una plataforma de administración que se usa para definir la configuración de las máquinas de destino. DSC también se puede utilizar en Linux mediante el [servidor de infraestructura de administración abierta (OMI)](https://collaboration.opengroup.org/omi/).
 
 Las configuraciones de DSC definen lo que se debe instalar en una máquina y cómo configurar el host. Un motor de administración de configuración local (LCM) se ejecuta en cada nodo de destino que procesa las acciones requeridas en función de las configuraciones insertadas. Un servidor de extracción es un servicio web que se ejecuta en un host central para almacenar las configuraciones de DSC y los recursos asociados. El servidor de extracción se comunica con el motor de LCM en cada host de destino para proporcionar las configuraciones necesarias e informar sobre el cumplimiento.
 

@@ -1,4 +1,4 @@
-Para habilitar en su aplicación el restablecimiento de contraseña específica, debe crear una directiva de restablecimiento de contraseña. Tenga en cuenta que la opción de restablecimiento de contraseña de todos los inquilinos se especifica [aquí](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta directiva describe las experiencias que tendrán los consumidores durante el restablecimiento de contraseña y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
+Para habilitar en la aplicación el restablecimiento de contraseña específica se usa una directiva de **restablecimiento de contraseña**. Tenga en cuenta que la opción de restablecimiento de contraseña de todos los inquilinos se especifica [aquí](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Esta directiva describe las experiencias de los consumidores durante el restablecimiento de contraseña y el contenido de los tokens que recibirá la aplicación al finalizarlo correctamente.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -8,7 +8,7 @@ En la sección de directivas de configuración, seleccione **Directivas de resta
 
 Escriba un **nombre** de directiva al que la aplicación haga referencia. Por ejemplo, escriba: `SSPR`.
 
-Seleccione **Proveedores de identidades** y active la opción **Reset password using email address** (Restablecer contraseña mediante la dirección de correo electrónico). Haga clic en **Aceptar**.
+Seleccione **Proveedores de identidades** y active la opción **Reset password using email address** (Restablecer contraseña mediante la dirección de correo electrónico). Haga clic en **OK**.
 
 ![Seleccionar restablecer contraseña mediante la dirección de correo electrónico como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
 
@@ -24,7 +24,7 @@ Para abrir la directiva, seleccione **B2C_1_SSPR**. Compruebe la configuración 
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Aplicaciones** | Aplicación B2C de Contoso |
+| **Applications** | Aplicación B2C de Contoso |
 | **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del usuario de restablecimiento de contraseña en su aplicación.

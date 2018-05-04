@@ -102,6 +102,8 @@
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Habilitar el acelerador de escritura
+          href: how-to-enable-write-accelerator.md
         - name: Solución de problemas en los discos duros virtuales conectados
           href: troubleshoot-vhds.md
     - name: Redes
@@ -187,6 +189,8 @@
           href: move-vm.md
         - name: Cambio del tamaño de máquina virtual
           href: resize-vm.md
+        - name: Intercambio del disco del SO
+          href: os-disk-swap.md
         - name: Etiquetado de una máquina virtual
           href: tag.md
         - name: Ejecución de scripts en una máquina virtual

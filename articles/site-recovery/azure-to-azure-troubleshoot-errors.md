@@ -1,6 +1,6 @@
 ---
-title: "Solución de problemas y errores de la replicación de Azure a Azure en Azure Site Recovery| Microsoft Docs"
-description: "Solución de problemas y errores al replicar máquinas virtuales de Azure para la recuperación ante desastres"
+title: Solución de problemas y errores de la replicación de Azure a Azure en Azure Site Recovery| Microsoft Docs
+description: Solución de problemas y errores al replicar máquinas virtuales de Azure para la recuperación ante desastres
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,11 +9,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7292948c40b184a58eb3e27aecac28e2227a29f8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ad0281df19ac1696ebb7cc913045d49c652be84a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
 
@@ -199,6 +199,17 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 
 - Si **provisioningState** es **Error**, póngase en contacto con soporte técnico con detalles para solucionar el problema.
 - Si **provisioningState** es **Actualizando**, puede que se esté implementando otra extensión. Compruebe si hay operaciones en curso en la máquina virtual, espere a que finalicen y reintente el trabajo **Habilitar replicación** para la recuperación del sitio que presenta el error.
+
+
+## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Error del servicio de instantáneas de volumen/COM+ (código de error 151025)
+**Código de error** | **Causas posibles:** | **Recomendaciones**
+--- | --- | ---
+151025<br></br>**Mensaje**: no se pudo instalar la extensión de Site Recovery | - Servicio de "aplicación del sistema COM+" deshabilitado.</br></br>- Servicio de instantáneas de volumen desactivado.| Establezca los servicios de aplicación del sistema COM+ y de instantáneas de volumen en modo de inicio automático o manual.
+
+### <a name="fix-the-problem"></a>Corrección del problema
+
+Puede abrir la consola de los servicios y asegurarse de que la aplicación del sistema COM+ y el servicio de instantáneas de volumen no se encuentran en "Desactivado" en "Tipo de inicio".
+  ![com-error](./media/azure-to-azure-troubleshoot-errors/com-error.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Replicación de máquinas virtuales de Azure](site-recovery-replicate-azure-to-azure.md)

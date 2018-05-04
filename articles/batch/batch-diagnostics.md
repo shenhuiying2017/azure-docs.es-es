@@ -1,55 +1,135 @@
 ---
-title: Habilitación del registro de diagnóstico en eventos de Batch - Azure | Microsoft Docs
+title: Métricas, alertas y registros de diagnóstico para Azure Batch | Microsoft Docs
 description: Registre y analice los eventos de registro de diagnóstico de los recursos de la cuenta de Azure Batch como tareas y grupos.
 services: batch
 documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: ''
-ms.assetid: e14e611d-12cd-4671-91dc-bc506dc853e5
+ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 04/05/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: ''
+ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Eventos de registro para la evaluación de diagnósticos y la supervisión de soluciones de Batch
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas y registros de Batch para evaluación de diagnóstico y supervisión
 
-Como ocurre con muchos de los servicios de Azure, el servicio Batch emite eventos de registro para determinados recursos mientras dure el recurso. Puede habilitar los registros de diagnóstico de Azure Batch para registrar los eventos de los recursos, como los grupos y las tareas y, después, utilizar los registros para la evaluación y supervisión de diagnóstico. En los registros de diagnóstico de Batch se incluyen eventos como la creación de grupos, la eliminación de grupos, el inicio de tareas y la finalización de tareas, entre otros.
+En este artículo se explica cómo supervisar una cuenta de Batch con las características de [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor recopila [métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md) y [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) de recursos en la cuenta de Batch. Recopile y consuma estos datos de diversas maneras para supervisar la cuenta de Batch y diagnosticar problemas. También puede configurar [alertas de métricas](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) para recibir notificaciones cuando una métrica alcance un valor especificado. 
+
+## <a name="batch-metrics"></a>Métricas de Batch
+
+Las métricas son datos de telemetría de Azure (también denominados contadores de rendimiento) que emiten los recursos de Azure y que consume el servicio Azure Monitor. Ejemplos de métricas en una cuenta de Batch son: eventos de creación de grupos, recuento de nodos de prioridad baja y eventos de finalización de tareas. 
+
+Consulte la [lista de métricas admitidas de Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+
+Las métricas se caracterizan por:
+
+* Se habilitan de forma predeterminada en cada cuenta de Batch sin ninguna configuración adicional.
+* Se generan cada 1 minuto.
+* No se guardan automáticamente, sino que tienen un historial acumulado de 30 días. Se pueden conservar las métricas de actividad como parte del [registro de diagnóstico](#work-with-diagnostic-logs).
+
+### <a name="view-metrics"></a>Visualización de métricas
+
+Vea las métricas de la cuenta de Batch en Azure Portal. La página **Información general** de la cuenta muestra de forma predeterminada las métricas principales de nodos, núcleos y tareas. 
+
+Para ver todas las métricas de la cuenta de Batch, siga estos pasos: 
+
+1. En el portal, haga clic en **Todos los servicios** > **Cuentas de Batch** y, luego, haga clic en el nombre de la cuenta de Batch.
+2. En **Supervisión**, haga clic en **Métricas**.
+3. Seleccione una o varias de las métricas. Si lo desea, seleccione métricas de recursos adicionales mediante las listas desplegables **Suscripciones**, **Grupo de recursos**, **Tipo de recurso** y **Recurso**.
+
+    ![Métricas de Batch](media/batch-diagnostics/metrics-portal.png)
+
+Para recuperar las métricas mediante programación, use las API de Azure Monitor. Para ver ejemplos, consulte [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) (Recuperación de métricas de Azure Monitor con .NET).
+
+## <a name="batch-metric-alerts"></a>Alertas de métricas de Batch
+
+Opcionalmente, configure *alertas de métricas* en tiempo real que se desencadenen cuando el valor de una métrica especificada supere un umbral asignado. La alerta genera una [notificación](../monitoring-and-diagnostics/insights-alerts-portal.md) que se elige cuando la alerta está "Activada" (si se sobrepasa el umbral y se cumple la condición de alerta), así como cuando queda en estado "Resuelto" (cuando se vuelve a sobrepasa el umbral y ya no se cumple la condición). 
+
+Por ejemplo, podría configurar una alerta de métrica cuando el recuento de núcleos de baja prioridad caiga hasta cierto punto, y así poder ajustar la composición de los grupos.
+
+Para configurar una alerta de métrica en el portal:
+
+1. Haga clic en **Todos los servicios** > **Cuentas de Batch** y haga clic en el nombre de la cuenta de Batch.
+2. En **Supervisión**, haga clic en **Reglas de alerta** > **Agregar alerta de métrica**.
+3. Seleccione una métrica, una condición de alerta (por ejemplo, cuando una métrica supere un valor determinado durante un período) y una o más notificaciones.
+
+También puede configurar una alerta casi en tiempo real mediante la [API REST](). Para más información, consulte [Usar las nuevas alertas de métricas para los servicios de Azure en Azure Portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+## <a name="batch-diagnostics"></a>Diagnóstico de Batch
+
+Los registros de diagnóstico contienen información que emiten los recursos de Azure que describe el funcionamiento de cada recurso. En Batch, puede recopilar los registros siguientes:
+
+* Eventos de **registros de servicio** que emite el servicio Azure Batch durante la vigencia de un recurso de Batch individual, como un grupo o una tarea. 
+
+* Registros de **métricas** en el nivel de cuenta. 
+
+La configuración para habilitar la recopilación de registros de diagnóstico no está habilitada de forma predeterminada. Habilite explícitamente la configuración de diagnóstico de cada cuenta de Batch que quiera supervisar.
+
+### <a name="log-destinations"></a>Destinos de registro
+
+Un escenario común consiste en seleccionar una cuenta de Azure Storage como destino del registro. Para almacenar los registros en Azure Storage, cree la cuenta antes de habilitar la recopilación de registros. Si asoció una cuenta de almacenamiento con su cuenta de Batch, puede elegir esa cuenta como destino de registro. 
+
+Otros destinos opcionales de los registros de diagnóstico:
+
+* Transmita los eventos de registro de diagnóstico de Batch a un [centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real. 
+
+* Envíe los registros de diagnóstico a [Azure Log Analytics](../log-analytics/log-analytics-overview.md), donde puede analizarlos en el portal de Operations Management Suite (OMS), o bien exportarlos para su análisis en Power BI o Excel.
 
 > [!NOTE]
-> En este artículo se explica el registro de eventos para los propios recursos de la cuenta de Batch, no lo datos de salida de tareas y trabajos. Para más información sobre el almacenamiento de los datos de salida de trabajos y tareas, consulte [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md).
-> 
-> 
+> Es posible que el almacenamiento o el procesamiento de datos de registro de diagnóstico con servicios de Azure conlleve costos adicionales. 
+>
 
-## <a name="prerequisites"></a>requisitos previos
-* [Una cuenta de Azure Batch](batch-account-create-portal.md)
-* [Una cuenta de Azure Storage](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-  
-  Para conservar los registros de diagnóstico de Batch, es preciso crear la cuenta de Azure Storage en la que Azure va a almacenar los registros. Especifique esta cuenta de Storage cuando [habilite el registro de diagnóstico](#enable-diagnostic-logging) para su cuenta de Batch. La cuenta de Storage que especifique al habilitar la recopilación de registros no es la misma que la cuenta de almacenamiento vinculada a la que se hace referencia en los artículos sobre [paquetes de aplicación](batch-application-packages.md) y [persistencia de salida de tarea](batch-task-output.md).
-  
-  > [!WARNING]
-  > Se le **cobra** por los datos almacenados en su cuenta de Azure Storage. Aquí se incluyen los registros de diagnóstico que se describen en este artículo. Téngalo en cuenta al diseñar su [directiva de retención de registro](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md).
-  > 
-  > 
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Habilitación de la recopilación de registros de diagnóstico de Batch
 
-## <a name="enable-diagnostic-logging"></a>Activación del registro de diagnóstico
-El registro de diagnóstico no está habilitado de manera predeterminada en la cuenta de Batch. Por consiguiente, es preciso habilitarlo explícitamente en cada cuenta de Batch que se desea supervisar:
+1. En el portal, haga clic en **Todos los servicios** > **Cuentas de Batch** y, luego, haga clic en el nombre de la cuenta de Batch.
+2. En **Supervisión**, haga clic en **Registros de diagnóstico** > **Turn on diagnostics** (Activar diagnósticos).
+3. En **Configuración de diagnóstico**, escriba un nombre para la configuración y elija un destino de registro (cuenta de almacenamiento existente, centro de eventos o Log Analytics). Seleccione **ServiceLog** o **AllMetrics**, o ambos.
 
-[Cómo habilitar la recopilación de registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
+    Cuando seleccione una cuenta de almacenamiento, puede definir opcionalmente una directiva de retención. Si no especifica un número de días de retención, los datos se conservan durante la vigencia de la cuenta de almacenamiento.
 
-Se recomienda leer toda el artículo [Información general sobre los registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) para conocer no solo cómo habilitar el registro, sino también las categorías de registro que admiten los diversos servicios de Azure. Por ejemplo, actualmente Azure Batch admite una categoría de registro: **registros de servicio**.
+4. Haga clic en **Save**(Guardar).
 
-## <a name="service-logs"></a>Registros de servicios
-Los registros de servicio de Azure Batch contienen los eventos emitidos por Azure Batch mientras dure un recurso de Batch como un grupo o una tarea. Cada evento que emite Batch se almacena en la cuenta de Storage especificada en formato JSON. Por ejemplo, este es el cuerpo de un **evento de creación de grupos** de ejemplo:
+    ![Diagnóstico de Batch](media/batch-diagnostics/diagnostics-portal.png)
+
+Otras opciones para habilitar la recopilación de registros son: usar Azure Monitor en el portal para configurar el diagnóstico, usar una [plantilla de Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md) o usar Azure PowerShell o la CLI de Azure. Consulte [Recopilación y uso de los datos de registro provenientes de los recursos de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
+
+
+### <a name="access-diagnostics-logs-in-storage"></a>Acceso a los registros de diagnóstico en el almacenamiento
+
+Si archiva registros de diagnóstico de Batch en una cuenta de almacenamiento, se crea un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produce un evento relacionado. Se crean blobs según el siguiente patrón de nomenclatura:
+
+```
+insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
+RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+m={two-digit numeric month}/d={two-digit numeric day}/
+h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
+Ejemplo:
+
+```
+insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
+RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
+BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
+```
+Cada archivo de blob PT1H.json contiene eventos con formato JSON que se producen dentro de la hora especificada en la dirección URL del blob (por ejemplo, h=12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m=00) siempre es 00, ya que los eventos de los registros de diagnóstico se dividen en blobs individuales por hora. (Todas las horas se muestran en UTC).
+
+
+Para más información sobre el esquema de registros de diagnóstico en la cuenta de almacenamiento, consulte [Archivo de registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+
+Para acceder a los registros de la cuenta de almacenamiento mediante programación, use las API de Storage. 
+
+### <a name="service-log-events"></a>Eventos del registro del servicio
+Los registros del servicio Azure Batch, cuando se recopilan, contienen los eventos que emite el servicio Azure Batch durante la vigencia de un recurso de Batch individual, como un grupo o una tarea. Cada evento que emite Batch se registra en formato JSON. Por ejemplo, este es el cuerpo de un **evento de creación de grupos** de ejemplo:
 
 ```json
 {
@@ -57,7 +137,7 @@ Los registros de servicio de Azure Batch contienen los eventos emitidos por Azur
     "displayName": "Production Pool",
     "vmSize": "Small",
     "cloudServiceConfiguration": {
-        "osFamily": "4",
+        "osFamily": "5",
         "targetOsVersion": "*"
     },
     "networkConfiguration": {
@@ -73,37 +153,22 @@ Los registros de servicio de Azure Batch contienen los eventos emitidos por Azur
 }
 ```
 
-Cada cuerpo del evento reside en un archivo .json de la cuenta de Azure Storage especificada. Si desea acceder directamente a los registros, puede revisar el [esquema de registros de diagnóstico en la cuenta de almacenamiento](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
-
-## <a name="service-log-events"></a>Eventos del registro del servicio
 Actualmente, el servicio Batch emite los siguientes eventos del registro del servicio. Es posible que la lista no sea exhaustiva, ya que se pueden haber agregado eventos adicionales desde la última vez que se actualizó este artículo.
 
 | **Eventos del registro del servicio** |
 | --- |
-| [Creación de grupos][pool_create] |
-| [Inicio de eliminación de grupo][pool_delete_start] |
-| [Finalización de eliminaciones de grupo][pool_delete_complete] |
-| [Inicio de cambio de tamaño de grupo][pool_resize_start] |
-| [Finalización de cambio de tamaño de grupo][pool_resize_complete] |
-| [Inicio de tarea][task_start] |
-| [Tarea completada][task_complete] |
-| [Error en la tarea][task_fail] |
+| [Creación del grupo](batch-pool-create-event.md) |
+| [Inicio de eliminación del grupo](batch-pool-delete-start-event.md) |
+| [Finalización de eliminación del grupo](batch-pool-delete-complete-event.md) |
+| [Inicio de cambio de tamaño del grupo](batch-pool-resize-start-event.md) |
+| [Finalización de cambio de tamaño del grupo](batch-pool-resize-complete-event.md) |
+| [Inicio de tarea](batch-task-start-event.md) |
+| [Finalización de tarea](batch-task-complete-event.md) |
+| [Error en la tarea](batch-task-fail-event.md) |
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-Además de almacenar los eventos de registro de diagnóstico en una cuenta de Azure Storage, los eventos del registro del servicio Batch también se pueden transmitir a un [Centro de eventos de Azure](../event-hubs/event-hubs-what-is-event-hubs.md) y enviarlos a [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 
-* [Transmita registros de diagnóstico de Azure a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
-  
-  Transmita eventos de diagnóstico de Batch al servicio de entrada de datos altamente escalable, Event Hubs. Event Hubs puede ingerir millones de eventos por segundo, que posteriormente se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real.
-* [Análisis de los registros de diagnóstico de Azure mediante Log Analytics](../log-analytics/log-analytics-azure-storage.md)
-  
-  Envíe los registros de diagnóstico a Log Analytics, donde puede analizarlos en Azure Portal, o bien exportarlos para su análisis en Power BI o Excel.
-
-[pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
-[pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx
-[pool_delete_complete]: https://msdn.microsoft.com/library/azure/mt743618.aspx
-[pool_resize_start]: https://msdn.microsoft.com/library/azure/mt743609.aspx
-[pool_resize_complete]: https://msdn.microsoft.com/library/azure/mt743608.aspx
-[task_start]: https://msdn.microsoft.com/library/azure/mt743616.aspx
-[task_complete]: https://msdn.microsoft.com/library/azure/mt743612.aspx
-[task_fail]: https://msdn.microsoft.com/library/azure/mt743607.aspx
+* Obtenga información acerca de las [API y herramientas de Batch](batch-apis-tools.md) disponibles para la creación de soluciones de Batch.
+* Más información sobre la [supervisión de soluciones de Batch](monitoring-overview.md).

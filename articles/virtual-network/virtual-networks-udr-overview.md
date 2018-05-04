@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 014c9ea34f35e915c6c4eac5a96c55201549e18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -122,7 +122,9 @@ Una puerta de enlace de red local puede intercambiar rutas con una puerta de enl
 - **VPN**: opcionalmente, puede usar BGP. Para más información, consulte [Información general de BGP con puertas de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
- 
+
+La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante rutas personalizadas (#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](/manage-route-table#create-a-route-table.md).
+
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 
 Cuando se envía tráfico saliente desde una subred, Azure selecciona una ruta en función de la dirección IP de destino y se usa el algoritmo de coincidencia de prefijo más largo. Por ejemplo, una tabla de rutas tiene dos rutas: una ruta especifica el prefijo de dirección 10.0.0.0/24, mientras que la otra especifica el prefijo de dirección 10.0.0.0/16. Azure enruta el tráfico destinado a 10.0.0.5, al tipo de próximo salto especificado en la ruta con el prefijo de dirección 10.0.0.0/24, porque 10.0.0.0/24 es un prefijo más largo que 10.0.0.0/16, aunque 10.0.0.5 esté dentro de ambos prefijos. Azure enruta el tráfico destinado a 10.0.1.5, al tipo de próximo salto especificado en la ruta con el prefijo de dirección 10.0.0.0/16, porque 10.0.1.5 no está incluido en el prefijo de dirección 10.0.0.0/24, por consiguiente, la ruta con el prefijo de dirección 10.0.0.0/16 es el prefijo más largo que coincide.

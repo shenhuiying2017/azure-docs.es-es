@@ -1,6 +1,6 @@
 ---
-title: "Actualización de un almacén de Backup a un almacén de Recovery Services | Microsoft Docs"
-description: "Instrucciones e información de compatibilidad para actualizar el almacén de Azure Backup a un almacén de Recovery Services."
+title: Actualización de un almacén de Backup a un almacén de Recovery Services | Microsoft Docs
+description: Instrucciones e información de compatibilidad para actualizar el almacén de Azure Backup a un almacén de Recovery Services.
 services: backup
 documentationcenter: dev-center-name
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 1/4/2018
 ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 8396a7276fde10eb95a22ed07fa61625acfdd77f
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Actualización de un almacén de Backup a un almacén de Recovery Services
 
@@ -84,7 +84,7 @@ El script de PowerShell le pide que escriba sus credenciales. Escriba sus creden
 ### <a name="pre-requisites-checking"></a>Comprobación de los requisitos previos
 Una vez que haya escrito sus credenciales de Azure, Azure comprobará que el entorno cumpla los requisitos previos siguientes:
 
-- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9083.0. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9083.0, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente en [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versión mínima del agente**: la actualización de los almacenes de Backup a almacenes de Recovery Services requiere que la versión del agente de MARS sea como mínimo la 2.0.9083.0. Si tiene elementos registrados en un almacén de Backup con un agente anterior a la versión 2.0.9083.0, se producirá un error en la comprobación de los requisitos previos. En ese caso, actualice al agente y vuelva a intentar la actualización. Puede descargar la versión más reciente del agente de [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Trabajos de configuración en curso**: si alguien está configurando un trabajo para un almacén de Backup que se va a actualizar, o registrando un elemento, la comprobación de requisitos previos generará un error. Complete la configuración o termine de registrar el elemento y, a continuación, inicie el proceso de actualización del almacén.
 - **Modelo de facturación basado en almacenamiento**: los almacenes de Recovery Services admiten el modelo de facturación basado en instancias. Si ejecuta la actualización de un almacén de Backup que usa el modelo de facturación basado en almacenamiento, se le pedirá que actualice el modelo junto con el almacén. Si lo prefiere, puede actualizar primero el modelo de facturación y, después, actualizar el almacén.
 - Identifique un grupo de recursos para el almacén de Recovery Services. Para aprovechar las características de implementación de Resource Manager, debe colocar un almacén de Recovery Services en un grupo de recursos. Si no sabe qué grupo de recursos usar, proporcione un nombre y el proceso de actualización creará el grupo de recursos automáticamente. El proceso de actualización también asocia el almacén al nuevo grupo de recursos.
@@ -106,7 +106,7 @@ El almacén de Recovery Services admite la especificación de información de zo
 
 ## <a name="enhanced-security"></a>Mayor seguridad
 
-Cuando un almacén de Backup se actualiza a un almacén de Recovery Services, la configuración de seguridad para ese almacén se activa automáticamente. Cuando la configuración de seguridad está activada, determinadas operaciones, como la eliminación de copias de seguridad o el cambio de una frase de contraseña, requieren un PIN de [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). Para más información sobre la seguridad mejorada, vea el artículo [Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup](backup-azure-security-feature.md). 
+Cuando un almacén de Backup se actualiza a un almacén de Recovery Services, la configuración de seguridad para ese almacén se activa automáticamente. Cuando la configuración de seguridad está activada, determinadas operaciones, como la eliminación de copias de seguridad o el cambio de una frase de contraseña, requieren un PIN de [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md). Para más información sobre la seguridad mejorada, vea el artículo [Características de seguridad para proteger copias de seguridad híbridas mediante Azure Backup](backup-azure-security-feature.md). 
 
 Cuando la seguridad mejorada está activada, los datos se conservan hasta catorce días después de eliminar la información del punto de recuperación del almacén. Se factura a los clientes por el almacenamiento de estos datos de seguridad. La retención de datos de seguridad se aplica a los puntos de recuperación obtenidos para el agente de Azure Backup, Azure Backup Server y System Center Data Protection Manager. 
 

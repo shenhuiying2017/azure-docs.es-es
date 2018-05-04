@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 17b2f1b65463f87f81ffe06bae5ac559a84bcb2a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Tutorial: Supervisión y diagnóstico de una aplicación ASP.NET Core en Service Fabric
-Este tutorial es la cuarta parte de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
+Este tutorial es la parte quinta de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
 
 En la cuarta parte de la serie de tutoriales, aprenderá a:
 > [!div class="checklist"]
@@ -35,6 +35,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
 > * [Implementar la aplicación en un clúster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [Agregar un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Configurar CI/CD con Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurar la supervisión y el diagnóstico para la aplicación
 
@@ -65,7 +66,7 @@ Una vez completada la información necesaria, haga clic en **Crear** para aprovi
 
 ## <a name="add-application-insights-to-the-applications-services"></a>Agregar Application Insights a los servicios de la aplicación
 
-Inicie Visual Studio 2017 con privilegios elevados. Para hacerlo, haga clic con el botón derecho en el icono de Visual Studio del menú Inicio y seleccione **Ejecutar como administrador**. Haga clic en **Archivo** > **Abrir** > **Proyecto o solución** y desplácese hasta la aplicación Voting (creada en la primera parte del tutorial o clonada de GIT). Abra *Voting.sln* y, si se le pide que restaure los paquetes NuGet de la aplicación, haga clic en **Sí**.
+Inicie Visual Studio de 2017 con privilegios elevados. Para hacerlo, haga clic con el botón derecho en el icono de Visual Studio del menú Inicio y seleccione **Ejecutar como administrador**. Haga clic en **Archivo** > **Abrir** > **Proyecto o solución** y desplácese hasta la aplicación Voting (creada en la primera parte del tutorial o clonada de GIT). Abra *Voting.sln* y, si se le pide que restaure los paquetes NuGet de la aplicación, haga clic en **Sí**.
 
 Siga estos pasos para configurar Application Insights para los servicios VotingWeb y VotingData:
 1. Haga clic con el botón derecho en el nombre del servicio y, a continuación, en **Configurar Application Insights...** .
@@ -104,8 +105,7 @@ Estos son los pasos necesarios para configurar el paquete NuGet:
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
     
-    2. En las instrucciones *return* anidadas de *CreateServiceInstanceListeners()* o *CreateServiceReplicaListeners()*, en *ConfigureServices*  >  *services*, entre los dos servicios Singleton declarados, agregue: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
-    Esto agregará el *Contexto de servicio* a la telemetría, lo que le permitirá comprender mejor el origen de la telemetría de Application Insights. La instrucción *return* anidada de *VotingWeb.cs* debería tener este aspecto:
+    2. En la instrucción *return* anidada de *CreateServiceInstanceListeners()* o *CreateServiceReplicaListeners()*, en *ConfigureServices* > *services*,entre los dos servicios Singleton declarados, agregue: `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`. Esto agregará el *contexto de servicio* a los datos de telemetría, permitiéndole un mejor conocimiento del origen de estos en Application Insights. La instrucción *return* anidada de *VotingWeb.cs* debería tener este aspecto:
     
     ```csharp
     return new WebHostBuilder()

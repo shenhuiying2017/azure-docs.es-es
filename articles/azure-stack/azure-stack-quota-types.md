@@ -2,24 +2,24 @@
 title: Tipos de cuota en Azure Stack | Microsoft Docs
 description: Repase los diferentes tipos de cuota disponibles para los servicios y recursos de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/23/2017
+ms.date: 04/20/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: da4105fa88848b14e5d5d0289859cfd0f85c8fee
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: xiaofmao
+ms.openlocfilehash: b68a963dae4b3621bfd9ecdcbc20146d7b20c457
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -30,21 +30,23 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 ## <a name="compute-quota-types"></a>Tipos de cuota de proceso
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
-| Número máximo de máquinas virtuales | 20  | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
+| Número máximo de máquinas virtuales | 20 | El número máximo de máquinas virtuales que puede crear una suscripción en esta ubicación. |
 | Número máximo de núcleos de máquinas virtuales | 50 | El número máximo de núcleos que puede crear una suscripción en esta ubicación (por ejemplo, una máquina virtual A3 tiene cuatro núcleos). |
 | Número máximo de conjuntos de disponibilidad | 10 | El número máximo de conjuntos de disponibilidad que se pueden crear en esta ubicación. |
-| Número máximo de conjuntos de escalado de máquinas virtuales | 20  | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
+| Número máximo de conjuntos de escalado de máquinas virtuales | 20 | El número máximo de conjuntos de escalado de máquinas virtuales que se pueden crear en esta ubicación. |
 
-> [!NOTE]
-> Las cuotas de proceso no se aplican a esta versión preliminar técnica.
-> 
-> 
+
 
 ## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento
 | **Elemento** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
 | Capacidad máxima (GB) |500 |Capacidad de almacenamiento total que puede consumir una suscripción en esta ubicación. |
-| Número total de cuentas de almacenamiento |20  |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
+| Número total de cuentas de almacenamiento |20 |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
+
+> [!NOTE]  
+> Puede que se tarde hasta dos horas antes de que se aplique una nueva cuota de almacenamiento. 
+> 
+> 
 
 ## <a name="network-quota-types"></a>Tipos de cuota de red
 | **Elemento** | **Valor predeterminado** | **Descripción** |

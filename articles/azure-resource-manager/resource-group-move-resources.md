@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -121,9 +121,8 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
 * Data Lake Analytics
-* Almacén de Data Lake
+* Data Lake Store
 * DNS
 * Event Hubs
 * Clústeres de HDInsight: consulte [Limitaciones de HDInsight](#hdinsight-limitations).
@@ -163,11 +162,14 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Servicios de dominio de AD
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
 * Container Service
-* ExpressRoute
+* Data Factory
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
+* ExpressRoute
 * Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
 * Aplicaciones administradas
 * Managed Disks; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).

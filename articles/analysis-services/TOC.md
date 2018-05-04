@@ -1,18 +1,22 @@
 # [Documentación de Analysis Services](index.md)
 
 # Información general
-## [Más información sobre Analysis Services](analysis-services-overview.md)
-## [Orígenes de datos admitidos](analysis-services-datasource.md)
-## [Permisos de usuario y autenticación](analysis-services-manage-users.md)
-## [Conexión a orígenes de datos locales](analysis-services-gateway.md)
-## [Nivel de compatibilidad](analysis-services-compat-level.md)
-## [Alta disponibilidad](analysis-services-bcdr.md)
+## [¿Qué es Azure Analysis Services?](analysis-services-overview.md)
+
 
 # Introducción
 ## [Creación de un servidor de Azure Portal](analysis-services-create-server.md)
 ## [Creación de un servidor con Azure PowerShell](analysis-services-create-powershell.md)
 ## [Implementación de un modelo de Visual Studio](analysis-services-deploy.md)
 ## [Creación de un modelo en Azure Portal (versión preliminar)](analysis-services-create-model-portal.md)
+
+# Conceptos
+## [Orígenes de datos admitidos](analysis-services-datasource.md)
+## [Conexión a orígenes de datos locales](analysis-services-gateway.md)
+## [Conexión a servidores](analysis-services-connect.md)
+## [Permisos de usuario y autenticación](analysis-services-manage-users.md)
+## [Nivel de compatibilidad](analysis-services-compat-level.md)
+## [Alta disponibilidad](analysis-services-bcdr.md)
 
 # Procedimiento 
 ## [Instalación y configuración de una puerta de enlace de datos local](analysis-services-gateway-install.md)
@@ -21,8 +25,8 @@
 ## [Realización de una actualización con la API de REST](analysis-services-async-refresh.md)
 ## [Configuración de la escalabilidad horizontal](analysis-services-scale-out.md)
 ## Automatización de tareas administrativas
-### [Creación de entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Creación de entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Creación de una entidad de servicio: Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Creación de una entidad de servicio: PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Incorporación de una entidad de servicio al rol de administrador del servidor](analysis-services-addservprinc-admins.md)
 ## Administración de servidor
 ### [Configuración de un alias de nombre del servidor](analysis-services-server-alias.md)

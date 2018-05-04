@@ -2,24 +2,19 @@
 title: Administración de recursos de proceso en Azure SQL Data Warehouse | Microsoft Docs
 description: Conozca las funcionalidades de escalado horizontal del rendimiento en Azure SQL Data Warehouse. Puede escalar horizontalmente mediante el ajuste de las DWU o detener el almacén de datos para reducir los costos.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: johnmac
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 02/20/2018
-ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 
@@ -28,7 +23,7 @@ Aprenda sobre la administración de recursos de proceso en Azure SQL Data Wareho
 La arquitectura de SQL Data Warehouse separa el proceso y el almacenamiento, lo que permite a cada uno escalar de manera independiente. Como resultado, puede escalar el proceso para satisfacer las demandas de rendimiento con independencia del almacenamiento de datos. También puede pausar y reanudar los recursos de proceso. Una consecuencia natural de esta arquitectura es que la [facturación](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) por proceso y almacenamiento está separada. Si no es necesario usar el almacenamiento de datos durante un tiempo, puede detener el proceso para ahorrar costos de proceso. 
 
 ## <a name="scaling-compute"></a>Escalado de proceso
-Para escalar horizontalmente o reducir la escala del proceso, ajuste el valor de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) de su almacenamiento de datos. La carga y el rendimiento de las consultas pueden aumentar linealmente a medida que agrega más unidades de almacenamiento de datos. SQL Data Warehouse ofrece [niveles de servicio](performance-tiers.md#service-levels) para unidades de almacenamiento de datos que garantizan un cambio significativo en el rendimiento al escalar horizontalmente o reducir la escala. 
+Para escalar horizontalmente o reducir la escala del proceso, ajuste el valor de las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) de su almacenamiento de datos. La carga y el rendimiento de las consultas pueden aumentar linealmente a medida que agrega más unidades de almacenamiento de datos. 
 
 Para conocer los pasos de escalado horizontal, consulte las guías de inicio rápido de [Azure Portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md) o [T-SQL](quickstart-scale-compute-tsql.md). También puede realizar operaciones de escalado horizontal con una [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,7 +98,7 @@ Se recomienda permitir que finalicen las transacciones existentes antes de inici
 
 Al pausar o escalar SQL Data Warehouse, las consultas se cancelan en segundo plano al iniciar la solicitud de pausa o escalado.  Una simple consulta de selección se cancela rápidamente y no afecta casi al tiempo que se tarda en aplicar la pausa o la escala a la instancia.  Sin embargo, las consultas sobre transacciones, que modifican los datos o la estructura de estos, no se puede detener rápidamente.  **Por definición, las consultas sobre transacciones deben completarse íntegramente o deshacerse los cambios.**  Deshacer el trabajo realizado con una consulta sobre una transacción puede tardar tanto (o más) que el tiempo necesario para aplicar el cambio original de esta.  Por ejemplo, si se cancela una consulta que se eliminaba filas y ya lleva en ejecución una hora, el sistema puede tardar una hora para reinsertar las filas eliminadas.  Si se ejecuta la pausa o la escala con transacciones en curso, puede parecer que tardan mucho en aplicarse, ya que deben esperar a que se deshagan todos los cambios para continuar.
 
-Consulte también [Transacciones](sql-data-warehouse-develop-transactions.md) y [Optimización de transacciones](sql-data-warehouse-develop-best-practices-transactions.md).
+Consulte también [Transacciones en SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) y [Optimización de transacciones](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>Automatización de la administración de proceso
 Para automatizar las operaciones de administración de proceso, consulte [Administración de proceso con Azure Functions](manage-compute-with-azure-functions.md).
@@ -115,7 +110,7 @@ Para comprobar el estado del almacenamiento de datos, consulte la guía de inici
 
 ## <a name="permissions"></a>Permisos
 
-Para escalar el almacenamiento de datos, se requieren los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor), en concreto Microsoft.Sql/servers/databases/action.
+Para escalar el almacenamiento de datos, se requieren los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Para pausar y reanudar, se requiere el permiso [Colaborador de base de datos SQL](../role-based-access-control/built-in-roles.md#sql-db-contributor), en concreto Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 04/20/2018
 ms.author: dukek
-ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a1f163acea4e1965ab90b32e23e502b13f8908be
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -93,7 +93,7 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 <dt>Webhook</dt>
 <dd>En un grupo de acciones puede tener hasta 10 acciones de webhook.
-<dd>Reintentar la lógica: se volverá a intentar la llamada de webhook un máximo de 3 veces cuando se devuelvan los siguientes códigos de estado HTTP: 408, 429, 503, 504</dd>
+<dd>Reintentar la lógica: se volverá a intentar la llamada de webhook un máximo de 2 veces cuando se devuelvan los siguientes códigos de estado HTTP: 408, 429, 503, 504 o el punto de conexión HTTP no responda. El primer reintento se produce transcurridos 10 segundos. El segundo y último reintento se produce transcurridos 100 segundos.</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Administración de los grupos de acciones ##

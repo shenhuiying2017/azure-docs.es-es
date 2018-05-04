@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 04/19/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 3bbfb4e9725b51aa5435f143045c33cbc8f2d1c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -56,9 +56,10 @@ El número de compilación de la actualización 1802 de Azure Stack es **2018030
 
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
-Después de la instalación de 1802, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).  
-- [KB 4103348 - Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/help/4103348)
+Después de la instalación de 1802, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md). 
+- Azure Stack, revisión **1.0.180302.4**. [KB 4131152: No se pueden escalar conjuntos de escalado de máquinas virtuales existentes después de instalar la actualización 1802 de Azure Stack]( https://support.microsoft.com/help/4131152). 
 
+  Esta corrección también resuelve los problemas que se detallan en [KB 4103348: Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/help/4103348).
 
 
 ### <a name="new-features-and-fixes"></a>Nuevas características y correcciones
@@ -193,7 +194,7 @@ No hay ningún problema conocido después de actualizar a 1802.
     - *Permitir:*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -223,7 +224,7 @@ No hay ningún problema conocido después de actualizar a 1802.
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 0694c45363eb2534416f1dad59196ecfa1dacd17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos y comprobaciones de estado en Azure Resource Health
 A continuación se muestra una lista completa de todas las comprobaciones que se ejecutan a través de Resource Health por tipos de recursos.
@@ -113,7 +113,7 @@ A continuación se muestra una lista completa de todas las comprobaciones que se
 ## <a name="microsoftwebserverfarms"></a>Microsoft.web/serverFarms
 |Comprobaciones ejecutadas|
 |---|
-|<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ejecuta Internet Information Services (IIS)?</li><li>¿Funciona el equilibrador de carga?</li><li>¿Se puede acceder al plan de servicio web desde el centro de datos?</li><li>¿Hospeda la cuenta de almacenamiento el contenido de los sitios de serverFarm disponible?</li></ul>|
+|<ul><li>¿Está el servidor en funcionamiento?</li><li>¿Se ejecuta Internet Information Services (IIS)?</li><li>¿Funciona el equilibrador de carga?</li><li>¿Se puede acceder al plan de App Service desde el centro de datos?</li><li>¿Hospeda la cuenta de almacenamiento el contenido de los sitios de serverFarm disponible?</li></ul>|
 
 ## <a name="microsoftwebsites"></a>Microsoft.web/sites
 |Comprobaciones ejecutadas|

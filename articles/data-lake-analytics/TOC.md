@@ -24,26 +24,30 @@
 ### [Ajuste de los límites de cuota](data-lake-analytics-quota-limits.md)
 
 ## Desarrollo de programas U-SQL
-### [Conceptos básicos de U-SQL](data-lake-analytics-u-sql-get-started.md)
-### [Referencia al lenguaje U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
-### [Catálogo de U-SQL](data-lake-analytics-u-sql-catalog.md)
-### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
-### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
-### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
-### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
-### [Código personalizado de U-SQL para Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-### [U-SQL para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-### [Exportación de base de datos de U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 
-## Depuración de programas U-SQL
-### [Trabajos de supervisión y solución de problemas](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-### [Solución de problemas de un trabajo periódico anómalo](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-### [Depuración de código C# en U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-### [Uso de un explorador y una vista de trabajo](data-lake-analytics-data-lake-tools-view-jobs.md)
-### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-### [Ejecución local y depuración local en VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
-### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+### Lenguaje U-SQL
+#### [Conceptos básicos de U-SQL](data-lake-analytics-u-sql-get-started.md)
+#### [Referencia al lenguaje U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+#### [Catálogo de U-SQL](data-lake-analytics-u-sql-catalog.md)
+#### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
+#### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
+#### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
+#### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+#### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
+#### [Trabajos de supervisión y solución de problemas](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+
+### Visual Studio
+#### [Uso de un explorador y una vista de trabajo](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [Depuración de código C# en U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
+#### [Solución de problemas de un trabajo periódico anómalo](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [Exportación de base de datos de U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
+
+### Visual Studio Code
+#### [U-SQL para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Código personalizado de U-SQL para Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [Ejecución local y depuración local en VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Referencia
 ## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)

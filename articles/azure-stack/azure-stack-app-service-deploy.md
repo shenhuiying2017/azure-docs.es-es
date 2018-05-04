@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
@@ -83,7 +83,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 7. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
    > [!NOTE]
-   > El instalador intenta comprobar la conectividad con el recurso compartido de archivos antes de continuar.  Sin embargo, si eligió realizar la implementación en una instancia existente de Virtual Network, puede que el instalador no pueda conectarse al recurso compartido de archivos y que se muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información del recurso compartido de archivos y continuar si es correcta.
+   > El instalador intenta comprobar la conectividad con el recurso compartido de archivos antes de continuar.  Sin embargo, si eligió realizar la implementación en una instancia existente de Virtual Network, puede que el instalador no pueda conectarse al recurso compartido de archivos y que se muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información del recurso compartido de archivos y continúe si es correcta.
    >
    >
 
@@ -168,6 +168,18 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 2. En la información general del estado, compruebe que en **Estado** se muestra **Todos los roles están listos**.
 
     ![Administración de App Service](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Si decide implementar en una red virtual existente y usar una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida, que habilita el tráfico SMB entre la subred de trabajo y el servidor de archivos.  Para ello, vaya a WorkersNsg en el Portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+> * Origen: Cualquiera
+> * Intervalo de puertos de origen: *
+> * Destino: Direcciones IP
+> * Intervalo de direcciones IP de destino: intervalo de direcciones IP para el servidor de archivos
+> * Intervalo de puertos de destino: 445
+> * Protocolo: TCP
+> * Acción: Permitir
+> * Prioridad: 700
+> * Nombre: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Prueba de App Service en Azure Stack
 

@@ -6,13 +6,13 @@ author: anasouma
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/30/2018
 ms.author: wielriac
-ms.openlocfilehash: 5d1ad1555cb1e01e363456af5c50ecd090ce7147
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 79590e1987ee29ca06f9fb103f548518b2c1c57e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Características únicas de los blobs en páginas de Azure
 
@@ -21,9 +21,6 @@ Azure Storage ofrece tres tipos de almacenamiento en blobs: en bloques, en anexo
 Los blobs en páginas son una colección de páginas de 512 bytes que proporcionan la capacidad de leer y escribir intervalos arbitrarios de bytes. Por lo tanto, son ideales para almacenar estructuras de datos esparcidos basadas en índices, como discos de datos y de sistema operativo para máquinas virtuales y bases de datos. Por ejemplo, Azure SQL DB usa blobs en páginas como almacenamiento persistente subyacente para sus bases de datos. Además, los blobs en páginas suelen usarse para archivos con actualizaciones basadas en intervalos.  
 
 Las características clave de los blobs en páginas de Azure son la interfaz REST, la durabilidad del almacenamiento subyacente y las excepcionales funcionalidades de migración a Azure. En la sección siguiente, analizaremos detalladamente estas características. Además, los blobs en páginas de Azure se admiten actualmente en dos tipos de almacenamiento: Premium Storage y Standard Storage. La opción Premium Storage está diseñada específicamente para cargas de trabajo que requieren alto rendimiento coherente y baja latencia, lo que hace que los blobs en páginas premium sean perfectos para bases de datos de almacenamiento de datos de alto rendimiento.  La opción Standard Storage es más rentable para cargas de trabajo que se ejecutan sin tener en cuenta la latencia.
-
-> [!WARNING]
-> Los blobs en páginas en Premium Storage están diseñados para su uso exclusivo como discos duros virtuales. Microsoft no recomienda almacenar otros tipos de datos en blobs en páginas en Premium Storage, ya que el costo puede ser mucho mayor. Use los blobs en bloques para almacenar datos que no se encuentren en un disco duro virtual.
 
 ## <a name="sample-use-cases"></a>Casos de uso de ejemplo
 

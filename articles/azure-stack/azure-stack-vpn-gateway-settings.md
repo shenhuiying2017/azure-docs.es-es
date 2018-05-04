@@ -1,11 +1,11 @@
 ---
-title: "Configuración de puerta de enlace VPN para Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de la configuración de las puertas de enlace VPN que se utilizan con Azure Stack."
+title: Configuración de puerta de enlace VPN para Azure Stack | Microsoft Docs
+description: Obtenga información acerca de la configuración de las puertas de enlace VPN que se utilizan con Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
 ms.workload: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: 1eba5df93b461eb22ab8341b4498682957c9298a
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Valores de la configuración de una puerta de enlace VPN para Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado entre una red virtual de Azure Stack y una puerta de enlace de VPN remota. La puerta de enlace de VPN remota puede estar en Azure, un dispositivo del centro de datos o un dispositivo de otro sitio.  Si hay conectividad de red entre los dos puntos de conexión, puede establecer una conexión VPN de sitio a sitio (S2S) segura entre las dos redes.
 
@@ -160,7 +160,7 @@ A diferencia de Azure, que admite varias ofertas como iniciador y respondedor, A
 |Versión de IKE |IKEv2 |
 |Cifrados y algoritmos hash (cifrado)     | GCMAES256|
 |Cifrados y algoritmos hash (autenticación) | GCMAES256|
-|Vigencia de SA (tiempo)  | 14 400 segundos |
+|Vigencia de SA (tiempo)  | 27 700 segundos |
 |Vigencia de SA (bytes) | 819 200       |
 |Confidencialidad directa perfecta (PFS) |PFS2048 |
 |Detección de cuellos del mismo nivel | Compatible|  

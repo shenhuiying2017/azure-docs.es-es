@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0e89b93764f51873d991524a5e226464c224b649
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a53bb0a23fae386abbe71de944b073cbb93d502
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="set-throughput-for-azure-cosmos-db-containers"></a>Configuración del rendimiento para contenedores de Azure Cosmos DB
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Configuración y obtención del rendimiento para contenedores de Azure Cosmos DB
 
 Puede configurar el rendimiento de los contenedores de Azure Cosmos DB en Azure Portal o mediante los SDK del cliente. 
 
@@ -96,6 +96,43 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+## <a id="GetLastRequestStatistics"></a>Obtención de rendimiento mediante el comando GetLastRequestStatistics de la API de MongoDB
+
+La API de MongoDB admite un comando personalizado, *getLastRequestStatistics*, para recuperar las cargas de solicitudes de las operaciones especificadas.
+
+Por ejemplo, en el shell de Mongo, ejecute la operación para la que desea comprobar la carga de solicitud.
+```
+> db.sample.find()
+```
+
+Después, ejecute el comando *getLastRequestStatistics*.
+```
+> db.runCommand({getLastRequestStatistics: 1})
+{
+    "_t": "GetRequestStatisticsResponse",
+    "ok": 1,
+    "CommandName": "OP_QUERY",
+    "RequestCharge": 2.48,
+    "RequestDurationInMilliSeconds" : 4.0048
+}
+```
+
+Con esto en mente, un método para calcular la cantidad de rendimiento reservado requerido por la aplicación es registrar el cargo de la unidad de solicitud asociado a la ejecución de las operaciones típicas frente a un elemento representativo usado por la aplicación y, a continuación, calcular el número de operaciones que prevé realizar cada segundo.
+
+> [!NOTE]
+> Si dispone de tipos de elemento que varían considerablemente en cuanto a tamaño y número de propiedades indexadas, registre el cargo de unidad de solicitud de operación aplicable asociado a cada *tipo* de elemento típico.
+> 
+> 
+
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obtención de rendimiento mediante el uso de las métricas de portal de API de MongoDB
+
+La manera más sencilla de obtener una buena estimación de los cargos por la unidad de solicitud de la base de datos de API de MongoDB es usar las métricas de [Azure Portal](https://portal.azure.com). Con los grafos *Número de solicitudes* y *Cargo de solicitud*, puede obtener una estimación de cuántas unidades de solicitud está consumiendo cada operación y cuántas unidades de solicitud consumen entre sí.
+
+![Métricas del portal de API de MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superación de los límites de rendimiento reservados en la API de MongoDB
+Las aplicaciones que superan el rendimiento aprovisionado para un contenedor tendrá la velocidad limitada hasta que la velocidad de consumo caiga por debajo de la velocidad del rendimiento aprovisionado. Cuando se produce una limitación de velocidad, el back-end finalizará la solicitud de forma preferente con un código de error `16500`: `Too Many Requests`. De forma predeterminada, la API de MongoDB volverá a intentarlo automáticamente hasta 10 veces antes de devolver un código de error `Too Many Requests`. Si recibe numerosos códigos de error `Too Many Requests`, puede plantearse agregar una lógica de reintento en las rutinas de control de error de la aplicación o [mejorar el rendimiento aprovisionado para el contenedor](set-throughput.md).
+
 ## <a name="throughput-faq"></a>Preguntas más frecuentes sobre el rendimiento
 
 **¿Se puede configurar el rendimiento a menos de 400 RU/s?**
@@ -109,3 +146,5 @@ No hay ninguna extensión de API de MongoDB para configurar el rendimiento. La r
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para aprender más sobre el aprovisionamiento y cómo pasar a escala planetaria con Cosmos DB, consulte [Partición y escalado en Cosmos DB](partition-data.md).
+
+[1]: ./media/set-throughput/api-for-mongodb-metrics.png

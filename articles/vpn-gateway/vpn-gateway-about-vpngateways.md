@@ -1,37 +1,36 @@
 ---
-title: 'Información general sobre VPN Gateway: creación de conexiones VPN entre locales con redes virtuales de Azure | Microsoft Docs'
-description: En este artículo se explica lo que es VPN Gateway muestra las distintas formas de conectarse a redes virtuales de Azure mediante una conexión VPN a través de Internet. Se incluyen los diagramas de las configuraciones de conexión básica.
+title: Azure VPN Gateway | Microsoft Docs
+description: Conozca más información sobre lo que es una instancia de VPN Gateway y las formas en que puede utilizarla para conectarse a redes virtuales de Azure. Aquí están incluidas la directiva IPsec o IKE de sitio a sitio entre implementaciones locales y soluciones de red virtual a red virtual, así como VPN de punto a sitio.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 405af7d1191e8ea3c0ba1c526f0c5a526aef795b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/23/2018
 ---
-# <a name="about-vpn-gateway"></a>Acerca de VPN Gateway
+# <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
-Una puerta de enlace de VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado a una ubicación local a través de una conexión pública. También puede usar puertas de enlace de VPN para enviar tráfico cifrado entre las redes virtuales de Azure a través de la red de Microsoft. Para enviar tráfico de red cifrado entre la red virtual de Azure y el sitio local, debe crear una puerta de enlace de VPN para la red virtual.
-
-Cada red virtual solo puede tener una puerta de enlace de VPN; sin embargo, puede crear varias conexiones a la misma puerta de enlace de VPN. Un ejemplo de esto es una configuración de conexión multisitio. Al crear varias conexiones a la misma puerta de enlace de VPN, todos los túneles VPN, incluidos las VPN de punto a sitio, comparten el ancho de banda que está disponible para la puerta de enlace.
+VPN Gateway es un tipo específico de puerta de enlace de red virtual que se usa para enviar tráfico cifrado entre una red virtual de Azure y una ubicación local a través de la red pública de Internet. También puede usar una instancia de VPN Gateway para enviar tráfico cifrado entre las redes virtuales de Azure a través de la red de Microsoft. Cada red virtual solo puede tener una instancia de VPN Gateway. Sin embargo, puede crear varias conexiones a la misma instancia. Al crear varias conexiones a la misma instancia de VPN Gateway, todos los túneles VPN comparten el ancho de banda disponible de la puerta de enlace.
 
 ## <a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
 
-Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada GatewaySubnet. Las máquinas virtuales que se encuentran en GatewaySubnet se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No puede configurar directamente máquinas virtuales que formen parte de la puerta de enlace de red virtual y nunca debería implementar recursos adicionales en GatewaySubnet.
+Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada la *subred de la puerta de enlace*. Las máquinas virtuales que se encuentran en esta subred se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No se pueden configurar directamente las máquinas virtuales que forman parte de la puerta de enlace de red virtual y nunca debe implementar recursos adicionales en la subred de la puerta de enlace.
 
-Cuando se crea una puerta de enlace de red virtual con el tipo de puerta de enlace "Vpn", se crea un tipo específico de puerta de enlace de red virtual que cifra el tráfico: una puerta de enlace de VPN. Una puerta de enlace de VPN puede tardar hasta 45 minutos en crearse, ya que sus máquinas virtuales se implementan en GatewaySubnet y se configuran con los valores especificados. La SKU de la puerta de enlace seleccionado determina la potencia de las máquinas virtuales.
+Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse. Al crear una instancia de VPN Gateway, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace, y se configuran con las opciones que especifique. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de IKEv2 o SSTP) que le permitirá conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
 
 ## <a name="configuring"></a>Configuración de una instancia de VPN Gateway
 
@@ -39,7 +38,7 @@ Una conexión de puerta de enlace de VPN se basa en varios recursos con una conf
 
 ### <a name="settings"></a>Configuración
 
-La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). El artículo contiene información que le ayudará a entender los tipos de puerta de enlace, de VPN y de conexión, así como las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que pueden interesarle.
+La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información sobre los recursos individuales y la configuración de VPN Gateway, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). El artículo contiene información que le ayudará a entender los tipos de puerta de enlace, de SKU de puerta de enlace, de VPN y de conexión, así como las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que pueden interesarle.
 
 ### <a name="tools"></a>Herramientas de implementación
 
@@ -47,7 +46,7 @@ Puede empezar a crear y configurar recursos mediante una herramienta de configur
 
 ### <a name="models"></a>Modelo de implementación
 
-Cuando configure una instancia de VPN Gateway, los pasos que realice dependen del modelo de implementación que ha utilizado para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Para más información sobre los modelos de implementación, consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
+Actualmente hay dos modelos de implementación de Azure. Cuando configure una instancia de VPN Gateway, los pasos que realice dependen del modelo de implementación que ha utilizado para crear la red virtual. Por ejemplo, si creó la red virtual con el modelo de implementación clásica, use las instrucciones y directrices del modelo de implementación clásica para crear y configurar la puerta de enlace de VPN. Para más información sobre los modelos de implementación, consulte [Descripción de los modelos de implementación clásica y de Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ### <a name="planningtable"></a>Tabla de planeación
 
@@ -83,7 +82,7 @@ Una conexión de puerta de enlace de VPN de sitio a sitio (S2S) es una conexión
 
 ### <a name="Multi"></a>Multisitio
 
-Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede crear más de una conexión VPN desde la puerta de enlace de red virtual, normalmente conectándose a varios sitios locales. Cuando trabaje con varias conexiones, debe usar una VPN de tipo RouteBased (conocida como puerta de enlace dinámica al trabajar con redes virtuales clásicas). Como cada red virtual solo puede tener una puerta de enlace de red virtual, todas las conexiones a través de la puerta de enlace comparten el ancho de banda disponible. A menudo, esto se llama conexión "multisitio".
+Este tipo de conexión es una variación de la conexión de sitio a sitio. Puede crear más de una conexión VPN desde la puerta de enlace de red virtual, normalmente conectándose a varios sitios locales. Cuando trabaje con varias conexiones, debe usar una VPN de tipo RouteBased (conocida como puerta de enlace dinámica al trabajar con redes virtuales clásicas). Como cada red virtual solo puede tener una puerta de enlace de red virtual, todas las conexiones a través de la puerta de enlace comparten el ancho de banda disponible. Este tipo de conexión se denomina con frecuencia, conexión "multisitio".
 
 ![Ejemplo de conexión multisitio de Azure VPN Gateway](./media/vpn-gateway-about-vpngateways/vpngateway-multisite-connection-diagram.png)
 
@@ -130,11 +129,11 @@ Es posible que pueda usar el emparejamiento de VNET para crear la conexión, sie
 
 ## <a name="ExpressRoute"></a>ExpressRoute (conexión privada)
 
-Microsoft Azure ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
+ExpressRoute le permite ampliar sus redes locales en la nube de Microsoft a través de una conexión privada que facilita un proveedor de conectividad. Con ExpressRoute, se pueden establecer conexiones con servicios en la nube de Microsoft, como Microsoft Azure, Office 365 y CRM Online. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
 
 Las conexiones ExpressRoute no pasan por la red pública de Internet. Esto permite a las conexiones de ExpressRoute ofrecer más confiabilidad, más velocidad, menor latencia y mayor seguridad que las conexiones normales a través de Internet.
 
-Una conexión de ExpressRoute no utiliza una instancia de VPN Gateway, aunque lo use una puerta de enlace de red virtual como parte de su configuración obligatoria. En una conexión de ExpressRoute, se configura una puerta de enlace de red virtual con el tipo de puerta de enlace "ExpressRoute", en lugar de "Vpn". Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
+Una conexión de ExpressRoute usa una puerta de enlace de red virtual como parte de su configuración obligatoria. En una conexión de ExpressRoute, se configura una puerta de enlace de red virtual con el tipo de puerta de enlace "ExpressRoute", en lugar de "Vpn". Aunque el tráfico que pasa por un circuito de ExpressRoute no está cifrado de forma predeterminada, es posible crear una solución que le permita enviar tráfico cifrado a través de este. Para más información sobre ExpressRoute, vea la [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="coexisting"></a>Conexiones de sitio a sitio y de ExpressRoute coexistentes
 

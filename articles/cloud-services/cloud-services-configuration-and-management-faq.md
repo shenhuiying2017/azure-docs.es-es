@@ -213,7 +213,7 @@ Microsoft sigue un proceso estricto que no permite a los ingenieros internos eje
 Este error puede producirse si usa el archivo RDP desde un equipo replicado en Azure Active Directory. Para resolver el problema, siga estos pasos:
 
 1. Haga clic en el archivo RDP que ha descargado y seleccione **Editar**.
-2. Agregue "& #92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
+2. Agregue "&#92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
 
 ## <a name="scaling"></a>Escalado
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: a35da5c84e4e79d7bc6f2167ec7e172970992612
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -263,6 +263,91 @@ Si solo desea enviar un conjunto específico de eventos a un recurso diferente, 
 ```
 
 Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application Insights][new].
+
+
+
+## <a name="applicationid-provider"></a>Proveedor ApplicationId
+
+_Disponible a partir de la versión 2.6.0_
+
+El propósito de este proveedor es buscar un identificador de aplicación en función de una clave de instrumentación. El identificador de aplicación se incluye en RequestTelemetry y DependencyTelemetry, se y utiliza para determinar la correlación en el portal.
+
+Está disponible al establecer `TelemetryConfiguration.ApplicationIdProvider` en el código o en la configuración.
+
+### <a name="interface-iapplicationidprovider"></a>Interfaz: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+Se proporcionan dos implementaciones en el SDK [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights): `ApplicationInsightsApplicationIdProvider` y `DictionaryApplicationIdProvider`.
+
+### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
+
+Se trata de un encapsulado alrededor de Profile API. Limita las solicitudes y los resultados en la memoria caché.
+
+Este proveedor se agrega al archivo de configuración cuando se instala [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) o [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
+
+Esta clase tiene una propiedad `ProfileQueryEndpoint` opcional.
+De manera predeterminada, se establece en `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
+Si tiene que configurar un proxy para esta configuración, se recomienda un proxy en la dirección base y la inclusión de "/api/profiles/{0}/appId". Tenga en cuenta que "{0}" se sustituye en tiempo de ejecución por la solicitud con la clave de instrumentación.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Ejemplo de configuración con ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Ejemplo de configuración mediante código:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### <a name="dictionaryapplicationidprovider"></a>DictionaryApplicationIdProvider
+
+Se trata de un proveedor estático que se basará en los pares clave de instrumentación/identificador de la aplicación configurados.
+
+Esta clase tiene una propiedad `Defined` que es un diccionario<string,string> de los pares clave de instrumentación e identificador de aplicación.
+
+Esta clase tiene una propiedad `Next` opcional que puede utilizarse para configurar otro proveedor que se use al solicitar una clave de instrumentación que no exista en la configuración.
+
+#### <a name="example-configuration-via-applicationinsightsconfig"></a>Ejemplo de configuración con ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### <a name="example-configuration-via-code"></a>Ejemplo de configuración mediante código:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Más información acerca de la API][api].

@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Reglas y puntos de conexión del servicio de Virtual Network para Azure SQL Database
 
@@ -140,7 +140,7 @@ Para Azure SQL Database, la característica de las reglas de red virtual tiene l
 Al utilizar los puntos de conexión de servicio para Azure SQL Database, revise las consideraciones siguientes:
 
 - **Se requiere la salida a IP públicas de Azure SQL Database**: los grupos de seguridad de red (NSG) deben estar abiertos en las IP de Azure SQL Database para permitir la conectividad. Puede hacerlo mediante el uso de [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) de NSG para Azure SQL Database.
-- **Azure Database for PostgreSQL y MySQL no se admiten**: los puntos de conexión de servicio para Azure Database for PostgreSQL o MySQL no son compatibles. Al habilitar puntos de conexión de servicio en SQL Database se interrumpirá la conectividad a estos servicios. Tenemos una solución; póngase en contacto con *dmalik@microsoft.com*.
+- **Azure Database for PostgreSQL y MySQL no se admiten**: los puntos de conexión de servicio para Azure Database for PostgreSQL o MySQL no son compatibles. Al habilitar puntos de conexión de servicio en SQL Database se interrumpirá la conectividad a estos servicios. Hay una solución; póngase en contacto con *dmalik@microsoft.com* para obtener más información.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -227,8 +227,9 @@ Se puede encontrar información de una lista de varios mensajes de error de SQL 
 En esta sección se muestra cómo puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una *regla de red virtual* en su instancia de Azure SQL Database. La regla indica a su instancia de SQL Database que acepte la comunicación procedente de una subred concreta que se ha etiquetado como *punto de conexión del servicio de Virtual Network*.
 
 > [!NOTE]
-> Asegúrese de que los puntos de conexión de servicio están activados para la red virtual o subred que quiere agregar a las reglas de firewall de red virtual del servidor.
-> Si los puntos de conexión de servicio no están activados para la red virtual o subred, se le pedirá que los habilite en el portal. Haga clic en Habilitar en la hoja en la que va a agregar la regla.
+> Asegúrese de que los puntos de conexión de servicio están activados para la subred si piensa quiere agregar un punto de conexión de servicio a las reglas de firewall de red virtual.
+>
+> Si los puntos de conexión de servicio no están activados para la subred, el portal le pedirá que los habilite. Haga clic en el botón **Habilitar** de la misma hoja en la que agrega la regla.
 
 #### <a name="powershell-alternative"></a>Alternativa de PowerShell
 

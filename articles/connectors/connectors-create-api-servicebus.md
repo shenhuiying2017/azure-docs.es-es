@@ -1,11 +1,11 @@
 ---
-title: "Configuración de la mensajería con Azure Service Bus para Azure Logic Apps | Microsoft Docs"
-description: "Envío y recepción de mensajes con aplicaciones lógicas mediante Azure Service Bus"
+title: Configuración de la mensajería con Azure Service Bus para Azure Logic Apps | Microsoft Docs
+description: Envío y recepción de mensajes con aplicaciones lógicas mediante Azure Service Bus
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Envío y recepción de mensajes con el conector de Azure Service Bus
 
@@ -65,12 +65,17 @@ Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e
 
    ![Selección de un desencadenador de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Algunos desencadenadores devuelven uno o varios mensajes, como el desencadenador *Service Bus - Cuando llegan uno o más mensajes a una cola (autocompletar)*.
+   > Cuando se activan estos desencadenadores, devuelven un valor comprendido entre 1 y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+
    1. Si todavía no tiene una conexión al espacio de nombres de Service Bus, se le pedirá que cree ahora esta conexión. Asigne un nombre a la conexión y seleccione el espacio de nombres de Service Bus que desea usar.
 
       ![Creación de una conexión de Service Bus](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       O bien, para escribir de forma manual la cadena de conexión, elija **Especificar la información de conexión manualmente**. 
       Obtenga información acerca de [cómo buscar la cadena de conexión](#permissions-connection-string).
+      
 
    2. Ahora, seleccione la directiva de Service Bus que desea usar y elija **Crear**.
 
@@ -79,6 +84,11 @@ Un [*desencadenador*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e
 4. Seleccione la cola de Service Bus que desea usar y configure el intervalo y la frecuencia que determinan cuándo comprobarla.
 
    ![Selección de la cola de Service Bus, configuración del intervalo de sondeo](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Todos los desencadenadores de Service Bus son de **sondeo largo**, lo que significa que, cuando se activa un desencadenador, este procesa todos los mensajes y después espera 30 segundos a que aparezcan más mensajes en la suscripción del tema o de la cola.
+   > Si no se recibe ningún mensaje después de 30 segundos, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía.
+   > El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
 
 5. Guarde la aplicación lógica. En la barra de herramientas del diseñador, haga clic en **Guardar**.
 

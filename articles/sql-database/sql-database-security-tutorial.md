@@ -9,15 +9,22 @@ ms.custom: mvc,security
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.author: daredis
-ms.openlocfilehash: 4d2f5ce387a1e9b36fd1625210f42525a272c270
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Protección de Azure SQL Database
 
-SQL Database protege los datos mediante la limitación del acceso a la base de datos a través de reglas de firewall, de mecanismos de autenticación que requieren que los usuarios prueben su identidad y de la autorización a través de pertenencias y permisos basados en roles, así como la seguridad de nivel de fila y el enmascaramiento dinámico de datos.
+SQL Database ayuda a proteger sus datos mediante: 
+- Limitación del acceso a la base de datos mediante reglas de firewall 
+- Uso de mecanismos de autenticación que requieran sus identidades
+- Autorización del acceso a los datos a través de pertenencias y permisos basados en roles 
+- Seguridad de nivel de fila
+- Enmascaramiento de datos dinámicos
+
+SQL Database también dispone de una sofisticada supervisión, auditoría y detección de amenazas. 
 
 Con unos pocos pasos sencillos puede mejorar la protección de su base de datos contra usuarios malintencionados o acceso no autorizado. En este tutorial, aprenderá a: 
 
@@ -155,7 +162,7 @@ El cifrado de datos transparente (TDE) de Azure SQL Database cifra automáticame
 
 3. Si es necesario, establezca **Cifrado de datos** en Activado y haga clic en **Guardar**.
 
-Se inicia el proceso de cifrado en segundo plano. Para supervisar el progreso, conéctese a SQL Database mediante [SQL Server Management Studio](./sql-database-connect-query-ssms.md) consultando la columna encryption_state de la vista `sys.dm_database_encryption_keys`.
+Se inicia el proceso de cifrado en segundo plano. Puede supervisar el progreso mediante la conexión a SQL Database con [SQL Server Management Studio](./sql-database-connect-query-ssms.md) y la consulta a la columna encryption_state de la vista [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Un estado de 3 indica que la base de datos está cifrada. 
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>Habilitación de la auditoría de SQL Database, si es necesario
 

@@ -67,6 +67,8 @@
           href: insights-alerts-powershell.md
         - name: Acciones de webhook para alertas de registro
           href: monitor-alerts-unified-log-webhook.md
+        - name: Creación de una alerta de métrica más reciente con una plantilla de Resource Manager
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: Creación de una alerta de métrica clásica con una plantilla de Resource Manager
           href: monitoring-enable-alerts-using-template.md
         - name: Copia de alertas del portal de OMS a Azure Portal

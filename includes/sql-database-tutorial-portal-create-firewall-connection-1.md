@@ -4,7 +4,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
-Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](../articles/sql-database/sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](../articles/sql-database/sql-database-features.md). 
+Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](../articles/sql-database/sql-database-service-tiers-dtu.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](../articles/sql-database/sql-database-features.md). 
 
 Siga estos pasos para crear una instancia en blanco de SQL Database. 
 

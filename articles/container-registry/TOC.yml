@@ -21,6 +21,14 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Compilación de imágenes de contenedor (versión preliminar)
+      items:
+        - name: 1 - Compilación de imágenes en Azure
+          href: container-registry-tutorial-quick-build.md
+        - name: 2 - Automatización de las compilaciones de imágenes
+          href: container-registry-tutorial-build-task.md
+        - name: 3 - Compilaciones de actualización de imagen base
+          href: container-registry-tutorial-base-image-update.md
     - name: Replicación geográfica (versión preliminar)
       items:
         - name: 1 - Preparación del registro del contenedor
@@ -35,6 +43,8 @@
       href: container-registry-skus.md
     - name: Almacenamiento de imágenes
       href: container-registry-storage.md
+    - name: Compilación y revisión con ACR Build
+      href: container-registry-build-overview.md
     - name: Replicación geográfica (versión preliminar)
       href: container-registry-geo-replication.md
     - name: Procedimientos recomendados del registro

@@ -8,4 +8,4 @@ La característica Mobile Apps de Azure App Service usa [Azure Notification Hubs
 Ya ha conectado un centro de notificaciones al proyecto de back-end de Mobile Apps. Más adelante configure este centro de notificaciones para que se conecte a un sistema de notificación de plataforma (PNS) que envíe notificaciones push a los dispositivos.
 
 [Azure Portal]: https://portal.azure.com/
-[Azure Notification Hubs]: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-push-notification-overview/
+[Azure Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

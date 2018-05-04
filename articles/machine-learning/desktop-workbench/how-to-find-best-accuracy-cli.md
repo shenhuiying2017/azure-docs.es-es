@@ -1,6 +1,6 @@
 ---
-title: "Búsqueda de ejecuciones con la mejor precisión y la menor duración en Azure Machine Learning Workbench | Microsoft Docs"
-description: "Un caso de uso completo para buscar la mejor precisión a través de CLI mediante Azure Machine Learning Workbench"
+title: Búsqueda de ejecuciones con la mejor precisión y la menor duración en Azure Machine Learning Workbench | Microsoft Docs
+description: Un caso de uso completo para buscar la mejor precisión a través de CLI mediante Azure Machine Learning Workbench
 services: machine-learning
 author: totekp
 ms.author: kefzhou
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
 ms.openlocfilehash: bd8888d911730831435b87d3a60b48a7797eea98
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Búsqueda de ejecuciones con la mejor precisión y la menor duración
 Cuando hay varias ejecuciones, un caso de uso es buscar las que tienen la máxima precisión. Un enfoque consiste en usar la interfaz de la línea de comandos (CLI) con una consulta [JMESPath](http://jmespath.org/). Para obtener más información acerca de cómo usar JMESPath en la CLI de Azure, consulte [Uso de consultas JMESPath con CLI de Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). En el ejemplo siguiente, se crean cuatro ejecuciones con los siguientes valores de precisión: 0; 0,98; 1 y 1. Las ejecuciones se filtran si están en el intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` donde `Threshold = .03`.

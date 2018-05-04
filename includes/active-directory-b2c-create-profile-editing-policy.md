@@ -1,4 +1,4 @@
-Para habilitar la edición de perfiles en su aplicación, deberá crear una directiva de edición de perfiles. Esta directiva describe las experiencias que tendrán los consumidores durante la edición de perfiles y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
+Si desea habilitar la edición del perfil en la aplicación, debe seguir una directiva de **edición de perfil**. Esta directiva describe las experiencias de los consumidores durante la edición del perfil y el contenido de los tokens que recibirá la aplicación al finalizarla correctamente.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -8,11 +8,11 @@ En la sección de directivas de configuración, seleccione **Directivas de edici
 
 Escriba un **nombre** de directiva al que la aplicación haga referencia. Por ejemplo, escriba: `SiPe`.
 
-Seleccione **Proveedores de identidades** y active **Inicio de sesión de cuenta local**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **Aceptar**.
+Seleccione **Proveedores de identidades** y active **Inicio de sesión de cuenta local**. También puede seleccionar proveedores de identidades sociales, si ya se han configurado. Haga clic en **OK**.
 
 ![Seleccionar inicio de sesión de cuenta local como proveedor de identidades y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-identity-providers.png)
 
-Seleccione **Atributos de perfil**. Elija los atributos que el consumidor puede ver y editar en su perfil. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **Aceptar**.
+Seleccione **Atributos de perfil**. Elija los atributos que el consumidor puede ver y editar en su perfil. Por ejemplo, seleccione **País o región**, **Nombre para mostrar** y **Código postal**. Haga clic en **OK**.
 
 ![Seleccionar algunos atributos y hacer clic en el botón Aceptar](media/active-directory-b2c-create-profile-editing-policy/add-b2c-editing-attributes.png)
 
@@ -28,7 +28,7 @@ Para abrir la directiva, haga clic en **B2C_1_SiPe**. Compruebe la configuració
 
 | Configuración      | Valor  |
 | ------------ | ------ |
-| **Aplicaciones** | Aplicación B2C de Contoso |
+| **Applications** | Aplicación B2C de Contoso |
 | **Seleccionar dirección URL de respuesta** | `https://localhost:44316/` |
 
 Se abrirá una nueva pestaña del explorador y podrá comprobar la experiencia del consumidor de edición de perfiles que configuró.

@@ -1,0 +1,172 @@
+- name: Documentación de Load Balancer
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué es el Equilibrador de carga?
+      href: load-balancer-overview.md
+- name: Guía de inicio rápido
+  items:
+    - name: 'Creación de Load Balancer básico: Azure Portal'
+      href: quickstart-create-basic-load-balancer-portal.md
+    - name: 'Creación de Load Balancer básico: CLI de Azure'
+      href: quickstart-create-basic-load-balancer-cli.md
+    - name: 'Creación de Load Balancer estándar: Azure Portal'
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: 'Creación de Load Balancer estándar: CLI de Azure'
+      href: quickstart-load-balancer-standard-public-cli.md
+- name: Ejemplos
+  items:
+    - name: CLI de Azure
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
+- name: Tutoriales
+  items:
+    - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica
+      href: tutorial-load-balancer-standard-public-zonal-portal.md
+- name: Conceptos
+  items:
+    - name: ¿Qué es Load Balancer estándar?
+      href: load-balancer-standard-overview.md
+    - name: Sondeos del Equilibrador de carga
+      href: load-balancer-custom-probe-overview.md
+    - name: Puertos de alta disponibilidad
+      href: load-balancer-ha-ports-overview.md
+    - name: Compatibilidad de IPv6
+      href: load-balancer-ipv6-overview.md
+    - name: Varios servidores front-end
+      href: load-balancer-multivip-overview.md
+    - name: Conexiones de salida
+      href: load-balancer-outbound-connections.md
+    - name: Load Balancer Estándar y zonas de disponibilidad
+      href: load-balancer-standard-availability-zones.md
+    - name: Diagnósticos y métrica de Load Balancer estándar
+      href: load-balancer-standard-diagnostics.md
+- name: Procedimientos
+  items:
+    - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas
+      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      items:
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas (PowerShell)
+          href: load-balancer-get-started-internet-az-powershell.md
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas (CLI)
+          href: load-balancer-get-started-internet-az-cli.md
+    - name: Creación de una instancia de Load Balancer estándar pública zonal
+      href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+      items:
+        - name: Creación de una instancia de Load Balancer estándar pública zonal (PowerShell)
+          href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
+        - name: Creación de una instancia de Load Balancer estándar pública con redundancia zonal (CLI)
+          href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
+    - name: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad (CLI)
+      href: load-balancer-standard-public-zone-redundant-cli.md
+    - name: Equilibrio de carga de máquinas virtuales en una zona (CLI)
+      href: load-balancer-standard-public-zonal-cli.md
+    - name: Creación de Load Balancer básico (plantilla)
+      href: load-balancer-get-started-internet-arm-template.md
+    - name: Creación de Load Balancer público con IPv6
+      href: load-balancer-ipv6-internet-ps.md
+      items:
+        - name: Creación de Load Balancer público con IPv6 (CLI)
+          href: load-balancer-ipv6-internet-cli.md
+        - name: Creación de Load Balancer público con IPv6 (plantilla)
+          href: load-balancer-ipv6-internet-template.md
+    - name: Configuración de Load Balancer interno
+      href: load-balancer-get-started-ilb-arm-portal.md
+      items:
+        - name: Configuración de Load Balancer interno (PowerShell)
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Configuración de Load Balancer interno (CLI)
+          href: load-balancer-get-started-ilb-arm-cli.md
+        - name: Configuración de Load Balancer interno (plantilla)
+          href: load-balancer-get-started-ilb-arm-template.md
+    - name: Configuración del tiempo de espera de inactividad TCP del equilibrador de carga
+      href: load-balancer-tcp-idle-timeout.md
+    - name: Configuración del modo de distribución de Load Balancer
+      href: load-balancer-distribution-mode.md
+    - name: Combinación de servicios de equilibrio de carga
+      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Uso de varias configuraciones de IP
+      href: load-balancer-multiple-ip.md
+      items:
+        - name: Uso de varias configuraciones de IP (CLI)
+          href: load-balancer-multiple-ip-cli.md
+        - name: Uso de varias configuraciones de IP (PowerShell)
+          href: load-balancer-multiple-ip-powershell.md
+    - name: Análisis del registros para el Equilibrador de carga de Azure
+      href: load-balancer-monitor-log.md
+    - name: Configuración de puertos de alta disponibilidad para Load Balancer interno
+      href: load-balancer-configure-ha-ports.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de Azure Load Balancer
+          href: load-balancer-troubleshoot.md
+    - name: Artículos sobre el modelo de implementación clásica
+      items:
+        - name: Conexiones salientes (clásico)
+          href: load-balancer-outbound-connections-classic.md
+    - name: Configuración de varias direcciones VIP para un servicio en la nube
+      href: load-balancer-multivip.md
+      items:
+        - name: Configuración de Load Balancer interno para Cloud Services
+          href: load-balancer-get-started-ilb-classic-cloud.md
+          items:
+            - name: Configuración de Load Balancer interno para Cloud Services (PowerShell)
+              href: load-balancer-get-started-ilb-classic-ps.md
+            - name: Configuración de Load Balancer interno para Cloud Services (CLI)
+              href: load-balancer-get-started-ilb-classic-cli.md
+        - name: Configuración de Load Balancer público (PowerShell clásico)
+          href: load-balancer-get-started-internet-classic-ps.md
+          items:
+            - name: Configuración de Load Balancer público (nube clásica)
+              href: load-balancer-get-started-internet-classic-cloud.md
+            - name: Configuración de Load Balancer público (CLI clásica)
+              href: load-balancer-get-started-internet-classic-cli.md
+- name: Referencia
+  items:
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.network
+    - name: Azure CLI
+      href: /cli/azure/network/lb
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.network.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.network
+    - name: Node.js
+      href: 'http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html'
+    - name: Ruby
+      href: 'http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers'
+    - name: Python
+      href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
+    - name: REST
+      href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
+- name: Temas relacionados
+  items:
+    - name: Application Gateway
+      href: /azure/application-gateway/
+    - name: ExpressRoute
+      href: /azure/expressroute/
+    - name: Virtual Network
+      href: /azure/virtual-network/
+    - name: VPN Gateway
+      href: /azure/vpn-gateway/
+    - name: Máquina virtual
+      href: /azure/virtual-machines/
+    - name: Traffic Manager
+      href: /azure/traffic-manager/
+    - name: DNS
+      href: /azure/dns/
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=load-balancer'

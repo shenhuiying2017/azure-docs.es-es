@@ -28,7 +28,7 @@
 # Referencia
 ## API existentes
 ### [API de REST de Azure Resource Manager](https://docs.microsoft.com/rest/api/power-bi-embedded/)
-### [API de REST de Power BI](https://msdn.microsoft.com/en-us/library/mt147898.aspx)
+### [API de REST de Power BI](https://msdn.microsoft.com/library/mt147898.aspx)
 
 # Recursos
 ## [Comunidad de Power BI](http://community.powerbi.com/t5/Developer/bd-p/Developer)

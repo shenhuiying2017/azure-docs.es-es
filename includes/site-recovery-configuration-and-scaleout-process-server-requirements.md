@@ -1,7 +1,7 @@
 | **Componente** | **Requisito** |
 | --- |---|
 | Núcleos de CPU| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Número de discos | 3, incluidos el disco del sistema operativo, el disco de memoria caché del servidor de procesos, la unidad de retención para la conmutación por recuperación |
 | Espacio libre en el disco (caché del servidor de procesos) | 600 GB
 | Espacio libre en el disco (disco de retención) | 600 GB|
@@ -13,5 +13,5 @@
 | IIS | - Ningún sitio web predeterminado debe existir previamente <br> - Habilitar la [Autenticación anónima](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx)  <br> - Ningún sitio web o aplicación que escuche en el puerto 443 deben existir previamente<br>|
 | Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware) |
 | Tipo de dirección IP | estática |
-| Acceso a Internet | El servidor necesita acceder a estas direcciones URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (no es necesario para servidores de procesos de escalado horizontal) <br> - time.nist.gov <br> - time.windows.com |
+| Acceso a Internet | El servidor necesita acceder a estas direcciones URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (no se necesita para servidores de procesos de escalado horizontal) <br> - time.nist.gov <br> - time.windows.com |
 | Puertos | 443 (orquestación del canal de control)<br>9443 (Transporte de datos)|

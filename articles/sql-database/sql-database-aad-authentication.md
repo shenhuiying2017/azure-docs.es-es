@@ -9,18 +9,18 @@ ms.custom: security
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mireks
-ms.openlocfilehash: cfad53a3f86450163b2e29d5e4d4ed2726ecb0bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fe3864c3f765ff4858deede798d5641a55dd8aef
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Uso de la autenticación de Azure Active Directory para autenticación con SQL Database, Instancia administrada o SQL Data Warehouse
 La autenticación de Azure Active Directory es un mecanismo de conexión a Microsoft Azure SQL Database y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) mediante identidades de Azure Active Directory (Azure AD). Con la autenticación de Azure AD puede administrar centralmente las identidades de los usuarios de la base de datos y otros servicios de Microsoft en una ubicación central. La administración de identificadores central ofrece una ubicación única para administrar usuarios de base de datos y simplifica la administración de permisos. Entre las ventajas se incluyen las siguientes:
 
 * Ofrece una alternativa a la autenticación de SQL Server.
 * Ayuda a detener la proliferación de identidades de usuario en los servidores de base de datos.
-* Permite la rotación de contraseñas en un solo lugar
+* Permite la rotación de contraseñas en un solo lugar.
 * Los clientes pueden administrar los permisos de la base de datos con grupos externos (Azure AD).
 * Puede eliminar el almacenamiento de contraseñas mediante la habilitación de la autenticación integrada de Windows y otras formas de autenticación compatibles con Azure Active Directory.
 * La autenticación de Azure AD utiliza usuarios de base de datos independiente para autenticar las identidades en el nivel de base de datos.
@@ -75,7 +75,7 @@ Limitaciones de Azure AD relacionados con Instancia administrada:
 - Solo el administrador de Azure AD puede crear bases de datos; el ámbito de los usuarios de Azure AD se reduce a una única base de datos y no tienen este permiso
 - Propiedad de la base de datos:
   - La entidad de seguridad de Azure AD no puede cambiar la propiedad de la base de datos (ALTER AUTHORIZATION ON DATABASE) y no se puede establecer como propietario.
-  - Para bases de datos creadas por el administrador de Azure AD no se establece ninguna propiedad (el campo owner_sid de sys.sysdatabases es 0x1)
+  - Para bases de datos creadas por el administrador de Azure AD no se establece ninguna propiedad (campo owner_sid de sys.sysdatabases es 0x1).
 - No se puede administrar el Agente SQL cuando ha iniciado sesión con las entidades de seguridad de Azure AD. 
 - El administrador de Azure AD no se puede suplantar mediante EXECUTE AS
 - La conexión DAC no es compatible con las entidades de seguridad de Azure AD. 

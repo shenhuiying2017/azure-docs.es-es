@@ -1,11 +1,11 @@
 ---
-title: "Filtros de conexión IP de Azure IoT Hub | Microsoft Docs"
-description: "Describe cómo usar el filtrado de IP para bloquear las conexiones de direcciones IP específicas de su instancia de Azure IoT Hub. Puede bloquear conexiones de direcciones IP concretas o de intervalos."
+title: Filtros de conexión IP de Azure IoT Hub | Microsoft Docs
+description: Describe cómo usar el filtrado de IP para bloquear las conexiones de direcciones IP específicas de su instancia de Azure IoT Hub. Puede bloquear conexiones de direcciones IP concretas o de intervalos.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: BeatriceOltean
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f833eac3-5b5f-46a7-a47b-f4f6fc927f3f
 ms.service: iot-hub
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: boltean
-ms.openlocfilehash: 85f5f044faddd5180f0c19d3f2c235b20f6373d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0229b8b16de1fa04d953c90895b29e4fbad60ec3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -26,7 +26,7 @@ La seguridad es un aspecto importante de cualquier solución de IoT basada en Az
 
 ## <a name="when-to-use"></a>Cuándo se deben usar
 
-Hay dos casos específicos cuando resulta útil bloquear los puntos de conexión de IoT hub para determinadas direcciones IP:
+Hay dos casos específicos cuando resulta útil bloquear los puntos de conexión de IoT Hub para determinadas direcciones IP:
 
 - IoT Hub debe recibir tráfico solo de un intervalo concreto de direcciones IP y rechazar todo lo demás. Por ejemplo, cuando se usa IoT Hub con [Azure ExpressRoute] para crear conexiones privadas entre una instancia de IoT Hub y la infraestructura local.
 - Cuando necesite rechazar el tráfico de direcciones IP que el administrador de IoT Hub haya identificado como sospechosas.
@@ -103,7 +103,7 @@ Para explorar aún más las funcionalidades de IoT Hub, consulte:
 <!-- Links -->
 
 [IoT Hub developer guide]: iot-hub-devguide.md
-[Azure ExpressRoute]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
+[Azure ExpressRoute]:  https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md
 [lnk-metrics]: iot-hub-metrics.md

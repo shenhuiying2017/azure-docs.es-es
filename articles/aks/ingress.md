@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b0bc6035c3004587ae50f1c331dd3976883e9d34
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS en Azure Container Service (AKS)
 
@@ -27,7 +27,7 @@ Instale la CLI de Helm: consulte la [documentación][helm-cli] sobre esta para c
 
 ## <a name="install-an-ingress-controller"></a>Instalación de un controlador de entrada
 
-Instale el controlador de entrada NGINX con Helm. Consulte la [documentación][nginx-ingress] del controlador de entrada NGINX para información de implementación detallada. 
+Instale el controlador de entrada NGINX con Helm. Consulte la [documentación][nginx-ingress] del controlador de entrada NGINX para información de implementación detallada.
 
 Actualice el repositorio de gráficos.
 
@@ -76,13 +76,7 @@ PIPNAME=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAdd
 az network public-ip update --resource-group $RESOURCEGROUP --name  $PIPNAME --dns-name $DNSNAME
 ```
 
-Si es necesario, ejecute el siguiente comando para recuperar el nombre de dominio completo. Actualice el valor de dirección IP con el del controlador de entrada.
-
-```azurecli
-az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '52.224.125.195')].[dnsSettings.fqdn]" --output tsv
-```
-
-El controlador de entrada ahora es accesible mediante el nombre de dominio completo.
+El controlador de entrada ahora debería ser accesible mediante el nombre de dominio completo.
 
 ## <a name="install-kube-lego"></a>Instalación de KUBE-LEGO
 
@@ -181,14 +175,14 @@ Observe que la conexión está cifrada y que se utiliza un certificado emitido p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre el software que se muestra en este documento. 
+Más información sobre el software que se muestra en este documento.
 
 - [CLI de Helm][helm-cli]
 - [Controlador de entrada NGINX][nginx-ingress]
 - [KUBE-LEGO][kube-lego]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-helm#install-helm-cli
+[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [kube-lego]: https://github.com/jetstack/kube-lego
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

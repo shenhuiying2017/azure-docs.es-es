@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Supervisar el estado, configurar el registro de diagnósticos y activar alertas para Azure Logic Apps
 
@@ -66,7 +66,7 @@ Para recibir notificaciones sobre errores u otros posibles problemas, configure 
    ![Detalles del paso](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede controlar el acceso a estos eventos con el [control de acceso basado en roles (RBAC) de Azure](../active-directory/role-based-access-control-what-is.md).
+   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede controlar el acceso a estos eventos con el [control de acceso basado en roles (RBAC) de Azure](../role-based-access-control/overview.md).
 
 6. Para obtener detalles sobre un evento de desencadenador concreto, vuelva al panel **Información general**. En **Historial de desencadenadores**, seleccione el evento de desencadenador. Ahora puede revisar detalles como las entradas y salidas, por ejemplo:
 
@@ -217,7 +217,7 @@ Para configurar alertas sin [Azure Log Analytics](../log-analytics/log-analytics
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Configuración de eventos y detalles de Azure Diagnostics
 
-Cada evento de diagnóstico incluye detalles sobre la aplicación lógica y ese evento, por ejemplo, el estado, la hora de inicio, la hora de finalización, etc. Para configurar mediante programación la supervisión, el seguimiento y el registro, puede usar estos detalles con la [API de REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) y la [API de REST para Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Cada evento de diagnóstico incluye detalles sobre la aplicación lógica y ese evento, por ejemplo, el estado, la hora de inicio, la hora de finalización, etc. Para configurar mediante programación la supervisión, el seguimiento y el registro, puede usar estos detalles con la [API REST para Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) y la [API REST para Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 Por ejemplo, el evento `ActionCompleted` tiene las propiedades `clientTrackingId` y `trackedProperties` que puede usar para el seguimiento y la supervisión:
 

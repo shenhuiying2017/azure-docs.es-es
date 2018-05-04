@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 04/09/2018
-ms.openlocfilehash: c29b90e703a66cbbc25227f9a4307c74d82b03b5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b418d1114cf6b906dcdee46bbf7e094cbc4a0521
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envío de eventos a un entorno de Time Series Insights mediante un centro de eventos
 En este artículo se explica cómo crear y configurar el centro de eventos, y cómo ejecutar una aplicación de ejemplo para insertar eventos. Si tiene un centro de eventos con eventos en formato JSON, pase por alto este tutorial y vea su entorno en [Time Series Insights](https://insights.timeseries.azure.com).
@@ -59,7 +59,7 @@ Asegúrese de que tiene datos de referencia en su lugar al cargar datos históri
 
 Puede administrar los datos de referencia con la interfaz de usuario basada en web del Explorador de TSI o con la API de programación de C#. El Explorador de TSI tiene una experiencia de usuario visual para cargar archivos o pegar conjuntos de datos de referencia existentes en formato JSON o CSV. Con la API, puede compilar una aplicación personalizada cuando la necesite.
 
-Para más información sobre la administración de datos de referencia en Time Series Insights, consulte el [artículo de datos de referencia](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para más información sobre la administración de datos de referencia en Time Series Insights, consulte el [artículo de datos de referencia](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Creación de un origen de eventos de Time Series Insights
 1. Si no ha creado un origen de eventos, siga [estas instrucciones](time-series-insights-how-to-add-an-event-source-eventhub.md) para crear un origen de eventos.
@@ -312,7 +312,7 @@ Al insertar esta matriz de eventos como carga útil en TSI, se almacenará como 
 
 chId  Medida               Unidad 24    Presión del aceite del motor   PSI 25    CALC Velocidad de la bomba        bbl/min
 
-Para más información sobre la administración de datos de referencia en Time Series Insights, consulte el [artículo de datos de referencia](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Para más información sobre la administración de datos de referencia en Time Series Insights, consulte el [artículo de datos de referencia](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Otro problema con la primera carga útil es que la marca de tiempo se muestra en milisegundos. TSI acepta solo las marcas de tiempo con formato ISO. Una solución consiste en dejar el comportamiento predeterminado de la marca de tiempo en TSI, que consiste en usar la que se encuentra en cola.
 

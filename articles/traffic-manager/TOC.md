@@ -34,7 +34,7 @@
 ### [Solución del estado degradado en Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 # Referencia
-## [Ejemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=traffic-manager)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=traffic-manager)
 ## [Azure PowerShell](/powershell/module/azurerm.trafficmanager)
 ## [CLI de Azure](/cli/azure/network/traffic-manager)
 ## [Java](/java/api/com.microsoft.azure.management.trafficmanager)
