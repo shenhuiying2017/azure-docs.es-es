@@ -1,8 +1,8 @@
 ---
-title: "Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Storage con una credencial SAS"
-description: "Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento."
+title: Uso de una identidad MSI de máquina virtual Linux para acceder a Azure Storage con una credencial SAS
+description: Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Linux para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -255,7 +255,7 @@ Respuesta:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener información general sobre MSI, consulte [Managed Service Identity overview](msi-overview.md) (Introducción a Managed Service Identity).
 - Para aprender a hacer lo que se realiza en este tutorial con una clave de cuenta de almacenamiento, consulte [Uso de Managed Service Identity en una máquina virtual Linux para tener acceso a Azure Storage](msi-tutorial-linux-vm-access-storage.md)

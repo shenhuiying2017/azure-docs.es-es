@@ -200,7 +200,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>Storage</h4>
+                                                <h4>Almacenamiento</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -302,7 +302,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Conjuntos de escalado de máquina virtual</p>
+                                                <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
@@ -401,11 +401,11 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Caché en Redis</p>
+                                                <p>Redis Cache</p>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Containers</h3>
+                                    <h3>Contenedores</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/aks/">
@@ -521,7 +521,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
-                                                <p>US Government de Azure</p>
+                                                <p>Azure US Government</p>
                                             </a>
                                         </li>
                                         <li>
@@ -598,7 +598,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos.svg" alt="" />
-                                                <p>Protección contra DDOS</p>
+                                                <p>DDOS Protection</p>
                                             </a>
                                         </li>
                                         <li>
@@ -608,7 +608,7 @@ Terraform </a>
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>AI + Machine Learning</h3>
+                                    <h3>AI + Aprendizaje automático</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/machine-learning/">
@@ -801,7 +801,7 @@ Terraform </a>
                             </li>
                             <li>
                                 <div class="group">
-                                    <h3>Storage</h3>
+                                    <h3>Almacenamiento</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/storage/">
@@ -989,7 +989,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/iot-dps/">
                                                 <img src="media/index/dps.svg" alt="" />
-                                                <p>Servicio IoT Hub Device Provisioning</p>
+                                                <p>IoT Hub Device Provisioning Service</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1025,7 +1025,7 @@ Terraform </a>
                                         <li>
                                             <a href="/azure/machine-learning/preview">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Servicios de Machine Learning</p>
+                                                <p>Machine Learning Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1275,7 +1275,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Máquinas virtuales Linux</h3>
-                                                    <p>Aprovisione máquinas virtuales de Ubuntu, Red Hat, etc.</p>
+                                                    <p>Aprovisione máquinas virtuales Ubuntu, Red Hat, etc.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1546,7 +1546,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Application Gateway</h3>
-                                                    <p>Creación de front-ends web seguros, escalables y de alta disponibilidad en Azure</p>
+                                                    <p>Cree front-ends web seguros, escalables y de alta disponibilidad en Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1659,7 +1659,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Protección contra DDOS</h3>
+                                                    <h3>DDOS Protection</h3>
                                                     <p>Protección de las aplicaciones frente a ataques por denegación de servicio distribuido (DDoS)</p>
                                                 </div>
                                             </div>
@@ -1689,7 +1689,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">Almacenamiento</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -1974,7 +1974,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Media Services</h3>
-                                                    <p>Codifique, almacene y transmita por streaming vídeo y audio a escala</p>
+                                                    <p>Codifique, almacene y transmita por streaming de vídeo y audio a escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2031,7 +2031,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Envío de notificaciones push a cualquier plataforma desde cualquier back-end</p>
+                                                    <p>Envíe notificaciones push a cualquier plataforma desde cualquier back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2041,7 +2041,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#containers">Containers</a>
+                        <a href="#containers">Contenedores</a>
                         <ul id="containers" class="cardsA">
                             <li>
                                 <a href="/azure/aks/">
@@ -2288,7 +2288,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Table Storage</h3>
-                                                    <p>Almacén de clave-valor NoSQL mediante conjuntos de datos semiestructurados</p>
+                                                    <p>Almacén de pares clave-valor NoSQL mediante conjuntos de datos semiestructurados</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2306,7 +2306,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Caché en Redis</h3>
+                                                    <h3>Redis Cache</h3>
                                                     <p>Aplicaciones versátiles con acceso a datos de baja latencia y alto rendimiento</p>
                                                 </div>
                                             </div>
@@ -2331,7 +2331,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>HDInsight</h3>
-                                                    <p>Aprovisionamiento de clústeres de Hadoop, Spark, R Server, HBase y Storm en la nube</p>
+                                                    <p>Aprovisione clústeres de Hadoop, Spark, R Server, HBase y Storm en la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2369,7 +2369,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Procesamiento de flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
+                                                    <p>Procese flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2464,7 +2464,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>SQL Data Warehouse</h3>
-                                                    <p>Almacenamiento como servicio de datos elástico con características de clase empresarial</p>
+                                                    <p>Almacenamiento de datos elástico como servicio con características de clase empresarial</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2483,7 +2483,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning Studio</h3>
-                                                    <p>Creación, implementación y administración fácil de soluciones de análisis predictivo</p>
+                                                    <p>Cree, implemente y administre fácilmente soluciones de análisis predictivo</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2502,7 +2502,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Obtención de más valor de sus activos de datos empresariales</p>
+                                                    <p>Obtenga más valor de sus activos de datos empresariales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2550,7 +2550,7 @@ Terraform </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#ai">AI + Machine Learning</a>
+                        <a href="#ai">AI + Aprendizaje automático</a>
                         <ul id="ai" class="cardsA">
                             <li class="fullSpan">
                                 <h2>Inteligencia artificial</h2>
@@ -2605,7 +2605,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Batch AI</h3>
-                                                    <p>Experimentación y entrenamiento fácil de los modelos de aprendizaje en profundidad e inteligencia artificial, en paralelo y a escala</p>
+                                                    <p>Experimente y entrene fácilmente los modelos de aprendizaje profundo e inteligencia artificial, en paralelo y a escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2686,7 +2686,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Central</h3>
-                                                    <p>Experimentar SaaS para IoT, sin necesidad de conocimientos sobre la nube</p>
+                                                    <p>Experimente SaaS para IoT sin necesidad de conocimientos sobre la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2704,7 +2704,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servicio IoT Hub Device Provisioning</h3>
+                                                    <h3>IoT Hub Device Provisioning Service</h3>
                                                     <p>Aprovisionamiento just-in-time, sin intervención del usuario, para Azure IoT Hub</p>
                                                 </div>
                                             </div>
@@ -2724,7 +2724,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
-                                                    <p>Extensión de la inteligencia de la nube a dispositivos perimetrales</p>
+                                                    <p>Lleve la inteligencia de la nube a los dispositivos perimetrales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2800,7 +2800,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Procesamiento de flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
+                                                    <p>Procese flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2818,8 +2818,8 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servicios de Machine Learning</h3>
-                                                    <p>Ponga la inteligencia artificial al alcance de todos con una plataforma integral, de confianza y escalable que incluye Experimentación y Administración de modelos</p>
+                                                    <h3>Machine Learning Services</h3>
+                                                    <p>Ponga la inteligencia artificial al alcance de todos con una plataforma integral, de confianza y escalable que incluye experimentación y administración de modelos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2838,7 +2838,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Notification Hubs</h3>
-                                                    <p>Envío de notificaciones push a cualquier plataforma desde cualquier back-end</p>
+                                                    <p>Envíe notificaciones push a cualquier plataforma desde cualquier back-end</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3033,7 +3033,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Catalog</h3>
-                                                    <p>Obtención de más valor de sus activos de datos empresariales</p>
+                                                    <p>Obtenga más valor de sus activos de datos empresariales</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3390,7 +3390,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Implementación de gobierno corporativo y estándares a escala para sus recursos de Azure</p>
+                                                    <p>Implemente gobierno y normas corporativos a escala para sus recursos de Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3409,7 +3409,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cost Management</h3>
-                                                    <p>Optimización del gasto que hace en la nube al tiempo que maximiza el potencial que obtiene de ella</p>
+                                                    <p>Optimice el gasto que hace en la nube al tiempo que maximiza el potencial que obtiene de ella</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3428,7 +3428,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>Datos de supervisión en tiempo real y con alta granularidad para cualquier recurso de Azure</p>
+                                                    <p>Datos de supervisión en tiempo real y muy pormenorizados para cualquier recurso de Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3466,7 +3466,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
-                                                    <p>Recopilación, búsqueda y visualización de datos de equipos desde entornos locales y la nube</p>
+                                                    <p>Recopile, busque y vea datos de máquinas en entornos locales y en la nube</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3682,7 +3682,7 @@ Terraform </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>US Government de Microsoft Azure</h3>
+                                                    <h3>Microsoft Azure US Government</h3>
                                                     <p>Compile y hospede aplicaciones para misiones del gobierno de EE.UU. en una instancia dedicada de Azure</p>
                                                 </div>
                                             </div>
@@ -3702,7 +3702,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Alemania</h3>
-                                                    <p>Compilación y alojamiento de aplicaciones conforme a la normativa alemana, así como a las principales normas estándar internacionales, con un control adicional a cargo de un administrador de datos</p>
+                                                    <p>Compile y hospede aplicaciones conforme a la normativa alemana, así como a las principales normas estándar internacionales, con un control adicional a cargo de un administrador de datos</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3721,7 +3721,7 @@ Terraform </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure China 21Vianet</h3>
-                                                    <p>Compilación y hospedaje de aplicaciones conforme a las directivas y normativas de control de datos estipuladas por el gobierno en China</p>
+                                                    <p>Compile y hospede aplicaciones conforme a las directivas y normativas de control de datos estipuladas por el gobierno en China</p>
                                                 </div>
                                             </div>
                                         </div>
