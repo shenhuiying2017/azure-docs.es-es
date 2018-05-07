@@ -1,0 +1,37 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Integraciones de herramientas del desarrollador
+metadata:
+  title: Integraciones de herramientas del desarrollador
+  meta.description: from-team
+  services: from-team
+  author: 
+  manager: from-team
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: from-team
+  ms.tgt_pltfrm: from-team
+  ms.devlang: from-team
+  ms.topic: landing-page
+  ms.date: 09/15/2017
+  ms.author: from-team
+  ms.openlocfilehash: 8ed2db241ae79b549f96581b67625114fd658c67
+  ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/04/2018
+abstract:
+  description: 
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsA
+    items:
+    - html: <a href="/java/azure/intellij/azure-toolkit-for-intellij"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_intellij.svg" alt=""> <br><b>IntelliJ</b></a> <p>El kit de herramientas de Azure para IntelliJ ofrece plantillas y funciones que puede usar para crear, desarrollar, probar e implementar fácilmente aplicaciones de Azure con el entorno de desarrollo integrado (IDE) de IntelliJ.</p>
+    - html: <a href="/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_maven.svg" alt=""> <br><b>Maven</b></a> <p>El complemento Maven para Azure Web Apps de Apache Maven proporciona una perfecta integración de Azure App Service en proyectos de Maven y simplifica el proceso para que los desarrolladores implementen aplicaciones web en Azure App Service.</p>
+    - html: <a href="/java/azure/eclipse/azure-toolkit-for-eclipse"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_eclipse.svg" alt=""> <br><b>Eclipse</b></a> <p>El kit de herramientas de Azure para Eclipse ofrece plantillas y funciones que puede usar para crear, desarrollar, probar e implementar fácilmente aplicaciones en la nube en Azure desde el entorno de desarrollo integrado (IDE) Eclipse.</p>
+    - html: <a href="/azure/ansible/"> <img height="48" width="48" src="../media/index/ansible.svg" alt=""> <br><b>Ansible</b></a> <p>Automatice el aprovisionamiento en la nube, la administración de configuración y las implementaciones de aplicaciones.</p>
+    - html: <a href="/azure/jenkins/"> <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt=""> <br><b>Jenkins</b></a> <p>Compile las aplicaciones en la nube e impleméntelas en Azure.</p>
+    - html: <a href="/azure/terraform/"> <img height="48" width="48" src="../media/index/terraform.png" alt=""> <br><b>Terraform</b></a> <p>Controle las versiones y cree infraestructura de forma confiable en Azure.</p>

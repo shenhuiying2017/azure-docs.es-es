@@ -6,7 +6,6 @@
 # Introducción
 ## [Azure Portal](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 ## [CLI de Azure](data-lake-analytics-get-started-cli2.md)
 
@@ -20,41 +19,41 @@
 ### [SDK de Python](data-lake-analytics-manage-use-python-sdk.md)
 ### [SDK de Java](data-lake-analytics-manage-use-java-sdk.md)
 ### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Directivas](data-lake-analytics-policies.md)
 ### [Acceso a los registros de diagnóstico](data-lake-analytics-diagnostic-logs.md)
 ### [Ajuste de los límites de cuota](data-lake-analytics-quota-limits.md)
 
 ## Desarrollo de programas U-SQL
 
 ### Lenguaje U-SQL
-#### [Conceptos básicos de U-SQL](data-lake-analytics-u-sql-get-started.md)
-#### [Referencia al lenguaje U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
-#### [Catálogo de U-SQL](data-lake-analytics-u-sql-catalog.md)
-#### [Operadores definidos por el usuario de U-SQL](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-#### [Extensiones de Python de U-SQL](data-lake-analytics-u-sql-python-extensions.md)
-#### [Extensiones de R de U-SQL](data-lake-analytics-u-sql-r-extensions.md)
-#### [Extensiones cognitivas de U-SQL](data-lake-analytics-u-sql-cognitive.md)
-#### [Guía de programación de U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+#### [Aspectos básicos](data-lake-analytics-u-sql-get-started.md)
+#### [Referencia de lenguaje](https://msdn.microsoft.com/library/azure/mt591959)
+#### [Catálogo](data-lake-analytics-u-sql-catalog.md)
+#### [Operadores definidos por el usuario](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+#### [Extensiones de Python](data-lake-analytics-u-sql-python-extensions.md)
+#### [Extensiones de R](data-lake-analytics-u-sql-r-extensions.md)
+#### [Extensiones cognitivas](data-lake-analytics-u-sql-cognitive.md)
+#### [Guía de programación](data-lake-analytics-u-sql-programmability-guide.md)
+
+### Visual Studio
+#### [Examen y visualización de trabajos](data-lake-analytics-data-lake-tools-view-jobs.md)
+#### [Depuración de código C# personalizado](data-lake-analytics-debug-u-sql-jobs.md)
+#### [Solución de problemas de trabajos periódicos](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+#### [Detalles de ejecución de vértice](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+#### [Exportación de base de datos de U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Análisis de registros de sitios web](data-lake-analytics-analyze-weblogs.md)
 #### [Trabajos de supervisión y solución de problemas](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-### Visual Studio
-#### [Uso de un explorador y una vista de trabajo](data-lake-analytics-data-lake-tools-view-jobs.md)
-#### [Depuración de código C# en U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
-#### [Solución de problemas de un trabajo periódico anómalo](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
-#### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
-#### [Exportación de base de datos de U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
-
 ### Visual Studio Code
-#### [U-SQL para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-#### [Código personalizado de U-SQL para Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-#### [Ejecución local y depuración local en VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+#### [Creación](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Código personalizado](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [Ejecución y depuración local](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Referencia
-## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
@@ -68,3 +67,4 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=data-lake-analytics)
 ## [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=data-lake-analytics)
+## [Ejemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
