@@ -3,7 +3,7 @@ title: 'Fase de comprensión y adquisición de los datos del ciclo de vida del P
 description: Los objetivos, las tareas y los resultados de la fase de adquisición y comprensión de los datos de los proyectos de ciencia de datos.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 028992561b1c2481dc72af3c4edcc16f65f25105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 9ed793ac6a2efbd682bb739626c4d3a5f3551a3f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-acquisition-and-understanding"></a>Adquisición y comprensión de los datos
 

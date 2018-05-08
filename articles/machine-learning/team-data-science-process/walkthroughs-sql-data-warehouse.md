@@ -1,28 +1,28 @@
 ---
 title: Tutoriales de ciencia de datos de SQL Data Warehouse mediante T-SQL y Python en Azure | Microsoft Docs
-description: "Ejemplos que le guiarán por el uso de SQL Data Warehouse para realizar análisis predictivos."
+description: Ejemplos que le guiarán por el uso de SQL Data Warehouse para realizar análisis predictivos.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 745701b571a6cfa93798d7536ddb9d28ab45ea73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: deguhath
+ms.openlocfilehash: db7a07830f1d2753fff45d1e2b27bc7e6ce9fa38
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>Tutoriales de ciencia de datos de SQL Data Warehouse mediante T-SQL y Python en Azure
 
-Estos tutoriales usan SQL Data Warehouse para realizar análisis predictivos. Siguen los pasos descritos en el proceso de ciencia de datos en equipo. Para obtener información general del proceso de ciencia de datos en equipo, consulte [Proceso de ciencia de datos](overview.md). Para consultar una introducción a SQL Data Warehouse, consulte [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+Estos tutoriales usan SQL Data Warehouse para realizar análisis predictivos. En ellos se siguen los pasos descritos en el proceso de ciencia de datos en equipo. Para obtener información general sobre el proceso de ciencia de datos en equipo, consulte [Proceso de ciencia de datos](overview.md). Para consultar una introducción a SQL Data Warehouse, consulte [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Los otros tutoriales de ciencia de datos donde se ejecuta el Proceso de ciencia de datos en equipo se agrupan por la **plataforma** que usan. Consulte [Walkthroughs executing the Team Data Science Process](walkthroughs.md) (Tutoriales para ejecutar el Proceso de ciencia de datos en equipo) para ver ejemplos.
 

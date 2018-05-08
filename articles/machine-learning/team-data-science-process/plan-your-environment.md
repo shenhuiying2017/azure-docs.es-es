@@ -1,9 +1,9 @@
 ---
-title: "Identificación de escenarios y planeamiento del proceso analítico (Azure) | Microsoft Docs"
-description: "Plan para análisis avanzado teniendo en cuenta una serie de cuestiones claves."
+title: Identificación de escenarios y planeamiento del proceso analítico (Azure) | Microsoft Docs
+description: Plan para análisis avanzado teniendo en cuenta una serie de cuestiones claves.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: f4cf702b899b285b18c09d7a5951589d2ae71b7d
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: d2b982669f126695e3e5baefce24853269947536
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 ¿Qué recursos debe incluir al configurar un entorno para realizar un procesamiento de análisis avanzado en un conjunto de datos? Este artículo sugiere una serie de preguntas que le ayudan a identificar las tareas y los recursos pertinentes para su escenario. El orden de los pasos generales para el análisis predictivo se describe en [¿Qué es el proceso de ciencia de datos en equipos (TDSP)?](overview.md). Cada uno de estos pasos requiere recursos específicos para las tareas pertinentes para su escenario concreto. La clave para identificar su escenario la encontrará en las cuestiones relacionadas con logística de datos, las características, la calidad de los conjuntos de datos y las herramientas y lenguajes que prefiera usar para el análisis.
@@ -28,13 +28,13 @@ ms.lasthandoff: 11/13/2017
 ## <a name="logistic-questions-data-locations-and-movement"></a>Cuestiones de logística: movimiento y ubicaciones de los datos
 Las cuestiones logísticas se refieren a la ubicación del **origen de datos**, el **destino** en Azure y los requisitos para mover los datos, incluida la programación, la cantidad y los recursos implicados. Es posible que datos tengan que moverse varias veces durante el proceso de análisis. Un escenario común es mover datos locales a algún tipo de almacenamiento en Azure y, a continuación, en Machine Learning Studio.
 
-1. **¿Cuál es el origen de datos?** ¿Es local o está la nube? Por ejemplo:
+1. **¿Cuál es el origen de datos?** ¿Es local o está la nube? Por ejemplo: 
    
    * Los datos están disponibles públicamente en una dirección HTTP.
    * Los datos residen en una ubicación de archivos de red o local.
    * Los datos están en una base de datos de SQL Server.
    * Los datos se almacenan en un contenedor de almacenamiento de Azure.
-2. **¿Cuál es el destino en Azure?** ¿Dónde tiene que estar para procesar o modelar? Por ejemplo:
+2. **¿Cuál es el destino en Azure?** ¿Dónde tiene que estar para procesar o modelar? Por ejemplo: 
    
    * Azure Blob Storage
    * Bases de datos SQL Azure

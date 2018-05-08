@@ -3,18 +3,18 @@ title: 'Tutorial: Creación y administración de un trabajo de Stream Analytics 
 description: En este tutorial se proporciona una ilustración completa de cómo usar Azure Stream Analytics para analizar las llamadas fraudulentas en una secuencia de llamadas de teléfono.
 services: stream-analytics
 author: SnehaGunda
+ms.author: sngun
 manager: kfile
 ms.service: stream-analytics
+ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: 0c8fb0430d41babba1eb2bb3edd57d0ad4f3bede
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creación de un trabajo de Stream Analytics para analizar los datos de llamadas de teléfono y visualizar los resultados en un panel de Power BI
 

@@ -3,7 +3,7 @@ title: 'Profundización en la predicción del estado de vehículo y los hábitos
 description: Aproveche las posibilidades de Cortana Intelligence para obtener información en tiempo real y predictiva del estado de los vehículos y los hábitos de conducción.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: bradsev
-ms.openlocfilehash: 370ab807ef85240238c51d1693796c26981edb15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: deguhath
+ms.openlocfilehash: 10fe87757a6da8a64e4fbd7fb624fef3e666714c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Cuaderno de estrategias de la solución Vehicle Telemetry Analytics: profundización en la solución
 Este menú vincula a las secciones de este cuaderno de estrategias: 

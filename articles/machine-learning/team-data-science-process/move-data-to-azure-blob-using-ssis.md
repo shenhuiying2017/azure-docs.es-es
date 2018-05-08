@@ -2,8 +2,8 @@
 title: Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS | Microsoft Docs
 description: Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS.
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 24237173876f2b292141d9373b346721a489bc56
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 39feca23532264c1f4c17017f89b064af09e9c1c
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Movimiento de datos desde o hacia Azure Blob Storage con conectores SSIS
 El [Feature Pack de SQL Server Integration Services para Azure](https://msdn.microsoft.com/library/mt146770.aspx) ofrece componentes para conectarse a Azure, transferir datos entre Azure y orígenes de datos locales y procesar datos almacenados en Azure.
@@ -36,7 +36,7 @@ Si desea ver un análisis de los escenarios canónicos que usan SSIS para satisf
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Si desea realizar las tareas que describe este artículo, debe tener configurada una suscripción de Azure y una cuenta de Azure Storage. Debe saber cuál es el nombre de la cuenta de Azure storage y la clave de la cuenta para cargar o descargar datos.
 
 * Para configurar una **suscripción a Azure**, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
@@ -66,7 +66,7 @@ Para mover los datos con el Feature Pack de SSIS desde un almacenamiento local a
 
 A continuación, se describen los parámetros que usa la tarea:
 
-| Campo | Description |
+| Campo | DESCRIPCIÓN |
 | --- | --- |
 | **AzureStorageConnection** |Especifica un Administrador de conexiones de Azure Storage existente o crea uno nuevo que hace referencia a una cuenta de Azure Storage que apunta adonde se almacenan los archivos de blob. |
 | **BlobContainer** |Especifica el nombre del contenedor de blobs que mantiene los archivos cargados como blobs. |

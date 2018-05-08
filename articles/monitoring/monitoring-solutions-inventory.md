@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: bwren
-ms.openlocfilehash: 2a8313640d2d0bd678d0e10da39c87de8cfce00b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cab92187c6c36dc4670e202b15b35db8ad510239
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Detalles de la recopilación de datos para las soluciones de administración en Azure
 En este artículo se incluye una lista de las [soluciones de administración](monitoring-solutions.md) disponibles de Microsoft con vínculos a la documentación detallada.  También se proporciona información sobre el método y la frecuencia de recopilación de datos en Log Analytics.  Puede usar la información de este artículo para identificar las diferentes soluciones disponibles y comprender los requisitos de conexión y flujo de datos de las distintas soluciones de administración. 
@@ -47,18 +47,18 @@ Explicaciones de las columnas:
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |a la llegada |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minuto |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minutos |
-| [Documentación de Recuperación de sitios](../site-recovery/site-recovery-overview.md) | Azure | | | | | | N/D |
+| [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | N/D |
 | [Application Insights Connector (versión preliminar)](../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | según notificación |
 | [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | N/D |
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | según notificación |
 | **Solución de administración** | **Plataforma** | **Agente de supervisión de Microsoft** | **Agente de Operations Manager** | **Azure Storage** | **¿Se requiere Operations Manager?** | **Se envían los datos del agente de Operations Manager a través del grupo de administración** | **Frecuencia de recopilación** |
 | [Azure Network Security Group Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | según notificación |
-| [Azure SQL Analytics (versión preliminar)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 10 minutos |
+| [Azure SQL Analytics (versión preliminar)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1 minuto |
 | [Backup](../backup/backup-introduction-to-azure-backup.md) | Azure |  |  |  |  |  | N/D |
 | [Capacity and Performance (versión preliminar)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |a la llegada |
 | [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
 | [Seguimiento de cambios](../log-analytics/log-analytics-change-tracking.md) |Linux |&#8226; | | | | |Cada hora |
-| [Containers](../log-analytics/log-analytics-containers.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
+| [Contenedores](../log-analytics/log-analytics-containers.md) | Windows y Linux | &#8226; | &#8226; |  |  |  | 3 minutos |
 | [Análisis de Key Vault](../log-analytics/log-analytics-azure-key-vault.md) |Windows | | | | | |según notificación |
 | [Evaluación de malware](../log-analytics/log-analytics-malware.md) |Windows |&#8226; |&#8226; | | |&#8226; |Cada hora |
 | [Monitor de rendimiento de red](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Protocolos de enlace TCP cada 5 segundos; se envían datos cada 3 minutos. |

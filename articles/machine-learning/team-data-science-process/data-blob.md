@@ -3,7 +3,7 @@ title: Proceso de datos del blob de Azure con análisis avanzado | Microsoft Doc
 description: Proceso de datos en Almacenamiento de blobs de Azure.
 services: machine-learning,storage
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 8a3331bb3e78520424486deb1797dd0c89b28efd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 7abb547692bf7cc8e78caabe7c4c0f47edc1a0d2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
 En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 

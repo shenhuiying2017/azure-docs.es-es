@@ -2,7 +2,7 @@
 title: 'Roles y tareas del proceso de ciencia de datos en equipo: Azure | Microsoft Docs'
 description: Una descripción de los componentes clave, las funciones del personal y las tareas asociadas para un proyecto de equipo de ciencia de datos.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: deguhath
+ms.openlocfilehash: 00d8761a7afe4b727c04626c0ba7c032b2277f48
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roles y tareas del proceso de ciencia de datos en equipo
 

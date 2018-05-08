@@ -1,9 +1,9 @@
 ---
-title: "Creación y optimización de tablas para importación en paralelo rápida de datos en SQL Server en una VM de Azure | Microsoft Docs"
-description: "Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL"
+title: Creación y optimización de tablas para importación en paralelo rápida de datos en SQL Server en una VM de Azure | Microsoft Docs
+description: Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: 55c213e26d39f1f9c27fdeae89e651a5f99a98b5
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*. 
