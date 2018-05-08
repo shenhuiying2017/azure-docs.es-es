@@ -2,8 +2,8 @@
 title: Movimiento de datos hacia y desde Blob Storage con el Explorador de Azure Storage | Microsoft Docs
 description: Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 10bd283f-0875-4c67-af63-6492270b7656
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 3db06eed16191ef906f2c565d78fd0063cdb2f7b
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: c20bf045b156400e38e111337908d76b3016c0ea
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Mover datos hacia y desde Azure Blob Storage con el Explorador de Azure Storage
 El Explorador de Azure Storage es una herramienta gratuita de Microsoft que permite trabajar con los datos de Azure Storage en Windows, macOS y Linux. En este tema se describe cómo usarlo para cargar y descargar datos del Almacenamiento de blobs de Azure. La herramienta se puede descargar desde el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
@@ -33,7 +33,7 @@ El Explorador de Azure Storage es una herramienta gratuita de Microsoft que perm
 > 
 > 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta. 
 
 * Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).

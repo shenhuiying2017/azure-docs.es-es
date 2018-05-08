@@ -1,9 +1,9 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con redireccionamiento interno: CLI de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una puerta de enlace de aplicaciones que redirija el tráfico web interno al grupo adecuado mediante la CLI de Azure."
+title: 'Creación de una puerta de enlace de aplicaciones con redireccionamiento interno: CLI de Azure | Microsoft Docs'
+description: Obtenga información sobre cómo crear una puerta de enlace de aplicaciones que redirija el tráfico web interno al grupo adecuado mediante la CLI de Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,12 +11,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
-ms.author: davidmu
-ms.openlocfilehash: 4228a3f534a5dc58ab2efa3c5cf0edd4caee43c9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 5bd9e8f2521120dd1d12eb9630663493b89f5844
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento interno mediante la CLI de Azure
 
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

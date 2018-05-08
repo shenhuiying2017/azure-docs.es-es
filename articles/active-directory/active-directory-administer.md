@@ -1,25 +1,23 @@
 ---
-title: "Introducción al uso de un directorio de inquilino de Azure Active Direcory | Microsoft Docs"
-description: "Se explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory"
+title: Introducción al uso de un directorio de inquilino de Azure Active Direcory | Microsoft Docs
+description: Se explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9da9380f9fd492284a3e82be44051f150f7b3c53
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Administración del directorio de Azure AD
 
@@ -97,7 +95,7 @@ Puede administrar cada directorio como un recurso totalmente independiente: cada
   * Y si asigna o elimina un rol de administrador para un usuario en un directorio, el cambio no afecta a ningún rol de administrador que ese usuario pueda tener en otro directorio.
 * **Independencia de sincronización**. Puede configurar cada inquilino de Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia con la herramienta de sicronización de directorios Azure AD Connect.
 
-A diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Así, si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure AD PowerShell, la API Graph de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
+A diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Así, si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure AD PowerShell, Graph API de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
 
 ## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Cómo prepararse para eliminar un directorio de Azure AD
 Un administrador global puede eliminar un directorio de Azure AD desde el portal. Cuando se elimina un directorio, también se eliminan todos los recursos que se encuentran en el directorio. Compruebe que no necesita el directorio antes de eliminarlo.

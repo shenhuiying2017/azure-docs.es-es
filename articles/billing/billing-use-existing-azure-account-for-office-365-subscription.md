@@ -1,25 +1,25 @@
 ---
-title: "Suscripción a Office 365 con la cuenta de Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear una suscripción de Office 365 mediante una cuenta de Azure"
-services: 
-documentationcenter: 
+title: Suscripción a Office 365 con la cuenta de Azure | Microsoft Docs
+description: Obtenga información acerca de cómo crear una suscripción de Office 365 mediante una cuenta de Azure
+services: ''
+documentationcenter: ''
 author: JiangChen79
 manager: adpick
-editor: 
+editor: ''
 tags: billing,top-support-issue
-ms.assetid: 
+ms.assetid: ''
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: 8279bc2ba2032ee40d24ddb1f7f23e2725e56e7c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bce4b58d4197eee34be43a4dc852c6f43e0e18b4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Suscripción a Office 365 con la cuenta de Azure
 Si es suscriptor de Azure, puede usar su cuenta de Azure para suscribirse a Office 365. Si forma parte de una organización que tiene una suscripción de Azure, puede crear una suscripción de Office 365 para los usuarios de su cuenta actual de Azure Active Directory (Azure AD). Regístrese en Office 365 con una cuenta que tenga permisos de administrador global o de administrador de facturación en el inquilino de Azure Active Directory. Para más información, consulte [Comprobación de permisos de cuenta en Azure AD](#RoleInAzureAD) y [Asignación de roles de administrador en Azure Active Directory (Azure AD)](../active-directory/active-directory-assign-admin-roles-azure-portal.md).

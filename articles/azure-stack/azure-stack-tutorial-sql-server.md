@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2017
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f8d2dd65d9d427872fe78508ed0bcc61e644fdb0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0e1eed2601946ddff6fa15f1a1f82398706c920d
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Bases de datos SQL disponibles para los usuarios de Azure Stack
 Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a los usuarios (inquilinos) crear bases de datos SQL que se puedan usar con sus aplicaciones en la nube, sitios web y cargas de trabajo. Si proporciona a los usuarios estas bases de datos personalizadas, en la nube y a petición, puede ahorrarles tiempo y recursos. Para configurar esta opción, tendrá que:
@@ -34,8 +34,8 @@ Como administrador de la nube de Azure Stack, puede crear ofertas que permitan a
 
 El proceso de implementación se describe en detalle en el artículo [Bases de datos de SQL en Azure Stack](azure-stack-sql-resource-provider-deploy.md) y consta de los siguientes pasos principales:
 
-1. [Implemente el proveedor de recursos SQL]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Compruebe la implementación]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Implemente el proveedor de recursos SQL](azure-stack-sql-resource-provider-deploy.md).
+2. [Compruebe la implementación](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Aprovisionamiento de capacidad conectando con un servidor SQL de hospedaje
 
 ## <a name="create-an-offer"></a>Creación de una oferta

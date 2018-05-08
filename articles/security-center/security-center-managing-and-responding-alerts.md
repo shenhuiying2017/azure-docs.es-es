@@ -1,11 +1,11 @@
 ---
-title: "Administración de alertas de seguridad en Azure Security Center | Microsoft Docs"
+title: Administración de alertas de seguridad en Azure Security Center | Microsoft Docs
 description: Este documento le ayuda a usar las capacidades del Centro de seguridad de Azure para administrar y responder a las alertas de seguridad.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/30/2017
 ms.author: yurid
-ms.openlocfilehash: 1388a351b82beb6b3e7eb61a3a0517aa90c695f5
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4b8b8dba357db38424b86399672f4143c8c56a5f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure
 Este documento le ayuda a usar Azure Security Center para administrar las alertas de seguridad y responder a ellas.

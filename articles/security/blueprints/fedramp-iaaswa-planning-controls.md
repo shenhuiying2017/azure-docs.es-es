@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (planeamiento)"
-description: "Automatización de aplicaciones web para FedRAMP (planeamiento)"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (planeamiento)'
+description: Automatización de aplicaciones web para FedRAMP (planeamiento)
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: d5e5666db71ac9f5a136c9acb448fb13bf39a853
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="planning-pl"></a>Planeamiento (PL)
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="system-security-plan--plan--coordinate-with-other-organizational-entities"></a>Plan de seguridad del sistema | Plan o coordinación con otras entidades organizativas
 
-**PL-2 (3)**La organización planea y coordina las actividades relacionadas con la seguridad que afectan al sistema de información con [Asignación: los individuos o grupos definidos por la organización] antes de llevar a cabo dichas actividades con el fin de reducir el impacto en otras entidades de la organización.
+**PL-2 (3)** La organización planea y coordina las actividades relacionadas con la seguridad que afectan al sistema de información con [Asignación: los individuos o grupos definidos por la organización] antes de llevar a cabo dichas actividades con el fin de reducir el impacto en otras entidades de la organización.
 
 **Responsabilidades:** `Customer Only`
 

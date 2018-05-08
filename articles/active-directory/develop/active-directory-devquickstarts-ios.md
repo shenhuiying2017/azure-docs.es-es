@@ -1,25 +1,25 @@
 ---
-title: "Introducción a iOS de Azure AD | Microsoft Docs"
-description: "Cómo compilar una aplicación iOS que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth."
+title: Introducción a iOS de Azure AD | Microsoft Docs
+description: Cómo compilar una aplicación iOS que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth.
 services: active-directory
 documentationcenter: ios
-author: brandwe
+author: celestedg
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 11/30/2017
-ms.author: brandwe
+ms.date: 04/30/2018
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 93df6f5e6c966fdf4909a4c21ebc36bff4283a59
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 598771eb12d0608ef424c08401b04191a2cc3ee8
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="azure-ad-ios-getting-started"></a>Introducción a iOS de Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]

@@ -1,23 +1,22 @@
 ---
-title: "Incorporación o eliminación de un rol de usuario | Microsoft Docs"
-description: "Aprenda a agregar roles a identidades con privilegios con la aplicación Privileged Identity Management de Azure Active Directory."
+title: Incorporación o eliminación de un rol de usuario | Microsoft Docs
+description: Aprenda a agregar roles a identidades con privilegios con la aplicación Privileged Identity Management de Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 01/03/2018
-ms.author: billmath
-ms.openlocfilehash: 53deb04a33a5f878c5e3f765099c54d30e6ac005
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.author: curtand
+ms.openlocfilehash: 6024016d7c59551e5678069cb6a6e1e7ab45ad6e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Privileged Identity Management de Azure AD: Incorporación o eliminación de un rol de usuario
 Con Azure Active Directory (AD), un administrador global (o un administrador de empresa) puede actualizar a los usuarios que están asignados **permanentemente** a roles en Azure AD. Para ello, se usan cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`. O bien, se puede utilizar Azure Portal, como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).

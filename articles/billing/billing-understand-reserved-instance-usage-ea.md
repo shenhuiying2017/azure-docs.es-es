@@ -1,24 +1,24 @@
 ---
-title: "Interpretación del uso de instancias reservadas de Azure en el nivel Enterprise | Microsoft Docs"
-description: "Obtenga información sobre cómo interpretar su uso para comprender la aplicación de instancias reservadas para su inscripción Enterprise."
+title: Interpretación del uso de instancias reservadas de Azure en el nivel Enterprise | Microsoft Docs
+description: Obtenga información sobre cómo interpretar su uso para comprender la aplicación de instancias reservadas para su inscripción Enterprise.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: manish-shukla01
 manager: manshuk
-editor: 
+editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: manshuk
-ms.openlocfilehash: 515eae3c9a84a171bebc5213f5824e1b50336e34
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cf79926e6497c50156f2a0191997ca06bc605c16
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="understand--reserved-instance-usage-for-your-enterprise-enrollment"></a>Interpretación del uso de instancias reservadas para la inscripción Enterprise
 Le explicamos el uso de instancias reservadas con el valor de ReservationId de la [Página de reservas](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) y el archivo de uso del [portal de EA.](https://ea.azure.com) También puede ver el uso de reserva en la sección de resumen de uso del [portal de EA.](https://ea.azure.com)

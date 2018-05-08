@@ -1,9 +1,9 @@
 ---
-title: "Configuración de entornos de ciencia de datos en Azure | Microsoft Docs"
+title: Configuración de entornos de ciencia de datos en Azure | Microsoft Docs
 description: Configure entornos de ciencia de datos de Azure para utilizarse en el proceso de ciencia de datos en equipos.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 96139523cd2440c801230b62abf9c9b56ec15e83
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.author: deguhath
+ms.openlocfilehash: 9bc5b3f830f2eee533c24d26710cc6b4e8745586
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configuración de entornos de ciencia de datos para utilizarse en el proceso de ciencia de datos en equipos
 El proceso de ciencia de datos en equipos usa una variedad de entornos de ciencia de datos para almacenar, procesar y analizar datos. Incluye Azure Blob Storage, varios tipos de máquinas virtuales de Azure, clústeres de HDInsight (Hadoop) y áreas de trabajo de Azure Machine Learning. La decisión sobre el entorno que se debe usar depende del tipo y de la cantidad de datos que se quieran modelar y del destino de los datos en la nube. 

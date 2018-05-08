@@ -1,26 +1,24 @@
 ---
-title: "Solución de problemas de pertenencia dinámica para grupos| Microsoft Docs"
-description: "Solución de problemas para la pertenencia dinámica para grupos en Azure AD."
+title: Solución de problemas de pertenencia dinámica para grupos| Microsoft Docs
+description: Solución de problemas para la pertenencia dinámica para grupos en Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 89bb04b6-a379-49c2-8465-fe386641816a
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4c294cc6a4e1c9c2f1ad405c539854b6bcf5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6d8d04273e9f29b2634c8b77b0268f3c7b77b1e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Solución de problemas relacionados con las pertenencias dinámicas para grupos
 **He configurado una regla en un grupo pero las pertenencias no se actualizan en el grupo**.<br/>Compruebe los valores de atributos de usuario en la regla: ¿hay usuarios que cumplen la regla? Si todo es correcto, el grupo tardará un poco en rellenarse. Dependiendo del tamaño del inquilino, el grupo puede tardar hasta 24 horas en rellenarse por primera vez o después de un cambio de la regla.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3831c44a52fe4bb428021acac46188966087fdfe
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Acceso seguro a aplicaciones lógicas
 
@@ -135,8 +135,8 @@ Todos los datos dentro de una ejecución de flujo de trabajo se cifran en tráns
 Esta opción se puede configurar en la configuración de los recursos de Azure Portal:
 
 1. En Azure Portal, abra la aplicación lógica a la que desea agregar las restricciones de dirección IP
-1. Haga clic en el elemento de menú **Access control configuration** (Configuración de control de acceso) en **Settings** (Configuración).
-1. Especifique la lista de intervalos de direcciones IP para acceder al contenido.
+2. Haga clic en el elemento de menú **Access control configuration** (Configuración de control de acceso) en **Settings** (Configuración).
+3. Especifique la lista de intervalos de direcciones IP para acceder al contenido.
 
 #### <a name="setting-ip-ranges-on-the-resource-definition"></a>Establecimiento de los intervalos de IP en la definición de recursos
 
@@ -183,64 +183,62 @@ A continuación se presenta un ejemplo en que se muestra una implementación que
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "secretDeploymentParam": {
-      "type": "securestring"
-    }
-  },
-  "variables": {},
-  "resources": [
-    {
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "secretDeploymentParam": {
+         "type": "securestring"
+      }
+   },
+   "variables": {},
+   "resources": [ {
       "name": "secret-deploy",
       "type": "Microsoft.Logic/workflows",
       "location": "westus",
       "tags": {
-        "displayName": "LogicApp"
+         "displayName": "LogicApp"
       },
       "apiVersion": "2016-06-01",
       "properties": {
-        "definition": {
-          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-          "actions": {
-            "Call_External_API": {
-              "type": "http",
-              "inputs": {
-                "headers": {
-                  "Authorization": "@parameters('secret')"
-                },
-                "body": "This is the request"
-              },
-              "runAfter": {}
-            }
-          },
-          "parameters": {
+         "definition": {
+            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+            "actions": {
+               "Call_External_API": {
+                  "type": "Http",
+                  "inputs": {
+                     "headers": {
+                        "Authorization": "@parameters('secret')"
+                     },
+                     "body": "This is the request"
+                  },
+                  "runAfter": {}
+               }
+            },
+            "parameters": {
+               "secret": {
+                  "type": "SecureString"
+               }
+            },
+            "triggers": {
+               "manual": {
+                  "type": "Request",
+                  "kind": "Http",
+                  "inputs": {
+                     "schema": {}
+                  }
+               }
+            },
+            "contentVersion": "1.0.0.0",
+            "outputs": {}
+         },
+         "parameters": {
             "secret": {
-              "type": "SecureString"
+               "value": "[parameters('secretDeploymentParam')]"
             }
-          },
-          "triggers": {
-            "manual": {
-              "type": "Request",
-              "kind": "Http",
-              "inputs": {
-                "schema": {}
-              }
-            }
-          },
-          "contentVersion": "1.0.0.0",
-          "outputs": {}
-        },
-        "parameters": {
-          "secret": {
-            "value": "[parameters('secretDeploymentParam')]"
-          }
-        }
+         }
       }
-    }
-  ],
-  "outputs": {}
+   } ],
+   "outputs": {}
 }
 ```
 

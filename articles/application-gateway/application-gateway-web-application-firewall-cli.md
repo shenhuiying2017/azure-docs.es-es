@@ -1,20 +1,20 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante la CLI de Azure| Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante la CLI de Azure| Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante la CLI de Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 611e9b27baeddf61531421d7ad2bed20188ad279
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 87125b68c81af07d0ecd9693fdf7e2dc00a93324
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante la CLI de Azure
 
@@ -23,7 +23,7 @@ Puede usar la CLI de Azure para crear una [puerta de enlace de aplicaciones](app
 En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar la red
+> * Configuración de la red
 > * Crear una puerta de enlace de aplicaciones con WAF habilitado
 > * Crear un conjunto de escalado de máquinas virtuales
 > * Crear una cuenta de almacenamiento y configurar los diagnósticos
@@ -92,11 +92,11 @@ az network application-gateway waf-config set \
   --rule-set-version 3.0
 ```
 
-Se puede tardar varios minutos en crear la puerta de enlace de aplicaciones. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
+La puerta de enlace de aplicaciones puede tardar varios minutos en crearse. Después de crear la puerta de enlace de aplicaciones, puede ver estas nuevas características de ella:
 
 - *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
 - *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: el agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
 - *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
 - *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
@@ -129,10 +129,10 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creación de una cuenta de almacenamiento y configuración de diagnósticos
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos
 
 En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacenamiento para almacenar datos con fines de detección y prevención. También puede usar Log Analytics o una instancia de Event Hubs para registrar los datos. 
 
@@ -180,9 +180,9 @@ az network public-ip show \
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar la red
+> * Configuración de la red
 > * Crear una puerta de enlace de aplicaciones con WAF habilitado
 > * Crear un conjunto de escalado de máquinas virtuales
 > * Crear una cuenta de almacenamiento y configurar los diagnósticos
 
-Para más información sobre las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

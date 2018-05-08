@@ -1,6 +1,6 @@
 ---
-title: "Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (identificación y autenticación)"
-description: "Automatización de aplicaciones web para FedRAMP (identificación y autenticación)"
+title: 'Azure Security and Compliance Blueprint: automatización de aplicaciones web para FedRAMP (identificación y autenticación)'
+description: Automatización de aplicaciones web para FedRAMP (identificación y autenticación)
 services: security
 documentationcenter: na
 author: jomolesk
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
 ms.openlocfilehash: 21b5c453716f99be26c8dd6400bb3489477b4956
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="identification-and-authentication-ia"></a>Identificación y autenticación (IA)
 

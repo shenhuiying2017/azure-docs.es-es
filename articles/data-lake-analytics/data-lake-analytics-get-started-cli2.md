@@ -1,8 +1,8 @@
 ---
-title: "Introducción a Azure Data Lake Analytics mediante la CLI de Azure 2.0 | Microsoft Docs"
-description: "Aprenda a usar la interfaz de la línea de comandos de Azure 2.0 para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar dicho trabajo. "
+title: Introducción a Azure Data Lake Analytics mediante la CLI de Azure 2.0 | Microsoft Docs
+description: 'Aprenda a usar la interfaz de la línea de comandos de Azure 2.0 para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar dicho trabajo. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: saveenr
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: jgao
-ms.openlocfilehash: fbd4f1ae5eeec971a378c41761508629e530887c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introducción al uso de la CLI de Azure 2.0 por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -30,7 +30,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **CLI de Azure 2.0**. Consulte [Instalación y configuración de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Para iniciar sesión en una suscripción de Azure:
 
@@ -193,26 +193,6 @@ Por ejemplo:
 
 ```
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
-```
-
-## <a name="pipelines-and-recurrences"></a>Canalizaciones y repeticiones
-
-**Obtención de información sobre canalizaciones y repeticiones**
-
-Utilice los comandos `az dla job pipeline` para ver la información de canalización de trabajos enviados previamente.
-
-```
-az dla job pipeline list --account "<Data Lake Analytics Account Name>"
-
-az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
-```
-
-Utilice los comandos `az dla job recurrence` para ver la información de repetición de trabajos enviados previamente.
-
-```
-az dla job recurrence list --account "<Data Lake Analytics Account Name>"
-
-az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

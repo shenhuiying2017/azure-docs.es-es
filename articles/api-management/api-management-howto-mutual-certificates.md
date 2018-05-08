@@ -1,11 +1,11 @@
 ---
-title: "Asegurar servicios back-end con la autenticación de certificados de cliente - Azure API Management | Microsoft Docs"
-description: "Averigüe cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management"
+title: Asegurar servicios back-end con la autenticación de certificados de cliente - Azure API Management | Microsoft Docs
+description: Averigüe cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: afa5c6a07432456d703020c0b8c5c3606478b8fe
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: c3060765022cabcb877041927886b59d6725c7cf
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Cómo asegurar servicios back-end con la autenticación de certificados de cliente en Azure API Management
 Administración de API permite acceder de forma segura al servicio back-end de una API con certificados de cliente. Esta guía muestra cómo administrar certificados en el portal del publicador de API y cómo configurar una API para acceder al servicio back-end correspondiente con un certificado.
 
-Para obtener más información sobre cómo administrar certificados con la API de REST de API Management, consulte el artículo sobre la [entidad de certificado de la API REST de Administración de API de Azure][Azure API Management REST API Certificate entity].
+Para obtener más información sobre cómo administrar certificados con la API de REST de API Management, consulte <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entidad de certificado de la API REST de Azure API Management</a>.
 
 ## <a name="prerequisites"> </a>Requisitos previos
 Esta guía muestra cómo configurar la instancia de servicio de API Management para acceder al servicio back-end de una API con la autenticación de certificados de cliente. Antes de seguir los pasos incluidos en este tema, debe tener el servicio back-end configurado para la autenticación de certificados de cliente ([para configurar la autenticación de certificados en Azure Websites, consulte este artículo][to configure certificate authentication in Azure WebSites refer to this article]) y disponer de acceso al certificado y a su contraseña para poder cargarlo en el portal para editores API Management.

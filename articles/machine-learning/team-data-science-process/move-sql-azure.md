@@ -2,8 +2,8 @@
 title: Mover datos a Azure SQL Database para Azure Machine Learning | Microsoft Docs
 description: Crear tabla SQL y cargar datos en ella
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 323861d078e9beeb197333dc7e2d0314014dfdb0
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: deguhath
+ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover datos a una base de datos de SQL de Azure para Azure Machine Learning
 En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a Azure SQL Database. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
@@ -34,8 +34,7 @@ En la tabla siguiente se resumen las opciones para mover datos a Azure SQL Datab
 | <b>ORIGEN</b> | <b>DESTINO: Azure SQL Database</b> |
 | --- | --- |
 | <b>Archivo plano (formatos CSV o TSV)</b> |<a href="#bulk-insert-sql-query">Consulta SQL de inserción masiva |
-| <b>SQL Server local</b> |1. <a href="#export-flat-file">Exportación a un archivo plano<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Copia de seguridad y restauración de una base de datos<br> 4. 
-            <a href="#adf">Azure Data Factory |
+| <b>SQL Server local</b> |1. <a href="#export-flat-file">Exportación a un archivo plano<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Copia de seguridad y restauración de una base de datos<br> 4. <a href="#adf">Azure Data Factory |
 
 ## <a name="prereqs"></a>Requisitos previos
 El procedimiento aquí descrito requiere disponer de:
@@ -61,8 +60,7 @@ Si los datos de origen están almacenados en un servidor SQL Server local, hay v
 1. [Exportación a un archivo plano](#export-flat-file)
 2. [SQL Database Migration Wizard](#insert-tables-bcp)
 3. [Copia de seguridad y restauración de una base de datos](#db-migration)
-4. 
-            [Azure Data Factory](#adf)
+4. [Azure Data Factory](#adf)
 
 Los pasos para las tres primeras opciones son muy similares a los de la sección [Mover datos a un servidor SQL Server en una máquina virtual de Azure](move-sql-server-virtual-machine.md) , en la que se explican los mismos procedimientos. En las instrucciones siguientes se proporcionan vínculos a las secciones correspondientes de ese tema.
 
@@ -75,9 +73,7 @@ Los pasos para usar el Asistente para migración de SQL Database son similares a
 ### <a name="db-migration"></a>Copia de seguridad y restauración de una base de datos
 Los pasos para usar la copia de seguridad y restauración de la base de datos son similares a los que se explican en [Copia de seguridad y restauración de la base de datos](move-sql-server-virtual-machine.md#sql-backup).
 
-### 
-            <a name="adf">
-            </a>Azure Data Factory
+### <a name="adf"></a>Azure Data Factory
 El procedimiento para mover datos a una instancia de Azure SQL Database con Azure Data Factory (ADF) se explica en el tema [Mover datos desde un servidor SQL Server local a SQL Azure con Azure Data Factory](move-sql-azure-adf.md). En este tema se muestra cómo mover datos desde una base de datos local de SQL Server a una instancia de Azure SQL Database a través de Azure Blob Storage con Azure Data Factory (ADF).
 
 Considere el uso de ADF cuando los datos deban migrarse continuamente en un escenario híbrido con acceso a recursos locales y de nube, y cuando los datos se transfieran o deban modificarse o tener lógica de negocios agregada mientras se migran. La ADF permite la programación y supervisión de trabajos mediante scripts JSON sencillos que administran el movimiento de datos de forma periódica. La ADF también tiene otras capacidades como la compatibilidad con operaciones complejas.

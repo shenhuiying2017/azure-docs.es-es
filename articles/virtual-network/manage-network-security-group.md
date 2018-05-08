@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: f9de86f33fcedacad9ccde074a252111df62c992
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e9a66cc52c25bf4d38fd27050a92196227a698c
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 
@@ -31,7 +31,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 ## <a name="work-with-network-security-groups"></a>Trabajar con grupos de seguridad de red
@@ -79,7 +79,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 ### <a name="change-a-network-security-group"></a>Cambiar un grupo de seguridad de red
 
 1. En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *grupos de seguridad de red*. Cuando aparezca **grupos de seguridad de red** en los resultados de la búsqueda, selecciónelo.
-2. Seleccione el grupo de seguridad de red que quiere modificar. Los cambios más comunes son [agregar](#create-a-security-rule) o [quitar](#delete-a-security-rule) de reglas de seguridad y [asociar o desasociar un grupo de seguridad de red a o de una subred o una interfaz de red](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Seleccione el grupo de seguridad de red que quiere modificar. Los cambios más comunes son [agregar](#create-a-security-rule) o [quitar](#delete-a-security-rule) de reglas de seguridad y [asociar o desasociar un grupo de seguridad de red a o de una subred o una interfaz de red](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Comandos**
 

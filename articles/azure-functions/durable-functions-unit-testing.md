@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: a8d2a2281dcaf6e5e308ad4a2aafb167f9ba9121
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="durable-functions-unit-testing"></a>Prueba unitaria de Durable Functions
 
@@ -128,7 +128,7 @@ Después de combinar todos los pasos, la prueba unitaria tendrá el código sigu
 
 ## <a name="unit-testing-orchestrator-functions"></a>Funciones de Orchestrator de prueba unitaria
 
-Las funciones de Orchestrator son incluso más interesantes para la prueba unitaria porque habitualmente tienen mucha más lógica de negocios. Actualmente, las funciones de Orchestrator solo se pueden implementar en C#.
+Las funciones de Orchestrator son incluso más interesantes para la prueba unitaria porque habitualmente tienen mucha más lógica de negocios.
 
 En esta sección, las pruebas unitarias validarán la salida de la función `E1_HelloSequence` de Orchestrator:
 

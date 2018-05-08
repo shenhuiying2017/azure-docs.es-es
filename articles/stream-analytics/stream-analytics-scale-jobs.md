@@ -9,11 +9,11 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalado de un trabajo de Azure Stream Analytics para incrementar el rendimiento
 En este artículo se muestra cómo ajustar una consulta de Stream Analytics para aumentar la capacidad de procesamiento de trabajos de Stream Analytics. Puede usar la guía siguiente para escalar un trabajo para administrar una carga más elevada y aprovecha más recursos del sistema, como más ancho de banda, más recursos de CPU y más memoria.
@@ -31,7 +31,8 @@ Si la consulta se puede paralelizar completamente de manera inherente en distint
         - Si el problema se debe a la limitación de receptor, es posible que tenga que aumentar el número de particiones de salida (y también de las particiones de entrada para que el trabajo siga siendo posible de paralelizar completamente) o aumentar la cantidad de recursos del receptor (por ejemplo, el número de Unidades de solicitud para CosmosDB).
     - En el diagrama de trabajo, hay una métrica de evento de trabajo pendiente por partición para cada entrada. Si la métrica de evento de trabajo pendiente sigue aumentando, también es un indicador de que el recurso del sistema está restringido (ya sea debido a una limitación de receptor de salid o un alto uso de CPU).
 4.  Una vez que determine los límites del alcance de un trabajo de 6 SU, puede extrapolar de manera lineal la capacidad de procesamiento del trabajo a medida que agrega más SU, suponiendo que no tiene ninguna asimetría de datos que haga que cierta partición sea "activa".
->[!Note]
+
+> [!NOTE]
 > Elija el número correcto de unidades de streaming: como Stream Analytics crea un nodo de procesamiento para cada 6 SU que se agregan, es mejor hacer que el número de nodos sea un divisor del número de particiones de entrada, para que las particiones se puedan distribuir de manera uniforme entre los nodos.
 > Por ejemplo, midió que el trabajo de 6 SU puede alcanzar una velocidad de procesamiento de 4 MB/s y la cantidad de particiones de entrada es 4. Puede elegir ejecutar el trabajo con 12 SU para alcanzar una velocidad de procesamiento de 8 MB/s aproximadamente, o bien 24 SU para alcanzar 16 MB/s. Luego puede decidir cuándo aumentar el número de SU para el trabajo y a qué valor, como función de la tasa de entrada.
 

@@ -1,20 +1,20 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal | Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal | Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios mediante Azure Portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 403c6c254d8547b09e42f0b1561e5eff350a1f9b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: f3dd092b2298bfc97cac30b8706e0588a466e1e0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante Azure Portal
 
@@ -33,9 +33,9 @@ En este artículo, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -102,7 +102,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

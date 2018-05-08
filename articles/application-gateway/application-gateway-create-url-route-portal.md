@@ -10,11 +10,11 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 554618b055ce5afcc67f95afa0242d36e74fabc0
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con Azure Portal
 
@@ -102,7 +102,7 @@ En este ejemplo, se crean tres máquinas virtuales que se usarán como servidore
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
     ```azurepowershell-interactive
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `

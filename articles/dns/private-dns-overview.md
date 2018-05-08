@@ -4,7 +4,7 @@ description: Información general del servicio de hospedaje de DNS privado en Mi
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: dns
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 7f1bd8cdcab7bdd61b3f006acf6090c53db8eda6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Uso de Azure DNS para dominios privados
 El Sistema de nombres de dominio, o DNS, es responsable de traducir o resolver el nombre del servicio en su dirección IP. Azure DNS es un servicio de hospedaje para dominios DNS que permite resolver nombres mediante la infraestructura de Microsoft Azure.  Además de los dominios DNS con conexión a Internet, Azure DNS ahora también admite dominios DNS privados como una característica en versión preliminar.  
@@ -56,12 +56,12 @@ Azure DNS proporciona un servicio DNS confiable y seguro para administrar y reso
 * 1 red virtual de registro por zona privada.
 * Hasta 10 redes virtuales de resolución por zona privada.
 * Una red virtual dada solo se puede vincular a una zona privada como red virtual de registro.
-* Una red virtual determinada puede vincularse hasta a 10 zonas privada como una red virtual de resolución.
-* Si se especifica una red virtual de registro, los registros DNS de las máquinas virtuales de esa red virtual que se registran en la zona privada no serán visibles ni recuperables desde Powershell, la CLI o las API, pero los registros de máquina virtual se registran de hecho y se resuelven correctamente
+* Una red virtual determinada puede vincularse con un máximo de diez zonas privada como red virtual de resolución.
+* Si se especifica una red virtual de registro, los registros DNS de las máquinas virtuales de dicha red que se registren en la zona privada no se podrán ver o recuperar desde Powershell, la CLI o las API, pero los registros de máquina virtual se registrarán y resolverán correctamente.
 * El DNS inverso solo funciona en el espacio de direcciones IP privadas de la red virtual de registro.
 * El DNS inverso de una dirección IP privada que no está registrada en la zona privada (por ejemplo, IP privada de una máquina virtual de una red virtual vinculada como una red virtual de resolución a una zona privada) devolverá "internal.cloudapp.net" como sufijo de DNS; sin embargo, este sufijo no se podrá resolver.   
-* La red virtual debe estar vacía (es decir, sin registros de máquina virtual) cuando se vinculó inicialmente (es decir, por primera vez) a una zona privada como red virtual de registro o de resolución. Sin embargo, la red virtual podría no estar vacía para la futura vinculación como red virtual de registro o resolución a otras zonas privadas. 
-* En este momento, no se admite el reenvío condicional, por ejemplo, para habilitar la resolución entre redes de Azure y locales. Puede encontrar documentación sobre cómo los clientes pueden poner en funcionamiento este escenario con otros mecanismos en [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+* La red virtual debe estar vacía (es decir, sin registros de máquina virtual) cuando se vinculó inicialmente (es decir, por primera vez) a una zona privada como red virtual de registro o de resolución. Sin embargo, la red virtual podría no estar vacía para una futura vinculación como red virtual de registro o resolución con otras zonas privadas. 
+* Actualmente, no se admite el reenvío condicional, por ejemplo, para habilitar la resolución entre redes de Azure y locales. Puede encontrar documentación sobre cómo los clientes pueden poner en funcionamiento este escenario con otros mecanismos en [Resolución de nombres para las máquinas virtuales e instancias de rol](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 También se recomienda leer las [preguntas frecuentes](./dns-faq.md#private-dns) para ver algunas preguntas y respuestas comunes sobre las zonas privadas en Azure DNS, como el comportamiento específico de registro y resolución DNS que se puede esperar con determinadas clases de operaciones. 
 

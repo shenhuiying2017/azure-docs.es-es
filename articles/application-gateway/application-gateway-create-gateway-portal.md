@@ -2,20 +2,20 @@
 title: Creación de una puerta de enlace de aplicaciones con Azure Portal | Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones mediante Azure Portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: df9235bc7ff61943de52a0bcc4064bf9fab6636a
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 0df71c445d2c5fc6827b69f708203a3b3e6e2b53
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones mediante Azure Portal
 
@@ -23,9 +23,9 @@ Para crear o administrar las puertas de enlace de aplicaciones puede usar Azure 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 

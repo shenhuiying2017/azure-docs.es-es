@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ac12ccb3f14c8ec433570da78e6ba8a76c7a5b5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d280ad1180949167bb8ebfc6b21521736db0f55d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migración de VM de Azure a Managed Disks en Azure
 
@@ -65,7 +65,7 @@ Hay siete tipos de Managed Disks premium que se pueden usar con la máquina virt
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 128 GB| 512 GB| 128 GB| 256 GB|512 GB | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Tamaño del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1.024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | IOPS por disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
 | Rendimiento de disco | 25 MB por segundo  | 50 MB por segundo  | 100 MB por segundo | 125 MB por segundo |150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 

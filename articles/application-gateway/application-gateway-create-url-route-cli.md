@@ -1,20 +1,20 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con la CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante la CLI de Azure."
+title: Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con la CLI de Azure | Microsoft Docs
+description: Aprenda a crear reglas de enrutamiento basadas en rutas de dirección URL para una puerta de enlace de aplicaciones y un conjunto de escalado de máquinas virtuales mediante la CLI de Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 0593e37def43770efad7e07b306d8290b0590a48
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: eeba6ce5bd082cb6b9c3266fcc95deb1785e8cce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con reglas de enrutamiento basadas en rutas de dirección URL con la CLI de Azure
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a:
 > [!div class="checklist"]
 > * Configuración de la red
 > * Crear una puerta de enlace de aplicaciones con asignación de direcciones URL
-> * Crear conjuntos de escalado de máquinas virtuales con los grupos de servidores back-end
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/application-gateway-create-url-route-cli/scenario.png)
 
@@ -91,7 +91,7 @@ az network application-gateway create \
 
 - *appGatewayBackendPool*: una puerta de enlace de aplicaciones debe tener al menos un grupo de direcciones de servidores back-end.
 - *appGatewayBackendHttpSettings*: especifica que se use el puerto 80 y un protocolo HTTP para la comunicación.
-- *appGatewayHttpListener*: el agente de escucha predeterminado asociado con *appGatewayBackendPool*.
+- *appGatewayHttpListener*: agente de escucha predeterminado asociado con *appGatewayBackendPool*.
 - *appGatewayFrontendIP*: asigna *myAGPublicIPAddress* a *appGatewayHttpListener*.
 - *rule1*: la regla de enrutamiento predeterminada asociada a *appGatewayHttpListener*.
 
@@ -171,7 +171,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creación de conjuntos de escalado de máquinas virtuales
 
-En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de servidores back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
+En este ejemplo, creará tres conjuntos de escalado de máquinas virtuales que admiten los tres grupos de back-end que ha creado. Los conjuntos de escalado que crea se llaman *myvmss1*, *myvmss2* y *myvmss3*. Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instalará NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -213,13 +213,13 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, puede usar [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -246,6 +246,6 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Configuración de la red
 > * Crear una puerta de enlace de aplicaciones con asignación de direcciones URL
-> * Crear conjuntos de escalado de máquinas virtuales con los grupos de servidores back-end
+> * Crear conjuntos de escalado de máquinas virtuales con los grupos de back-end
 
-Para más información sobre las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de la seguridad en Azure Security Center | Microsoft Docs"
-description: "Este artículo le ayuda a comenzar a trabajar con las funcionalidades de supervisión en Azure Security Center."
+title: Supervisión de la seguridad en Azure Security Center | Microsoft Docs
+description: Este artículo le ayuda a comenzar a trabajar con las funcionalidades de supervisión en Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2018
 ms.author: yurid
-ms.openlocfilehash: 608947ec4a94cad276e34e8d3457f05b06d04ad6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 330a12f851ef0191adc4dc46102b798f1b752589
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Supervisión del estado de seguridad en el Centro de seguridad de Azure
 Este artículo le ayuda a usar las funcionalidades de supervisión de Azure Security Center para supervisar el cumplimiento de las directivas.

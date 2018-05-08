@@ -1,9 +1,9 @@
 ---
-title: "Creación e implementación de un modelo de aprendizaje automático mediante SQL Server en una VM de Azure | Microsoft Docs"
-description: "Tecnología y procesos de análisis avanzado en acción"
+title: Creación e implementación de un modelo de aprendizaje automático mediante SQL Server en una VM de Azure | Microsoft Docs
+description: Tecnología y procesos de análisis avanzado en acción
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 6066b083-262c-4453-a712-a5c05acc3df8
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 03def1f07d45b9bde5f54922984c33879a80744c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.author: deguhath
+ms.openlocfilehash: 1e53814c0c0598380944d576e1937e38d1e1d792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Proceso de ciencia de datos en equipos en acción: uso de SQL Server
 En este tutorial, se describe el proceso de creación e implementación de un modelo de Machine Learning con SQL Server y un conjunto de datos disponible públicamente: [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) . El procedimiento sigue un flujo de trabajo de ciencia de datos estándar: introducir y explorar los datos, diseñar características para facilitar el aprendizaje y, después, crear e implementar un modelo.

@@ -1,9 +1,9 @@
 ---
-title: "Exploración de los datos de las tablas de Hive con consultas de Hive | Microsoft Docs"
-description: "Exploración de los datos de las tablas de Hive con consultas de Hive."
+title: Exploración de los datos de las tablas de Hive con consultas de Hive | Microsoft Docs
+description: Exploración de los datos de las tablas de Hive con consultas de Hive.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 0d46cea5-2b4c-4384-9bfa-fa20f6f75148
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
-ms.openlocfilehash: 9cf205abcf9782ceac4d9ac5a920e136b69c57b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.author: deguhath
+ms.openlocfilehash: e85530e5297618b9e87f46a5a274621b060fe1fc
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Exploración de los datos de las tablas de Hive con consultas de Hive
 Este documento proporciona scripts de Hive de ejemplo que se usan para explorar los datos de las tablas de Hive en un clúster de Hadoop para HDInsight.
@@ -27,7 +27,7 @@ El siguiente **menú** vincula a temas que describen cómo usar herramientas par
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En este artículo se supone que ha:
 
 * Creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de Azure Storage](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -42,7 +42,7 @@ En este artículo se supone que ha:
 3. Obtención de los niveles de una columna de categorías   
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
 4. Obtención del número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Obtención de la distribución para columnas numéricas   
+5. Obtener la distribución para columnas numéricas  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. Extraer registros de la combinación de dos tablas
    

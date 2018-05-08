@@ -16,11 +16,11 @@ ms.date: 12/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 8c692323803247cd54d27f369ea749e462fbc359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce4497a8bebf9078363509c1f962728ab4189f8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory
 Cuando se requiera que los usuarios unan sus dispositivos personales al área de trabajo en el servicio de registro de dispositivos de Azure Active Directory (Azure AD), los dispositivos deben estar marcados como conocidos para la organización. A continuación aparece una guía paso a paso para habilitar el acceso condicional a aplicaciones locales mediante Servicios de federación de Active Directory (AD FS) en Windows Server 2012 R2.
@@ -86,7 +86,7 @@ Siga los pasos que aparecen en la lista de comprobación para habilitar y config
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Parte 3: habilitación de reescritura de dispositivos en Azure AD
 | Task | Referencia |
 | --- | --- |
-| Complete la parte 2 de "Habilitación de escritura diferida de dispositivos en Azure AD Connect". Cuando lo haga, vuelva a esta guía. |[Habilitación de escritura diferida de dispositivos en Azure AD Connect](#upgrade-your-active-directory-domain-services-schema) |
+| Complete la parte 2 de "Habilitación de escritura diferida de dispositivos en Azure AD Connect". Cuando lo haga, vuelva a esta guía. |[Habilitación de escritura diferida de dispositivos en Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Opcional] Parte 4: habilitación de Multi-Factor Authentication
 Se recomienda encarecidamente configurar una de las distintas opciones de Multi-Factor Authentication. Si desea exigir Multi-Factor Authentication, consulte [Elección de la solución de seguridad Multi-Factor Authentication más adecuada](authentication/concept-mfa-whichversion.md). Incluye una descripción de cada solución y vínculos para ayudarle a configurar la solución que haya elegido.

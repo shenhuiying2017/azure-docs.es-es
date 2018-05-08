@@ -1,9 +1,9 @@
 ---
-title: "Creación de tablas de Hive y carga de datos desde Azure Blob Storage | Microsoft Docs"
-description: "Crear tablas de subárbol y cargar datos de blob en tablas de subárbol"
+title: Creación de tablas de Hive y carga de datos desde Azure Blob Storage | Microsoft Docs
+description: Crear tablas de subárbol y cargar datos de blob en tablas de subárbol
 services: machine-learning,storage
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: cff9280d-18ce-4b66-a54f-19f358d1ad90
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
-ms.openlocfilehash: 593df249429bf1dcc5a59312830ed78f7cf642e8
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 7634a8bdc7492d674801a256a4d5bb73170311ee
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde Azure Blob Storage. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.

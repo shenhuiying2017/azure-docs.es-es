@@ -1,21 +1,21 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal| Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal| Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: d2b8fc65e6cd03f61151dbae66bb89821cdab13b
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: victorh
+ms.openlocfilehash: 9967813b193159b68aa0f008dae4440aa6e533dc
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -30,9 +30,9 @@ En este artículo, aprenderá a:
 
 ![Ejemplo de firewall de aplicaciones web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en: [http://portal.azure.com](http://portal.azure.com).
+Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -66,7 +66,7 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 ### <a name="add-a-subnet"></a>Incorporación de una subred
 
 1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
-2. Haga clic en **Subredes** y, a continuación, haga clic en **Subred**.
+2. Haga clic en **Subredes** y en **Subred**.
 
     ![Creación de una subred](./media/application-gateway-web-application-firewall-portal/application-gateway-subnet.png)
 
@@ -125,7 +125,7 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
 4. Haga clic en **Save**(Guardar).
 
-## <a name="create-a-storage-account-and-configure-diagnostics"></a>Creación de una cuenta de almacenamiento y configuración de diagnósticos
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 

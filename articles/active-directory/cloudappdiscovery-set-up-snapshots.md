@@ -1,26 +1,24 @@
 ---
-title: "Creación de informes de instantánea de Cloud App Discovery en Azure Active Directory | Microsoft Docs"
-description: "Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona."
+title: Creación de informes de instantánea de Cloud App Discovery en Azure Active Directory | Microsoft Docs
+description: Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona.
 services: active-directory
 keywords: cloud app discovery, administrar aplicaciones
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
-ms.openlocfilehash: 69a633b39e68596c536700dbb2c7c8d35f3b44bb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ad4591223c72893a4488f5515d8ceb83e0d7f8cf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Creación de informes de instantánea de Cloud App Discovery
 
@@ -43,7 +41,7 @@ Antes de configurar el recopilador de registros automático, cargue manualmente 
   > Se admite el formato de ejemplo FTP en las instantáneas y en la carga automatizada mientras syslog es compatible únicamente con la carga automatizada. Si se descarga un registro de ejemplo, se descarga un registro FTP de ejemplo.
 6. **Elija los registros de tráfico** que desea cargar. Puede cargar hasta 20 archivos a la vez. También se admiten archivos comprimidos y zip.
   
-7. Haga clic en **Crear**. Una vez finalizada la carga, puede tardar algún tiempo en analizarse. Si este es el caso, Cloud App Discovery envía una notificación por correo electrónico cuando haya terminado.
+7. Haga clic en **Create**(Crear). Una vez finalizada la carga, puede tardar algún tiempo en analizarse. Si este es el caso, Cloud App Discovery envía una notificación por correo electrónico cuando haya terminado.
 
 8. Seleccione **Administrar los informes de instantáneas** y seleccione su informe de instantánea.
   

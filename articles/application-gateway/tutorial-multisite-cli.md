@@ -1,9 +1,9 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure | Microsoft Docs"
+title: Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure | Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones que hospede varios sitios mediante la CLI de Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.devlang: na
@@ -11,16 +11,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: df475cb6eed2b75275e573721f754e7de87698f5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: victorh
+ms.openlocfilehash: 2e1367db9c2c1d47f34cc35fc088a9eecf00247b
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con hospedaje de varios sitios mediante la CLI de Azure
 
-Puede usar la CLI de Azure para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. A continuación, configurará reglas y agentes de escucha basados en dominios de su propiedad para asegurarse de que el tráfico web llega a los servidores adecuados de los grupos. En este tutorial, se da por supuesto que posee varios dominios y usa los ejemplos *www.contoso.com* y *www.fabrikam.com*.
+Puede usar la CLI de Azure para configurar el [hospedaje de varios sitios web](application-gateway-multi-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](application-gateway-introduction.md). En este tutorial, creará grupos de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
 
 En este artículo, aprenderá a:
 
@@ -114,7 +114,7 @@ az network application-gateway address-pool create \
   --name fabrikamPool
 ```
 
-### <a name="add-listeners"></a>Adición de agentes de escucha
+### <a name="add-listeners"></a>Incorporación de agentes de escucha
 
 Es necesario un agente de escucha para que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada al grupo de servidores back-end. En este tutorial, creará dos agentes de escucha para los dos dominios. En este ejemplo, se crean los agentes de escucha para los dominios de *www.contoso.com* y *www.fabrikam.com*. 
 
@@ -205,7 +205,7 @@ for i in `seq 1 2`; do
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
     --settings '{
-  "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 done
 ```

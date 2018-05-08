@@ -1,20 +1,20 @@
 ---
-title: "Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales: CLI de Azure | Microsoft Docs"
-description: "Aprenda a crear una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante la CLI de Azure."
+title: 'Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales: CLI de Azure | Microsoft Docs'
+description: Aprenda a crear una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante la CLI de Azure.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: davidmu
-ms.openlocfilehash: 9a0119e0db834f008a1a3999ff546580499e73c3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: victorh
+ms.openlocfilehash: 22eef26750bf4d45d87f222d0d34fbd56ad589df
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones con un conjunto de escalado de máquinas virtuales mediante la CLI de Azure
 
@@ -122,7 +122,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
@@ -148,4 +148,4 @@ En este tutorial aprendió lo siguiente:
 > * Creación de una puerta de enlace de aplicaciones
 > * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
-Para más información sobre las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
+Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.

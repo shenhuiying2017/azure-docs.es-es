@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/29/2018
 ms.author: sngun
-ms.openlocfilehash: a78a7ea619be28f01372a7b80d3cb4a5d35bd50e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Administración del Análisis de Azure Data Lake mediante Interfaz de línea de comandos (CLI) de Azure
 
@@ -194,6 +194,27 @@ Use el comando de la lista para buscar el identificador del trabajo y, a continu
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
    ```
+
+## <a name="pipelines-and-recurrences"></a>Canalizaciones y repeticiones
+
+**Obtención de información sobre canalizaciones y repeticiones**
+
+Utilice los comandos `az dla job pipeline` para ver la información de canalización de trabajos enviados previamente.
+
+```
+az dla job pipeline list --account "<Data Lake Analytics Account Name>"
+
+az dla job pipeline show --account "<Data Lake Analytics Account Name>" --pipeline-identity "<Pipeline ID>"
+```
+
+Utilice los comandos `az dla job recurrence` para ver la información de repetición de trabajos enviados previamente.
+
+```
+az dla job recurrence list --account "<Data Lake Analytics Account Name>"
+
+az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
+```
+
 
 ## <a name="use-azure-resource-manager-groups"></a>Uso de grupos del Administrador de recursos de Azure
 Las aplicaciones normalmente se componen de muchos elementos, por ejemplo, una aplicación web, una base de datos, un servidor de base de datos, un almacenamiento y servicios de terceros. Azure Resource Manager le permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como un Azure Resource Group. Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para realizar la implementación se usa una plantilla, que puede funcionar en distintos entornos, como producción, pruebas y ensayo. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md). 

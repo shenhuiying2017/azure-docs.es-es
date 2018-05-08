@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/03/2018
+---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual
 
 Pague por adelantado máquinas virtuales y ahorre dinero con instancias reservadas de máquina virtual. Para más información, vea las [ofertas de instancias reservadas de máquina virtual](https://azure.microsoft.com/pricing/reserved-vm-instances/).
@@ -17,7 +25,7 @@ Puede comprar instancias reservadas de máquina virtual en [Azure Portal](https:
     |NOMBRE        |Nombre de esta reserva.| 
     |La suscripción|Suscripción que se usa para pagar la reserva. Los costos anticipados de la reserva se cobran en el método de pago de la suscripción. El tipo de suscripción debe ser un contrato Enterprise (número de la oferta: MS-AZR-0017P) o de Pago por uso (número de la oferta: MS-AZR-0003P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para la suscripción Pago por uso, los cargos se cobran en el método de pago de tarjeta de crédito o factura de la suscripción.|    
     |Scope       |El ámbito de la reserva puede cubrir una o varias suscripciones (ámbito compartido). Si selecciona: <ul><li>Suscripción única: el descuento de la reserva se aplica a las máquinas virtuales de esta suscripción. </li><li>Compartido: el descuento de la reserva se aplica a las máquinas virtuales en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes de Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones (excepto las suscripciones de desarrollo y pruebas) dentro de la inscripción. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</li></ul>|
-    |La ubicación    |Región de Azure que está cubierta por la reserva.|    
+    |Ubicación    |Región de Azure que está cubierta por la reserva.|    
     |Tamaño de VM     |Tamaño de las instancias de máquina virtual.|
     |Término        |Un año o tres años.|
     |Cantidad    |Número de instancias que se compran dentro de la reserva. La cantidad es el número de instancias de máquina virtual en ejecución a las que se aplica el descuento de facturación. Por ejemplo, si tiene 10 máquinas virtuales Standard_D2 en el Este de EE. UU., especificaría 10 como cantidad para maximizar el beneficio para todas las máquinas en ejecución. |

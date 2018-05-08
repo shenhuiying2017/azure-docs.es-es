@@ -1,24 +1,22 @@
 ---
-title: "Incorporación de un dominio personalizado a Azure AD | Microsoft Docs"
+title: Incorporación de un dominio personalizado a Azure AD | Microsoft Docs
 description: Describe como eliminar un dominio personalizado en Azure Active Directory.
 services: active-directory
 author: curtand
 manager: mtillman
-ms.assetid: 0a90c3c5-4e0e-43bd-a606-6ee00f163038
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: e7b85d5f4cd19c94fe904f16090e174d87ea120b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 37890ac856a6b6bd89acc17973327b239a583997
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Guía de inicio rápido: Incorporación de un nombre de dominio personalizado a Azure Active Directory
 
@@ -56,12 +54,12 @@ Una vez agregada la entrada DNS, ya puede comprobar el nombre de dominio con Azu
 3. Seleccione el nombre de dominio no verificado que quiera verificar.
 4. Compruebe las entradas y seleccione **Verificar** para completar la verificación.
 
-Ya puede [asignar nombres de usuario que incluyan su nombre de dominio personalizado](active-directory-users-create-azure-portal.md). Con el nombre de dominio personalizado puede crear cuentas de usuario basadas en la nube o actualizar información de cuentas de usuario locales sincronizadas previamente. También puede cambiar información de sufijo de dominio de cuentas de usuario sincronizadas con [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o la [API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+Ya puede [asignar nombres de usuario que incluyan su nombre de dominio personalizado](active-directory-users-create-azure-portal.md). Con el nombre de dominio personalizado puede crear cuentas de usuario basadas en la nube o actualizar información de cuentas de usuario locales sincronizadas previamente. También puede cambiar información de sufijo de dominio de cuentas de usuario sincronizadas con [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
 
 > [!TIP]
 > Puede agregar un máximo de 900 nombres de dominio administrados. Si quiere configurar todos los dominios de la federación local con Active Directory, puede agregar un máximo de 450 nombres de dominio en cada directorio. Para más información, consulte [Nombres de dominio federados y administrados](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 Si no puede comprobar un nombre de dominio personalizado, pruebe los siguientes pasos de solución de problemas:
 
 1. **Espere una hora**. Los registros de DNS deben propagarse antes de que Azure AD compruebe el dominio. Este proceso puede tardar una hora o más.

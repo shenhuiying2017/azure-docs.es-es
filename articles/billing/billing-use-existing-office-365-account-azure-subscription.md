@@ -12,14 +12,14 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: cjiang
-ms.openlocfilehash: e9f90127bce0502147572c5ac6bd65e47dbe8c35
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dfb39b809f9a1082682d269d8bd4c180c8a264ce
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrarse para obtener una suscripción de Azure con su cuenta de Office 365
 Si tiene una suscripción de Office 365, puede usar su cuenta de Office 365 para crear una suscripción de Azure. Inicie sesión en [Azure Portal](https://portal.azure.com/) con su nombre de usuario y contraseña de Office 365. Si desea configurar máquinas virtuales o usar otros servicios de Azure, debe suscribirse a una suscripción de Azure. Puede compartir su suscripción de Azure con otras personas y [usar el control de acceso basado en roles para administrar el acceso a su suscripción de Azure y a sus recursos](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

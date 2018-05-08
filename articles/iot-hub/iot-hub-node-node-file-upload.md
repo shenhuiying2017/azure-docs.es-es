@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 7733aa11dd76eac564c115b10c57a84da5666d38
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b28a02462fe7a5a7f831102b3707fe03f84342ad
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
 
@@ -36,7 +36,7 @@ El tutorial [Introducción al IoT Hub](iot-hub-node-node-getstarted.md) muestra 
 * Datos de vibración muestreados con alta frecuencia
 * Algún tipo de datos de procesamiento previo.
 
-Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.md). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
+Dichos archivos se suelen procesar por lotes en la nube mediante herramientas como [Azure Data Factory](../data-factory/introduction.md) o la pila [Hadoop](../hdinsight/index.yml). Cuando necesite cargar archivos desde un dispositivo, todavía puede usar la seguridad y confiabilidad de IoT Hub.
 
 Al final de este tutorial, ejecutará dos aplicaciones de consola de Node.js:
 

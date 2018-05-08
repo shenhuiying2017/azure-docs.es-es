@@ -1,25 +1,25 @@
 ---
-title: "Cancelación de su suscripción de Azure | Microsoft Docs"
-description: "Describe cómo cancelar la suscripción de Azure, como la suscripción a la evaluación gratuita"
-services: 
-documentationcenter: 
+title: Cancelación de su suscripción de Azure | Microsoft Docs
+description: Describe cómo cancelar la suscripción de Azure, como la suscripción a la evaluación gratuita
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f9ff68d91e2ac3daba817f6d5e2bee0398d096e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Cancelación de la suscripción de Azure
 
@@ -29,7 +29,7 @@ Antes de cancelar la suscripción:
 
 * Realice una copia de seguridad de los datos. Por ejemplo, si está almacenando datos en Azure Storage o SQL, descargue una copia. Si tiene una máquina virtual, guarde una imagen de la misma localmente.
 * Cierre los servicios. Vaya a la [página de recursos en el portal de administración](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources) y **detenga** todas las máquinas virtuales, aplicaciones u otros servicios en ejecución.
-* Considere la posibilidad de migrar los datos. Consulte [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md) (Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción).
+* Considere la posibilidad de migrar los datos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
 Si cancela un [plan de soporte técnico de Azure](https://azure.microsoft.com/support/plans/) pagado, se le seguirá facturando mensualmente el resto del período de 6 meses.
 

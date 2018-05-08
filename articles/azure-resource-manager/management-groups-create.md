@@ -7,16 +7,16 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: bce7a8532782e6d911ab1acdd74de8bb0de84307
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Cree estos contenedores para construir una jerarquía eficaz y eficiente que pueda usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basados en roles de Azure](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md). 

@@ -1,10 +1,10 @@
 ---
-title: "Configuración de la descarga SSL para Azure Application Gateway mediante el PowerShell clásico | Microsoft Docs"
-description: "En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure."
+title: Configuración de la descarga SSL para Azure Application Gateway mediante el PowerShell clásico | Microsoft Docs
+description: En este artículo se ofrecen instrucciones para crear una puerta de enlace de aplicaciones con descarga SSL mediante el modelo de implementación clásica de Azure.
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
-ms.openlocfilehash: 9540522a945e1ea2a09456b42d64b7b94753791f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: e620730b86d648c1ac9db7a9e6faa7a2d206b46e
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-ssl-portal.md)
+> * [Azure Portal](application-gateway-ssl-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [PowerShell clásico de Azure](application-gateway-ssl.md)
 > * [CLI de Azure 2.0](application-gateway-ssl-cli.md)
@@ -32,7 +32,7 @@ Azure Application Gateway puede configurarse para terminar la sesión Capa de so
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la página [Descargas](https://azure.microsoft.com/downloads/).
+1. Instale la versión más reciente de los cmdlets de Azure PowerShell mediante el Instalador de plataforma web. Puede descargar e instalar la versión más reciente desde la sección **Windows PowerShell** de la [página Descargas](https://azure.microsoft.com/downloads/).
 2. Compruebe que tiene una red virtual de trabajo con una subred válida. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 3. Los servidores que configure para que usen la puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener asignada una dirección IP pública o una dirección IP virtual (VIP).
 

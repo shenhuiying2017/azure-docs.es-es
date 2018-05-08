@@ -1,25 +1,23 @@
 ---
-title: "Revisión de acceso | Microsoft Docs"
-description: "Después de iniciar una revisión de acceso en Privileged Identity Management de Azure AD, aprenda a realizarla y ver los resultados."
+title: Revisión de acceso | Microsoft Docs
+description: Después de iniciar una revisión de acceso en Privileged Identity Management de Azure AD, aprenda a realizarla y ver los resultados.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: curtand
 manager: mtillman
-editor: 
-ms.assetid: abc2d3dd-afd5-42cf-8a17-6c11f5674c35
+editor: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 06/06/2017
-ms.author: kgremban
+ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: 3866438de8fba7a6c42777bbb57746eadf1158eb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c1314724d8094f171e4c8468d854a9d4ae0c85d7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Revisión de acceso en Privileged Identity Management de Azure AD
 Los administradores de roles con privilegios pueden revisar el acceso con privilegios cuando se [ha iniciado una revisión de seguridad](active-directory-privileged-identity-management-how-to-start-security-review.md). Privileged Identity Management (PIM) de Azure AD enviará automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones que se indican en [Privileged Identity Management de Azure AD: Realización de una revisión de seguridad](active-directory-privileged-identity-management-how-to-perform-security-review.md).
@@ -38,7 +36,7 @@ En la hoja de detalles de la revisión de acceso, hay un número de opciones par
 ### <a name="remind"></a>Recuerde
 Si una revisión de acceso está configurada para que los usuarios revisen por sí mismos, el botón **Recordar** envía una notificación. 
 
-### <a name="stop"></a>Detención
+### <a name="stop"></a>Stop
 Todas las revisiones de acceso tienen una fecha de finalización, pero puede usar el botón **Detener** para terminarlas antes. Si para entonces algunos de los usuarios no se han revisado, no podrán hacerlo una vez que se haya detenido la revisión. No se puede reiniciar una revisión después de que se ha detenido.
 
 ### <a name="apply"></a>Aplicar
