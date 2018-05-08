@@ -1,11 +1,11 @@
 ---
-title: "Protección de su contenido con Azure Media Services | Microsoft Docs"
-description: "En este artículo se ofrece información general de protección de contenido con Media Services."
+title: Protección de su contenido con Azure Media Services | Microsoft Docs
+description: En este artículo se ofrece información general de protección de contenido con Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
 ms.openlocfilehash: 13447fd9193374d80ed5c2e6af8543f11b95e709
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="content-protection-overview"></a>Introducción a la protección de contenido
  Puede usar Azure Media Services para proteger su contenido multimedia desde el momento en que este deja el equipo y pasa a través del almacenamiento, el procesamiento y la entrega. Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
@@ -83,7 +83,7 @@ Se aplican las siguientes consideraciones:
   * **cbcs-aapl**: para FairPlay (cifrado AES-CBC)
   * **cbc**: para cifrado de sobre AES
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En los próximos artículos se describen los siguientes pasos para empezar con la protección de contenido:
 
 * [Protección con el cifrado de almacenamiento](media-services-rest-storage-encryption.md)

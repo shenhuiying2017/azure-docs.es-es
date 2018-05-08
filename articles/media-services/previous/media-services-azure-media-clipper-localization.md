@@ -1,6 +1,6 @@
 ---
-title: "Configuración de la localización de Azure Media Clipper| Microsoft Docs"
-description: "Obtenga información acerca de los idiomas compatibles con Azure Media Clipper y la compatibilidad con la localización."
+title: Configuración de la localización de Azure Media Clipper| Microsoft Docs
+description: Obtenga información acerca de los idiomas compatibles con Azure Media Clipper y la compatibilidad con la localización.
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-localization"></a>Configuración de la localización
 Azure Media Clipper está disponible en 18 idiomas. Para establecer el idioma del widget, debe definir el parámetro `language` durante la inicialización. Pase la cadena de código de idioma deseada desde la lista siguiente:

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 501364f24e61c29ac0d5909a7dff1df9e93fe6a5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -85,7 +85,7 @@ El uso de Azure en entornos de desarrollo y laboratorio permite a las organizaci
 
 El servicio [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) usa el [control de acceso basado en rol de Azure](../role-based-access-control/overview.md) (RBAC). RBAC le permite segregar los deberes del equipo en roles que solo conceden el nivel de acceso necesario para que los usuarios realicen su trabajo. Incluye roles predefinidos (propietario, usuario de laboratorio y colaborador). Estos roles se pueden usar incluso para asignar derechos a asociados externos, lo que simplifica considerablemente la colaboración.
 
-Como DevTest Labs usa RBAC, es posible crear [roles personalizados](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) adicionales. DevTest Labs no solo simplifica la administración de permisos, simplifica el proceso de aprovisionar los entornos. También le ayuda resolver otros desafíos típicos de los equipos que trabajan en entornos de desarrollo y pruebas. Requiere cierta preparación, pero a largo plazo facilitará las cosas a su equipo.
+Como DevTest Labs usa RBAC, es posible crear [roles personalizados](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md) adicionales. DevTest Labs no solo simplifica la administración de permisos, simplifica el proceso de aprovisionar los entornos. También le ayuda resolver otros desafíos típicos de los equipos que trabajan en entornos de desarrollo y pruebas. Requiere cierta preparación, pero a largo plazo facilitará las cosas a su equipo.
 
 Algunas de las características clave de Azure DevTest Labs incluyen:
 
@@ -166,7 +166,7 @@ Todas las máquinas virtuales de IaaS de Azure deben protegerse, con el fin de q
 
 Security Compliance Manager es una herramienta gratuita. Puede usarla para configurar y administrar sus equipos de escritorio, centros de datos tradicionales y la nube privada y pública mediante la directiva de grupo y System Center Configuration Manager rápidamente.
 
-Security Compliance Manager proporciona directivas listas para implementar y paquetes de Administración de configuración deseada de demostrada eficacia. Estas líneas de base se basan en las recomendaciones de la [Guía de seguridad de Microsoft](https://technet.microsoft.com/en-us/library/cc184906.aspx) y en los procedimientos recomendados del sector. Le ayudan a administrar el desfase de la configuración, a solucionar los requisitos de cumplimiento y a reducir las amenazas de seguridad.
+Security Compliance Manager proporciona directivas listas para implementar y paquetes de Administración de configuración deseada de demostrada eficacia. Estas líneas de base se basan en las recomendaciones de la [Guía de seguridad de Microsoft](https://technet.microsoft.com/library/cc184906.aspx) y en los procedimientos recomendados del sector. Le ayudan a administrar el desfase de la configuración, a solucionar los requisitos de cumplimiento y a reducir las amenazas de seguridad.
 
 Puede usar Security Compliance Manager para importar la configuración actual de sus equipos mediante dos métodos diferentes. En primer lugar, puede importar directivas de grupo basadas en Active Directory. En segundo lugar, puede importar la configuración de una máquina de referencia "copia maestra" mediante la [herramienta LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) para hacer copia de seguridad de la directiva de grupo local. A continuación, puede importar la directiva de grupo local en Security Compliance Manager.
 

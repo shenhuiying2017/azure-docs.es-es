@@ -1,11 +1,11 @@
 ---
-title: "Configuración del codificador Haivision KB para enviar una transmisión en vivo con velocidad de bits única | Microsoft Docs"
-description: "En este tema se muestra cómo configurar el codificador Haivision KB para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en vivo."
+title: Configuración del codificador Haivision KB para enviar una transmisión en vivo con velocidad de bits única | Microsoft Docs
+description: En este tema se muestra cómo configurar el codificador Haivision KB para enviar una transmisión con velocidad de bits única a canales AMS habilitados para la codificación en vivo.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: dbgeorge
 manager: vsood
-editor: 
+editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services
 ms.workload: media
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: juliako;dbgeorge
 ms.openlocfilehash: 25077cd9338a2764c6dff9e755812033685f6641
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Use el codificador Haivision KB para enviar una transmisión en vivo con velocidad de bits única
 > [!div class="op_single_selector"]

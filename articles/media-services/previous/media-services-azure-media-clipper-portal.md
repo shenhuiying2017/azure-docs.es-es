@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Media Clipper en el portal | Microsoft Docs
-description: "Creación de clips con Azure Media Clipper en Azure Portal"
+description: Creación de clips con Azure Media Clipper en Azure Portal
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creación de clips con Azure Media Clipper en el portal
 Puede usar Azure Media Clipper en el portal para crear clips a partir de activos de las cuentas de Media Services. Para comenzar, navegue a la cuenta de Media Services en el portal. Luego, seleccione la pestaña **Subclip**.

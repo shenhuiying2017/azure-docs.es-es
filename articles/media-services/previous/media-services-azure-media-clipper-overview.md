@@ -1,6 +1,6 @@
 ---
-title: "Creación de clips con Azure Media Clipper | Microsoft Docs"
-description: "Información general de Azure Media Clipper, una herramienta para crear clips multimedia a partir de recursos"
+title: Creación de clips con Azure Media Clipper | Microsoft Docs
+description: Información general de Azure Media Clipper, una herramienta para crear clips multimedia a partir de recursos
 services: media-services
 keywords: clip;subclip;encoding;media
 author: dbgeorge
@@ -10,10 +10,10 @@ ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
 ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Creación de clips con Azure Media Clipper
 Azure Media Clipper es una biblioteca gratuita de JavaScript que permite que los desarrolladores web proporcionen a sus usuarios una interfaz para crear clips multimedia. Esta herramienta se puede integrar en cualquier página web y proporciona API para cargar activos y enviar trabajos de creación de clips.
@@ -70,5 +70,5 @@ El widget de Clipper está disponible en estos 18 idiomas:
 - Sueco
 - Turco
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para comenzar a usar Azure Media Clipper, ea el artículo de [introducción](media-services-azure-media-clipper-getting-started.md) para detalles sobre cómo implementar el widget.

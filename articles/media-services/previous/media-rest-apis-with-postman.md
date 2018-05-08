@@ -1,11 +1,11 @@
 ---
-title: "Configuración de Postman para llamadas API de REST de Azure Media Services"
-description: "Aprenda cómo configurar Postman para llamadas API de REST de Media Services."
+title: Configuración de Postman para llamadas API de REST de Azure Media Services
+description: Aprenda cómo configurar Postman para llamadas API de REST de Media Services.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: juliako
 ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configuración de Postman para llamadas API de REST de Azure Media Services
 
@@ -54,6 +54,6 @@ Este entorno y esta colección se utilizan en los artículos que muestran cómo 
 
     ![Cargar un archivo](./media/media-services-rest-upload-files/postman-import-collection.png)
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 
 Consulte el artículo sobre [carga de activos](media-services-rest-upload-files.md).  
