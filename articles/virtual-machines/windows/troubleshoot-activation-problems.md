@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de activación de máquinas virtuales de Windows en Azure | Microsoft Docs"
-description: "Ofrece los pasos de solución de problemas para resolver problemas de activación de máquinas virtuales de Windows en Azure"
+title: Solución de problemas de activación de máquinas virtuales de Windows en Azure | Microsoft Docs
+description: Ofrece los pasos de solución de problemas para resolver problemas de activación de máquinas virtuales de Windows en Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: fd3f52de40c6d448d457824bcc675db036d2cb86
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3926522c8359587798ea540d13b157832551f24d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
@@ -78,7 +78,7 @@ Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica 
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Paso 2 Comprobación de la conectividad entre la VM y el servicio KMS de Azure
 
-1. Descargue la herramienta [Psping](http:/technet.microsoft.com/en-us/sysinternals/jj729731.aspx) y extráigala en una carpeta local en la VM que no se activa. 
+1. Descargue la herramienta [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) y extráigala en una carpeta local en la VM que no se activa. 
 
 2. Vaya a Inicio, busque en Windows PowerShell, haga clic con el botón derecho en Windows PowerShell y seleccione Ejecutar como administrador.
 
@@ -126,7 +126,7 @@ Sí.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>¿Qué sucede si el período de activación de Windows expira? 
  
-Cuando el período de gracia ha expirado y Windows no está activado todavía, Windows Server 2008 R2 y las versiones posteriores de Windows mostrarán notificaciones adicionales sobre la activación. El fondo de pantalla del escritorio permanece negro y Windows Update solo instalará las actualizaciones críticas y de seguridad, pero no las actualizaciones opcionales. Vea la sección de notificaciones en la parte inferior de la página [Licensing Conditions](http://technet.microsoft.com/en-us/library/ff793403.aspx) (Condiciones de licencias).   
+Cuando el período de gracia ha expirado y Windows no está activado todavía, Windows Server 2008 R2 y las versiones posteriores de Windows mostrarán notificaciones adicionales sobre la activación. El fondo de pantalla del escritorio permanece negro y Windows Update solo instalará las actualizaciones críticas y de seguridad, pero no las actualizaciones opcionales. Vea la sección de notificaciones en la parte inferior de la página [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) (Condiciones de licencias).   
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

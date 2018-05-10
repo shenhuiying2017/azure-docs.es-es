@@ -1,12 +1,12 @@
 ---
-title: "Bucles: matrices de procesos o repetición de acciones en Azure Logic Apps | Microsoft Docs"
-description: "Matrices de procesos con bucles \"for each\" o repetición de acciones hasta que se cumplen determinadas condiciones en Logic Apps"
+title: 'Bucles: matrices de procesos o repetición de acciones en Azure Logic Apps | Microsoft Docs'
+description: Matrices de procesos con bucles "for each" o repetición de acciones hasta que se cumplen determinadas condiciones en Logic Apps
 services: logic-apps
 keywords: bucles for each
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
 ms.workload: logic-apps
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f634b1004fef2eb65c6b8134088ceead47c91890
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Bucles: Matrices de procesos o repetición de acciones hasta que se cumple una condición
 
@@ -153,9 +153,6 @@ Para repetir acciones hasta que se cumpla una condición o cambie algún estado,
 
 * Llamada a un punto de conexión hasta que obtiene la respuesta que desea.
 * Creación de un registro en una base de datos y espera hasta que se aprueba un campo específico de ese recurso y continúa el procesamiento. 
-
-> [!NOTE]
-> Los bucles "Until" no pueden incluir bucles "Foreach" ni otros bucles "Until".
 
 Por ejemplo, a las 8:00 a. m. cada día, esta aplicación lógica incrementa una variable hasta que el valor de la misma es igual a 10. Después, la aplicación lógica envía un correo electrónico que confirma el valor actual. Aunque en este ejemplo se usa Office 365 Outlook, puede usar cualquier proveedor de correo electrónico compatible con Logic Apps ([revise la lista de conectores aquí](https://docs.microsoft.com/connectors/)). Si usa otra cuenta de correo electrónico, los pasos generales serán los mismos, pero su interfaz de usuario puede ser ligeramente distinta. 
 

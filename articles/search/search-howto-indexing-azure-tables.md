@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/10/2017
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 6a065454e274abc9c032b0ac69f42dd72f059443
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexación de Azure Table Storage con Azure Search
 En este artículo se muestra cómo usar Azure Search para indexar datos almacenados en Azure Table Storage.
@@ -47,7 +47,7 @@ Para realizar la indexación de tablas, el origen de datos debe tener las siguie
 
 Para crear un origen de datos:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -79,7 +79,7 @@ El índice especifica los campos de un documento, los atributos y otras construc
 
 Para crear un índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -98,7 +98,7 @@ Un indexador conecta un origen de datos con un índice de búsqueda de destino y
 
 Después de crear el origen de datos y el índice, ya puede crear el indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -131,7 +131,7 @@ Cuando configure un indizador de tablas para que se ejecute según una programac
 
 Para indicar que determinados documentos se deben quitar del índice, puede usar una estrategia de eliminación temporal. En lugar de eliminar una fila, agregue una propiedad para indicar que se elimina y configure una directiva de detección de eliminaciones temporales en el origen de datos. Por ejemplo, la siguiente directiva considera que una fila se ha eliminado si tiene una propiedad `IsDeleted` con el valor `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

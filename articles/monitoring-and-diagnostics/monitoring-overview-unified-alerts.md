@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/23/2018
 ms.author: mamit
 ms.custom: ''
-ms.openlocfilehash: 16e0fc493a257504e2708336e05c30b36d4bea15
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3622b4699ef532f204231c76aa3436be3676763
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="the-new-alerts-experience-in-azure-monitor"></a>La nueva experiencia de Alertas de Azure Monitor
 
@@ -32,14 +32,14 @@ ms.lasthandoff: 04/03/2018
 
 Alertas cuenta con una nueva experiencia. La experiencia de Alertas anterior se encuentra ahora en la pestaña Alertas (clásico). La nueva experiencia de Alertas presenta las siguientes ventajas en comparación con la experiencia de Alertas (clásico):
 
--   **Mejor sistema de notificación**: todas las nuevas alertas usan [grupos de acciones]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), que se denominan grupos de notificaciones y acciones que pueden reutilizarse en varias alertas.  Las alertas de métricas clásicas y las alertas de Log Analytics más antiguas no usan grupos de acciones. 
+-   **Mejor sistema de notificación**: todas las nuevas alertas usan [grupos de acciones]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), que se denominan grupos de notificaciones y acciones que pueden reutilizarse en varias alertas.  Las alertas de métricas clásicas y las alertas de Log Analytics más antiguas no usan grupos de acciones. 
 - **Una experiencia de creación unificada**: la creación de todas las alertas para las métricas, los registros y el registro de actividades en Azure Monitor, Log Analytics y Application Insights está en un solo lugar. 
 - **Visualización de las alertas desencadenadas de Log Analytics en Azure Portal**: ahora también puede ver las alertas desencadenadas de Log Analytics en su suscripción. Anteriormente, estas se encontraban en un portal independiente. 
 - **Separación de las alertas desencadenadas y las reglas de alertas**: las reglas de alertas (la definición de la condición que desencadena una alerta) y las alertas desencadenadas (una instancia de la activación de la regla de alertas) están diferenciadas, es decir, que las vistas operativas y de configuración son independientes.
 - **Mejor flujo de trabajo**: la nueva experiencia de creación de Alertas guía al usuario en el proceso de configuración de una regla de alertas, lo que facilita la detección de las condiciones correctas para que se active una alerta.
  
 En concreto, las alertas de métricas más recientes presentan estas mejoras:
--   **Latencia mejorada**: las nuevas alertas de métricas se pueden ejecutar con una frecuencia de cada minuto. Las alertas de métricas anteriores siempre se ejecutan con una frecuencia de 5 minutos. Las alertas de registro todavía tienen un retraso de más de 1 minuto debido al tiempo que se tarda en ingerir los registros. 
+-   **Latencia mejorada**: las nuevas alertas de métricas se pueden ejecutar con una frecuencia de cada minuto. Las alertas de métricas anteriores siempre se ejecutan con una frecuencia de 5 minutos. Las alertas de registro todavía tienen un retraso de más de un minuto debido al tiempo que se tarda en ingerir los registros. 
 -   **Compatibilidad con métricas multidimensionales**: puede enviar alertas sobre las métricas dimensionales que le permiten supervisar un segmento interesante de la métrica.
 -   **Más control sobre las condiciones de las métricas**: puede definir reglas de alerta más avanzadas. Las nuevas alertas admiten la supervisión de los valores máximos, mínimos, promedio y totales de las métricas.
 -   **Supervisión combinada de varias métricas**: se pueden supervisar varias métricas (actualmente hasta dos métricas) con una sola regla. Si ambas métricas incumplen sus respectivos umbrales durante el período especificado, se desencadena una alerta.
@@ -104,7 +104,7 @@ Las alertas están disponibles a través de varios servicios de supervisión de 
 | **Tipo de señal** | **Origen de supervisión** | **Descripción** | 
 |-------------|----------------|-------------|
 | Métrica | Azure Monitor | También se conocen como [alertas de métricas casi en tiempo real](monitoring-near-real-time-metric-alerts.md) y permiten evaluar las condiciones de métrica con una frecuencia de un minuto y admiten reglas de varias métricas y de métricas multidimensionales. Hay disponible una lista de los tipos de recursos admitidos [aquí](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Métrica | Azure Monitor | Las [alertas de métricas clásicas más antiguas](monitoring-overview-alerts.md) no se admiten en la nueva experiencia de alertas. Puede encontrarlas en Alertas (clásicas) en Azure Portal. Las alertas clásicas admiten algunos tipos de métricas que todavía no migran a las alertas más recientes. Para ver una lista completa, consulte las [métricas compatibles](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
+| Métrica | Azure Monitor | Las [alertas de métricas clásicas más antiguas](monitoring-overview-alerts.md) no se admiten en la nueva experiencia de alertas. Puede encontrarlas en Alertas (clásicas) en Azure Portal. Las alertas clásicas admiten algunos tipos de métricas que todavía no migran a las alertas más recientes. Para ver una lista completa, consulte las [métricas compatibles](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics).
 | Registros  | Log Analytics | Reciba notificaciones o ejecute acciones automáticas cuando una consulta de búsqueda de registros sobre datos de métrica o de evento cumple determinados criterios. Las alertas más antiguas de Log Analytics siguen estando disponibles, pero [se están copiando a la nueva experiencia](monitoring-alerts-extend.md). Además, hay disponible una [versión preliminar de los *registros de Log Analytics como métricas*](monitoring-alerts-extend-tool.md). Esta versión preliminar permite tomar algunos tipos de registros y convertirlos en métricas, donde puede enviarle alertas mediante la nueva experiencia de alertas. Esta versión preliminar es útil si tiene registros que no son de Azure que desea obtener junto con las métricas nativas de Azure Monitor. |
 | Registro de actividad | Registros de actividad (general) | Contiene los registros de todas las acciones de creación, actualización y eliminación realizadas a través del destino seleccionado (recurso/grupo de recursos/suscripción). |
 | Registro de actividad  | Service Health | No es compatible con la nueva experiencia de alertas. Consulte [Creación de alertas del registro de actividad en notificaciones del servicio](monitoring-activity-log-alerts-on-service-notifications.md).  |

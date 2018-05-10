@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 039e21cb3c35f8eb024ad2fca56e8a59e3182d3a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connector-version-release-history"></a>Historial de versiones de conectores
 Los conectores de Forefront Identity Manager (FIM) y Microsoft Identity Manager (MIM) se actualizan con frecuencia.
@@ -32,11 +32,11 @@ En este tema se muestran todas las versiones de los conectores que se han public
 Vínculos relacionados:
 
 * [Descargar los últimos conectores](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [conector LDAP genérico](active-directory-aadconnectsync-connector-genericldap.md)
-* [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md)
+* [conector LDAP genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
+* [conector SQL genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
 * [conector de servicios web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws)
-* [conector PowerShell](active-directory-aadconnectsync-connector-powershell.md)
-* [conector Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
+* [conector PowerShell](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell)
+* [conector Lotus Domino](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino)
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +117,7 @@ Vínculos relacionados:
 
 * SQL genérico:
   * **Escenario: rediseñado implementado:** característica "*"
-  * **Descripción de la solución:** se cambió el enfoque para el [control de los atributos de referencia multivalor](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Descripción de la solución:** se cambió el enfoque para el [control de los atributos de referencia multivalor](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Problemas corregidos:
@@ -194,7 +194,7 @@ genérico. Solo se muestran objetos desde la partición RootDSE.
 Publicación: marzo de 2016
 
 **Nuevo conector**  
-Versión inicial del [conector SQL genérico](active-directory-aadconnectsync-connector-genericsql.md).
+Versión inicial del [conector SQL genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Nuevas características:**
 

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: dbe859a2d069a20ba2e02d009dfb99b6126f8dea
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-appsource"></a>Qué es AppSource
 AppSource permite a los partners de Microsoft hacer que los clientes puedan usar su tecnología y sus servicios a través de un escaparate en línea compatible con Microsoft. Como anunciante en AppSource, atraiga a los usuarios empresariales a AppSource para que busquen, prueben y obtengan servicios de implementación y aplicaciones SaaS de línea de negocio que les ayuden a impulsar los resultados empresariales y acelerar la rentabilidad: 
@@ -42,23 +42,23 @@ Gracias a AppSource, puede publicar una aplicación o una oferta de consultoría
 *   **Office 365**: el área de trabajo moderno en la nube. Colabore de forma gratuita con Microsoft Word, PowerPoint, Excel y OneNote.
 
 ### <a name="office-365"></a>Office 365
-Las aplicaciones para Office están ahora disponibles en AppSource. Revise las [directrices y el proceso de publicación]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store "Office 365: AppSource").
+Las aplicaciones para Office están ahora disponibles en AppSource. Revise las [directrices y el proceso de publicación]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store "Office 365: AppSource").
 
 ### <a name="dynamics-365-for-finance-and-operations"></a>Dynamics 365 for Financials y Operations
-Al realizar la compilación para Enterprise Edition, revise el [proceso y las directrices de publicación](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition: AppSource").  
+Al realizar la compilación para Enterprise Edition, revise el [proceso y las directrices de publicación](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source "Dynamics 365 Enterprise Edition: AppSource").  
 
 ### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 for Customer Engagement
-Revise las [directrices y el proceso de publicación](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365: AppSource").
+Revise las [directrices y el proceso de publicación](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource "Dynamics 365: AppSource").
 
 ### <a name="power-bi"></a>Power BI
-Cree objetos visuales personalizados y póngalos a disposición de los usuarios a través de AppSource. Revise las [directrices y el proceso de publicación](https://docs.microsoft.com/en-us/power-bi/developer/office-store "Power BI: AppSource").
+Cree objetos visuales personalizados y póngalos a disposición de los usuarios a través de AppSource. Revise las [directrices y el proceso de publicación](https://docs.microsoft.com/power-bi/developer/office-store "Power BI: AppSource").
 
 ### <a name="consulting-offers"></a>Ofertas de consultoría
 Si ofrece servicios para ayudar a los clientes a facilitar la transformación digital o a implementar una solución o aplicación, puede ofrecer este servicio como una oferta de consultoría en AppSource. 
 Revise las [directrices y aprenda a enviar la oferta](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource: directrices de publicación para partners").
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
-[Guía para la publicación de aplicaciones Cortana Intelligence en AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Guía para la publicación de aplicaciones de Cortana Intelligence en AppSource")
+[Guía para la publicación de aplicaciones Cortana Intelligence en AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Guía para la publicación de aplicaciones de Cortana Intelligence en AppSource")
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 Para que se publiquen algunas aplicaciones del escaparate de AppSource, hay que integrarlas con Azure Active Directory (Azure AD). La integración de Azure AD con aplicaciones está bien documentada y Microsoft proporciona varios SDK y recursos para cumplir sus requisitos. 
@@ -76,17 +76,17 @@ Para que se publiquen algunas aplicaciones del escaparate de AppSource, hay que 
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabla: Ofertas de AppSource que requieren integración con Azure Active Directory
 
 Para empezar, se recomienda **configurar una suscripción dedicada a la publicación en Azure Marketplace***, lo que permitirá aislar el trabajo de otras iniciativas. Además, si no ha instalado ya las siguientes herramientas, se recomienda agregarlas al entorno de desarrollo: 
-*   [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest "Azure: CLI")
-*   [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell: Azure")
+*   [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure: CLI")
+*   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell: Azure")
 *   Revise las herramientas disponibles en la página [Herramientas de desarrollo de Azure](https://azure.microsoft.com/tools/ "Azure: Herramientas de desarrollo").
 *   [Visual Studio Code](https://code.visualstudio.com/ "Visual Studio Code: Principal")
 
 Si comienza a trabajar con Azure AD, los vínculos siguientes son los mejores recursos: 
 
 **Documentación**
-*   [Guía para desarrolladores de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide "Azure AD: Guía para desarrolladores")
-*   [Integración con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate "Integración: Azure AD")
-*   [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications "Integración de aplicaciones: Azure AD")
+*   [Guía para desarrolladores de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide "Azure AD: Guía para desarrolladores")
+*   [Integración con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate "Integración: Azure AD")
+*   [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications "Integración de aplicaciones: Azure AD")
 *   [Hoja de ruta de Azure: seguridad e identidad](https://azure.microsoft.com/roadmap/?category=security-identity "Hoja de ruta de Azure: seguridad e identidad")
 
 **Vídeos**

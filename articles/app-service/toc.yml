@@ -55,6 +55,8 @@
       href: app-service-web-tutorial-content-delivery-network.md
     - name: usuarios
       href: app-service-web-tutorial-auth-aad.md
+    - name: Implementación de aplicaciones en Azure App Service con VSTS y CI/CD
+      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: Ejemplos
   items:
     - name: CLI de Azure
@@ -177,6 +179,8 @@
           href: web-sites-backup.md
         - name: Restauración de una copia de seguridad
           href: web-sites-restore.md
+        - name: Restauración de una instantánea
+          href: app-service-web-restore-snapshots.md
         - name: Clonación de una aplicación
           href: app-service-web-app-cloning.md
         - name: Traslado de recursos

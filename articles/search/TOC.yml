@@ -2,11 +2,13 @@
   href: index.yml
 - name: Información general
   items:
-    - name: Acerca de Azure Search
+    - name: ¿Qué es Azure Search?
       href: search-what-is-azure-search.md
 - name: Guías de inicio rápido
   expanded: true
   items:
+    - name: Probar Cognitive Search
+      href: cognitive-search-quickstart-blob.md
     - name: Crear un servicio
       href: search-create-service-portal.md
     - name: Portal
@@ -37,13 +39,15 @@
           href: search-fiddler.md
 - name: Tutoriales
   items:
-    - name: 1 - Indexación de Azure SQL Database
+    - name: Indexación con Cognitive Search
+      href: cognitive-search-tutorial-blob.md
+    - name: Indexación de Azure SQL Database
       href: search-indexer-tutorial.md
-    - name: 2 - Indexación de blobs de Azure
+    - name: Indexación de blobs de Azure
       href: search-semi-structured-data.md
-    - name: 3 - Incorporación de sinónimos en .NET
+    - name: Incorporación de sinónimos en .NET
       href: search-synonyms-tutorial-sdk.md
-    - name: 4 - Tutorial del portal
+    - name: Tutorial del portal
       href: search-get-started-portal.md
 - name: Ejemplos
   items:
@@ -53,14 +57,18 @@
       href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Conceptos
   items:
+    - name: Cognitive Search (versión preliminar)
+      href: cognitive-search-concept-intro.md
     - name: Búsqueda de texto completo
       href: search-lucene-query-architecture.md
+    - name: Análisis lingüístico
+      href: search-analyzers.md
     - name: Indización
       href: search-what-is-data-import.md
     - name: Definición de índice
       href: search-what-is-an-index.md
-    - name: Análisis lingüístico
-      href: search-analyzers.md
+    - name: Indexadores
+      href: search-indexer-overview.md
 - name: Guías de procedimientos
   items:
     - name: Planeamiento y diseño
@@ -123,8 +131,6 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search'
     - name: Datos de indexación
       items:
-        - name: Introducción a los indexadores
-          href: search-indexer-overview.md
         - name: Indexador de Azure Blob Storage
           href: search-howto-indexing-azure-blob-storage.md
         - name: Indexador de Azure Table Storage
@@ -141,7 +147,25 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Asignaciones de campos en indexadores
           href: search-indexer-field-mappings.md
-    - name: Search
+        - name: Volver a generar un índice
+          href: search-howto-reindex.md
+    - name: Cognitive Search (versión preliminar)
+      items:
+        - name: Definición de un conjunto de habilidades
+          href: cognitive-search-defining-skillset.md
+        - name: Referencia a una anotación
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: Asignación a campos de índice
+          href: cognitive-search-output-field-mapping.md
+        - name: Procesamiento y extracción de información de imágenes
+          href: cognitive-search-concept-image-scenarios.md
+        - name: Integración de habilidades personalizadas
+          href: cognitive-search-custom-skill-interface.md
+        - name: Ejemplo de habilidades personalizadas
+          href: cognitive-search-create-custom-skill-example.md
+        - name: Sugerencias de solución de problemas
+          href: cognitive-search-concept-troubleshooting.md
+    - name: Búsqueda de texto completo
       items:
         - name: Construcción de consultas básicas
           href: search-query-overview.md
@@ -157,7 +181,7 @@
           href: 'https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index'
         - name: Sugerencias
           href: 'https://docs.microsoft.com/rest/api/searchservice/suggesters'
-        - name: Sinónimos (en versión preliminar)
+        - name: Synonyms (versión preliminar)
           href: search-synonyms.md
     - name: Filtros
       items:
@@ -165,7 +189,7 @@
           href: search-filters.md
         - name: Filtros de faceta
           href: search-filters-facets.md
-        - name: Sintaxis de expresión de OData
+        - name: Sintaxis de expresión de filtro
           href: 'https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search'
     - name: Administración y análisis
       items:
@@ -187,10 +211,41 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html'
     - name: REST
       href: /rest/api/searchservice
+      items:
+        - name: 2016-09-01-Preview
+          href: search-api-2016-09-01-preview.md
     - name: REST (administración)
       href: /rest/api/searchmanagement
-    - name: REST de servicio (Versión preliminar)
-      href: search-api-2016-09-01-preview.md
+    - name: Cognitive Search (versión preliminar)
+      items:
+        - name: 2017-11-11-Preview (REST)
+          href: search-api-2017-11-11-preview.md
+          items:
+            - name: Create Skillset (versión preliminar)
+              href: ref-create-skillset.md
+            - name: Create Indexer (versión preliminar)
+              href: ref-create-indexer.md
+        - name: Habilidades predefinidas
+          href: cognitive-search-predefined-skills.md
+          items:
+            - name: Extracción de frases clave
+              href: cognitive-search-skill-keyphrases.md
+            - name: Detección de idiomas
+              href: cognitive-search-skill-language-detection.md
+            - name: Reconocimiento de entidades con nombre
+              href: cognitive-search-skill-named-entity-recognition.md
+            - name: Combinación de texto
+              href: cognitive-search-skill-textmerger.md
+            - name: División de texto
+              href: cognitive-search-skill-textsplit.md
+            - name: Opinión
+              href: cognitive-search-skill-sentiment.md
+            - name: Análisis de imágenes
+              href: cognitive-search-skill-image-analysis.md
+            - name: OCR
+              href: cognitive-search-skill-ocr.md
+            - name: Conformador
+              href: cognitive-search-skill-shaper.md
 - name: Recursos
   items:
     - name: 'P+F: Preguntas más frecuentes'
@@ -199,6 +254,8 @@
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Documentación de Cognitive Search
+      href: cognitive-search-resources-documentation.md
     - name: Cursos y tutoriales
       items:
         - name: Vídeos y tutoriales

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c39f11eae08e74e1bb29a5587fa4a8f0ba7c6a5b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -35,7 +35,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
 - Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
-- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
+- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
 La cuenta con la que inicia sesión en Azure debe tener, como mínimo, permisos para el rol de colaborador de red de la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, consulte [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 
@@ -216,7 +216,7 @@ Las reglas de seguridad vigentes de cada interfaz de red asociada a una máquina
 4. Seleccione **Reglas de seguridad vigentes** en **SOPORTE TÉCNICO Y SOLUCIÓN DE PROBLEMAS**.
 5. Revise la lista de reglas de seguridad vigentes para determinar si existen las reglas correctas para la comunicación necesaria entrante y saliente. Obtenga más información sobre lo que se ve en la lista en [Información general sobre el grupo de seguridad de red](security-overview.md).
 
-La característica de comprobación del flujo de IP de Azure Network Watcher también puede ayudarle a determinar si las reglas de seguridad impiden la comunicación entre una máquina virtual y un punto de conexión. Para obtener más información, consulte [IP flow verify](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Comprobación del flujo de IP).
+La característica de comprobación del flujo de IP de Azure Network Watcher también puede ayudarle a determinar si las reglas de seguridad impiden la comunicación entre una máquina virtual y un punto de conexión. Para obtener más información, consulte [IP flow verify](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Comprobación del flujo de IP).
 
 **Comandos**
 
@@ -233,7 +233,7 @@ Las rutas vigentes de las interfaces de red asociadas a una máquina virtual son
 4. Seleccione **Rutas eficaces** en **SOPORTE Y SOLUCIÓN DE PROBLEMAS**.
 5. Revise la lista de rutas vigentes para determinar si existen las rutas correctas para la comunicación necesaria entrante y saliente. Obtenga más información sobre lo que ve en la lista en [Routing overview](virtual-networks-udr-overview.md) (Información general sobre enrutamiento).
 
-La característica de próximo salto de Azure Network Watcher también puede ayudarle a determinar si las rutas impiden la comunicación entre una máquina virtual y un punto de conexión. Para obtener más información, consulte [Próximo salto](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+La característica de próximo salto de Azure Network Watcher también puede ayudarle a determinar si las rutas impiden la comunicación entre una máquina virtual y un punto de conexión. Para obtener más información, consulte [Próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Comandos**
 

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d0ab8cf9e87fc13b78b00dbe77ec6f9fb38c4b9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Ejemplos de integración de Azure Service Bus en Azure Event Grid
 
@@ -62,7 +62,7 @@ Puede usar cualquier método para enviar un mensaje al tema de Service Bus. El c
 
 Antes de trabajar en todo el escenario, configure por lo menos una pequeña función de prueba que puede utilizar para depurar y ver qué eventos fluyen.
 
-1. En Azure Portal cree una nueva aplicación de Azure Functions. Para más información sobre los conceptos básicos de Azure Functions, consulte [Documentación de Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. En Azure Portal cree una nueva aplicación de Azure Functions. Para más información sobre los conceptos básicos de Azure Functions, consulte [Documentación de Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 
 2. En la función recién creada, haga clic en el signo más (+) para agregar una función de desencadenador de HTTP:
 
@@ -130,7 +130,7 @@ Para crear una suscripción de Azure Event Grid, haga lo siguiente:
 1. En Azure Portal, vaya al espacio de nombres y, a continuación, en el panel izquierdo, seleccione **Event Grid**.  
     Se abre la ventana del espacio de nombres, con dos suscripciones de Event Grid que se muestran en el panel derecho.
 
-    ![20 ][]
+    ![20][]
 
 2. Seleccione **Suscripción de eventos**.  
     Se abre la ventana **Suscripción de eventos**. La siguiente imagen muestra un formulario para suscribirse a una función de Azure o un webhook sin aplicar los filtros.

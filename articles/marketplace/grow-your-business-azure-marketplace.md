@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 85baba61d5603539641f45f7ab1d722ca98514ad
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: fd51ad8289ac03bf7b4d2a5bd0222db98bcf6737
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="grow-your-business-by-using-the-azure-marketplace"></a>Crecimiento del negocio mediante Azure Marketplace
 
 Una vez que haya desarrollado los recursos técnicos para su lista de Azure Marketplace, puede aumentar el número de usuarios que llegan a su aplicación y hacer crecer el uso del producto si se siguen los procedimientos recomendados de marketing que figuran a continuación. 
 
 >[!NOTE]
->Para aprender sobre el proceso de publicación y los requisitos técnicos, lea la [Guía del anunciante de Azure Marketplace y AppSource](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide).
+>Para aprender sobre el proceso de publicación y los requisitos técnicos, lea la [Guía del anunciante de Azure Marketplace y AppSource](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
 ## <a name="how-marketing-helps"></a>Cómo ayuda el marketing
 

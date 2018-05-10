@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 48a8f6d35c3ea1266880f05d12ebf4efd855df41
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicación de una aplicación de SharePoint de niveles múltiples para una recuperación ante desastres mediante Azure Site Recovery | Microsoft Docs
 
@@ -53,7 +53,7 @@ Antes de empezar, no olvide informarse sobre las cuestione siguientes:
 
 ## <a name="sharepoint-architecture"></a>Arquitectura de SharePoint
 
-SharePoint puede implementarse en uno o varios servidores usando topologías por niveles y roles de servidor para implementar un diseño de granja de servidores que cumpla determinados objetivos. Una granja de servidores de SharePoint típica de gran tamaño y alta demanda que admita un número elevado de usuarios simultáneos y elementos de contenido utiliza la agrupación de servicios como parte de su estrategia de escalabilidad. Este enfoque implica ejecutar servicios en servidores dedicados, agrupando estos servicios y posteriormente escalando horizontalmente los servidores como un grupo. La topología siguiente ilustra la agrupación de servicios y servidores para una granja de servidores de SharePoint de tres niveles. Consulte la documentación de SharePoint y las arquitecturas de línea de productos para obtener instrucciones detalladas sobre diferentes topologías de SharePoint. Encontrará más detalles sobre la implementación de SharePoint 2013 en [este documento](https://technet.microsoft.com/en-us/library/cc303422.aspx).
+SharePoint puede implementarse en uno o varios servidores usando topologías por niveles y roles de servidor para implementar un diseño de granja de servidores que cumpla determinados objetivos. Una granja de servidores de SharePoint típica de gran tamaño y alta demanda que admita un número elevado de usuarios simultáneos y elementos de contenido utiliza la agrupación de servicios como parte de su estrategia de escalabilidad. Este enfoque implica ejecutar servicios en servidores dedicados, agrupando estos servicios y posteriormente escalando horizontalmente los servidores como un grupo. La topología siguiente ilustra la agrupación de servicios y servidores para una granja de servidores de SharePoint de tres niveles. Consulte la documentación de SharePoint y las arquitecturas de línea de productos para obtener instrucciones detalladas sobre diferentes topologías de SharePoint. Encontrará más detalles sobre la implementación de SharePoint 2013 en [este documento](https://technet.microsoft.com/library/cc303422.aspx).
 
 
 

@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure Blockchain Workbench
+metadata:
+  title: 'Documentación de Azure Blockchain Workbench: tutoriales y referencia de API | Microsoft Docs'
+  description: Vea cómo crear aplicaciones de cadena de bloques. Los tutoriales, las referencias de API y otra documentación muestran cómo implementar Azure Blockchain Workbench y cómo crear y administrar aplicaciones de cadena de bloques en Azure.
+  services: blockchain-workbench
+  author: patricka
+  manager: femila
+  ms.service: blockchain-workbench
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/17/2018
+  ms.author: patricka
+  ms.openlocfilehash: f4092abc4b7ea4724bc060a62fb54c69f4e36837
+  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/07/2018
+abstract:
+  description: Vea cómo crear aplicaciones de cadena de bloques. Los tutoriales, las referencias de API y otra documentación muestran cómo implementar Azure Blockchain Workbench y cómo crear y usar aplicaciones de cadena de bloques en Azure.
+sections:
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a implementar, crear y usar aplicaciones de cadena de bloques en Azure.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Implementación de Azure Blockchain Workbench</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Creación de una aplicación de cadena de bloques</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Uso de una aplicación de cadena de bloques</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">API de REST</a></p>

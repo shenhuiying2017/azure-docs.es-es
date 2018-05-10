@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 3ef946c6c0ab9c111932b3145fd46ae6ef2684cd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Cómo paginar los resultados de la búsqueda en Azure Search
 Este artículo proporciona orientación sobre la forma de usar la API de REST del servicio Azure Search para implementar los elementos habituales de una página de resultados de búsqueda, como recuentos totales, recuperación de documentos, criterios de ordenación y navegación.
 
-En todos los casos que se mencionan a continuación, las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) que se envían a su servicio Azure Search. Las solicitudes incluyen un comando GET, ruta de acceso y parámetros de consulta que informan el servicio de lo que se solicita y de cómo formular la respuesta.
+En todos los casos que se mencionan a continuación, las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) que se envían a su servicio Azure Search. Las solicitudes incluyen un comando GET, ruta de acceso y parámetros de consulta que informan el servicio de lo que se solicita y de cómo formular la respuesta.
 
 > [!NOTE]
-> Una solicitud válida incluye una serie de elementos, como una dirección URL del servicio y la ruta de acceso, el verbo HTTP, `api-version`, etc. Para mayor brevedad, hemos acortado los ejemplos para resaltar solo la sintaxis que resulta relevante para la paginación. Consulte la documentación de [API de REST del servicio Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de la sintaxis de solicitud.
+> Una solicitud válida incluye una serie de elementos, como una dirección URL del servicio y la ruta de acceso, el verbo HTTP, `api-version`, etc. Para mayor brevedad, hemos acortado los ejemplos para resaltar solo la sintaxis que resulta relevante para la paginación. Consulte la documentación de [API de REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice) para obtener más información acerca de la sintaxis de solicitud.
 > 
 > 
 
@@ -59,7 +59,7 @@ Para devolver un subconjunto de campos con un diseño en mosaico:
 
 Las imágenes y los archivos multimedia no se pueden buscar directamente y se deben almacenar en otra plataforma de almacenamiento, como Almacenamiento de blobs de Azure, para reducir los costes. En el índice y los documentos, defina un campo que almacene la dirección URL del contenido externo. Después puede utilizar el campo como referencia de imagen. La dirección URL de la imagen debe estar en el documento.
 
-Para recuperar una página de descripción de producto para un evento **onClick** , use [Buscar documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para pasar la clave del documento que se va a recuperar. El tipo de datos de la clave es `Edm.String`. En este ejemplo, es *246810*. 
+Para recuperar una página de descripción de producto para un evento **onClick** , use [Buscar documento](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) para pasar la clave del documento que se va a recuperar. El tipo de datos de la clave es `Edm.String`. En este ejemplo, es *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
@@ -81,7 +81,7 @@ Deberá crear un método que acepte la opción de ordenación seleccionada como 
  ![][5]
 
 > [!NOTE]
-> Aunque la puntuación predeterminada es suficiente para muchos escenarios, se recomienda basar la relevancia en un perfil de puntuación personalizado. Un perfil personalizado de puntuación le ofrece una forma de aumentar los elementos que son más útiles para su negocio. Consulte [Incorporación de un perfil de puntuación](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obtener más información. 
+> Aunque la puntuación predeterminada es suficiente para muchos escenarios, se recomienda basar la relevancia en un perfil de puntuación personalizado. Un perfil personalizado de puntuación le ofrece una forma de aumentar los elementos que son más útiles para su negocio. Consulte [Incorporación de un perfil de puntuación](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) para obtener más información. 
 > 
 > 
 
@@ -95,12 +95,12 @@ Puede enviar un filtro con o sin expresión de búsqueda. Por ejemplo, la siguie
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consulte [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) (Búsqueda de documentos [API de Azure Search]) para más información sobre las expresiones `$filter`.
+Consulte [Search Documents (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Búsqueda de documentos [API de Azure Search]) para más información sobre las expresiones `$filter`.
 
 ## <a name="see-also"></a>Otras referencias
-* [API de REST del Servicio Azure Search](http://msdn.microsoft.com/library/azure/dn798935.aspx)
-* [Operaciones de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
-* [Operaciones del documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)
+* [API de REST del Servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice)
+* [Operaciones de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Operaciones del documento](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
 * [Vídeo y tutoriales acerca de Azure Search](search-video-demo-tutorial-list.md)
 * [Navegación por facetas en Azure Search](search-faceted-navigation.md)
 

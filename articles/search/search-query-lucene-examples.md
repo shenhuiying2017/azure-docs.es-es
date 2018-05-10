@@ -7,13 +7,13 @@ tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/21/2017
+ms.date: 04/20/2018
 ms.author: liamca
-ms.openlocfilehash: c83b3b0d9c0cc99ba8a76dc4a6b2f83ed6de49dc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Ejemplos de sintaxis de consulta de Lucene para la creación de consultas en Azure Search
 Al construir consultas para Azure Search, puede usar la [sintaxis de consulta simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predeterminada o el [analizador de consultas Lucene alternativo de Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). El Analizador de consultas de Lucene admite las construcciones de consulta más complejas, como las consultas de ámbito de campo, la búsqueda aproximada, la búsqueda por proximidad, la priorización de términos y las expresiones regulares.
@@ -37,13 +37,13 @@ Todos los ejemplos de este artículo especifican el parámetro de búsqueda **qu
 
 **Ejemplo 1** : haga clic con el botón derecho en el siguiente fragmento de código de consulta para abrirlo en una nueva página del explorador que carga JSFiddle y ejecuta la consulta:
 
-* [&amp;queryType=full&amp;search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [&amp;queryType=full&amp;search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 En la nueva ventana del explorador se muestran el origen de JavaScript y la salida de HTML en paralelo. El script hace referencia a una consulta completa (no solo al fragmento de código, tal y como se muestra en el vínculo). La consulta completa aparece en las direcciones URL de cada ejemplo. 
 
 Esta consulta devuelve los documentos de nuestro índice de trabajos de la ciudad de Nueva York (nycjobs, cargados en un servicio de espacio aislado). Para mayor brevedad, la consulta especifica que solo se devuelven puestos de empresa. La consulta subyacente completa es como sigue:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
 El parámetro **searchFields** restringe la búsqueda solo al campo de puesto. El parámetro **queryType** está establecido en **full**, lo que indica a Azure Search que deberá usar el analizador de consultas Lucene para esta consulta.
 
@@ -63,7 +63,7 @@ El campo especificado en **fieldname:searchterm** debe ser un campo que permita 
 
 **Ejemplo 2**: haga clic con el botón derecho en el fragmento de código de consulta siguiente. Esta consulta busca los puestos de empresa con el término "senior" en ellos, pero no "junior":
 
-* [&amp;queryType=full&amp;search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [&amp;queryType=full&amp;search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
 ## <a name="fuzzy-search-example"></a>Ejemplo de búsqueda aproximada
 Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
@@ -72,7 +72,7 @@ Para realizar una búsqueda aproximada, agregue la virgulilla, "~", al final de 
 
 **Ejemplo 3** : haga clic con el botón derecho en el siguiente fragmento de consulta. Esta consulta busca los trabajos con el asociado de término (donde se está mal escrito):
 
-* [&amp;queryType=full&amp;search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [&amp;queryType=full&amp;search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Las consultas aproximadas no se [analizan](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), lo cual puede resultar sorprendente si espera lematización. Solo se realizan análisis léxicos en términos completos (consulta de término o de expresión). Los tipos de consulta con términos incompletos (consulta de prefijo, de carácter comodín, de expresión regular o aproximada) se agregan directamente en el árbol de la consulta, omitiéndose la fase de análisis. La única transformación que se realiza en los términos de consulta incompletos es el establecimiento de minúsculas.
@@ -83,11 +83,11 @@ Las búsquedas de proximidad se utilizan para buscar términos que están cerca 
 
 **Ejemplo 4** : haga clic con el botón derecho en la consulta. Busque trabajos con el término "senior analyst" no separado por más de una palabra:
 
-* [&amp;queryType=full&amp;search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [&amp;queryType=full&amp;search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Ejemplo 5** : pruebe a quitar las palabras entre el término "senior analyst".
 
-* [&amp;queryType=full&amp;search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [&amp;queryType=full&amp;search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Ejemplos de priorización de términos
 "Priorización de términos" hace referencia a la valoración de un documento superior si contiene el término prioritario con respecto a los documentos que no contienen el término. Esto difiere de los perfiles de puntuación en los que aumentan ciertos campos, en lugar de términos específicos. En el siguiente ejemplo se muestran las diferencias.
@@ -98,11 +98,11 @@ Para dar prioridad a un término, use el símbolo de intercalación, "^", un sí
 
 **Ejemplo 6**: haga clic con el botón derecho en la consulta. Busque trabajos con el término "computer analyst", donde vemos que no se generan resultados con las palabras "computer" y "analyst"; "analyst jobs" sigue encabezando los resultados.
 
-* [&amp;queryType=full&amp;search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&amp;queryType=full&amp;search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Ejemplo 7**: inténtelo de nuevo. En este caso, se da prioridad al término "computer" sobre el término "analyst" si no existen ambas palabras.
 
-* [&amp;queryType=full&amp;search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&amp;queryType=full&amp;search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Ejemplo de expresión regular
 Una búsqueda de expresión regular encuentra una coincidencia en función del contenido entre barras diagonales "/", como se documentó en la [clase RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
@@ -111,14 +111,14 @@ Una búsqueda de expresión regular encuentra una coincidencia en función del c
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-La dirección URL de este ejemplo no aparecerá correctamente en la página. Como alternativa, copie la dirección URL siguiente y péguela en la dirección URL del explorador: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+La dirección URL de este ejemplo no aparecerá correctamente en la página. Como alternativa, copie la dirección URL siguiente y péguela en la dirección URL del explorador: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Ejemplo de búsqueda con caracteres comodín
 Puede usar la sintaxis generalmente reconocida para búsquedas con caracteres comodín únicas (?) o múltiples (\*). Tenga en cuenta que el Analizador de consultas de Lucene admite el uso de estos símbolos con un único término y no una frase.
 
 **Ejemplo 9**: haga clic con el botón derecho en la consulta. Busque los trabajos que contengan el prefijo "prog" que incluiría los títulos de empresa con los términos "programming" y "programmer" en él.
 
-* [&amp;queryType=full&amp;$select=business_title&amp;search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2016-09-01%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [&amp;queryType=full&amp;$select=business_title&amp;search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 ¿No puede utilizar un símbolo * o ? como primer carácter de la búsqueda.
 

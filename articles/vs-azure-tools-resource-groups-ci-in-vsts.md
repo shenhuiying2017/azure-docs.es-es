@@ -1,11 +1,11 @@
 ---
-title: "Integración continua en VS Team Services mediante proyectos del Grupo de recursos de Azure | Microsoft Docs"
-description: "Describe cómo configurar la integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure en Visual Studio."
+title: Integración continua en VS Team Services mediante proyectos del Grupo de recursos de Azure | Microsoft Docs
+description: Describe cómo configurar la integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure en Visual Studio.
 services: visual-studio-online
 documentationcenter: na
 author: mlearned
 manager: erickson-doug
-editor: 
+editor: ''
 ms.assetid: b81c172a-be87-4adc-861e-d20b94be9e38
 ms.service: azure-resource-manager
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc5a45c899cd72c051dd08f7db039565a57381a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integración continua en Visual Studio Team Services mediante proyectos de implementación del Grupo de recursos de Azure
 Para implementar una plantilla de Azure, se realizan tareas en diversas fases: compilación, prueba, copia en Azure (también denominada "almacenamiento provisional") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Visual Studio Team Services (VS Team Services). Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
@@ -104,9 +104,9 @@ Los procedimientos siguientes le guiarán a través de los pasos necesarios para
     ![Edición de ruta de acceso a script][10]
 8. En el cuadro **Argumentos del script** escriba los parámetros siguientes (en una sola línea). Al ejecutar el script en Visual Studio, puede ver cómo usa VS los parámetros en la ventana **Resultados** . Se puede utilizar como punto de partida para configurar los valores de parámetro en el paso de compilación.
    
-   | Parámetro | Descripción |
+   | . | DESCRIPCIÓN |
    | --- | --- |
-   | -ResourceGroupLocation |El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/en-us/regions/). |
+   | -ResourceGroupLocation |El valor de la ubicación geográfica donde se encuentra el grupo de recursos, como **eastus** o **'Este de EE. UU.'**. (Agregue comillas simples si hay un espacio en el nombre). Para más información, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). |
    | -ResourceGroupName |El nombre del grupo de recursos que se usa para esta implementación. |
    | -UploadArtifacts |Este parámetro, cuando está presente, especifica que los artefactos tienen que cargarse en Azure desde el sistema local. Solo debe establecer este modificador si su implementación de plantilla requiere artefactos adicionales que desea almacenar provisionalmente mediante el script de PowerShell (como scripts de configuración o plantillas anidadas). |
    | -StorageAccountName |El nombre de la cuenta de almacenamiento utilizada para almacenar provisionalmente los artefactos en esta implementación. Este parámetro solo se usa si almacena provisionalmente los artefactos para la implementación. Si se suministra este parámetro se crea una cuenta de almacenamiento nueva si el script no creó ninguna durante una implementación anterior. Si se especifica el parámetro, ya debe existir la cuenta de almacenamiento. |

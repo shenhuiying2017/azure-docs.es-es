@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 03/09/2018
 ms.author: danlep
-ms.openlocfilehash: c26dd85d896445e19efb9906d953fd535fc1fb5c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91f067de33d1ff4bc272773e3db49de47fac2feb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-an-hpc-pack-2016-cluster-in-azure"></a>Implementación de un clúster de HPC Pack 2016 en Azure
 
@@ -56,7 +56,7 @@ Una vez que el certificado se crea en el almacén de usuario actual, use el comp
 
 ### <a name="upload-certificate-to-an-azure-key-vault"></a>Carga del certificado en una instancia de Azure Key Vault
 
-Antes de implementar el clúster HPC, cargue el certificado PFX en un [almacén de claves de Azure](../../key-vault/index.md) como un secreto y registre la siguiente información para usarla durante la implementación: **nombre del almacén**, **grupo de recursos del almacén**, **dirección URL de certificado** y **huella digital del certificado**.
+Antes de implementar el clúster HPC, cargue el certificado PFX en un [almacén de claves de Azure](../../key-vault/index.yml) como un secreto y registre la siguiente información para usarla durante la implementación: **nombre del almacén**, **grupo de recursos del almacén**, **dirección URL de certificado** y **huella digital del certificado**.
 
 A continuación, aparece un script de PowerShell de ejemplo para cargar el certificado, crear el almacén de claves y generar la información requerida. Para más información sobre cómo cargar un certificado en un almacén de claves de Azure, consulte [Introducción a Azure Key Vault](../../key-vault/key-vault-get-started.md).
 

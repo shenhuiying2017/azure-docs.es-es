@@ -8,11 +8,11 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 3/10/2017
 ms.author: heidist
-ms.openlocfilehash: 1bd814250a243d03f1eedc4d0ecb2719975b9c6f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e00e875619e4ed6800f5739362ff0c52971f6f16
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Procedimiento para implementar la navegación por facetas en Azure Search
 La navegación por facetas es un mecanismo de filtrado que proporciona una navegación en profundidad autodirigida en aplicaciones de búsqueda. El término "navegación por facetas" puede resultarle desconocido, pero probablemente es algo que ya ha usado con anterioridad. Como se muestra en el siguiente ejemplo, la navegación por facetas no es más que las categorías usadas para filtrar los resultados.
@@ -61,7 +61,7 @@ En el código de aplicación, el patrón es usar parámetros de consulta de face
 
 ### <a name="query-basics"></a>Conceptos básicos de las consultas
 
-En Búsqueda de Azure, una solicitud se especifica mediante uno o más parámetros de consulta (consulte [Buscar documentos](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener una descripción de cada uno). Ninguno de los parámetros de consulta son obligatorios, pero debe tener al menos uno para que una consulta sea válida.
+En Azure Search, una solicitud se especifica mediante uno o más parámetros de consulta (consulte [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obtener una descripción de cada uno). Ninguno de los parámetros de consulta son obligatorios, pero debe tener al menos uno para que una consulta sea válida.
 
 La precisión, entendida como la capacidad de filtrar los resultados irrelevantes, se consigue mediante una o ambas de estas expresiones:
 
@@ -228,7 +228,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información sobre su uso.
+Un parámetro de consulta de faceta se establece en un campo y, según el tipo de datos, se puede parametrizar aún más con una lista delimitada por comas que incluya `count:<integer>`, `sort:<>`, `interval:<integer>` y `values:<list>`. Se admiten listas de valores para datos numéricos cuando se establecen intervalos. Consulte [Buscar documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obtener más información sobre su uso.
 
 Además de las facetas, la solicitud que la aplicación formula también debe generar filtros para reducir el conjunto de documentos candidatos en función de una selección de valores de faceta. Para una tienda de bicicletas, la navegación por facetas proporciona pistas a preguntas como *¿qué colores, fabricantes y tipos de bicicletas están disponibles?*. El filtrado responde a preguntas como *¿qué bicicletas exactas son rojas, bicicletas de montaña, dentro de este precio de intervalo de precios?*. Cuando hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluye`$filter=Color eq ‘Red’`.
 
@@ -329,7 +329,7 @@ Las etiquetas suelen definirse en el HTML o formulario (`index.cshtml` en la apl
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtro basado en un intervalo
-El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
+El uso de facetas en intervalos de valores es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 Búsqueda de Azure simplifica la construcción de intervalos mediante dos enfoques de cálculo de intervalos. En ambos enfoques, Búsqueda de Azure crea los intervalos adecuados con las entradas proporcionadas. Por ejemplo, si especifica valores de intervalo de 10|20|30, creará automáticamente los intervalos 0-10, 10-20, 20-30. La aplicación tiene la opción de quitar los intervalos que estén vacíos. 
 
@@ -362,7 +362,7 @@ Hay dos funciones geoespaciales en Azure Search, **geo.distance** y **geo.inters
 * La función **geo.distance** devuelve la distancia en kilómetros entre dos puntos. Un punto es un campo y otra es una constante que se pasa como parte del filtro. 
 * La función **geo.intersects** devuelve true si un punto determinado se encuentra dentro de un polígono determinado. El punto es un campo y el polígono se especifica como una lista constante de coordenadas que se pasa como parte del filtro.
 
-Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx).
+Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="tryitout"></a>
 
@@ -431,9 +431,9 @@ Para obtener más información sobre los principios de diseño de la navegación
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
+[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
+[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
 

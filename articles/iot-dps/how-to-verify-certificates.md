@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: dd54ca5a172bdb65b7781f2fb764b00f50e5df28
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb37ce7e61796494be0a9282afdc620b0ca5886a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Realización de una prueba de posesión de certificados de entidad de certificación X.509 con el servicio Device Provisioning
 
@@ -58,7 +58,7 @@ Microsoft proporciona herramientas y ejemplos que pueden ayudarle a crear un cer
 
 - El **SDK C de Azure IoT Hub** proporciona scripts de PowerShell (Windows) y Bash (Linux) que le ayudan a crear certificados de entidad de certificación y de hoja para desarrollo y a realizar la prueba de posesión con un código de verificación. Puede descargar los [archivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) correspondientes a su sistema en una carpeta de trabajo y seguir las instrucciones que aparecen en el [archivo Léame de administración de certificados de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para realizar la prueba de posesión en un certificado de entidad de certificación. 
 - El **SDK de C# de Azure IoT Hub** contiene el [ejemplo de verificación de certificado de grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), que puede usar para realizar la prueba de posesión.
-- Puede seguir los pasos descritos en el artículo [Scripts de PowerShell para administrar certificados X.509 firmados por la entidad de certificación](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates) en la documentación de IoT Hub, en concreto el script mencionado en la sección titulada [Prueba de posesión de su certificado de entidad de certificación X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
+- Puede seguir los pasos descritos en el artículo [Scripts de PowerShell para administrar certificados X.509 firmados por la entidad de certificación](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates) en la documentación de IoT Hub, en concreto el script mencionado en la sección titulada [Prueba de posesión de su certificado de entidad de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates#signverificationcode).
  
 > [!IMPORTANT]
 > Además de realizar la prueba de posesión, los scripts de PowerShell y Bash citados anteriormente también permiten crear certificados raíz, certificados intermedios y certificados de hoja que pueden usarse para autenticar y aprovisionar dispositivos. Estos certificados se deben utilizar solamente para desarrollo. Nunca deben utilizarse en un entorno de producción. 

@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ec08d617b461240062190ec7fdb919f051675798
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c02835e8712c79ea540d7560da111f54abbeed23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscripción del dispositivo en una instancia de IoT Hub mediante el cliente del servicio Azure IoT Hub Device Provisioning (.NET)
 
@@ -49,7 +49,7 @@ Este paso incluye la incorporación de artefactos de seguridad únicos del dispo
 
 - Para dispositivos basados en X.509:
     - El [certificado X.509 emitido para el dispositivo](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx), en un formato de archivo *.pem* o *.cer*. Para la inscripción individual, debe usar el *certificado de hoja* para su sistema X.509, mientras que para los grupos de inscripción, debe usar el *certificado raíz* o un *certificado del firmante*.
-    - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. Para los dispositivos basados en X.509, el identificador de registro se deriva del nombre común del certificado (CN). Para más información sobre estos requisitos consulte [Conceptos de dispositivo](https://docs.microsoft.com/en-us/azure/iot-dps/concepts-device).
+    - El *identificador de registro* que se usa para identificar de forma única un dispositivo en el espacio de nombres o el ámbito. Este puede ser igual que el identificador de dispositivo o no. El identificador es obligatorio para todos los dispositivos. Para los dispositivos basados en X.509, el identificador de registro se deriva del nombre común del certificado (CN). Para más información sobre estos requisitos consulte [Conceptos de dispositivo](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 Hay dos maneras de inscribir el dispositivo en el servicio Device Provisioning:
 

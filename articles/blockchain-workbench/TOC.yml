@@ -1,0 +1,46 @@
+- name: Azure Blockchain Workbench (versión preliminar pública)
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Azure Blockchain Workbench
+      href: blockchain-workbench-overview.md
+- name: Conceptos
+  items:
+    - name: Architecture
+      href: blockchain-workbench-architecture.md
+    - name: Patrones de integración
+      href: blockchain-workbench-integration-patterns.md
+- name: Guías de procedimientos
+  items:
+    - name: Implementación de Workbench
+      href: blockchain-workbench-deploy.md
+    - name: Administración de usuarios de Workbench
+      href: blockchain-workbench-manage-users.md
+    - name: Creación de aplicación de cadena de bloques
+      href: blockchain-workbench-create-app.md
+    - name: Uso de aplicación de cadena de bloques
+      href: blockchain-workbench-use.md
+    - name: Uso de la API de Workbench
+      href: blockchain-workbench-use-API.md
+    - name: Solución de problemas de aplicaciones
+      href: blockchain-workbench-troubleshooting.md
+    - name: Obtención de detalles sobre la base de datos de Workbench
+      href: blockchain-workbench-getdb-details.md
+    - name: Configuración del firewall de la base de datos de SQL de Workbench
+      href: blockchain-workbench-database-firewall.md
+    - name: Uso de los datos de Workbench en Excel
+      href: blockchain-workbench-data-excel.md
+    - name: Uso de los datos de Workbench en Power BI
+      href: blockchain-workbench-data-powerbi.md
+    - name: Uso de los datos de Workbench en SQL Management Studio
+      href: blockchain-workbench-data-sql-management-studio.md
+- name: Referencia
+  items:
+    - name: Configuración
+      href: blockchain-workbench-configuration-overview.md
+    - name: Vistas de base de datos
+      href: blockchain-workbench-database-views.md
+    - name: API DE REST
+      href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+    - name: API de mensajería
+      href: blockchain-workbench-messages-overview.md

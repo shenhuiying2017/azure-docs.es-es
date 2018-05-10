@@ -1,8 +1,8 @@
 - name: Documentación de Azure HDInsight
   href: /azure/hdinsight
-- name: Hadoop en HDInsight
+- name: Información general
   items:
-    - name: Información general
+    - name: Acerca de Hadoop en HDInsight
       href: apache-hadoop-introduction.md
     - name: Arquitectura de Hadoop en HDInsight
       href: ../hdinsight-hadoop-architecture.md
@@ -10,20 +10,32 @@
     - name: Componentes de Hadoop en HDInsight
       href: ../hdinsight-component-versioning.md
       maintainContext: true
-- name: Introducción
+- name: Guía de inicio rápido
   items:
-    - name: Inicio con Hadoop
+    - name: 'Creación de un clúster de Hadoop: Portal'
+      href: apache-hadoop-linux-create-cluster-get-started-portal.md
+    - name: 'Creación de un clúster de Hadoop: Resource Manager'
       href: apache-hadoop-linux-tutorial-get-started.md
-    - name: Espacio aislado de Hadoop
-      href: apache-hadoop-emulator-get-started.md
-    - name: Instalación de aplicaciones de HDInsight
-      href: ../hdinsight-apps-install-applications.md
+- name: Tutoriales
+  items:
+    - name: Realización de operaciones de ETL
+      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: Creación de clústeres a petición
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+      maintainContext: true
+- name: Conceptos
+  items:
     - name: Planeamiento de la capacidad de clúster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Disponibilidad y confiabilidad
+      href: ../hdinsight-high-availability-linux.md
+      maintainContext: true
 - name: Procedimientos
   items:
+    - name: Uso del espacio aislado de Hadoop
+      href: apache-hadoop-emulator-get-started.md
     - name: Uso del almacenamiento de clúster
       items:
         - name: Uso de Azure Storage
@@ -144,9 +156,6 @@
         - name: Análisis de tweets almacenados
           href: ../hdinsight-analyze-twitter-data-linux.md
           maintainContext: true
-        - name: Análisis de datos de retrasos de vuelos
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
-          maintainContext: true
         - name: Generación de recomendaciones con Mahout
           href: apache-hadoop-mahout-linux-mac.md
         - name: Análisis de registros de sitios web con Hive
@@ -164,6 +173,9 @@
           maintainContext: true
     - name: Extensión de los clústeres
       items:
+        - name: Instalación de aplicaciones de HDInsight
+          href: ../hdinsight-apps-install-applications.md
+          maintainContext: true
         - name: Personalización de clústeres con Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
@@ -260,9 +272,6 @@
             - name: Utilización de plantillas del Administrador de recursos de Azure
               href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
               maintainContext: true
-        - name: Creación de clústeres a petición
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
         - name: Administración de clústeres de Hadoop
           href: ../hdinsight-administer-use-portal-linux.md
           maintainContext: true
@@ -329,9 +338,6 @@
           maintainContext: true
         - name: Migración a las herramientas de desarrollo de Resource Manager
           href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-          maintainContext: true
-        - name: Disponibilidad y confiabilidad
-          href: ../hdinsight-high-availability-linux.md
           maintainContext: true
         - name: Actualización de un clúster de HDInsight a una versión más reciente
           href: ../hdinsight-upgrade-cluster.md

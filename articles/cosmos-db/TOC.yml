@@ -80,6 +80,8 @@ items:
         href: unique-keys.md
       - name: Base de datos sin servidor
         href: serverless-computing-database.md
+      - name: Introducción a BulkExecutor
+        href: bulk-executor-overview.md
       - name: Seguridad
         href: database-security.md
         items:
@@ -87,8 +89,6 @@ items:
             href: database-encryption-at-rest.md
           - name: Protección del acceso a los datos
             href: secure-access-to-data.md
-      - name: TCO
-        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Casos de uso
         href: use-cases.md
         items:
@@ -171,6 +171,10 @@ items:
                 href: multi-region-writers.md
           - name: Guías de procedimientos
             items:
+              - name: 'BulkExecutor: .NET'
+                href: bulk-executor-dot-net.md
+              - name: 'BulkExecutor: Java'
+                href: bulk-executor-java.md
               - name: Consultar
                 items:
                   - name: Realizar consultas SQL
@@ -247,6 +251,10 @@ items:
                 href: sql-api-sdk-node.md
               - name: Python
                 href: sql-api-sdk-python.md
+              - name: 'BulkExecutor: .NET'
+                href: sql-api-sdk-bulk-executor-dot-net.md
+              - name: 'BulkExecutor: Java'
+                href: sql-api-sdk-bulk-executor-java.md
               - name: REST
                 href: /rest/api/cosmos-db/
               - name: Proveedor de recursos de REST
@@ -257,8 +265,6 @@ items:
             items:
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-              - name: Documento sobre indexación independiente del esquema
-                href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
               - name: Área de juegos de SQL
                 href: 'https://aka.ms/cosmos-db-playground'
       - name: Documentos de la API de MongoDB
@@ -433,6 +439,8 @@ items:
         href: set-throughput.md
       - name: Funcionalidad de firewall
         href: firewall-support.md
+      - name: Configuración de un punto de conexión del servicio de red virtual
+        href: vnet-service-endpoint.md
       - name: Métricas
         href: use-metrics.md
       - name: Supervisión del Acuerdo de Nivel de Servicio
@@ -465,3 +473,5 @@ items:
         href: faq.md
       - name: Coherencia de los datos explicada a través del béisbol
         href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Notas del producto
+        href: whitepapers.md

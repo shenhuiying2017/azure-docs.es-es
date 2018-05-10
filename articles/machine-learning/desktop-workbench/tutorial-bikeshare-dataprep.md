@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 77729ad52f101f0d57fe24115525795c6b4f2db2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Tutorial: Uso de Azure Machine Learning Workbench para la preparación avanzada de datos (datos de uso compartido de bicicletas)
 Azure Machine Learning (versión preliminar) es una solución integrada y completa de análisis avanzado y ciencia de datos diseñada para que los científicos de datos profesionales preparen datos, desarrollen experimentos e implementen modelos a escala de nube.
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una instalación local de Azure Machine Learning Workbench. Para más información, siga la [guía de inicio rápido de instalación](../service/quickstart-installation.md).
-* Si no tiene instalada la CLI de Azure, siga las instrucciones para [instalar la última versión de la CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Si no tiene instalada la CLI de Azure, siga las instrucciones para [instalar la última versión de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un [clúster HDInsights Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) creado en Azure.
 * Una cuenta de almacenamiento de Azure.
 * Debe estar familiarizado con la creación de un proyecto nuevo en Workbench.

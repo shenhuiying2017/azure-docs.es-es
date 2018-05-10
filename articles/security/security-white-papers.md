@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: dfc0128247ad86e9fa6932f8b05c91ae7da0d950
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-security-white-papers"></a>Notas del producto de seguridad de Azure
 | | |
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/05/2018
 |[Azure Network Security](azure-network-security.md)|Le introduce en la amplia variedad de controles de red que se pueden configurar para mejorar la seguridad de las soluciones que se implementan en Azure. Se centra en los controles de seguridad de red orientados al cliente.|
 |[Seguridad operativa de Azure](azure-operational-security.md)|Se proporciona información completa sobre las tecnologías y los servicios de seguridad operativos orientados al cliente disponibles con Azure.|
 |[Funcionalidades técnicas de seguridad de Azure](azure-security-technical-capabilities.md)|Se centra en las características y la funcionalidad de seguridad que admiten Azure Storage, Azure SQL Database y el modelo de máquina virtual de Azure, y en las herramientas y la infraestructura para administrarlo todo.|
-|[Guía de seguridad de Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Se ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Azure Storage. Se tratan los aspectos de seguridad del plano de administración, seguridad del plano de datos, cifrado en reposo, cifrado en movimiento y análisis de almacenamiento.|
+|[Guía de seguridad de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Se ofrece una visión general de cada una de estas características de seguridad que se pueden usar con Azure Storage. Se tratan los aspectos de seguridad del plano de administración, seguridad del plano de datos, cifrado en reposo, cifrado en movimiento y análisis de almacenamiento.|
 |[Clasificación de datos para disponibilidad en la nube](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Este documento descargable presenta los conceptos básicos de clasificación de datos y su valor en el contexto de la informática en la nube. Las organizaciones que evalúan la informática en la nube para uso futuro o las que actualmente ya usan servicios en la nube y buscan formas de optimizar la administración de datos son las que más se beneficiarán de la información contenida en este documento.|
 |[Gobierno en Azure](governance-in-azure.md)|Se explican las características de seguridad y gobierno integradas en Azure. Los principales temas de gobierno que se tratan son: implementación de directivas, procesos y procedimientos de cara a los objetivos de la organización; seguridad y cumplimiento continuado de los estándares de la organización; alerta y supervisión.
 |[Aislamiento en la nube pública de Azure](azure-isolation.md)|Se describe cómo Azure proporciona aislamiento contra usuarios malintencionados y no malintencionados. Sirve de guía para diseñar soluciones de nube al ofrecer a los arquitectos varias opciones de aislamiento. Se centra principalmente en los controles de seguridad orientados al cliente; no se abordan los Acuerdos de Nivel de Servicio, los modelos de precios y las consideraciones prácticas sobre DevOps.|

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: 3406d314fb4dba92830933c4e4d373fc8bebeba3
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 Azure Key Vault está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -74,7 +74,7 @@ Para obtener más información sobre cómo configurar PowerShell de Azure, consu
 ## <a id="storage"></a>Creación de una cuenta de almacenamiento nueva para los registros
 Aunque puede usar una cuenta de almacenamiento existente para sus registros, crearemos una cuenta de almacenamiento que se dedicará a los registros de Key Vault. Por comodidad para cuando tengamos que especificarlos más adelante, almacenaremos los detalles en una variable denominada **sa**.
 
-Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup**, y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores para los suyos propios, según corresponda:
+Para una mayor facilidad de administración, también usaremos el grupo de recursos que contiene el Almacén de claves. Desde el [tutorial de introducción](key-vault-get-started.md), este grupo de recursos se denomina **ContosoResourceGroup** , y seguiremos usando la ubicación Asia Oriental. Sustituya estos valores para los suyos propios, según corresponda:
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 
@@ -235,32 +235,32 @@ En la tabla siguiente se muestra el operationName y el comando de API de REST co
 | operationName | Comando de API de REST |
 | --- | --- |
 | Autenticación |Mediante un punto de conexión de Azure Active Directory |
-| VaultGet |[Obtener información acerca de un almacén de claves](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx) |
-| VaultPut |[Crear o actualizar un almacén de claves](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx) |
-| VaultDelete |[Eliminar un almacén de claves](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx) |
+| VaultGet |[Obtener información acerca de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| VaultPut |[Crear o actualizar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| VaultDelete |[Eliminar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
 | VaultPatch |[Crear o actualizar un almacén de claves](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Lista de todos los almacenes de claves en un grupo de recursos](https://msdn.microsoft.com/en-us/library/azure/mt620027.aspx) |
-| KeyCreate |[Crear una clave](https://msdn.microsoft.com/en-us/library/azure/dn903634.aspx) |
-| KeyGet |[Obtener información sobre una clave](https://msdn.microsoft.com/en-us/library/azure/dn878080.aspx) |
-| KeyImport |[Importar una clave a un almacén](https://msdn.microsoft.com/en-us/library/azure/dn903626.aspx) |
-| KeyBackup |[Realizar una copia de seguridad de una clave](https://msdn.microsoft.com/en-us/library/azure/dn878058.aspx). |
-| KeyDelete |[Eliminar una clave](https://msdn.microsoft.com/en-us/library/azure/dn903611.aspx) |
-| KeyRestore |[Restaurar una clave](https://msdn.microsoft.com/en-us/library/azure/dn878106.aspx) |
-| KeySign |[Firmar con una clave](https://msdn.microsoft.com/en-us/library/azure/dn878096.aspx) |
-| KeyVerify |[Comprobar con una clave](https://msdn.microsoft.com/en-us/library/azure/dn878082.aspx) |
-| KeyWrap |[Encapsular una clave](https://msdn.microsoft.com/en-us/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Desencapsular una clave](https://msdn.microsoft.com/en-us/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Cifrar con una clave](https://msdn.microsoft.com/en-us/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Descifrar con una clave](https://msdn.microsoft.com/en-us/library/azure/dn878097.aspx) |
-| KeyUpdate |[Actualizar una clave](https://msdn.microsoft.com/en-us/library/azure/dn903616.aspx) |
-| KeyList |[Enumerar las claves en un almacén](https://msdn.microsoft.com/en-us/library/azure/dn903629.aspx) |
-| KeyListVersions |[Enumerar las versiones de una clave](https://msdn.microsoft.com/en-us/library/azure/dn986822.aspx) |
-| SecretSet |[Crear un secreto](https://msdn.microsoft.com/en-us/library/azure/dn903618.aspx) |
-| SecretGet |[Obtener un secreto](https://msdn.microsoft.com/en-us/library/azure/dn903633.aspx) |
-| SecretUpdate |[Actualizar un secreto](https://msdn.microsoft.com/en-us/library/azure/dn986818.aspx) |
-| SecretDelete |[Eliminar un secreto](https://msdn.microsoft.com/en-us/library/azure/dn903613.aspx) |
-| SecretList |[Enumerar secretos en un almacén](https://msdn.microsoft.com/en-us/library/azure/dn903614.aspx) |
-| SecretListVersions |[Enumerar versiones de un secreto](https://msdn.microsoft.com/en-us/library/azure/dn986824.aspx) |
+| VaultList |[Lista de todos los almacenes de claves en un grupo de recursos](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| KeyCreate |[Crear una clave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| KeyGet |[Obtener información sobre una clave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| KeyImport |[Importar una clave a un almacén](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| KeyBackup |[Realizar una copia de seguridad de una clave](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
+| KeyDelete |[Eliminar una clave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| KeyRestore |[Restaurar una clave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| KeySign |[Firmar con una clave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| KeyVerify |[Comprobar con una clave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| KeyWrap |[Encapsular una clave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| KeyUnwrap |[Desencapsular una clave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| KeyEncrypt |[Cifrar con una clave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| KeyDecrypt |[Descifrar con una clave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| KeyUpdate |[Actualizar una clave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| KeyList |[Enumerar las claves en un almacén](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| KeyListVersions |[Enumerar las versiones de una clave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| SecretSet |[Crear un secreto](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| SecretGet |[Obtener un secreto](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| SecretUpdate |[Actualizar un secreto](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| SecretDelete |[Eliminar un secreto](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| SecretList |[Enumerar secretos en un almacén](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| SecretListVersions |[Enumerar versiones de un secreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Uso de Log Analytics
 

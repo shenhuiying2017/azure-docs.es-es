@@ -1,11 +1,11 @@
 ---
 title: Informe de inteligencia frente a amenazas de Azure Security Center | Microsoft Docs
-description: "Este documento le ayuda a usar los informes inteligentes de amenazas de Azure Security Center durante una investigación para más información respecto a una alerta de seguridad."
+description: Este documento le ayuda a usar los informes inteligentes de amenazas de Azure Security Center durante una investigación para más información respecto a una alerta de seguridad.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: swadhwa
-editor: 
+editor: ''
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 540725147579f895cc17ed2dbf46471dab6b3747
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.
@@ -65,7 +65,7 @@ Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra A
 
 Desde aquí puede descargar el PDF de este informe y leer más sobre el problema de seguridad que se ha detectado para actuar en función de la información proporcionada.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este documento, ha aprendido cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudar durante una investigación sobre alertas de seguridad. Para obtener más información sobre el Centro de seguridad de Azure, consulte los siguientes recursos:
 
 * [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md). Preguntas más frecuentes acerca del uso del servicio.

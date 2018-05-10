@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 8c584ec0c8d89a232d573399cfabe02fc8aa1c87
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Administración de Azure Cosmos DB en el Explorador de Azure Storage
 
@@ -76,7 +76,7 @@ Una manera alternativa de conectarse a Azure Cosmos DB es usar una cadena de con
 
 Siga estos pasos para conectarse a una instancia de Azure Cosmos DB mediante un Emulator; actualmente solo se admite una cuenta SQL.
 
-1. Instale el Emulador e inícielo. Para obtener información acerca de cómo instalar el Emulador, consulte [Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+1. Instale el Emulador e inícielo. Para obtener información acerca de cómo instalar el Emulador, consulte [Uso del Emulador de Azure Cosmos DB para desarrollo y pruebas de forma local](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Busque **Local and Attached** (Locales y adjuntas) en el árbol de la izquierda, haga clic con el botón derecho en **Cuentas de Cosmos DB**, elija **Connect to Cosmos DB Emulator...** (Conectar al Emulador de Cosmos DB)
 
@@ -210,7 +210,7 @@ Puede realizar muchas tareas de acción rápida haciendo clic con el botón dere
 
 ## <a name="troubleshooting"></a>solución de problemas
 
-[Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) es una aplicación independiente que le permite conectarse a las cuentas de Azure Cosmos DB hospedadas en Azure y nubes soberanas de Windows, macOS o Linux. Permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure como los blobs y las colas de Storage.
+[Azure Cosmos DB en el Explorador de Azure Storage](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) es una aplicación independiente que le permite conectarse a las cuentas de Azure Cosmos DB hospedadas en Azure y nubes soberanas de Windows, macOS o Linux. Permite a los usuarios administrar entidades de Azure Cosmos DB, manipular datos, actualizar procedimientos y desencadenadores almacenados, además de otras entidades de Azure como los blobs y las colas de Storage.
 
 Estas son soluciones a problemas comunes de Azure Cosmos DB vistos en el Explorador de Storage.
 

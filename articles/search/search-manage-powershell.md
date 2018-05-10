@@ -10,11 +10,11 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 974f2df8c4c9c9730f176a1e8472199960b359f6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/23/2018
 > 
 
 En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Azure Search. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API.
-Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
+Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## <a name="prerequisites"></a>requisitos previos
 * Debe tener Azure PowerShell 1.0 o versiones posteriores. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).

@@ -3,9 +3,9 @@ title: Control de alertas de seguridad en Azure Security Center | Microsoft Docs
 description: Este documento le ayuda a usar las funcionalidades de Azure Security Center para controlar los incidentes de seguridad.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: hero-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f87edc0717631775acec315dda61323b8fa5909
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Control de incidentes de seguridad en Azure Security Center
 La clasificación e investigación de las alertas de seguridad puede ser un proceso largo incluso para los analistas de seguridad más cualificados, y para muchos es difícil saber incluso por dónde empezar. Con el [análisis](security-center-detection-capabilities.md) para conectar la información entre las distintas [alertas de seguridad](security-center-managing-and-responding-alerts.md), Security Center le proporcionará una vista única de una campaña de ataque y de todas las alertas relacionadas; de esta forma podrá comprender rápidamente las acciones que realizó el atacante y qué recursos se vieron afectados.
@@ -29,7 +29,7 @@ Este documento describe cómo usar las funcionalidades de alerta de seguridad de
 En Security Center, un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con patrones de [cadenas de eliminación](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) . Los incidentes aparecen en el icono y en la hoja [Alertas de seguridad](security-center-managing-and-responding-alerts.md) . El incidente mostrará la lista de alertas relacionadas, lo que permite obtener más información sobre cada repetición.
 
 ## <a name="managing-security-incidents"></a>Administración de incidentes de seguridad
-Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguridad. Acceda al Portal de Azure y siga los pasos que se indican a continuación para ver más detalles sobre cada incidente de seguridad:
+Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguridad. Acceda a Azure Portal y siga los pasos que se indican a continuación para ver más detalles sobre cada incidente de seguridad:
 
 1. En el panel Security Center, verá el icono **Alertas de seguridad** .
 
@@ -52,7 +52,7 @@ La información sobre esta hoja variará según la alerta. Para más informació
 * Un nuevo filtro le permite personalizar la vista a solo incidente, solo alertas o ambos.
 * La misma alerta puede existir como parte de un incidente (si procede), así como a estar visible como alerta independiente.
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Otras referencias
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)

@@ -1,5 +1,5 @@
 ---
-title: Carga, enumeración y eliminación de blobs con Azure Storage, JavaScript y HTML en el explorador
+title: 'Guía de inicio rápido de Azure: Creación de un blob en el almacenamiento de objetos mediante JavaScript y HTML en el explorador'
 description: Aprenda a usar una instancia de BlobService para cargar, enumerar y eliminar blobs con JavaScript en una página HTML.
 services: storage
 keywords: storage, javascript, html
@@ -10,23 +10,18 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 83db6539e6ad8ec8e18d99bf7eedbc037d95509e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-with-azure-storage-using-javascripthtml-in-the-browser"></a>Guía de inicio rápido: Carga, enumeración y eliminación de blobs con Azure Storage, JavaScript y HTML en el explorador
-Esta guía de inicio rápido muestra cómo administrar blobs desde código que se ejecuta completamente en el explorador junto con las medidas de seguridad necesarias para garantizar el acceso protegido a la cuenta de almacenamiento de blobs. Para completar esta guía de inicio rápido, necesitará una [suscripción de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+# <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Guía de inicio rápido: Carga, enumeración y eliminación de blobs con JavaScript y HTML en el explorador
+En esta guía de inicio rápido se muestra cómo administrar blobs a partir de código que se ejecuta completamente en el explorador. El enfoque aquí usado muestra cómo utilizar las medidas de seguridad necesarias para garantizar el acceso protegido a su cuenta de Blob Storage. Para completar esta guía de inicio rápido, necesitará una [suscripción de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
-
-### <a name="copy-security-settings"></a>Copia de la configuración de seguridad
-Durante esta guía de inicio rápido, necesitará algunos valores relacionados con la seguridad para crear un token de seguridad. Desde el portal, puede copiar los valores en un editor de texto para usarlos después. 
-
-Seleccione la cuenta de almacenamiento en el portal y busque la sección **Configuración**. En Configuración, seleccione **Claves de acceso** y reserve los valores de **Nombre de la cuenta de almacenamiento** y **Clave** bajo el encabezado **key1**. (Puede usar el botón "Copiar" justo a la derecha del cuadro de entrada para copiar el valor en el Portapapeles).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuración de reglas de CORS de cuenta de almacenamiento 
 Para que la aplicación web pueda tener acceso a un almacenamiento de blobs desde el cliente, la cuenta debe configurarse para habilitar el [uso compartido de recursos entre orígenes](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), o CORS. 
@@ -55,7 +50,7 @@ A continuación, se usa Azure Cloud Shell para crear un token de seguridad.
 ## <a name="create-a-shared-access-signature"></a>Creación de una firma de acceso compartido
 La firma de acceso compartido (SAS) es usada por el código que se ejecuta en el explorador para autenticar las solicitudes para Blob Storage. Mediante el uso de una firma de acceso compartido, el cliente puede autenticarse sin necesidad de la cadena de conexión o de la clave de acceso de cuenta. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Puede crear una firma de acceso compartido con la CLI de Azure mediante Azure Cloud Shell. En la tabla siguiente se describen los parámetros para los que necesita proporcionar valores con el fin de generar una firma de acceso compartido.
+Puede crear una SAS mediante la CLI de Azure a través de Azure Cloud Shell o con el Explorador de Azure Storage. En la tabla siguiente se describen los parámetros para los que necesita proporcionar valores con el fin de generar una firma de acceso compartido con la CLI.
 
 | .      |DESCRIPCIÓN  | Placeholder |
 |----------------|-------------|-------------|
@@ -93,7 +88,7 @@ Ahora que se ha generado la firma de acceso compartido, copie el valor devuelto 
 ## <a name="implement-the-html-page"></a>Implementación de la página HTML
 
 ### <a name="set-up-the-web-application"></a>Configuración de la aplicación web
-Las bibliotecas de cliente JavaScript de Azure Storage no funcionarán directamente desde el sistema de archivos y deben ser atendidas desde un servidor web. Por lo tanto, en los pasos siguientes se explica cómo utilizar el servidor web local simple con Node.js.
+Las bibliotecas de cliente JavaScript de Azure Storage no funcionarán directamente desde el sistema de archivos y deben ser atendidas desde un servidor web. Por lo tanto, en los pasos siguientes se explica cómo usar el servidor web local simple con Node.js.
 
 > [!NOTE]
 > En esta sección se muestra cómo crear un servidor web local que requiere que Node.js esté instalado en la máquina. Si no desea instalar Node.js, puede usar cualquier otro medio para ejecutar un servidor web local.
@@ -121,7 +116,7 @@ Por último, en el símbolo del sistema, escriba `npm start` para iniciar el ser
 npm start
 ```
 
-### <a name="get-the-blob-storage-client-scripts"></a>Obtención de los scripts del cliente de almacenamiento de blobs
+### <a name="get-the-blob-storage-client-library"></a>Obtención de la biblioteca de cliente de Blob Storage
 [Descargue las bibliotecas de cliente JavaScript](https://aka.ms/downloadazurestoragejs), extraiga el contenido del archivo zip y coloque los archivos de script desde la carpeta *bundle* a una carpeta denominada *scripts*.
 
 ### <a name="add-the-client-script-reference-to-the-page"></a>Incorporación de la referencia de script de cliente a la página
@@ -153,7 +148,7 @@ Estas marcas agregan lo siguiente a la página:
 - un elemento *INPUT* que se usa para cargar un archivo
 - un marcador de posición para código específico del almacenamiento
 
-### <a name="create-a-blob-service"></a>Creación de un servicio blob 
+### <a name="create-an-instance-of-blobservice"></a>Creación de una instancia de BlobService 
 El [BlobService](https://azure.github.io/azure-storage-node/BlobService.html) proporciona una interfaz a Azure Blob Storage. Para crear una instancia del servicio, debe proporcionar el nombre de cuenta de almacenamiento y la firma de acceso compartido generados en un paso anterior.
 
 ```javascript
@@ -184,7 +179,7 @@ document.getElementById('create-button').addEventListener('click', () => {
 ```
 
 ### <a name="upload-a-blob"></a>Carga de un blob
-Para cargar un blob desde un formulario HTML, primero se obtiene una referencia al archivo seleccionado a través de la matriz `files` de un elemento *INPUT* (entrada) que tiene *type* (tipo) establecido en *file* (archivo).
+Para cargar un blob desde un formulario HTML, obtendrá una referencia al archivo seleccionado desde un elemento *INPUT*. El archivo seleccionado está disponible mediante la matriz `files` cuando el *tipo* del elemento está establecido en *file*.
 
 Desde el script, puede hacer referencia al elemento HTML y pasar el archivo seleccionado al servicio blob.
 
@@ -227,6 +222,9 @@ document.getElementById('list-button').addEventListener('click', () => {
     
 });
 ```
+
+El método *listBlobsSegmented* devuelve una colección de blobs. De forma predeterminada, la cantidad de la colección es 5000 blobs, pero puede ajustar este valor para adaptarlo a sus necesidades. El [ejemplo de continuación](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js#L132) muestra cómo trabajar con un gran número de blobs y cómo la biblioteca de cliente admite la paginación. 
+
 
 ### <a name="delete-blobs"></a>Eliminar blobs
 Puede eliminar el blob que cargó mediante una llamada a [deleteBlobIfExists](https://azure.github.io/azure-storage-node/BlobService.html#deleteBlobIfExists__anchor).

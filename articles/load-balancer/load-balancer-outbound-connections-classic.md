@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: ec13109173f89b53e32f903febcec13c7f38c574
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="outbound-connections-classic"></a>Conexiones salientes (clásico)
 
@@ -114,8 +114,6 @@ En la tabla siguiente se muestran las asignaciones previas de puertos SNAT para 
 | 51-100 | 512 |
 | 101-200 | 256 |
 | 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1000 | 32 |
 
 Recuerde que el número de puertos SNAT disponibles no equivale directamente al número de flujos. Un solo puerto SNAT se puede reutilizar con varios destinos únicos. Solo se consumen puertos si es necesario que los flujos sean únicos. Para instrucciones sobre diseño y mitigación, consulte [cómo administrar este recurso agotable](#snatexhaust), así como la sección en la que se describe [PAT](#pat).
 

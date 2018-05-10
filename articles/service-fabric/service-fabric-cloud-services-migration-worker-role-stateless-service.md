@@ -1,11 +1,11 @@
 ---
-title: "Conversión de aplicaciones de Azure Cloud Services en microservicios | Microsoft Docs"
-description: "Esta guía compara los roles web y de trabajo de Cloud Services y los servicios sin estado de Service Fabric para ayudar a la migración desde Cloud Services a Service Fabric."
+title: Conversión de aplicaciones de Azure Cloud Services en microservicios | Microsoft Docs
+description: Esta guía compara los roles web y de trabajo de Cloud Services y los servicios sin estado de Service Fabric para ayudar a la migración desde Cloud Services a Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5880ebb3-8b54-4be8-af4b-95a1bc082603
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: fd24881444846d3905f8db61356656960698b7eb
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bb8f2f8a6f0905716c34796a5b16c38f406ae64c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guía de conversión de roles web y de trabajo a servicios sin estado de Service Fabric
 Este artículo describe cómo migrar los roles web y de trabajo de Cloud Services a los servicios sin estado de Service Fabric. Se trata de la ruta de migración más sencilla desde Cloud Services a Service Fabric para aquellas aplicaciones cuya arquitectura global va a permanecer más o menos igual.
@@ -207,7 +207,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## <a name="startup-tasks"></a>Tareas de inicio
 Las tareas de inicio son acciones que se realizan antes de que se inicie una aplicación. Una tarea de inicio se utiliza normalmente para ejecutar scripts de configuración con privilegios elevados. Tanto Cloud Services como Service Fabric admiten tareas de inicio. La principal diferencia estriba en que en Cloud Services, una tarea de inicio está asociada a una máquina virtual porque forma parte de una instancia de rol, mientras que en Service Fabric una tarea de inicio se asocia a un servicio que no está asociado a ninguna máquina virtual concreta.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Ubicación de configuración |ServiceDefinition.csdef |
 | Privilegios |"limitados" o "elevados" |

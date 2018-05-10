@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: e421797d85dd031b77788958db6b1df62a292a8a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: db910096f776f2f8710c0ac03f0378491018fc09
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench: Guía de solución de problemas conocidos 
 En este artículo se le ayuda a buscar y corregir los errores que se producen como parte del uso de la aplicación de Azure Machine Learning Workbench. 
@@ -137,7 +137,7 @@ También puede eliminar los proyectos y las áreas de trabajo desde dentro de la
 Si tiene Windows 10 Fall Creators Update y el proyecto se creó en una carpeta local asignada a OneDrive, es posible que no pueda abrir ningún archivo en Workbench. Esto se debe a un error introducido por la actualización Fall Creators Update que hace que el código de node.js código produzca un error en las carpetas de OneDrive. El error se corregirá pronto mediante Windows Update, pero hasta entonces, evite crear proyectos en una carpeta de OneDrive.
 
 ## <a name="file-name-too-long-on-windows"></a>El nombre del archivo es demasiado largo en Windows
-Si usa Workbench en Windows, es posible que se encuentre con el límite predeterminado de 260 caracteres de longitud máxima del nombre de archivo, que puede aparecer como un error de que "el sistema no encuentra la ruta de acceso especificada". Puede modificar una configuración de la clave del Registro para permitir que el nombre de ruta del archivo sea más largo. Revise [este artículo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obtener más información acerca de cómo establecer la clave del Registro _MAX_PATH_.
+Si usa Workbench en Windows, es posible que se encuentre con el límite predeterminado de 260 caracteres de longitud máxima del nombre de archivo, que puede aparecer como un error de que "el sistema no encuentra la ruta de acceso especificada". Puede modificar una configuración de la clave del Registro para permitir que el nombre de ruta del archivo sea más largo. Revise [este artículo](https://msdn.microsoft.com/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para obtener más información acerca de cómo establecer la clave del Registro _MAX_PATH_.
 
 ## <a name="interrupt-cli-execution-output"></a>Interrupción de la salida de la ejecución de la CLI
 Si comienza la ejecución de una experimentación mediante `az ml experiment submit` o `az ml notebook start` y desea interrumpir la salida: 

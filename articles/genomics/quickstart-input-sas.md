@@ -1,7 +1,7 @@
 ---
-title: "Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento | Microsoft Docs"
+title: Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento | Microsoft Docs
 titleSuffix: Azure
-description: "En la guía de inicio rápido se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio."
+description: En la guía de inicio rápido se da por supuesto que tiene instalado el cliente de msgen y que ha ejecutado correctamente los datos de ejemplo mediante el servicio.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -11,11 +11,11 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: b6d84428749d8f5f78374efcca22ef913ee96c5e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Envío de un flujo de trabajo mediante una firma de acceso compartido en lugar de una clave de cuenta de almacenamiento
 
@@ -50,7 +50,7 @@ Hay dos maneras de crear un token de SAS: mediante el Explorador de Azure Storag
 
 El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una herramienta para administrar los recursos que están almacenados en Azure Storage.  Puede obtener más información sobre cómo usar el Explorador de Azure Storage [aquí](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
+La firma de acceso compartido de los archivos de entrada debe estar limitada al archivo de entrada concreto (blob). Para crear un token de SAS, siga [estas instrucciones](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer#work-with-shared-access-signatures). Una vez que haya creado la firma de acceso compartido, se proporcionan la dirección URL completa con la cadena de consulta, así como la cadena de consulta solamente y se pueden copiar desde la pantalla.
 
  ![Genomics SAS Explorador de Storage](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Genomics SAS Explorador de Storage")
 

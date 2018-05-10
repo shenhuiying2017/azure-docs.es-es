@@ -1,6 +1,6 @@
 ---
-title: "Conexión a Azure Database for MySQL desde C#"
-description: "En este tutorial rápido se proporciona un ejemplo de código de C# (.NET) que puede usar para conectarse a Azure Database for MySQL y consultar datos en este servicio."
+title: Conexión a Azure Database for MySQL desde C#
+description: En este tutorial rápido se proporciona un ejemplo de código de C# (.NET) que puede usar para conectarse a Azure Database for MySQL y consultar datos en este servicio.
 services: MySQL
 author: ajlam
 ms.author: andrela
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 040585d3dee4821e6b150b1ba41574aa8436ba75
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8ac1e3a7bb092f2eab64caeab61b10852533dd6b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database for MySQL: uso de .NET (C#) para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for MySQL mediante una aplicación de C#. Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este tema se da por hecho que está familiarizado con el desarrollo mediante C# y que nunca ha usado Azure Database for MySQL.
@@ -49,7 +49,7 @@ Obtenga la información de conexión necesaria para conectarse a Azure Database 
  ![Nombre del servidor de Azure Database for MySQL](./media/connect-csharp/1_server-overview-name-login.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Conexión, creación de una tabla e inserción de datos
-Use el código siguiente para conectarse y leer los datos mediante las instrucciones SQL `CREATE TABLE` y `INSERT INTO`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
+Use el código siguiente para conectarse y leer los datos mediante las instrucciones SQL `CREATE TABLE` y `INSERT INTO`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
 
 Reemplace los parámetros `Server`, `Database`, `UserID` y `Password` por los valores especificados al crear el servidor y la base de datos. 
 
@@ -114,7 +114,7 @@ namespace AzureMySqlExample
 
 ## <a name="read-data"></a>Lectura de datos
 
-Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL `SELECT`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand) y el método [ExecuteReaderAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executereaderasync) para ejecutar los comandos de base de datos. A continuación, el código usa [ReadAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) para avanzar a los registros de los resultados. A continuación, el código usa GetInt32() y GetString() para analizar los valores del registro.
+Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL `SELECT`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand) y el método [ExecuteReaderAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executereaderasync) para ejecutar los comandos de base de datos. A continuación, el código usa [ReadAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbdatareader.readasync#System_Data_Common_DbDataReader_ReadAsync) para avanzar a los registros de los resultados. A continuación, el código usa GetInt32() y GetString() para analizar los valores del registro.
 
 Reemplace los parámetros `Server`, `Database`, `UserID` y `Password` por los valores especificados al crear el servidor y la base de datos. 
 
@@ -171,7 +171,7 @@ namespace AzureMySqlExample
 ```
 
 ## <a name="update-data"></a>Actualización de datos
-Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL `UPDATE`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
+Use el código siguiente para conectarse y leer los datos mediante la instrucción SQL `UPDATE`. El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
 
 Reemplace los parámetros `Server`, `Database`, `UserID` y `Password` por los valores especificados al crear el servidor y la base de datos. 
 
@@ -223,7 +223,7 @@ namespace AzureMySqlExample
 ## <a name="delete-data"></a>Eliminación de datos
 Use el código siguiente para conectarse y eliminar los datos mediante la instrucción SQL `DELETE`. 
 
-El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
+El código usa la clase `MySqlConnection` con el método [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) para establecer una conexión con MySQL. A continuación, el código usa el método [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), establece la propiedad CommandText y llama al método [ExecuteNonQueryAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbcommand.executenonqueryasync) para ejecutar los comandos de base de datos. 
 
 Reemplace los parámetros `Server`, `Database`, `UserID` y `Password` por los valores especificados al crear el servidor y la base de datos. 
 

@@ -1,6 +1,6 @@
 ---
-title: "Creación de una aplicación administrada de Azure con la CLI de Azure | Microsoft Docs"
-description: "Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización."
+title: Creación de una aplicación administrada de Azure con la CLI de Azure | Microsoft Docs
+description: Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -8,13 +8,13 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
-ms.date: 12/15/2017
+ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35059603096279f7d58da1c1b40dd2ab3f1b5c38
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 46ea192220ced18b25d60030527d1f76fb37962a
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Creación e implementación de una aplicación administrada de Azure con la CLI de Azure
 
@@ -75,9 +75,9 @@ Cuando finalice el comando, tendrá una definición de aplicación administrada 
 Algunos de los parámetros usados en el ejemplo anterior son:
 
 * **resource-group**: el nombre del grupo de recursos donde se creó la definición de aplicación administrada.
-* **lock-level**: el tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado.
+* **lock-level**: el tipo de bloqueo aplicado al grupo de recursos administrado. Impide que el cliente realice operaciones no deseadas en este grupo de recursos. Actualmente, ReadOnly es el único nivel de bloqueo admitido. Cuando se especifica ReadOnly, el cliente solo puede leer los recursos presentes en el grupo de recursos administrado. Las identidades del publicador a las que se concede acceso al grupo de recursos administrados están exentas del bloqueo.
 * **authorizations**: describe el identificador de entidad de seguridad y el identificador de definición de rol que se usan para conceder el permiso al grupo de recursos administrado. Se especifica en el formato `<principalId>:<roleDefinitionId>`. También se pueden especificar varios valores para esta propiedad. Si se necesitan varios valores, se deben especificar de esta forma `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Los valores van separados por un espacio.
-* **package-file-uri**: la ubicación de un paquete comprimido que contiene los archivos necesarios. El paquete contiene, como mínimo, los archivos **mainTemplate.json** y **createUiDefinition.json**. **mainTemplate.json** define los recursos de Azure que se aprovisionan como parte de la aplicación administrada. La plantilla no difiere de una plantilla habitual de Resource Manager. **createUiDefinition.json** genera la interfaz de usuario para los usuarios que crean la aplicación administrada mediante el portal.
+* **package-file-uri**: la ubicación de un paquete .zip que contiene los archivos necesarios. El paquete contiene, como mínimo, los archivos **mainTemplate.json** y **createUiDefinition.json**. **mainTemplate.json** define los recursos de Azure que se aprovisionan como parte de la aplicación administrada. La plantilla no difiere de una plantilla habitual de Resource Manager. **createUiDefinition.json** genera la interfaz de usuario para los usuarios que crean la aplicación administrada mediante el portal.
 
 ## <a name="create-resource-group-for-managed-application"></a>Creación de un grupo de recursos para la aplicación administrada
 
@@ -115,7 +115,7 @@ Algunos de los parámetros usados en el ejemplo anterior son:
 * **resource-group**: grupo de recursos donde se crea el recurso de la aplicación administrada.
 * **parameters**: los parámetros que son necesarios para los recursos asociados a la aplicación administrada.
 
-Después de que la implementación ha finalizado correctamente, verá que la aplicación administrada se crea en applicationGroup. El recurso storageAccount se crea en infrastructureGroup.
+Después de que la implementación haya finalizado correctamente, verá que la aplicación administrada se crea en applicationGroup. El recurso storageAccount se crea en infrastructureGroup.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

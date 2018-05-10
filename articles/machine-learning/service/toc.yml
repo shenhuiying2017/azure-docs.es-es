@@ -4,17 +4,17 @@
   expanded: true
   items:
     - name: Acerca de Azure Machine Learning
-      href: ../desktop-workbench/overview-what-is-azure-ml.md
+      href: overview-what-is-azure-ml.md
     - name: Introducción a la administración de modelos
       href: ../desktop-workbench/model-management-overview.md
     - name: Otros productos de Machine Learning
-      href: ../desktop-workbench/overview-more-machine-learning.md
+      href: overview-more-machine-learning.md
     - name: Novedades
       href: ../desktop-workbench/azure-machine-learning-release-notes.md
 - name: Guías de inicio rápido
   items:
     - name: Instalación e inicio
-      href: ../desktop-workbench/quickstart-installation.md
+      href: quickstart-installation.md
 - name: Tutoriales
   items:
     - name: '1: Preparación de los datos'
@@ -29,6 +29,8 @@
   items:
     - name: Conceptos clave
       href: ../desktop-workbench/overview-general-concepts.md
+    - name: Aceleraciones de FPGA
+      href: concept-accelerate-with-fpgas.md
 - name: Guías de procedimientos
   items:
     - name: Tareas principales de la CLI
@@ -92,8 +94,10 @@
           href: ../desktop-workbench/how-to-read-write-files.md
         - name: Uso de la biblioteca de MMLSpark
           href: ../desktop-workbench/how-to-use-mmlspark.md
-    - name: Modelos operativos
+    - name: Implementación y consumo de modelos
       items:
+        - name: Implementación de modelos en FPGA
+          href: how-to-deploy-fpga-web-service.md
         - name: Configuración de la administración de modelos
           href: ../desktop-workbench/deployment-setup-configuration.md
         - name: Escalado de clústeres y servicios
@@ -142,6 +146,31 @@
           href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Referencia
   items:
+    - name: Paquetes de Python
+      href: reference-python-package-overview.md
+      items:
+        - name: Visión del equipo
+          items:
+            - name: Información general del paquete e instalación
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
+            - name: Compilación e implementación de modelos de clasificación de imágenes
+              href: how-to-build-deploy-image-classification-models.md
+            - name: Precisión de los modelos
+              href: how-to-improve-accuracy-for-computer-vision-models.md
+        - name: Previsión
+          items:
+            - name: Información general e instalación
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview'
+            - name: Compilación e implementación de modelos de previsión
+              href: how-to-build-deploy-forecast-models.md
+        - name: Aceleración de FPGA
+          href: reference-fpga-package-overview.md
+        - name: Text Analytics
+          items:
+            - name: Información general e instalación
+              href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics'
+            - name: Compilación e implementación de modelos de clasificación de texto
+              href: how-to-build-deploy-text-classification-models.md
     - name: Preparación de los datos
       items:
         - name: Extensiones de Python para la preparación de datos
@@ -191,13 +220,13 @@
     - name: Preguntas más frecuentes
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Solución de problemas
-      href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
+      href: known-issues-and-troubleshooting-guide.md
     - name: Soporte técnico y entrenamiento
-      href: ../desktop-workbench/support-for-aml-services.md
+      href: support-for-aml-services.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Precios
-      href: ../desktop-workbench/aml-pricing.md
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: Disponibilidad en regiones
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Proceso de ciencia de los datos en equipos

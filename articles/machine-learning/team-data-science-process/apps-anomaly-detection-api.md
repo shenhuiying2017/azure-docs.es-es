@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7633d2bd15e5bc4620a4980623f3883c162f4331
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detección de anomalías de Machine Learning
 ## <a name="overview"></a>Información general
@@ -47,7 +47,7 @@ La oferta de detección de anomalías incluye herramientas útiles para comenzar
 Para poder usar la API, debe implementarla en su suscripción de Azure, donde se hospedará como un servicio web Machine Learning.  Puede hacerlo desde la [Galería de Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Con esta acción se implementarán dos servicios web Machine Learning (y sus recursos relacionados) en su suscripción de Azure: uno para la detección de anomalías con detección de estacionalidad y otro sin detección de estacionalidad.  Una vez que la implementación haya finalizado, podrá administrar las API desde la página [Azure Machine Learning Web Services](https://services.azureml.net/webservices/) (Servicios web Machine Learning de Azure).  En esta página podrá buscar sus ubicaciones de punto de conexión y las claves de API, así como código de ejemplo para llamar a la API.  Puede encontrar instrucciones más detalladas [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Escalado de la aplicación
-De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) en "Precios de API web de producción".
+De forma predeterminada, la implementación tendrá un plan de facturación de desarrollo y pruebas gratuito que incluye 1000 transacciones al mes y 2 horas de proceso al mes.  Puede actualizar a otro plan según sus necesidades.  La información de precios de los distintos planes está disponibles [aquí](https://azure.microsoft.com/pricing/details/machine-learning/) en "Precios de API web de producción".
 
 ## <a name="managing-aml-plans"></a>Administración de los planes de AML 
 Puede administrar el plan de facturación [aquí](https://services.azureml.net/plans/).  El nombre del plan tomará como base el nombre del grupo de recursos que eligió al implementar la API, a lo que se añadirá una cadena única para la suscripción.  Las instrucciones sobre cómo actualizar el plan están disponibles [aquí](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) en la sección "Administración de planes de facturación".
@@ -118,7 +118,7 @@ La API de detección de anomalías admite detectores en tres categorías general
 ### <a name="parameters"></a>Parámetros
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | Escriba | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Historial (en número de puntos de datos) utilizado para el cálculo de la puntuación de anomalía |500 |integer |10-2000 |Dependiente de la serie temporal |
 | detectors.spikesdips | Si se deben detectar solo subidas, solo bajadas, o ambos |Ambos |enumerated |Ambos, subidas, bajadas |Ambos |
@@ -154,7 +154,7 @@ Los detectores en el punto de conexión de estacionalidad son similares a los de
 
 En la siguiente tabla se muestra información más detallada sobre estos parámetros de entrada:
 
-| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | type | Intervalo válido | Intervalo sugerido |
+| Parámetros de entrada | DESCRIPCIÓN | Configuración predeterminada | Escriba | Intervalo válido | Intervalo sugerido |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |Intervalo de agregación en segundos para agregar series temporales de entrada |0 (no se realiza ninguna agregación) |integer |0: omitir agregación, de lo contrario, > 0 |De 5 minutos a 1 día, dependiente de la serie temporal |
 | preprocess.aggregationFunc |Función que se usa para agregar datos al objeto AggregationInterval especificado |mean |enumerated |mean, sum, length |N/D |

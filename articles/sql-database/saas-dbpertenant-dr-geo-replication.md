@@ -10,15 +10,15 @@ ms.custom: saas apps
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: c6f3da52643caa9aa1172db5b884c5336c409715
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 
-En este tutorial, veremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de una base de datos por inquilino. Para proteger la aplicación frente a interrupciones, use la [_replicación geográfica_](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-geo-replication-overview) para crear réplicas de las bases de datos de catálogo y de inquilinos en una región de recuperación alternativa. En caso de interrupción, rápidamente se produce una conmutación por error a estas réplicas para reanudar las operaciones normales de la empresa. En la conmutación por error, las bases de datos en la región original se convierten en réplicas secundarias de las bases de datos en la región de recuperación. Una vez que estas réplicas estén en línea de nuevo, se actualizan automáticamente al estado de las bases de datos en la región de recuperación. Una vez resuelta la interrupción, se producirá una conmutación por recuperación a las bases de datos en la región de producción original.
+En este tutorial, veremos un escenario completo de recuperación ante desastres para una aplicación SaaS multiinquilino implementada con el modelo de una base de datos por inquilino. Para proteger la aplicación frente a interrupciones, use la [_replicación geográfica_](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) para crear réplicas de las bases de datos de catálogo y de inquilinos en una región de recuperación alternativa. En caso de interrupción, rápidamente se produce una conmutación por error a estas réplicas para reanudar las operaciones normales de la empresa. En la conmutación por error, las bases de datos en la región original se convierten en réplicas secundarias de las bases de datos en la región de recuperación. Una vez que estas réplicas estén en línea de nuevo, se actualizan automáticamente al estado de las bases de datos en la región de recuperación. Una vez resuelta la interrupción, se producirá una conmutación por recuperación a las bases de datos en la región de producción original.
 
 Este tutorial describe los flujos de trabajo de la conmutación por error y la conmutación por recuperación. Aprenderá a:
 > [!div classs="checklist"]
@@ -82,12 +82,12 @@ En este tutorial, usará primero la replicación geográfica para crear réplica
 Más adelante, en un paso de repatriación diferente, se conmutarán por error el catálogo y las bases de datos de inquilinos de la región de recuperación a la región original. La aplicación y las bases de datos siguen estando disponibles durante la repatriación. Cuando haya finalizado, la aplicación es totalmente funcional en la región original.
 
 > [!Note]
-> La aplicación se recupera en la _región emparejada_ de la región en la que se implementa la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+> La aplicación se recupera en la _región emparejada_ de la región en la que se implementa la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado de mantenimiento de la aplicación
 
 Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento normal de la aplicación.
-1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt;usuario&gt;trafficmanager.net (reemplace &lt;usuario&gt; por el valor de usuario en la implementación).
+1. En el explorador web, abra el centro de eventos de Wingtip Tickets: http://events.wingtip-dpt.&lt;usuario&gt;trafficmanager.net (reemplace &lt;usuario&gt; por el valor de usuario de la implementación).
     * Desplácese hasta la parte inferior de la página y observe el nombre y la ubicación del servidor del catálogo en el pie de página. La ubicación es la región en la que se implementó la aplicación.
     *Sugerencia: mantenga el mouse sobre la ubicación para aumentar el tamaño de la pantalla. *
     ![Estado correcto del centro de eventos en la región original](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -103,7 +103,7 @@ Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento
 En esta tarea, se inicia un proceso para sincronizar la configuración de los servidores, los grupos elásticos y las bases de datos en el catálogo de inquilinos. El proceso mantiene esta información actualizada en el catálogo.  El proceso trabaja con el catálogo activo, ya sea en la región original o en la región de recuperación. La información de configuración se usa como parte del proceso de recuperación para garantizar que el entorno de recuperación sea coherente con el entorno original y, después durante la repatriación, para asegurarse de que la región original sea coherente con los cambios realizados en el entorno de recuperación. El catálogo también se usa para realizar un seguimiento del estado de recuperación de los recursos de inquilino
 
 > [!IMPORTANT]
-> Para simplificar, el proceso de sincronización y otros procesos de recuperación y repatriación de larga ejecución se implementan en estos tutoriales como trabajos locales de Powershell o sesiones que se ejecutan en el inicio de sesión de usuario de cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, el proceso de sincronización y otros procesos de recuperación y repatriación de larga ejecución se implementan en estos tutoriales como trabajos locales de Powershell o sesiones que se ejecutan en el inicio de sesión de usuario de cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
 1. En _PowerShell ISE_, abra el archivo ...\Learning Modules\UserConfig.psm1. Reemplace `<resourcegroup>` y `<user>` en las líneas 10 y 11 por el valor usado al implementar la aplicación.  Guarde el archivo.
 
@@ -181,7 +181,7 @@ Supongamos ahora que hay una interrupción en la región en la que la aplicació
 
 2. Presione **F5** para ejecutar el script.  
     * El script se abre en una nueva ventana de PowerShell y luego inicia una serie de trabajos de PowerShell que se ejecutan en paralelo. Estos trabajos realizan la conmutación por error de las bases de datos de inquilino a la región de recuperación.
-    * La región de recuperación es la _región emparejada_ asociada a la región de Azure en la que implementó la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions). 
+    * La región de recuperación es la _región emparejada_ asociada a la región de Azure en la que implementó la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Supervise el estado del proceso de recuperación en la ventana de PowerShell.
     ![Proceso de conmutación por error](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
@@ -215,7 +215,7 @@ Incluso antes de que todas las bases de datos de inquilino existentes hayan real
     ![Página de eventos de Hawthorn Hall](media/saas-dbpertenant-dr-geo-replication/hawthornhallevents.png) 
 
 4. En el explorador, actualice la página del centro de eventos de Wingtip Tickets y verá Hawthorn Hall incluido. 
-    * Si ha aprovisionado Hawthorn Hall sin esperar a la restauración de los otros inquilinos, es posible que los otros inquilinos todavía estén sin conexión.
+    * Si ha aprovisionado a Hawthorn Hall sin esperar a la restauración de los otros inquilinos, es posible que estos todavía estén sin conexión.
 
 
 ## <a name="review-the-recovered-state-of-the-application"></a>Revisión del estado de recuperación de la aplicación
@@ -230,14 +230,14 @@ Cuando finaliza el proceso de recuperación, la aplicación y todos los inquilin
     * Observe el grupo de recursos que ha implementado, además del grupo de recursos de recuperación, con el sufijo _-recovery_.  El grupo de recursos de recuperación contiene todos los recursos creados durante el proceso de recuperación, además de los nuevos recursos creados durante la interrupción.  
 
 3. Abra el grupo de recursos de recuperación y observe los siguientes elementos:
-    * Las versiones de recuperación de los servidores del catálogo y tenants1 con sufijo _-recovery_.  Las bases de datos de catálogo y de inquilino restauradas en estos servidores tienen los nombres utilizados en la región original.
+    * Las versiones de recuperación de los servidores de catálogo y tenants1 con el sufijo _-recovery_.  Las bases de datos de catálogo y de inquilino restauradas en estos servidores tienen los nombres utilizados en la región original.
 
     * El servidor SQL _tenants2-dpt-&lt;usuario&gt;-recovery_.  Este servidor se utiliza para el aprovisionamiento de nuevos inquilinos durante la interrupción.
     *   La instancia de App Service llamada _events-wingtip-dpt-&lt;región-de-recuperación&gt;-&lt;usuario&gt_, que es la instancia de recuperación de la aplicación de eventos. 
 
     ![Recursos de recuperación de Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
     
-4. Abra el servidor SQL _tenants2-dpt-&lt;usuario&gt;-recovery_.  Observe que contiene la base de datos _hawthornhall_ y el grupo elástico _Pool1_.  La base de datos _hawthornhall_ está configurada como una base de datos elástica en el grupo elástico _Pool1_.
+4. Abra el servidor SQL _tenants2-dpt-&lt;usuario&gt;-recovery_.  Tenga en cuenta que contiene la base de datos _hawthornhall_ y el grupo elástico _Pool1_.  La base de datos _hawthornhall_ está configurada como una base de datos elástica en el grupo elástico _Pool1_.
 
 5. Vuelva al grupo de recursos y haga clic en la base de datos Contoso Concert Hall en el servidor _tenants1-dpt -&lt;usuario&gt;-recovery_. Haga clic en Replicación geográfica en el lado izquierdo.
     
@@ -310,4 +310,4 @@ Puede aprender más acerca de las tecnologías que proporciona Azure SQL Databas
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Otros tutoriales basados en la aplicación SaaS de Wingtip](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Otros tutoriales basados en la aplicación SaaS de Wingtip](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)

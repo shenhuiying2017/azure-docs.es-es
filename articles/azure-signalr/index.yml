@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure SignalR
+metadata:
+  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
+  title: 'Documentación de servicio de Azure SignalR: tutoriales y referencia de API'
+  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
+  services: azure-signalr
+  author: v-chmccl
+  manager: wesmc
+  ms.service: signalr
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/17/2018
+  ms.author: wesmc
+  ms.openlocfilehash: 44cebd136be84f5c9d591a850040968137cf1c3c
+  ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/08/2018
+abstract:
+  description: Azure SignalR es un servicio administrado de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real. Este servicio se basa en ASP.NET Core, que es una biblioteca de código abierto que simplifica la incorporación de funcionalidades web en tiempo real a las aplicaciones.
+sections:
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: 'Aprenda a desarrollar su primera aplicación web con el servicio Azure SignalR para efectuar comunicaciones en tiempo real:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
+      text: .NET
+      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a compilar aplicaciones de Azure SignalR
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Autenticación del servicio Azure SignalR</a>
+- title: Vídeo gratuito de aprendizaje de PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Desarrollo con .NET
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Modelos y arquitectura en la nube para desarrolladores de Microsoft Azure
+      href: https://www.pluralsight.com/courses/microsoft-azure-cloud-patterns-architecture?twoid=ed7474c5-bafe-4c41-91da-1eee9704d4dd&aid=7010a000001xDURAA2
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/microsoft-azure-cloud-patterns-architecture?twoid=ed7474c5-bafe-4c41-91da-1eee9704d4dd&aid=7010a000001xDURAA2
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: Búsqueda de scripts para tareas habituales de administración.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-signalr/signalr-cli-samples">CLI de Azure</a>

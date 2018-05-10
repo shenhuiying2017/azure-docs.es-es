@@ -1,12 +1,12 @@
 ---
-title: "Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager | Microsoft Docs"
-description: "Obtenga información acerca de cómo crear entornos de varias máquinas virtuales y recursos de PaaS en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager"
+title: Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager | Microsoft Docs
+description: Obtenga información acerca de cómo crear entornos de varias máquinas virtuales y recursos de PaaS en Azure DevTest Labs a partir de una plantilla de Azure Resource Manager
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: devtest-lab
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: v-craic
-ms.openlocfilehash: b4582dd03ceb1c2104f6e93c55a65e5a2b968c0a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 38e048e9ec4985d16632f8891e42c2b6394c83d6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creación de entornos de varias máquinas virtuales y recursos de PaaS con plantillas de Azure Resource Manager
 
@@ -102,7 +102,7 @@ Una vez configurado un repositorio de plantillas de Azure Resource Manager en el
 
     ![Elegir base de datos](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. En el panel **Agregar**, escriba el valor de **Nombre del entorno**. El nombre del entorno es lo que se muestra a los usuarios del laboratorio. Los campos de entrada restantes se definen en la plantilla de Azure Resource Manager. Si se han definido valores predeterminados en la plantilla o el archivo `azuredeploy.parameter.json` está presente, en esos campos de entrada se muestran los valores predeterminados. Para los parámetros de tipo *cadena segura*, puede usar los secretos almacenados en el [almacén secreto personal](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) del laboratorio.
+1. En el panel **Agregar**, escriba el valor de **Nombre del entorno**. El nombre del entorno es lo que se muestra a los usuarios del laboratorio. Los campos de entrada restantes se definen en la plantilla de Azure Resource Manager. Si se han definido valores predeterminados en la plantilla o el archivo `azuredeploy.parameter.json` está presente, en esos campos de entrada se muestran los valores predeterminados. Para los parámetros de tipo *cadena segura*, puede usar los secretos almacenados en el [almacén secreto personal](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store) del laboratorio.
 
     ![Agregar panel](./media/devtest-lab-create-environment-from-arm/add.png)
 

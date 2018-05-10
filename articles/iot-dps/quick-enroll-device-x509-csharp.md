@@ -12,18 +12,18 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 51fd3e12344fb20056012c00d6b38edf0355b0a4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef00191e524e93d1ed578193d37fb6002c15a0b8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscripción de dispositivos X.509 en el servicio IoT Hub Device Provisioning mediante el SDK de servicio de C#
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 
-En estos pasos se muestra cómo crear un grupo de inscripción mediante programación para un certificado x.509 de entidad de certificación intermedio o raíz mediante el [SDK de servicio de C#](https://github.com/Azure/azure-iot-sdk-csharp) y se incluye un ejemplo de aplicación .NET Core en C#. Un grupo de inscripción controla el acceso al servicio de aprovisionamiento de los dispositivos que comparten un certificado de firma común en su cadena de certificados. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para más información sobre el uso de la infraestructura de clave pública (PKI) basada en certificados X.509 con Azure IoT Hub y el servicio Device Provisioning, consulte [Introducción a la seguridad mediante certificados de entidades de certificación X.509](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview). Aunque los pasos de este artículo funcionan en máquinas Windows y Linux, en este artículo se usa una máquina de desarrollo de Windows.
+En estos pasos se muestra cómo crear un grupo de inscripción mediante programación para un certificado x.509 de entidad de certificación intermedio o raíz mediante el [SDK de servicio de C#](https://github.com/Azure/azure-iot-sdk-csharp) y se incluye un ejemplo de aplicación .NET Core en C#. Un grupo de inscripción controla el acceso al servicio de aprovisionamiento de los dispositivos que comparten un certificado de firma común en su cadena de certificados. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Para más información sobre el uso de la infraestructura de clave pública (PKI) basada en certificados X.509 con Azure IoT Hub y el servicio Device Provisioning, consulte [Introducción a la seguridad mediante certificados de entidades de certificación X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). Aunque los pasos de este artículo funcionan en máquinas Windows y Linux, en este artículo se usa una máquina de desarrollo de Windows.
 
 ## <a name="prepare-the-development-environment"></a>Preparación del entorno de desarrollo
 
@@ -33,7 +33,7 @@ En estos pasos se muestra cómo crear un grupo de inscripción mediante programa
 4. Necesita un archivo .pem o .cer que contenga la parte pública de un certificado X.509 de entidad de certificación raíz o intermedio que se haya cargado y comprobado en el servicio de aprovisionamiento. El [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c) contiene herramientas que pueden ayudarle a crear una cadena de certificados X.509, cargar un certificado raíz o intermedio a partir de esa cadena y realizar la prueba de posesión con el servicio para comprobar el certificado. Para usar estas herramientas, descargue el contenido de la carpeta [azure-iot-sdk-c/tools/CACertificates](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) en una carpeta de trabajo en su máquina y siga los pasos que se indican en [azure-iot-sdk-c\tools\CACertificates\CACertificateOverview.md](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). Además de las herramientas del SDK de C, el [ejemplo de comprobación del certificado de grupo](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) del **SDK de servicio de C#** muestra cómo realizar la prueba de posesión con un certificado X.509 de entidad de certificación raíz o intermedio. 
 
   > [!IMPORTANT]
-  > Los certificados creados con las herramientas del SDK están diseñados únicamente para usarse en el entorno de desarrollo. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509 CA](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
+  > Los certificados creados con las herramientas del SDK están diseñados únicamente para usarse en el entorno de desarrollo. Para saber cómo obtener certificados adecuados para el código de producción, consulte [Cómo obtener un certificado de entidad de certificación X.509 CA](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) en la documentación de Azure IoT Hub.
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Obtención de la cadena de conexión para el servicio de aprovisionamiento
 
@@ -45,7 +45,7 @@ En el ejemplo de esta guía de inicio rápido, necesitará la cadena de conexió
 
 ## <a name="create-the-enrollment-group-sample"></a>Crear el ejemplo del grupo de inscripción 
 
-En los pasos de esta sección se muestra cómo crear una aplicación de consola de .NET Core que agrega un grupo de inscripción al servicio de aprovisionamiento. Con algunas modificaciones, también puede seguir estos pasos para crear una aplicación de consola de [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para agregar el grupo de inscripción. Para más información sobre el desarrollo con IoT Core, consulte la [documentación para desarrolladores de Windows IoT Core](https://docs.microsoft.com/en-us/windows/iot-core/).
+En los pasos de esta sección se muestra cómo crear una aplicación de consola de .NET Core que agrega un grupo de inscripción al servicio de aprovisionamiento. Con algunas modificaciones, también puede seguir estos pasos para crear una aplicación de consola de [Windows IoT Core](https://developer.microsoft.com/en-us/windows/iot) para agregar el grupo de inscripción. Para más información sobre el desarrollo con IoT Core, consulte la [documentación para desarrolladores de Windows IoT Core](https://docs.microsoft.com/windows/iot-core/).
 1. En Visual Studio, agregue un proyecto de aplicación de consola de Visual C# .NET Core a una nueva solución mediante la plantilla de proyecto **Aplicación de consola (.NET Core)**. Asegúrese de que la versión de .NET Framework sea 4.5.1 o una posterior. Asigne al proyecto el nombre **CreateEnrollmentGroup**.
 
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#](media//quick-enroll-device-x509-csharp/create-app.png)

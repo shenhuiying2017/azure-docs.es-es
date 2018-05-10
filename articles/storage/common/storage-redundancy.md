@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: bdb9bfaa85f526af0c5e42294a75664fa7137849
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -46,7 +46,7 @@ Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/
 > Premium Storage solo admite almacenamiento con redundancia local (LRS). Para más información sobre Premium Storage, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../virtual-machines/windows/premium-storage.md).
 
 ## <a name="changing-replication-strategy"></a>Cambio de estrategia de replicación
-Podrá cambiar la estrategia de replicación de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) o una de las muchas [ bibliotecas de cliente de Azure](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
+Podrá cambiar la estrategia de replicación de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una de las muchas [ bibliotecas de cliente de Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
 
    > [!NOTE]
    > Actualmente, no se puede usar el Portal o la API para convertir la cuenta a ZRS. Sin embargo, tenemos previsto admitir la migración de LRS, GRS y RA-GRS a ZRS una vez que ZRS esté generalmente disponible. Consulte [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) para más información.
@@ -58,9 +58,9 @@ Si cambia de GRS a LRS, no hay ningún costo adicional, pero los datos replicado
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md) (Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage)
+- [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](storage-redundancy-lrs.md)
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md) (Almacenamiento con redundancia de zona (ZRS): aplicaciones de Azure Storage altamente disponibles)
-- [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md) (Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage)
+- [Almacenamiento con redundancia geográfica (GRS): replicación entre regiones para Azure Storage](storage-redundancy-grs.md)
 - [Objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md)
 - [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Opciones de redundancia de Microsoft Azure Storage y almacenamiento con redundancia geográfica con acceso de lectura ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)

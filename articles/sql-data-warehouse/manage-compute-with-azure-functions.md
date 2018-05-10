@@ -7,18 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
-ms.date: 04/17/2018
+ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c5b47a2d30f4533455b4e0eaacb777299aff4d43
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Uso de Azure Functions para administrar recursos de proceso en Azure SQL Data Warehouse
 
-Este tutorial usa Azure Functions para administrar recursos de proceso de un almacenamiento de datos en Azure SQL Data Warehouse. Se recomienda usar estas arquitecturas con SQL Data Warehouse [optimizado para Elasticity][Performance Tiers].
+Este tutorial usa Azure Functions para administrar recursos de proceso de un almacenamiento de datos en Azure SQL Data Warehouse.
 
 Para poder usar Azure Function App con SQL Data Warehouse, debe crear un [cuenta de la entidad de servicio](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) con acceso de colaborador en la misma suscripción que la instancia de almacenamiento de datos. 
 
@@ -183,5 +183,3 @@ Restauración del [repositorio de ejemplos](https://github.com/Microsoft/sql-dat
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
-
-[Performance Tiers]: memory-and-concurrency-limits.md#performance-tiers

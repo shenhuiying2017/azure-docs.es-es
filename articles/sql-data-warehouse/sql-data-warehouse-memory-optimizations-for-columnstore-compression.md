@@ -10,11 +10,11 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 3bbcf7b637a0f32751dc15664a1b7479e65503eb
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximización de la calidad del grupo de filas del almacén de columnas
 
@@ -34,7 +34,7 @@ Durante una carga masiva o regeneración de índice de almacén columnas, a vece
 
 Cuando no hay memoria suficiente para comprimir al menos 10.000 filas en cada grupo de filas, SQL Data Warehouse genera un error.
 
-Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Para obtener más información sobre la carga masiva, consulte [Carga de datos en un índice de almacén de columnas agrupado](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Cómo supervisar la calidad del grupo de filas
 

@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Azure Cosmos DB | Microsoft Docs"
-description: "Contenido de ayuda de introducción a Azure Cosmos DB en Azure Portal"
+title: Introducción a Azure Cosmos DB | Microsoft Docs
+description: Contenido de ayuda de introducción a Azure Cosmos DB en Azure Portal
 services: cosmos-db
 author: sewatson
 manager: lwelicki
@@ -8,11 +8,11 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 9644a587d72973239e34073188ad2cd37eaab5dc
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentación sobre Azure Cosmos DB
 
@@ -35,14 +35,14 @@ Aprenda a usar Azure Cosmos DB para crear una base de datos distribuida globalme
 - [Java](/azure/cosmos-db/create-mongodb-java)
 - [Node.js](/azure/cosmos-db/create-mongodb-nodejs)
 
-### <a name="graph-api"></a>API Graph
+### <a name="graph-api"></a>Graph API
 
 - [.NET](/azure/cosmos-db/create-graph-dotnet)
 - [Java](/azure/cosmos-db/create-graph-java)
 - [Node.js](/azure/cosmos-db/create-graph-nodejs)
 - [Gremlin](/azure/cosmos-db/create-graph-gremlin-console)
 
-### <a name="graph-api"></a>API Graph
+### <a name="graph-api"></a>Graph API
 
 - [.NET](/azure/cosmos-db/create-table-dotnet)
 
@@ -50,13 +50,13 @@ Aprenda a usar Azure Cosmos DB para crear una base de datos distribuida globalme
 
 Aprenda a desarrollar aplicaciones mediante Azure Cosmos DB:
 
-- Desarrollo de una aplicación con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
+- Desarrollo de una aplicación con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Importación de datos en Cosmos DB: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
 - Consulta de datos con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
 - Replicación de una base de datos global con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table] (/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Desarrollo de la aplicación localmente mediante el emulador](/azure/cosmos-db/local-emulator)
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 
 Busque scripts para administrar las tareas más habituales.
 

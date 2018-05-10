@@ -10,11 +10,11 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: d29ccd2d4dce1d1550bac5b5ab97bb44c9960ed6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b25bb73a9f7227fbe3c15610a5b91016505bae4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partners de administración de datos de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Azure SQL Data Warehouse.
@@ -63,12 +63,12 @@ Para obtener más información sobre otros asociados, consulte [Asociados de int
 <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
-[coffing_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/nexus/nexus-chameleon-9/ 
+[coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ 
 <!--[inbrein_marketplace]:-->
-[infolibrarian_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
-[redpoint_it_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-interaction/
-[redpoint_dm_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/redpoint-global/redpoint-rpdm/ 
-[sql_sentry_marketplace]:https://azure.microsoft.com/en-us/marketplace/partners/sqlsentry/sqlsentryplatform/
+[infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
+[redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
+[redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
+[sql_sentry_marketplace]:https://azure.microsoft.com/marketplace/partners/sqlsentry/sqlsentryplatform/
 
 <!--Press links-->
 [coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/

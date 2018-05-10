@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: 445adb7f57332a285494c744763f633806d2675e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 54ec12f24ddbad6227a306aeae86658807f85b4e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Extensión (copia) de alertas del portal de OMS a Azure
 El portal de Operations Management Suite (OMS) muestra solo las alertas de Log Analytics.  La nueva experiencia de Alertas ahora integra la experiencia de alertas en distintos servicios y componentes de Microsoft Azure. La nueva experiencia, disponible como **Alertas** en Azure Monitor en Azure Portal, contiene las alertas de los registros de actividad, las alertas de métricas y las alertas de registros en Log Analytics y también en Application Insights. 
@@ -43,7 +43,7 @@ Cuando las alertas de un área de trabajo de Log Analytics se programen para su 
  ![Durante el período programado, se redirigirá a Azure al usuario que realice cualquier acción sobre las alertas.](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> No se cobrará por la extensión de alertas del portal de OMS a Azure y el uso de Alertas de Azure para las alertas de Log Analytics basadas en consulta no se facturará, siempre que el uso cumpla con los límites y las condiciones que se estipulan en la [directiva de precios de Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).  
+> No se cobrará por la extensión de alertas del portal de OMS a Azure y el uso de Alertas de Azure para las alertas de Log Analytics basadas en consulta no se facturará, siempre que el uso cumpla con los límites y las condiciones que se estipulan en la [directiva de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  
 
 Los usuarios pueden disfrutar de las ventajas que implica extender las alertas antes de esta fecha si deciden aceptar que sus alertas se puedan administrar en Azure.
 

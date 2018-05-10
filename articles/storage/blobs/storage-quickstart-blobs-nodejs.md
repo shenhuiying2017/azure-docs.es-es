@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: 30a64ec6fd4df63eba9c35f1774c81c35fa3506f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07ac5195d9653affdbb0f305ac1697cecd379319
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Node.js
 
@@ -143,7 +143,7 @@ const upload = () => {
 ```
 En el contexto de la aplicación de ejemplo, el archivo llamado *example.txt* se carga en un blob llamado *example* dentro de un contenedor llamado *test-container*. Otros métodos disponibles para cargar contenido en blobs incluyen trabajar con [texto](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) y [secuencias](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
 
-Para comprobar que el archivo se ha cargado en Blob Storage, puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/en-us/features/storage-explorer/) para ver los datos de la cuenta.
+Para comprobar que el archivo se ha cargado en Blob Storage, puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para ver los datos de la cuenta.
 
 ### <a name="list-the-blobs-in-a-container"></a>Enumerar los blobs de un contenedor
 
@@ -284,7 +284,7 @@ Consulte estos recursos adicionales para el desarrollo de Node.js con Blob Stora
 
 ### <a name="client-library-reference-and-samples"></a>Referencia a la biblioteca de clientes y ejemplos
 
-- Para más información acerca de la biblioteca de cliente de Node.js, consulte la [referencia de la API de Node.js](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage).
+- Para más información acerca de la biblioteca de cliente de Node.js, consulte la [referencia de la API de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage).
 - Explore los [ejemplos de Blob Storage](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=nodejs&term=blob) escritos mediante la biblioteca de cliente de Node.js.
 
 ## <a name="next-steps"></a>Pasos siguientes

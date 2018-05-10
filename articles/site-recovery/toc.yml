@@ -177,8 +177,6 @@
               href: vmware-azure-set-up-process-server-scale.md
         - name: Recuperación ante desastres
           items:
-            - name: Recuperación ante desastres de máquinas virtuales de VMware con compatibilidad para multiinquilinos y CSP
-              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
             - name: Replicación de máquinas virtuales de VMware en Azure mediante PowerShell
               href: vmware-azure-disaster-recovery-powershell.md
             - name: Recuperación ante desastres de servidores físicos en Azure
@@ -199,12 +197,14 @@
               href: vmware-azure-exclude-disk.md
             - name: Habilitar replicación de máquinas virtuales de VMware
               href: vmware-azure-enable-replication.md
+            - name: Servicios multiinquilino con CSP para máquinas virtuales de VMWare
+              href: vmware-azure-multi-tenant-csp-disaster-recovery.md
         - name: Implementación de Mobility Service
           items:
+            - name: Introducción a Mobility Service
+              href: vmware-azure-install-mobility-service.md
             - name: Implementación de Mobility Service con System Center Configuration Manager
               href: vmware-azure-mobility-install-configuration-mgr.md
-            - name: Implementación de Mobility Service con DSC de Azure Automation
-              href: vmware-azure-mobility-deploy-automation-dsc.md
         - name: Conmutación por error y conmutación por recuperación
           items:
             - name: Ejecución de un simulacro de recuperación ante desastresen Azure

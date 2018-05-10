@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: bwren
-ms.openlocfilehash: 1e22aab85976fcab8ec270bdea1b8988b4d3bfe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="management-solutions-in-azure"></a>Soluciones de administración en Azure
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.
 
 Las soluciones de administración suelen recopilar información en Log Analytics y proporcionar búsquedas de registros y vistas para analizar los datos recopilados. También pueden aprovechar otros servicios como Azure Automation para realizar acciones relacionadas con la aplicación o el servicio.
 
-Puede agregar soluciones de administración a su suscripción de Azure para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](../operations-management-suite/operations-management-suite-solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
+Puede agregar soluciones de administración a su suscripción de Azure para todas las aplicaciones y los servicios que use. Suelen estar disponibles sin costo, pero la recopilación de datos puede suponer cargos por uso. Además de las soluciones que proporciona Microsoft, los asociados y los clientes pueden [crear soluciones de administración](../monitoring/monitoring-solutions-creating.md) para utilizarlas en su propio entorno o ponerlas a disposición de los clientes en la comunidad.
 
 ## <a name="using-management-solutions"></a>Uso de soluciones de administración
 La página **Introducción** de cada área de trabajo de Log Analytics muestra un icono para cada solución instalada en el área de trabajo. Haga clic en el icono de la solución abrir la vista que incluye un análisis más detallado de los datos recopilados.

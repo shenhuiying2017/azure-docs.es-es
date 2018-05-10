@@ -1,0 +1,127 @@
+- name: Documentación de Notification Hubs
+  href: index.yml
+- name: Información general
+  items:
+    - name: Acerca de Notification Hubs
+      href: notification-hubs-push-notification-overview.md
+- name: Tutoriales
+  items:
+    - name: 1 - Envío de notificaciones push a todos los dispositivos registrados
+      items:
+        - name: Android (Firebase Cloud Messaging)
+          href: notification-hubs-android-push-notification-google-fcm-get-started.md
+        - name: Android (Google Cloud Messaging)
+          href: notification-hubs-android-push-notification-google-gcm-get-started.md
+        - name: Baidu
+          href: notification-hubs-baidu-china-android-notifications-get-started.md
+        - name: Chrome
+          href: notification-hubs-chrome-push-notifications-get-started.md
+        - name: iOS
+          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+        - name: Kindle
+          href: notification-hubs-kindle-amazon-adm-push-notification.md
+        - name: Windows
+          href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+        - name: Windows Phone
+          href: notification-hubs-windows-mobile-push-notifications-mpns.md
+        - name: Xamarin.Android
+          href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Xamarin.iOS
+          href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+    - name: 2 - Envío de notificaciones push a dispositivos específicos
+      items:
+        - name: Android
+          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+        - name: iOS
+          href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+        - name: Windows
+          href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+        - name: Windows Phone
+          href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+    - name: 3 - Envío de notificaciones push localizadas
+      items:
+        - name: iOS
+          href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+        - name: Windows
+          href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+    - name: 4 - Envío de notificaciones push a usuarios específicos
+      items:
+        - name: Android
+          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+        - name: iOS
+          href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+        - name: Windows
+          href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+    - name: 5 - Envío de notificaciones push basadas en la ubicación
+      items:
+        - name: Windows
+          href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+- name: Ejemplos
+  items:
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs'
+    - name: PowerShell
+      href: samples-powershell.md
+- name: Conceptos
+  items:
+    - name: Instrucciones sobre arquitectura de inserción empresarial
+      href: notification-hubs-enterprise-push-notification-architecture.md
+    - name: Registros de dispositivos
+      href: notification-hubs-push-notification-registration-management.md
+      items:
+        - name: Etiquetas para registros
+          href: notification-hubs-tags-segment-push-message.md
+        - name: Registros de plantilla
+          href: notification-hubs-templates-cross-platform-push-messages.md
+- name: Guías de procedimientos
+  items:
+    - name: Envío de notificaciones entre plataformas
+      href: notification-hubs-aspnet-cross-platform-notification.md
+    - name: Inserción de contenido enriquecido en dispositivos
+      href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+    - name: Envío de notificaciones programadas
+      href: notification-hubs-send-push-notifications-scheduled.md
+    - name: Creación de un centro de notificaciones mediante SDK
+      items:
+        - name: 'Creación de un centro de notificaciones: .NET'
+          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+        - name: 'Creación de un centro de notificaciones: Node.js'
+          href: notification-hubs-nodejs-push-notification-tutorial.md
+        - name: 'Creación de un centro de notificaciones: Java'
+          href: notification-hubs-java-push-notification-tutorial.md
+        - name: 'Creación de un centro de notificaciones: PHP'
+          href: notification-hubs-php-push-notification-tutorial.md
+        - name: 'Creación de un centro de notificaciones: Python'
+          href: notification-hubs-python-push-notification-tutorial.md
+    - name: Registro con back-end de aplicación
+      href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
+    - name: Uso de la autenticación basada en token con dispositivos de Apple
+      href: notification-hubs-push-notification-http2-token-authentification.md
+    - name: Solución de problemas de notificaciones descartadas
+      href: notification-hubs-push-notification-fixer.md
+- name: Referencia
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.notificationhubs
+    - name: PowerShell
+      href: /powershell/module/azurerm.notificationhubs
+    - name: API DE REST
+      href: /rest/api/notificationhubs
+- name: Recursos
+  items:
+    - name: Preguntas más frecuentes
+      href: notification-hubs-push-notification-faq.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-notificationhub'
+    - name: Solicitud de una característica
+      href: 'https://feedback.azure.com/forums/218849-notification-hubs'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Opciones de soporte técnico
+      href: 'https://azure.microsoft.com/support/options/'

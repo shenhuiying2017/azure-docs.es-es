@@ -1,10 +1,10 @@
 ---
-title: "Creación, inicio o eliminación de una puerta de enlace de aplicaciones | Microsoft Docs"
-description: "Esta página proporciona instrucciones para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones de Azure"
+title: Creación, inicio o eliminación de una puerta de enlace de aplicaciones | Microsoft Docs
+description: Esta página proporciona instrucciones para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones de Azure
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: victorh
+ms.openlocfilehash: a1cfd42f5b1c31b911005b2539047630c6d320dd
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Creación, inicio o eliminación de una puerta de enlace de aplicaciones con PowerShell 
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
+Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
 Este artículo le guiará por los pasos necesarios para crear, configurar, iniciar y eliminar una Puerta de enlace de aplicaciones.
 
@@ -41,7 +41,7 @@ Este artículo le guiará por los pasos necesarios para crear, configurar, inici
 3. Compruebe que tiene una red virtual de trabajo con una subred válida. Asegúrese de que ninguna máquina virtual o implementación en la nube usan la subred. La Puerta de enlace de aplicaciones debe encontrarse en una subred de red virtual.
 4. Los servidores que configure para que usen la Puerta de enlace de aplicaciones deben existir, o bien sus puntos de conexión deben haberse creado en la red virtual o tener una dirección IP/VIP pública asignada.
 
-## <a name="what-is-required-to-create-an-application-gateway"></a>¿Qué se necesita para crear una Puerta de enlace de aplicaciones?
+## <a name="what-is-required-to-create-an-application-gateway"></a>¿Qué se necesita para crear una puerta de enlace de aplicaciones?
 
 Si se usa el comando `New-AzureApplicationGateway` para crear la puerta de enlace de aplicaciones, no se define ninguna configuración en ese momento y el recurso recién creado se configura con XML o con un objeto de configuración.
 
@@ -57,7 +57,7 @@ Los valores son:
 
 Para crear una Puerta de enlace de aplicaciones:
 
-1. Cree un recurso de Puerta de enlace de aplicaciones.
+1. Cree un recurso de Application Gateway.
 2. Cree un archivo de configuración XML o un objeto de configuración.
 3. Confirme la configuración para el recurso de la Puerta de enlace de aplicaciones recién creado.
 

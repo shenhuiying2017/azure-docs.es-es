@@ -27,11 +27,9 @@
           href: service-fabric-tutorial-create-dotnet-app.md
         - name: 2- Implementación de la aplicación
           href: service-fabric-tutorial-deploy-app-to-party-cluster.md
-        - name: 3 - Habilitamiento de HTTPS
-          href: service-fabric-tutorial-dotnet-app-enable-https-endpoint.md
-        - name: 4- Configuración de CI/CD
+        - name: 3- Configuración de CI/CD
           href: service-fabric-tutorial-deploy-app-with-cicd-vsts.md
-        - name: 5- Supervisión y diagnóstico
+        - name: 4- Supervisión y diagnóstico
           href: service-fabric-tutorial-monitoring-aspnet.md
     - name: Implementación de una aplicación Java
       items:
@@ -98,7 +96,7 @@
     - name: Creación de aplicaciones
       href: service-fabric-choose-framework.md
       items:
-        - name: Containers
+        - name: Contenedores
           href: service-fabric-containers-overview.md
           items:
             - name: Docker Compose (versión preliminar)
@@ -563,42 +561,36 @@
           href: service-fabric-patch-orchestration-application-linux.md
     - name: Supervisión y diagnóstico
       items:
-        - name: Supervisión de aplicaciones
+        - name: Análisis con OMS
           items:
-            - name: Análisis con Application Insights
-              href: service-fabric-diagnostics-event-analysis-appinsights.md
-            - name: Adición de un registro a la aplicación
-              href: service-fabric-how-to-diagnostics-log.md
-            - name: Agregación de eventos con EventFlow
-              href: service-fabric-diagnostics-event-aggregation-eventflow.md
-            - name: Supervisión de contenedores
-              href: service-fabric-diagnostics-oms-containers.md
-        - name: Supervisión de clústeres
-          items:
-            - name: Consulta de API de EventStore
-              href: service-fabric-diagnostics-eventstore-query.md
-            - name: Windows Azure Diagnostics
-              href: service-fabric-diagnostics-event-aggregation-wad.md
-            - name: Linux Azure Diagnostics
-              href: service-fabric-diagnostics-event-aggregation-lad.md
             - name: Configuración de Log Analytics de OMS
               href: service-fabric-diagnostics-oms-setup.md
+            - name: Incorporación del agente de OMS
+              href: service-fabric-diagnostics-oms-agent.md
             - name: Supervisión con OMS
               href: service-fabric-diagnostics-event-analysis-oms.md
-        - name: Supervisión de la infraestructura
+            - name: Supervisión de contenedores
+              href: service-fabric-diagnostics-oms-containers.md
+        - name: Análisis con Application Insights
+          href: service-fabric-diagnostics-event-analysis-appinsights.md
+        - name: 'Agregación de eventos: EventFlow'
+          href: service-fabric-diagnostics-event-aggregation-eventflow.md
+        - name: 'Agregación de eventos: Azure Diagnostics'
           items:
-            - name: Supervisión del rendimiento con WAD
-              href: service-fabric-diagnostics-perf-wad.md
-            - name: Supervisión de rendimiento con el agente de OMS
-              href: service-fabric-diagnostics-oms-agent.md
-        - name: Supervisión del mantenimiento
-          items:
-            - name: Comprobación y notificación de mantenimiento
-              href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
-            - name: Solución de problemas con informes de estado del sistema
-              href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
-            - name: Visualización de informes de estado
-              href: service-fabric-view-entities-aggregated-health.md
+            - name: Windows
+              href: service-fabric-diagnostics-event-aggregation-wad.md
+            - name: Linux
+              href: service-fabric-diagnostics-event-aggregation-lad.md
+        - name: Supervisión del rendimiento con WAD
+          href: service-fabric-diagnostics-perf-wad.md
+        - name: Comprobación y notificación de mantenimiento
+          href: service-fabric-diagnostics-how-to-report-and-check-service-health.md
+        - name: Adición de registro a un servicio
+          href: service-fabric-how-to-diagnostics-log.md
+        - name: Solución de problemas con informes de estado del sistema
+          href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+        - name: Visualización de informes de estado
+          href: service-fabric-view-entities-aggregated-health.md
         - name: Solución de problemas de un clúster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
 - name: Referencia

@@ -8,11 +8,11 @@ editor: TomSh
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: barclayn
-ms.openlocfilehash: a247f5afbca491dc9c31c74453860961188411c9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a7a08c54fe0c59e1e100e1c46e7a640da0692077
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="enforce-multi-factor-authentication-mfa-for-subscription-administrators"></a>Aplicación de Multi-Factor Authentication (MFA) para los administradores de suscripciones
 
@@ -23,7 +23,7 @@ Además, habilitar [Azure Multi-factor Authentication (MFA)](https://docs.micros
 
 Por ejemplo, suponga que aplica Azure MFA para los usuarios y lo configura para usar una llamada de teléfono o un mensaje de texto como confirmación. Si las credenciales del usuario se ven comprometidas, el atacante no podrá acceder a los recursos dado que no tendrá acceso al teléfono del usuario. Las organizaciones que no agregan capas de protección de la identidad adicionales son más susceptibles a ataques de robo de credenciales, lo que puede llevar a poner en peligro la seguridad de los datos.
 
-Una alternativa para las organizaciones que quieren mantener todo el control local de la autenticación es usar el [Servidor Microsoft Azure Multi-Factor Authentication ](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), también denominado MFA local. Mediante este método, podrá seguir aplicando Multi-Factor Authentication y mantener el servidor MFA local.
+Una alternativa para las organizaciones que quieren mantener todo el control local de la autenticación es usar el [Servidor Microsoft Azure Multi-Factor Authentication ](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-server), también denominado MFA local. Mediante este método, podrá seguir aplicando Multi-Factor Authentication y mantener el servidor MFA local.
 
 Para comprobar quién tiene privilegios de administrador en su organización, puede usar el siguiente comando de PowerShell de Microsoft Azure AD V2:
 
@@ -33,7 +33,7 @@ Get-AzureADDirectoryRole | Where { $_.DisplayName -eq "Company Administrator" } 
 
 ## <a name="enabling-mfa"></a>Habilitación de MFA
 
-Revise el funcionamiento de [MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-whats-next) antes de continuar.
+Revise el funcionamiento de [MFA](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-whats-next) antes de continuar.
 
 Siempre y cuando los usuarios tengan licencias que incluyen Azure Multi-Factor Authentication, no hay nada que se pueda hacer para activar Azure MFA. Puede iniciar la solicitud de la verificación en dos pasos en cada usuario individual. Las licencias que habilitan Azure MFA son:
 
@@ -43,5 +43,5 @@ Siempre y cuando los usuarios tengan licencias que incluyen Azure Multi-Factor A
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Activación de la verificación en dos pasos para los usuarios
 
-Utilice uno de los procedimientos enumerados en el artículo [Exigencia de verificación en dos pasos para un usuario o grupo](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para empezar a usar Azure MFA. Puede elegir exigir la verificación en dos pasos para todos los inicios de sesión o crear directivas de acceso condicional para exigir la verificación en dos pasos únicamente cuando usted lo necesite.
+Utilice uno de los procedimientos enumerados en el artículo [Exigencia de verificación en dos pasos para un usuario o grupo](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) para empezar a usar Azure MFA. Puede elegir exigir la verificación en dos pasos para todos los inicios de sesión o crear directivas de acceso condicional para exigir la verificación en dos pasos únicamente cuando usted lo necesite.
 

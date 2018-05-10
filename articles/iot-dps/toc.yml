@@ -133,10 +133,10 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
-        - name: Servicio IoT Hub Device Provisioning
+        - name: IoT Hub Device Provisioning Service
           href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
+        - name: Mapas
+          href: /azure/azure-maps
         - name: SDK de servicio
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights

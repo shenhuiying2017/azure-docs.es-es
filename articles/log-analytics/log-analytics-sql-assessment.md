@@ -1,11 +1,11 @@
 ---
-title: "Optimización del entorno de SQL Server con Azure Log Analytics | Microsoft Docs"
-description: "Con Azure Log Analytics, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos de servidor."
+title: Optimización del entorno de SQL Server con Azure Log Analytics | Microsoft Docs
+description: Con Azure Log Analytics, puede usar periódicamente la solución SQL Health Check para evaluar el riesgo y el estado de los entornos de servidor.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da04e9479ebd6cec886a8c5ca38d040aec2758d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimización del entorno de SQL con la solución SQL Server Health Check en Log Analytics
 
@@ -54,7 +54,7 @@ Para llevar a cabo la comprobación de estado en los servidores de SQL Server, n
 
 1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si el servidor no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el servidor se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
-3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) una vez que habilite la solución en el área de trabajo.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
 
 El agente de SQL Server que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración al servicio Log Analytics.  Los datos no se escriben en las bases de datos de Operations Manager.  
 
@@ -163,7 +163,7 @@ Antes de que pueda usar una solución de evaluación en Log Analytics, debe tene
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visualización de las recomendaciones para un área de enfoque y adopción de las medidas correctivas
-1. Inicie sesión en Azure Portal desde [https://portal.azure.com](https://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.
 3. En el panel de suscripciones de Log Analytics, seleccione un área de trabajo y luego haga clic en el icono de **Información general**.  
 4. En la página **Información general**, haga clic en el icono de **SQL Health Check**.

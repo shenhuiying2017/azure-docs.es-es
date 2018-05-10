@@ -1,11 +1,11 @@
 ---
-title: "Instalación del adaptador de StorSimple para SharePoint | Microsoft Docs"
-description: "Describe cómo instalar y configurar o quitar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint."
+title: Instalación del adaptador de StorSimple para SharePoint | Microsoft Docs
+description: Describe cómo instalar y configurar o quitar el adaptador de StorSimple para SharePoint en una granja de servidores de SharePoint.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
 ms.service: storsimple
 ms.devlang: NA
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Instalar y configurar el adaptador de StorSimple para SharePoint
 ## <a name="overview"></a>Información general
@@ -141,7 +141,7 @@ Asegúrese de que su granja de servidores de SharePoint está configurada correc
   5. En **Administradores**, haga clic en **Desactivar**.
   6. Haga clic en **OK**.
 
-## <a name="remote-blob-storage-rbs-prerequisites"></a>Requisitos previos del almacenamiento remoto de BLOBS (RBS)
+## <a name="remote-blob-storage-rbs-prerequisites"></a>Requisitos previos del almacenamiento remoto de blobs (RBS)
 Asegúrese de utilizar una versión compatible de SQL Server. Solo las siguientes versiones son compatibles y pueden utilizarse con RBS:
 
 * SQL Server 2008 Enterprise Edition
@@ -237,7 +237,7 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 2. Haga doble clic en el adaptador de StorSimple para el instalador de SharePoint. Se inicia el Asistente para la instalación.
    
     ![Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. Haga clic en **Siguiente**. Aparece la siguiente página.
+3. Haga clic en **Next**. Aparece la siguiente página.
    
     ![Página de eliminación del Asistente para la instalación](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. Haga clic en **Quitar** para seleccionar el proceso de eliminación. Aparece la siguiente página.
@@ -261,4 +261,4 @@ Cuando haya devuelto los blobs a las bases de datos de contenido de SQL Server, 
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

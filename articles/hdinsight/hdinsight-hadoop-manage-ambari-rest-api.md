@@ -1,8 +1,8 @@
 ---
-title: "Supervisión y administración de clústeres de Hadoop mediante la API de REST de Ambari: Azure HDInsight | Microsoft Docs"
-description: "Aprenda a usar Ambari para supervisar y administrar clústeres de Hadoop en Azure HDInsight. En este documento, aprenderá a usar la API de REST de Ambari incluida con clústeres de HDInsight."
+title: 'Supervisión y administración de clústeres de Hadoop mediante la API de REST de Ambari: Azure HDInsight | Microsoft Docs'
+description: Aprenda a usar Ambari para supervisar y administrar clústeres de Hadoop en Azure HDInsight. En este documento, aprenderá a usar la API de REST de Ambari incluida con clústeres de HDInsight.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/22/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 55017b139ce89fa74a8105da05792024ecee86b2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Administración de clústeres de HDInsight con la API de REST de Ambari
 
@@ -51,7 +49,7 @@ Tanto si usa Bash como PowerShell, también debe tener [jq](https://stedolan.git
 
 ### <a name="base-uri-for-ambari-rest-api"></a>URI base para la API de REST de Ambari
 
-El URI de base para la API de REST en los clústeres de HDInsight es https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, donde **CLUSTERNAME** es el nombre del clúster de Storm en HDInsight.
+El identificador URI base de la API REST de Ambari en HDInsight es https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, donde **CLUSTERNAME** es el nombre del clúster.
 
 > [!IMPORTANT]
 > Aunque el nombre del clúster en la parte del nombre de dominio completo (FQDN) del identificador URI (CLUSTERNAME.azurehdinsight.net) no distinga entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí lo hacen. Por ejemplo, si su clúster se denomina `MyCluster`, las siguientes opciones son identificadores URI válidos:

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0d8bee936717a5668e16fbd66d416fcc4e738814
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configuración de Network Performance Monitor para ExpressRoute
 
@@ -73,7 +73,7 @@ Cree un área de trabajo en la suscripción que tiene las redes virtuales vincul
 1. En [Azure Portal](https://portal.azure.com), seleccione la suscripción que tiene las redes virtuales emparejadas al circuito de ExpressRoute. A continuación, busque en la lista de servicios de **Marketplace** "Network Performance Monitor". Cuando se devuelva el resultado, haga clic para abrir la página **Network Performance Monitor**.
 
    >[!NOTE]
-   >Puede crear una nueva área de trabajo o usar una existente.  Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Puede crear una nueva área de trabajo o usar una existente.  Si desea usar un área de trabajo existente, debe asegurarse de que se haya migrado el área de trabajo al nuevo lenguaje de consulta. [Más información...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
@@ -118,7 +118,7 @@ Le recomendamos que instale al menos dos agentes en cada lado de la conexión de
   >
   
   >[!NOTE]
-  >Puede que los agentes que inserta SCOM (lo que incluye [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) no sean capaces de detectar su ubicación de forma coherente si están hospedados en Azure.  No se recomienda usar estos agentes en redes virtuales de Azure para supervisar ExpressRoute.
+  >Puede que los agentes que inserta SCOM (lo que incluye [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) no sean capaces de detectar su ubicación de forma coherente si están hospedados en Azure.  No se recomienda usar estos agentes en redes virtuales de Azure para supervisar ExpressRoute.
   >
   >
 

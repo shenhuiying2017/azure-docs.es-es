@@ -1,23 +1,23 @@
 ---
-title: "Ahorrar mediante el pago por adelantado de máquinas virtuales de Azure - Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo puede ahorrar costos de máquinas virtuales con las instancias reservadas de máquina virtual de Azure."
+title: Ahorrar mediante el pago por adelantado de máquinas virtuales de Azure - Azure | Microsoft Docs
+description: Obtenga información sobre cómo puede ahorrar costos de máquinas virtuales con las instancias reservadas de máquina virtual de Azure.
 services: billing
-documentationcenter: 
+documentationcenter: ''
 author: vikramdesai01
 manager: vikramdesai01
-editor: 
+editor: ''
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2017
 ms.author: vikdesai
-ms.openlocfilehash: 799abddc4894bc090d860e7fe100ee65d4d085ab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7d85d3500014962a90ae596598332a95f4aa557e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="save-money-on-virtual-machines-with-reserved-virtual-machine-instances"></a>Ahorrar en máquinas virtuales con instancias reservadas de máquina virtual 
 Las instancias reservadas de máquina virtual le permiten pagar por adelantado por uno o tres años de capacidad de proceso. De esta forma, obtendrá un descuento en las máquinas virtuales que use. Reduce significativamente los costos de máquinas virtuales (hasta un 72 % con respecto a precios de pago por uso) con el compromiso por adelantado de uno o tres años. Debido a que las instancias reservadas de máquina virtual conforman un descuento en la facturación, su compra no afectará al estado de tiempo de ejecución de las máquinas virtuales.

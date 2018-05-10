@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 23bab643a88fe27eb34750f970f962041f8c18f4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database (versión preliminar)
 
@@ -40,8 +40,7 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |IOPS de destino|320|640|1280|2560|5120|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|
-|Máximo de inicios de sesión simultáneos|200|400|800|1600|3200|
-|Sesiones máximas permitidas|3000|3000|3000|3000|3000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|
 |AZ múltiple|N/D|N/D|N/D|N/D|N/D|
 |Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
@@ -63,8 +62,7 @@ Para las bases de datos únicas, las siguientes tablas muestran los recursos dis
 |IOPS de destino|5000|10000|20000|40000|80000|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|
-|Máximo de inicios de sesión simultáneos|200|400|800|1600|3200|
-|Sesiones máximas permitidas|3000|3000|3000|3000|3000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
 |Número de réplicas|3|3|3|3|3|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|
 |Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
@@ -91,11 +89,11 @@ La duración de todo el proceso de escalado vertical depende del nivel de servic
 
 * Si va a actualizar a un nivel de servicio o rendimiento más elevado, el tamaño máximo de la base de datos no aumenta a no ser que especifique un tamaño mayor (maxsize).
 * Para cambiar una base de datos a una versión anterior, su espacio usado no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino y del nivel de rendimiento. 
-* Al actualizar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la principal (regla general para un mejor rendimiento). Al actualizar a una diferente, antes hay que actualizar la base de datos secundaria.
+* Al actualizar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, actualice sus bases de datos secundarias al nivel de rendimiento deseado antes de actualizar la base de datos principal (instrucciones generales para mejorar el rendimiento). Al actualizar a una diferente, antes hay que actualizar la base de datos secundaria.
 * Al degradar una base de datos con la [replicación geográfica](sql-database-geo-replication-portal.md) habilitada, degrade sus bases de datos principales al nivel de rendimiento deseado antes de degradar la secundaria (regla general para un mejor rendimiento). Al cambiar a una versión anterior a una edición diferente, antes hay que cambiar la principal a una versión anterior.
 * Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Grupo elástico: tamaños de almacenamiento y niveles de rendimiento
+## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Grupo de bases de datos elásticas: tamaños de almacenamiento y niveles de rendimiento
 
 Para los grupos elásticos de SQL Database, las siguientes tablas muestran los recursos disponibles en cada nivel de servicio y nivel de rendimiento. Puede establecer el nivel de servicio, el nivel de rendimiento y la cantidad de almacenamiento mediante [Azure Portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal), [PowerShell](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-powershell), la [CLI de Azure](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-cli) o la [API de REST](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-rest-api).
 
@@ -117,8 +115,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |IOPS de destino|320|640|1280|2560|5120|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|
-|Máximo de inicios de sesión simultáneos|210|420|840|1680|3360|
-|Sesiones máximas permitidas|3000|3000|3000|3000|3000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
 |Densidad máxima del grupo|100|200|500|500|500|
 |Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |Número de réplicas|1|1|1|1|1|
@@ -128,7 +125,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |||
 
 ### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
-|Nivel de rendimiento|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Nivel de rendimiento|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |Generación de H/W|4|4|4|4|4|
 |Núcleos virtuales|1|2|4|8|16|
@@ -142,8 +139,7 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 |IOPS de destino|320|640|1280|2560|5120|
 |Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|
-|Máximo de inicios de sesión simultáneos|210|420|840|1680|3360|
-|Sesiones máximas permitidas|3000|3000|3000|3000|3000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
 |Densidad máxima del grupo|N/D|50|100|100|100|
 |Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |AZ múltiple|Sí|Sí|Sí|Sí|Sí|

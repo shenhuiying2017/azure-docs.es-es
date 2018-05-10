@@ -3,8 +3,8 @@ title: Procedimientos recomendados de cifrado y seguridad de datos | Microsoft D
 description: Este artículo proporciona un conjunto de procedimientos recomendados para el cifrado y la seguridad de los datos con funcionalidades de Azure integradas.
 services: security
 documentationcenter: na
-author: YuriDio
-manager: swadhwa
+author: barclayn
+manager: mbalwin
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: 169234195fa75924a65680ce2f3fa6ee9633daae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedimientos recomendados de cifrado y seguridad de datos en Azure
+
 Uno de los elementos clave para la protección de datos en la nube consiste en tener en cuenta los posibles estados en que se pueden producir datos y qué controles hay disponibles para ese estado. Como parte de los procedimientos recomendados de cifrado y seguridad de datos en Azure, se ofrecen recomendaciones relacionadas con los estados de datos siguientes:
 
 * En reposo: esto incluye información sobre todos los objetos de almacenamiento, los contenedores y los tipos que existen de forma estática en medios físicos, ya sean discos magnéticos u ópticos.
@@ -50,6 +51,7 @@ Entre los procedimientos recomendados de cifrado y seguridad de datos en Azure, 
 * Aplicación del cifrado de datos a nivel de archivos
 
 ## <a name="enforce-multi-factor-authentication"></a>Aplicación de Multi-Factor Authentication
+
 El primer paso relativo al acceso y al control de datos en Microsoft Azure consiste en autenticar al usuario. [Azure Multi-Factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) es un método de comprobación de la identidad del usuario que no se limita al nombre de usuario y la contraseña. Este método de autenticación ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer a los usuarios, que demandan un proceso de inicio de sesión simple.
 
 Si habilita Azure MFA para los usuarios, agrega una segunda capa de seguridad a sus transacciones e inicios de sesión. En este caso, es posible que durante una transacción se acceda a un documento que se encuentra en un servidor de archivos o en SharePoint Online. Azure MFA también ayuda al equipo de TI a reducir la probabilidad de que se acceda a los datos de la organización usando credenciales en peligro.
@@ -61,6 +63,7 @@ Una alternativa para las organizaciones que quieren mantener un control local de
 Para más información sobre Azure MFA, lea el artículo [Introducción a Azure Multi-Factor Authentication en la nube](../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Uso del control de acceso basado en rol (RBAC)
+
 Restrinja el acceso siguiendo los principios de seguridad de limitar el acceso a lo que se [necesita saber](https://en.wikipedia.org/wiki/Need_to_know) y a los principios de seguridad con [privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Esto es fundamental para las organizaciones que deseen aplicar directivas de seguridad para el acceso a los datos. El control de acceso basado en rol (RBAC) de Azure sirve para asignar permisos a usuarios, grupos y aplicaciones en un ámbito determinado. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso.
 
 Puede aprovechar los [roles RBAC integrados](../role-based-access-control/built-in-roles.md) en Azure para asignar privilegios a los usuarios. Considere usar *Colaborador de la cuenta de almacenamiento* para los operadores en la nube que necesiten administrar cuentas de almacenamiento y el rol *Colaborador de la cuenta de almacenamiento clásica* para administrar cuentas de almacenamiento clásicas. En el caso de los operadores en la nube que necesiten administrar máquinas virtuales y cuentas de almacenamiento, podría agregarlos al rol *Colaborador de la máquina virtual*.
@@ -70,6 +73,7 @@ Es posible que las organizaciones que no apliquen el control de acceso a los dat
 Puede aprender más sobre Azure RBAC en el artículo [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Cifrado de Azure Virtual Machines
+
 Para muchas organizaciones, el [cifrado de los datos en reposo](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) es un paso obligatorio en lo que respecta a la privacidad de los datos, el cumplimiento y la soberanía de los datos. Azure Disk Encryption permite que los administradores de TI cifren discos de máquina virtual IaaS con Windows y Linux. Azure Disk Encryption aprovecha la característica BitLocker de Windows, estándar en el sector, y la característica DM-Crypt de Linux para ofrecer cifrado de volumen para los discos de datos y del sistema operativo.
 
 Puede aprovechar Azure Disk Encryption para proteger sus datos y así satisfacer los requisitos de cumplimiento y seguridad de la organización. Además, las organizaciones deberían pensar en usar cifrado como ayuda para mitigar los riesgos relacionados con el acceso no autorizado a los datos. También se recomienda cifrar las unidades antes de escribir datos confidenciales en ellas.
@@ -125,6 +129,7 @@ Las organizaciones que no usen el cifrado de nivel de base de datos pueden ser m
 Para más información sobre el cifrado TDE de SQL, lea el artículo [Cifrado de datos transparente con Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Protección de los datos en tránsito
+
 Proteger los datos en tránsito debe ser una parte esencial de su estrategia de protección de datos. Puesto que los datos se desplazan entre muchas ubicaciones, la recomendación general es utilizar siempre los protocolos SSL/TLS para intercambiar datos entre diferentes ubicaciones. En algunas circunstancias, podría aislar todo el canal de comunicación entre su infraestructura local y la nube mediante una red privada virtual (VPN).
 
 Para los datos que se desplazan entre la infraestructura local y Azure, debe plantearse usar medidas de seguridad apropiadas, como HTTPS o VPN.
@@ -142,6 +147,7 @@ Las organizaciones que no protegen los datos en tránsito son más susceptibles 
 Para más información sobre la opción de VPN de Azure, lea el artículo [Planeamiento y diseño de VPN Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Aplicación del cifrado de datos a nivel de archivos
+
 Otra capa de protección que puede aumentar el nivel de seguridad de los datos es el cifrado del archivo, independientemente de su ubicación.
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) usa directivas de autorización, identidad y cifrado para ayudar a proteger los archivos y el correo electrónico. Azure RMS funciona en varios dispositivos (teléfonos, tabletas y PC) y los protege tanto dentro como fuera de su organización. Esta funcionalidad es posible porque Azure RMS agrega una capa de protección que acompaña a los datos, incluso cuando salen de los límites de su organización.

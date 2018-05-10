@@ -1,11 +1,11 @@
 ---
-title: "Optimización del entorno de Active Directory con Azure Log Analytics | Microsoft Docs"
-description: "Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos."
+title: Optimización del entorno de Active Directory con Azure Log Analytics | Microsoft Docs
+description: Puede usar periódicamente la solución Active Directory Health Check para evaluar el riesgo y el estado de los entornos.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f026c605b84c5f2b6420e975a06d7c02227efbd9
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 016b5bafdf6543ad43e36a875e6aa68572b35f97
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimización del entorno de Active Directory con la solución Active Directory Health Check en Log Analytics
 
@@ -54,7 +54,7 @@ Para llevar a cabo la comprobación de estado en los controladores de dominio qu
 
 1. Instale [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si el controlador de dominio no está ya supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2.
 2. Si está supervisado por System Center 2016 - Operations Manager u Operations Manager 2012 R2, y el grupo de administración no está integrado con el servicio Log Analytics, el controlador de dominio se puede hospedar en varios hosts junto con Log Analytics para recopilar datos y enviarlos al servicio y mantener, no obstante, la supervisión de Operations Manager.  
-3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) una vez que habilite la solución en el área de trabajo.  
+3. En caso contrario, si el grupo de administración de Operations Manager está integrado con el servicio, tendrá que agregar los controladores de dominio para la recopilación de datos del servicio siguiendo los pasos descritos en [Adición de equipos administrados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) una vez que habilite la solución en el área de trabajo.  
 
 El agente del controlador de dominio que envía informes a un grupo de administración de Operations Manager, recopila datos, los reenvía a su servidor de administración asignado y, a continuación, los envía directamente desde un servidor de administración al servicio Log Analytics.  Los datos no se escriben en las bases de datos de Operations Manager.  
 

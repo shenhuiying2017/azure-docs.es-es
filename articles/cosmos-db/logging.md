@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 6bad6c7cd641a2ef5461ee37b89c0bdc6a221017
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registro de diagnóstico de Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Después de comenzar a usar una o más bases de datos de Azure Cosmos DB, puede 
 
 ## <a name="logs-available-in-azure"></a>Registros disponibles en Azure
 
-Antes de explicar cómo supervisar la cuenta de Azure Cosmos DB, aclaremos algunos aspectos del registro y la supervisión. Hay diferentes tipos de registros en la plataforma Azure. Hay [registros de actividades de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, supervisión de latidos, registros de operaciones, entre otros. Hay un sinfín de registros. Puede ver una lista completa de los registros en [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) en Azure Portal. 
+Antes de explicar cómo supervisar la cuenta de Azure Cosmos DB, aclaremos algunos aspectos del registro y la supervisión. Hay diferentes tipos de registros en la plataforma Azure. Hay [registros de actividades de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [métricas de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), eventos, supervisión de latidos, registros de operaciones, entre otros. Hay un sinfín de registros. Puede ver una lista completa de los registros en [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) en Azure Portal. 
 
 En la siguiente imagen se muestran los diferentes tipos de registros de Azure disponibles:
 
@@ -51,7 +51,7 @@ Los registros de actividad (operaciones del plano de control) pueden ser mejores
 
 ### <a name="azure-metrics"></a>Métricas de Azure
 
-Las [métricas de Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (también denominadas _contadores de rendimiento_) tienen el tipo de telemetría de Azure más importante emitido por la mayoría de los recursos de Azure. Las métricas le permiten ver información sobre el rendimiento, almacenamiento, coherencia, disponibilidad y latencia de los recursos de Azure Cosmos DB. Para más información, consulte [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md).
+Las [métricas de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (también denominadas _contadores de rendimiento_) tienen el tipo de telemetría de Azure más importante emitido por la mayoría de los recursos de Azure. Las métricas le permiten ver información sobre el rendimiento, almacenamiento, coherencia, disponibilidad y latencia de los recursos de Azure Cosmos DB. Para más información, consulte [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md).
 
 ### <a name="azure-diagnostic-logs"></a>Registros de diagnóstico de Azure
 

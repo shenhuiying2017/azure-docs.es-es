@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: pabutler
-ms.openlocfilehash: 64becc80192e69bd332d6657637c845acf93748b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: eb6db45ca0fcb6879aeaeaaf70715691cac438b0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guía de publicación técnica de aplicaciones SaaS
 
 Bienvenido a la Guía de publicación técnica de aplicaciones SaaS de Azure Marketplace. Esta guía está diseñada para ayudar a los candidatos y a los anunciantes existentes a mostrar sus aplicaciones y servicios en Azure Marketplace mediante la oferta de aplicaciones SaaS.  
-Quiere utilizar la oferta de aplicaciones SaaS cuando se implementa la solución en su propia suscripción de Azure y los clientes inician sesión mediante una interfaz que usted diseña y administra para probar la aplicación. Para ello, se utiliza [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) para aprovechar el entorno de prueba existente. En otras palabras, es una evaluación gratuita dirigida por el cliente y hospedada por un asociado. Es fundamental para mostrar la solución de forma que los compradores de la nube tengan la oportunidad de experimentar la solución de forma independiente y sin costo alguno, por lo que este tipo de oferta proporciona una experiencia de prueba que se ajusta a la forma en que los clientes buscan soluciones en la nube.  
+Quiere utilizar la oferta de aplicaciones SaaS cuando se implementa la solución en su propia suscripción de Azure y los clientes inician sesión mediante una interfaz que usted diseña y administra para probar la aplicación. Para ello, se utiliza [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) para aprovechar el entorno de prueba existente. En otras palabras, es una evaluación gratuita dirigida por el cliente y hospedada por un asociado. Es fundamental para mostrar la solución de forma que los compradores de la nube tengan la oportunidad de experimentar la solución de forma independiente y sin costo alguno, por lo que este tipo de oferta proporciona una experiencia de prueba que se ajusta a la forma en que los clientes buscan soluciones en la nube.  
 
 Para obtener información general de todas las demás ofertas de Marketplace, consulte la [Guía del anunciante de Marketplace](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ Para obtener información general de todas las demás ofertas de Marketplace, co
 Los requisitos técnicos para las aplicaciones SaaS son simples. Los anunciantes solo tienen que integrarse con Azure AD para su publicación.  La integración de Azure AD con aplicaciones está bien documentada y Microsoft proporciona varios SDK y recursos para lograr esto.  
 
 Para empezar, se recomienda contar con una suscripción dedicada a la publicación en Azure Marketplace, lo que permitirá aislar el trabajo de otras iniciativas. Además, si aún no está instalado, le recomendamos que disponga de las siguientes herramientas como parte de su entorno de desarrollo: 
-- [CLI de Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Herramientas de desarrollo de Azure (revisar qué está disponible)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ Las siguientes listas proporcionan vínculos a los mejores recursos de Azure AD 
 
 **Documentación**
 
-- [Guía del desarrollador de Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Guía del desarrollador de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Integración con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Integración con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Hoja de ruta de Azure: seguridad e identidad](https://azure.microsoft.com/roadmap/?category=security-identity)
 
