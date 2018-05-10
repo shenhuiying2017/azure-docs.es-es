@@ -1,0 +1,95 @@
+- name: Documentación sobre las extensiones de máquina virtual
+  href: ../index.md
+- name: Información general
+  items:
+    - name: Acerca de las extensiones de Azure
+      href: overview.md
+    - name: Agente de máquina virtual Linux
+      href: agent-linux.md
+    - name: Agente de máquina virtual Windows
+      href: agent-windows.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: Uso de la extensión de script personalizado
+      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      maintainContext: true
+- name: Conceptos
+  items:
+    - name: Linux
+      href: features-linux.md
+    - name: Windows
+      href: features-windows.md
+- name: Guías de procedimientos
+  items:
+    - name: Extensión Custom Script
+      items:
+        - name: 'Linux: versión 2'
+          href: custom-script-linux.md
+        - name: 'Linux: versión 1 (OSTC)'
+          href: custom-script-linuxOstc.md
+        - name: Windows
+          href: custom-script-windows.md
+    - name: Extensión de OMS
+      items:
+        - name: Linux
+          href: oms-linux.md
+        - name: Windows
+          href: oms-windows.md
+    - name: Extensión Diagnostics
+      items:
+        - name: Linux
+          href: diagnostics-linux.md
+        - name: Windows
+          href: diagnostics-windows.md
+        - name: Uso de plantillas
+          href: diagnostics-template.md
+    - name: Network Watcher Agent
+      items:
+        - name: Linux
+          href: network-watcher-linux.md
+        - name: Windows
+          href: network-watcher-windows.md
+    - name: Extensión PowerShell DSC
+      href: dsc-overview.md
+      items:
+        - name: DSC y Windows
+          href: dsc-windows.md
+        - name: Administración de credenciales
+          href: dsc-credentials.md
+        - name: Uso de plantillas
+          href: dsc-template.md
+    - name: IaaS Antimalware para Windows
+      href: iaas-antimalware-windows.md
+    - name: Extensión de Key Vault
+      href: key-vault-windows.md
+    - name: Extensión de instantánea de máquina virtual
+      items:
+        - name: Linux
+          href: vmsnapshot-linux.md
+        - name: Windows
+          href: vmsnapshot-windows.md
+    - name: Extensiones de terceros
+      items:
+        - name: Stackify Retrace
+          href: stackify-retrace-linux.md
+        - name: Symantec
+          href: symantec.md
+    - name: Extensiones en desuso
+      items:
+        - name: Extensión de recopilador de registros
+          href: log-collector.md
+        - name: Trend Micro Deep Security
+          href: trend.md
+    - name: Restricción de la instalación de extensiones
+      items:
+        - name: Linux
+          href: extensions-rmpolicy-howto-cli.md
+        - name: Windows
+          href: extensions-rmpolicy-howto-ps.md
+    - name: Actualización del agente Linux
+      href: update-linux-agent.md
+    - name: Exportación de extensiones
+      href: export-templates.md
+    - name: Solución de problemas
+      href: troubleshoot.md

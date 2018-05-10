@@ -91,6 +91,8 @@
       href: tutorial-url-route-powershell.md
     - name: Redireccionamiento del tráfico web con Azure PowerShell
       href: tutorial-url-redirect-powershell.md
+    - name: Creación de una puerta de enlace de aplicaciones con redundancia de zona
+      href: create-zone-redundant.md
 - name: Referencia
   items:
     - name: Azure CLI

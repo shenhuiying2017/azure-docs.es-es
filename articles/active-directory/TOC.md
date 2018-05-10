@@ -174,10 +174,6 @@
 #### [Creación de informes de instantánea](cloudappdiscovery-set-up-snapshots.md)
 #### [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Uso de un analizador de registros personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Detección basada en agente
-##### [¿Qué es Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Actualización de configuración del registro](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Descripción de la seguridad y privacidad](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Acceso remoto a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-get-started.md)
@@ -291,7 +287,7 @@
 #### [Condiciones](active-directory-conditional-access-conditions.md)
 #### [Condiciones de ubicación](active-directory-conditional-access-locations.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)
@@ -328,7 +324,7 @@
 #### [Preguntas más frecuentes](active-directory-identity-protection-faqs.md)
 #### [Glosario](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Integración de otros servicios con Azure AD]()
 ### [Habilitación de la integración con LinkedIn](linkedin-integration.md)

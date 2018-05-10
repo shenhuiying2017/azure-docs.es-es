@@ -45,7 +45,7 @@
           href: service-fabric-tutorial-java-jenkins.md
     - name: Inclusión de una aplicación .NET existente en un contenedor
       items:
-        - name: 1- Implementación de una aplicación .NET con Docker Compose
+        - name: 1- Implementación de una aplicación .NET
           href: service-fabric-host-app-in-a-container.md
         - name: 2- Supervisión del contenedor
           href: service-fabric-tutorial-monitoring-wincontainers.md

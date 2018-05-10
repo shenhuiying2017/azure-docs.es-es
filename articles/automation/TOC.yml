@@ -115,16 +115,14 @@
           href: automation-pass-json-string.md
     - name: Hybrid Runbook Worker
       items:
-        - name: Implementación de Hybrid Runbook Worker
+        - name: Introducción a Hybrid Runbook Worker
           href: automation-hybrid-runbook-worker.md
-        - name: Hybrid Runbook Worker de Azure Automation en Windows
+        - name: Implementación de Hybrid Runbook Worker en Windows
           href: automation-windows-hrw-install.md
-        - name: Hybrid Runbook Worker de Azure Automation en Linux
+        - name: Implementación de Hybrid Runbook Worker en Linux
           href: automation-linux-hrw-install.md
-        - name: Ejecución de runbooks en Worker
+        - name: Ejecución de runbooks en Hybrid Runbook Worker
           href: automation-hrw-run-runbooks.md
-        - name: Quitar Hybrid Runbook Workers de Azure Automation
-          href: automation-remove-hrw.md
     - name: Implementar administración de configuración (DSC)
       items:
         - name: Introducción a Desired State Configuration (DSC)

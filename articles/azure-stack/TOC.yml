@@ -61,8 +61,22 @@
               href: azure-stack-prepare-pki-certs.md
             - name: Validación de certificados PKI
               href: azure-stack-validate-pki-certs.md
-        - name: Integración de identidades
-          href: azure-stack-integrate-identity.md
+            - name: Corrección de certificados PKI
+              href: azure-stack-remediate-certs.md
+            - name: Recursos de implementación
+              items:
+                - name: Referencia del cmdlet Start-AzsReadiness
+                  href: azure-stack-azsreadiness-cmdlet.md
+                - name: Ver el informe de preparación
+                  href: azure-stack-validation-report.md
+            - name: Integración de identidades
+              items:
+                - name: Elección de un proveedor de identidades
+                  href: azure-stack-integrate-identity.md
+                - name: Validación de la identidad de Azure
+                  href: azure-stack-validate-identity.md
+        - name: Validación del registro de Azure
+          href: azure-stack-validate-registration.md
         - name: Supervisión externa
           href: azure-stack-integrate-monitor.md
         - name: Integración de seguridad
@@ -123,7 +137,7 @@
               href: azure-stack-manage-storage-accounts.md
             - name: Administración de la capacidad de almacenamiento
               href: azure-stack-manage-storage-shares.md
-            - name: Administración de la capacidad de almacenamiento física para Azure Stack
+            - name: Administración de la capacidad de memoria física
               href: azure-stack-manage-storage-physical-memory-capacity.md
         - name: Reemplazo de hardware
           items:
@@ -253,6 +267,10 @@
               href: azure-stack-compute-add-scalesets.md
             - name: Ofertar máquinas virtuales Linux
               href: azure-stack-linux.md
+            - name: Incorporación de una máquina virtual Red Hat
+              href: azure-stack-redhat-create-upload-vhd.md
+            - name: Oferta de un clúster de Kubernetes
+              href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Uso y facturación
           items:
             - name: Información general
