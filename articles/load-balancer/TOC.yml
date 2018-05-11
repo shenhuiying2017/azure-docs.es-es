@@ -76,7 +76,6 @@
         - name: Creación de Load Balancer público con IPv6 (plantilla)
           href: load-balancer-ipv6-internet-template.md
     - name: Configuración de Load Balancer interno
-      href: load-balancer-get-started-ilb-arm-portal.md
       items:
         - name: Configuración de Load Balancer interno (PowerShell)
           href: load-balancer-get-started-ilb-arm-ps.md

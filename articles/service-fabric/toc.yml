@@ -98,7 +98,7 @@
     - name: Creación de aplicaciones
       href: service-fabric-choose-framework.md
       items:
-        - name: Containers
+        - name: Contenedores
           href: service-fabric-containers-overview.md
           items:
             - name: Docker Compose (versión preliminar)

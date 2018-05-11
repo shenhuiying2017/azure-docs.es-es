@@ -167,16 +167,16 @@
 #### [Dispositivos combinados híbridos de Azure AD para Windows heredado](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Administración de aplicaciones
-### [Información general](active-directory-enable-sso-scenario.md)
-### [Introducción](active-directory-integrating-applications-getting-started.md)
+### [Información general](manage-apps/what-is-application-management.md)
+### [Introducción](manage-apps/plan-an-application-integration.md)
 ### [Tutoriales de integración de aplicaciones SaaS](active-directory-saas-tutorial-list.md)
-### [Detección de aplicaciones de nube](cloudappdiscovery-get-started.md)
-#### [Creación de informes de instantánea](cloudappdiscovery-set-up-snapshots.md)
+### [Detección de aplicaciones de nube](manage-apps/cloud-app-discovery.md)
+#### [Creación de informes de instantánea](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configuración de informes continuos](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Uso de un analizador de registros personalizado](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Acceso remoto a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-get-started.md)
+### [Acceso remoto a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy.md)
 #### Introducción
 ##### [Habilitación del proxy de aplicación](active-directory-application-proxy-enable.md)
 ##### [Publicación de aplicaciones](application-proxy-publish-azure-portal.md)
@@ -287,7 +287,7 @@
 #### [Condiciones](active-directory-conditional-access-conditions.md)
 #### [Condiciones de ubicación](active-directory-conditional-access-locations.md)
 #### [Controles](active-directory-conditional-access-controls.md)
-#### [Introducción](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Primeros pasos](active-directory-conditional-access-azure-portal-get-started.md)
 #### [procedimientos recomendados](active-directory-conditional-access-best-practices.md)
 #### [Descripción de directivas de dispositivo para servicios de Office 365](active-directory-conditional-access-device-policies.md)
 #### [Migración de directivas clásicas](active-directory-conditional-access-migration.md)

@@ -32,6 +32,16 @@
       href: use-deep-learning-dsvm.md
     - name: Uso de una máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial
       href: use-geo-ai-dsvm.md
+- name: Guía de Enterprise
+  items:
+    - name: Información general
+      href: dsvm-enterprise-overview.md
+    - name: Escalado
+      href: dsvm-pools.md
+    - name: Integración de Active Directory
+      href: dsvm-common-identity.md
+    - name: Protección de las credenciales de acceso a los recursos
+      href: dsvm-secure-access-keys.md
 - name: Referencia
   expanded: true
   items:

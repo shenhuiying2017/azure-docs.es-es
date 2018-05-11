@@ -29,6 +29,8 @@
 ### [CLI de Azure 2.0](tutorial-autoscale-cli.md)
 ### [Azure PowerShell](tutorial-autoscale-powershell.md)
 ### [Plantilla](tutorial-autoscale-template.md)
+## Implementación de aplicaciones en un conjunto de escalado de máquinas virtuales de Azure con una imagen de Packer personalizada
+### [CLI de Azure 2.0](https://docs.microsoft.com/learn/deploy-custom-vmss-app/index)
 
 # Ejemplos
 ## [CLI de Azure 2.0](cli-samples.md)

@@ -1,0 +1,85 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure CDN
+metadata:
+  title: 'Documentación sobre Azure CDN: tutoriales y referencia de API | Microsoft Docs'
+  description: Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red mediante ubicaciones POP de CDN. Por ejemplo, Azure CDN puede usar la optimización de rutas para omitir el protocolo de puerta de enlace de borde (BGP).
+  services: cdn
+  author: czeumault
+  manager: carolz
+  ms.service: cdn
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/03/2018
+  ms.author: carolz
+  ms.openlocfilehash: 42d08e9a5893bf58ecf405cc5caf750ee3e1daf7
+  ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 05/11/2018
+abstract:
+  description: Azure Content Delivery Network (CDN) es una solución global de CDN para la entrega de contenido de ancho de banda alto. Se puede hospedar en Azure o en cualquier otra ubicación. Con Azure CDN, puede almacenar en caché objetos estáticos cargados desde Azure Blob Storage, una aplicación web o cualquier servidor web de acceso público, mediante el servidor de punto de presencia (POP) más cercano. Azure CDN también puede acelerar el contenido dinámico, que no puede almacenarse en caché, aprovechando para ello varias optimizaciones de red mediante ubicaciones POP de CDN. Por ejemplo, Azure CDN puede usar la optimización de rutas para omitir el protocolo de puerta de enlace de borde (BGP).
+sections:
+- title: 
+  items:
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cdn.svg
+      text: Información acerca de Azure CDN
+      href: /azure/cdn/cdn-overview
+- title: Inicios rápidos en 5 minutos
+  items:
+  - type: paragraph
+    text: Aprenda a habilitar Azure CDN mediante la creación de un perfil y un punto de conexión de CDN.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/get-started.svg
+      text: Introducción a Azure CDN
+      href: /azure/cdn/cdn-create-new-endpoint
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a configurar Azure CDN para sus necesidades.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Adición de un dominio personalizado al punto de conexión de CDN</a>
+    - html: <a href="/azure/cdn/cdn-custom-ssl">Configuración de HTTPS en un dominio personalizado</a>
+    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Establecimiento de reglas de almacenamiento en caché</a>
+- title: Vídeos
+  items:
+  - type: paragraph
+    text: Vea vídeos que muestran el funcionamiento de Azure CDN.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/video-library.svg
+      text: Biblioteca de vídeos de Azure CDN
+      href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
+- title: Ejemplos
+  items:
+  - type: paragraph
+    text: Busque scripts para administrar las tareas más habituales.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Ejemplos de código</a>
+- title: Referencia
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Línea de comandos
+      html: <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
+    - title: Idiomas
+      html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/cdn/">Referencia de API de REST</a></p>
