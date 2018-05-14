@@ -114,6 +114,8 @@
               href: active-directory-b2c-setup-qq-app.md
             - name: WeChat
               href: active-directory-b2c-setup-wechat-app.md
+            - name: Azure AD (un solo inquilino)
+              href: active-directory-b2c-setup-oidc-azure-active-directory.md
             - name: Personalización de OpenID Connect
               href: active-directory-b2c-setup-oidc-idp.md
         - name: Configuración del restablecimiento de contraseña de autoservicio
