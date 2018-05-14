@@ -1,7 +1,7 @@
 # [Documentación de Key Vault](index.yml)
 
 # Información general
-## [Introducción a Azure Key Vault](key-vault-overview.md)
+## [Acerca de Key Vault](key-vault-overview.md)
 
 # Guías de inicio rápido
 ## [Creación de un almacén de claves: CLI](quick-create-cli.md)
@@ -65,8 +65,8 @@
 ## [Introducción al servicio](https://azure.microsoft.com/services/key-vault/)
 ## [Información acerca de claves, secretos y certificados](about-keys-secrets-and-certificates.md)
 ### [Primeros pasos con certificados](certificate-scenarios.md)
-#### [Métodos de creación de certificados](create-certificate.md)
-#### [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)
+### [Métodos de creación de certificados](create-certificate.md)
+### [Supervisión y administración de la creación de certificados](create-certificate-scenarios.md)
 ## [Autenticación, solicitudes y respuestas](authentication-requests-and-responses.md)
 ## [Parámetros y encabezados habituales](common-parameters-and-headers.md)
 ## [Versiones de Key Vault](key-vault-versions.md)

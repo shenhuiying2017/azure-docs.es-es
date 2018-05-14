@@ -43,6 +43,7 @@
 ### [Actualización de la información de pago](billing-how-to-change-credit-card.md)
 ### [Pago de suscripciones por factura](billing-how-to-pay-by-invoice.md)
 ### [Vinculación de identificación de asociado](billing-partner-admin-link-started.md)
+### [Visualización de cuentas de facturación](billing-view-all-accounts.md)
 ## [Administración de instancias reservadas de máquina virtual](billing-manage-reserved-vm-instance.md)
 ## Solución de problemas
 ### [Problemas de suscripción](https://support.microsoft.com/en-us/help/4042959)

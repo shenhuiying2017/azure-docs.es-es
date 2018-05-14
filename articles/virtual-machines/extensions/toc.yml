@@ -22,7 +22,7 @@
       href: features-windows.md
 - name: Guías de procedimientos
   items:
-    - name: Extensión Custom Script
+    - name: Script personalizado
       items:
         - name: 'Linux: versión 2'
           href: custom-script-linux.md
@@ -30,13 +30,13 @@
           href: custom-script-linuxOstc.md
         - name: Windows
           href: custom-script-windows.md
-    - name: Extensión de OMS
+    - name: Operations Management Suite
       items:
         - name: Linux
           href: oms-linux.md
         - name: Windows
           href: oms-windows.md
-    - name: Extensión Diagnostics
+    - name: Diagnóstico
       items:
         - name: Linux
           href: diagnostics-linux.md
@@ -50,7 +50,7 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
-    - name: Extensión PowerShell DSC
+    - name: PowerShell DSC
       href: dsc-overview.md
       items:
         - name: DSC y Windows
@@ -61,9 +61,9 @@
           href: dsc-template.md
     - name: IaaS Antimalware para Windows
       href: iaas-antimalware-windows.md
-    - name: Extensión de Key Vault
+    - name: Key Vault
       href: key-vault-windows.md
-    - name: Extensión de instantánea de máquina virtual
+    - name: VM Snapshot
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -77,7 +77,7 @@
           href: symantec.md
     - name: Extensiones en desuso
       items:
-        - name: Extensión de recopilador de registros
+        - name: Recopilador de registros
           href: log-collector.md
         - name: Trend Micro Deep Security
           href: trend.md

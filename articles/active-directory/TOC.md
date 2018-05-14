@@ -16,6 +16,7 @@
 ## [Adición de usuarios a Azure AD](add-users-azure-active-directory.md)
 ## [Asignación de licencias a usuarios](license-users-groups.md)
 ## [Configuración del autoservicio de restablecimiento de contraseña](authentication/quickstart-sspr.md)
+## [Incorporación de información de privacidad de su organización en Azure AD](active-directory-properties-area.md)
 
 
 # Procedimientos
@@ -58,6 +59,7 @@
 #### [Directivas de uso compartido de B2B](active-directory-b2b-delegate-invitations.md)
 #### [Adición de un usuario B2B a un rol](active-directory-b2b-add-guest-to-role.md)
 #### [Grupos dinámicos y usuarios de B2B](active-directory-b2b-dynamic-groups.md)
+#### [Salida de una organización](active-directory-b2b-leave-the-organization.md)
 #### [Informes y auditoría](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B para organizaciones híbridas](active-directory-b2b-hybrid-organizations.md)
 ##### [Concesión a los usuarios B2B de acceso a las aplicaciones locales](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -178,11 +180,11 @@
 
 ### [Acceso remoto a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy.md)
 #### Introducción
-##### [Habilitación del proxy de aplicación](active-directory-application-proxy-enable.md)
-##### [Publicación de aplicaciones](application-proxy-publish-azure-portal.md)
-##### [Dominios personalizados](active-directory-application-proxy-custom-domains.md)
-#### [Inicio de sesión único](application-proxy-sso-overview.md)
-##### [SSO con KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Habilitación del proxy de aplicación](manage-apps/application-proxy-enable.md)
+##### [Publicación de aplicaciones](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Dominios personalizados](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Inicio de sesión único](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO con KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO con encabezados](application-proxy-ping-access.md)
 ##### [SSO con almacenamiento de contraseñas](application-proxy-sso-azure-portal.md)
 #### Conceptos

@@ -25,7 +25,7 @@
       href: role-assignments-external-users.md
     - name: Registros de actividad
       href: change-history-report.md
-    - name: Elevación de acceso de administrador de inquilinos
+    - name: Elevación de los privilegios de acceso para el administrador global
       href: elevate-access-global-admin.md
     - name: Solución de problemas
       href: troubleshooting.md
