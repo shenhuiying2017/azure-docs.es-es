@@ -1,12 +1,12 @@
 ---
-title: "Telemetría de Azure Stack | Microsoft Docs"
-description: "Describe cómo configurar los valores de telemetría de Azure Stack mediante PowerShell."
+title: Telemetría de Azure Stack | Microsoft Docs
+description: Describe cómo configurar los valores de telemetría de Azure Stack mediante PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -92,7 +92,7 @@ Los niveles de telemetría son acumulativos y se clasifican en cuatro niveles (0
  - Atributos de almacenamiento, como número de unidades, tipo y tamaño
 - **Funcionalidad de telemetría**, que incluye el porcentaje de eventos cargados, eventos descartados y hora de última carga.
 - **Información relacionada con la calidad** que ayuda a Microsoft a desarrollar un conocimiento básico del funcionamiento Azure Stack. Un ejemplo es el número de alertas críticas en una configuración de hardware determinada.
-- **Datos de compatibilidad que ayudan a saber qué proveedores de recursos están instalados en un sistema y en una máquina virtual e identifica posibles problemas de compatibilidad.
+- \*\*Datos de compatibilidad que ayudan a saber qué proveedores de recursos están instalados en un sistema y en una máquina virtual e identifica posibles problemas de compatibilidad.
 
 **2 (Mejorado)**. Información adicional, que incluye cómo se usan el sistema operativo y otros servicios de Azure Stack, cuál es su rendimiento, datos avanzados de confiabilidad y datos de los niveles Básico y Seguridad. 
 
