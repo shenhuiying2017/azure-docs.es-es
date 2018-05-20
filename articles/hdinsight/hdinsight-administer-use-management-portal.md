@@ -82,7 +82,7 @@ La instalación de software personalizado en el clúster mediante la Conexión a
 
    * Para personalizar el menú, haga clic con el botón derecho en el menú y, después, haga clic en **Personalizar**.
    * **Configuración** y **Toda la configuración**: Muestra la hoja **Configuración** del clúster, que permite obtener acceso a información de configuración detallada para el clúster.
-   * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux. -**Secure Shell**: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
+   * **Panel**, **Panel de clúster** y **Dirección URL: todas son formas de acceder al panel del clúster, que es la web de Ambari para los clústeres basados en Linux. -** Secure Shell\*\*: muestra las instrucciones para conectarse al clúster mediante la conexión de Secure Shell (SSH).
    * **Escalar clúster**: Permite cambiar el número de nodos de trabajo para este clúster.
    * **Eliminar**: elimina el clúster.
    * **Inicio rápido**: muestra información que le ayudará a empezar a usar HDInsight.
@@ -276,7 +276,7 @@ La consola de consulta de HDInsight incluye las siguientes características:
 
     ![HDInsight portal job history](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la **salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
+    Haga clic en **Nombre de la consulta** para mostrar los detalles, incluidas las propiedades del trabajo, la **consulta del trabajo** y la \*\*salida del trabajo. También puede descargar la consulta y la salida a la estación de trabajo.
 * **Explorador de archivos**: explore la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas.
 
     ![HDInsight portal file browser browse](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

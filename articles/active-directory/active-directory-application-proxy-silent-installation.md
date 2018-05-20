@@ -1,12 +1,12 @@
 ---
-title: "Instalación silenciosa del conector del proxy de la aplicación de Azure AD | Microsoft Docs"
-description: "Explica cómo realizar una instalación no atendida del conector de Proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales."
+title: Instalación silenciosa del conector del proxy de la aplicación de Azure AD | Microsoft Docs
+description: Explica cómo realizar una instalación no atendida del conector de Proxy de aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.date: 01/31/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dbda2448c5bf2b6998d120a082e036d7e0125a1f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b9d8535be51601f2ca438f2d22c18656c5ff0dc0
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creación de un script de instalación desatendida para el conector del proxy de la aplicación de Azure AD
 
@@ -127,8 +127,8 @@ Hay dos métodos posibles para registrar el conector:
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## <a name="next-steps"></a>Pasos siguientes 
-* [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
-* [Habilitar el inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md)
+* [Publicar aplicaciones mediante su propio nombre de dominio](manage-apps/application-proxy-configure-custom-domain.md)
+* [Habilitar el inicio de sesión único](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Solucionar los problemas que tiene con el Proxy de aplicación](active-directory-application-proxy-troubleshoot.md)
 
 

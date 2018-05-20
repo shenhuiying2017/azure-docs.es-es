@@ -3,23 +3,23 @@ title: Descripción de los conectores del Proxy de aplicación de Azure AD | Mic
 description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
-ms.author: billmath
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c7f27d3fd8a5785017d580df02007abaac503c39
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -33,7 +33,7 @@ Los conectores son agentes ligeros que se colocan en local y facilitan la conexi
 
 Para implementar correctamente Proxy de aplicación necesita al menos un conector, pero se recomiendan dos o más para conseguir una mayor resistencia. Instale el conector en un equipo Windows Server 2012 R2 o 2016. El conector debe ser capaz de comunicarse con el servicio Proxy de aplicación, así como con las aplicaciones locales que se publican. 
 
-Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](active-directory-application-proxy-enable.md).
+Para más información sobre los requisitos de red del servidor del conector, vea [Get started with Application Proxy and install a connector (Información general sobre Proxy de aplicación e instalación de un conector)](manage-apps/application-proxy-enable.md).
 
 ## <a name="maintenance"></a>Mantenimiento 
 Los conectores y el servicio se encargan de todas las tareas de alta disponibilidad. Se pueden agregar o quitar de forma dinámica. Cada vez que llega una solicitud nueva, esta se enruta a uno de los conectores que estén disponibles en ese momento. Si un conector no está disponible temporalmente, no responde a este tráfico.
@@ -50,7 +50,7 @@ No es necesario que elimine manualmente los conectores que no se están utilizan
 
 ## <a name="automatic-updates"></a>Actualizaciones automáticas
 
-Azure AD proporciona actualizaciones automáticas para todos los conectores que se implementen. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](active-directory-application-proxy-enable.md) con el fin de obtener las actualizaciones. 
+Azure AD proporciona actualizaciones automáticas para todos los conectores que se implementen. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](manage-apps/application-proxy-enable.md) con el fin de obtener las actualizaciones. 
 
 Si no quiere esperar a que una actualización automática llegue al conector, puede realizar una actualización manual. Vaya a la [página de descarga del conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) en el servidor en el que se encuentra el conector y seleccione **Descargar**. Este proceso inicia una actualización del conector local. 
 
@@ -123,7 +123,7 @@ Los conectores también pueden estar unidos a dominios o bosques que tienen una 
 
 Por lo general, la implementación del conector es sencilla y no requiere ninguna configuración especial. Sin embargo, hay algunas condiciones únicas que deben tenerse en cuenta:
 
-* Las organizaciones que limitan el tráfico saliente deben [abrir los puertos necesarios](active-directory-application-proxy-enable.md#open-your-ports).
+* Las organizaciones que limitan el tráfico saliente deben [abrir los puertos necesarios](manage-apps/application-proxy-enable.md#open-your-ports).
 * Podría ser necesario que las máquinas compatibles con FIPS cambiaran su configuración para permitir que los procesos del conector generaran y almacenaran un certificado.
 * Las organizaciones que bloquean su entorno en función de los procesos que emiten las solicitudes de red tienen que asegurarse de que los servicios del conector estén habilitados para tener acceso a todas las direcciones IP y puertos necesarios.
 * En algunos casos, los proxy de reenvío de salida pueden interrumpir la autenticación de certificado de dos direcciones y provocar un error en la comunicación.

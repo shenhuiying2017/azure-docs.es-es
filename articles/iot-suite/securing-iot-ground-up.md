@@ -1,12 +1,12 @@
 ---
-title: "Protección de Internet de las cosas desde el principio | Microsoft Docs"
-description: "En este artículo se describen las características de seguridad integradas de Microsoft Azure IoT Suite"
-services: 
+title: Protección de Internet de las cosas desde el principio | Microsoft Docs
+description: En este artículo se describen las características de seguridad integradas de los aceleradores de la solución de Microsoft Azure IoT
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 10252dfa-8313-4a97-9bd6-a3f1345dd3be
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 6df45a64c70bda632c3f8b721aa962dd8b6d3fa2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 991a668bbebf09c7394552b1dc5928e5dbe58841
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
@@ -34,10 +34,10 @@ Para obtener más información sobre cómo proteger la solución de IoT, consult
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
+También puede explorar algunas de las demás características y funcionalidades de los aceleradores de la solución de IoT:
 
-* [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
-* [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+* [Introducción al acelerador de la solución de mantenimiento predictivo][lnk-predictive-overview]
+* [Preguntas más frecuentes acerca de los aceleradores de la solución de IoT][lnk-faq]
 
 Puede informarse sobre la seguridad en IoT Hub en [Control del acceso a IoT Hub][lnk-devguide-security], en la Guía del desarrollador de IoT Hub.
 

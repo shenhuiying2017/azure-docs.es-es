@@ -18,6 +18,9 @@ Al usar la configuración básica y seleccionar solo una suscripción, Cloud She
 
 El recurso compartido de archivos se monta como `clouddrive` en su directorio `$Home`. Se trata de una acción única y el recurso compartido de archivos se monta automáticamente en sesiones posteriores. 
 
+> [!NOTE]
+> Por motivos de seguridad, cada usuario debe aprovisionar su propio almacenamiento.  En el control de acceso basado en roles (RBAC), los usuarios deben tener acceso como colaboradores o un rol superior.
+
 En Bash, el recurso compartido de archivos también contiene una imagen de 5 GB que se crea para que el usuario conserve automáticamente los datos en su directorio `$Home`. 
 
 ### <a name="use-existing-resources"></a>Uso de recursos existentes

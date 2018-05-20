@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bfb9b62a8965fa1f7daf62d814665ca23491cc04
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recopilar los contadores de rendimiento para aplicaciones de Linux en Log Analytics 
 En este artículo se proporciona información para configurar el [agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) a fin de recopilar los contadores de rendimiento para aplicaciones específicas.  Las aplicaciones incluidas en este artículo son las siguientes:  
@@ -78,9 +78,9 @@ En la tabla siguiente se proporciona información sobre la sintaxis para usar my
 
 | Operación | Ejemplo | DESCRIPCIÓN
 |:--|:--|:--|
-| actualización automática *false\|true* | mycimprovauth autoupdate false | Establece si el archivo de autenticación se actualizará automáticamente o no al reiniciar o actualizar. |
+| autoupdate *false o true* | mycimprovauth autoupdate false | Establece si el archivo de autenticación se actualizará automáticamente o no al reiniciar o actualizar. |
 | *nombre de usuario y contraseña de la dirección de enlace* predeterminada | mycimprovauth default 127.0.0.1 root pwd | Establece la instancia predeterminada del archivo de autenticación de MySQL para OMI.<br>El campo de contraseña debe escribirse en texto sin formato, ya que la contraseña del archivo de autenticación de MySQL para OMI se codificará en Base 64. |
-| eliminar *port_num\|predeterminado* | mycimprovauth 3308 | Elimina la instancia especificada, ya sea por el valor predeterminado o por número de puerto. |
+| delete *default o port_num* | mycimprovauth 3308 | Elimina la instancia especificada, ya sea por el valor predeterminado o por número de puerto. |
 | help | mycimprov help | Imprime una lista de comandos que se pueden usar. |
 | imprimir | mycimprov print | Imprime un archivo de autenticación de MySQL para OMI fácil de leer. |
 | actualizar *nombre de usuario y contraseña de la dirección de enlace* del número de puerto | mycimprov update 3307 127.0.0.1 root pwd | Actualiza la instancia especificada o, si no existe, agrega la instancia. |

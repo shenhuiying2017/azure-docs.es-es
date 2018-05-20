@@ -1,8 +1,7 @@
 ---
-title: Creación de un trabajo de Stream Analytics mediante Azure PowerShell | Microsoft Docs
+title: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 description: En esta guía de inicio rápido se detalla cómo usar el módulo de Azure PowerShell para implementar y ejecutar un trabajo de Azure Stream Analytics.
 services: stream-analytics
-keywords: Stream analytics, Cloud jobs, Azure PowerShell, job input, job output, job transformation
 author: SnehaGunda
 ms.author: sngun
 ms.date: 03/16/2018
@@ -10,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 8a1036531ea0e7c1426224bc4d42c83e9049cabf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0be8cee9e6c7874282f4e8f43f75fa7f2490c14e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure PowerShell
 
@@ -34,9 +33,11 @@ Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccoun
 # Log in to your Azure account
 Connect-AzureRmAccount
 
-# Select the Azure subscription you want to use to create the resource group.
-Get-AzureRmSubscription `
-  -SubscriptionName “<your subscription>” | Select-AzureRmSubscription
+# List all available subscriptions.
+Get-AzureRmSubscription
+
+# Select the Azure subscription you want to use to create the resource group and resources.
+Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
 ```
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos

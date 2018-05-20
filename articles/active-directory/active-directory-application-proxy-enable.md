@@ -1,30 +1,30 @@
 ---
-title: "Azure AD App Proxy: introducción a la instalación del conector | Microsoft Docs"
-description: "Active el proxy de aplicación en Azure Portal e instale los conectores del proxy inverso."
+title: 'Azure AD App Proxy: introducción a la instalación del conector | Microsoft Docs'
+description: Active el proxy de aplicación en Azure Portal e instale los conectores del proxy inverso.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2c2e0f977cdf0d31da19f71d9260b500184858e9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: d636542c788aff43acf9e35583b4c0615fe0c7db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Empezar a trabajar con el proxy de aplicación e instalar el conector
 En este artículo se explican los pasos para habilitar el proxy de aplicación de Microsoft Azure AD en el directorio en la nube de Azure AD.
 
-Si aún no conoce los beneficios de seguridad y productividad que el proxy de aplicación aporta a su organización, obtenga más información sobre [cómo proporcionar acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md).
+Si aún no conoce los beneficios de seguridad y productividad que el proxy de aplicación aporta a su organización, obtenga más información sobre [cómo proporcionar acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md).
 
 ## <a name="application-proxy-prerequisites"></a>Requisitos previos del proxy de la aplicación
 Antes de poder habilitar y usar los servicios del proxy de la aplicación, debe tener lo siguiente:

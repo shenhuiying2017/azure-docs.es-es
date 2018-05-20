@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 50328fc3b594a9162ffb9f82f699f43f9106640f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatización de la instalación de Mobility Service con System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Como alternativa, puede automatizar la instalación de Mobility Service con [DSC
 4. Copie el archivo **MobSvc.passphrase** en la carpeta **MobSvcWindows** del recurso compartido de red.
 5. Examine el repositorio del instalador en el servidor de configuración mediante la ejecución del comando siguiente:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copie el archivo **Microsoft-ASR\_UA\_*versión*\_Windows\_GA\_*fecha*\_Release.exe** en la carpeta **MobSvcWindows** del recurso compartido de red.
 7. Copie el código siguiente y guárdelo como **install.bat** en la carpeta **MobSvcWindows**.
@@ -230,7 +230,7 @@ Puede supervisar el progreso de la implementación en la consola de Configuratio
 4. Copie el archivo **MobSvc.passphrase** en la carpeta **MobSvcLinux** del recurso compartido de red.
 5. Examine el repositorio del instalador en el servidor de configuración mediante la ejecución del comando:
 
-   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
+   `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Copie los archivos siguientes en la carpeta **MobSvcLinux** del recurso compartido de red:
    * Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz

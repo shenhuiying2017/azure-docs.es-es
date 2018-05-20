@@ -1,18 +1,18 @@
 ---
-title: "Recepción de eventos de Azure Event Grid en un punto de conexión de HTTP"
-description: "Describe cómo validar un punto de conexión HTTP y luego recibir y deserializar eventos procedentes de Azure Event Grid."
+title: Recepción de eventos de Azure Event Grid en un punto de conexión de HTTP
+description: Describe cómo validar un punto de conexión HTTP y luego recibir y deserializar eventos procedentes de Azure Event Grid.
 services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 179f7c46186762eed2f7f8ac90620ac2fec9caf3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 4d88004f37b40fa92e617545e1a94656744a7db0
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Recepción de eventos en un punto de conexión de HTTP
 
@@ -27,9 +27,9 @@ En este artículo se describe cómo [validar un punto de conexión de HTTP](secu
 
 ## <a name="add-dependencies"></a>Adición de dependencias
 
-Si está desarrollando en. NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el `Microsoft.Azure.EventGrid` [paquete de NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Hay SDK para otros lenguajes disponibles a través de la referencia [SDK de publicación](./sdk-overview.md#publish-sdks). Estos paquetes contienen los modelos para los tipos de evento nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` y `EventHubCaptureFileCreatedEventData`.
+Si está desarrollando en. NET, [agregue una dependencia](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) a la función para el `Microsoft.Azure.EventGrid` [paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Hay SDK para otros lenguajes disponibles a través de la referencia [SDK de publicación](./sdk-overview.md#data-plane-sdks). Estos paquetes contienen los modelos para los tipos de evento nativos, como `EventGridEvent`, `StorageBlobCreatedEventData` y `EventHubCaptureFileCreatedEventData`.
 
-Para ello, haga clic en el vínculo "Ver archivos" de la función de Azure (panel más a la derecha en el portal de funciones de Azure) y cree un archivo denominado project.json. Agregue el siguiente contenido al archivo `project.json` y guárdelo:
+Haga clic en el vínculo "Ver archivos" de la función de Azure (panel más a la derecha del portal de funciones de Azure) y cree un archivo denominado project.json. Agregue el siguiente contenido al archivo `project.json` y guárdelo:
 
  ```json
 {
@@ -41,19 +41,19 @@ Para ello, haga clic en el vínculo "Ver archivos" de la función de Azure (pane
     }
    }
 }
-
 ```
 
-![Paquete de NuGet agregado](./media/receive-events/add-dependencies.png)
+![Paquete NuGet agregado](./media/receive-events/add-dependencies.png)
 
 ## <a name="endpoint-validation"></a>Validación de punto de conexión
 
-Lo primero que queremos hacer es controlar eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Cada vez que se crea una nueva suscripción a eventos, Event Grid envía un evento de validación al punto de conexión con `validationCode` en la carga de datos. El punto de conexión debe reproducirlo en el cuerpo de la respuesta [para demostrar que el punto de conexión es válido y le pertenece](security-authentication.md#webhook-event-delivery). Si usa un [desencadenador de la cuadrícula de eventos](../azure-functions/functions-bindings-event-grid.md) en lugar de una función desencadenada por WebHook, la validación del punto de conexión se completa de manera automática.
+Lo primero que querrá hacer es controlar eventos `Microsoft.EventGrid.SubscriptionValidationEvent`. Cada vez que alguien se suscribe a un evento, Event Grid envía un evento de validación al punto de conexión con `validationCode` en la carga de datos. El punto de conexión debe reproducirlo en el cuerpo de la respuesta [para demostrar que el punto de conexión es válido y le pertenece](security-authentication.md#webhook-event-delivery). Si usa un [desencadenador de la cuadrícula de eventos](../azure-functions/functions-bindings-event-grid.md) en lugar de una función desencadenada por WebHook, la validación del punto de conexión se completa de manera automática. Si usa un servicio de API de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de reflejar el código de validación mediante programación. Con esos servicios, puede validar manualmente la suscripción mediante una dirección URL de validación que se envía en el evento de validación de la suscripción. Copie esa dirección URL en la propiedad `validationUrl` y envíe una solicitud GET mediante un cliente de REST o el explorador web.
 
-Utilice el código siguiente para controlar la validación de la suscripción:
+La validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
+
+Para reflejar el código de validación mediante programación, use el código siguiente:
 
 ```csharp
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -102,7 +102,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -122,7 +121,6 @@ module.exports = function (context, req) {
     }
     context.done();
 };
-
 ```
 
 ### <a name="test-validation-response"></a>Prueba de respuesta de validación
@@ -130,7 +128,6 @@ module.exports = function (context, req) {
 Pruebe la función de la respuesta de validación pegando el evento de ejemplo en el campo de prueba para la función:
 
 ```json
-
 [{
   "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -143,7 +140,6 @@ Pruebe la función de la respuesta de validación pegando el evento de ejemplo e
   "metadataVersion": "1",
   "dataVersion": "1"
 }]
-
 ```
 
 Al hacer clic en Ejecutar, el resultado debería ser 200 OK y `{"ValidationResponse":"512d38b6-c7b8-40c8-89fe-f46f9e9622b6"}` en el cuerpo:
@@ -152,10 +148,9 @@ Al hacer clic en Ejecutar, el resultado debería ser 200 OK y `{"ValidationRespo
 
 ## <a name="handle-blob-storage-events"></a>Control de eventos de Blob Storage
 
-Ahora podemos ampliar la función para controlar `Microsoft.Storage.BlobCreated`:
+Ahora, se puede ampliar la función para controlar `Microsoft.Storage.BlobCreated`:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -211,7 +206,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 
 module.exports = function (context, req) {
@@ -245,7 +239,6 @@ module.exports = function (context, req) {
 Pruebe la nueva funcionalidad de la función; para ello, coloque un [evento de Blob Storage](./event-schema-blob-storage.md#example-event) en el campo de prueba y ejecute:
 
 ```json
-
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/xstoretestaccount",
   "subject": "/blobServices/default/containers/testcontainer/blobs/testfile.txt",
@@ -269,23 +262,21 @@ Pruebe la nueva funcionalidad de la función; para ello, coloque un [evento de B
   "dataVersion": "",
   "metadataVersion": "1"
 }]
-
 ```
 
 Debería ver el resultado de la dirección URL del blob en el registro de la función:
 
 ![Registro de salida](./media/receive-events/blob-event-response.png)
 
-También puede probar esta salida en vivo mediante la creación de una cuenta de Blob Storage o una cuenta de almacenamiento de uso general V2 (GPv2), [la adición de una suscripción a eventos](../storage/blobs/storage-blob-event-quickstart.md) y la configuración del punto de conexión en la dirección URL de la función:
+También puede probar esta salida mediante la creación de una cuenta de Blob Storage o una cuenta de almacenamiento de uso general V2 (GPv2), [la adición de una suscripción de eventos](../storage/blobs/storage-blob-event-quickstart.md) y la configuración del punto de conexión a la dirección URL de la función:
 
-![dirección URL de la función](./media/receive-events/function-url.png)
+![Dirección URL de la función](./media/receive-events/function-url.png)
 
 ## <a name="handle-custom-events"></a>Control de eventos personalizados
 
-Por último, ampliemos una vez más la función para que también pueda controlar eventos personalizados. Agregamos una comprobación para nuestro propio evento `Contoso.Items.ItemReceived`. El código final debe tener el aspecto siguiente:
+Por último, ampliemos una vez más la función para que también pueda controlar eventos personalizados. Agregue una comprobación para el evento `Contoso.Items.ItemReceived`. El código final debe tener el aspecto siguiente:
 
 ```cs
-
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -354,7 +345,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-
 var http = require('http');
 var t = require('tcomb');
 
@@ -401,7 +391,6 @@ module.exports = function (context, req) {
 Por último, pruebe que la función ampliada ahora pueda controlar el tipo de evento personalizado:
 
 ```json
-
 [{
     "subject": "Contoso/foo/bar/items",
     "eventType": "Microsoft.EventGrid.CustomEventType",
@@ -415,7 +404,6 @@ Por último, pruebe que la función ampliada ahora pueda controlar el tipo de ev
     "dataVersion": "",
     "metadataVersion": "1"
 }]
-
 ```
 
 También puede probar esta funcionalidad en vivo mediante el [envío de un evento personalizado con CURL desde Portal](./custom-event-quickstart-portal.md) o [la publicación en un tema personalizado](./post-to-custom-topic.md) con cualquier servicio o aplicación que pueda ejecutar POST en un punto de conexión, como [Postman](https://www.getpostman.com/). Cree un tema y una suscripción a eventos personalizados con el punto de conexión establecido como dirección URL de la función.

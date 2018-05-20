@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de compresión de archivos en la red CDN de Azure | Microsoft Docs"
-description: "Solucione los problemas con la compresión de archivos de la red CDN de Azure."
+title: Solución de problemas de compresión de archivos en la red CDN de Azure | Microsoft Docs
+description: Solucione los problemas con la compresión de archivos de la red CDN de Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14d50cb7cac77af75dd4b7293812154d1f24e47c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
@@ -61,9 +61,9 @@ En primer lugar, se debe hacer una comprobación rápida en la solicitud.  Puede
 
 ![Encabezados de solicitud de red CDN](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### <a name="verify-compression-settings-standard-cdn-profile"></a>Comprobar la configuración de compresión (perfil de red CDN estándar)
+### <a name="verify-compression-settings-standard-cdn-profiles"></a>Comprobar la configuración de compresión (perfil de CDN Estándar)
 > [!NOTE]
-> Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN estándar de Azure de Verizon** o de **red CDN estándar de Azure de Akamai**. 
+> Este paso solo se aplica si el perfil de CDN es un perfil **Azure CDN Estándar de Microsoft**, **Azure CDN Estándar de Verizon** o **Azure CDN Estándar de Akamai**. 
 > 
 > 
 
@@ -74,9 +74,9 @@ Desplácese hasta el punto de conexión en [Azure Portal](https://portal.azure.c
 
 ![Configuración de compresión de red CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### <a name="verify-compression-settings-premium-cdn-profile"></a>Comprobar la configuración de compresión (perfil de red CDN Premium)
+### <a name="verify-compression-settings-premium-cdn-profiles"></a>Comprobar la configuración de compresión (perfiles de CDN Premium)
 > [!NOTE]
-> Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN Premium de Azure de Verizon** .
+> Este paso solo se aplica si el perfil de CDN es un perfil de **Azure CDN Premium de Verizon**.
 > 
 > 
 
@@ -88,9 +88,9 @@ Desplácese hasta el punto de conexión en [Azure Portal](https://portal.azure.c
 
 ![Configuración de compresión de red CDN Premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-the-content-is-cached"></a>Comprobar que el contenido se almacena en caché
+### <a name="verify-the-content-is-cached-verizon-cdn-profiles"></a>Comprobar que el contenido está almacenado en caché (perfiles de CDN de Verizon)
 > [!NOTE]
-> Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN de Verizon** (Estándar o Premium).
+> Este paso solo se aplica si el perfil de CDN es un perfil **Azure CDN Estándar de Verizon** o **Azure CDN Premium de Verizon**.
 > 
 > 
 
@@ -101,9 +101,9 @@ Con las herramientas para desarrolladores de su explorador, compruebe los encabe
 
 ![Encabezados de respuesta de red CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-the-file-meets-the-size-requirements"></a>Comprobar que el archivo cumple los requisitos de tamaño
+### <a name="verify-the-file-meets-the-size-requirements-verizon-cdn-profiles"></a>Comprobar que el archivo cumple los requisitos de tamaño (perfiles de CDN de Verizon)
 > [!NOTE]
-> Este paso solo se aplica si el perfil de red CDN es un perfil de **red CDN de Verizon** (Estándar o Premium).
+> Este paso solo se aplica si el perfil de CDN es un perfil **Azure CDN Estándar de Verizon** o **Azure CDN Premium de Verizon**.
 > 
 > 
 

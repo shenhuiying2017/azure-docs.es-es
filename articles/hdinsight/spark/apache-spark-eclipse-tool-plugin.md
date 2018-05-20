@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: 4e3edc74350bb31e73e21455a221baf9c8b87015
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -229,13 +229,15 @@ Para solucionar este error, debe [descargar el archivo ejecutable](http://public
    ![Resultado de la ejecución local de la aplicación Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>Problemas conocidos
-Para enviar una aplicación a Azure Data Lake Store, seleccione el modo **Interactivo** durante el proceso de inicio de sesión de Azure. Si selecciona el modo **Automatizado**, puede aparecer un error.
+Al vincular un clúster, convendría proporcionar las credenciales de almacenamiento.
 
-![Inicio de sesión interactivo](./media/apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+![Inicio de sesión interactivo](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 
-Puede elegir un clúster de Azure Data Lake para enviar la aplicación con cualquier método de inicio de sesión.
+Existen dos formas de enviar los trabajos. Si se proporcionan credenciales de almacenamiento, se utilizará el modo por lotes para enviar el trabajo. De lo contrario, se utilizará el modo interactivo. Si el clúster está ocupado, podría obtener el siguiente error.
 
-Actualmente, la visualización de salidas de Spark directamente no se admite.
+![Eclipse presenta errores si el clúster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png)
+
+![Eclipse presenta errores si el clúster está ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback"></a>Comentarios
 Si tiene algún comentario o si experimenta algún problema al usar esta herramienta, envíe un correo electrónico a hdivstool@microsoft.com.
@@ -251,7 +253,7 @@ Si tiene algún comentario o si experimenta algún problema al usar esta herrami
 
 ### <a name="creating-and-running-applications"></a>Creación y ejecución de aplicaciones
 * [Crear una aplicación independiente con Scala](apache-spark-create-standalone-application.md)
-* [Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)](apache-spark-livy-rest-interface.md)
+* [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 * [Uso del kit de herramientas de Azure para IntelliJ con el fin de crear y enviar aplicaciones Spark en Scala](apache-spark-intellij-tool-plugin.md)

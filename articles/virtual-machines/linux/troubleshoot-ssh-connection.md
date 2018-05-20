@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 77effb7892e6d59087d07109958f4682886f12db
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure que producen error o se rechazan.
 Hay varias razones por las que podrían producirse errores de Secure Shell (SSH), errores de conexión de SSH o que se rechace SSH al intentar conectarse a una máquina virtual (VM) Linux. Este artículo le ayudará a identificar esos problemas y corregirlos. Para solucionar problemas de conexión, puede usar Azure Portal, la CLI de Azure o la extensión de acceso de máquina virtual para Linux.
@@ -80,7 +80,7 @@ Use la funcionalidad [Próximo salto](../../network-watcher/network-watcher-chec
 ## <a name="use-the-azure-cli-20"></a>Uso de la CLI de Azure 2.0
 Si todavía no la tiene, instale la [CLI de Azure 2.0](/cli/azure/install-az-cli2) más reciente e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index#az_login).
 
-Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
+Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../extensions/agent-windows.md) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
 
 ### <a name="reset-ssh-configuration"></a>Restablecer la configuración de SSH
 Incialmente también puede tratar de restablecer la configuración de SSH a los valores predeterminados y reiniciar el servidor SSH en la máquina virtual. Tenga en cuenta que esto no cambia el nombre de la cuenta de usuario, la contraseña ni las claves SSH.
@@ -155,7 +155,7 @@ Si todavía no la tiene, [instale la CLI de Azure 1.0 y conéctese a su suscripc
 azure config mode arm
 ```
 
-Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
+Si ha creado y cargado una imagen de disco Linux personalizada, asegúrese de que el [agente Linux de Microsoft Azure](../extensions/agent-windows.md) versión 2.0.5 o posterior esté instalado. Para máquinas virtuales creadas mediante imágenes de la galería, esta extensión de acceso ya está instalada y configurada automáticamente.
 
 ### <a name="reset-ssh-configuration"></a>Restablecer la configuración de SSH
 La configuración de SSHD podría no ser correcta o que el servicio haya encontrado un error. Puede restablecer SSHD para asegurarse de que la configuración de SSH sea válida. El restablecimiento de SSHD debe ser el primer paso de solución de problemas que debe realizar.

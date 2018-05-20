@@ -1,19 +1,21 @@
 ---
-title: "Solución de problemas de cambios en una máquina virtual de Azure | Microsoft Docs"
-description: "Use Change Tracking para solucionar problemas de cambios en una máquina virtual de Azure."
+title: Solución de problemas de cambios en una máquina virtual de Azure | Microsoft Docs
+description: Use Change Tracking para solucionar problemas de cambios en una máquina virtual de Azure.
 services: automation
-keywords: "cambio, seguimiento, automatización"
+ms.service: automation
+ms.component: change-inventory-management
+keywords: cambio, seguimiento, automatización
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f0af493036740b854609cea07e01136aac808579
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solución de problemas en el entorno
 
@@ -38,9 +40,9 @@ Para completar este tutorial, necesita:
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal: http://portal.azure.com/.
+Inicie sesión en Azure Portal en http://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 
@@ -124,7 +126,7 @@ En la ventana **Configuración del área de trabajo**, agregue las claves del Re
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos        |
 |Indicar ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "/etc/*.conf"       |
 |Tipo de ruta de acceso     | Tipo de elemento cuyo seguimiento se va a realizar; posibles valores son Archivo y Directorio        |
-|Recursión     | Determina si se usa la recursión al buscar el elemento cuyo seguimiento se va a realizar.        |
+|Recursión     | Determina si se usa recursividad al buscar el elemento cuyo seguimiento se va a realizar.        |
 |Usar sudo     | Esta configuración determina si se va a utilizar sudo al buscar el elemento.         |
 |Vínculos     | Esta configuración determina cómo se tratan los vínculos simbólicos cuando se recorren directorios.<br> **Omitir**: ignora los vínculos simbólicos y no incluye los archivos y directorios de referencia.<br>**Seguir**: sigue los vínculos simbólicos durante la recursión y también incluye los archivos y directorios de referencia.<br>**Administrar**: sigue los vínculos simbólicos y permite modificar el tratamiento del contenido devuelto.      |
 

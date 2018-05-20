@@ -12,13 +12,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/23/2018
 ms.author: jgao
-ms.openlocfilehash: 6cb7bb982da36256707d080a7f5118127deb3a9c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Uso de nodos perimetrales en clústeres vacíos en HDInsight
 
@@ -73,12 +73,11 @@ Después de haber creado un nodo perimetral, puede conectarse a él mediante SSH
 > Del mismo modo que los clústeres, los nodos perimetrales también se administran mediante revisiones.  Para más información, consulte [Aplicación de revisión del SO para HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adición de un nodo perimetral a un clúster existente
-En esta sección, usará una plantilla de Resource Manager para agregar un nodo perimetral a un clúster de HDInsight existente.  La plantilla de Resource Manager se puede encontrar en [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). La plantilla de Resource Manager llama a una acción de script situada en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. El script no realiza ninguna acción.  Sirve para demostrar la llamada a la acción de script desde una plantilla de Resource Manager.
+En esta sección, usará una plantilla de Resource Manager para agregar un nodo perimetral a un clúster de HDInsight existente.  La plantilla de Resource Manager se puede encontrar en [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). La plantilla de Resource Manager llama a una acción de script situada en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. El script no realiza ninguna acción.  Sirve para demostrar la llamada a la acción de script desde una plantilla de Resource Manager.
 
 **Para agregar un nodo perimetral vacío a un clúster existente**
 
-1. Si todavía no tiene uno, cree un clúster de HDInsight.  Vea el [Tutorial de Hadoop: introducción al uso de Hadoop en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-2. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Azure Resource Manager en Azure Portal. 
+1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Azure Resource Manager en Azure Portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-add-edge-node%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-use-edge-node/deploy-to-azure.png" alt="Deploy to Azure"></a>
 3. Configure las siguientes propiedades:
@@ -98,7 +97,7 @@ En esta sección, usará una plantilla de Resource Manager para agregar un nodo 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Adición de un nodo perimetral al crear un clúster
 En esta sección, usará una plantilla de Resource Manager para crear un clúster de HDInsight con un nodo perimetral.  La plantilla de Resource Manager se puede encontrar en la galería [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). La plantilla de Resource Manager llama a una acción de script situada en https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. El script no realiza ninguna acción.  Sirve para demostrar la llamada a la acción de script desde una plantilla de Resource Manager.
 
-**Para agregar un nodo perimetral vacío a un clúster existente**
+**Para crear un clúster de HDInsight con un nodo perimetral**
 
 1. Si todavía no tiene uno, cree un clúster de HDInsight.  Vea la [Introducción al uso de Hadoop en HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 2. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Azure Resource Manager en Azure Portal. 
@@ -132,7 +131,7 @@ El nodo perimetral aparece como una aplicación en Azure Portal.  El portal le p
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Abra el clúster de HDInsight con un nodo perimetral.
-3. Haga clic en **Aplicaciones** en la hoja del clúster. Verá el nodo perimetral.  El nombre predeterminado es **new-edgenode**.
+3. Haga clic en **Aplicaciones**. Verá el nodo perimetral.  El nombre predeterminado es **new-edgenode**.
 4. Haga clic en el nodo perimetral. Verá el punto de conexión SSH.
 
 **Para usar Hive en el nodo perimetral**
@@ -153,7 +152,7 @@ Puede eliminar un nodo perimetral de Azure Portal.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Abra el clúster de HDInsight con un nodo perimetral.
-3. Haga clic en **Aplicaciones** en la hoja del clúster. Verá una lista de nodos perimetrales.  
+3. Haga clic en **Aplicaciones**. Verá una lista de nodos perimetrales.  
 4. Haga clic con el botón derecho en el nodo perimetral que quiere eliminar y luego haga clic en **Eliminar**.
 5. Haga clic en **Sí** para continuar.
 

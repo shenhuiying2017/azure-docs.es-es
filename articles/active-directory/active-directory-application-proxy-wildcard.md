@@ -15,15 +15,15 @@ ms.date: 02/06/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: ebea5662017672ccbe911d4b9e7471aa081dd1bb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ea6817f80925c1989db13488472457e44801e7a8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicaciones con comodín en Azure Active Directory Application Proxy 
 
-En Azure Active Directory (Azure AD), la configuración de un gran número de aplicaciones locales puede rápidamente dificultar la administración e incorpora riesgos innecesarios de errores de configuración si muchas de ellas requieren la misma configuración. Con el [proxy de aplicación de Azure AD](active-directory-application-proxy-get-started.md), puede resolver este problema con aplicaciones con comodín para publicar y administrar muchas aplicaciones a la vez. Se trata de una solución que permite:
+En Azure Active Directory (Azure AD), la configuración de un gran número de aplicaciones locales puede rápidamente dificultar la administración e incorpora riesgos innecesarios de errores de configuración si muchas de ellas requieren la misma configuración. Con el [proxy de aplicación de Azure AD](manage-apps/application-proxy.md), puede resolver este problema con aplicaciones con comodín para publicar y administrar muchas aplicaciones a la vez. Se trata de una solución que permite:
 
 -   Simplificar la sobrecarga administrativa
 -   Reducir el número de posibles errores de configuración
@@ -48,14 +48,14 @@ Por ejemplo: `http(s)://*.adventure-works.com`. Aunque las direcciones URL inter
 
 Si tiene otras aplicaciones con distintos valores de configuración, debe publicar estas excepciones como aplicaciones independientes para sobrescribir los valores predeterminados establecidos para el comodín. Las aplicaciones sin caracteres comodín siempre tienen prioridad sobre las que los tienen. Desde la perspectiva de la configuración, se trata "simplemente" de aplicaciones normales.
 
-La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](application-proxy-publish-azure-portal.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
+La creación de una aplicación comodín se basa en el mismo [flujo de publicación de aplicaciones](manage-apps/application-proxy-publish-azure-portal.md) que está disponible para las demás aplicaciones. La única diferencia es que se incluye un carácter comodín en las direcciones URL y, quizá, la configuración del inicio de sesión único.
 
 
 ## <a name="prerequisites"></a>requisitos previos
 
 ### <a name="custom-domains"></a>Dominios personalizados
 
-Mientras que los[dominios personalizados](active-directory-application-proxy-custom-domains.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
+Mientras que los[dominios personalizados](manage-apps/application-proxy-configure-custom-domain.md) son opcionales para todas las demás aplicaciones, son un requisito previo para las aplicaciones con comodín. La creación de dominios personalizados requiere:
 
 1. La creación de un dominio comprobado en Azure 
 2. La carga de un certificado SSL con formato PFX para el proxy de aplicación.
@@ -112,12 +112,12 @@ Si utiliza esta opción, necesitará otra entrada CNAME para el valor `AppId.dom
 
 La aplicación con comodín se representa con un solo icono en el [panel MyApps](https://myapps.microsoft.com). De forma predeterminada, este icono está oculto. Para mostrar el icono y que los usuarios vayan a una página específica:
 
-1. Siga las directrices para [configurar una dirección URL de página principal](application-proxy-office365-app-launcher.md).
+1. Siga las directrices para [configurar una dirección URL de página principal](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Establezca **Show Application** en **true** en la página de propiedades de la aplicación.
 
 ### <a name="kerberos-constrained-delegation"></a>Delegación limitada de Kerberos
 
-Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](active-directory-application-proxy-sso-using-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
+Para las aplicaciones que usan la [delegación restringida de Kerberos como método de inicio de sesión único](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md), puede que el nombre de entidad de seguridad de servicio que aparece para el método de inicio de sesión único también necesite un carácter comodín. Por ejemplo, el nombre de entidad de seguridad de servicio podría ser: `HTTP/*.adventure-works.com`. Debe tener los nombres de entidad de seguridad de servicio individuales configurados en los servidores back-end (por ejemplo, `http://expenses.adventure-works.com and HTTP/travel.adventure-works.com`).
 
 
 
@@ -136,7 +136,7 @@ Las tres aplicaciones:
 - Tienen las mismas propiedades
 
 
-Puede publicar la aplicación con comodín al seguir los pasos descritos en [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md). En este escenario se presupone que:
+Puede publicar la aplicación con comodín al seguir los pasos descritos en [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-publish-azure-portal.md). En este escenario se presupone que:
 
 - Hay un inquilino con el identificador: `000aa000-11b1-2ccc-d333-4444eee4444e`. 
 
@@ -144,7 +144,7 @@ Puede publicar la aplicación con comodín al seguir los pasos descritos en [Pub
 
 - Se ha creado una entrada **CNAME** que hace que `*.adventure-works.com` apunte a `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net`.
 
-Al seguir los [pasos documentados](application-proxy-publish-azure-portal.md), se crea una aplicación de proxy de aplicación en el inquilino. En este ejemplo, el carácter comodín se encuentra en los campos siguientes:
+Al seguir los [pasos documentados](manage-apps/application-proxy-publish-azure-portal.md), se crea una aplicación de proxy de aplicación en el inquilino. En este ejemplo, el carácter comodín se encuentra en los campos siguientes:
 
 - Dirección URL interna:
 
@@ -183,7 +183,7 @@ En este escenario, además de las tres aplicaciones generales tiene otra, `finan
 
 Tiene que asegurarse de que existen registros CNAME que hacen que `finance.adventure-works.com` apunte a un punto de conexión específico (que se especifica en la página del proxy de aplicación de esta). En este escenario, `finance.adventure-works.com`apunta a `https://finance-awcycles.msappproxy.net/`. 
 
-Al seguir los [pasos documentados](application-proxy-publish-azure-portal.md), este escenario requiere la siguiente configuración:
+Al seguir los [pasos documentados](manage-apps/application-proxy-publish-azure-portal.md), este escenario requiere la siguiente configuración:
 
 
 - En la **dirección URL interna**, establezca **finance** en lugar de un carácter comodín. 
@@ -212,8 +212,8 @@ Si tiene varias aplicaciones financieras publicadas y `finance.adventure-works.c
 
 Para más información acerca de:
 
-- Los **dominios personalizados**,consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](active-directory-application-proxy-custom-domains.md).
+- Los **dominios personalizados**,consulte [Uso de dominios personalizados en el proxy de la aplicación de Azure AD](manage-apps/application-proxy-configure-custom-domain.md).
 
-- La **publicación de aplicaciones**, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md).
+- La **publicación de aplicaciones**, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
 
 

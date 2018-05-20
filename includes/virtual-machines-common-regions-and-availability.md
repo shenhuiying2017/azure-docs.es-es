@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: a6b75b3804e7736fe5203caecb8c6badcfbf9ab4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 99e429a2f82d1a9b8d9a87fb3eb4102183c19fe8
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Regiones y disponibilidad de máquinas virtuales en Azure
 Azure funciona en varios centros de datos del mundo. Estos centros de datos se agrupan en regiones geográficas, proporcionándole flexibilidad al elegir dónde crear sus aplicaciones. Es importante saber cómo y donde operan las máquinas virtuales (VM) en Azure, así como las opciones para maximizar el rendimiento, la disponibilidad y la redundancia. Este artículo proporciona una visión general de las características de disponibilidad y redundancia de Azure.
@@ -106,7 +106,7 @@ Para las máquinas virtuales que usen [Azure Managed Disks](../articles/virtual-
 
 ## <a name="availability-zones"></a>Zonas de disponibilidad
 
-Las [zonas de disponibilidad](../articles/availability-zones/az-overview.md) son una alternativa a los conjuntos de disponibilidad que permite ampliar el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Una zona de disponibilidad es una zona separada físicamente dentro de una región de Azure. Hay tres zonas de disponibilidad por cada región de Azure admitida. Cada zona de disponibilidad tiene una fuente de alimentación, una red y un dispositivo de enfriamiento independientes y está separada lógicamente de otras zonas de disponibilidad dentro de la región de Azure. Si diseña las soluciones para que utilicen máquinas virtuales replicadas en zonas, podrá proteger sus datos y aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona. 
+Las [zonas de disponibilidad](../articles/availability-zones/az-overview.md) son una alternativa a los conjuntos de disponibilidad que permite ampliar el nivel de control que tiene para mantener la disponibilidad de las aplicaciones y los datos en las máquinas virtuales. Una zona de disponibilidad es una zona separada físicamente dentro de una región de Azure. Hay tres zonas de disponibilidad por cada región de Azure admitida. Cada zona de disponibilidad tiene una fuente de alimentación, una red y un sistema de refrigeración distintos. Si diseña las soluciones para que utilicen máquinas virtuales replicadas en zonas, podrá proteger sus datos y aplicaciones frente a la pérdida de un centro de datos. Aunque una zona esté en peligro, las aplicaciones y los datos replicados estarán disponibles instantáneamente en otra zona. 
 
 ![Zonas de disponibilidad](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 

@@ -1,37 +1,48 @@
 ---
-title: "Uso de los Centros de notificaciones para enviar noticias de última hora (Windows Phone)"
-description: "Use Azure Notification Hubs para usar la etiqueta en registros para enviar noticias de última hora a una aplicación de Windows Phone."
+title: Envío de notificaciones push a Windows Phone concretos mediante Azure Notification Hubs | Microsoft Docs
+description: En este tutorial aprenderá a usar Azure Notification Hubs para enviar notificaciones push a dispositivos Windows Phone 8 o Windows Phone 8.1 concretos (no a todos) registrados en el back-end de la aplicación.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3a6a69bf555c7267d3fbeb03ff6c03054991960f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Uso de los Centros de notificaciones para enviar noticias de última hora
+# <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos Windows Phone concretos mediante Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Información general
-Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación Silverlight de Windows Phone 8.0/8.1. Si su objetivo es una aplicación de la Tienda Windows o de Windows Phone 8.1, consulte la versión [Windows Universal](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md) . Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
+En este tutorial se muestra cómo usar Azure Notification Hubs para enviar notificaciones push a dispositivos Windows Phone 8 o Windows Phone 8.1 concretos. Si va a desarrollar para Windows Phone 8.1 (no Silverlight), consulte la versión [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) de este tutorial.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para información sobre las etiquetas, consulte [Expresiones de etiqueta y enrutamiento de los Centros de notificaciones](notification-hubs-tags-segment-push-message.md).
+Este escenario se habilita mediante la inclusión de una o varias *etiquetas* al crear un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados en la etiqueta reciben la notificación. Para más información acerca de las etiquetas, consulte [Etiquetas en registros](notification-hubs-tags-segment-push-message.md).
 
-## <a name="prerequisites"></a>Requisitos previos
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones].
+> [!NOTE]
+> El SDK de Windows Phone para Notification Hubs no admite el uso de Servicios de notificaciones de inserción de Windows (WNS) con aplicaciones de Windows Phone 8.1 Silverlight. Para usar WNS (en lugar de MPNS) con aplicaciones de Windows Phone 8.1 Silverlight, siga el [tutorial Notification Hubs: Windows Phone Silverlight], que usa API REST.
 
-## <a name="add-category-selection-to-the-app"></a>Adición de una selección de categorías a la aplicación
+En este tutorial, aprenderá a: 
+
+> [!div class="checklist"]
+> * Agregar una selección de categorías a la aplicación móvil
+> * Registro de notificaciones con etiquetas
+> * Envío de notificaciones con etiquetas
+> * Prueba de la aplicación
+
+## <a name="prerequisites"></a>requisitos previos
+Complete el [tutorial: Envío de notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In este tutorial se actualizar la aplicación, con el fin de que pueda registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. 
+
+## <a name="add-category-selection-to-the-mobile-app"></a>Agregar una selección de categorías a la aplicación móvil
 El primer paso es agregar los elementos de la interfaz de usuario a la página principal existente que permiten al usuario seleccionar las categorías para registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
 
 1. Abra el archivo de proyecto MainPage.xaml y reemplace los elementos **Grid** denominados `TitlePanel` y `ContentPanel` por el código siguiente:
@@ -60,160 +71,168 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
             <CheckBox Name="SportsCheckBox" Grid.Row="2" Grid.Column="1">Sports</CheckBox>
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
         </Grid>
-2. En el proyecto, cree otra clase llamada **Notifications**, agregue el modificador **public** en la definición de clase y, luego, agregue las siguientes instrucciones **using** al nuevo archivo de código:
+2. Agregue una clase denominada **Notifications** al proyecto. Agregue el modificador **public** a la definición de la clase. Luego, agregue las siguientes instrucciones **using** al nuevo archivo de código:
    
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
-        using System.IO.IsolatedStorage;
-        using System.Windows;
-3. Agregue el siguiente código a la nueva clase **Notifications** :
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    using System.IO.IsolatedStorage;
+    using System.Windows;
+    ```
+1. Agregue el siguiente código a la nueva clase **Notifications** :
    
-        private NotificationHub hub;
-   
-        // Registration task to complete registration in the ChannelUriUpdated event handler
-        private TaskCompletionSource<Registration> registrationTask;
-   
-        public Notifications(string hubName, string listenConnectionString)
+    ```csharp
+    private NotificationHub hub;
+
+    // Registration task to complete registration in the ChannelUriUpdated event handler
+    private TaskCompletionSource<Registration> registrationTask;
+
+    public Notifications(string hubName, string listenConnectionString)
+    {
+        hub = new NotificationHub(hubName, listenConnectionString);
+    }
+
+    public IEnumerable<string> RetrieveCategories()
+    {
+        var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
+        return categories != null ? categories.Split(',') : new string[0];
+    }
+
+    public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+    {
+        var categoriesAsString = string.Join(",", categories);
+        var settings = IsolatedStorageSettings.ApplicationSettings;
+        if (!settings.Contains("categories"))
         {
-            hub = new NotificationHub(hubName, listenConnectionString);
+            settings.Add("categories", categoriesAsString);
         }
-   
-        public IEnumerable<string> RetrieveCategories()
+        else
         {
-            var categories = (string)IsolatedStorageSettings.ApplicationSettings["categories"];
-            return categories != null ? categories.Split(',') : new string[0];
+            settings["categories"] = categoriesAsString;
         }
-   
-        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        settings.Save();
+
+        return await SubscribeToCategories();
+    }
+
+    public async Task<Registration> SubscribeToCategories()
+    {
+        registrationTask = new TaskCompletionSource<Registration>();
+
+        var channel = HttpNotificationChannel.Find("MyPushChannel");
+
+        if (channel == null)
         {
-            var categoriesAsString = string.Join(",", categories);
-            var settings = IsolatedStorageSettings.ApplicationSettings;
-            if (!settings.Contains("categories"))
-            {
-                settings.Add("categories", categoriesAsString);
-            }
-            else
-            {
-                settings["categories"] = categoriesAsString;
-            }
-            settings.Save();
-   
-            return await SubscribeToCategories();
-        }
-   
-        public async Task<Registration> SubscribeToCategories()
-        {
-            registrationTask = new TaskCompletionSource<Registration>();
-   
-            var channel = HttpNotificationChannel.Find("MyPushChannel");
-   
-            if (channel == null)
-            {
-                channel = new HttpNotificationChannel("MyPushChannel");
-                channel.Open();
-                channel.BindToShellToast();
-                channel.ChannelUriUpdated += channel_ChannelUriUpdated;
-   
-                // This is optional, used to receive notifications while the app is running.
-                channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
-            }
-   
-            // If channel.ChannelUri is not null, we will complete the registrationTask here.  
-            // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
-            if (channel.ChannelUri != null)
-            {
-                await RegisterTemplate(channel.ChannelUri);
-            }
-   
-            return await registrationTask.Task;
-        }
-   
-        async void channel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
-        {
-            await RegisterTemplate(e.ChannelUri);
-        }
-   
-        async Task<Registration> RegisterTemplate(Uri channelUri)
-        {
-            // Using a template registration to support notifications across platforms.
-            // Any template notifications that contain messageParam and a corresponding tag expression
-            // will be delivered for this registration.
-   
-            const string templateBodyMPNS = "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                                                "<wp:Toast>" +
-                                                    "<wp:Text1>$(messageParam)</wp:Text1>" +
-                                                "</wp:Toast>" +
-                                            "</wp:Notification>";
-   
-            // The stored categories tags are passed with the template registration.
-   
-            registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
-                templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
-   
-            return await registrationTask.Task;
-        }
-   
-        // This is optional. It is used to receive notifications while the app is running.
-        void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
-        {
-            StringBuilder message = new StringBuilder();
-            string relativeUri = string.Empty;
-   
-            message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
-   
-            // Parse out the information that was part of the message.
-            foreach (string key in e.Collection.Keys)
-            {
-                message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
-   
-                if (string.Compare(
-                    key,
-                    "wp:Param",
-                    System.Globalization.CultureInfo.InvariantCulture,
-                    System.Globalization.CompareOptions.IgnoreCase) == 0)
-                {
-                    relativeUri = e.Collection[key];
-                }
-            }
-   
-            // Display a dialog of all the fields in the toast.
-            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
-            { 
-                MessageBox.Show(message.ToString()); 
-            });
+            channel = new HttpNotificationChannel("MyPushChannel");
+            channel.Open();
+            channel.BindToShellToast();
+            channel.ChannelUriUpdated += channel_ChannelUriUpdated;
+
+            // This is optional, used to receive notifications while the app is running.
+            channel.ShellToastNotificationReceived += channel_ShellToastNotificationReceived;
         }
 
+        // If channel.ChannelUri is not null, complete the registrationTask here.  
+        // If it is null, the registrationTask will be completed in the ChannelUriUpdated event handler.
+        if (channel.ChannelUri != null)
+        {
+            await RegisterTemplate(channel.ChannelUri);
+        }
+
+        return await registrationTask.Task;
+    }
+
+    async void channel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
+    {
+        await RegisterTemplate(e.ChannelUri);
+    }
+
+    async Task<Registration> RegisterTemplate(Uri channelUri)
+    {
+        // Using a template registration to support notifications across platforms.
+        // Any template notifications that contain messageParam and a corresponding tag expression
+        // will be delivered for this registration.
+
+        const string templateBodyMPNS = "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                                            "<wp:Toast>" +
+                                                "<wp:Text1>$(messageParam)</wp:Text1>" +
+                                            "</wp:Toast>" +
+                                        "</wp:Notification>";
+
+        // The stored categories tags are passed with the template registration.
+
+        registrationTask.SetResult(await hub.RegisterTemplateAsync(channelUri.ToString(), 
+            templateBodyMPNS, "simpleMPNSTemplateExample", this.RetrieveCategories()));
+
+        return await registrationTask.Task;
+    }
+
+    // This is optional. It is used to receive notifications while the app is running.
+    void channel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
+    {
+        StringBuilder message = new StringBuilder();
+        string relativeUri = string.Empty;
+
+        message.AppendFormat("Received Toast {0}:\n", DateTime.Now.ToShortTimeString());
+
+        // Parse out the information that was part of the message.
+        foreach (string key in e.Collection.Keys)
+        {
+            message.AppendFormat("{0}: {1}\n", key, e.Collection[key]);
+
+            if (string.Compare(
+                key,
+                "wp:Param",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.CompareOptions.IgnoreCase) == 0)
+            {
+                relativeUri = e.Collection[key];
+            }
+        }
+
+        // Display a dialog of all the fields in the toast.
+        System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() => 
+        { 
+            MessageBox.Show(message.ToString()); 
+        });
+    }
+    ```
+    
     Esta clase usa el almacenamiento aislado para almacenar las categorías de noticias que este dispositivo va a recibir. También contiene métodos para registrar estas categorías mediante un registro de notificaciones de [plantilla](notification-hubs-templates-cross-platform-push-messages.md) .
-
-
 1. En el archivo de proyecto App.xaml.cs, agregue la siguiente propiedad a la clase **App** . Reemplace los marcadores de posición `<hub name>` y `<connection string with listen access>` por el nombre del centro de notificaciones y la cadena de conexión de *DefaultListenSharedAccessSignature* que obtuvo anteriormente.
    
-        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
-   
+    ```csharp
+    public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    ```
+
    > [!NOTE]
    > Puesto que las credenciales que se distribuyen con una aplicación de cliente no son normalmente seguras, solo debe distribuir la clave para el acceso de escucha con la aplicación cliente. El acceso de escucha permite a la aplicación el registro de notificaciones, pero los registros existentes no pueden modificarse y las notificaciones no se pueden enviar. La clave de acceso completo se usa en un servicio back-end protegido para el envío de notificaciones y el cambio de registros existentes.
    > 
    > 
 2. En MainPage.xaml.cs, agregue la siguiente línea:
    
-        using Windows.UI.Popups;
-3. En el archivo de proyecto MainPage.xaml.cs, agregue el siguiente método:
+    ```csharp
+    using Windows.UI.Popups;
+    ```
+1. En el archivo de proyecto MainPage.xaml.cs, agregue el siguiente método:
    
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-          var categories = new HashSet<string>();
-          if (WorldCheckBox.IsChecked == true) categories.Add("World");
-          if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
-          if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
-          if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
-          if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
-          if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-   
-          var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-   
-          MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
-             result.RegistrationId);
-        }
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var categories = new HashSet<string>();
+        if (WorldCheckBox.IsChecked == true) categories.Add("World");
+        if (PoliticsCheckBox.IsChecked == true) categories.Add("Politics");
+        if (BusinessCheckBox.IsChecked == true) categories.Add("Business");
+        if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
+        if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
+        if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
+
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+
+        MessageBox.Show("Subscribed to: " + string.Join(",", categories) + " on registration id : " +
+            result.RegistrationId);
+    }
+    ```
    
     Este método crea una lista de categorías y usa la clase **Notifications** para almacenar la lista en el almacenamiento local y registrar las etiquetas correspondientes en el centro de notificaciones. Cuando se modifican las categorías, el registro vuelve a crearse con las nuevas categorías.
 
@@ -224,73 +243,67 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
 
 > [!NOTE]
 > Puesto que el URI de canal asignado por el Servicio de notificaciones push de Microsoft (MPNS) puede cambiar en cualquier momento, debe registrar las notificaciones con frecuencia para evitar errores de notificación. En este ejemplo se registra la notificación cada vez que se inicia la aplicación. En las aplicaciones que se ejecutan con frecuencia, más de una vez al día, es posible que pueda omitir el registro para conservar el ancho de banda si pasa menos de un día del registro previo.
-> 
-> 
 
-1. Abra el archivo App.xaml.cs, agregue el modificador **async** al método **Application_Launching** y reemplace el código de registro de Notification Hubs que agregó en [Introducción a los Centros de notificaciones] con el siguiente código:
+1. Abra el archivo App.xaml.cs, agregue el modificador **async** al método **Application_Launching** y reemplace el código de registro de Notification Hubs que agregó en [Introducción a Notification Hubs] con el siguiente código:
    
-        private async void Application_Launching(object sender, LaunchingEventArgs e)
-        {
-            var result = await notifications.SubscribeToCategories();
+    ```csharp
+    private async void Application_Launching(object sender, LaunchingEventArgs e)
+    {
+        var result = await notifications.SubscribeToCategories();
+    
+        if (result != null)
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration Id :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
+    }
+    ```
    
-            if (result != null)
-                System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    MessageBox.Show("Registration Id :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
-                });
-        }
-   
-    De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías.
+    Este código garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías.
 2. En el archivo de proyecto MainPage.xaml.cs, agregue el siguiente código que implementa el método **OnNavigatedTo** :
    
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var categories = ((App)Application.Current).notifications.RetrieveCategories();
+    ```csharp
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var categories = ((App)Application.Current).notifications.RetrieveCategories();
+    
+        if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
+        if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
+        if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
+        if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
+        if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
+        if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
+    }
+    ```
    
-            if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
-            if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
-            if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
-            if (categories.Contains("Technology")) TechnologyCheckBox.IsChecked = true;
-            if (categories.Contains("Science")) ScienceCheckBox.IsChecked = true;
-            if (categories.Contains("Sports")) SportsCheckBox.IsChecked = true;
-        }
-   
-    De esta forma, se actualiza la página principal según el estado de las categorías guardadas anteriormente.
+    Este código actualiza la página principal en función del estado de las categorías guardadas anteriormente.
 
-La aplicación está ahora completa y puede almacenar un conjunto de categorías en el almacenamiento local del dispositivo usado para registrarse en el Centro de notificaciones cuando el usuario cambie la selección de categorías. A continuación, definiremos un back-end que pueda enviar notificaciones de categorías a esta aplicación.
+La aplicación está ahora completa y puede almacenar un conjunto de categorías en el almacenamiento local del dispositivo usado para registrarse en el Centro de notificaciones cuando el usuario cambie la selección de categorías. A continuación, defina un back-end que pueda enviar notificaciones de categorías a esta aplicación.
 
-## <a name="sending-tagged-notifications"></a>Envío de notificaciones con etiquetas
+## <a name="send-tagged-notifications"></a>Envío de notificaciones con etiquetas
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Ejecución de la aplicación y generación de notificaciones
+## <a name="test-the-app"></a>Prueba de la aplicación
 1. En Visual Studio, presione F5 para compilar e iniciar la aplicación.
    
-    ![][1]
+    ![Aplicación móvil con categorías][1]
    
-    Tenga en cuenta que la interfaz de usuario de la aplicación ofrece un conjunto de elementos de alternancia que le permite seleccionar las categorías a las que suscribirse.
+    La interfaz de usuario de la aplicación ofrece un conjunto de elementos de alternancia que le permiten seleccionar las categorías a las que suscribirse.
 2. Habilite uno o más elementos de alternancia de las categorías y, a continuación, haga clic en **Suscribirse**.
    
     La aplicación convierte las categorías seleccionadas en etiquetas y solicita un nuevo registro de dispositivo para las etiquetas seleccionadas al Centro de notificaciones. Las categorías registradas se devuelven y se muestran en un cuadro de diálogo.
    
-    ![][2]
-3. Después de recibir una confirmación de que se han completado sus categorías, ejecute la aplicación de consola para enviar notificaciones de cada categoría. Compruebe que solo recibe una notificación para las categorías a las que se ha suscrito.
+    ![Mensaje suscrito][2]
+3. Después de recibir una confirmación de que se ha completado la suscripción de sus categorías, ejecute la aplicación de consola para enviar notificaciones a cada categoría. Compruebe que solo recibe una notificación para las categorías a las que se ha suscrito.
    
-    ![][3]
+    ![Mensaje de notificación][3]
 
-Ha completado este tema.
+## <a name="next-steps"></a>Pasos siguientes
+En este tutorial, ha aprendido a enviar notificaciones push a dispositivos concretos que tienen etiquetas asociadas a sus registros. Para aprender a enviar notificaciones a usuarios específicos que puede que usen varios dispositivos, pase al siguiente tutorial: 
 
-<!--##Next steps
+> [!div class="nextstepaction"]
+>[Envío de notificaciones push a usuarios específicos](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
-
-+ [Use Notification Hubs to broadcast localized breaking news]
-
-    Learn how to expand the breaking news app to enable sending localized notifications.
-
-+ [Notify users with Notification Hubs]
-
-    Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
--->
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -307,7 +320,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs.-->
-[Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Introducción a Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
 [Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
 [Mobile Service]: /develop/mobile/tutorials/get-started

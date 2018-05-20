@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines-linux, virtual-machines-windows
+author: dlepow
+ms.service: multiple
+ms.topic: include
+ms.date: 05/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/12/2018
+---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 
 
 Use la nube de Azure para ejecutar eficazmente cargas de trabajo de Linux y Windows de proceso intensivo que abarcan desde trabajos por lotes en paralelo hasta las simulaciones de informática de alto rendimiento habituales. Ejecute sus cargas de trabajo de informática de alto rendimiento y por lotes en la infraestructura de Azure mediante la elección de los servicios de proceso, los administradores de soluciones en malla, las soluciones de Marketplace y las aplicaciones hospedadas por el proveedor (SaaS). Azure proporciona soluciones flexibles para distribuir el trabajo y escalar a miles de máquinas virtuales o núcleos y, posteriormente, reducir verticalmente cuando se necesitan menos recursos. 
@@ -21,6 +37,7 @@ Use la nube de Azure para ejecutar eficazmente cargas de trabajo de Linux y Wind
 * **Soluciones de Big Compute como servicio**
     * Desarrolle soluciones y flujos de trabajo personalizados de Big Compute mediante [Azure Batch](#azure-batch) y otros [servicios de Azure](#related-azure-services) relacionados.
     * Ejecute soluciones de ingeniería y simulación habilitadas para Azure de proveedores como [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) y [Cycle Computing](https://cyclecomputing.com/) (que ahora [se han unido a Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
+    * Use un [superequipo Cray](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) como servicio hospedado en Azure.
 * **Soluciones de Marketplace**
     * Utilice la escala de [aplicaciones HPC](#hpc-applications) y las [soluciones](#marketplace-solutions) que se ofrecen en [Azure Marketplace](https://azuremarketplace.microsoft.com/). 
     
@@ -101,23 +118,24 @@ Obtenga información sobre cómo:
 
 Los proveedores o desarrolladores SaaS pueden usar los SDK y las herramientas de Batch para integrar las aplicaciones de HPC o las cargas de trabajo de los contenedores con Azure, almacenar provisionalmente datos en Azure y crear canalizaciones de ejecución de trabajos. 
 
-Obtenga información sobre cómo:
+Aprenda a:
 
 * [Empezar a desarrollar con Batch](../articles/batch/quick-run-dotnet.md)
 * [Usar ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
-* [Uso de máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
+* [Usar máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
 * [Ejecutar cargas de trabajo de HPC en contenedores con Batch Shipyard](https://github.com/Azure/batch-shipyard)
-* [Usar el lenguaje R con Batch](https://github.com/Azure/doAzureParallel)
-* [Ejecutar Azure Distributed Data Engineering Toolkit en Batch](https://github.com/Azure/aztk)
+* [Ejecutar cargas de trabajo de R paralelas en Batch](https://github.com/Azure/doAzureParallel)
+* [Ejecutar trabajos Spark a petición en Batch](https://github.com/Azure/aztk)
 
 ## <a name="workload-managers"></a>Administradores de cargas de trabajo
 
 Los siguientes son ejemplos de administradores de clústeres y cargas de trabajo que se pueden ejecutar en la infraestructura de Azure. Cree clústeres independientes en máquinas virtuales de Azure o dé el salto a máquinas virtuales de Azure desde un clúster local. 
+* [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
 * [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
 * [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 * [IBM Spectrum Symphony y Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 * [PBS Pro](http://pbspro.org)
-* [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029(v=ws.11).aspx): consulte varias opciones de ejecución en máquinas virtuales [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+* [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx): consulte varias opciones de ejecución en máquinas virtuales [Windows](../articles/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Linux](../articles/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 
 
@@ -127,7 +145,7 @@ Las cargas de trabajo a gran escala de Batch y HPC presentan una demanda de alma
 
 Más información:
 
-* [Sistemas de archivos en paralelo para el almacenamiento de HPC en Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* [Parallel Virtual File Systems on Microsoft Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/) (Sistemas de archivos virtuales en paralelo en Microsoft Azure)
 * Soluciones de almacenamiento en la nube de alto rendimiento de [Avere](http://www.averesystems.com/about-us/about-avere) (ahora [combinadas con Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
@@ -144,30 +162,34 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Factoría de datos](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
-* [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
+* [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
-### <a name="ai-and-cognitive-services"></a>AI y Cognitive Services
-* [Inteligencia artificial de Batch](../articles/batch-ai/overview.md)
+### <a name="ai-and-machine-learning"></a>AI y aprendizaje automático
+* [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
+* [Batch AI](../articles/batch-ai/overview.md)
+* [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Redes
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Contenedores
 * [Servicio Contenedor](../articles/container-service/dcos-swarm/container-service-intro.md)
+* [Azure Kubernetes Service (AKS)](../articles/aks/intro-kubernetes.md)
 * [Container Registry](../articles/container-registry/container-registry-intro.md)
 
 
 
 ## <a name="customer-stories"></a>Testimonios de clientes
 
-Estos son ejemplos de clientes que han resuelto problemas empresariales con las soluciones de HPC de Azure:
+Ejemplos de clientes que han resuelto problemas empresariales con las soluciones de alto rendimiento de Azure:
 
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA Global P&amp;C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 * [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
@@ -178,7 +200,7 @@ Estos son ejemplos de clientes que han resuelto problemas empresariales con las 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información sobre las soluciones de Big Compute para [simulación de ingeniería](https://simulation.azure.com/), [representación](https://simulation.azure.com/), [los mercados de capital y banca](https://finance.azure.com/) y [genómica](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
+* Obtenga más información sobre las soluciones de Big Compute para [simulación de ingeniería](https://simulation.azure.com/), [representación](https://azure.microsoft.com/solutions/big-compute/rendering/), [los mercados de capital y banca](https://finance.azure.com/) y [genómica](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * Para los anuncios más recientes, lea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](https://azure.microsoft.com/blog/tag/hpc/).
 
 * Uso del servicio administrado y escalable Azure [Batch](https://azure.microsoft.com/services/batch/) para ejecutar cargas de trabajo de proceso intensivo, sin tener que administrar la infraestructura subyacente [Más información](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)

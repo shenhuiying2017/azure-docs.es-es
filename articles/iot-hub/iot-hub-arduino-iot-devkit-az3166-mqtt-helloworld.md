@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 121bd8a21e74a836fcca74af97fc20cae297d9a2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 073ac7cf2d8d8d5dac6a5a4f9b9d4e3d1af6f095
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Envío de mensajes a un servidor MQTT
 
@@ -46,20 +46,13 @@ Siga la [Guía de introducción](https://docs.microsoft.com/azure/iot-hub/iot-hu
 2. Inicie VS Code.
 
 3. Conecte el DevKit al equipo.
-    Código de VS detecta automáticamente el DevKit y abre las páginas siguientes:
-    * Página de introducción del DevKit.
-    * Ejemplos de Arduino: ejemplos prácticos para empezar a trabajar con DevKit.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## <a name="open-the-mqttclient-sample"></a>Apertura del ejemplo de MQTTClient
 
 Expanda la sección de la izquierda **EJEMPLOS DE ARDUINO**, vaya a **Ejemplos para MXCHIP AZ3166 > MQTT** y seleccione **MQTTClient**. Se abre una nueva ventana de VS Code que contiene la carpeta del proyecto.
 
-![carpeta-ejemplos](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
+> También puede abrir el ejemplo desde la paleta de comandos. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>Creación y carga del boceto de Arduino en DevKit
 
@@ -100,5 +93,5 @@ Si tiene algún problema, consulte las [preguntas más frecuentes](https://micro
 
 Ahora que ha aprendido a configurar su MXChip Iot DevKit como un cliente MQTT y a usar la biblioteca cliente de MQTT para enviar mensajes a un agente MQTT, estos son los siguientes pasos recomendados:
 
-* [Información general de Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit) (Conectar un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+* [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Conectar un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)

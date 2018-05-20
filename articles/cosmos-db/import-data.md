@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd9c5888724b634002d3029cccd42cfda4a433af
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: herramienta de migración de datos
 
@@ -433,7 +433,7 @@ Para realizar la importación en una sola colección, escriba el nombre de la co
 Una vez especificados los nombres de las colecciones, elija la capacidad de proceso deseada de la colección (de 400 RU a 250 000 RU). Para conseguir el mejor rendimiento en la importación, elija una mayor capacidad de proceso. Para más información sobre los niveles de rendimiento, consulte [Niveles de rendimiento en Azure Cosmos DB](performance-levels.md). Cualquier importación a colecciones con una capacidad de proceso de más de 10 000 RU requiere una clave de partición. Si elige tener más de 250 000 RU, debe registrar una solicitud en el portal para que le aumenten su cuenta.
 
 > [!NOTE]
-> La configuración de la capacidad de proceso solo se aplica a la creación de colecciones. Si la colección especificada ya existe, no se modificará su capacidad de proceso.
+> La configuración del rendimiento solo se aplica a la creación de colecciones o bases de datos. Si la colección especificada ya existe, no se modificará su capacidad de proceso.
 > 
 > 
 

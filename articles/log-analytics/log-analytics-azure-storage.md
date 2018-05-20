@@ -1,11 +1,11 @@
 ---
-title: "Recopilación de registros y métricas de servicios de Azure en Log Analytics | Microsoft Docs"
-description: "Configure los diagnósticos en recursos de Azure para escribir registros y métricas en Log Analytics."
+title: Recopilación de registros y métricas de servicios de Azure en Log Analytics | Microsoft Docs
+description: Configure los diagnósticos en recursos de Azure para escribir registros y métricas en Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
 
 Hay cuatro maneras diferentes de recopilar registros y métricas para servicios de Azure:
 
 1. Diagnósticos de Azure directos a Log Analytics (*Diagnósticos* en la tabla siguiente)
-2. Diagnósticos de Azure al almacenamiento de Azure y luego a Log Analytics (*almacenamiento* en la tabla siguiente)
+2. Azure Diagnostics a Azure Storage y luego a Log Analytics (*Storage* en la tabla siguiente)
 3. Conectores para servicios de Azure (*Conectores* en la tabla siguiente)
 4. Scripts para recopilar y después publicar datos en Log Analytics (espacios en blanco en la tabla siguiente y para servicios que no aparecen)
 
@@ -35,9 +35,9 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 | --- | --- | --- | --- | --- |
 | Puertas de enlace de aplicaciones    | Microsoft.Network/applicationGateways   | Diagnóstico | Diagnóstico | [Azure Application Gateway Analytics](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application Insights    |                                         | Conector   | Conector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (versión preliminar) |
-| Cuentas de automatización     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Más información](../automation/automation-manage-send-joblogs-log-analytics.md)|
+| Cuentas de Automation     | Microsoft.Automation/AutomationAccounts | Diagnóstico |             | [Más información](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Cuentas de Batch          | Microsoft.Batch/batchAccounts           | Diagnóstico | Diagnóstico | |
-| Servicios en la nube clásica  |                                         | Almacenamiento     |             | [Más información](log-analytics-azure-storage-iis-table.md) |
+| Servicios en la nube clásica  |                                         | Storage     |             | [Más información](log-analytics-azure-storage-iis-table.md) |
 | Cognitive Services      | Microsoft.CognitiveServices/accounts    |             | Diagnóstico | |
 | Data Lake Analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnóstico |             | |
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | Diagnóstico |             | |
@@ -49,10 +49,10 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 | Grupos de seguridad de red | Microsoft.Network/networksecuritygroups | Diagnóstico |             | [Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | Almacenes de recuperación         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (versión preliminar)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Servicios de búsqueda         | Microsoft.Search/searchServices         | Diagnóstico | Diagnóstico | |
-| Espacio de nombres de Bus de servicio   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Almacenamiento     |             | [Service Fabric Analytics (versión preliminar)](log-analytics-service-fabric.md) |
+| Espacio de nombres de Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnóstico | Diagnóstico | [Service Bus Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+| Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (versión preliminar)](log-analytics-service-fabric.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnóstico | [Azure SQL Analytics (versión preliminar)](log-analytics-azure-sql.md) |
-| Almacenamiento                 |                                         |             | Script      | [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
+| Storage                 |                                         |             | Script      | [Azure Storage Analytics (versión preliminar)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extensión   | Extensión <br> Diagnóstico  | |
 | Conjuntos de escalado de máquinas virtuales | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnóstico | |
 | Granjas de servidores web        | Microsoft.Web/serverfarms               |             | Diagnóstico | |
@@ -68,6 +68,13 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 Muchos recursos de Azure son capaces de escribir registros de diagnóstico y métricas directamente en Log Analytics; de hecho, esta es la forma preferida de recopilar los datos para el análisis. Al utilizar los diagnósticos de Azure, los datos se escriben inmediatamente en Log Analytics y no es necesario escribir primero los datos en el almacenamiento.
 
 Los recursos de Azure que admiten [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pueden enviar sus registros y métricas directamente a Log Analytics.
+
+> [!NOTE]
+> Actualmente no se admite el envío de métricas de varias dimensiones a Log Analytics a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+>
+> *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representa con todos los mensajes entrantes de todas las colas de Event Hub.
+>
+>
 
 * Para obtener información detallada sobre las métricas disponibles, consulte las [métricas admitidas con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 * Para obtener información detallada sobre los registros disponibles, consulte los [servicios admitidos y el esquema de los registros de diagnóstico](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
@@ -87,7 +94,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId 
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Habilitación de diagnósticos con plantillas de Resource Manager
 
-Para habilitar los diagnósticos en un recurso cuando se crea, y que los diagnósticos se envíen al área de trabajo de Log Analytics, puede usar una plantilla similar a la siguiente. Este ejemplo es para una cuenta de automatización, pero funciona con todos los tipos de recursos admitidos.
+Para habilitar los diagnósticos en un recurso cuando se crea, y que los diagnósticos se envíen al área de trabajo de Log Analytics, puede usar una plantilla similar a la siguiente. Este ejemplo es para una cuenta de Automation, pero funciona con todos los tipos de recursos admitidos.
 
 ```json
         {
@@ -145,7 +152,7 @@ Obtenga más información sobre el [conector de Application Insights](https://bl
 
 Para los servicios de Azure que no proporcionan una manera directa de enviar registros y métricas a Log Analytics, puede usar un script de Azure Automation para recopilar el registro y las métricas. Después, el script puede enviar los datos a Log Analytics utilizando la [API del recopilador de datos](log-analytics-data-collector-api.md).
 
-La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) para recopilar datos de servicios y enviarlos a Log Analytics.
+La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) para recopilar datos de servicios y enviarlos a Log Analytics.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

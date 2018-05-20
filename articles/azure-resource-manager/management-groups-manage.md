@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
-ms.openlocfilehash: b69dce94e2e0bfaa413af9a95c5ef858f766ff1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b68223830ca6c4e178447074bfbebd1322cb9477
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración 
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Puede cambiar, eliminar y administrar estos contenedores para que las jerarquías puedan usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basado en roles de Azure (RBAC)](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
@@ -103,9 +103,9 @@ Puede ver cualquier grupo de administración sobre el que tenga un rol de RBAC d
 ### <a name="view-in-the-portal"></a>Ver en el portal
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** > **Grupos de administración**. 
-3. Se carga la página de jerarquía de grupos de administración, donde se muestran todos los grupos a los que tiene acceso. 
+3. Se carga la página de jerarquía de grupos de administración, en la que puede explorar todos los grupos de administración y suscripciones a los que tiene acceso. Si selecciona el nombre del grupo, descenderá un nivel en la jerarquía. La navegación funciona de la misma forma que un explorador de archivos. 
     ![Primario](media/management-groups/main.png)
-4. Seleccione un grupo de administración individual para ver los detalles.  
+4. Para ver los detalles del grupo de administración, seleccione el vínculo **(detalles)** situado junto al título de este. Si este vínculo no está disponible, no tiene permisos para ver ese grupo de administración.  
 
 ### <a name="view-in-powershell"></a>Ver en PowerShell
 Use el comando Get-AzureRmManagementGroup para recuperar todos los grupos.  

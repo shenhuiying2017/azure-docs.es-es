@@ -1,11 +1,11 @@
 ---
-title: "Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único | Microsoft Docs"
-description: "Describe áreas problemáticas que proporcionan instrucciones para solucionar problemas relacionados con el inicio de sesión en aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña"
+title: Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único | Microsoft Docs
+description: Describe áreas problemáticas que proporcionan instrucciones para solucionar problemas relacionados con el inicio de sesión en aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: c01bf353c9617811e14a3d60f91584b57ac0b5e7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único para una aplicación, siga los pasos
 
 Para asignar uno o varios usuarios a una aplicación directamente, siga los pasos siguientes:
 
-1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global**.
+1.  Abra [**Azure Portal**](https://portal.azure.com/) e inicie sesión como **administrador global.**
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
@@ -195,5 +195,5 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 -   Seguimientos de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

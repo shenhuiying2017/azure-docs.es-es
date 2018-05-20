@@ -9,15 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b929eaf17255210a5c813e3e91478f9202941b64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Ejemplos de consulta para patrones de uso comunes de Stream Analytics
+
 ## <a name="introduction"></a>Introducción
-Las consultas de Azure Stream Analytics se expresan en un lenguaje de consulta similar a SQL. Estas consultas se documentan en la guía [Referencia de lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continúa actualizándose con nuevos patrones de forma continuada.
+Las consultas de Azure Stream Analytics se expresan en un lenguaje de consulta similar a SQL. Estas construcciones de lenguaje se documentan en la guía [Referencia de lenguaje de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+
+El diseño de la consulta puede expresar una lógica sencilla de paso a través para mover datos de evento de un flujo de entrada a otro almacén de datos de salida. O bien, puede realizar abundante análisis temporal y coincidencia de patrones para calcular agregados durante varias ventanas de tiempo, como en el ejemplo TollApp. Puede combinar datos de varias entradas para combinar eventos de streaming y realizar búsquedas en datos de referencia estáticos que enriquecerán los valores de evento. También puede escribir datos en varias salidas.
+
+En este artículo se describen las soluciones para varios patrones de consulta comunes basados en situaciones del mundo real. Es un trabajo en curso y continúa actualizándose con nuevos patrones de forma continuada.
 
 ## <a name="query-example-convert-data-types"></a>Ejemplo de consulta: conversión de tipos de datos
 **Descripción**: defina los tipos de propiedades en el flujo de entrada.
@@ -219,7 +224,7 @@ GROUP BY
 
 
 **Explicación:**
-**COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
+** COUNT(DISTINCT Make)** devuelve la cantidad de valores distintos de la columna **Make** dentro de una ventana de tiempo.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Ejemplo de consulta: determinar si un valor ha cambiado
 **Descripción**: busque un valor anterior para determinar si es diferente del valor actual.
@@ -571,7 +576,7 @@ WHERE
     AND t2.maxPower > 10
 ````
 
-**Explicación**: la primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos 3 minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
+**Explicación**: la primera consulta `max_power_during_last_3_mins`, usa la [ventana deslizante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para encontrar el valor máximo del sensor de potencia para cada dispositivo, durante los últimos 3 minutos. La segunda consulta se combina con la primera para encontrar el valor de potencia en la ventana más reciente relacionada con el evento actual. Y entonces, siempre que se cumplan las condiciones, se genera una alerta para el dispositivo.
 
 
 ## <a name="get-help"></a>Obtención de ayuda

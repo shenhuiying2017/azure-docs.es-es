@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: f3110e81a7229f8f279609a64949c7f0ce78d338
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -176,7 +176,7 @@ En esta sección, modificará la aplicación **SendCloudToDevice** para solicita
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación de Azure IoT Suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -195,5 +195,5 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [Guía del desarrollador de IoTHub de Azure]: iot-hub-devguide.md
 [Introducción a Iot Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Documentación de Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
+[acelerador de la solución de supervisión remota de Azure IoT]: https://docs.microsoft.com/azure/iot-suite/
 [SDK de dispositivos IoT de Azure]: iot-hub-devguide-sdks.md

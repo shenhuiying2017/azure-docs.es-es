@@ -4,7 +4,7 @@ description: En este artículo se proporciona un conjunto de procedimientos reco
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 75f0d7ffaf92558b16605c29cd99ee439ab2e3d8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 Con seguridad operativa de Azure, se hace referencia a los servicios, los controles y las características disponibles para los usuarios para proteger sus datos, aplicaciones y otros recursos en Microsoft Azure. La seguridad operativa de Azure se basa en una plataforma que incorpora el conocimiento adquirido a través de diversas funcionalidades exclusivas de Microsoft, incluido el ciclo de vida de desarrollo de seguridad (SDL) de Microsoft, el programa Microsoft Security Response Center y un conocimiento en profundidad del panorama de amenazas de ciberseguridad.

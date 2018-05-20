@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: a8e4ac763b9a16210d62fc080aaf8917c1eefc33
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 25a84c42430c76d296e12d3f83040fa18febdcb1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java asincrónico para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -31,8 +31,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
 El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de SQL al proporcionar a las operaciones asincrónicas compatibilidad con la [biblioteca de Netty](http://netty.io/). El [SDK de Java de API de SQL](sql-api-sdk-java.md) no admite las operaciones asincrónicas. 
 
@@ -55,13 +55,23 @@ El SDK de Java asincrónico de API de SQL es distinto al SDK de Java de API de S
 
 ## <a name="release-notes"></a>Notas de la versión
 
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Se agregó compatibilidad con la contrapresión en las consultas.
+* Se agregó compatibilidad con el identificador de intervalo de claves de partición en la consulta.
+* Corrección para permitir un token de mayor continuación en el encabezado de solicitud (corrección de errores GitHub n.º 24).
+* Se actualizó la dependencia de Netty a 4.1.22.Final para garantizar que la JVM se apaga después de que finaliza el subproceso principal.
+* Corrección para evitar pasar el token de sesión cuando se leen los recursos maestros.
+* Se agregaron más ejemplos.
+* Se agregaron más escenarios de pruebas comparativas.
+* Se corrigieron los archivos de encabezado de Java para la generación correcta de documentos de Java.
+
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * El SDK de disponibilidad general con compatibilidad total para E/S sin bloqueo mediante la [biblioteca de Netty](http://netty.io/) en el modo de puerta de enlace. 
 
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notificará la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
+Solo se han agregado nuevas características, funcionalidades y optimizaciones al SDK actual. Por lo tanto, se recomienda actualizar siempre a la última versión del SDK lo antes posible.
 
 El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
 
@@ -69,6 +79,7 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.0.1](#1.0.1) |20 de abril de 2018|--- |
 | [1.0.0](#1.0.0) |27 de febrero de 2018|--- |
 
 ## <a name="faq"></a>Preguntas más frecuentes

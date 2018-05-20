@@ -1,11 +1,11 @@
 ---
 title: Mejora del rendimiento comprimiendo archivos en la red CDN de Azure | Microsoft Docs
-description: "Obtenga información sobre cómo mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página mediante la compresión de los archivos en Azure CDN."
+description: Obtenga información sobre cómo mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página mediante la compresión de los archivos en Azure CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2018
 ms.author: mazha
-ms.openlocfilehash: 743d1db803cdb58ae8fa37430ccffa10ca003f93
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Mejora del rendimiento comprimiendo archivos en la red CDN de Azure
 La compresión de archivo es un método sencillo y eficaz para mejorar la velocidad de transferencia de archivos y aumentar el rendimiento de carga de página al reducir el tamaño de un archivo antes de enviarlo al servidor. La compresión de archivo reduce los costos de ancho de banda y proporciona una mayor capacidad de respuesta para los usuarios.
@@ -26,19 +26,24 @@ La compresión de archivo es un método sencillo y eficaz para mejorar la veloci
 Se puede habilitar de dos maneras:
 
 - Puede habilitar la compresión en el servidor de origen. En este caso, la red CDN pasa los archivos comprimidos y los entrega a los clientes que los solicitan.
-- Puede habilitar la compresión directamente en los servidores perimetrales de la red CDN. En este caso CDN comprime los archivos y los entrega a los usuarios finales, aunque el servidor de origen no los haya comprimido.
+- Habilite la compresión directamente en los servidores POP de CDN ("compresión sobre la marcha"). En este caso, CDN comprime los archivos y los entrega a los usuarios finales, aunque el servidor de origen no los haya comprimido.
 
 > [!IMPORTANT]
-> Los cambios en la configuración de la red CDN pueden demorar un tiempo en propagarse por la red. Para los perfiles de la **red CDN de Azure de Akamai** , la propagación normalmente se completa en menos de un minuto.  Para los perfiles de **Azure CDN de Verizon**, la propagación normalmente se completa en 90 minutos. Si está configurando la compresión por primera vez para su punto de conexión de la red CDN, considere esperar entre 1 y 2 horas antes de realizar la solución de problemas para garantizar que la configuración de la compresión se haya propagado a los POP.
+> Los cambios en la configuración de CDN pueden tardar un tiempo en propagarse por la red: 
+- En los perfiles **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en diez minutos. 
+- En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
+- En los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, la propagación se completa normalmente en 90 minutos. 
+>
+> Si está configurando la compresión por primera vez para su punto de conexión de la red CDN, considere esperar entre 1 y 2 horas antes de realizar la solución de problemas para garantizar que la configuración de la compresión se haya propagado a los POP.
 > 
 > 
 
 ## <a name="enabling-compression"></a>Habilitar la compresión
 Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de compresión, pero la interfaz de usuario es distinta. Para más información sobre las diferencias entre los niveles Standard y Premium de CDN, consulte [Introducción a Azure Content Delivery Network](cdn-overview.md).
 
-### <a name="standard-tier"></a>Nivel Standard
+### <a name="standard-cdn-profiles"></a>Perfiles de CDN estándar 
 > [!NOTE]
-> Esta sección es aplicable a perfiles de la **red CDN estándar de Azure de Verizon** y de la **red CDN estándar de Azure de Akamai**.
+> Esta sección es aplicable a los perfiles **Azure CDN Estándar Microsoft**, **Azure CDN Estándar de Verizon** y **Azure CDN Estándar de Akamai**.
 > 
 > 
 
@@ -63,7 +68,7 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
  
 5. Seleccione **Guardar** después de hacer los cambios.
 
-### <a name="premium-tier"></a>Nivel Premium
+### <a name="premium-cdn-profiles"></a>Perfiles de CDN Premium
 > [!NOTE]
 > Esta sección solo se aplica a los perfiles de **Azure CDN Premium de Verizon**.
 > 
@@ -90,9 +95,21 @@ Los niveles Standard y Premium de CDN proporcionan la misma funcionalidad de com
 
 ## <a name="compression-rules"></a>Reglas de compresión
 
-### <a name="azure-cdn-from-verizon-profiles-both-standard-and-premium-tiers"></a>Perfiles de Azure CDN de Verizon (niveles Standard y Premium)
+### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Perfiles Azure CDN Estándar de Microsoft
 
-En el caso de los perfiles de **Azure CDN de Verizon**, solo se comprimen los archivos válidos. Para ser elegible para la compresión, un archivo debe cumplir con los siguientes requisitos:
+En el caso de los perfiles **Azure CDN Estándar de Microsoft**, todos los archivos se pueden elegir para compresión. Sin embargo, un archivo debe tener un tipo MIME que esté [configurado para la compresión](#enabling-compression).
+
+Estos perfiles admiten las codificaciones de compresión siguientes:
+- gzip (GNU zip)
+- brotli 
+ 
+Si la solicitud admite más de un tipo de compresión, esos tipos de compresión tienen prioridad sobre la compresión brotli.
+
+Cuando una solicitud de un activo especifica la compresión gzip y la solicitud da como resultado un error de caché, Azure CDN realiza la compresión gzip del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché.
+
+### <a name="azure-cdn-from-verizon-profiles"></a>Perfiles Azure CDN de Verizon
+
+Con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, solo se comprimen determinados archivos válidos. Para ser elegible para la compresión, un archivo debe cumplir con los siguientes requisitos:
 - Debe tener más de 128 bytes
 - Debe tener menos de 1 MB
  
@@ -104,11 +121,11 @@ Estos perfiles admiten las codificaciones de compresión siguientes:
  
 Si la solicitud admite más de un tipo de compresión, esos tipos de compresión tienen prioridad sobre la compresión brotli.
 
-Cuando la solicitud para un recurso especifica la compresión brotli (encabezado HTTP `Accept-Encoding: br`) y la solicitud genera un error de caché, Azure CDN realiza la compresión brotli del recurso en el servidor de origen. Después, el archivo comprimido se envía directamente de la caché.
+Cuando la solicitud de un recurso especifica la compresión brotli (el encabezado HTTP es `Accept-Encoding: br`) y la solicitud genera un error de caché, Azure CDN realiza la compresión brotli del recurso directamente en el servidor POP. Después, el archivo comprimido se envía desde la caché.
 
-### <a name="azure-cdn-from-akamai-profiles"></a>Perfiles de Azure CDN de Akamai
+### <a name="azure-cdn-standard-from-akamai-profiles"></a>Perfiles Azure CDN Estándar de Akamai
 
-En el caso de los perfiles de la **red CDN de Azure de Akamai**, todos los archivos son válidos para la compresión. Sin embargo, un archivo debe tener un tipo MIME que esté [configurado para la compresión](#enabling-compression).
+Con los perfiles **Azure CDN Estándar de Akamai**, todos los archivos son válidos para la compresión. Sin embargo, un archivo debe tener un tipo MIME que esté [configurado para la compresión](#enabling-compression).
 
 Estos perfiles solo admiten la codificación de compresión gzip. Cuando un punto de conexión de perfil solicita un archivo codificado con gzip, siempre se solicita al origen, independientemente de la solicitud del cliente. 
 
@@ -130,7 +147,7 @@ En las tablas siguientes se describe el comportamiento de la compresión de Azur
 | --- | --- | --- | --- |
 | Comprimidos |Comprimidos |Comprimidos |La red CDN transcodifica entre los formatos admitidos. |
 | Comprimidos |Sin comprimir |Comprimidos |La red CDN realiza una compresión. |
-| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**CDN de Azure de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Archivos con Cache-Control: el encabezado no-cache nunca se comprime. |
+| Comprimidos |No almacenado en caché |Comprimidos |La red CDN realiza una compresión si el origen devuelve un archivo sin comprimir. <br/>**CDN de Azure de Verizon** pasa el archivo descomprimido en la primera solicitud y luego lo comprime y lo almacena en caché para solicitudes posteriores. <br/>Los archivos con el encabezado `Cache-Control: no-cache` nunca se comprimen. |
 | Sin comprimir |Comprimidos |Sin comprimir |La red CDN realiza una descompresión. |
 | Sin comprimir |Sin comprimir |Sin comprimir | |
 | Sin comprimir |No almacenado en caché |Sin comprimir | |

@@ -1,25 +1,27 @@
 ---
-title: "Protección de una API web de Azure Active Directory 2.0 mediante Node.js | Microsoft Docs"
-description: "En este artículo se describe cómo crear una API web de Node.js que acepta tokens de una cuenta Microsoft personal y de cuentas profesionales o educativas."
+title: Protección de una API web de Azure Active Directory 2.0 mediante Node.js | Microsoft Docs
+description: En este artículo se describe cómo crear una API web de Node.js que acepta tokens de una cuenta Microsoft personal y de cuentas profesionales o educativas.
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0b572fc1-2aaf-4cb6-82de-63010fb1941d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 05/13/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f07e421feedf3c82da7be16434891cdbe6069038
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 19ad25c7b08ff073097cacf3be359772ca0a327f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>Protección de una API web mediante Node.js
 > [!NOTE]
@@ -235,7 +237,7 @@ El archivo Server.js proporciona la mayor parte de la funcionalidad de su servid
     var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
     ```
 
-3.  Guarde el archivo . Volveremos a él en breve.
+3.  Guarde el archivo. Volveremos a él en breve.
 
 ## <a name="10-create-a-config-file-to-store-your-azure-ad-settings"></a>10: Crear un archivo de configuración para almacenar la configuración de Azure AD
 Este archivo de código pasa los parámetros de configuración del portal de Azure AD al archivo Passport.js. Estos valores de configuración se crearon al agregar la API web al portal en la primera parte del artículo. Explicamos qué incluir en los valores de estos parámetros después de haber copiado el código.

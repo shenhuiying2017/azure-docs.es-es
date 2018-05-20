@@ -1,13 +1,13 @@
 ---
-title: "Inicio rápido: instalación manual de una única instancia de SAP HANA en Azure Virtual Machines | Microsoft Docs"
-description: "Guía de inicio rápido para la instalación manual de una única instancia de SAP HANA en Azure Virtual Machines"
+title: 'Inicio rápido: instalación manual de una única instancia de SAP HANA en Azure Virtual Machines | Microsoft Docs'
+description: Guía de inicio rápido para la instalación manual de una única instancia de SAP HANA en Azure Virtual Machines
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: c51a2a06-6e97-429b-a346-b433a785c9f0
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 45c7e1b76f64db142fc8fdca85b1e1fa9aca6a42
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Inicio rápido: instalación manual de una única instancia de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -29,7 +29,7 @@ Esta guía de inicio rápido le ayuda a configurar una instancia única de SAP H
 >[!Note]
 >En ella se describen las implementaciones de SAP HANA en máquinas virtuales de Azure. Para más información sobre la implementación de SAP HANA en instancias grandes de HANA, consulte [Uso de SAP en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 En esta guía se da por supuesto que está familiarizado con los conceptos básicos de la infraestructura como servicio (IaaS), por ejemplo:
  * Cómo implementar máquinas virtuales o redes virtuales mediante Azure Portal o PowerShell.
  * La interfaz de línea de comandos (CLI) multiplataforma de Azure, incluida la opción para usar plantillas de notificación de objetos JavaScript (JSON).
@@ -38,7 +38,7 @@ También se da por supuesto que está familiarizado con:
 * SAP HANA y SAP NetWeaver y cómo instalarlos en el entorno local.
 * Instalación y funcionamiento de SAP HANA y las instancias de aplicación SAP en Azure.
 * Los siguientes conceptos y procedimientos:
-   * Planeamiento de la implementación de SAP en Azure, como el planeamiento de Azure Virtual Network y el uso de Azure Storage. Consulte [SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
+   * Planeamiento de la implementación de SAP en Azure, como el planeamiento de Azure Virtual Network y el uso de Azure Storage. Consulte [SAP NetWeaver en Azure Virtual Machines: guía de planeación e implementación](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Principios de implementación y maneras de implementar máquinas virtuales en Azure. Consulte [Implementación de Azure Virtual Machines para SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
    * Alta disponibilidad para SAP NetWeaver ASCS (ABAP SAP Central Services), SCS (SAP Central Services) y ERS (Evaluated Receipt Settlement) en Azure. Consulte [Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Información detallada sobre cómo mejorar la eficacia en el aprovechamiento de una instalación de varios SID de ASCS/SCS en Azure. Consulte [Creación de una configuración de varios SID de SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
@@ -200,7 +200,7 @@ Para más información sobre cómo conectar discos a máquinas virtuales de Azur
 
 Azure Premium Storage permite definir modos de almacenamiento en caché de disco. El almacenamiento en caché de disco debe estar deshabilitado para los conjuntos seccionados que contienen /hana/data y /hana/log. Para los otros volúmenes (discos), el modo de almacenamiento en caché debe establecerse en **ReadOnly**.
 
-Para más información, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../windows/premium-storage.md).
+Para más información, consulte [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../../windows/premium-storage.md).
 
 Para buscar plantillas de JSON de ejemplo para crear máquinas virtuales, vaya a [Plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 La plantilla vm-simple-sles es una plantilla básica. Incluye una sección de almacenamiento, con un disco de datos adicional de 100 GB. Esta plantilla se puede usar como base. La plantilla se puede adaptar a su configuración específica.
@@ -251,7 +251,7 @@ Para ver una descripción del diseño del sistema de archivos estándar de SAP H
 
 Cuando instala SAP NetWeaver en una imagen estándar de la galería de Azure de SLES/SLES-for-SAP Applications 12, se muestra un mensaje que dice que no hay espacio de intercambio, como se ilystra en la siguiente captura de pantalla. Para descartar este mensaje, puede agregar manualmente un archivo de intercambio mediante **dd**, **mkswap** y **swapon**. Para saber cómo, busque "Adding a Swap File Manually" (Adición manual de un archivo de intercambio) en la [sección "Using the YaST Partitioner" (Uso del particionador YaST) de la documentación de SUSE](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/sles-for-sap-12-sp1.zip).
 
-Otra opción consiste en configurar el espacio de intercambio mediante el agente de la máquina virtual Linux. Consulte la [Guía de usuario del Agente de Linux de Azure](../../linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
+Otra opción consiste en configurar el espacio de intercambio mediante el agente de la máquina virtual Linux. Consulte la [Guía de usuario del Agente de Linux de Azure](../../extensions/agent-linux.md) para más información.
 
 ![Mensaje emergente que avisa de que no hay espacio de intercambio suficiente](./media/hana-get-started/image010.jpg)
 

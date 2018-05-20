@@ -1,22 +1,22 @@
 ---
-title: Disponibilidad de regiones y cuotas en Azure Container Service (AKS)
-description: Disponibilidad predeterminada de regiones y cuotas en Azure Container Service (AKS).
+title: Disponibilidad de regiones y cuotas en Azure Kubernetes Service (AKS)
+description: Disponibilidad predeterminada de regiones y cuotas en Azure Kubernetes Service (AKS).
 services: container-service
-author: david-stanford
-manager: timlt
+author: neilpeterson
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
-ms.openlocfilehash: eddfab874501fd045820d7da3c968d340fdffe93
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 04/26/2018
+ms.author: nepeters
+ms.openlocfilehash: adf2d57961df9a4e8d03f2b3fe43ca0603685eb2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="quotas-and-region-availability-for-azure-container-service-aks"></a>Disponibilidad de cuotas y regiones en Azure Container Service (AKS)
+# <a name="quotas-and-region-availability-for-azure-kubernetes-service-aks"></a>Disponibilidad de regiones y cuotas para Azure Kubernetes Service (AKS)
 
-Todos los servicios de Azure incluyen ciertas cuotas y límites predeterminados para los recursos y las características. En las secciones siguientes se detallan los límites de recursos predeterminados para varios recursos de Azure Container Service (AKS), así como la disponibilidad del servicio AKS en las regiones de Azure.
+Todos los servicios de Azure incluyen ciertas cuotas y límites predeterminados para los recursos y las características. En las secciones siguientes se detallan los límites de recursos predeterminados para varios recursos de Azure Kubernetes Service (AKS), así como la disponibilidad del servicio AKS en las regiones de Azure.
 
 ## <a name="service-quotas-and-limits"></a>Límites y cuotas del servicio
 
@@ -28,7 +28,7 @@ A la infraestructura aprovisionada se le aplican las demás limitaciones de red,
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
-Azure Container Service (AKS) está disponible en versión preliminar en las siguientes regiones:
+Azure Kubernetes Service (AKS) está disponible en versión preliminar en las siguientes regiones:
 - Este de EE. UU
 - Europa occidental
 - Central EE. UU:

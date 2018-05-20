@@ -1,11 +1,11 @@
 ---
-title: "Autorización de las cuentas de desarrollador mediante OAuth 2.0 en Azure API Management | Microsoft Docs"
-description: "Obtenga información acerca de cómo autorizar a los usuarios para que utilicen OAuth 2.0 en Administración de API."
+title: Autorización de las cuentas de desarrollador mediante OAuth 2.0 en Azure API Management | Microsoft Docs
+description: Obtenga información acerca de cómo autorizar a los usuarios para que utilicen OAuth 2.0 en Administración de API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 47011bf2cfde268bb6248e54e98930f3a0b522e4
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: f3611fa4da571dd74d844c7fad45788ece372be4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
 Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Azure API Management, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.

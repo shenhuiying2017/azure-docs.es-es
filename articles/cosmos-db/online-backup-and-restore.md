@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a51b7d115a8287340450b3525a9b1a325702485b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Copias de seguridad y restauración automáticas en línea con Azure Cosmos DB
 Azure Cosmos DB crea automáticamente copias de seguridad de todos los datos a intervalos regulares. Las copias de seguridad automáticas se crean sin afectar el rendimiento ni la disponibilidad de las operaciones de bases de datos. Todas las copias de seguridad se almacenan por separado en otro servicio de almacenamiento y se replican globalmente para lograr resistencia frente a desastres regionales. Las copias de seguridad automáticas están pensadas para escenarios en los que se elimina accidentalmente el contenedor de Cosmos DB y que después requieren una solución de recuperación de datos o de recuperación ante desastres.  
@@ -50,7 +50,11 @@ La imagen siguiente ilustra copias de seguridad completas y periódicas de todas
 ## <a name="backup-retention-period"></a>Período de retención de copia de seguridad
 Como se describió anteriormente, Azure Cosmos DB toma instantáneas de los datos cada cuatro horas en el nivel de partición. En un momento dado del tiempo, solo las dos últimas instantáneas se conservan. Sin embargo, si se elimina la colección o la base de datos, se conservan las instantáneas existentes para todas las particiones eliminadas dentro de la colección o base de datos determinada durante 30 días.
 
-Si desea mantener sus propias instantáneas, puede utilizar la opción de exportación a JSON [herramienta de migración de datos](import-data.md#export-to-json-file) en la base de datos de Azure Cosmos para programar copias de seguridad adicionales.
+Para la API de SQL, si quiere mantener sus propias instantáneas, puede usar la opción de exportación a JSON de la [herramienta de migración de datos](import-data.md#export-to-json-file) de Azure Cosmos DB para programar copias de seguridad adicionales.
+
+> [!NOTE]
+> Si aprovisiona el rendimiento de un conjunto de contenedores en el nivel de base de datos, recuerde que la restauración tiene lugar en el nivel completo de la cuenta de base de datos. También debe asegurarse de ponerse en contacto con nuestro soporte técnico en un plazo de 8 horas si usa esta nueva funcionalidad y elimina por accidente su contenedor (colección, tabla o gráfico). 
+
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauración de una base de datos desde una copia de seguridad en línea
 En caso de que elimine accidentalmente su base de datos o colección, puede [presentar un vale de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o llamar al [servicio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) para restaurar los datos a partir de la copia de seguridad automática más reciente. Si necesita restaurar la base de datos debido a problemas de datos dañados (incluye los casos en los que se eliminan documentos de una colección), consulte [Control de datos dañados](#handling-data-corruption) ya que puede ser necesario realizar pasos adicionales para impedir que los datos dañados se escriban en las copias de seguridad existentes. Si se va a restaurar una instantánea específica de su copia de seguridad, Cosmos DB requiere que los datos hayan estado disponibles durante el ciclo de copia de seguridad de esa instantánea.

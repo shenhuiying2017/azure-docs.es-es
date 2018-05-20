@@ -1,25 +1,25 @@
 ---
-title: "Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL | Microsoft Docs"
-description: "Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones. "
+title: Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL | Microsoft Docs
+description: 'Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones. '
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: CelesteDG
 manager: mtillman
-editor: 
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a7d93fe6289ade7fbdf3050d49184feb8b370bb5
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: b0179e217a23d612ddcdc219f589a5d1fbca644e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Habilitación del inicio de sesión único entre aplicaciones en iOS mediante ADAL
 Actualmente, los clientes esperan disfrutar de un inicio de sesión único que les permita escribir sus credenciales una sola vez y que esas credenciales se propaguen automáticamente entre las diferentes aplicaciones. La dificultad de escribir el nombre de usuario y contraseña en una pantalla pequeña, a menudo combinado con un factor adicional (2FA) como una llamada de teléfono o un código de mensaje de texto, provoca una rápida insatisfacción si el usuario tiene que hacer esto más de una vez para su producto.
@@ -86,7 +86,7 @@ A continuación se representa el funcionamiento de los SDK de Microsoft Identity
 Los inicios de sesión asistidos por agente son experiencias de inicio de sesión que se producen dentro de la aplicación del agente y usan el almacenamiento y la seguridad del agente para compartir las credenciales entre todas las aplicaciones del dispositivo que se aplican a la plataforma Microsoft Identity. Esto significa que las aplicaciones dependen del agente para que los usuarios inicien sesión. En iOS y Android, estos agentes se consiguen a través de aplicaciones descargables que los clientes instalan de forma independiente o bien se insertan en el dispositivo gracias a una empresa que administra el dispositivo para sus usuarios. Un ejemplo de este tipo de aplicación es la aplicación Microsoft Authenticator en iOS. En Windows, esta funcionalidad se proporciona mediante un selector de cuentas integrado en el sistema operativo, que se conoce técnicamente como agente de autenticación web.
 La experiencia varía según la plataforma y a veces puede ser problemática para los usuarios si no se administra correctamente. Quizá este modelo le resulte más familiar si tiene instalada la aplicación Facebook y usa Facebook Connect desde otra aplicación. La plataforma Microsoft Identity utiliza este mismo modelo.
 
-En el caso de iOS, esto da lugar a una animación de "transición" en la que la aplicación se envía a un segundo plano y las aplicaciones de Microsoft Authenticator vienen al primer plano para que el usuario seleccione la cuenta en la que quiere iniciar sesión.  
+En el caso de iOS, esto da lugar a una animación de "transición" en la que la aplicación se envía a un segundo plano y las aplicaciones de Microsoft Authenticator vienen al primer plano para que el usuario seleccione la cuenta en la que quiere iniciar sesión. 
 
 En el caso de Android y Windows, el selector de cuentas se muestra sobre la aplicación, lo cual interrumpe menos la experiencia del usuario.
 

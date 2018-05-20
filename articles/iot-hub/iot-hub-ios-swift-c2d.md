@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 032412c329e79ec671f59a049da7d8ddc0b9dd08
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envío de mensajes de nube a dispositivo con IoT Hub (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -166,7 +166,7 @@ La salida debe tener un aspecto similar al ejemplo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación de Azure IoT Suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -185,4 +185,4 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
-[Documentación de Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[acelerador de la solución de supervisión remota de Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

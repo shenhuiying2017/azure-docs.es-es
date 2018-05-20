@@ -1,8 +1,8 @@
 ---
-title: "Recopilación y análisis de mensajes de Syslog en Log Analytics (OMS) | Microsoft Docs"
-description: "Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS."
+title: Recopilación y análisis de mensajes de Syslog en Log Analytics (OMS) | Microsoft Docs
+description: Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que crean en el repositorio de OMS.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 011eaf1a4705f9078225b9b871f81b4333b05ee8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Orígenes de datos de Syslog en Log Analytics
 Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog.  Al instalar el agente de OMS para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente.  En ese momento, el agente envía el mensaje a Log Analytics, donde se crea un registro correspondiente en el repositorio de OMS.  
@@ -31,10 +31,10 @@ Syslog es un protocolo de registro de eventos que es común a Linux.  Las aplica
 ![Recopilación de Syslog](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Configuración de Syslog
-El agente de OMS para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración.  Puede configurar Syslog a través del portal de OMS o mediante la administración de archivos de configuración de sus agentes de Linux.
+El agente de OMS para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración.  Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
 
-### <a name="configure-syslog-in-the-oms-portal"></a>Configuración de Syslog en el portal de OMS
-Configure Syslog desde el [menú de datos en la configuración de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Esta configuración se entrega al archivo de configuración de cada agente de Linux.
+### <a name="configure-syslog-in-the-azure-portal"></a>Configuración de Syslog en Azure Portal
+Configure Syslog desde el [menú de datos en la configuración avanzada de Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Esta configuración se entrega al archivo de configuración de cada agente de Linux.
 
 Para agregar un nuevo recurso, escriba su nombre y haga clic en **+**.  Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar.  No puede proporcionar criterios adicionales para filtrar mensajes.
 
@@ -183,7 +183,7 @@ Después de completar los cambios, Syslog y el servicio de agente de OMS deben r
 ## <a name="syslog-record-properties"></a>Propiedades de registros de Syslog
 Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen en la tabla siguiente.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Equipo |Nombre del equipo desde el que se recopiló el evento. |
 | Facility |Define la parte del sistema que ha generado el mensaje. |
@@ -197,7 +197,7 @@ Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen
 ## <a name="log-queries-with-syslog-records"></a>Consultas de registro con registros de Syslog
 La tabla siguiente proporciona ejemplos distintos de consultas de registro que recuperan registros de Syslog.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 |:--- |:--- |
 | syslog |Todos los registros de Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Todos los registros de Syslog con gravedad de error. |
@@ -205,6 +205,6 @@ La tabla siguiente proporciona ejemplos distintos de consultas de registro que r
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Número de registros de Syslog por recurso. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de orígenes de datos y soluciones.
+* Obtenga información acerca de las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados de las soluciones y los orígenes de datos.
 * Use [Campos personalizados](log-analytics-custom-fields.md) para analizar datos de registros de Syslog en campos individuales.
 * [Configure agentes de Linux](log-analytics-linux-agents.md) para recopilar otros tipos de datos.

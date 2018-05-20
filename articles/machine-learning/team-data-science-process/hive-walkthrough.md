@@ -1,9 +1,9 @@
 ---
-title: "Exploración de datos en un clúster de Hadoop y creación de modelos en Azure Machine Learning | Microsoft Docs"
-description: "Uso del proceso de ciencia de datos en equipos para un escenario completo que emplea un clúster de Hadoop de HDInsight con el objetivo de compilar e implementar un modelo."
+title: Exploración de datos en un clúster de Hadoop y creación de modelos en Azure Machine Learning | Microsoft Docs
+description: Uso del proceso de ciencia de datos en equipos para un escenario completo que emplea un clúster de Hadoop de HDInsight con el objetivo de compilar e implementar un modelo.
 services: machine-learning,hdinsight
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e9e76c91-d0f6-483d-bae7-2d3157b86aa0
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
-ms.openlocfilehash: 4671493c23bfed72517e436dd6922f4ef8a213b0
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: deguhath
+ms.openlocfilehash: 6f16b7524bc8c268ed3a2314b8b88d25eb2f4325
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Proceso de ciencia de datos en equipos en acción: uso de clústeres de Hadoop de Azure HDInsight
 En este tutorial, empleamos el [proceso de ciencia de datos en equipo](overview.md) en un escenario completo. Utilizamos un [clúster de Hadoop para Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y diseñar características de los datos del conjunto de datos de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible públicamente, así como para reducir el muestreo de los datos. Para controlar las tareas predictivas de clasificación binaria y de clases múltiples, así como las de regresión, se generan modelos de datos con Azure Machine Learning. 
@@ -723,7 +723,7 @@ Para la emisión de consultas de Hive en el módulo [Importar datos][import-data
 
 A continuación se indican algunos detalles acerca del módulo [Importar datos][import-data] y los parámetros de entrada:
 
-**URI del servidor de HCatalog**: si el nombre del clúster es **abc123**, sería: https://abc123.azurehdinsight.net.
+**URI del servidor de HCatalog**: si el nombre el clúster es **abc123**, es simplemente: https://abc123.azurehdinsight.net.
 
 **Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido para el clúster (no es el nombre de usuario de acceso remoto).
 

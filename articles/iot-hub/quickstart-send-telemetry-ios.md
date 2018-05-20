@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ns
 ms.date: 04/20//2018
 ms.author: kgremban
-ms.openlocfilehash: 8b95bb18f2e8941c10f7bcdf6a60e7fda6ab0ea5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Envío de datos de telemetría desde un dispositivo a IoT Hub (Swift)
 
@@ -79,6 +79,8 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    az extension add --name azure-cli-iot-ext
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
    ```
+
+    Si elige otro nombre para el dispositivo, actualícelo en las aplicaciones de ejemplo antes de ejecutarlas.
 
 1. Ejecute el siguiente comando para obtener la _cadena de conexión del dispositivo_ que acaba de registrar:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a873aa9835ffab8b0d195d9fc9588167ea134128
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-cosmos-db-database-security"></a>Seguridad de base de datos de Azure Cosmos DB
 
@@ -78,7 +78,7 @@ Analicemos cada uno de ellas en detalle.
 |Respuesta a ataques|Una vez que se ha puesto en contacto con el equipo de asistencia técnica de Azure para informar de un posible ataque, se inicia un proceso de respuesta a incidentes de 5 pasos. El objetivo de dicho proceso es restaurar las operaciones y la seguridad de los servicios a su estado normal lo antes posible después de que se detecte un problema y se inicie una investigación.<br><br>Obtenga más información en [Microsoft Azure Security Response in the Cloud](https://aka.ms/securityresponsepaper) (Respuesta de seguridad de Microsoft Azure en la nube).|
 |Geovalla|Azure Cosmos DB garantiza el cumplimiento y la gobernanza de datos para regiones soberana (por ejemplo, Alemania y US Gov).|
 |Instalaciones protegidas|Los datos de Azure Cosmos DB se almacenan en los SSD de los centros de datos protegidos de Azure.<br><br>Obtenga información sobre los [centros de datos globales de Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters).|
-|HTTPS, SSL y cifrado TLS|Todas las interacciones de Azure Cosmos DB de cliente a servicio exigen los protocolos SSL o TLS 1.2. Además, para todas las replicaciones dentro de centro de datos y entre ellos se exigen estos protocolos.|
+|HTTPS, SSL y cifrado TLS|Todas las interacciones de Azure Cosmos DB de cliente a servicio son compatibles con los protocolos SSL o TLS 1.2. Además, para todas las replicaciones dentro de centro de datos y entre ellos se exigen estos protocolos.|
 |Cifrado en reposo|Todos los datos almacenados en Azure Cosmos DB se cifran en reposo. Más información en [Cifrado de Azure Cosmos DB en reposo](.\database-encryption-at-rest.md)|
 |Servidores revisados|Como una base de datos administrada, Azure Cosmos DB elimina la necesidad de administrar y aplicar revisiones a servidores, que se hace automáticamente.|
 |Cuentas administrativas con contraseñas seguras|Es difícil creer que tengamos que hacer mención a este requisito, pero a diferencia de algunos de nuestros competidores, no se puede tener una cuenta administrativa sin contraseña en Azure Cosmos DB.<br><br> La seguridad a través de SSL y autenticación basada en secreto HMAC está incorporada de forma predeterminada.|

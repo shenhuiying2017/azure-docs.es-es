@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mbullwin
-ms.openlocfilehash: 05d271eb7d046819bb8fc2be20623cba0000d8f4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.  
 
-El uso de la exportación continua puede conllevar un cargo adicional. Consulte su [modelo de fijación de precios](http://azure.microsoft.com/pricing/details/application-insights/).
+El uso de la exportación continua puede conllevar un cargo adicional. Consulte su [modelo de fijación de precios](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 

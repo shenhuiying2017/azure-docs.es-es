@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb1d977dddce07b3deda7eeeeb3bc93d41339de1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creación de una aplicación web de ASP.NET Framework en Azure
 
@@ -51,7 +51,7 @@ En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C# > Web > Apli
 
 Asigne a la aplicación el nombre _myFirstAzureWebApp_ y seleccione **Aceptar**.
    
-![Cuadro de diálogo Nuevo proyecto](./media/app-service-web-get-started-dotnet/new-project.png)
+![Cuadro de diálogo Nuevo proyecto](./media/app-service-web-get-started-dotnet-framework/new-project.png)
 
 Puede implementar cualquier tipo de aplicación web de ASP.NET en Azure. Para esta guía de inicio rápido, seleccione la plantilla **MVC** y asegúrese de que la autenticación se establece en **Sin autenticación**.
       

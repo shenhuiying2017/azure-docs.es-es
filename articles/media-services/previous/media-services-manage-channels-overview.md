@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: d71f9fc2b69e1a99b518c2317cccde712ab40fec
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d3219f6f2617fec941e308febb2e47efa184170
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Información general de streaming en vivo con Azure Media Services
 
@@ -54,7 +54,7 @@ Un **canal** representa una canalización para procesar contenido de streaming e
   > El uso de un método de paso a través es la forma más económica de streaming en vivo cuando está realizando varios eventos en un largo período y ya ha invertido en codificadores locales. Consulte los detalles en [Precios de Servicios multimedia](https://azure.microsoft.com/pricing/details/media-services/) .
   > 
   > 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). También se admite RTP (MPEG-TS), siempre que disponga de una conexión dedicada al centro de datos de Azure. Se sabe que los siguientes codificadores en directo con salida RTMP funcionan con los canales de este tipo: Telestream Wirecast y FMLE. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Se sabe que los siguientes codificadores en directo con salida RTMP funcionan con los canales de este tipo: Telestream Wirecast y FMLE. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
 A partir de la versión 2.10 de Media Services, al crear un canal, puede especificar la forma en que desea que este reciba el flujo de entrada y si quiere que el canal realice la codificación en directo de la secuencia. Tiene dos opciones:
 
@@ -68,7 +68,7 @@ La tabla siguiente proporciona a una guía para comparar los dos tipos de canal 
 | --- | --- | --- |
 | La entrada de velocidad de bits única se codifica en varias velocidades de bits en la nube |Sin  |Sí |
 | Resolución máxima, número de capas |1080p, 8 capas, 60+fps |720p, 6 capas, 30 fps |
-| Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming y RTP |
+| Protocolos de entrada |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Precio |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) y haga clic en la pestaña "Vídeo en vivo" |Consulte la [página de precios](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tiempo de ejecución máximo |24x7 |8 horas |
 | Compatibilidad con inserción de tabletas táctiles |Sin  |Sí |

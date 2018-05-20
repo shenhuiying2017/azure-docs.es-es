@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.openlocfilehash: 029a0e297469dd5845a82dbdc8fd5f898cfebccc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9d1e2f801db2ed7edf262f8a5f221057ef791106
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaquetado e implementación de un ejecutable existente en Service Fabric
 Al empaquetar un ejecutable existente como [ejecutable invitado](service-fabric-guest-executables-introduction.md), puede elegir usar una plantilla de proyecto de Visual Studio o [crear el paquete de aplicación manualmente](#manually). Con Visual Studio, la estructura del paquete de aplicación y los archivos de manifiesto se crean mediante la plantilla para nuevos proyectos.
@@ -43,7 +43,7 @@ Visual Studio proporciona una plantilla de servicio de Service Fabric para ayuda
 4. Asigne un nombre a su servicio y haga clic en **Aceptar**.
 5. Si el servicio necesita un punto de conexión para establecer comunicación, ahora podrá agregar el protocolo, el puerto y el tipo al archivo ServiceManifest.xml. Por ejemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Ya puede utilizar el paquete y publicar la acción en el clúster local mediante la depuración de la solución en Visual Studio. Cuando esté listo puede publicar la aplicación en un clúster remoto o comprobar la solución en el control de código fuente.
-7. Lea [Comprobación de la aplicación en ejecución](#check-your-running-application) ver el servicio ejecutable invitado que se ejecuta en Service Fabric Explorer.
+7. Lea [Comprobación de la aplicación en ejecución](#check-your-running-application) para ver el servicio ejecutable invitado que se ejecuta en Service Fabric Explorer.
 
 Para ver un tutorial de ejemplo, consulte [Creación de la primera aplicación ejecutable invitada con Visual Studio](quickstart-guest-app.md).
 

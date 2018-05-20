@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dcfc295de39e909bf157edee4fec1ba51a583750
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 Las soluciones de administración de la identidad y el acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Además, esto posibilita que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) proporciona un inicio de sesión único para miles de aplicaciones en la nube (SaaS) y acceso a aplicaciones web que se ejecutan de forma local.
@@ -64,10 +64,10 @@ El proxy de aplicación de Azure AD permite publicar aplicaciones locales (como 
 
 Más información:
 
-* [Habilitación del proxy de la aplicación de Azure AD](../active-directory/active-directory-application-proxy-enable.md)
+* [Habilitación del proxy de la aplicación de Azure AD](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](../active-directory/active-directory-application-proxy-publish.md)
-* [Inicio de sesión único con el Proxy de aplicación](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Uso de acceso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
+* [Inicio de sesión único con el Proxy de aplicación](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Uso de acceso condicional](../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 Azure Multi-factor Authentication (MFA) es un método de autenticación que requiere el uso de más de un método de verificación y agrega un segundo nivel de seguridad crítico a las transacciones e inicios de sesión del usuario. MFA ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona autenticación sólida mediante una gran variedad de opciones de verificación, como llamadas telefónicas, mensajes de texto, notificaciones de aplicaciones móviles, códigos de verificación y tokens OAuth de terceros.

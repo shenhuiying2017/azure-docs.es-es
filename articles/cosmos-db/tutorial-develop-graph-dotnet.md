@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 66f0d0064fe59c6e1d249eb69c1b433fe661c513
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: desarrollo con Graph API en .NET
 Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede crear rápidamente bases de datos de documentos, clave-valor y grafos, y realizar consultas en ellas. Todas las bases de datos se beneficiarán de las funcionalidades de distribución global y escala horizontal en Azure Cosmos DB. 
@@ -121,7 +121,7 @@ Como ejemplo, vamos a trabajar con una red social sencilla con cuatro personas. 
 El espacio de nombres `Microsoft.Azure.Graphs.Elements` proporciona las clases `Vertex`, `Edge`, `Property` y `VertexProperty` para deserializar las respuestas de GraphSON en objetos .NET bien definidos.
 
 ## <a name="run-gremlin-using-creategremlinquery"></a>Ejecución de Gremlin con CreateGremlinQuery
-Al igual que SQL, Gremlin admite operaciones de lectura, escritura y consulta. Por ejemplo, el siguiente fragmento de código muestra cómo crear vértices y bordes; haga algunas consultas de ejemplo con `CreateGremlinQuery<T>` e itere de manera asincrónica en estos resultados con `ExecuteNextAsync` y `HasMoreResults.
+Al igual que SQL, Gremlin admite operaciones de lectura, escritura y consulta. Por ejemplo, el siguiente fragmento de código muestra cómo crear vértices y bordes; haga algunas consultas de ejemplo con `CreateGremlinQuery<T>` e itere de manera asincrónica en estos resultados con `ExecuteNextAsync` y `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>

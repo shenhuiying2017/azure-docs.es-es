@@ -1,3 +1,19 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/10/2018
+---
 ## <a name="view-device-telemetry"></a>Ver la telemetría de dispositivo
 
 Puede ver la telemetría enviada desde el dispositivo en la página **Dispositivos** de la solución.
@@ -24,7 +40,7 @@ Para invocar métodos en los dispositivos, use la página **Dispositivos** de la
 
     ![Seleccione el dispositivo físico](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Para mostrar una lista de los métodos se pueden llamar en su dispositivo, elija **Programación**. Para programar un método para ejecutarse en varios dispositivos, puede seleccionar varios en la lista. El panel **Programación** muestra los tipos de método comunes a todos los dispositivos seleccionados.
+1. Para mostrar una lista de los métodos que se pueden llamar en su dispositivo, elija **Trabajos** y, luego, **Ejecutar método**. Para programar un trabajo para ejecutarse en varios dispositivos, puede seleccionarlos en la lista. El panel **Trabajos** muestra los tipos de métodos comunes a todos los dispositivos seleccionados.
 
 1. Elija **FirmwareUpdate** y establezca el nombre del trabajo en **UpdatePhysicalChiller**. Configure la **versión de firmware** en **2.0.0**, configure el **URI de firmware** en  **http://contoso.com/updates/firmware.bin** y, a continuación, elija **Aplicar**:
 
@@ -41,4 +57,4 @@ Para invocar métodos en los dispositivos, use la página **Dispositivos** de la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) se describen algunas formas de personalizar la solución preconfigurada.
+En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) se describen algunas maneras de personalizar el acelerador de soluciones.

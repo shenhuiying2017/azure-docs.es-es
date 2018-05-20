@@ -1,12 +1,12 @@
 ---
 title: Seguridad operativa de Azure | Microsoft Docs
-description: "Aprenda sobre Microsoft Operations Management Suite (OMS), sus servicios y cómo funciona."
+description: Aprenda sobre Microsoft Operations Management Suite (OMS), sus servicios y cómo funciona.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8528eeb4eac8397beaa3d0dca37ce9eb33167b32
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d5bea758a0b2a950f51ec443707d9d32dee9cbc4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -64,11 +64,11 @@ Con OMS, puede administrar cualquier instancia en cualquier nube, incluidas las 
 
 Un conjunto de servicios que se ejecutan en Azure proporciona la funcionalidad principal de OMS. Cada servicio ofrece una función de administración específica, y se pueden combinar los servicios para lograr escenarios de administración diferentes.
 
-| Servicio  | Descripción|
+| Servicio  | DESCRIPCIÓN|
 | :------------- | :-------------|
 | Log Analytics | Supervisión y análisis de la disponibilidad y el rendimiento de los distintos recursos, incluidas las máquinas físicas y virtuales. |
 |Automation | Automatización de procesos manuales y aplicación de configuraciones a máquinas físicas y virtuales. |
-| Copia de seguridad | Realización de copias de seguridad y restauración de datos críticos. |
+| Backup | Realización de copias de seguridad y restauración de datos críticos. |
 | Site Recovery | Provisión de una alta disponibilidad para las aplicaciones críticas. |
 
 ### <a name="log-analytics"></a>Log Analytics

@@ -11,16 +11,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 800105d29fa284531e02ce80db69eff3a9915652
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Uso de la identidad del servicio administrada (versión preliminar pública) en App Service y Azure Functions
 
 > [!NOTE] 
 > La identidad de servicio administrada para App Service y Azure Functions se encuentra actualmente en versión preliminar. En la actualidad, no se admiten App Service en Linux ni Web App for Containers.
+
+
+> [!Important] 
+> Managed Service Identity de App Service y Azure Functions no se comportará según lo esperado si la aplicación se migra entre suscripciones e inquilinos. La aplicación deberá obtener una nueva identidad y la existente no se podrá eliminar correctamente sin eliminar el propio sitio. Será necesario volver a crear la aplicación con una nueva identidad y se deberán actualizar las directivas de acceso de los recursos descendentes para usar la nueva identidad.
+
 
 En este tema se muestra cómo crear una identidad de aplicación administrada para las aplicaciones de App Service y Azure Functions y cómo usarla para tener acceso a otros recursos. Una identidad de servicio administrada de Azure Active Directory permite a la aplicación tener acceso fácilmente a otros recursos protegidos de AAD, como Azure Key Vault. La identidad está administrada por la plataforma Azure y no requiere que aprovisione o rote los secretos. Para obtener más información acerca de la identidad de servicio administrada, vea [Managed Service Identity (MSI) for Azure resources ](../active-directory/managed-service-identity/overview.md) (Identidad de servicio administrada para recursos de Azure).
 

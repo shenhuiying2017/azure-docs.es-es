@@ -56,7 +56,7 @@ Cada regla de alertas de Log Analytics es de uno de los dos tipos posibles.  Cad
 
 Las diferencias entre los tipos de reglas de alerta son las siguientes.
 
-- **La regla de alertas para número de resultados crea siempre una alerta única mientras que la regla de alertas para **Unidades métricas** crea una alerta para cada objeto que supere el umbral.
+- La regla de alertas para *número de resultados* crea siempre una alerta única mientras que la regla de alertas para **Unidades métricas** crea una alerta para cada objeto que supere el umbral.
 - Las reglas de alerta para **número de resultados** crean una alerta cuando se supera el umbral una sola vez. Las reglas de alerta para **unidades métricas** pueden crear una alerta cuando se supera el umbral un número determinado de veces en un intervalo de tiempo determinado.
 
 ## <a name="number-of-results-alert-rules"></a>Reglas de alerta para número de resultados

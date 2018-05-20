@@ -1,24 +1,24 @@
 ---
-title: "Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux en Azure | Microsoft Docs"
-description: "En este artículo se explica por qué se cambian los nombres de los dispositivos de máquinas virtuales Linux y cómo solucionar el problema."
+title: 'Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux en Azure | Microsoft Docs'
+description: En este artículo se explica por qué se cambian los nombres de los dispositivos de máquinas virtuales Linux y cómo solucionar el problema.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 891ca1c2db431c792329b1c67c24e2e453aa00d1
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 1b500cc279cf9b92a3358d66e6db59dbf41d73b8
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Solución de problemas: se cambian los nombres de dispositivo de máquinas virtuales Linux
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 91e85fb25f9324f9b8d83884fe34a014f280de0b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9de8119cbde486800639bc5f3559a1a2859ec204
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -335,7 +335,7 @@ Se puede hacer referencia a los ensamblados siguientes con nombre simple (por ej
 ## <a name="referencing-custom-assemblies"></a>Hacer referencia a ensamblados personalizados
 
 Para hacer referencia a un ensamblado personalizado, puede usar un ensamblado *compartido* o un ensamblado *privado*:
-- Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en la aplicación de función, por ejemplo en una carpeta `bin` en la raíz de la aplicación de función. 
+- Los ensamblados compartidos se comparten en todas las funciones dentro de una aplicación de función. Para hacer referencia a un ensamblado personalizado, cargue el ensamblado en una carpeta denominada `bin` en su [carpeta raíz de aplicaciones de función](functions-reference.md#folder-structure) (wwwroot). 
 - Los ensamblados privados forman parte del contexto de una función determinada y admiten la instalación de prueba de versiones diferentes. Los ensamblados privados se deben cargar en una carpeta `bin` en el directorio de la función. Haga referencia a ellos con el nombre de archivo, como `#r "MyAssembly.dll"`. 
 
 Para más información sobre cómo cargar archivos en su carpeta de función, consulte la sección sobre [administración de paquetes](#using-nuget-packages).

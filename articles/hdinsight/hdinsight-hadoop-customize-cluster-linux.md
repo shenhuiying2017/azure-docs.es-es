@@ -4,7 +4,7 @@ description: Agregue componentes personalizados a clústeres de HDInsight basado
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
@@ -12,24 +12,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: ff8b8ffc66ea4c90ca2f11edc36aac670f24eac2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
 
-HDInsight proporciona una opción de configuración llamada **Acción de script** que invoca scripts personalizados que personalizan el clúster. Estos scripts se usan para instalar componentes adicionales y para cambiar los valores de configuración. Las acciones de script pueden usarse durante la creación del clúster o después.
+HDInsight proporciona un método de configuración llamado **acciones de script** que invoca scripts personalizados para personalizar el clúster. Estos scripts se usan para instalar componentes adicionales y para cambiar los valores de configuración. Las acciones de script pueden usarse durante la creación del clúster o después.
 
 > [!IMPORTANT]
 > La posibilidad de usar acciones de script en un clúster ya en ejecución solo está disponible para clústeres de HDInsight basados en Linux.
 >
 > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight. Algunos de los ejemplos de este documento muestran cómo puede instalar una aplicación de HDInsight mediante comandos de acción de script de PowerShell y el SDK. NET. Para más información sobre aplicaciones de HDInsight, consulte [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md).
+Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight. Para más información sobre aplicaciones de HDInsight, consulte [Publicación de aplicaciones de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md).
 
 ## <a name="permissions"></a>Permisos
 

@@ -1,25 +1,27 @@
 ---
-title: "Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory | Microsoft Docs"
+title: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory | Microsoft Docs
 description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: jeevansd
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7394857f55493b072e6ea549c8eeec54a808f5e5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 485e4c52751b390ebd440718e7a55de7b5b5ffd7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure Active Directory
 Hoy en día Azure Active Directory admite el inicio de sesión único con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
@@ -40,7 +42,7 @@ Puede editar cualquiera de los valores de notificación predeterminados. Selecci
 
 ![Editar atributo de usuario][2]
 
-También puede quitar notificaciones (distintas de NameIdentifier) mediante el menú contextual, que se abre haciendo clic en el icono **...**.  También puede agregar nuevas notificaciones mediante el botón **Agregar atributo**.
+También puede quitar notificaciones (distintas de NameIdentifier) mediante el menú contextual, que se abre haciendo clic en el icono **...**. También puede agregar nuevas notificaciones mediante el botón **Agregar atributo**.
 
 ![Editar atributo de usuario][3]
 

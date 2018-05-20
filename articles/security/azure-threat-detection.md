@@ -1,12 +1,12 @@
 ---
-title: "Detección de amenazas avanzada de Azure | Microsoft Docs"
-description: "Información acerca de la protección de identidad y sus funcionalidades."
+title: Detección de amenazas avanzada de Azure | Microsoft Docs
+description: Información acerca de la protección de identidad y sus funcionalidades.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d2fab26d8ff9f006cfed82685a738b791d0b0624
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 ## <a name="introduction"></a>Introducción
@@ -181,7 +181,7 @@ Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 36
 
 Los investigadores también cuentan con la información sobre amenazas que comparten los principales proveedores de servicios en la nube y que procede de fuentes de terceros. Azure Security Center puede usar todos estos datos para avisarle de las amenazas procedentes de actores malintencionados conocidos. Estos son algunos ejemplos:
 
--   **Aprovechamiento de la energía de Machine Learning**: Azure Security Center tiene acceso a una gran cantidad de datos sobre la actividad de red en la nube, que puede utilizarse para detectar amenazas dirigidas a sus implementaciones de Azure. Por ejemplo:
+-   **Aprovechamiento de la energía de Machine Learning**: Azure Security Center tiene acceso a una gran cantidad de datos sobre la actividad de red en la nube, que puede utilizarse para detectar amenazas dirigidas a sus implementaciones de Azure. Por ejemplo: 
 
 -   **Detecciones de fuerza bruta:** Machine Learning se usa para crear un patrón histórico de intentos de acceso remoto, lo que le permite detectar los ataques de fuerza bruta contra los puertos SQL, RDP y SSH.
 

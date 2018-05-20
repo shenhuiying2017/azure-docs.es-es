@@ -1,12 +1,12 @@
 ---
-title: "Puntos de control y reproducción en Durable Functions: Azure"
-description: "Aprenda cómo funcionan el establecimiento de puntos de control y la reproducción en la extensión Durable Functions para Azure Functions."
+title: 'Puntos de control y reproducción en Durable Functions: Azure'
+description: Aprenda cómo funcionan el establecimiento de puntos de control y la reproducción en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b1bca62e256c1ede5df6888dd7c47ce2aa816bb9
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 39cdb9b2c6eae9a3176aedc64b8d187e298fdfdd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Puntos de control y reproducción en Durable Functions (Azure Functions)
 
@@ -28,7 +28,9 @@ A pesar de ello, Durable Functions garantiza una ejecución confiable de las orq
 
 ## <a name="orchestration-history"></a>Historial de orquestación
 
-Supongamos que tiene la función de orquestador siguiente.
+Supongamos que tiene la función de orquestador siguiente:
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -46,7 +48,22 @@ public static async Task<List<string>> Run(
 }
 ```
 
-En cada instrucción `await`, Durable Task Framework establece los puntos de control del estado de ejecución de la función en Table Storage. Este estado es lo que se conoce como *historial de orquestación*.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const output = [];
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+
+    return output;
+});
+```
+
+En cada instrucción `await` (C#) o `yield` (JavaScript), Durable Task Framework establece los puntos de control del estado de ejecución de la función en Table Storage. Este estado es lo que se conoce como *historial de orquestación*.
 
 ## <a name="history-table"></a>Tabla del historial
 

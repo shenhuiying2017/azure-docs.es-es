@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escalado y hospedaje de Azure Functions
 
@@ -95,9 +95,7 @@ En el plan de consumo, el controlador de escalado escala automáticamente los re
 Al usar el plan de hospedaje de consumo, los archivos de código de función se almacenan en recursos compartidos de Azure Files en la cuenta de almacenamiento principal de la función. Al eliminarse la cuenta de almacenamiento principal de la aplicación de función, los archivos de código de función también se eliminan y no se pueden recuperar.
 
 > [!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que la aplicación de función se ejecute, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
-> - Hospede la aplicación de función en un plan de App Service con Siempre activado habilitado.
-> - Use otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, una suscripción de Event Grid o un mensaje de la cola que contenga el nombre del blob. Para ver un ejemplo, consulte los [ejemplos de enlace de entrada de blob](functions-bindings-storage-blob.md#input---example).
+> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para evitar este retraso por un arranque en frío, use un plan de App Service con Always On habilitado, o use un desencadenador de Event Grid. Para más información, consulte [el artículo de referencia sobre los enlaces del desencadenador de blob](functions-bindings-storage-blob.md#trigger).
 
 ### <a name="runtime-scaling"></a>Escalado del entorno de tiempo de ejecución
 

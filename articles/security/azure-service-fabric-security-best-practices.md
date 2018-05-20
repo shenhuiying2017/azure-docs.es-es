@@ -4,7 +4,7 @@ description: En este artículo se proporciona un conjunto de procedimientos reco
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: b908589903d243b2d284e2a23b6111785229c16f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Procedimientos recomendados de seguridad de Azure Service Fabric
 La implementación de una aplicación en Azure es un proceso rápido, sencillo y rentable. Antes de implementar la aplicación en la nube en producción, revise la lista de procedimientos recomendados y fundamentales para implementar clústeres seguros en la aplicación.
@@ -56,7 +56,7 @@ Use implementaciones automatizadas:
 -   Requiera autenticación para el acceso de usuario a los secretos.
 
 Además, tenga en cuenta las siguientes opciones de configuración:
--   Cree redes perimetrales (también conocido como DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
+-   Cree redes perimetrales (también conocido como zonas desmilitarizadas, DMZ y subredes filtradas) mediante el uso de grupos de seguridad de red (NSG) de Azure.
 -   Use servidores de salto con conexión a Escritorio remoto para obtener acceso a las máquinas virtuales (VM) del clúster o administrar el clúster.
 
 Los clústeres deben estar protegidos para evitar que usuarios no autorizados se conecten a ellos, especialmente cuando un clúster está en producción. Aunque es posible crear un clúster sin protección, si este expone los puntos de conexión de administración a Internet público, podrían conectarse a él usuarios anónimos.

@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e1a7c3cec7925c6fb01aafba152dde2383cee442
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple
 
@@ -34,7 +34,7 @@ En Azure Media Services, un *canal* representa una canalización para procesar c
   > El método de paso a través es la forma más económica de realizar un streaming en vivo.
 
 
-* Un codificador en vivo local envía una transmisión de una sola velocidad de bits al canal habilitado para realizar codificación en vivo con Media Services en uno de estos formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en vivo la transmisión entrante de una sola velocidad de bits en una de vídeo de velocidad de bits múltiple (adaptable). Media Services entrega la transmisión a los clientes que lo soliciten.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en vivo la transmisión entrante de una sola velocidad de bits en una de vídeo de velocidad de bits múltiple (adaptable). Media Services entrega la transmisión a los clientes que lo soliciten.
 
 A partir de la versión 2.10 de Media Services, al crear un canal puede especificar cómo desea que este reciba la transmisión entrante. También puede especificar si desea que el canal realice la codificación en vivo de la transmisión. Tiene dos opciones:
 

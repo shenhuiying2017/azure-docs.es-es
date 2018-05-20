@@ -102,14 +102,6 @@
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-        - name: Habilitar el acelerador de escritura
-          href: how-to-enable-write-accelerator.md
-        - name: Solución de problemas en los discos duros virtuales conectados
-          items:
-            - name: Errores de eliminación de recursos de almacenamiento
-              href: storage-resource-deletion-errors.md
-            - name: Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados
-              href: unexpected-reboots-attached-vhds.md
     - name: Redes
       href: network-overview.md
     - name: Aplicaciones de escalado automático
@@ -306,6 +298,8 @@
           href: mount-azure-file-storage.md
         - name: Implementación de discos con plantilla
           href: using-managed-disks-template-deployments.md
+        - name: Habilitar el acelerador de escritura
+          href: how-to-enable-write-accelerator.md
         - name: Migración a Managed Disks
           href: migrate-to-managed-disks.md
           items:
@@ -449,6 +443,12 @@
           href: troubleshoot-vm-by-use-nested-virtualization.md
         - name: Instalación del agente de máquina virtual en modo sin conexión
           href: install-vm-agent-offline.md
+        - name: Solución de problemas en los discos duros virtuales conectados
+          items:
+            - name: Errores de eliminación de recursos de almacenamiento
+              href: storage-resource-deletion-errors.md
+            - name: Reinicios inesperados de las máquinas virtuales con discos duros virtuales conectados
+              href: unexpected-reboots-attached-vhds.md
 - name: Referencia
   items:
     - name: Azure CLI

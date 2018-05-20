@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9e1cee4df8870886a2a10ac525d54eea5882c04f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -53,7 +53,7 @@ Hay algunos pasos importantes que deben realizarse antes de mover un recurso. Pu
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos: 
+  Si los identificadores de inquilino de las suscripciones de origen y destino no son los mismos, use los siguientes métodos para conciliarlos:
 
   * [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md)
   * [Asociación o adición de una suscripción de Azure a Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -121,6 +121,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory: se puede mover V1, pero no se permite mover V2 (versión preliminar)
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -138,7 +139,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Operations Management
 * Power BI
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
-* Caché en Redis
+* Redis Cache
 * Scheduler
 * Search
 * Servidor de administración
@@ -147,7 +148,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Storage
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
-* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos.
+* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Esto incluye las bases de datos de Azure SQL Database y Azure SQL Data Warehouse. 
 * Traffic Manager
 * Virtual Machines: no se pueden mover las máquinas virtuales con Managed Disks. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
@@ -165,8 +166,7 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Azure Database for MySQL
 * BizTalk Services
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
-* Container Service
-* Data Factory
+* Kubernetes Service
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
 * ExpressRoute
@@ -203,13 +203,13 @@ No puede mover una red virtual a otra suscripción distinta si la red virtual co
 
 ## <a name="app-service-limitations"></a>limitaciones de App Service
 
-Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva. 
+Las limitaciones para mover recursos de App Service son diferentes en función de si los recursos se mueven dentro de una suscripción o a una nueva.
 
 Las limitaciones descritas en las siguientes secciones se aplican a los certificados cargados, no a instancias de App Service Certificate. Puede mover instancias de App Service Certificate a un nuevo grupo de recursos o suscripción sin ninguna limitación. Si tiene varias aplicaciones web que utilizan la misma instancia de App Service Certificate, mueva primero todas las aplicaciones web, a continuación, mueva el certificado.
 
 ### <a name="moving-within-the-same-subscription"></a>Moverlos dentro de la misma suscripción
 
-Al mover una instancia de Web App _dentro de la misma suscripción_, no se pueden mover los certificados SSL cargados. Sin embargo, puede mover una instancia de Web App al nuevo grupo de recursos sin mover su certificado SSL cargado y la funcionalidad SSL de la aplicación seguirá funcionando. 
+Al mover una instancia de Web App _dentro de la misma suscripción_, no se pueden mover los certificados SSL cargados. Sin embargo, puede mover una instancia de Web App al nuevo grupo de recursos sin mover su certificado SSL cargado y la funcionalidad SSL de la aplicación seguirá funcionando.
 
 Si desea mover el certificado SSL junto con la instancia de Web App, siga estos pasos:
 
@@ -227,7 +227,7 @@ Al mover una instancia de Web App _entre suscripciones_, se aplican las limitaci
     - Certificados SSL cargados o importados
     - Entornos de App Service
 - Todos los recursos de App Service del grupo de recursos se deben mover conjuntamente.
-- Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no se encuentra en su grupo de recursos original, deberá devolverse a este en primer lugar y, a continuación, se podrá mover entre suscripciones. 
+- Los recursos de App Service solo se pueden mover del grupo de recursos en el que se crearon originalmente. Si un recurso de App Service ya no se encuentra en su grupo de recursos original, deberá devolverse a este en primer lugar y, a continuación, se podrá mover entre suscripciones.
 
 ## <a name="classic-deployment-limitations"></a>limitaciones de la implementación clásica
 

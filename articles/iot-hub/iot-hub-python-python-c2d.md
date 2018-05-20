@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo;kgremban
-ms.openlocfilehash: 9cd2423d2d235ed97e51178528dddd7419a718c2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 236758f1ff83ec37c39a44068879bea80f2ffdb0
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Envío de mensajes de nube a dispositivo con IoT Hub (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -301,7 +301,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación de Azure IoT Suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -323,4 +323,4 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://portal.azure.com
-[Documentación de Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[acelerador de la solución de supervisión remota de Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

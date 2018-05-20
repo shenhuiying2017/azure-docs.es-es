@@ -3,23 +3,23 @@ title: Asignación de un usuario o un grupo a una aplicación empresarial en Azu
 description: Procedimiento para seleccionar una aplicación empresarial para asignarla a un usuario o un grupo en la versión preliminar de Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 50e122ba3912d295adfc9207c7efda685f2d4625
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1609942269a0c737239cf4198289fdc44ade2b32
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Asignación de un usuario o un grupo a una aplicación empresarial en Azure Active Directory
 Para asignar un usuario o un grupo a una aplicación empresarial, debe contar con los permisos adecuados para administrar dicha aplicación, y debe ser administrador global del directorio.

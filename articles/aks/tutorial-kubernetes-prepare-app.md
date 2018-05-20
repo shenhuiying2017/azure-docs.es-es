@@ -3,24 +3,24 @@ title: 'Tutorial de Kubernetes en Azure: preparación de aplicación'
 description: 'Tutorial de AKS: preparación de aplicación'
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8a2c2e53ed04cf00cc02135c5e5f82ded18fc2bc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-prepare-application-for-azure-container-service-aks"></a>Tutorial: Preparación de una aplicación en Azure Container Service (AKS)
+# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparación de una aplicación para Azure Kubernetes Service (AKS)
 
-En este tutorial, la primera parte de ocho, se prepara una aplicación con varios contenedores para usarla en Kubernetes. Los pasos completados incluyen:  
+En este tutorial, la primera parte de ocho, se prepara una aplicación con varios contenedores para usarla en Kubernetes. Los pasos completados incluyen:
 
 > [!div class="checklist"]
-> * La clonación de origen de la aplicación desde GitHub  
+> * La clonación de origen de la aplicación desde GitHub
 > * La creación de una imagen de contenedor desde el origen de la aplicación
 > * La prueba de la aplicación en un entorno local de Docker
 
@@ -32,7 +32,7 @@ En los tutoriales posteriores, la imagen de contenedor se carga en una instancia
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este tutorial se supone que el usuario tiene un conocimiento básico de los principales conceptos de Docker, como los contenedores, las imágenes de contenedor y los comandos básicos de Docker. Si es necesario, consulte la [introducción a Docker][docker-get-started], donde encontrará datos básicos acerca de los contenedores. 
+En este tutorial se supone que el usuario tiene un conocimiento básico de los principales conceptos de Docker, como los contenedores, las imágenes de contenedor y los comandos básicos de Docker. Si es necesario, consulte la [introducción a Docker][docker-get-started], donde encontrará datos básicos acerca de los contenedores.
 
 Para completar este tutorial, se necesita un entorno de desarrollo de Docker. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [Mac][docker-for-mac], [Windows][docker-for-windows] o [Linux][docker-for-linux].
 
@@ -40,7 +40,7 @@ Azure Cloud Shell no incluye los componentes de Docker necesarios para completar
 
 ## <a name="get-application-code"></a>Obtención del código de la aplicación
 
-La aplicación de ejemplo que se usa en este tutorial es una aplicación básica para votar. La aplicación consta de un componente web front-end y de una instancia back-end de Redis. El componente web se empaqueta en una imagen de contenedor personalizada. La instancia de Redis usa una imagen sin modificar de Docker Hub.  
+La aplicación de ejemplo que se usa en este tutorial es una aplicación básica para votar. La aplicación consta de un componente web front-end y de una instancia back-end de Redis. El componente web se empaqueta en una imagen de contenedor personalizada. La instancia de Redis usa una imagen sin modificar de Docker Hub.
 
 Use git para descargar una copia de la aplicación en su entorno de desarrollo.
 
@@ -54,7 +54,7 @@ Cambie los directorios para trabajar desde el directorio clonado.
 cd azure-voting-app-redis
 ```
 
-En el directorio se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se usan en todo el conjunto del tutorial. 
+En el directorio se encuentra el código fuente de la aplicación, un archivo de Docker Compose creado previamente y un archivo de manifiesto de Kubernetes. Estos archivos se usan en todo el conjunto del tutorial.
 
 ## <a name="create-container-images"></a>Creación de imágenes de contenedor
 
@@ -124,7 +124,7 @@ Al finalizar, tendrá una imagen de contenedor que contiene la aplicación Azure
 En este tutorial, se ha probado una aplicación y se han creado imágenes del contenedor para la aplicación. Se han completado los siguientes pasos:
 
 > [!div class="checklist"]
-> * La clonación de origen de la aplicación desde GitHub  
+> * La clonación de origen de la aplicación desde GitHub
 > * La creación de una imagen de contenedor desde el origen de la aplicación
 > * La prueba de la aplicación en un entorno local de Docker
 

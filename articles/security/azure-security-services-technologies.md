@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: eedfca2506f9e34b8e5039b0f101b1d4e68ef5a7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e2e6e50946a009ad9fbd27b821fa6a0999c156f1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-security-services-and-technologies"></a>Servicios y tecnologías de seguridad de Azure
 
@@ -78,4 +78,4 @@ A continuación se proporciona nuestro esfuerzo inicial para proporcionar una li
 * [Equilibrador de carga de Azure](../load-balancer/load-balancer-overview.md)
 * [Información técnica de ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Administrador de tráfico de Azure](../traffic-manager/traffic-manager-overview.md)
-* [Habilitación del proxy de la aplicación de Azure AD](../active-directory/active-directory-application-proxy-enable.md)
+* [Habilitación del proxy de la aplicación de Azure AD](../active-directory/manage-apps/application-proxy-enable.md)

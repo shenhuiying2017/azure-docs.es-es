@@ -3,7 +3,7 @@ title: Guía de inicio rápido de instalación de servicios de Azure Machine Lea
 description: En esta guía de inicio rápido, aprenderá cómo crear recursos de Azure Machine Learning y cómo instalar Azure Machine Learning Workbench y empezar a trabajar con él.
 services: machine-learning
 author: hning86
-ms.author: chhavib
+ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 61f51063ea7542e11ec8488c1f526c0fff1e5e38
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>Inicio rápido: Instalar los servicios de Machine Learning y empezar a trabajar con ellos
 Los servicios de Azure Machine Learning (versión preliminar) son una solución integrada y completa de análisis avanzado y ciencia de datos. Ayuda a los científicos de datos profesionales a preparar datos, desarrollar experimentos e implementar modelos a escala de nube.

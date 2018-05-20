@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/12/2018
+ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 70255ead4a556204689e9918b9c89e396f8122c0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6ad1fd0ab51a93dbab5651ee80f6b6792dd331b9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Uso de Azure PowerShell para crear una entidad de servicio con un certificado
 
@@ -31,6 +31,8 @@ Cuando haya una aplicación o un script que necesite acceder a recursos, puede c
 > En lugar de crear una entidad de servicio, considere el uso de la identidad de servicio administrada de Azure AD para la identidad de la aplicación. La identidad de servicio administrada de Azure AD es una característica pública en versión preliminar de Azure Active Directory que simplifica la creación de una identidad para el código. Si el código se ejecuta en un servicio que admite la a identidad de servicio administrada de Azure AD y tiene acceso a recursos que admiten la autenticación de Azure Active Directory, la identidad de servicio administrada de Azure AD es una opción mejor para usted. Para obtener más información sobre la identidad de servicio administrada de Azure AD, incluidos los servicios que actualmente lo admiten, consulte [Managed Service Identity for Azure resources](../active-directory/managed-service-identity/overview.md) (Identidad de servicio administrada para recursos de Azure).
 
 En este artículo se muestra cómo crear una entidad de servicio que se autentica con un certificado. Para configurar una entidad de servicio con contraseña, consulte [Creación de una entidad de servicio de Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
+
+Debe tener la [versión más reciente](/powershell/azure/get-started-azureps) de PowerShell para este artículo.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
@@ -58,61 +60,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName 
 
 El ejemplo entra en suspensión durante 20 segundos para dar tiempo a que la nueva entidad de servicio se propague por Azure Active Directory. Si el script no espera el tiempo suficiente, verá un error que dice: "La entidad de seguridad {ID} no existe en el directorio {DIR-ID}". Para resolver este error, espere unos instantes y, a continuación, ejecute el comando **New-AzureRmRoleAssignment** de nuevo.
 
-El ejemplo siguiente es más complicado porque permite establecer un ámbito para la asignación de roles diferente de su suscripción de Azure actual. Especifique el parámetro ResourceGroup solo cuando desee limitar el ámbito de la asignación de rol a un grupo de recursos. Si se produce un error durante la asignación de roles, vuelva a intentar la asignación. Debe tener Azure PowerShell 2.0 en Windows 10 o Windows Server 2016.
-
-```powershell
-Param (
-
- # Use to set scope to resource group. If no value is provided, scope is set to subscription.
- [Parameter(Mandatory=$false)]
- [String] $ResourceGroup,
-
- # Use to set subscription. If no value is provided, default subscription is used. 
- [Parameter(Mandatory=$false)]
- [String] $SubscriptionId,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationDisplayName
- )
-
- Connect-AzureRmAccount
- Import-Module AzureRM.Resources
-
- if ($SubscriptionId -eq "") 
- {
-    $SubscriptionId = (Get-AzureRmContext).Subscription.Id
- }
- else
- {
-    Set-AzureRmContext -Subscription $SubscriptionId
- }
-
- if ($ResourceGroup -eq "")
- {
-    $Scope = "/subscriptions/" + $SubscriptionId
- }
- else
- {
-    $Scope = (Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop).ResourceId
- }
-
- $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleappScriptCert" -KeySpec KeyExchange
- $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-
- $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
- Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
-
- $NewRole = $null
- $Retries = 0;
- While ($NewRole -eq $null -and $Retries -le 6)
- {
-    # Sleep here for a few seconds to allow the service principal application to become active (should only take a couple of seconds normally)
-    Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ObjectId $ServicePrincipal.Id -ErrorAction SilentlyContinue
-    $Retries++;
- }
-```
+Puede restringir el ámbito de la asignación de roles a un grupo de recursos específico mediante el parámetro **ResourceGroupName**. Puede restringir el ámbito a un recurso concreto si usa los parámetros **ResourceType** y **ResourceName**. 
 
 Si **no tiene Windows 10 o Windows Server 2016**, descargue el [generador de certificados autofirmados](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) del sitio Microsoft Script Center. Extraiga el contenido e importe el cmdlet que necesita.
 
@@ -125,7 +73,6 @@ En el script, sustituya las dos líneas siguientes para generar el certificado.
 
 ```powershell
 New-SelfSignedCertificateEx -StoreLocation CurrentUser `
-  -StoreName My `
   -Subject "CN=exampleapp" `
   -KeySpec "Exchange" `
   -FriendlyName "exampleapp"
@@ -137,35 +84,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 Cada vez que inicie sesión como entidad de servicio, debe proporcionar el id. del inquilino del directorio para la aplicación de AD. Un inquilino es una instancia de Azure Active Directory.
 
 ```powershell
-Param (
- 
- [Parameter(Mandatory=$true)]
- [String] $CertSubject,
- 
- [Parameter(Mandatory=$true)]
- [String] $ApplicationId,
+$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- [Parameter(Mandatory=$true)]
- [String] $TenantId
- )
-
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
  Connect-AzureRmAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
-```
-
-Ni el identificador de la aplicación ni el identificador del inquilino son confidenciales, por lo que se pueden integrar directamente en el script. Si necesita recuperar el identificador del inquilino, use:
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
-Si necesita recuperar el identificador de la aplicación, use:
-
-```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Creación de una entidad de servicio con un certificado de una entidad de certificación
@@ -264,13 +190,13 @@ Para cambiar las credenciales de una aplicación de AD, ya sea debido a un riesg
 Para quitar todas las credenciales de una aplicación, use:
 
 ```powershell
-Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
 Para agregar un valor de certificado, cree un certificado autofirmado, como se muestra en este artículo. A continuación, use:
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

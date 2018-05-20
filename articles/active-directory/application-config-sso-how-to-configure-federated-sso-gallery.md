@@ -1,11 +1,11 @@
 ---
-title: "Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD | Microsoft Docs"
-description: "Cómo configurar un inicio de sesión único federado para una aplicación existente de la galería de Azure AD y usar los tutoriales para empezar a trabajar rápidamente"
+title: Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD | Microsoft Docs
+description: Cómo configurar un inicio de sesión único federado para una aplicación existente de la galería de Azure AD y usar los tutoriales para empezar a trabajar rápidamente
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e71480910432c6475ca97d20853a72b864195faa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación de la galería de Azure AD
 
@@ -42,7 +42,7 @@ Para configurar una aplicación desde la galería de Azure AD, realice los sigui
 
 Para agregar una aplicación desde la galería de Azure AD, siga estos pasos:
 
-1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**
+1.  Abra [Azure Portal](https://portal.azure.com) e inicie sesión como **administrador global** o **coadministrador**.
 
 2.  Abra la **extensión de Azure Active Directory** haciendo clic en **Todos los servicios** en la parte superior del menú de navegación izquierdo principal.
 
@@ -210,7 +210,7 @@ Tras un breve período de tiempo, los usuarios seleccionados podrán iniciar est
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 
 

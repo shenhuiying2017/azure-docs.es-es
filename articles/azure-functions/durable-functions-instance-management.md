@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 01a6fefc10dfd83997acc290dbd1c85ba86a4799
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e573b4973ea30b990043b54c5cdcf0805135a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Administración de instancias con Durable Functions (Azure Functions)
 
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-Para los lenguajes que no son de .NET, el enlace de salida de la función también se puede usar para iniciar nuevas instancias. En este caso, puede utilizarse cualquier objeto que se pueda serializar con JSON que tenga como campos los tres parámetros anteriores. Por ejemplo, considere la siguiente función Node.js:
+Para los lenguajes que no son de .NET, el enlace de salida de la función también se puede usar para iniciar nuevas instancias. En este caso, puede utilizarse cualquier objeto que se pueda serializar con JSON que tenga como campos los tres parámetros anteriores. Por ejemplo, considere la siguiente función de JavaScript:
 
 ```js
 module.exports = function (context, input) {
@@ -77,6 +77,7 @@ El método [GetStatusAsync](https://azure.github.io/azure-functions-durable-exte
 * **CreatedTime**: la hora en que la función de orquestador empezó a ejecutarse.
 * **LastUpdatedTime**: la hora a la que la orquestación estableció el último punto de control.
 * **Input**: la entrada de la función como un valor JSON.
+* **CustomStatus**: estado de orquestación personalizada en formato JSON. 
 * **Output**: la salida de la función como un valor JSON (si se ha completado la función). Si se produce un error en la función de orquestador, esta propiedad incluirá los detalles del error. Si se finaliza la función de orquestador, esta propiedad incluirá el motivo de la finalización indicado (si lo hubiera).
 * **RuntimeStatus**: uno de los siguientes valores:
     * **Running**: la instancia ha empezado a ejecutarse.
@@ -99,9 +100,6 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Actualmente solo es posible consultar instancias en funciones de orquestador de C#.
-
 ## <a name="terminating-instances"></a>Finalización de instancias
 
 Una instancia de orquestación en ejecución se puede finalizar mediante el método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) de la clase [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html). Los dos parámetros son `instanceId` y una cadena `reason`, que se escribirá en los registros y en el estado de la instancia. Una instancia finalizada dejará de ejecutarse tan pronto como alcance el siguiente punto `await` o bien se finalizará inmediatamente si ya está en un punto `await`. 
@@ -116,9 +114,6 @@ public static Task Run(
     return client.TerminateAsync(instanceId, reason);
 }
 ```
-
-> [!NOTE]
-> Actualmente solo es posible finalizar instancias en funciones de orquestador de C#.
 
 > [!NOTE]
 > La finalización de la instancia no se propaga actualmente. Las funciones de actividad y las suborquestaciones se ejecutarán hasta completarse, independientemente de si ha finalizado la instancia de orquestación que las llamó.
@@ -145,9 +140,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Actualmente solo es posible generar eventos en funciones de orquestador de C#.
 
 > [!WARNING]
 > Si no hay ninguna instancia de orquestación con el *identificador de instancia* especificado o si la instancia no está esperando el *nombre de evento* especificado, se descarta el mensaje de evento. Para más información acerca de este comportamiento, consulte el [problema de GitHub](https://github.com/Azure/azure-functions-durable-extension/issues/29).

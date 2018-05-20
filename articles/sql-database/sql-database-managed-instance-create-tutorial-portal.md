@@ -8,14 +8,14 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1e04b12241121d3894e2d71df423bae4f000a60d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creación de una Instancia administrada de Azure SQL Database en Azure Portal
 
@@ -107,7 +107,7 @@ Los pasos siguientes muestran cómo crear una ruta de Internet de próximo salto
    |**Suscripción**|Su suscripción|Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions).|
    |**Grupo de recursos**|Seleccione el grupo de recursos que ha creado en el procedimiento anterior.|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Ubicación**|Seleccione la ubicación que ha especificado en el procedimiento anterior.| Para obtener información acerca de las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
-   |**Deshabilitar la propagación de rutas BGP**|Disabled||
+   |**Deshabilitar la propagación de rutas BGP**|habilitado||
    ||||
 
    ![formulario de creación de la tabla de rutas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)

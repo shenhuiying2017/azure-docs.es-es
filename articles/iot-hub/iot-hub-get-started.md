@@ -1,11 +1,11 @@
 ---
 title: 'Azure IoT Hub: empezar a conectar dispositivos de IoT con la nube | Microsoft Docs'
-description: "Aprenda a conectar paneles y kits de inicio de IoT con Azure IoT Hub. Los dispositivos pueden enviar datos de telemetría a IoT Hub y este servicio supervisa y administra los dispositivos."
+description: Aprenda a conectar paneles y kits de inicio de IoT con Azure IoT Hub. Los dispositivos pueden enviar datos de telemetría a IoT Hub y este servicio supervisa y administra los dispositivos.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 keywords: tutorial de azure iot hub
 ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 34742208e9189eb31310b58770ee4a22e33f56d5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: dafb8aca34a5a41f45f76d526aa3b8f3b1b792c4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="azure-iot-hub-get-started-tutorials"></a>Tutoriales de introducción de Azure IoT Hub
+# <a name="azure-iot-hub-get-started-with-real-devices"></a>Introducción a Azure IoT Hub con dispositivos reales
 
 Puede usar Azure IoT Hub y los SDK de dispositivo IoT de Azure para crear soluciones de Internet de las cosas (IoT):
 
 * Azure IoT Hub es un servicio completamente administrado en la nube que conecta, supervisa y administra los dispositivos IoT de forma segura. Use los SDK de dispositivo IoT de Azure para implementar los dispositivos de IoT.
 * Use una puerta de enlace de IoT en escenarios IoT más complejos. Por ejemplo, donde sea necesario tener en cuenta factores como dispositivos antiguos, costos de ancho de banda, directivas de seguridad y privacidad o procesamiento de datos perimetrales. En estos escenarios, se usa [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) para implementar una puerta de enlace que conecta dispositivos con IoT Hub.
 
-## <a name="what-the-tutorials-cover"></a>¿Qué cubren los tutoriales?
+## <a name="what-the-how-to-articles-cover"></a>Qué se trata en los artículos de procedimientos
 
-Estos tutoriales le presentan Azure IoT Hub y los SDK de dispositivo. Los tutoriales cubren escenarios comunes de IoT para demostrar las funcionalidades de IoT Hub. Los tutoriales también muestran cómo combinar IoT Hub con otras herramientas y servicios de Azure para crear soluciones de IoT más eficaces. En los tutoriales, puede usar dispositivos IoT simulados o reales. Además, puede obtener información sobre cómo usar una puerta de enlace para habilitar dispositivos para conectarse a su IoT Hub.
+Estos artículos le presentan Azure IoT Hub y los SDK de dispositivo. Los artículos cubren escenarios comunes de IoT para demostrar las funcionalidades de IoT Hub. Los artículos también muestran cómo combinar IoT Hub con otras herramientas y servicios de Azure para crear soluciones de IoT más eficaces. En los artículos, se usan dispositivos IoT reales.
 
 ## <a name="set-up-your-device"></a>Configuración del dispositivo
 
-Conecte un dispositivo IoT o una puerta de enlace a Azure IoT Hub. Puede elegir un dispositivo físico o simulado para empezar a trabajar:
+Conecte un dispositivo IoT o una puerta de enlace a Azure IoT Hub:
 
 | Dispositivo IoT                       | Lenguaje de programación |
 |----------------------------------|----------------------|
@@ -44,7 +44,6 @@ Conecte un dispositivo IoT o una puerta de enlace a Azure IoT Hub. Puede elegir 
 | Adafruit Feather HUZZAH ESP8266  | [Arduino][Hu_Ard]              |
 | Sparkfun ESP8266 Thing Dev       | [Arduino][Th_Ard]              |
 | Adafruit Feather M0              | [Arduino][M0_Ard]              |
-| Dispositivo simulado en PC           | [.NET][Sim_NET], [Java][Sim_Jav], [Node.js][Sim_Nd] y [Python][Sim_Pyth] |
 | Simulador de dispositivos en línea         | [Raspberry Pi (Node.js)][Ol_Sim] |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
@@ -58,11 +57,4 @@ Conecte un dispositivo IoT o una puerta de enlace a Azure IoT Hub. Puede elegir 
 [Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md
 [Th_Ard]: iot-hub-sparkfun-esp8266-thing-dev-get-started.md
 [M0_Ard]: iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md
-[Sim_NET]: iot-hub-csharp-csharp-getstarted.md
-[Sim_Jav]: iot-hub-java-java-getstarted.md
-[Sim_Nd]: iot-hub-node-node-getstarted.md
-[Sim_Pyth]: iot-hub-python-getstarted.md
-[NUC_Lnx]: iot-hub-gateway-kit-c-lesson1-set-up-nuc.md
-[Sim_Lnx]: iot-hub-linux-iot-edge-get-started.md
-[Sim_Win]: iot-hub-windows-iot-edge-get-started.md
 [Ol_Sim]: iot-hub-raspberry-pi-web-simulator-get-started.md

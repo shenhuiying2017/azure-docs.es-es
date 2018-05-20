@@ -1,12 +1,12 @@
 ---
-title: "Configuración de la topología de factoría conectada | Microsoft Docs"
-description: "Cómo configurar la topología de una solución preconfigurada de factoría conectada."
-services: 
+title: Configuración de la topología de factoría conectada | Microsoft Docs
+description: Cómo configurar la topología de un acelerador de soluciones de factoría conectada.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 19e0f48ab817428a1f953c80296b2e23effe5a8a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 4230914c6fb35201a8c162e2e7ecb31262d2bdca
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="configure-the-connected-factory-preconfigured-solution"></a>Configuración de la solución preconfigurada de factoría conectada
+# <a name="configure-the-connected-factory-solution-accelerator"></a>Configuración del acelerador de soluciones de factoría conectada
 
-La solución preconfigurada de factoría conectada muestra un panel simulado para una compañía ficticia Contoso. Esta compañía tiene factorías en numerosas ubicaciones globales de todo el mundo.
+El acelerador de soluciones de factoría conectada muestra un panel simulado para una compañía ficticia Contoso. Esta compañía tiene factorías en numerosas ubicaciones globales de todo el mundo.
 
 En este artículo se usa Contoso como ejemplo para describir cómo configurar la topología de una solución de factoría conectada.
 
@@ -272,7 +272,7 @@ Las propiedades de esta categoría definen la apariencia visual del panel de la 
 * NOMBRE
 * DESCRIPCIÓN
 * Imagen
-* La ubicación
+* Ubicación
 * Unidades
 * Visible
 
@@ -282,12 +282,12 @@ La aplicación WebApp conserva un diccionario de datos interno que contiene info
 
 ### <a name="oeekpi-computation"></a>Cálculo de OEE/KPI
 
-Las cifras de OEE/KPI para la simulación de fábrica conectada están parametrizadas según lo siguiente:
+Las cifras de OEE/KPI para la simulación de factoría conectada están parametrizadas según lo siguiente:
 
 * Los valores del nodo OPC UA que se incluirán en el cálculo.
 * Cómo se calcula la cifra a partir de los valores de telemetría.
 
-La factoría conectada usa las fórmulas de OEE según se publica en http://oeeindustrystandard.oeefoundation.org.
+La solución de factoría conectada usa fórmulas OEE como se publica en http://oeeindustrystandard.oeefoundation.org.
 
 Los objetos del nodo OPC UA de las estaciones permiten el etiquetado para su uso en el cálculo de OEE/KPI. La propiedad **Relevance** indica para qué cifra de OEE/KPI debe usarse el valor del nodo OPC UA. La propiedad **OpCode** define cómo se incluye el valor en el cálculo.
 
@@ -345,4 +345,4 @@ Una característica del valor del nodo **NumberOfManufactureredProducts** es que
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Se recomienda el siguiente paso para aprender a [implementar una puerta de enlace en Windows o Linux para la solución preconfigurada de factoría conectada](iot-suite-connected-factory-gateway-deployment.md).
+Se recomienda el siguiente paso para aprender a [implementar una puerta de enlace en Windows o Linux para el acelerador de la solución de factoría conectada](iot-suite-connected-factory-gateway-deployment.md).

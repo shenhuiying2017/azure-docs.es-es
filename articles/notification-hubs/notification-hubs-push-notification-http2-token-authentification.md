@@ -1,23 +1,23 @@
 ---
-title: "Autenticación basada en token (HTTP/2) para APNs en Azure Notification Hubs | Microsoft Docs"
-description: "En este tema se explica cómo aprovechar la nueva autenticación de token para APNs."
+title: Autenticación basada en token (HTTP/2) para APNs en Azure Notification Hubs | Microsoft Docs
+description: En este tema se explica cómo aprovechar la nueva autenticación de token para APNs.
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/17/2017
-ms.author: kapiteir
-ms.openlocfilehash: 5a21bcd9f12fc3f96b17a556ba15526c35ababe2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: ca86130e9c184576fc44119190d6224a363c6561
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticación basada en token (HTTP/2) para APNs
 ## <a name="overview"></a>Información general
@@ -75,7 +75,7 @@ Hay una nueva propiedad: *Modo de autenticación*. La selección de tokens le pe
 Puede usar nuestras [API de administración](https://msdn.microsoft.com/library/azure/dn495827.aspx) para actualizar el centro de notificaciones de modo que use la autenticación basada en token.
 Use uno de los puntos de conexión correspondientes, en función de si la aplicación que está configurando es una aplicación de espacio aislado o de producción (según se especifique en la cuenta de desarrollador de Apple):
 
-- Punto de conexión de espacio aislado: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
+- Punto de conexión del espacio aislado: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)
 - Punto de conexión de producción: [https://api.push.apple.com:443/3/device](https://api.push.apple.com:443/3/device)
 
 > [!IMPORTANT]

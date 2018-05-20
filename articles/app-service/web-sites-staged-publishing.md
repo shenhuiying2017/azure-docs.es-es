@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -30,11 +30,7 @@ Al implementar la aplicación web, la aplicación web en Linux, el back-end móv
 * La implementación de una aplicación en una ranura en primer lugar y su intercambio con la de la producción garantiza que todas las instancias de la ranura estén activas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar la aplicación. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de intercambio. Este flujo de trabajo completo puede automatizarse mediante la configuración de [Intercambio automático](#Auto-Swap) .
 * Después del intercambio, la ranura con la aplicación de ensayo anterior ahora ocupa la aplicación de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado".
 
-Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
-
-* Cuando la aplicación tiene varias ranuras, no puede cambiar el nivel.
-* El escalado no está disponible para los espacios que no son de producción.
-* No se admite la administración de recursos vinculados en los espacios que no sean de producción. Solo en [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), puede evitar este posible impacto sobre la ranura de producción si se mueve temporalmente la ranura que no es de producción a un nivel diferente del plan de App Service. Tenga en cuenta que la ranura que no es de producción debe compartir una vez más el mismo nivel con la ranura de producción antes de que se puedan intercambiar las dos ranuras.
+Cada nivel del plan de App Service admite un número distinto de ranuras de implementación. Para averiguar el número de ranuras que admite el nivel de la aplicación, consulte [Límites de App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). Para escalar la aplicación a un nivel diferente, el nivel de destino debe admitir el número de ranuras que la aplicación ya usa. Por ejemplo, si la aplicación tiene más de 5 ranuras, no se puede reducir verticalmente al nivel **Estándar**, porque dicho nivel solo admite 5 ranuras de implementación.
 
 <a name="Add"></a>
 
@@ -54,7 +50,7 @@ La aplicación se debe estar ejecutando en el nivel **Estándar** o **Premium** 
    
     ![Origen de configuración][ConfigurationSource1]
    
-    La primera vez que agrega un espacio solo tendrá dos opciones: clonar la configuración del espacio predeterminado en producción o no.
+    La primera vez que agrega una ranura, solo tendrá dos opciones: clonar o no la configuración de la ranura predeterminada en producción.
     Después de haber creado varios espacios, podrá clonar la configuración de un espacio que no sea el de producción:
    
     ![Orígenes de configuración][MultipleConfigurationSources]
@@ -67,8 +63,8 @@ No hay ningún contenido después de la creación de un espacio de implementaci�
 
 <a name="AboutConfiguration"></a>
 
-## <a name="configuration-for-deployment-slots"></a>Configuración de ranuras de implementación
-Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Además, algunos elementos de configuración seguirán el contenido a través de un intercambio (no son específicos del espacio) mientras que otros elementos de configuración permanecerán en el mismo espacio después de un intercambio (son específicos del espacio). Las listas siguientes muestran la configuración que cambiará al intercambiar las ranuras.
+## <a name="which-settings-are-swapped"></a>¿Qué configuración se intercambia?
+Cuando crea un clon de la configuración de otro espacio de implementación, la configuración clonada se puede editar. Además, algunos elementos de configuración seguirán el contenido a través de un intercambio (no son específicos del espacio) mientras que otros elementos de configuración permanecerán en el mismo espacio después de un intercambio (son específicos del espacio). Las listas siguientes muestran la configuración que cambia cuando se intercambian las ranuras.
 
 **Configuraciones que se intercambian**:
 
@@ -87,7 +83,7 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 * Configuración de escala
 * Programadores de WebJobs
 
-Para establecer una configuración de aplicación o una cadena de conexión que se ajuste a una ranura (no intercambiada), obtenga acceso a la hoja **Configuración de la aplicación** para una ranura específica y seleccione el cuadro **Configuración de ranura** para los elementos de configuración que se deben ajustar la ranura. Tenga en cuenta que marcar un elemento de configuración como ranura específica tiene el efecto de establecer ese elemento como no intercambiable en todas las ranuras de implementación asociadas con la aplicación.
+Para establecer una configuración de aplicación o una cadena de conexión que se ajuste a una ranura (no intercambiada), obtenga acceso a la hoja **Configuración de la aplicación** para una ranura específica y seleccione el cuadro **Configuración de ranura** para los elementos de configuración que se deben ajustar la ranura. Marcar un elemento de configuración como ranura específica tiene el efecto de establecer ese elemento como no intercambiable en todas las ranuras de implementación asociadas con la aplicación.
 
 ![Configuración de ranura][SlotSettings]
 
@@ -123,7 +119,7 @@ Para las cargas de trabajo críticas, desea validar que la aplicación se compor
 
 Al usar la opción **Intercambio con vista previa** (consulte [Intercambiar ranuras de implementación](#Swap)), App Service hace lo siguiente:
 
-- Mantiene la ranura de destino sin cambios para que la carga de trabajo existente en esa ranura (p. ej., producción) no se vea afectada.
+- Mantiene la ranura de destino sin cambios para que la carga de trabajo existente en esa ranura (por ejemplo, producción) no se vea afectada.
 - Aplica los elementos de configuración de la ranura de destino a la ranura de origen, incluidas las cadenas de conexión específicas de ranura y la configuración de aplicación.
 - Reinicia los procesos de trabajo en la ranura de origen con estos elementos de configuración ya mencionados.
 - Al completar el intercambio: se mueve la ranura de origen previamente activada en la ranura de destino. La ranura de destino se mueve en la ranura de origen como en un intercambio manual.
@@ -153,7 +149,7 @@ Es fácil configurar el intercambio automático para un espacio. Siga estos paso
     ![][Autoswap1]
 2. Seleccione **Activado** para **Intercambio automático**, elija la ranura de destino deseada en **Ranura de intercambio automático** y haga clic en **Guardar** en la barra de comandos. Asegúrese de que la configuración del espacio sea exactamente la configuración prevista para el espacio de destino.
    
-    La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
+    La pestaña **Notificaciones** parpadea en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
    
     ![][Autoswap2]
    
@@ -161,26 +157,36 @@ Es fácil configurar el intercambio automático para un espacio. Siga estos paso
    > Para probar el intercambio automático para la aplicación, puede seleccionar primero una ranura de destino que no sea de producción en **Ranura de intercambio automático** para familiarizarse con la característica.  
    > 
    > 
-3. Ejecute una inserción de código para este espacio de implementación. El intercambio automático se realizará después de un breve tiempo y la actualización se reflejará en la dirección URL del espacio de destino.
+3. Ejecute una inserción de código para este espacio de implementación. El intercambio automático se realiza después de un breve tiempo y la actualización se refleja en la dirección URL de la ranura de destino.
 
 <a name="Rollback"></a>
 
-## <a name="to-rollback-a-production-app-after-swap"></a>Para revertir una aplicación de producción después de un intercambio
+## <a name="roll-back-a-production-app-after-swap"></a>Reversión de una aplicación de producción después de un intercambio
 Si se identifican errores en producción después del intercambio de espacios, revierta los espacios a sus estados anteriores. Para ello, intercambie los mismos dos espacios inmediatamente.
 
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>Preparación personalizada antes del intercambio
-Es posible que algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración `applicationInitialization` en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio esperará a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
+Es posible que algunas aplicaciones necesiten acciones de preparación personalizadas. El elemento de configuración `applicationInitialization` en el archivo web.config permite especificar acciones de inicialización personalizadas antes de recibir una solicitud. La operación de intercambio espera a que se complete la preparación personalizada. He aquí un fragmento de ejemplo del archivo web.config.
 
     <applicationInitialization>
         <add initializationPage="/" hostName="[app hostname]" />
         <add initializationPage="/Home/About" hostname="[app hostname]" />
     </applicationInitialization>
 
+## <a name="monitor-swap-progress"></a>Supervisión del progreso de intercambio
+
+En ocasiones, la operación de intercambio tarda algún tiempo en completarse, por ejemplo, cuando la aplicación que se intercambia tiene un período de preparación largo. Puede obtener más información sobre las operaciones de intercambio en el [registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) en [Azure Portal](https://portal.azure.com).
+
+En la página de aplicación del portal, en el panel de navegación izquierdo, seleccione **Registro de actividad**.
+
+Una operación de intercambio aparece en la consulta de registro como `Slotsswap`. Puede expandirla y seleccionar una de los suboperaciones o errores para ver los detalles.
+
+![Registro de actividad para el intercambio de ranuras](media/web-sites-staged-publishing/activity-log.png)
+
 <a name="Delete"></a>
 
-## <a name="to-delete-a-deployment-slot"></a>Para eliminar una ranura de implementación
+## <a name="delete-a-deployment-slot"></a>Eliminación de una ranura de implementación
 En la hoja para una ranura de implementación, abra la hoja de la ranura de implementación, haga clic en **Información general** (la página predeterminada) y haga clic en **Eliminar** en la barra de comandos.  
 
 ![Eliminación de una ranura de implementación][DeleteStagingSiteButton]
@@ -189,41 +195,47 @@ En la hoja para una ranura de implementación, abra la hoja de la ranura de impl
 
 <a name="PowerShell"></a>
 
-## <a name="azure-powershell-cmdlets-for-deployment-slots"></a>Cmdlets de PowerShell de Azure para espacios de implementación
+## <a name="automate-with-azure-powershell"></a>Automatización con Azure PowerShell
+
 Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluida la compatibilidad para administrar ranuras de implementación de Azure App Service.
 
 * Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).  
 
 - - -
 ### <a name="create-a-web-app"></a>Creación de una aplicación web
-```
+```PowerShell
 New-AzureRmWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="create-a-deployment-slot"></a>Creación de una ranura de implementación
-```
+```PowerShell
 New-AzureRmWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot [deployment slot name] -AppServicePlan [app service plan name]
 ```
 
 - - -
 ### <a name="initiate-a-swap-with-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-source-slot"></a>Inicio de un intercambio con vista previa (intercambio en varias fases) y aplicación de configuración de la ranura de destino a la ranura de origen
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="cancel-a-pending-swap-swap-with-review-and-restore-source-slot-configuration"></a>Cancelación de un intercambio pendiente (intercambio con vista previa) y restauración de configuración de la ranura de origen
-```
+```PowerShell
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01
 ```
 
 - - -
 ### <a name="swap-deployment-slots"></a>Intercambio de ranuras de implementación
-```
+```PowerShell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzureRmResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
+```
+
+### <a name="monitor-swap-events-in-the-activity-log"></a>Supervisión de los eventos de intercambio en el registro de actividad
+```PowerShell
+Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller SlotSwapJobProcessor  
 ```
 
 - - -
@@ -237,52 +249,13 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 
 <a name="CLI"></a>
 
-## <a name="azure-command-line-interface-azure-cli-commands-for-deployment-slots"></a>Comandos de la interfaz de la línea de comandos de Azure (CLI de Azure) para ranuras de implementación
-La CLI de Azure proporciona comandos de varias plataformas para trabajar con Azure, incluida la compatibilidad para administrar ranuras de implementación de App Service.
+## <a name="automate-with-azure-cli"></a>Automatización con la CLI de Azure
 
-* Para obtener instrucciones acerca de cómo instalar y configurar la CLI de Azure, incluyendo la información acerca de cómo conectar la CLI de Azure a su suscripción de Azure, consulte [Instalación y configuración de la CLI de Azure](../cli-install-nodejs.md).
-* Para mostrar los comandos disponibles para Azure App Service en la CLI de Azure, llame a `azure site -h`.
-
-> [!NOTE] 
-> Para los comandos de la [CLI de Azure 2.0](https://github.com/Azure/azure-cli) para ranuras de implementación, consulte [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
-
-- - -
-### <a name="azure-site-list"></a>azure site list
-Para obtener información sobre las aplicaciones de la suscripción actual, llame a **azure site list**, como en el ejemplo siguiente.
-
-`azure site list webappslotstest`
-
-- - -
-### <a name="azure-site-create"></a>azure site create
-Para crear una ranura de implementación, llame a **azure site create** y especifique el nombre de una aplicación existente y el de la ranura que se vaya a crear, como en el ejemplo siguiente.
-
-`azure site create webappslotstest --slot staging`
-
-Para habilitar el control de código fuente en la nueva ranura, use la opción **--git** , como en el ejemplo siguiente.
-
-`azure site create --git webappslotstest --slot staging`
-
-- - -
-### <a name="azure-site-swap"></a>azure site swap
-Para hacer que la ranura de implementación actualizada se convierta en la aplicación de producción, utilice el comando **azure site swap** para realizar una operación de intercambio, como en el ejemplo siguiente. La aplicación de producción no experimentará tiempos de inactividad ni arranques en frío.
-
-`azure site swap webappslotstest`
-
-- - -
-### <a name="azure-site-delete"></a>azure site delete
-Para eliminar una ranura de implementación que ya no sea necesaria, utilice el comando **azure site delete** , como en el ejemplo siguiente.
-
-`azure site delete webappslotstest --slot staging`
-
-- - -
-> [!NOTE]
-> Vea una aplicación web en acción. [Pruebe App Service](https://azure.microsoft.com/try/app-service/) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
-> 
-> 
+Para información sobre los comandos de la [CLI de Azure](https://github.com/Azure/azure-cli) que se usan con las ranuras de implementación, consulte [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Aplicación web de Azure App Service: bloquear el acceso web a las ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Introducción a App Service en Linux](../app-service/containers/app-service-linux-intro.md)
+[Aplicación web de Azure App Service: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)  
+[Introducción a App Service en Linux](../app-service/containers/app-service-linux-intro.md)  
 [Evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

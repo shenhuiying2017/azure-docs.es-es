@@ -10,13 +10,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 6ef0b1ce589bd19693d45a9e4f579ef260530a40
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 63bf7d5a0ad988ff7a6b498b4e91e90de97b507b
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Uso del clúster de HDInsight Spark para leer y escribir datos en la base de datos SQL de Azure
 
@@ -87,7 +87,7 @@ En esta sección, va a leer los datos de una tabla (por ejemplo, **SalesLT.Addre
 
     Presione **MAYÚS + ENTRAR** para ejecutar la celda de código.  
 
-2. El fragmento de código siguiente crea una dirección URL de JDBC que puede pasar a las API de tramas de datos de Spark y crea un objeto `Properties` para guardar los parámetros. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
+2. Use el fragmento de código siguiente para compilar una dirección URL de JDBC que puede pasar a las API de tramas de datos de Spark y crea un objeto `Properties` para guardar los parámetros. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
 
        import java.util.Properties
 
@@ -96,7 +96,7 @@ En esta sección, va a leer los datos de una tabla (por ejemplo, **SalesLT.Addre
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")         
 
-3. El fragmento de código siguiente crea una trama de datos con los datos de una tabla en la base de datos SQL de Azure. En este fragmento de código, utilizamos la tabla **SalesLT.Address** que está disponible como parte de la base de datos **AdventureWorksLT**. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
+3. Use el fragmento de código para crear una trama de datos con los datos de una tabla en la base de datos SQL de Azure. En este fragmento de código, utilizamos la tabla **SalesLT.Address** que está disponible como parte de la base de datos **AdventureWorksLT**. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
 
        val sqlTableDF = spark.read.jdbc(jdbc_url, "SalesLT.Address", connectionProperties)
 
@@ -141,7 +141,7 @@ En esta sección, utilizamos un archivo CSV de ejemplo disponible en el clúster
        connectionProperties.put("user", s"${jdbcUsername}")
        connectionProperties.put("password", s"${jdbcPassword}")
 
-3. El fragmento de código siguiente extrae el esquema de los datos de HVAC.csv y utiliza el esquema para cargar los datos del archivo CSV en una trama de datos, `readDf`. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
+3. Use el fragmento de código siguiente para extraer el esquema de los datos de HVAC.csv y utilizar el esquema para cargar los datos del archivo CSV en una trama de datos, `readDf`. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readDf = spark.read.format("csv").schema(userSchema).load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -165,6 +165,10 @@ En esta sección, utilizamos un archivo CSV de ejemplo disponible en el clúster
 
     ![Conexión a una base de datos SQL con SSMS](./media/apache-spark-connect-to-sql-database/connect-to-sql-db-ssms-locate-table.png "Connect to SQL database using SSMS")
 
+7. Ejecute una consulta en SSMS para ver las columnas de la tabla.
+
+        SELECT * from hvactable
+
 ## <a name="stream-data-into-azure-sql-database"></a>Transmisión de datos en Azure SQL Database
 
 En esta sección, vamos a transmitir los datos a la tabla **hvactable** que ha creado en la base de datos SQL de Azure en la sección anterior.
@@ -184,7 +188,7 @@ En esta sección, vamos a transmitir los datos a la tabla **hvactable** que ha c
 3. Vamos a transmitir los datos desde **HVAC.csv** a hvactable. El archivo HVAC.csv está disponible en el clúster en */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. En el fragmento de código siguiente, obtenemos primero el esquema de los datos que se van a transmitir. Después, creamos una trama de datos de streaming con ese esquema. Pegue el fragmento de código en una celda de código y presione **MAYÚS + ENTRAR** para ejecutarlo.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
-       val readStreamDf = spark.readStream.schema(userSchema1).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
+       val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 
        readStreamDf.printSchema
 
 4. La salida muestra el esquema de **HVAC.csv**. La tabla **hvactable** tiene también el mismo esquema. La salida muestra las columnas de la tabla.

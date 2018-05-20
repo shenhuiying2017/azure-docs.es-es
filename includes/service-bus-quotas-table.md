@@ -5,14 +5,14 @@ services: service-bus-messaging
 author: sethmanheim
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2018
+ms.date: 05/10/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: 74732008b336dc1b95ec96e8550d218105973ca4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3be379c2513fa20c1a84b547333a4ef2139bb45d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 En la siguiente tabla se muestra la información de cuotas específica de la mensajería de Service Bus. Para obtener información sobre los precios y otras cuotas de Service Bus, consulte la información general sobre los [precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -20,7 +20,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 | --- | --- | --- | --- | --- |
 | Número máximo de espacios de nombres básicos o estándar por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres básicos o estándar adicionales. |100|
 | Número máximo de espacios de nombres premium por suscripción de Azure |Espacio de nombres |El portal rechaza las solicitudes posteriores de espacios de nombres premium adicionales. |10 |
-| Tamaño de cola o tema |Entidad |Definido al crear una cola o un tema. <br/><br/> Los sucesivos mensajes entrantes se rechazan y el código de llamada recibe una excepción. |1, 2, 3, 4 o 5 GB.<br /><br />Si se habilitan las [particiones](../articles/service-bus-messaging/service-bus-partitioning.md) , el tamaño máximo de las colas y temas es 80 GB. |
+| Tamaño de cola o tema |Entidad |Definido al crear una cola o un tema. <br/><br/> Los sucesivos mensajes entrantes se rechazan y el código de llamada recibe una excepción. |1, 2, 3, 4 o 5 GB.<br /><br />En la SKU Premium, así como en la Estándar con [particiones](../articles/service-bus-messaging/service-bus-partitioning.md) habilitadas, el tamaño máximo de cola o tema es de 80 GB. |
 | Número de conexiones simultáneas en un espacio de nombres |Espacio de nombres |Las solicitudes posteriores de conexiones adicionales se rechazarán y el código que realizó la llamada recibe una excepción. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción |Entidad |Las solicitudes de recepción posteriores se rechazan y el código de llamada recibe una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema. |5.000 |
 | Número de temas o colas por espacio de nombres del servicio |Espacio de nombres |Se rechazan las posteriores solicitudes de creación colas o temas nuevos en el espacio de nombres de servicio. Como resultado, si se configuran mediante [Azure Portal][Azure portal], se genera un mensaje de error. Si se realiza una llamada desde la API de administración, el código de llamada recibe una excepción. |10.000<br /><br />El número total de temas, más las colas de un espacio de nombres, debe ser menor o igual a 10 000.<br/>Esto no se puede aplicar a Premium, ya que todas las entidades tienen particiones. |

@@ -3,22 +3,22 @@ title: Expresiones de etiqueta y enrutamiento
 description: En este tema se explican las expresiones de etiqueta y enrutamiento de los Centros de notificaciones de Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: c3266698a6077e85806286fadf1f48b7194a4d88
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: e08fca0b6b57d654f2b2ff7b935f38d8c517487b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-and-tag-expressions"></a>Expresiones de etiqueta y enrutamiento
 ## <a name="overview"></a>Información general
@@ -33,7 +33,7 @@ El back-end de la aplicación puede elegir a qué registros dirigirse con una no
 3. **Expresión de etiqueta**: todos los registros cuyo conjunto de etiquetas coincide con la expresión especificada reciben la notificación.
 
 ## <a name="tags"></a>Etiquetas
-Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "_", "@", "#", ".", ":", "-". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen.
+Una etiqueta puede ser cualquier cadena, de hasta 120 caracteres, que contenga caracteres alfanuméricos y los siguientes caracteres no alfanuméricos: "_", "@", "#", ".", ":", "-". En el ejemplo siguiente se muestra una aplicación desde la que puede recibir notificaciones del sistema sobre grupos musicales específicos. En este escenario, una manera sencilla de enrutar notificaciones es etiquetar los registros con etiquetas que representan las distintas bandas, como se muestra en la siguiente imagen:
 
 ![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
 

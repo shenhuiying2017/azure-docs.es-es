@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: iainfou
-ms.openlocfilehash: 9093fcf008f199cc1a78d50979f6387a2e1b5262
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: cc91366bda4dd443392c78cd61e5cc0ddb261fe2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creación de un conjunto de escalado de máquinas virtuales que usa Zonas de disponibilidad
 
@@ -194,7 +194,7 @@ En el ejemplo siguiente se crea un conjunto de escalado Linux de una sola zona d
 }
 ```
 
-Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/singlezone.json)
+Para ver un ejemplo completo de los recursos de red y un conjunto de escalado de una sola zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/singlezone.json)
 
 ### <a name="zone-redundant-scale-set"></a>Conjunto de escalado con redundancia de zona
 
@@ -216,7 +216,7 @@ Para crear un conjunto de escalado con redundancia de zona, especifique varios v
 
 Si crea un equilibrador de carga o una dirección IP pública especifique la propiedad *"sku": { "nombre": "estándar" }"* para crear los recursos de red con redundancia de zona. También debe crear un grupo de seguridad de red y reglas para permitir cualquier tráfico. Para más información, consulte [Introducción a Azure Load Balancer estándar](../load-balancer/load-balancer-standard-overview.md).
 
-Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/zones/multizone.json)
+Para ver un ejemplo completo de los recursos de red y un conjunto de escalado con redundancia de zona, consulte [esta plantilla de Resource Manager de ejemplo](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

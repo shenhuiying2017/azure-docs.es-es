@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2018
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3237ee41f8596ed3ce508857adf7dc29cee1ada
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
@@ -48,7 +48,7 @@ Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nive
 | [Servicio Device Provisioning](../iot-dps/about-iot-dps.md) | Sí | Sí |
 | [Supervisión y diagnóstico](iot-hub-monitor-resource-health.md) | Sí | Sí |
 | [Mensajería de la nube a un dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sí |
-| [Dispositivos gemelos](iot-hub-devguide-device-twins.md) y [Administración de dispositivos](iot-hub-device-management-overview.md) |   | Sí |
+| [Dispositivos gemelos](iot-hub-devguide-device-twins.md), [Módulos gemelos](iot-hub-devguide-module-twins.md) y [Administración de dispositivos](iot-hub-device-management-overview.md) |   | Sí |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sí |
 
 IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar. 
@@ -61,19 +61,26 @@ La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar d
 | --- | ---------- | ------------- |
 | [Eliminar un dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Sí | Sí |
 | [Obtener dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Sí | Sí |
+| Eliminar módulo | Sí | Sí |
+| Obtener módulo | Sí | Sí |
 | [Obtener estadísticas del registro](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Sí | Sí |
 | [Obtener estadísticas de servicios](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Sí | Sí |
 | [Colocar dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sí | Sí |
+| Colocar módulo | Sí | Sí |
 | [Consultar dispositivos](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sí | Sí |
+| Consultar módulos | Sí | Sí |
 | [Crear el URI de SAS de carga de archivos](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Sí | Sí |
 | [Recibir notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Sí | Sí |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Sí | Sí |
+| Enviar eventos de módulo | Sí | Sí |
 | [Actualizar estado de la carga de archivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Sí | Sí |
 | [Operación de dispositivos en bloque](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sí, excepto las funcionalidades de IoT Edge | Sí | 
 | [Purgar cola de comandos](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Sí |
 | [Obtener dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Sí |
+| Obtener módulo gemelo |   | Sí |
 | [Invocar método de dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Sí |
 | [Actualizar dispositivo gemelo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Sí | 
+| Actualizar módulo gemelo |   | Sí | 
 | [Abandonar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Sí |
 | [Completar notificación de dispositivo enlazado](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Sí |
 | [Cancelar trabajo](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Sí |
@@ -106,7 +113,7 @@ Las operaciones de registro de identidad de IoT Hub no deberían ser operaciones
 
 Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones de IoT Hub][IoT Hub quotas and throttles].
 
-## <a name="sharding"></a>Clave de particionamiento
+## <a name="sharding"></a>Particionamiento
 Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso puede repartir los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes

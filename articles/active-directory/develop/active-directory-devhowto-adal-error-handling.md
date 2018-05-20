@@ -5,19 +5,20 @@ services: active-directory
 documentationcenter: ''
 author: danieldobalian
 manager: mtillman
-ms.author: bryanla
+ms.author: celested
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 2b4c945f5707c158c76c8edbd233d1a8b034111f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 
@@ -74,7 +75,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -157,7 +158,7 @@ El código debería implementarse así:
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -170,9 +171,9 @@ El código debería implementarse así:
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken es el método de ADAL predeterminado que se usa para obtener tokens. En los casos donde se requiere la identidad del usuario, AcquireToken primero intenta obtener un token de forma silenciosa y, a continuación, muestra la interfaz de usuario si es necesario (a menos que se pase el elemento PromptBehavior.Never). En los casos donde se requiere la identidad de la aplicación, AcquireToken intenta obtener un token pero no muestra la interfaz de usuario porque no hay ningún usuario final.  
+AcquireToken es el método de ADAL predeterminado que se usa para obtener tokens. En los casos donde se requiere la identidad del usuario, AcquireToken primero intenta obtener un token de forma silenciosa y, a continuación, muestra la interfaz de usuario si es necesario (a menos que se pase el elemento PromptBehavior.Never). En los casos donde se requiere la identidad de la aplicación, AcquireToken intenta obtener un token pero no muestra la interfaz de usuario porque no hay ningún usuario final. 
 
-En caso de controlar errores de AcquireToken, el control de errores depende de la plataforma y situación que la aplicación está intentando alcanzar.  
+En caso de controlar errores de AcquireToken, el control de errores depende de la plataforma y situación que la aplicación está intentando alcanzar. 
 
 El sistema operativo también puede generar un conjunto de errores, que requieren un control de errores que depende de la aplicación específica. Para obtener más información, vea la sección "Operating System errors" (Errores del sistema operativo) en [Error and logging reference](#error-and-logging-reference) (Referencia de errores y registros). 
 
@@ -187,7 +188,7 @@ El sistema operativo también puede generar un conjunto de errores, que requiere
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Casos de error y acciones recomendadas: aplicaciones de cliente nativo
 
-Si va a compilar una aplicación de cliente nativo, hay algunos casos de control de errores a tener en cuenta que se relacionan con problemas de red, errores transitorios y otros errores específicos de la plataforma. En la mayoría de los casos, una aplicación no debería realizar intentos inmediatos, sino esperar a la interacción del usuario final que solicita un inicio de sesión.  
+Si va a compilar una aplicación de cliente nativo, hay algunos casos de control de errores a tener en cuenta que se relacionan con problemas de red, errores transitorios y otros errores específicos de la plataforma. En la mayoría de los casos, una aplicación no debería realizar intentos inmediatos, sino esperar a la interacción del usuario final que solicita un inicio de sesión. 
 
 Hay algunos casos especiales en los que un reintento único puede resolver el problema. Por ejemplo, cuando un usuario necesita habilitar los datos en un dispositivo o completó la descarga del agente de Azure AD tras el error inicial. 
 
@@ -365,7 +366,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Casos de error y acciones recomendadas: aplicaciones de una sola página (adal.js)
 
-Si va a compilar una aplicación de una sola página mediante adal.js con AcquireToken, el código del control de errores es similar al de una llamada silenciosa típica.  En concreto, en adal.js, AcquireToken nunca muestra la interfaz de usuario. 
+Si va a compilar una aplicación de una sola página mediante adal.js con AcquireToken, el código del control de errores es similar al de una llamada silenciosa típica. En concreto, en adal.js, AcquireToken nunca muestra la interfaz de usuario. 
 
 Un error de AcquireToken tiene los casos siguientes:
 
@@ -512,7 +513,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }

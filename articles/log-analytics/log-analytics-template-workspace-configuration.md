@@ -1,29 +1,29 @@
 ---
-title: "Uso de las plantillas de Azure Resource Manager para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs"
-description: "Puede utilizar las plantillas de Azure Resource Manager para crear y configurar áreas de trabajo de Log Analytics."
+title: Uso de las plantillas de Azure Resource Manager para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
+description: Puede utilizar las plantillas de Azure Resource Manager para crear y configurar áreas de trabajo de Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/25/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 297f15430c64e5de3c10e6f38855664a50d11a8d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
 Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
 
-* Crear un área de trabajo
+* Crear un área de trabajo, incluyendo el establecimiento del plan de tarifa 
 * Agregar una solución
 * Crear búsquedas guardadas
 * Crear un grupo de equipos
@@ -34,32 +34,108 @@ Puede utilizar las [plantillas de Azure Resource Manager](../azure-resource-mana
 * Agregar al agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
-Este artículo proporciona ejemplos de plantilla que muestran algunas de las funciones que puede realizar desde las plantillas.
+Este artículo contiene ejemplos de plantilla que ilustran algunas de las funciones que puede realizar con las plantillas.
 
-## <a name="api-versions"></a>Versiones de API
-El ejemplo de este artículo es para un [área de trabajo de Log Analytics actualizada](log-analytics-log-search-upgrade.md).  Para usar un área de trabajo heredada, se debe cambiar la sintaxis de las consultas por la del lenguaje heredado y cambiar la versión de API de cada recurso.  En la tabla siguiente se muestra la versión de API de los recursos usados en este ejemplo.
+## <a name="create-a-log-analytics-workspace"></a>Creación de un área de trabajo de Log Analytics
+En el ejemplo siguiente se crea un área de trabajo mediante una plantilla desde la máquina local. La plantilla JSON está configurada para solicitar solo el nombre del área de trabajo y especifica un valor predeterminado para los restantes parámetros que es probable que se utilice como configuración estándar en su entorno.  
 
-| Recurso | Tipo de recurso | Versión de API heredada | Versión de API actualizada |
-|:---|:---|:---|:---|
-| Área de trabajo   | áreas de trabajo    | 2015-11-01-preview | 2017-03-15-preview |
-| Search      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
-| Origen de datos | datasources   | 2015-11-01-preview | 2015-11-01-preview |
-| Solución    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+Los siguientes parámetros establecen un valor predeterminado:
 
+* Ubicación: el valor predeterminado es Este de EE. UU.
+* SKU: el valor predeterminado es el nuevo plan de tarifa Por GB publicado en el modelo de precios de abril de 2018
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
+>[!WARNING]
+>Si se crea o configura un área de trabajo de Log Analytics en una suscripción que ha elegido el nuevo modelo de precios de abril de 2018, el único plan de tarifa válido de Log Analytics es **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Creación e implementación de una plantilla
+
+1. Copie y pegue la siguiente sintaxis JSON en el archivo:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Edite la plantilla para adecuarla a sus requisitos.  Consulte la referencia [Plantilla Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) para saber qué propiedades y valores son compatibles. 
+3. Guarde este archivo como **deploylaworkspacetemplate.json** en una carpeta local.
+4. Está listo para implementar esta plantilla. Use PowerShell o la línea de comandos para crear el área de trabajo.
+
+   * En PowerShell, use los siguientes comandos desde la carpeta que contenga la plantilla:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * En la línea de comandos, use los siguientes comandos desde la carpeta que contenga la plantilla:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+La implementación puede demorar unos minutos en completarse. Cuando termine, verá un mensaje similar al siguiente que incluye el resultado:<br><br> ![Resultado de ejemplo cuando se completa la implementación](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+
+## <a name="configure-a-log-analytics-workspace"></a>Configuración de un área de trabajo de Log Analytics
 El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
 
-1. Crear un área de trabajo, con establecimiento de la retención de datos incluido
-2. Agregar soluciones al área de trabajo
-3. Crear búsquedas guardadas
-4. Crear un grupo de equipos
-5. Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
-6. Recopilar contadores de rendimiento de discos lógicos de equipos Linux (% de inodos usados; megabytes libres; % de espacio usado; transferencias de disco/seg.; lecturas de disco/seg.; escrituras de disco/seg.)
-7. Recopilar eventos de Syslog de equipos Linux
-8. Recopilar eventos de error y advertencia del registro de eventos de aplicación de los equipos de Windows
-9. Recopilar contadores de rendimiento de MB disponibles de equipos Windows
-11. Recopilar registros de IIS s de eventos de Windows escritos por Diagnósticos de Azure en una cuenta de almacenamiento
+1. Agregar soluciones al área de trabajo
+2. Crear búsquedas guardadas
+3. Crear un grupo de equipos
+4. Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
+5. Recopilar contadores de rendimiento de discos lógicos de equipos Linux (% de inodos usados; megabytes libres; % de espacio usado; transferencias de disco/seg.; lecturas de disco/seg.; escrituras de disco/seg.)
+6. Recopilar eventos de Syslog de equipos Linux
+7. Recopilar eventos de error y advertencia del registro de eventos de aplicación de los equipos de Windows
+8. Recopilar contadores de rendimiento de MB disponibles de equipos Windows
+9. Recopilar registros de IIS s de eventos de Windows escritos por Diagnósticos de Azure en una cuenta de almacenamiento
 
 ```json
 {
@@ -77,10 +153,11 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -153,7 +230,7 @@ El siguiente ejemplo de plantilla muestra cómo realizar estas tareas:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
+            "Query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },
@@ -422,7 +499,6 @@ azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
 
-
 ## <a name="example-resource-manager-templates"></a>Plantillas de Azure Resource Manager de ejemplo
 La galería de plantillas de inicio rápido de Azure incluye varias plantillas para Log Analytics, entre ellas las siguientes:
 
@@ -430,10 +506,9 @@ La galería de plantillas de inicio rápido de Azure incluye varias plantillas p
 * [Implementación de una máquina virtual Linux con la extensión de máquina virtual de Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Supervisión de Azure Site Recovery con un área de trabajo de Log Analytics existente](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Supervisión de Azure Web Apps con un área de trabajo de Log Analytics existente](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Supervisión de SQL Azure con un área de trabajo de Log Analytics existente](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Implementación de un clúster de Service Fabric y supervisión de este con un área de trabajo de Log Analytics](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Implementación de un clúster de Service Fabric y creación de un área de trabajo de Log Analytics para supervisarlo](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Incorporación de una cuenta de almacenamiento existente a OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Implemente agentes en máquinas virtuales de Azure mediante plantillas de Resource Manager](log-analytics-azure-vm-extension.md)
+* [Implemente el agente de Windows en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/windows/extensions-oms.md).
+* [Implemente el agente de Linux en máquinas virtuales de Azure mediante la plantilla de Resource Manager](../virtual-machines/linux/extensions-oms.md).
 

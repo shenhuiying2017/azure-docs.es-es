@@ -1,9 +1,9 @@
 ---
-title: "Plano técnico del procesamiento de pagos de Azure: requisitos de cifrado"
+title: 'Plano técnico del procesamiento de pagos de Azure: requisitos de cifrado'
 description: Requisito 4 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 43f75ba9-cb4e-49ab-b3f4-09e48310bc18
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 3eb5b663558c2a68c13368b179ff942dd3c53716
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 6de3290fc2147e3c8ed63642b6e8470093898ef6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="encryption-requirements-for-pci-dss-compliant-environments"></a>Requisitos de cifrado para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-4"></a>Requisito 4 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Cifrado de la transmisión de datos de titulares de tarjetas en redes públicas y abiertas**
 
 > [!NOTE]
-> Estos requisitos los define el [Consejo de Estándares de Seguridad para la Industria de Tarjeta de Pago (PCI)](https://www.pcisecuritystandards.org/pci_security/) como parte del [Estándar de Seguridad de Datos PCI (DSS) versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de pruebas e instrucciones para cada requisito.
+> Estos requisitos los define el [Consejo de Estándares de Seguridad para la Industria de Tarjeta de Pago (PCI)](https://www.pcisecuritystandards.org/pci_security/) como parte del [Estándar de Seguridad de Datos PCI (DSS) versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 La información confidencial se debe cifrar durante la transmisión a través de redes a las que pueden acceder fácilmente individuos malintencionados. Las redes inalámbricas configuradas erróneamente y las vulnerabilidades del cifrado heredado y de los protocolos de autenticación siguen siendo el objetivo de individuos malintencionados que aprovechan estas vulnerabilidades para obtener acceso privilegiado a los entornos de datos de titulares de tarjetas.
 
@@ -53,7 +53,7 @@ La información confidencial se debe cifrar durante la transmisión a través de
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore es una solución de PaaS que implementa la criptografía segura para la implementación como se muestra a continuación:<br /><br />Para cumplir los requisitos de datos en reposo cifrados, [Azure Storage](https://azure.microsoft.com/services/storage/) usa lo siguiente:<br /><br /><ul><li>[Cifrado del servicio de Azure Storage (SSE) para datos en reposo](/azure/storage/storage-service-encryption)</li><li>SQL Database: una instancia de SQL Database de PaaS se usa para mostrar las medidas de seguridad de la base de datos. Para obtener más información, consulte la [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (BitLocker)](/azure/security/azure-security-disk-encryption)</li></ul>El uso de Azure Key Vault satisface los requisitos de HIPAA, PCI DSS y Azure Government.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore es una solución de PaaS que implementa la criptografía segura para la implementación como se muestra a continuación:<br /><br />Para cumplir los requisitos de datos en reposo cifrados, [Azure Storage](https://azure.microsoft.com/services/storage/) usa lo siguiente:<br /><br /><ul><li>[Cifrado del servicio de Azure Storage (SSE) para datos en reposo](/azure/storage/storage-service-encryption)</li><li>SQL Database: una instancia de SQL Database de PaaS se usa para mostrar las medidas de seguridad de la base de datos. Para obtener más información, consulte la [Guía de PCI: Azure SQL Database](payment-processing-blueprint.md#azure-sql-database).</li><li>[Azure Disk Encryption (BitLocker)](/azure/security/azure-security-disk-encryption)</li></ul>El uso de Azure Key Vault satisface los requisitos de HIPAA, PCI DSS y Azure Government.|
 
 
 
@@ -66,7 +66,7 @@ La información confidencial se debe cifrar durante la transmisión a través de
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Las redes inalámbricas y SNMP no se implementan en la solución.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la solución no se implementan redes inalámbricas ni SNMP.|
 
 
 
@@ -79,7 +79,7 @@ La información confidencial se debe cifrar durante la transmisión a través de
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Contoso Webstore no tiene ninguna solución de mensajería implementada que pueda enviar datos del número de cuenta principal (PAN) sin protección.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Contoso Webstore no tiene ninguna solución de mensajería implementada que pueda enviar datos del número de cuenta principal (PAN) sin protección.|
 
 
 
@@ -92,7 +92,7 @@ La información confidencial se debe cifrar durante la transmisión a través de
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de documentar y cifrar las transmisiones que contienen datos de titulares de tarjetas.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de documentar y cifrar las transmisiones que contienen datos de titulares de tarjetas.|
 
 
 

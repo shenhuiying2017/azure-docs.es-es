@@ -4,19 +4,17 @@ description: En este documento se proporcionan información general y algunos ej
 services: machine-learning
 author: euangMS
 ms.author: euang
-manager: lanceo
-ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 02/01/2018
-ms.openlocfilehash: cc1aef7ed7c4a7d03a7fa63e71c8c27aca10095a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 05/09/2018
+ms.openlocfilehash: 6363d39b2dfbd36ccebff6780e35caf58ca84dda
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="data-preparations-python-extensions"></a>Extensiones de Python para la preparación de datos
 Como método para completar vacíos de funcionalidad entre características integradas, Preparación de datos de Azure Machine Learning incluye una extensibilidad en varios niveles. En este documento se indica la extensibilidad mediante un script de Python. 
@@ -24,14 +22,10 @@ Como método para completar vacíos de funcionalidad entre características inte
 ## <a name="custom-code-steps"></a>Pasos del código personalizado 
 Preparación de datos tiene los siguientes pasos personalizados, en los que los usuarios pueden escribir código:
 
-* Lector de archivos*
-* Escritor*
 * Agregar columna
 * Filtro avanzado
 * Transformar flujo de datos
 * Transformar partición
-
-*Estos pasos no se admiten actualmente en una ejecución de Spark.
 
 ## <a name="code-block-types"></a>Tipos de bloques de código 
 Para cada uno de estos pasos se admiten dos tipos de bloques de código. En primer lugar, se admite una expresión básica de Python que se ejecuta tal cual. En segundo lugar, se admite un módulo de Python donde se llama a una determinada función con una firma conocida en el código proporcionado.
@@ -158,74 +152,6 @@ Ejemplos
     row.ColumnA + row.ColumnB  
     row["ColumnA"] + row["ColumnB"]
 ```
-
-## <a name="file-reader"></a>Lector de archivos 
-### <a name="purpose"></a>Propósito 
-El punto de extensión Lector de archivos permite controlar completamente el proceso de lectura de un archivo en un flujo de datos. El sistema llama al código y pasa la lista de archivos que debe procesar. Es necesario que el código cree y devuelva una trama de datos de Pandas. 
-
->[!NOTE]
->Este punto de extensión no funciona en Spark. 
-
-
-### <a name="how-to-use"></a>Modo de uso 
-A este punto de extensión se obtiene acceso desde el asistente **Abrir origen de datos**. Seleccione **File** (Archivo) en la primera página y, luego, elija la ubicación del archivo. En la página **Choose File Parameters** (Seleccionar parámetros de archivo), en la lista desplegable **File Type** (Tipo de archivo), seleccione **Custom File (Script)** (Archivo personalizado (script)). 
-
-El código obtiene una trama de datos de Pandas denominada "df" que contiene información sobre los archivos que debe leer. Si decide abrir un directorio con varios archivos, la trama de datos contendrá más de una fila.  
-
-Esta trama de datos tiene las columnas siguientes:
-
-- Ruta de acceso: Archivo que se va a leer.
-- PathHint: Le indica dónde se encuentra el archivo. Valores: Local, AzureBlobStorage y AzureDataLakeStorage.
-- AuthenticationType: Tipo de autenticación usado para obtener acceso al archivo. Valores: None, SasToken y OAuthToken.
-- AuthenticationValue: Contiene None (Ninguno) o el token que se va a usar.
-
-### <a name="syntax"></a>Sintaxis 
-Expression 
-
-```python
-    paths = df['Path'].tolist()  
-    df = pd.read_csv(paths[0])
-```
-
-
-Módulo  
-```python
-PathHint = Local  
-def read(df):  
-    paths = df['Path'].tolist()  
-    filedf = pd.read_csv(paths[0])  
-    return filedf  
-```
- 
-
-## <a name="writer"></a>Escritor 
-### <a name="purpose"></a>Propósito 
-El punto de extensión Escritor le permite controlar completamente el proceso de escritura de datos desde un flujo de datos. El sistema llama al código y pasa una trama de datos. El código puede usar la trama de datos para escribir datos como quiera. 
-
->[!NOTE]
->El punto de extensión Escritor no funciona en Spark.
-
-
-### <a name="how-to-use"></a>Modo de uso 
-Puede agregar este punto de extensión mediante el bloque Escribir flujo de datos (script). Está disponible en el menú **Transformations** (Transformaciones) de nivel superior.
-
-### <a name="syntax"></a>Sintaxis 
-Expression
-
-```python
-    df.to_csv('c:\\temp\\output.csv')
-```
-
-Módulo
-
-```python
-def write(df):  
-    df.to_csv('c:\\temp\\output.csv')  
-    return df
-```
- 
- 
-Este bloque de escritura personalizado puede existir en medio de una lista de pasos. Si usa un módulo, la función de escritura debe devolver la trama de datos que es la entrada al paso siguiente. 
 
 ## <a name="add-column"></a>Agregar columna 
 ### <a name="purpose"></a>Propósito

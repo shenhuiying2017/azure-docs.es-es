@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbda406633f97d9a6c90bc49374268df28b68f2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5d93963dddb4acb1147042ae338b32cb5d7646f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Uso del portal para crear una aplicación de Azure Active Directory y una entidad de servicio con acceso a los recursos
 
@@ -83,7 +83,7 @@ Para comprobar los permisos de su suscripción:
 
    ![agregar aplicación](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una aplicación [nativa](../active-directory/active-directory-application-proxy-native-client.md); por consiguiente, ese tipo no funciona en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
+1. Proporcione un nombre y una dirección URL para la aplicación. Seleccione **Aplicación web o API** para indicar el tipo de aplicación que desea crear. No se pueden crear credenciales para una aplicación [nativa](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); por consiguiente, ese tipo no funciona en una aplicación automatizada. Después de configurar los valores, seleccione **Crear**.
 
    ![aplicación de nombre](./media/resource-group-create-service-principal-portal/create-app.png)
 

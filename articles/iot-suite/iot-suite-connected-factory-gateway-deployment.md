@@ -1,12 +1,12 @@
 ---
-title: "Implementación de la puerta de enlace de fábrica conectada (Azure) | Microsoft Docs"
-description: "Cómo implementar una puerta de enlace en Windows o Linux para permitir la conectividad a la solución preconfigurada de fábrica conectada."
-services: 
+title: Implementación de la puerta de enlace de factoría conectada (Azure) | Microsoft Docs
+description: Cómo implementar una puerta de enlace en Windows o Linux para permitir la conectividad al acelerador de la solución de factoría conectada.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 4606cb676c3ab7c8c8511579f43d251ff7d2ae8a
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 956da99a5d67d7a2225ab3ea64b4e5a9d41ee3a1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-an-edge-gateway-for-the-connected-factory-preconfigured-solution-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para la solución preconfigurada de fábrica conectada
+# <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Implementación de una puerta de enlace de perímetro en Windows o Linux para el acelerador de la solución de factoría conectada
 
-Para implementar una puerta de enlace de perímetro para la solución preconfigurada de *fábrica conectada*, se necesitan dos componentes de software:
+Para implementar una puerta de enlace de perímetro para el acelerador de la solución de *factoría conectada*, se necesitan dos componentes de software:
 
-- *OPC Proxy* establece una conexión a la fábrica conectada. El componente OPC Proxy espera los mensajes de comando y control del explorador de OPC integrado que se ejecuta en el portal de la solución de fábrica conectada.
+- *OPC Proxy* establece una conexión a la factoría conectada. El componente OPC Proxy espera los mensajes de comando y control del explorador de OPC integrado que se ejecuta en el portal de la solución de factoría conectada.
 
-- *OPC Publisher* conecta a los servidores locales existentes de agente de usuario de OPC y reenvía sus mensajes de telemetría a la fábrica conectada. Puede conectar un dispositivo clásico OPC mediante el [adaptador clásico de OPC para OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- *OPC Publisher* conecta a los servidores locales existentes de agente de usuario de OPC y reenvía sus mensajes de telemetría a la factoría conectada. Puede conectar un dispositivo clásico OPC mediante el [adaptador clásico de OPC para OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Ambos componentes son de código abierto y están disponibles como código fuente en GitHub y como contenedores de Docker en DockerHub:
 
@@ -37,14 +37,14 @@ Ambos componentes son de código abierto y están disponibles como código fuent
 
 No se requiere ninguna dirección IP de acceso público ni puertos de entrada abiertos en el firewall de la puerta de enlace para ninguno de los componentes. Los componentes OPC Proxy y OPC Publisher solo usan el puerto de salida 443.
 
-Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace de perímetro con Docker en Windows o Linux. La puerta de enlace permite la conectividad con la solución preconfigurada de fábrica conectada. Aunque también puede usar los componentes sin ella.
+Los pasos que se indican en este artículo muestran cómo implementar una puerta de enlace de perímetro con Docker en Windows o Linux. La puerta de enlace permite la conectividad con el acelerador de la solución de factoría conectada. Aunque también puede usar los componentes sin ella.
 
 > [!NOTE]
 > Ambos componentes se pueden usar como módulos en [Azure IoT Edge](https://github.com/Azure/iot-edge).
 
 ## <a name="choose-a-gateway-device"></a>Selección de un dispositivo de puerta de enlace
 
-Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el [catálogo de dispositivos de Azure IoT](https://catalog.azureiotsuite.com/?q=opc) para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de fábrica conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace.
+Si todavía no tiene un dispositivo de puerta de enlace, Microsoft le recomienda comprar una puerta de enlace comercial de uno de nuestros asociados. Visite el [catálogo de dispositivos de Azure IoT](https://catalog.azureiotsuite.com/?q=opc) para ver una lista de los dispositivos de puerta de enlace compatibles con la solución de factoría conectada. Siga las instrucciones que se incluyen con el dispositivo para configurar la puerta de enlace.
 
 Como alternativa, use las instrucciones siguientes para configurar manualmente un dispositivo de puerta de enlace existente.
 
@@ -75,7 +75,7 @@ Para más información, consulte la referencia del motor de Docker [Use volumes]
 
 Antes de instalar los componentes OPC, realice los pasos siguientes para preparar su entorno:
 
-1. Para realizar la implementación de la puerta de enlace, necesitará la cadena de conexión **iothubowner** de IoT Hub en la implementación de fábrica conectada. En [Azure Portal](http://portal.azure.com/), vaya a su instancia de IoT Hub en el grupo de recursos que creó cuando implementó la solución de fábrica conectada. Haga clic en **Directivas de acceso compartido** para tener acceso a la cadena de conexión **iothubowner**:
+1. Para realizar la implementación de la puerta de enlace, necesitará la cadena de conexión **iothubowner** de IoT Hub en la implementación de factoría conectada. En [Azure Portal](http://portal.azure.com/), vaya a su instancia de IoT Hub en el grupo de recursos que creó cuando implementó la solución de factoría conectada. Haga clic en **Directivas de acceso compartido** para tener acceso a la cadena de conexión **iothubowner**:
 
     ![Búsqueda de la cadena de conexión IoT Hub](./media/iot-suite-connected-factory-gateway-deployment/image2.png)
 
@@ -143,33 +143,33 @@ OPC Proxy guarda la cadena de conexión durante la instalación. En las ejecucio
 
 ## <a name="enable-your-gateway"></a>Habilitación de la puerta de enlace
 
-Realice los pasos siguientes para habilitar la puerta de enlace de la solución preconfigurada de fábrica conectada:
+Realice los pasos siguientes para habilitar la puerta de enlace del acelerador de la solución de factoría conectada:
 
-1. Cuando ambos componentes estén en ejecución, vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de fábrica conectada. Esta página solo está disponible para los administradores de la solución. Escriba la dirección URL del punto de conexión de publicador (opc.tcp://publisher:62222) y haga clic en **Conectar**.
+1. Cuando ambos componentes estén en ejecución, vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de factoría conectada. Esta página solo está disponible para los administradores de la solución. Escriba la dirección URL del punto de conexión de publicador (opc.tcp://publisher:62222) y haga clic en **Conectar**.
 
-1. Establezca una relación de confianza entre el portal de fábrica conectada y OPC Publisher. Cuando vea una advertencia de certificado, haga clic en **Continuar**. A continuación, verá un error que indica que OPC Publisher no confía en el cliente web de UA. Para resolver este error, copie el certificado de **cliente web de UA** de la carpeta `<SharedFolder>/CertificateStores/rejected/certs` a la carpeta `<SharedFolder>/CertificateStores/trusted/certs` en la puerta de enlace. No necesita reiniciar la puerta de enlace.
+1. Establezca una relación de confianza entre el portal de factoría conectada y OPC Publisher. Cuando vea una advertencia de certificado, haga clic en **Continuar**. A continuación, verá un error que indica que OPC Publisher no confía en el cliente web de UA. Para resolver este error, copie el certificado de **cliente web de UA** de la carpeta `<SharedFolder>/CertificateStores/rejected/certs` a la carpeta `<SharedFolder>/CertificateStores/trusted/certs` en la puerta de enlace. No necesita reiniciar la puerta de enlace.
 
 Ahora puede conectarse a la puerta de enlace desde la nube y está preparado para agregar servidores OPC UA a la solución.
 
 ## <a name="add-your-own-opc-ua-servers"></a>Adición de los propios servidores OPC UA
 
-Para agregar sus propios servidores OPC UA a la solución preconfigurada de fábrica conectada, siga estos pasos:
+Para agregar sus propios servidores OPC UA al acelerador de la solución de factoría conectada, siga estos pasos:
 
-1. Vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de fábrica conectada.
+1. Vaya a la página **Conectar el propio servidor OPC UA** del portal de la solución de factoría conectada.
 
     1. Inicie el servidor OPC UA al que desea conectarse. Asegúrese de que el servidor OPC UA es accesible desde las instancias de OPC Publisher y OPC Proxy que se ejecutan en el contenedor (consulte los comentarios anteriores sobre la resolución de nombres).
     1. Escriba la dirección URL del punto de conexión del servidor OPC UA (`opc.tcp://<host>:<port>`) y haga clic en **Conectar**.
-    1. Como parte de la configuración de la conexión, se establece una relación de confianza entre el portal de fábrica conectada (cliente OPC UA) y el servidor OPC UA al que está intentando conectarse. En el panel de fábrica conectada aparece una advertencia que informa de que **no se puede comprobar el certificado del servidor al que desea conectarse**. Cuando vea una advertencia de certificado, haga clic en **Continuar**.
-    1. Más difíciles de configurar son los parámetros del certificado del servidor OPC UA al que está intentando conectarse. En el caso de los servidores OPC UA basados en PC, quizá obtenga solo un cuadro de diálogo de advertencia en el panel que puede confirmar. En el caso de los sistemas de servidores OPC UA integrados, consulte la documentación de su servidor OPC UA para encontrar el modo de realizar esta tarea. Quizá necesite para ello el certificado del cliente de OPC UA del portal de fábrica conectada. Un administrador puede descargar este certificado en la página **Connect your own OPC UA server** (Conecte su propio servidor OPC UA):
+    1. Como parte de la configuración de la conexión, se establece una relación de confianza entre el portal de factoría conectada (cliente OPC UA) y el servidor OPC UA al que está intentando conectarse. En el panel de factoría conectada aparece una advertencia que informa de que **no se puede comprobar el certificado del servidor al que desea conectarse**. Cuando vea una advertencia de certificado, haga clic en **Continuar**.
+    1. Más difíciles de configurar son los parámetros del certificado del servidor OPC UA al que está intentando conectarse. En el caso de los servidores OPC UA basados en PC, quizá obtenga solo un cuadro de diálogo de advertencia en el panel que puede confirmar. En el caso de los sistemas de servidores OPC UA integrados, consulte la documentación de su servidor OPC UA para encontrar el modo de realizar esta tarea. Quizá necesite para ello el certificado del cliente de OPC UA del portal de factoría conectada. Un administrador puede descargar este certificado en la página **Connect your own OPC UA server** (Conecte su propio servidor OPC UA):
 
         ![Portal de solución](./media/iot-suite-connected-factory-gateway-deployment/image4.png)
 
-1. Busque el árbol de nodos OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC del que quiere enviar a la fábrica conectada y seleccione **Publicar**.
+1. Busque el árbol de nodos OPC UA del servidor OPC UA, haga clic con el botón derecho en los nodos OPC del que quiere enviar a la factoría conectada y seleccione **Publicar**.
 
-1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Ubicaciones de factoría** del portal de fábrica conectada en **Nueva fábrica**.
+1. Ahora la telemetría fluye desde el dispositivo de puerta de enlace. Puede ver la telemetría en la vista **Ubicaciones de factoría** del portal de factoría conectada en **Nueva fábrica**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la arquitectura de la solución preconfigurada de fábrica conectada, consulte este [tutorial](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Para más información sobre la arquitectura del acelerador de la solución de factoría conectada, consulte el [tutorial sobre el acelerador de la solución de factoría conectada](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
 
 Aprenda sobre la [implementación de referencia de OPC Publisher](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

@@ -1,36 +1,34 @@
 ---
-title: Preguntas más frecuentes sobre Azure Container Service
-description: En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure Container Service.
+title: Preguntas más frecuentes sobre Azure Kubernetes Service
+description: En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 5eb949e420d9b055d014b973d452dc95fc358f83
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="frequently-asked-questions-about-azure-container-service-aks"></a>Preguntas más frecuentes sobre Azure Container Service (AKS)
+# <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
-En este artículo se abordan las preguntas más frecuentes sobre Azure Container Service (AKS).
+En este artículo se abordan las preguntas más frecuentes sobre Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) está actualmente en **versión preliminar**. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
+> Azure Kubernetes Service (AKS) está actualmente en **versión preliminar**. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
 >
 
-## <a name="which-azure-regions-provide-the-azure-container-service-aks-today"></a>¿Qué regiones de Azure proporcionan actualmente Azure Container Service (AKS)?
+## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>¿Qué regiones de Azure proporcionan actualmente Azure Kubernetes Service (AKS)?
 
 - Centro de Canadá
 - Este de Canadá
 - Central EE. UU:
 - Este de EE. UU
-- Sudeste de Asia
 - Europa occidental
-- Oeste de EE. UU. 2
 
 ## <a name="when-will-additional-regions-be-added"></a>¿Cuándo se agregarán más regiones?
 
@@ -62,7 +60,7 @@ No, RBAC no se admite actualmente en AKS pero pronto estará disponible.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>¿Puedo implementar AKS en mi red virtual existente?
 
-No, esta opción no está disponible, aunque lo estará pronto.
+Sí, se admite a través de la [característica de red avanzada](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>¿Azure Key Vault se integra con AKS?
 
@@ -70,7 +68,7 @@ No, pero esta integración está prevista. Mientras tanto, pruebe la solución s
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>¿Puedo ejecutar contenedores de Windows Server en AKS?
 
-No, AKS no proporciona actualmente nodos de agente basados en Windows Server, así que no puede ejecutar contenedores de Windows Server. Si necesita ejecutar contenedores de Windows Server en Kubernetes en Azure, consulte la [documentación de acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Para ejecutar contenedores de Windows Server, es preciso ejecutar nodos basados en Windows Server. Estos nodos están actualmente en [versión preliminar privada](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Si necesita ejecutar contenedores de Windows Server en Kubernetes en Azure fuera de la versión preliminar, consulte la [documentación de acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>¿Por qué se crean dos grupos de recursos con AKS?
 

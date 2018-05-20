@@ -6,19 +6,19 @@
       href: cache-overview.md
 - name: Guías de inicio rápido
   items:
-    - name: ASP.NET
+    - name: Creación de una aplicación ASP.NET
       href: cache-web-app-howto.md
-    - name: .NET
+    - name: Creación de una aplicación .NET
       href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Nodo
+    - name: Creación de una aplicación Node.js
       href: cache-nodejs-get-started.md
-    - name: Java
+    - name: Creación de una aplicación Java
       href: cache-java-get-started.md
-    - name: Python
+    - name: Creación de una aplicación de Python
       href: cache-python-get-started.md
 - name: Tutoriales
   items:
-    - name: Tablas de clasificación de almacenamiento en caché
+    - name: Uso de almacenamiento en caché con tablas de clasificación
       href: cache-web-app-cache-aside-leaderboard.md
 - name: Ejemplos
   items:

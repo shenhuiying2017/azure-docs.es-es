@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4363f308f9bfa685b0f4e946cdd97d34b6ece197
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>Cómo determinar el método de inicio de sesión único que se debe usar
 
@@ -80,5 +80,5 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 7.  Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

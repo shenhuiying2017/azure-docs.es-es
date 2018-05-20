@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: fd373093264122fda45697acc81929d3c723c957
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/07/2018
+ms.openlocfilehash: 44a7c0721d8a0683162d2219bff0e4a4ecb117e6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aprovechamiento de la paralelización de consultas en Azure Stream Analytics
 En este artículo se muestra cómo aprovechar la paralelización en Azure Stream Analytics. Aprenda a escalar los trabajos de Stream Analytics mediante la configuración de particiones de entrada y el ajuste de la definición de consultas de análisis.
@@ -35,7 +35,15 @@ Todas las entradas de Azure Stream Analytics pueden aprovechar la creación de p
 
 ### <a name="outputs"></a>Salidas
 
-Cuando trabaja con Stream Analytics, puede aprovechar la creación de particiones en la mayoría de los receptores de salida. Para más información acerca de las particiones de salida que están disponibles en la [sección de creación de particiones de la página de salida](stream-analytics-define-outputs.md#partitioning).
+Cuando trabaja con Stream Analytics, puede aprovechar la creación de particiones en las salidas:
+-   Azure Data Lake Storage
+-   Azure Functions
+-   tabla de Azure
+-   Blob Storage (la clave de partición se puede establecer explícitamente)
+-   CosmosDB (la clave de partición se debe establecer explícitamente)
+-   EventHub (la clave de partición se debe establecer explícitamente)
+-   IoT Hub (la clave de partición se debe establecer explícitamente)
+-   Azure Service Bus
 
 Las salidas de PowerBI, SQL y SQL Data Warehouse no admiten la creación de particiones. Sin embargo, de todos modos puede crear particiones de la entrada, tal como se describe en [está sección](#multi-step-query-with-different-partition-by-values) 
 
@@ -54,13 +62,13 @@ Un trabajo *embarazosamente paralelo* es el escenario más escalable que tenemos
 
 3. La mayoría de las salidas puede aprovechar la creación de particiones, pero si se usa un tipo de salida que no la admite, el trabajo no estará completamente en paralelo. Consulte la [sección de salida](#outputs) para más detalles.
 
-4. El número de particiones de entrada debe ser igual al número de particiones de salida. La salida de Blob Storage no admite en este momento la creación de particiones. Pero no importa, porque hereda el esquema de partición de la consulta ascendente. Vea ejemplos de valores de partición que permiten un trabajo totalmente paralelo:  
+4. El número de particiones de entrada debe ser igual al número de particiones de salida. La salida de Blob Storage puede admitir particiones y hereda el esquema de partición de la consulta de nivel superior. Cuando se especifica una clave de partición para Blob Storage, los datos se particionan por partición de entrada, por tanto, el resultado sigue siendo totalmente paralelo. Vea ejemplos de valores de partición que permiten un trabajo totalmente paralelo:
 
    * Ocho particiones de entrada de Event Hubs y ocho particiones de salida de Event Hubs
-   * Ocho particiones de entrada de Event Hubs y salida de Blob Storage  
-   * Ocho particiones de entrada de Event Hubs y ocho particiones de salida de Event Hubs
-   * Ocho particiones de entrada de Blob Storage y salida de Blob Storage  
-   * Ocho particiones de entrada de Blob Storage y ocho particiones de salida de Event Hubs  
+   * Ocho particiones de entrada de Event Hubs y salida de Blob Storage
+   * Ocho particiones de entrada de Event Hubs y salida de Blob Storage particionadas por un campo personalizado con cardinalidad arbitraria
+   * Ocho particiones de entrada de Blob Storage y salida de Blob Storage
+   * Ocho particiones de entrada de Blob Storage y ocho particiones de salida de Event Hubs
 
 En las siguientes secciones se describen algunos escenarios de ejemplo que son embarazosamente paralelos.
 

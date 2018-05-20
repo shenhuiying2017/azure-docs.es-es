@@ -1,11 +1,11 @@
 ---
-title: "Glosario de términos de Azure IoT Hub | Microsoft Docs"
-description: "Guía del desarrollador: glosario de términos comunes relativos a Azure IoT Hub."
+title: Glosario de términos de Azure IoT Hub | Microsoft Docs
+description: 'Guía del desarrollador: glosario de términos comunes relativos a Azure IoT Hub.'
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7576077ede7c1c18bcba3853b3b4a2ee0b561968
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glosario de términos de IoT Hub
 En este artículo se enumeran algunos de los términos comunes que se utilizan en los artículos de IoT Hub.
@@ -26,7 +26,13 @@ En este artículo se enumeran algunos de los términos comunes que se utilizan e
 ## <a name="advanced-message-queueing-protocol"></a>Advanced Message Queueing Protocol
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) es uno de los protocolos de mensajería que [IoT Hub](#iot-hub) admite para la comunicación con dispositivos. Para obtener más información acerca de los protocolos de mensajería que admite IoT Hub, consulte [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="automatic-device-management"></a>Administración automática de dispositivos
+La administración automática de dispositivos de Azure IoT Hub automatiza muchas de las tareas repetitivas y complejas de administración de grandes flotas de dispositivos durante su ciclo de vida completo. Con la administración automática de dispositivos, puede tener como destino un conjunto de dispositivos según sus propiedades, definir una configuración deseada y permitir que IoT Hub actualice los dispositivos en cuanto estén dentro del alcance.  Consta de [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md) e [implementaciones automáticas de IoT Edge](../iot-edge/how-to-deploy-monitor.md).
+
+## <a name="automatic-device-configuration"></a>Configuración automática de dispositivos
+El back-end de la solución puede usar las [configuraciones automáticas de dispositivos](iot-hub-auto-device-config.md) para asignar las propiedades deseadas a un conjunto de [dispositivos gemelos](#device-twin) e informar del estado mediante métricas del sistema y métricas personalizadas. 
+
+## <a name="azure-cli"></a>Azure CLI
 La [CLI de Azure](../cli-install-nodejs.md) es una herramienta de comandos multiplataforma, de código abierto y basada en shell que se utiliza para crear y administrar recursos en Microsoft Azure. Esta versión de la CLI se implementa mediante Node.js.
 
 ## <a name="azure-cli-20"></a>CLI de Azure 2.0
@@ -45,7 +51,7 @@ Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplic
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) es un conjunto de cmdlets que puede usar para administrar Azure con Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure.
 
-## <a name="azure-resource-manager"></a>Administrador de recursos de Azure
+## <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabajar con los recursos de la solución como grupo. Los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
@@ -65,6 +71,9 @@ Una puerta de enlace en la nube habilita la conectividad para dispositivos que n
 
 ## <a name="cloud-to-device"></a>De la nube al dispositivo
 Hace referencia a los mensajes enviados desde un centro de IoT a un dispositivo conectado. A menudo, estos mensajes son comandos que indican al dispositivo que realice una acción. Para más información, vea [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
+
+## <a name="configuration"></a>Configuración
+En el contexto de la [configuración automática de dispositivos](iot-hub-auto-device-config.md), una configuración en IoT Hub define la configuración deseada de un conjunto de dispositivos gemelos y ofrece una serie de métricas para informar del estado y el progreso.
 
 ## <a name="connection-string"></a>Cadena de conexión
 Las cadenas de conexión se usan en el código de aplicación a fin de encapsular la información necesaria para conectarse a un punto de conexión. Normalmente, una cadena de conexión incluye la dirección de la información del punto de conexión y de seguridad, pero los formatos de la cadena de conexión varían en función de los servicios. Hay dos tipos de cadena de conexión asociadas con el servicio de IoT Hub:
@@ -110,6 +119,9 @@ La [API de REST de identidades de dispositivos](https://docs.microsoft.com/rest/
 ## <a name="device-identity"></a>Identidad del dispositivo
 La identidad del dispositivo es el identificador único asignado a cada dispositivo registrado del [registro de identidad](#identity-registry).
 
+## <a name="module-identity"></a>Identidad de módulo
+La identidad de módulo es el identificador único asignado a cada módulo que pertenece a un dispositivo. La identidad de módulo también se registra en el [registro de identidades](#identity-registry).
+
 ## <a name="device-management"></a>Administración de dispositivos
 La administración de dispositivos abarca el ciclo de vida completo asociado a la administración de dispositivos de la solución de IoT, incluidos la planeación, el aprovisionamiento, la configuración, la supervisión y la retirada.
 
@@ -125,14 +137,17 @@ El aprovisionamiento de dispositivos es el proceso de agregar los [datos del dis
 ## <a name="device-twin"></a>Dispositivo gemelo
 Un [dispositivo gemelo](iot-hub-devguide-device-twins.md) es un documento JSON que almacena información sobre el estado de los dispositivos, como metadatos, configuraciones y condiciones. [IoT Hub](#iot-hub) conserva un dispositivo gemelo por cada dispositivo que se aprovisiona en el centro de IoT. Los dispositivos gemelos permiten sincronizar las [condiciones de dispositivo](#device-condition) y las configuraciones entre el dispositivo y el back-end de soluciones. Puede consultar los dispositivos gemelos para buscar dispositivos específicos y consultar el estado de las operaciones de larga duración.
 
-## <a name="device-twin-queries"></a>Consultas de dispositivos gemelos
-Las [consultas de dispositivos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre [trabajos](#job) que se ejecutan en el centro de IoT.
+## <a name="module-twin"></a>Módulo gemelo
+De forma similar al dispositivo gemelo, un módulo gemelo es un documento JSON que almacena información sobre el estado de los módulos, como metadatos, configuraciones y condiciones. IoT Hub persiste un módulo gemelo para cada identidad de módulo aprovisionado en una identidad del dispositivo del centro de IoT. Los módulos gemelos permiten sincronizar las condiciones de módulo y las configuraciones entre el módulo y el back-end de soluciones. Puede consultar los módulos gemelos para buscar módulos específicos y consultar el estado de las operaciones de larga duración.
+
+## <a name="twin-queries"></a>Consultas gemelas
+Las [consultas de dispositivos y módulos gemelos](iot-hub-devguide-query-language.md) usan el lenguaje de consulta de IoT Hub de tipo SQL para recuperar información de los dispositivos o módulos gemelos. Puede usar el mismo lenguaje de consulta de IoT Hub para recuperar información sobre [trabajos](#job) que se ejecutan en el centro de IoT.
 
 ## <a name="device-twin-rest-api"></a>API de REST de dispositivos gemelos
 Puede usar la [API de REST de dispositivos gemelos](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) en el back-end de la solución para administrar sus dispositivos gemelos. La API le permite recuperar y actualizar las propiedades del [dispositivo gemelo](#device-twin) e invocar [métodos directos](#direct-method). Por lo general, debería usar uno de los [SDK de servicios](#azure-iot-service-sdks) de nivel superior, tal como se muestra en los tutoriales de IoT Hub.
 
-## <a name="device-twin-synchronization"></a>Sincronización de dispositivos gemelos
-La sincronización de dispositivos gemelos usa las [propiedades deseadas](#desired-properties) en los dispositivos gemelos para configurar los dispositivos y recuperar las [propiedades notificadas](#reported-properties) de los dispositivos para almacenar en el dispositivo gemelo.
+## <a name="twin-synchronization"></a>Sincronización de gemelos
+La sincronización de gemelos usa las [propiedades deseadas](#desired-properties) en los dispositivos o módulos gemelos para configurar los dispositivos o módulos y recuperar las [propiedades notificadas](#reported-properties) de los dispositivos para almacenarlas en el gemelo.
 
 ## <a name="direct-method"></a>Método directo
 Un [método directo](iot-hub-devguide-direct-methods.md) es una manera de desencadenar un método para ejecutarse en un dispositivo mediante la invocación de una API en su IoT Hub.
@@ -175,8 +190,8 @@ El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un l
 ## <a name="iot-hub-resource-provider-rest-api"></a>API de REST del proveedor de recursos de IoT Hub
 Puede usar la [API de REST del proveedor de recursos de IoT Hub](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) para administrar los centros de IoT en la [suscripción de Azure](#subscription) realizando operaciones como crear, actualizar y eliminar centros.
 
-## <a name="iot-suite"></a>IoT Suite
-Paquetes de Azure IoT Suite con distintos servicios de Azure con soluciones preconfiguradas. Estas soluciones preconfiguradas le permiten iniciar rápidamente escenarios comunes de IoT de un extremo a otro. Para más información, vea [¿Qué es Azure IoT Suite?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>Aceleradores de soluciones de IoT
+Los aceleradores de soluciones de Azure IoT agrupan varios servicios de Azure en soluciones. Estas soluciones le permiten iniciar rápidamente implementaciones de un extremo a otro de escenarios comunes de IoT. Para más información, vea [¿Cuáles son los aceleradores de soluciones de Azure IoT?](../iot-suite/iot-suite-overview.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>La extensión de IoT para la CLI de Azure 2.0
 [La extensión de IoT para la CLI de Azure 2.0](https://github.com/Azure/azure-iot-cli-extension) es una herramienta de la línea de comandos multiplataforma. La herramienta permite administrar los dispositivos en el [registro de identidades](#identity-registry), enviar y recibir mensajes y archivos de los dispositivos, así como supervisar las operaciones del centro de IoT.

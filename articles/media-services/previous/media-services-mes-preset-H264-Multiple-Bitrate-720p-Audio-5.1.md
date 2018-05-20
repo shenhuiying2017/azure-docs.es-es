@@ -1,11 +1,11 @@
 ---
 title: H264 Multiple Bitrate 720p Audio 5.1 | Microsoft Docs
-description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 720p Audio 5.1**."
+description: El tema proporciona información general sobre el valor predeterminado de la tarea **H264 Multiple Bitrate 720p Audio 5.1**.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 92da14ad-7b04-4bd9-8eb5-9103f38441be
 ms.service: media-services
 ms.workload: media
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: 29934b255a6f9f303f427bf5fb3875634da89b0f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>H264 Multiple Bitrate 720p Audio 5.1
-`Media Encoder Standard` define un conjunto de valores predeterminados de Encoding que puede usar al crear trabajos de Encoding. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  
+`Media Encoder Standard` define un conjunto de valores predeterminados de codificación que puede usar al crear trabajos de codificación. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  
   
  En este tema se muestra el valor predeterminado `H264 Multiple Bitrate 720p Audio 5.1` en formato XML y JSON.  
   

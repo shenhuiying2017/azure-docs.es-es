@@ -1,6 +1,6 @@
 ---
-title: GPU en Azure Container Service (AKS)
-description: Uso de GPU en Azure Container Service (AKS)
+title: Las GPU en Azure Kubernetes Service (AKS)
+description: Uso de las GPU en Azure Kubernetes Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 6c30c966ad88f904ee652d88abd1717819077d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-gpus-on-aks"></a>Uso de GPU en AKS
 
@@ -22,7 +22,7 @@ AKS admite la creación de grupos de nodo habilitados para GPU. Azure proporcion
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
 Por lo general, las GPU se necesitan para cargas de trabajo de proceso intensivo, como las cargas de trabajo de visualización y con uso intensivo de gráficos. Consulte el siguiente [documento](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) para determinar el tamaño de máquina virtual correcto para la carga de trabajo.
-Se recomienda un tamaño mínimo de `Standard_NC6` para los nodos de Azure Container Service (AKS).
+Se recomienda un tamaño mínimo de `Standard_NC6` para los nodos de Azure Kubernetes Service (AKS).
 
 > [!NOTE]
 > Las máquinas virtuales habilitadas para GPU contienen hardware especializado que está sujeto a una mayor disponibilidad de precios y región. Para más información, consulte la herramienta de [precios](https://azure.microsoft.com/pricing/) y el sitio de [disponibilidad por región](https://azure.microsoft.com/global-infrastructure/services/).
@@ -50,7 +50,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## <a name="confirm-gpus-are-schedulable"></a>Confirmación de que las GPU son programables
 
-Ejecute los comandos siguientes para confirmar que las GPU son programables mediante Kubernetes. 
+Ejecute los comandos siguientes para confirmar que las GPU son programables mediante Kubernetes.
 
 Obtenga la lista actual de nodos.
 
@@ -165,7 +165,7 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
 Use el comando [kubectl create][kubectl-create] para ejecutar el trabajo. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.

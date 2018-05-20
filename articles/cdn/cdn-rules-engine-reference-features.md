@@ -4,7 +4,7 @@ description: Documentación de referencia sobre las características del motor d
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: c7681d6ed867f218eb871f1e96c18d00813798af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -392,7 +392,7 @@ Para configurar esta característica, puede definir las siguientes opciones:
 Opción|DESCRIPCIÓN
 --|--
 Ruta de acceso original| Define la ruta de acceso relativa a los tipos de solicitudes cuyas claves de caché se reescriben. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular.
-Nueva ruta de acceso|Define la ruta de acceso relativa de la nueva clave de caché. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular. Esta ruta de acceso relativa se puede construir dinámicamente mediante variables HTTP.
+Nueva ruta de acceso|Define la ruta de acceso relativa de la nueva clave de caché. Para definir una ruta de acceso relativa, seleccione una ruta de acceso de origen de base y, a continuación, define un patrón de expresión regular. Esta ruta de acceso relativa se puede construir dinámicamente mediante [variables HTTP](cdn-http-variables.md).
 **Comportamiento predeterminado:** la clave de caché de una solicitud viene determinada por el URI de solicitud.
 
 [Volver arriba](#azure-cdn-rules-engine-features)
@@ -884,9 +884,9 @@ En un encabezado de solicitud se puede realizar una de las siguientes acciones:
 
 Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
-Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/> **Valor de encabezado de solicitud (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de solicitud:** Valor1Valor2
-Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/>**Valor de encabezado de solicitud (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de solicitud:** Valor2 <br/>
-Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado de solicitud (cliente):** Valor1 <br/> **Modificar configuración de encabezado de solicitud de cliente:** elimina el encabezado de solicitud en cuestión. <br/>**Resultado:** el encabezado de solicitud especificado no se reenviará al servidor de origen.
+Append|El valor especificado se agregará al final del valor del encabezado de solicitud existente.|**Valor de encabezado de solicitud (cliente):**<br/>Valor1<br/>**Valor de encabezado de solicitud (motor de reglas):**<br/>Valor2 <br/>**Nuevo valor de encabezado de solicitud:** <br/>Valor1Valor2
+Sobrescribir|El valor del encabezado de solicitud se establecerá en el valor especificado.|**Valor de encabezado de solicitud (cliente):**<br/>Valor1<br/>**Valor de encabezado de solicitud (motor de reglas):**<br/>Valor2<br/>**Nuevo valor de encabezado de solicitud:**<br/> Valor2 <br/>
+Eliminar|Elimina el encabezado de solicitud especificado.|**Valor de encabezado de solicitud (cliente):**<br/>Valor1<br/>**Modificar configuración de encabezado de solicitud de cliente:**<br/>Eliminar el encabezado de solicitud en cuestión.<br/>**Resultado:**<br/>El encabezado de solicitud especificado no se reenviará al servidor de origen.
 
 Información importante:
 
@@ -922,9 +922,9 @@ En un encabezado de respuesta se puede realizar una de las siguientes acciones:
 
 Opción|DESCRIPCIÓN|Ejemplo
 -|-|-
-Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/> **Valor de encabezado de respuesta (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de respuesta:** Valor1Valor2
-Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/>**Valor de encabezado de respuesta (motor de reglas HTTP):** Valor2 <br/>**Nuevo valor de encabezado de respuesta:** Valor2 <br/>
-Eliminar|Elimina el encabezado de respuesta especificado.|**Valor de encabezado de respuesta (cliente):** Valor1 <br/> **Modificar configuración de encabezado de respuesta de cliente:** elimina el encabezado de respuesta en cuestión. <br/>**Resultado:** el encabezado de respuesta especificado no se reenviará al solicitante.
+Append|El valor especificado se agregará al final del valor del encabezado de respuesta existente.|**Valor de encabezado de respuesta (cliente):**<br />Valor1<br/>**Valor de encabezado de respuesta (motor de reglas):**<br/>Valor2<br/>**Nuevo valor de encabezado de respuesta:**<br/>Valor1Valor2
+Sobrescribir|El valor del encabezado de respuesta se establecerá en el valor especificado.|**Valor de encabezado de respuesta (cliente):**<br/>Valor1<br/>**Valor de encabezado de respuesta (motor de reglas):**<br/>Valor2 <br/>**Nuevo valor de encabezado de respuesta:**<br/>Valor2 <br/>
+Eliminar|Elimina el encabezado de respuesta especificado.|**Valor de encabezado de respuesta (cliente):**<br/>Valor1<br/>**Modificar configuración de encabezado de respuesta de cliente:**<br/>Eliminar el encabezado de respuesta en cuestión.<br/>**Resultado:**<br/>El encabezado de respuesta especificado no se reenviará al solicitante.
 
 Información importante:
 
@@ -1234,31 +1234,31 @@ Para configurar esta característica hay que establecer las siguientes opciones:
 Opción|DESCRIPCIÓN
 -|-
 Código|Seleccione el código de respuesta que se devolverá al solicitante.
-Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
-Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- Variables HTTP <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
+Origen y patrón| Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden redirigir. Solo se redirigirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/> <br/> **Origen (o punto de acceso a contenido):** seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> - Asegúrese de que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. <br/> -Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas.
+Destino| Defina la dirección URL a la que se redirigirán las solicitudes anteriores. <br/><br/> Construya esta dirección URL dinámicamente mediante: <br/> - Un patrón de expresión regular <br/>- [Variables HTTP](cdn-http-variables.md) <br/><br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. <br/> 
 Es muy recomendable usar una dirección URL absoluta. El uso de direcciones URL relativas podría redirigir direcciones URL de la red CDN a rutas de acceso no válidas.
 
 **Escenario de ejemplo**
 
-En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http://marketing.azureedge.net/brochures
+En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http:\//marketing.azureedge.net/brochures
 
-Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME base: http://cdn.mydomain.com/resources
+Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http:\//cdn.mydomain.com/resources
 
-Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![Redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
 **Puntos clave:**
 
 - La característica Redirección de URL define las direcciones URL de solicitud que se redirigirán. Como resultado, no se necesitan otras condiciones de coincidencia. Aunque la condición de coincidencia se definió como "Always", solo se redirigirán las solicitudes que apunten a la carpeta "brochures" en el origen del cliente "marketing". 
 - Todas las solicitudes coincidentes se redirigirán a la dirección URL del servidor perimetral CNAME definida en la opción Destination (Destino). 
     - Escenario de ejemplo 1: 
-        - Solicitud de ejemplo (dirección URL de CDN): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - Dirección URL de solicitud (después de redirección): http://cdn.mydomain.com/resources/widgets.pdf  
+        - Solicitud de ejemplo (dirección URL de CDN): http:\//marketing.azureedge.net/brochures/widgets.pdf 
+        - URL de solicitud (después de la redirección): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Escenario de ejemplo 2: 
-        - Solicitud de ejemplo (dirección URL de servidor perimetral CNAME): http://marketing.mydomain.com/brochures/widgets.pdf 
-        - URL de solicitud (después de redirección): escenario de ejemplo http://cdn.mydomain.com/resources/widgets.pdf
+        - Solicitud de ejemplo (URL de servidor perimetral CNAME): http:\//marketing.mydomain.com/brochures/widgets.pdf 
+        - URL de solicitud (después de la redirección): http:\//cdn.mydomain.com/resources/widgets.pdf Escenario de ejemplo
     - Escenario de ejemplo 3: 
-        - Solicitud de ejemplo (dirección URL de servidor perimetral CNAME): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - Dirección URL de solicitud (después de redirección): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - Solicitud de ejemplo (URL de servidor perimetral CNAME): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
+        - URL de solicitud (después de la redirección): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - La variable Esquema de solicitud (%{scheme}) se utiliza en la opción Destino, lo que garantiza que el esquema de la solicitud no cambiará después de la redirección.
 - Los segmentos de dirección URL que se capturaron de la solicitud se anexan a la nueva dirección URL a través de "$1".
 
@@ -1276,23 +1276,23 @@ Información importante:
 
 Opción|DESCRIPCIÓN
 -|-
- Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/>     - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
- Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - Variables HTTP <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
+ Origen y patrón | Esta opción define un patrón de URI de solicitud que identifica el tipo de solicitudes que se pueden reescribir. Solo se reescribirán las solicitudes cuya dirección URL satisfaga ambos criterios siguientes: <br/><br/>  - **Origen (o punto de acceso al contenido)**: seleccione una ruta de acceso relativa que identifique un servidor de origen. Esta ruta es la sección _/XXXX/_ y el nombre del punto de conexión. <br/><br/> - **Origen (patrón):** se debe definir un patrón que identifique las solicitudes por ruta de acceso relativa. Este patrón de expresión regular debe definir una ruta de acceso que comienza directamente después del punto de acceso al contenido seleccionado anteriormente (vea más arriba). <br/> Compruebe que los criterios de URI de solicitud (es decir, el origen y el patrón) definidos anteriormente no entren en conflicto con las condiciones de coincidencia definidas para esta característica. Especifique un patrón; si usa un valor en blanco como patrón, se busca la coincidencia con todas las cadenas. 
+ Destino  |Defina la dirección URL relativa en la que se sobrescribirán las solicitudes anteriores: <br/>    1. Seleccione un punto de acceso al contenido que identifique un servidor de origen. <br/>    2. Defina el uso de una ruta de acceso relativa: <br/>        - Un patrón de expresión regular <br/>        - [Variables HTTP](cdn-http-variables.md) <br/> <br/> Tome los valores capturados en el patrón de origen y sustitúyalos en el patrón de destino usando $_n_, donde _n_ identifica un valor por el orden en el que se capturó. Por ejemplo, $1 representa el primer valor capturado en el patrón de origen, mientras que $2 representa el segundo valor. 
  Esta característica permite que los puntos de presencia vuelvan a escribir la dirección URL sin realizar una redirección tradicional. Es decir, el solicitante recibirá el mismo código de respuesta que si hubiera solicitado la reescritura de la dirección URL.
 
 **Escenario de ejemplo 1**
 
-En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http://marketing.azureedge.net/brochures/
+En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME que se resuelve en esta dirección URL de la red CDN base: http:\//marketing.azureedge.net/brochures/
 
-Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME base: http://MyOrigin.azureedge.net/resources/
+Las solicitudes aptas se redirigirán a esta dirección URL del servidor perimetral CNAME: http:\//MyOrigin.azureedge.net/resources/
 
-Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![Redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
 **Escenario de ejemplo 2**
 
 En este ejemplo, se muestra cómo redirigir una dirección URL del servidor perimetral CNAME de MAYÚSCULAS a minúsculas mediante expresiones regulares.
 
-Esta redirección de URL se puede realizar con la siguiente configuración:![](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
+Esta redirección de URL se puede realizar con la siguiente configuración: ![Redirección de direcciones URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
 
 **Puntos clave:**

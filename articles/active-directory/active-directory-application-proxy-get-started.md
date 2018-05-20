@@ -3,23 +3,23 @@ title: Provisión de acceso remoto seguro a aplicaciones locales
 description: Explica cómo utilizar el proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a sus aplicaciones locales.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: d5450da1-9e06-4d08-8146-011c84922ab5
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 819226d0ecace0be617e9a3ebc22942782510ec4
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7dc4771d549c84866f073c466beb8399899f3458
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Provisión de acceso remoto seguro a aplicaciones locales
 
@@ -46,7 +46,7 @@ El proxy de aplicación de Azure AD es:
    * Al publicar las aplicaciones mediante la característica Proxy de la aplicación de Azure AD, puede sacar partido de los sofisticados controles de autorización y análisis de seguridad de Azure. Obtendrá características de seguridad de escala en la nube y de seguridad de Azure, como el acceso condicional y la verificación en dos pasos.
    * No tendrá que permitir ninguna conexión de entrada a través del firewall para ofrecer acceso remoto a los usuarios. 
 * **Rentable**
-   * Proxy de aplicación funciona en la nube, por lo que puede ahorrar tiempo y dinero. Las soluciones locales normalmente requieren la configuración y mantenimiento de redes perimetrales, servidores perimetrales u otras infraestructuras complejas.  
+   * Proxy de aplicación funciona en la nube, por lo que puede ahorrar tiempo y dinero. Las soluciones locales normalmente requieren la configuración y mantenimiento de redes DMZ, servidores perimetrales u otras infraestructuras complejas.  
 
 ## <a name="what-kind-of-applications-work-with-application-proxy"></a>¿Qué tipo de aplicaciones funcionan con la característica Proxy de aplicación?
 Con esta característica puede tener acceso a diferentes tipos de aplicaciones internas:

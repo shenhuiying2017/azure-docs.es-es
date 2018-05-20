@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 3b908f1df9228505b2f3bce18bd42d9b502844c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e4995146433d0090849fe17175b152a6e45809f4
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Pruebas de escala y rendimiento con Azure Cosmos DB
 
@@ -96,7 +96,7 @@ La forma más rápida de empezar es compilar y ejecutar este ejemplo de .NET, ta
     Press any key to exit...
 
 
-**Paso 4 (si es necesario):** el rendimiento notificado (RU/s) de la herramienta debe ser igual o mayor que el rendimiento de aprovisionamiento de la colección. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, inicie varias instancias de la aplicación en equipos cliente adicionales. Si necesita ayuda con este paso, escriba un correo electrónico a askcosmosdb@microsoft.com o rellene una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com).
+**Paso 4 (si es necesario):** el rendimiento notificado (RU/s) por la herramienta debe ser igual o mayor que el rendimiento aprovisionado de la colección o un conjunto de colecciones. Si no es así, puede alcanzar el límite si aumenta el valor de DegreeOfParallelism en incrementos pequeños. Si el rendimiento de la aplicación cliente se estanca, inicie varias instancias de la aplicación en equipos cliente adicionales. Si necesita ayuda con este paso, escriba un correo electrónico a askcosmosdb@microsoft.com o rellene una incidencia de soporte técnico desde [Azure Portal](https://portal.azure.com).
 
 Una vez que se ejecute la aplicación, puede probar diferentes [directivas de indexación](indexing-policies.md) y [niveles de coherencia](consistency-levels.md) para conocer su repercusión en el rendimiento y la latencia. También puede revisar el código fuente e implementar configuraciones similares a sus propios conjuntos de pruebas o aplicaciones de producción.
 

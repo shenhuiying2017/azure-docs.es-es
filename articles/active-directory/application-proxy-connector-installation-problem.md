@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8fbd707b6708661ab0d655afadff2b18694a981e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 70d2f159c5485009e36aa80dfa8b73f9b3cf4ec1
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -69,4 +69,4 @@ Conéctese a <https://login.microsoftonline.com> y use las mismas credenciales. 
 Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador global". Si no puede acceder a alguna de las páginas en estos pasos, no es administrador global.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
+[Descripción de los conectores del Proxy de aplicación de Azure AD](manage-apps/application-proxy-connectors.md)

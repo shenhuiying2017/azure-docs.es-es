@@ -11,14 +11,14 @@ ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: d663756c52a23096888b9ee568fea23163d33aa9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb78808b515bb3385f7cf56725441a2b228f0aba
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Uso del kit de herramientas de Azure para IntelliJ con el fin de crear aplicaciones Spark para un clúster de HDInsight
 
@@ -86,7 +86,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
    > ![explorador de almacenamiento en IntelliJ](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. Puede ver un clúster vinculado en el nodo de **HDInsight** si la información de entrada es correcta. Ahora puede enviar una aplicación a este clúster vinculado.
+3. Si la información introducida es correcta, puede ver un clúster vinculado en el nodo de **HDInsight**. Ahora puede enviar una aplicación a este clúster vinculado.
 
    ![clúster vinculado](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
@@ -96,7 +96,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 ## <a name="run-a-spark-scala-application-on-an-hdinsight-spark-cluster"></a>Ejecución de una aplicación Spark en Scala en un clúster de HDInsight Spark
 
-1. Inicie IntelliJ IDEA y, después, cree un proyecto. En el cuadro de diálogo **Nuevo proyecto** , haga lo siguiente: 
+1. Inicie IntelliJ IDEA y, después, cree un proyecto. En el cuadro de diálogo **Nuevo proyecto**, haga lo siguiente: 
 
    a. Seleccione **HDInsight** > **Spark en HDInsight (Scala)**.
 
@@ -147,7 +147,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
       
       ![Creación de un cuadro de diálogo de nueva clase de Scala](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
 
-   c. En el archivo **MyClusterApp.scala** , pegue el siguiente código. El código lee los datos de HVAC.csv (disponible en todos los clústeres de HDInsight Spark), recupera las filas que solo tienen un dígito en la séptima columna del archivo CSV y escribe la salida en **/HVACOut** en el contenedor de almacenamiento predeterminado para el clúster.
+   c. En el archivo **MyClusterApp.scala**, pegue el siguiente código. El código lee los datos de HVAC.csv (disponible en todos los clústeres de HDInsight Spark), recupera las filas que solo tienen un dígito en la séptima columna del archivo CSV y escribe la salida en **/HVACOut** en el contenedor de almacenamiento predeterminado para el clúster.
 
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -283,11 +283,15 @@ Estos errores se producen porque el tamaño del montón no es lo suficientemente
 ![Incorporación de opciones a la casilla de opciones de máquina virtual en IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## <a name="faq"></a>Preguntas más frecuentes
-Para enviar una aplicación a Azure Data Lake Store, elija el modo **Interactivo** durante el proceso de inicio de sesión en Azure. Si selecciona el modo **Automatizado**, puede aparecer un error.
+Al vincular un clúster, es aconsejable especificar las credenciales de almacenamiento.
 
-![inicio de sesión interactivo](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Vincular clúster, especificar credenciales de almacenamiento](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Ahora se ha resuelto. Puede elegir un clúster de Azure Data Lake para enviar la aplicación con cualquier método de inicio de sesión.
+Hay dos formas de enviar los trabajos. Si se proporcionan credenciales de almacenamiento, se utilizará el modo por lotes para enviar el trabajo. De lo contrario, se utilizará el modo interactivo. Si el clúster está ocupado, puede aparecer el siguiente error.
+
+![Intellij presenta errores si el clúster está ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![Intellij presenta errores si el clúster está ocupado](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## <a name="feedback-and-known-issues"></a>Comentarios y problemas conocidos
 Actualmente, la visualización de salidas de Spark directamente no se admite.

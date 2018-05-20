@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: 447f9867649c7c3a44c8a0ba894e037040023f79
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -31,23 +31,42 @@ En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-> [!NOTE]
-> Las [cuentas de almacenamiento de solo blob](../storage/common/storage-create-storage-account.md#blob-storage-accounts) no se admiten para desencadenadores de blobs. Los desencadenadores de Blob Storage necesitan una cuenta de almacenamiento de uso general. Para los enlaces de entrada y salida puede usar cuentas de almacenamiento de solo blob.
-
 ## <a name="packages"></a>Paquetes
 
 Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+> [!NOTE]
+> Utilice el desencadenador de Event Grid en lugar del desencadenador de Blob Storage para las cuentas de almacenamiento solo para blobs, para operaciones a gran escala o para evitar retrasos por arranques en frío. Para más información, consulte la siguiente sección **Desencadenador**. 
+
 ## <a name="trigger"></a>Desencadenador
 
-Utilice un desencadenador de Blob Storage para iniciar una función cuando se detecte un blob nuevo o actualizado. El contenido del blob se proporciona a modo de entrada para la función.
+El desencadenador de Blob Storage inicia una función cuando se detecta un blob nuevo o actualizado. El contenido del blob se proporciona a modo de entrada para la función.
 
-> [!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para evitar este retraso inicial, considere una de las siguientes opciones:
-> - Usar un plan de App Service con Always On habilitado
-> - Usar otro mecanismo para desencadenar el procesamiento de blobs, por ejemplo, un mensaje de la cola que contenga el nombre del blob Para ver un ejemplo, consulte el [ejemplo de enlaces de entrada de blob más adelante en este artículo](#input---example).
+El [desencadenador de Event Grid](functions-bindings-event-grid.md) tiene compatibilidad integrada para [eventos de blob](../storage/blobs/storage-blob-event-overview.md) y también puede utilizarse para iniciar una función cuando se detecta un blob nuevo o actualizado. Para obtener un ejemplo, consulte el tutorial [Cambio de tamaño de una imagen con Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+
+Utilice Event Grid en lugar del desencadenador de Blob Storage en los escenarios siguientes:
+
+* Cuentas de almacenamiento solo para blobs
+* Gran escala
+* Retrasos por arranques en frío
+
+### <a name="blob-only-storage-accounts"></a>Cuentas de almacenamiento solo para blobs
+
+[Las cuentas de almacenamiento solo para blobs](../storage/common/storage-create-storage-account.md#blob-storage-accounts) se admiten para enlaces de entrada y salida de blobs pero no para desencadenadores de blobs. Los desencadenadores de Blob Storage necesitan una cuenta de almacenamiento de uso general.
+
+### <a name="high-scale"></a>Gran escala
+
+Gran escala se aplica generalmente a contenedores que tienen más de 100 000 blobs en ellos o a cuentas de almacenamiento que tienen más de 100 actualizaciones de blob por segundo.
+
+### <a name="cold-start-delay"></a>Retrasos por arranques en frío
+
+Si la aplicación de función está en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs si una aplicación de función ha quedado inactiva. Para evitar este retraso por un arranque en frío, puede cambiar a un plan de App Service con AlwaysOn habilitado, o usar un tipo de desencadenador diferente.
+
+### <a name="queue-storage-trigger"></a>Desencadenador de Queue Storage
+
+Además de Event Grid, otra alternativa para el procesamiento de blobs es el desencadenador de Queue Storage, pero no tiene ninguna compatibilidad integrada para los eventos de blobs. Debería crear mensajes en cola al crear o actualizar blobs. Para ver un ejemplo que presupone que ya ha realizado eso, consulte el [ejemplo de enlaces de entrada de blob más adelante en este artículo](#input---example).
 
 ## <a name="trigger---example"></a>Desencadenador: ejemplo
 

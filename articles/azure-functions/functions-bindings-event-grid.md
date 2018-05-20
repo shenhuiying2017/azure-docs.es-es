@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f12cdf2fc8a1aa3b7e8bc3c5eeb338601a8f2ffe
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Desencadenador de Event Grid para Azure Functions
 
 En este artículo se explica cómo controlar eventos de [Event Grid](../event-grid/overview.md) en Azure Functions.
 
-Event Grid es un servicio de Azure que envía solicitudes HTTP para notificarle acerca de eventos que ocurre en los *publicadores*. Un publicador es el servicio o recurso que origina el evento. Por ejemplo, una cuenta de Azure Blob Storage es un publicador y una carga o eliminación de blobs es un evento. Algunos [servicios de Azure tienen compatibilidad integrada para publicar eventos en Event Grid](../event-grid/overview.md#event-sources). 
+Event Grid es un servicio de Azure que envía solicitudes HTTP para notificarle acerca de eventos que ocurre en los *publicadores*. Un publicador es el servicio o recurso que origina el evento. Por ejemplo, una cuenta de Azure Blob Storage es un publicador y [una carga o eliminación de blobs es un evento](../storage/blobs/storage-blob-event-overview.md). Algunos [servicios de Azure tienen compatibilidad integrada para publicar eventos en Event Grid](../event-grid/overview.md#event-sources). 
 
 Los *controladores* de eventos reciben y procesan eventos. Azure Functions es uno de los [servicios de Azure con compatibilidad integrada para controlar eventos de Event Grid](../event-grid/overview.md#event-handlers). En este artículo, aprenderá a usar un desencadenador de Event Grid para invocar una función cuando se recibe un evento de Event Grid.
 
@@ -337,6 +337,9 @@ También puede enviar un HTTP PUT para especificar el mismo valor de la clave.
 
 ## <a name="local-testing-with-requestbin"></a>Pruebas locales con RequestBin
 
+> [!NOTE]
+> El sitio de RequestBin no está disponible actualmente, pero puede usar este enfoque con https://hookbin.com en su lugar. Si ese sitio está inactivo, puede usar [ngrok](#local-testing-with-ngrok).
+
 Para probar localmente un desencadenador de Event Grid, debe enviar las solicitudes HTTP de Event Grid desde su origen en la nube a la máquina local. Una manera de hacerlo es mediante la captura de solicitudes en línea y de reenviarlas manualmente a la máquina local:
 
 2. [Cree un punto de conexión de RequestBin](#create-a-RequestBin-endpoint).
@@ -348,7 +351,7 @@ Cuando haya finalizado las pruebas, puede utilizar la misma suscripción para pr
 
 ### <a name="create-a-requestbin-endpoint"></a>Creación de un punto de conexión de RequestBin
 
-RequestBin es una herramienta de código abierto que acepta solicitudes HTTP y muestra el cuerpo de la solicitud. La dirección URL http://requestb.in recibe un tratamiento especial en Azure Event Grid. Para facilitar las pruebas, Event Grid envía eventos a la dirección URL de RequestBin sin requerir una respuesta correcta a las solicitudes de validación de suscripción. Otras dos herramientas de pruebas reciben el mismo tratamiento: http://webhookinbox.com y http://hookbin.com.
+RequestBin es una herramienta de código abierto que acepta solicitudes HTTP y muestra el cuerpo de la solicitud. La dirección URL http://requestb.in recibe un tratamiento especial en Azure Event Grid. Para facilitar las pruebas, Event Grid envía eventos a la dirección URL de RequestBin sin requerir una respuesta correcta a las solicitudes de validación de suscripción. Otra herramienta de pruebas recibe el mismo tratamiento: http://hookbin.com.
 
 RequestBin no está pensado para el uso de alto rendimiento. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
 

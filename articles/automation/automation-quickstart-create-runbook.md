@@ -1,18 +1,19 @@
 ---
-title: "Inicio rápido de Azure: Creación de un runbook de Azure Automation | Microsoft Docs"
-description: "Información sobre la creación de un runbook de Azure Automation"
+title: 'Inicio rápido de Azure: Creación de un runbook de Azure Automation | Microsoft Docs'
+description: Información sobre la creación de un runbook de Azure Automation
 services: automation
 author: csand-msft
 ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
+ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4aafff81957943fc19f0f6d2fce8a41f7be58d16
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Creación de un runbook de Azure Automation
 
@@ -20,9 +21,9 @@ Los runbooks de Azure Automation se pueden crear a través de Azure. Este métod
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure en https://portal.azure.com.
+Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="create-runbook"></a>Creación de runbook
 

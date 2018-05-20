@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Mimecast Personal Portal."
+title: 'Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal | Microsoft Docs'
+description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Mimecast Personal Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 04/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 4f2c5f7323d9d10b6a784da8f45577ccf774b78f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7d8a746df9bea22970da9dc47b5e436a94335f49
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integración de Azure Active Directory con Mimecast Personal Portal
 
@@ -32,7 +32,7 @@ La integración de Mimecast Personal Portal con Azure AD proporciona las siguien
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Mimecast Personal Portal, necesita los siguientes elementos:
 
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Mimecast Personal Portal desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -80,14 +80,12 @@ En esta sección, configurará y probará el inicio de sesión único de Azure A
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Mimecast Personal Portal para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Mimecast Personal Portal.
 
-Para establecer la relación de vínculo, en Mimecast Personal Portal, asigne el valor del **nombre de usuario** en Azure AD como el valor del **Nombre de usuario**.
-
 Para configurar y probar el inicio de sesión único de Azure AD con Mimecast Personal Portal, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Mimecast Personal Portal](#create-a-mimecast-personal-portal-test-user)**: para tener un homólogo de Britta Simon en Mimecast Personal Portal que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -127,6 +125,16 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     | Sudáfrica    | `https://za-api.mimecast.com/sso/<accountcode>`|
     | Australia       | `https://au-api.mimecast.com/sso/<accountcode>`|
     | Internacional        | `https://jer-api.mimecast.com/sso/<accountcode>`|
+
+    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL: 
+
+    | Region  |  Valor | 
+    | --------------- | --------------- | 
+    | Europa          | `https://eu-api.mimecast.com/login/saml`|
+    | Estados Unidos   | `https://us-api.mimecast.com/login/saml`|
+    | Sudáfrica    | `https://za-api.mimecast.com/login/saml`|
+    | Australia       | `https://au-api.mimecast.com/login/saml`|
+    | Internacional        | `https://jer-api.mimecast.com/login/saml`|
     
     > [!NOTE] 
     > El valor del identificador no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte de cliente de Mimecast Personal Portal](http://www.mimecast.com/customer-success/technical-support/) para obtener el valor. 
@@ -137,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 5. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-mimecast-personal-portal-tutorial/tutorial_general_400.png)
 
 6. En la sección **Configuración de Mimecast Personal Portal**, haga clic en **Configurar Mimecast Personal Portal** para abrir la ventana **Configurar el inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
@@ -177,11 +185,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     h. Seleccione **Permitir inicio de sesión único**.
    
-    i. Haga clic en **Guardar**.
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    i. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -213,7 +217,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-a-mimecast-personal-portal-test-user"></a>Creación de un usuario de prueba de Mimecast Personal Portal
 
@@ -247,7 +251,7 @@ Deberá registrar un dominio para poder crear los usuarios.
 
     c. En los cuadros de texto **Contraseña** y **Confirmar contraseña**, escriba la **contraseña** del usuario.
    
-    b. Haga clic en **Guardar**.
+    b. Haga clic en **Save**(Guardar).
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Mimecast Personal Portal ofrecida por Mimecast Personal Portal para aprovisionar cuentas de usuario de Azure AD.
@@ -256,11 +260,11 @@ Deberá registrar un dominio para poder crear los usuarios.
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Mimecast Personal Portal.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar Britta Simon a Mimecast Personal Portal, siga estos pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

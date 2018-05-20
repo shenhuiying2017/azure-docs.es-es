@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/20/2017
+ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: d082241ee5151b199376a0c2c9baccc242ece12e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introducción a Azure Key Vault
 Este artículo sirve de ayuda para empezar a trabajar con Azure Key Vault mediante PowerShell y guía a través de las actividades siguientes:
@@ -43,7 +43,7 @@ Antes de continuar con el artículo, confirme que dispone de:
 >[!NOTE]
 En este artículo se supone que el usuario tiene un conocimiento básico de Azure PowerShell. Para más información acerca de PowerShell, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
 
-Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet **Get-Help**.
+Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet **Get-Help** .
 
 ```powershell-interactive
 Get-Help <cmdlet-name> -Detailed
@@ -232,7 +232,7 @@ Debe seleccionar el mismo directorio que contiene la suscripción de Azure con l
     >[!WARNING]
     Asegúrese de elegir **APLICACIÓN WEB Y/O API WEB**; si no lo hizo, no verá la opción **Claves** en la configuración.
 
-5. Haga clic en el botón **Crear**.
+5. Haga clic en el botón **Crear** .
 6. Una vez que haya completado el registro de la aplicación, podrá ver la lista de aplicaciones registradas. Busque la aplicación que acaba de registrar y haga clic en ella.
 7. Haga clic en la hoja **Aplicación registrada** y copie el **id. de aplicación**.
 8. Haga clic en **Toda la configuración**.

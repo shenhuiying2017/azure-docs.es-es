@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 01/07/2017
+ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="secure-your-key-vault"></a>Protección de un almacén de claves
 Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos (como certificados, cadenas de conexión y contraseñas) de las aplicaciones en la nube. Dado que estos datos son confidenciales y críticos para la empresa, desea proteger el acceso a los almacenes de claves, por lo que solo pueden acceder a él las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general del modelo de acceso a un almacén de claves, se explican la autenticación y la autorización, y se describe cómo proteger el acceso a un almacén de claves de las aplicaciones en la nube con un ejemplo.

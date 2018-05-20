@@ -1,28 +1,29 @@
 ---
-title: "Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup | Microsoft Docs"
-description: "Puede realizar una copia de seguridad de la configuración y los datos de servicio y restaurarlos con el servicio Infrastructure Backup."
+title: Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup | Microsoft Docs
+description: Puede realizar una copia de seguridad de la configuración y los datos de servicio y restaurarlos con el servicio Infrastructure Backup.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 84ce0d72ff826ecb3f5deff165db00a1e50ae89d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: 8c8037fe3936485082299250e603b2f3ea3859b9
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Copia de seguridad y recuperación de datos para Azure Stack con el servicio Infrastructure Backup
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Puede realizar una copia de seguridad de la configuración y los datos de servicio y restaurarlos con el servicio Infrastructure Backup. Cada instalación de Azure Stack contiene una instancia del servicio. Puede usar copias de seguridad creadas por el servicio para volver a implementar la nube de Azure Stack a fin de restaurar la identidad, la seguridad y los datos de Azure Resource Manager.
 

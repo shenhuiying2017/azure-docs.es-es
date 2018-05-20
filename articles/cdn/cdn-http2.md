@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.openlocfilehash: a58ab1165f3886484fb695170100422c2f1b0486
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b4751320af82a29fb13dc6012c1b197ebc2b1f9b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="http2-support-in-azure-cdn"></a>Compatibilidad con HTTP/2 en la red CDN de Azure
 
@@ -29,7 +29,7 @@ Las ventajas de HTTP/2 incluyen:
 
 *   **Multiplexación y simultaneidad**
 
-    Mediante HTTP 1.1, para realizar varias solicitudes de varios recursos se requieren varias conexiones TCP y cada conexión tiene asociada una sobrecarga de rendimiento. HTTP/2 permite que se soliciten varios recursos en una única conexión TCP.
+    Con HTTP 1.1, realizar varias solicitudes de recursos requiere varias conexiones TCP y cada conexión tiene asociada una sobrecarga de rendimiento. HTTP/2 permite que se soliciten varios recursos en una única conexión TCP.
 
 *   **Compresión de encabezados**
 
@@ -37,12 +37,12 @@ Las ventajas de HTTP/2 incluyen:
 
 *   **Dependencias de secuencias**
 
-    Las dependencias de secuencias permiten al cliente indicar al servidor qué recursos tiene prioridad.
+    Las dependencias de secuencia permiten al cliente indicar al servidor qué recursos tiene prioridad.
 
 
 ## <a name="http2-browser-support"></a>Compatibilidad con exploradores HTTP/2
 
-Todos los exploradores principales han implementado la compatibilidad con HTTP/2 en sus versiones actuales. Los exploradores no compatibles conmutarán automáticamente a HTTP/1.1.
+Todos los exploradores principales han implementado la compatibilidad con HTTP/2 en sus versiones actuales. Los exploradores no compatibles conmutan automáticamente a HTTP/1.1.
 
 |Browser|Versión mínima|
 |-------------|------------|
@@ -54,7 +54,7 @@ Todos los exploradores principales han implementado la compatibilidad con HTTP/2
 
 ## <a name="enabling-http2-support-in-azure-cdn"></a>Habilitación de la compatibilidad con HTTP/2 en la red CDN de Azure
 
-La compatibilidad con HTTP/2 se encuentra actualmente activa para los perfiles de **red CDN de Azure de Akamai** y la **red CDN de Azure de Verizon**. No es necesaria ninguna otra acción por parte de los clientes.
+Actualmente, la compatibilidad con HTTP/2 está activa para todos los perfiles de Azure CDN. No es necesaria ninguna otra acción por parte de los clientes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

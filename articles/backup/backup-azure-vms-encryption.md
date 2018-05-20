@@ -1,11 +1,11 @@
 ---
-title: "Copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Backup"
-description: "Este artículo trata sobre la experiencia de copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Disk Encryption."
+title: Copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Backup
+description: Este artículo trata sobre la experiencia de copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Disk Encryption.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 10/13/2017
 ms.author: pajosh;markgal;trinadhk; sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a1a3c5eb5550967e0a0e045ec508a86cd80ee03
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c788720e046c2efef954ef77f7b52854439b7515
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas con Azure Backup
 Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales (VM) mediante Azure Backup. También se proporcionan detalles sobre los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
@@ -42,7 +42,7 @@ Este artículo trata sobre los pasos para realizar la copia de seguridad y resta
 
 * Se ha creado un almacén de Recovery Services y la replicación del almacenamiento se ha establecido siguiendo los pasos que se indican en la [preparación del entorno para la copia de seguridad](backup-azure-arm-vms-prepare.md).
 
-* Se han otorgado a Azure Backup [permisos de acceso a un almacén de claves](#provide-permissions-to-azure-backup) que contiene claves y secretos para las máquinas virtuales cifradas.
+* Se han otorgado a Azure Backup [permisos de acceso a un almacén de claves](#provide-permissions-to-backup) que contiene claves y secretos para las máquinas virtuales cifradas.
 
 ## <a name="backup-encrypted-vm"></a>Copia de seguridad de máquina virtual cifrada
 Utilice los pasos siguientes para establecer un objetivo de copia de seguridad, definir directivas, configurar elementos y desencadenar una copia de seguridad.

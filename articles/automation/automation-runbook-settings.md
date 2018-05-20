@@ -3,16 +3,17 @@ title: Configuración de runbook en Azure Automation
 description: Describe las opciones de configuración para un runbook en Azure Automation y cómo cambiarlas mediante Azure Portal y Windows PowerShell.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 548a168055a63ee8cb5147b56fb77ef0bc801e17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 064fdc6b50bf21b78d122c650ae22f8b4f70c608
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-settings"></a>Configuración de runbook
 Cada runbook en Azure Automation tiene varias opciones de configuración para ayudarle a identificar y cambiar su comportamiento de registro. A continuación se describen todas estas opciones, seguido de procedimientos acerca de cómo modificarlas.

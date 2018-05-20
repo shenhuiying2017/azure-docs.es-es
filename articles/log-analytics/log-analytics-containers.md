@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solución de Supervisión de contenedores de Azure Log Analytics
 
@@ -34,8 +34,9 @@ La solución muestra qué contenedores están en ejecución, qué imagen de cont
 - Service Fabric
 - Red Hat OpenShift
 
+Si está interesado en supervisar el rendimiento de las cargas de trabajo implementas en entornos de Kubernetes hospedado en AKS (Azure Container Service), consulte [Monitor Azure Container Service](../monitoring/monitoring-container-health.md) (Supervisión de Azure Container Service).  La solución de supervisión de contenedores no incluye compatibilidad con la supervisión de esa plataforma.  
 
-El siguiente diagrama muestra las relaciones entre varios hosts de contenedores y los agentes con OMS.
+En el siguiente diagrama se muestran las relaciones entre varios hosts y agentes de contenedor con Log Analytics.
 
 ![Diagrama de contenedores](./media/log-analytics-containers/containers-diagram.png)
 
@@ -91,7 +92,7 @@ En la tabla siguiente se hace un resumen de la compatibilidad de supervisión de
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-1. Agregue la solución de Supervisión de contenedores al área de trabajo de OMS desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en [Agregación de soluciones de Log Analytics desde la Galería de soluciones](log-analytics-add-solutions.md).
+1. Agregue la solución de contenedor al área de trabajo de Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o mediante el proceso descrito en [Adición de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).
 
 2. Instalación y uso de Docker con un agente de OMS. En función de su sistema operativo y del orquestador de Docker, puede usar los métodos siguientes para configurar el agente.
   - Para hosts independientes:
@@ -116,15 +117,15 @@ Revise el artículo [Docker Engine en Windows](https://docs.microsoft.com/virtua
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalación y configuración de hosts de contenedor de Linux
 
-Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. En primer lugar necesita el identificador y la clave del área de trabajo de OMS, que puede encontrar en Azure Portal. En el área de trabajo, haga clic en **Inicio rápido** > **Equipos** para ver el **Id. de área de trabajo** y la **Clave principal**.  Copie y pegue ambos valores en el editor que prefiera.
+Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. En primer lugar necesita el identificador y la clave del área de trabajo de Log Analytics, que puede encontrar en Azure Portal. En el área de trabajo, haga clic en **Inicio rápido** > **Equipos** para ver el **Id. de área de trabajo** y la **Clave principal**.  Copie y pegue ambos valores en el editor que prefiera.
 
 **Para todos los hosts de contenedores de Linux excepto CoreOS:**
 
-- Para más información sobre cómo instalar el Agente de OMS para Linux, consulte [Conexión de equipos Linux a Operations Management Suite (OMS)](log-analytics-agent-linux.md).
+- Para más información y los pasos sobre cómo instalar el Agente de OMS para Linux, consulte [Conexión de equipos Linux a Log Analytics](log-analytics-concept-hybrid.md).
 
 **Para todos los hosts de contenedores de Linux incluido CoreOS:**
 
-Inicie el contenedor de OMS que desea supervisar. Modifique y use el ejemplo siguiente:
+Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
@@ -132,7 +133,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 
 **Para todos los hosts de contenedores de Linux para Azure Government incluido CoreOS:**
 
-Inicie el contenedor de OMS que desea supervisar. Modifique y use el ejemplo siguiente:
+Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
 ```
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
@@ -144,7 +145,7 @@ Si antes usaba el agente instalado directamente y ahora desea usar un agente que
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configuración de un agente de OMS para Docker Swarm
 
-Puede ejecutar el agente de OMS como un servicio global en Docker Swarm. Use la información siguiente para crear un servicio de agente de OMS. Debe insertar el identificador de área de trabajo y la clave principal de OMS.
+Puede ejecutar el agente de OMS como un servicio global en Docker Swarm. Use la información siguiente para crear un servicio de agente de OMS. Debe proporcionar el identificador y la clave principal del área de trabajo de Log Analytics.
 
 - Ejecute lo siguiente en el nodo principal.
 
@@ -190,8 +191,8 @@ Hay tres maneras de agregar el agente de OMS a Red Hat OpenShift para comenzar a
 
 En esta sección trataremos los pasos necesarios para instalar al agente de OMS como daemon-set de OpenShift.  
 
-1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) desde GitHub en el nodo principal y modifique el valor con el identificador del área de trabajo de OMS y con la clave principal.
-2. Ejecute los comandos siguientes para crear un proyecto para OMS y establecer la cuenta de usuario.
+1. Inicie sesión en el nodo maestro de OpenShift y copie el archivo yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) de GitHub en el nodo maestro y modifique el valor con el identificador del área de trabajo de Log Analytics y con la clave principal.
+2. Ejecute los comandos siguientes para crear un proyecto para Log Analytics y establecer la cuenta de usuario.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -227,10 +228,10 @@ En esta sección trataremos los pasos necesarios para instalar al agente de OMS 
     No events.  
     ```
 
-Si desea utilizar secretos para proteger el identificador del área de trabajo y la clave principal de OMS al usar el archivo yaml de daemon-set del agente de OMS, realice los siguientes pasos.
+Si quiere usar secretos para proteger el identificador del área de trabajo y la clave principal de Log Analytics al usar el archivo yaml de daemon-set del agente de OMS, realice los siguientes pasos.
 
-1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script generará el archivo yaml de secretos para el identificador del área de trabajo y la clave principal de OMS.  
-2. Ejecute los comandos siguientes para crear un proyecto para OMS y establecer la cuenta de usuario. El script de generación de secretos le pedirá el identificador del área de trabajo <WSID> y la clave principal <KEY> y, al terminar, creará el archivo ocp-secret.yaml.  
+1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script genera el archivo yaml de secretos para el identificador del área de trabajo y la clave principal de Log Analytics para proteger su información secreta.  
+2. Ejecute los comandos siguientes para crear un proyecto para Log Analytics y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador del área de trabajo <WSID> y la clave principal <KEY> de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -314,7 +315,7 @@ Puede elegir crear DaemonSets de omsagent con o sin secretos.
     1. Copie el script y el archivo de plantilla secreto y asegúrese de que estén en el mismo directorio.
         - Script de generación de secretos: secret-gen.sh
         - Plantilla de secretos: secret-template.yaml
-    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador del área de trabajo y la clave principal de OMS y, una vez que los escribe, se crea un archivo .yaml secreto para que pueda ejecutarlo.   
+    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador del área de trabajo y la clave principal de Log Analytics y, una vez que los escribe, se crea un archivo yaml secreto para que pueda ejecutarlo.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -561,7 +562,7 @@ Las etiquetas que se anexan a los tipos de datos *PodLabel* son sus propias etiq
 
 
 ## <a name="monitor-containers"></a>Supervisión de contenedores
-Una vez habilitada la solución en el portal de OMS, el icono **Contenedores** muestra la información de resumen de los hosts de contenedores y de los contenedores en ejecución en los hosts.
+Una vez habilitada la solución en el portal de Log Analytics, el icono **Contenedores** muestra información de resumen de los hosts de contenedores y de los contenedores que se ejecutan en los hosts.
 
 ![Icono de Containers](./media/log-analytics-containers/containers-title.png)
 

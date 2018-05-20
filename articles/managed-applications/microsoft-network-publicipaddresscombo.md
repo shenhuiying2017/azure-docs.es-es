@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: bced85abaf24beb0997ec906a68e5947f0e67cca
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c308b6626f9c37b3928107c4c03e9e0a5da12e6f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento de interfaz de usuario Microsoft.Network.PublicIpAddressCombo
 Grupo de controles para seleccionar una dirección IP pública nueva o existente.
@@ -54,7 +54,8 @@ Grupo de controles para seleccionar una dirección IP pública nueva o existente
   "options": {
     "hideNone": false,
     "hideDomainNameLabel": false,
-    "hideExisting": false
+    "hideExisting": false,
+    "zone": 3
   },
   "visible": true
 }
@@ -65,6 +66,7 @@ Grupo de controles para seleccionar una dirección IP pública nueva o existente
 - Si `options.hideNone` está establecido en **true**, la opción para seleccionar **None** como dirección IP pública está oculta. El valor predeterminado es **false**.
 - Si `options.hideDomainNameLabel` está establecido en **true**, se oculta el cuadro de texto de la etiqueta de nombre de dominio. El valor predeterminado es **false**.
 - Si `options.hideExisting` es true, el usuario no puede elegir una dirección IP pública existente. El valor predeterminado es **false**.
+- Para `zone`, solo están disponibles las direcciones IP pública para la zona especificada o direcciones IP públicas resistentes al uso de zonas.
 
 ## <a name="sample-output"></a>Salida de ejemplo
 Si el usuario no selecciona ninguna dirección IP pública, se espera la siguiente salida:

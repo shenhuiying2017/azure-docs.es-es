@@ -1,28 +1,22 @@
 ---
-title: "Replicación geográfica de un registro de contenedor de Azure"
-description: "Introducción a la creación y la administración de registros de contenedor de Azure con replicación geográfica."
+title: Replicación geográfica de un registro de contenedor de Azure
+description: Introducción a la creación y la administración de registros de contenedor de Azure con replicación geográfica.
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview-article
-ms.date: 10/24/2017
+ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
-Las empresas que quieran tener una presencia local o una copia de seguridad activa, pueden optar por ejecutar servicios desde varias regiones de Azure. Como procedimiento recomendado, si coloca un registro de contenedor en cada región donde se ejecuten imágenes, podrá realizar operaciones cercanas a la red y habilitar transferencias de capa de imagen rápidamente y de forma fiable.
-
-La replicación geográfica permite que un registro de contenedor de Azure funcione como un registro único que atienda a varias regiones con varios registros regionales maestros.
-
-> [!IMPORTANT]
-> La característica de replicación geográfica de Azure Container Registry está actualmente en su **versión preliminar**. Las versiones preliminares están a su disposición con la condición de que acepte los [términos de uso adicionales](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Es posible que algunos de los aspectos de esta característica cambien antes de ofrecer disponibilidad general.
->
+Las empresas que quieran tener una presencia local o una copia de seguridad activa, pueden optar por ejecutar servicios desde varias regiones de Azure. Como procedimiento recomendado, si coloca un registro de contenedor en cada región donde se ejecuten imágenes, podrá realizar operaciones cercanas a la red y habilitar transferencias de capa de imagen rápidamente y de forma fiable. La replicación geográfica permite que un registro de contenedor de Azure funcione como un registro único que atienda a varias regiones con varios registros regionales maestros.
 
 Un registro con replicación geográfica le proporciona las siguientes ventajas:
 

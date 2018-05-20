@@ -1,11 +1,11 @@
 ---
-title: "Importación de una API de SOAP y conversión a REST con Azure Portal | Microsoft Docs"
+title: Importación de una API de SOAP y conversión a REST con Azure Portal | Microsoft Docs
 description: Aprenda a importar una API de SOAP y convertirla a REST con API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 74935f11d5bf3c83aef46c1d41fccd81ad312acb
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 940756917c8f377e7d134818409e6287a4031e15
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>Importación de API de SOAP y conversión en REST
 
@@ -30,9 +30,9 @@ En este artículo, aprenderá a:
 > * Prueba de la API en Azure Portal
 > * Pruebe la API en el Portal para desarrolladores
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,7 +50,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 5. Presione Tab.
 
     Los siguientes campos se rellenan con la información de la API de SOAP: Nombre para mostrar, Nombre y Descripción.
-6. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser único en esta instancia de APIM.
+6. Agregue un sufijo URL de API. El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.
 9. Publique la API asociándola a un producto. En este caso, se usa el producto "*Unlimited*".  Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.
 
     Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.
@@ -65,7 +65,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
 Se puede llamar a las operaciones directamente desde Azure Portal, lo que proporciona una forma cómoda de ver y probar las operaciones de una API.  
 
-1. Seleccione API que creó en los pasos anteriores.
+1. Seleccione la API que creó en los pasos anteriores.
 2. Presione la pestaña **Prueba**.
 3. Seleccione alguna operación.
 

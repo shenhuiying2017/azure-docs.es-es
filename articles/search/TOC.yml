@@ -39,7 +39,7 @@
           href: search-fiddler.md
 - name: Tutoriales
   items:
-    - name: Indexación con Cognitive Search
+    - name: Desarrollo de Cognitive Search
       href: cognitive-search-tutorial-blob.md
     - name: Indexación de Azure SQL Database
       href: search-indexer-tutorial.md
@@ -73,11 +73,11 @@
   items:
     - name: Planeamiento y diseño
       items:
-        - name: Elección de una SKU
+        - name: Elija un nivel
           href: search-sku-tier.md
         - name: Límites de servicio
           href: search-limits-quotas-capacity.md
-        - name: Escalabilidad del servicio
+        - name: Asignación de particiones y réplicas
           href: search-capacity-planning.md
         - name: Patrones de diseño para varios inquilinos
           href: search-modeling-multitenant-saas-applications.md

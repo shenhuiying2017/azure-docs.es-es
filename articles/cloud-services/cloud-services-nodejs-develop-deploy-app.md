@@ -1,11 +1,11 @@
 ---
-title: "Guía de introducción a Node.js"
-description: "Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure."
+title: Guía de introducción a Node.js
+description: Aprenda a crear una sencilla aplicación web de Node.js e impleméntela en un servicio en la nube de Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: d498fc09112c0df7b6ecb81a492b180765fdf883
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 5d69f83aed9160f94260b71e60fcf0e15b435569
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -35,7 +35,7 @@ La aplicación es una aplicación sencilla de "Hola a todos":
 
 ![Un explorador web muestra la página web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 > [!NOTE]
 > Este tutorial usa PowerShell de Azure, que requiere Windows.
 

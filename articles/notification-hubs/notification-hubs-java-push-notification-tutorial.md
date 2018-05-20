@@ -1,35 +1,35 @@
 ---
-title: Uso de los Centros de notificaciones con Java
-description: "Obtenga información acerca de cómo usar los Centros de notificaciones de Azure desde un back-end de Java."
+title: Uso de Notification Hubs con Java
+description: Obtenga información acerca de cómo usar Azure Notification Hubs desde un back-end de Java.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="how-to-use-notification-hubs-from-java"></a>Uso de los Centros de notificaciones desde Java
+# <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto; puede ver el código entero en el [SDK de Java]. 
+En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto; puede ver el código entero del SDK en el [SDK de Java]. 
 
-En general, puede acceder a todas las características de los Centros de notificaciones desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
+En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
 
 El SDK admite actualmente:
 
-* CRUD en los Centros de notificaciones 
+* CRUD en Notification Hubs 
 * CRUD en los registros
 * Administración de la instalación
 * Importación y exportación de registros
@@ -102,7 +102,7 @@ Del mismo modo puede crear registros para Android (GCM), Windows Phone (MPNS) y 
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
 
-**Creación de registros mediante el patrón create registrationid + upsert**
+**Creación de registros mediante el patrón create registration ID + upsert**
 
 Quita los duplicados debido a las respuestas perdidas si se almacenan identificadores de registro en el dispositivo:
 
@@ -122,23 +122,27 @@ Quita los duplicados debido a las respuestas perdidas si se almacenan identifica
 
 * **Obtención de un único registro:**
   
-    hub.getRegistration(regid);
+        hub.getRegistration(regid);
+
 * **Obtención de todos los registros en el centro:**
   
-    hub.getRegistrations();
+        hub.getRegistrations();
+
 * **Obtención de registros con etiqueta:**
   
-    hub.getRegistrationsByTag("miEtiqueta");
+        hub.getRegistrationsByTag("myTag");
+
 * **Obtención de registros por canal:**
   
-    hub.getRegistrationsByChannel("tokenDeDispositivo");
+        hub.getRegistrationsByChannel("devicetoken");
+
 
 Todas las consultas de la colección admiten los tokens $top y continuation.
 
 ### <a name="installation-api-usage"></a>Uso de la API de instalación
-La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo). En el back-end, solo debe hacer una llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
+La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros, que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo). En el back-end, solo debe hacer una llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
 
-Un ejemplo para Amazon Kindle Fire es como el siguiente:
+Un ejemplo para Amazon Kindle Fire:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
@@ -150,7 +154,7 @@ Si desea actualizarlo:
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Para escenarios avanzados, tenemos la capacidad de actualización parcial que permite modificar solo determinadas propiedades del objeto de instalación. Básicamente la actualización parcial es un subconjunto de las operaciones de revisiones de JSON que se puede ejecutar con el objeto de instalación.
+Para escenarios avanzados, usamos la capacidad de actualización parcial que permite modificar solo determinadas propiedades del objeto de instalación. La actualización parcial es un subconjunto de las operaciones de revisiones de JSON que se puede ejecutar con el objeto de instalación.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +165,9 @@ Eliminación de la instalación:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, Patch y Delete son eventualmente coherentes con Get. La operación solicitada se dirige a la cola de sistema durante la llamada y se ejecutará en segundo plano. Tenga en cuenta que Get no está diseñado para el escenario principal de tiempo de ejecución, sino solo con fines de depuración y solución de problemas, dado que está estrechamente limitado por el servicio.
+CreateOrUpdate, Patch y Delete son eventualmente coherentes con Get. La operación solicitada se dirige a la cola de sistema durante la llamada y se ejecuta en segundo plano. Get no está diseñado para el escenario principal de tiempo de ejecución, sino solo con fines de depuración y solución de problemas, dado que está estrechamente limitado por el servicio.
 
-El flujo de envío de las instalaciones es el mismo que el de registros. Hemos presentado una opción para dirigir la notificación a la instalación particular; utilice únicamente la etiqueta "InstallationId:{desired-id}". Para el caso anterior sería similar al siguiente:
+El flujo de envío de las instalaciones es el mismo que el de registros. Para dirigir la notificación a la instalación particular, utilice únicamente la etiqueta "InstallationId:{desired-id}". En este caso, el código es:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -176,7 +180,7 @@ Para una de varias plantillas:
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
 ### <a name="schedule-notifications-available-for-standard-tier"></a>Programación de notificaciones (disponibles para el nivel estándar)
-Igual que el envío normal pero con un parámetro adicional - scheduledTime que indica cuándo se debe entregar la notificación. El servicio acepta cualquier punto de tiempo entre ahora + 5 minutos y ahora + 7 días.
+Igual que el envío normal pero con un parámetro adicional - scheduledTime, que indica cuándo se debe entregar la notificación. El servicio acepta cualquier punto de tiempo entre ahora + 5 minutos y ahora + 7 días.
 
 **Programación de una notificación nativa de Windows:**
 
@@ -185,8 +189,8 @@ Igual que el envío normal pero con un parámetro adicional - scheduledTime que 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.scheduleNotification(n, c.getTime());
 
-### <a name="importexport-available-for-standard-tier"></a>Importación y exportación (disponible para el nivel estándar)
-A veces es necesario para realizar la operación masiva en registros. Normalmente es para la integración con otro sistema o solo una corrección masiva para actualizar las etiquetas. Se recomienda encarecidamente utilizar el flujo de Get/Update si estamos hablando de miles de registros. La capacidad de importación y exportación está pensada para cubrir el escenario. Básicamente proporciona un acceso a algún contenedor de blobs en la cuenta de almacenamiento como un origen de los datos entrantes y la ubicación de salida.
+### <a name="importexport-available-for-standard-tier"></a>Import/Export (disponible para el nivel estándar)
+A veces es necesario para realizar la operación masiva en registros. Normalmente es para la integración con otro sistema o solo una corrección masiva para actualizar las etiquetas. Se recomienda utilizar el flujo de Get/Update si se trata de miles de registros. La capacidad de importación y exportación está pensada para cubrir el escenario. Básicamente proporciona un acceso a algún contenedor de blobs en la cuenta de almacenamiento como un origen de los datos entrantes y la ubicación de salida.
 
 **Envío del trabajo de exportación:**
 
@@ -217,7 +221,7 @@ A veces es necesario para realizar la operación masiva en registros. Normalment
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma SAS** : se trata de la dirección URL de algún archivo de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de almacenamiento de Azure tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de github) que tiene una implementación muy básica y compacta del algoritmo de firma.
+**URI con firma SAS**: se trata de la dirección URL de algún archivo de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de Azure Storage tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla, puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de GitHub) que tiene una implementación básica y compacta del algoritmo de firma.
 
 ### <a name="send-notifications"></a>Envío de notificaciones
 El objeto de notificación es simplemente un cuerpo con encabezados, algunos métodos de utilidad ayudan en la creación de los objetos de notificación nativos y de plantilla.
@@ -272,11 +276,11 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
 La ejecución del código de Java debe generar ahora una notificación que aparece en el dispositivo de destino.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tema hemos mostrado cómo crear un simple cliente REST en Java para Centros de notificaciones. Desde aquí puede:
+En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para Notification Hubs. Desde aquí puede:
 
 * Descargue el [SDK de Java]completo, que contiene todo el código SDK. 
 * Practique con los ejemplos:
-  * [Introducción a los Centros de notificaciones]
+  * [Introducción a Notification Hubs]
   * [Envío de noticias de última hora]
   * [Envío de noticias de última hora localizadas]
   * [Envío de notificaciones a usuarios autenticados]
@@ -284,7 +288,7 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 
 [SDK de Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Introducción a los Centros de notificaciones]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Introducción a Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Envío de noticias de última hora]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Envío de noticias de última hora localizadas]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Envío de notificaciones a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/

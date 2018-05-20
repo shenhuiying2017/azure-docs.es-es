@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 06b3b246d5c350f0982faa9b1d5f5692cd0c428e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights 
 
@@ -28,7 +28,7 @@ Si experimenta problemas de rendimiento con las máquinas virtuales, ejecute est
 
 ## <a name="supported-troubleshooting-scenarios"></a>Escenarios admitidos de solución de problemas
 
-PerfInsights puede recopilar y analizar varios tipos de información. En la siguientes secciones se tratan escenarios comunes.
+PerfInsights puede recopilar y analizar varios tipos de información. En las siguientes secciones se tratan escenarios comunes.
 
 ### <a name="collect-basic-configuration"></a>Recopilación de la configuración básica 
 
@@ -60,7 +60,7 @@ Se trata de un conjunto de información pasiva que no debería afectar al sistem
 En este escenario se ejecuta el banco de pruebas [Diskspd](https://github.com/Microsoft/diskspd) (IOPS y MBPS) para todas las unidades conectadas a la máquina virtual. 
 
 > [!Note]
-> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una aumento de la carga de trabajo debido a un prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
+> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
 ### <a name="slow-vm-analysis"></a>Análisis de máquinas virtuales lentas 
@@ -94,12 +94,12 @@ En este escenario se ejecuta una captura especial del contador de rendimiento ju
 Cuando ejecute un análisis personalizado de máquinas virtuales lentas, seleccione seguimientos que se ejecuten en paralelo. Si lo desea, puede ejecutarlos todos (Contador de rendimiento, Xperf, Red y StorPort).  
 
 > [!Note]
-> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Una aumento de la carga de trabajo debido a un prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
+> Este escenario puede afectar al sistema y no se debe ejecutar en un sistema de producción activo. Si es necesario, ejecute este escenario en una ventana de mantenimiento dedicada para evitar cualquier problema. Un aumento de la carga de trabajo debido a una prueba de seguimiento o a un banco de pruebas puede afectar negativamente al rendimiento de la máquina virtual.
 >
 
 ## <a name="what-kind-of-information-is-collected-by-perfinsights"></a>¿Qué tipo de información recopila PerfInsights?
 
-Se recopila información acerca de la máquina virtual de Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos. Depende del escenario de rendimiento que se use. En la tabla siguiente se dan los detalles:
+Se recopila información acerca de la máquina virtual Windows, la configuración de discos o bloques de almacenamiento, contadores de rendimiento, registros y diferentes seguimientos. Depende del escenario de rendimiento que se use. En la tabla siguiente se dan los detalles:
 
 |Datos recopilados                              |  |  | Escenarios de rendimiento |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
@@ -178,11 +178,11 @@ Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escr
 
 ### <a name="how-do-i-run-perfinsights"></a>¿Cómo se puede ejecutar PerfInsights? 
 
-Para ejecutar PerfInsights en una máquina virtual es preciso instalar la [extensión de máquina virtual de diagnóstico de rendimiento de Azure para Windows](performance-diagnostics-vm-extension.md). También puede ejecutarla como una herramienta independiente. 
+Para ejecutar PerfInsights en una máquina virtual es preciso instalar la [extensión de máquina virtual de diagnóstico de rendimiento de Azure](performance-diagnostics-vm-extension.md). También puede ejecutarla como una herramienta independiente. 
 
 **Instalación y ejecución de PerfInsights desde Azure Portal**
 
-Para más información acerca de esta opción, consulte [Install Azure Performance Diagnostics extension](performance-diagnostics-vm-extension.md#install-the-extension) (Instalación de la extensión de diagnóstico de rendimiento de Azure).  
+Para más información acerca de esta opción, consulte [Instalación de la extensión de diagnóstico de rendimiento](performance-diagnostics-vm-extension.md#install-the-extension).  
 
 **Ejecución de PerfInsights en modo independiente**
 
@@ -247,7 +247,7 @@ En el archivo **CollectedData\_aaaa-MM-dd\_hh-mm-ss-fff.zip.**, puede encontrar 
 Haga clic en la pestaña **Conclusiones**.
 
 ![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Captura de pantalla del informe de PerfInsights](media/how-to-use-perfInsights/findings.PNG)
+![Screenshot of PerfInsights Report](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
 > Las conclusiones clasificadas como críticas son problemas conocidos que pueden provocar problemas de rendimiento. Las conclusiones clasificadas como importantes representan configuraciones no óptimas que no provocan necesariamente problemas de rendimiento. Las conclusiones clasificadas como informativas son solo declaraciones informativas.
@@ -291,11 +291,11 @@ La pestaña **Diagnostic** (Diagnóstico) contiene información acerca de los ma
 
 ### <a name="diskspd"></a>Diskspd
 
-Diskspd es un generador de carga de almacenamiento y una herramienta de prueba de rendimiento de Microsoft. Para más información, vea [Diskspd](https://github.com/Microsoft/diskspd).
+Diskspd es un generador de carga de almacenamiento y una herramienta de prueba de rendimiento de Microsoft. Para más información, consulte [Diskspd](https://github.com/Microsoft/diskspd).
 
 ### <a name="xperf"></a>Xperf
 
-Xperf es una herramienta de línea de comandos para capturar seguimientos desde Windows Performance Toolkit. Para más información, vea [Windows Performance Toolkit -Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
+Xperf es una herramienta de línea de comandos para capturar seguimientos desde Windows Performance Toolkit. Para más información, consulte [Windows Performance Toolkit -Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

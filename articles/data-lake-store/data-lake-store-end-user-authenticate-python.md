@@ -1,8 +1,8 @@
 ---
-title: "Autenticación de usuario final: Python con Data Lake Store en Azure Active Directory | Microsoft Docs"
-description: "Aprenda a lograr la autenticación del usuario final con Data Lake Store mediante Azure Active Directory con Python"
+title: 'Autenticación de usuario final: Python con Data Lake Store en Azure Active Directory | Microsoft Docs'
+description: Aprenda a lograr la autenticación del usuario final con Data Lake Store mediante Azure Active Directory con Python
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 1fa8df760ac22ae915765895b498f21d628eea76
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7f582683245505fe1ff161e4461dd34690a1ab0a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-python"></a>Autenticación de usuario final con Data Lake Store mediante Python
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ En este artículo, aprenderá a usar el SDK de Python para realizar la autentica
 
 Ambas opciones se describen en este artículo. Para la autenticación entre servicios con Data Lake Store mediante Python, consulte [Service-to-service authentication with Data Lake Store using Python](data-lake-store-service-to-service-authenticate-python.md) (Autenticación entre servicios con Data Lake Store mediante Python).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
@@ -48,7 +48,7 @@ Ambas opciones se describen en este artículo. Para la autenticación entre serv
 Para trabajar con Data Lake Store mediante Python, debe instalar tres módulos.
 
 * El módulo `azure-mgmt-resource`, que incluye los módulos de Azure para Active Directory, etc.
-* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Management Store](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* El módulo `azure-mgmt-datalake-store`, que incluye las operaciones de administración de cuentas de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Management Store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
 * El módulo `azure-datalake-store`, que incluye las operaciones de sistema de archivos de Azure Data Lake Store. Para más información acerca de este módulo, consulte [referencia al módulo de Azure Data Lake Store Filesystem](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilice el comando siguiente para instalar los módulos.

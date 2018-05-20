@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: ed87eab6250eea753bc3b0abd97182d1b869420c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalización de la autenticación y autorización en Azure App Service
 
@@ -25,7 +25,8 @@ En este artículo se muestra cómo personalizar la [autenticación y autorizaci�
 
 Para comenzar inmediatamente, consulte uno de los siguientes tutoriales:
 
-* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Configuración de la aplicación para usar el inicio de sesión de Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -148,4 +149,5 @@ Haga clic en **Editar**, modifique la propiedad siguiente y luego haga clic en *
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Windows)](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro (Linux)](containers/tutorial-auth-aad.md)

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: b6de9d066f861d300bbe3601701e846410e93773
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9458dc3254b6bfa377adeeff1c1abcb8bfdc0d94
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 
@@ -195,4 +195,4 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 -   Seguimientos de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

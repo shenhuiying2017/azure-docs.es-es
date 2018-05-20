@@ -3,16 +3,17 @@ title: Recursos de variables en Azure Automation
 description: Los activos de variables son valores que están disponibles para todos los runbooks y configuraciones de DSC en Azure Automation.  En este artículo se explican los detalles de las variables y cómo trabajar con ellas en la creación de texto y gráficos.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7c36fce380712da6572e9512a05af9c23c4152a2
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2cae2746df5c9262fc0cb0071d20c04172bd5635
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="variable-assets-in-azure-automation"></a>Recursos de variables en Azure Automation
 

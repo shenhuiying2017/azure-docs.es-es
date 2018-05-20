@@ -1,25 +1,25 @@
 ---
-title: "Azure Notification Hubs: preguntas más frecuentes (P+F) | Microsoft Docs"
-description: "Preguntas más frecuentes sobre el diseño y la implementación de soluciones en Notification Hubs"
+title: 'Azure Notification Hubs: preguntas más frecuentes (P+F) | Microsoft Docs'
+description: Preguntas más frecuentes sobre el diseño y la implementación de soluciones en Notification Hubs
 services: notification-hubs
 documentationcenter: mobile
-author: ysxu
-manager: erikre
-keywords: "notificación push, notificaciones push, notificaciones push de iOS, notificaciones push de android, inserción de ios, inserción de android"
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
+keywords: notificación push, notificaciones push, notificaciones push de iOS, notificaciones push de android, inserción de ios, inserción de android
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/19/2017
-ms.author: yuaxu
-ms.openlocfilehash: d19a1b7c8d50ef0fde3cf65c9fd469bc34a27adc
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones push en Azure Notification Hubs: preguntas más frecuentes
 ## <a name="general"></a>General
@@ -82,7 +82,7 @@ Si tiene un back-end de aplicación móvil existente y desea agregar solo la fun
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>¿Cuántos dispositivos puedo admitir si envío notificaciones push a través de Notification Hubs?
 Consulte la página [Precios de Notification Hubs] para detalles sobre la cantidad de dispositivos admitidos.
 
-Si necesita compatibilidad con más de 10 millones de dispositivos registrados, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/contact-us/) directamente y le ayudaremos a escalar su solución.
+Si necesita compatibilidad con más de diez millones de dispositivos registrados, [póngase en contacto con nosotros](https://azure.microsoft.com/overview/contact-us/) directamente y le ayudaremos a escalar su solución.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>¿Cuántas notificaciones de inserción puedo enviar?
 Dependiendo del nivel seleccionado, Azure Notification Hubs realizará un escalado vertical y automático en función del número de notificaciones que fluyan a través del sistema.
@@ -196,8 +196,7 @@ Azure Notification Hubs le permite ver los datos de telemetría en [Azure Portal
 También proporciona la funcionalidad de exportar los datos de telemetría mediante programación (en el nivel Estándar). Para detalles, consulte el [ejemplo de métricas de Notification Hubs].
 
 [Azure Portal]: https://portal.azure.com
-
-            [Precios de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
+[Precios de Notification Hubs]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Caso práctico: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Caso práctico: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847

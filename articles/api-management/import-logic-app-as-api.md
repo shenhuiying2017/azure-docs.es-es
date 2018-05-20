@@ -1,11 +1,11 @@
 ---
-title: "Importación de una aplicación lógica como una API desde Azure Portal | Microsoft Docs"
-description: "En este tutorial se muestra cómo utilizar API Management (APIM) para importar una aplicación lógica como API."
+title: Importación de una aplicación lógica como una API desde Azure Portal | Microsoft Docs
+description: En este tutorial se muestra cómo utilizar API Management (APIM) para importar una aplicación lógica como API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 96ac8ce81087717f05ae6480a8f875079139b7b6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importación de una aplicación lógica como API
 

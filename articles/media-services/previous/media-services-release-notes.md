@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: b36c9150ef251939c9c484da93bc8a086b869676
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de la versión de Azure Media Services
 Estas notas de la versión de Azure Media Services resumen los cambios realizados desde las versiones anteriores y los problemas conocidos.
@@ -44,6 +44,10 @@ Estas notas de la versión de Azure Media Services resumen los cambios realizado
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historial de versiones de la API de REST
 Para obtener información sobre el historial de versiones de la API de REST de Media Services, consulte la [Referencia de la API de REST de Azure Media Services].
+
+## <a name="may-2018"></a>Mayo de 2018 
+
+A partir del 12 de mayo de 2018, los canales en directo ya no admitirán el protocolo de ingesta de secuencia de transporte RTP/MPEG-2. Migre de RTP/MPEG-2 a RTMP o protocolos de ingeesta de MP4 fragmentado (Smooth Streaming).
 
 ## <a name="october-2017-release"></a>Versión de octubre de 2017
 > [!IMPORTANT] 

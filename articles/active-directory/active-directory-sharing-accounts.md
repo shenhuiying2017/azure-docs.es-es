@@ -14,11 +14,11 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 25a885514125ea723cc2ddebe6ec00aedbebdce7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3719a86a88fa17e00a95b8c014fdf5a876a59a84
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Uso compartido de cuentas con Azure AD
 ## <a name="overview"></a>Información general
@@ -56,7 +56,7 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 * Aplicaciones de contraseñas personalizadas
 * [Panel/informes de uso de aplicaciones](active-directory-passwords-get-insights.md)
 * Portales de acceso para usuarios finales
-* [Proxy de aplicaciones](active-directory-application-proxy-get-started.md)
+* [Proxy de aplicaciones](manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## <a name="sharing-an-account"></a>Uso compartido de una cuenta

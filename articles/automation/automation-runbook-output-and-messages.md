@@ -3,16 +3,17 @@ title: Salidas de runbook y mensajes en Azure Automation
 description: Describe cómo crear y recuperar los mensajes de salida y error de los runbooks en Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b5eaed6c25e3d8ccc4c4577492398ef6cd741b35
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Salidas de runbook y mensajes en Azure Automation
 La mayoría de los runbooks de Azure Automation generan alguna forma de salida, como el mensaje de error que verá el usuario o un objeto complejo que será consumido por otro flujo de trabajo. Windows PowerShell le ofrece [varios flujos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar la salida desde un script o flujo de trabajo. Azure Automation funciona con cada uno de estos flujos de forma diferente, y es aconsejable que siga los procedimientos recomendados sobre cómo usar cada uno de ellos cuando cree un runbook.

@@ -3,23 +3,23 @@ title: Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 description: Publique aplicaciones locales en la nube con el proxy de aplicación de Azure AD en Azure Portal.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b9750212925294dec2220e6ef3e6e19d3bc7c3c6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publicación de aplicaciones mediante el proxy de aplicación de Azure AD
 
@@ -27,7 +27,7 @@ El proxy de aplicación de Azure Active Directory (AD) permite publicar aplicaci
 
 Este artículo le guiará por los pasos necesarios para publicar una aplicación local con el proxy de aplicación. Después de completar este artículo, los usuarios podrán acceder a la aplicación de forma remota. Entonces, estará listo para configurar características adicionales para la aplicación como el inicio de sesión único, información personalizada o requisitos de seguridad.
 
-Si no está familiarizado con el proxy de aplicación, obtenga más información sobre esta característica con el artículo [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md).
+Si no está familiarizado con el proxy de aplicación, obtenga más información sobre esta característica con el artículo [Provisión de acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md).
 
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Publicación de una aplicación local para el acceso remoto

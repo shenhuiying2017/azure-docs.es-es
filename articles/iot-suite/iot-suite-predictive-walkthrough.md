@@ -1,12 +1,12 @@
 ---
-title: "Tutorial de la solución de mantenimiento predictivo: Azure | Microsoft Docs"
-description: "Tutorial de la solución preconfigurada de mantenimiento predictivo de IoT de Azure."
-services: 
+title: 'Tutorial del acelerador de soluciones de mantenimiento predictivo: Azure | Microsoft Docs'
+description: Tutorial del acelerador de soluciones de mantenimiento predictivo de IoT de Azure.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/14/2017
 ms.author: dobett
-ms.openlocfilehash: e9e0024c645d0e04e7cf9b17e440d7d8c10af232
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 397ac3c8b9caa5c392aff4683df2db3b2144899b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Tutorial de la solución preconfigurada de mantenimiento predictivo
+# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>Tutorial del acelerador de soluciones de mantenimiento predictivo
 
-La solución preconfigurada de mantenimiento predictivo es una solución completa para un escenario empresarial, que predice el punto en el que es probable que se produzca un error. Puede utilizar esta solución preconfigurada de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios esenciales del Conjunto de aplicaciones de IoT de Azure, como IoT Hub, Stream Analytics y un área de trabajo de [Azure Machine Learning][lnk-machine-learning]. Esta área de trabajo contiene un modelo, basado en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
+El acelerador de soluciones de mantenimiento predictivo es una solución completa para escenarios empresariales que predice el punto en el que es probable que se produzca un error. Este acelerador se puede utilizar de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios esenciales de los aceleradores de soluciones de IoT de Azure, como IoT Hub, Stream Analytics y un área de trabajo de [Azure Machine Learning][lnk-machine-learning]. Esta área de trabajo contiene un modelo, basado en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 
-El diagrama siguiente describe los componentes lógicos de la solución preconfigurada:
+El diagrama siguiente describe los componentes lógicos del acelerador de soluciones:
 
 ![][img-architecture]
 
-Los elementos de color azul son servicios de Azure que se aprovisionan en la región en la que se implementó la solución preconfigurada. La lista de regiones donde puede implementar la solución preconfigurada se muestra en la [página de aprovisionamiento][lnk-azureiotsuite].
+Los elementos de color azul son servicios de Azure que se aprovisionan en la región en la que se implementó el acelerador de soluciones. La lista de regiones en las que se puede implementar el acelerador de soluciones se muestra en la [página de aprovisionamiento][lnk-azureiotsuite].
 
 El elemento verde es un dispositivo simulado que representa un motor de avión. Más información acerca de estos dispositivos simulados en la sección [Dispositivos simulados](#simulated-devices).
 
-Los elementos de color gris representan los componentes que implementan funcionalidades de *administración de dispositivos*. La versión actual de la solución preconfigurada de mantenimiento predictivo no aprovisiona estos recursos. Para más información sobre la administración de dispositivos, consulte la [solución preconfigurada de supervisión remota][lnk-remote-monitoring].
+Los elementos de color gris representan los componentes que implementan funcionalidades de *administración de dispositivos*. La versión actual del acelerador de soluciones de mantenimiento predictivo no aprovisiona estos recursos. Para más información sobre la administración de dispositivos, consulte la [solución preconfigurada de supervisión remota][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 
-En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría a IoT Hub:
+En el acelerador de soluciones, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 proporcionan los datos necesarios para el modelo de Machine Learning a fin de calcular la vida útil restante (RUL) del motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría a IoT Hub:
 
 *Recuento de ciclos*. Un ciclo representa un vuelo completo con una duración de entre dos y diez horas. Durante el vuelo, se capturan datos de telemetría cada media hora.
 
-*Telemetría*. Existen cuatro sensores que representan atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores representan la telemetría suficiente para obtener resultados útiles en el modelo de RUL. El modelo usado en la solución preconfigurada se crea a partir de un conjunto de datos público que incluye datos reales del sensor del motor. Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
+*Telemetría*. Existen cuatro sensores que representan atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores representan la telemetría suficiente para obtener resultados útiles en el modelo de RUL. El modelo usado en el acelerador de soluciones se crea a partir de un conjunto de datos público que incluye datos reales del sensor del motor. Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
 
 Los dispositivos simulados también pueden controlar los siguientes comandos enviados desde el centro de IoT en la solución:
 
-| Comando | Description |
+| Get-Help | DESCRIPCIÓN |
 | --- | --- |
 | StartTelemetry |Controla el estado de la simulación.<br/>Inicia el envío de telemetría del dispositivo. |
 | StopTelemetry |Controla el estado de la simulación.<br/>Detiene el envío de telemetría del dispositivo. |
@@ -69,11 +69,11 @@ El componente de Machine Learning usa un modelo que se deriva de los datos recop
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha visto los componentes clave de la solución preconfigurada de mantenimiento predictivo, puede personalizarla si así lo desea. Consulte [Personalizar una solución preconfigurada][lnk-customize].
+Ahora que ha visto los componentes clave del acelerador de soluciones de mantenimiento predictivo, puede personalizarlo si lo desea. Consulte [Guía para la personalización de aceleradores de soluciones][lnk-customize].
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
+También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+* [Preguntas más frecuentes acerca de los aceleradores de soluciones de IoT][lnk-faq]
 * [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png

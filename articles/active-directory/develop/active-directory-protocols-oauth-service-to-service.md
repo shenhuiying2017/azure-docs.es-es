@@ -3,23 +3,25 @@ title: Autenticación entre servicios de Azure AD mediante OAuth2.0 | Microsoft 
 description: Este artículo describe cómo utilizar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo de concesión de credenciales de cliente de OAuth2.0.
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: da657fb6072c0655e47623c58e7051e8dd462049
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1a4da1af61be4b632b51f5b8f921f6f48e925559
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite a un servicio web (*cliente confidencial*) usar sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, Azure AD también permite al servicio que realiza la llamada usar un certificado (en lugar de un secreto compartido) como credencial.

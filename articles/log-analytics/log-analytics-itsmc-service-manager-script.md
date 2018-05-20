@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e65f64939826a97eae0fca0fe3ae220f5479d2b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75c61894d5562f4bb0cb45fd8500bd9cf0f2bf8f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
@@ -35,7 +35,7 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 
 El script creará la aplicación web con el nombre que especificó (junto con algunas cadenas adicionales para hacerlo único). Genera la **dirección URL de la aplicación web**, el **id. de cliente** y el **secreto de cliente**.
 
-Guarde estos valores, ya que los necesitará cuando cree una conexión con IT Service Management Connector.
+Guarde estos valores, ya que los necesitará cuando cree una conexión con el Conector de Administración de servicios de TI.
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -191,6 +191,8 @@ Write-Output "Web App Deployed successfully!!"
 Add-Type -AssemblyName System.Web
 
 $clientSecret = [System.Web.Security.Membership]::GeneratePassword(30,2).ToString()
+
+$clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force
 
 try
 {

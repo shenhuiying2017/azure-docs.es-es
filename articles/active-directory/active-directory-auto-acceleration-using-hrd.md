@@ -1,22 +1,23 @@
 ---
-title: "Configuración de la aceleración automática de inicio de sesión de una aplicación mediante la directiva de detección del dominio de inicio | Microsoft Docs"
-description: "Explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory."
+title: Configuración de la aceleración automática de inicio de sesión de una aplicación mediante la directiva de detección del dominio de inicio | Microsoft Docs
+description: Explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: billmath
+documentationcenter: ''
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
-ms.openlocfilehash: deaa52a062eb01450f760324e01e520fcbe894e1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.openlocfilehash: 5df12f905595c9b3e8caa8f372b9ba7b54672f81
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración de la aceleración automática de inicio de sesión de una aplicación mediante una directiva de detección del dominio de inicio | Microsoft Docs
 
@@ -158,7 +159,7 @@ En este ejemplo, se crea una directiva que acelera automáticamente a los usuari
 
 #### <a name="step-1-create-an-hrd-policy"></a>Paso 1: cree una directiva de HRD.
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Si tiene un dominio federado único que autentica a los usuarios de las aplicaciones, basta con crear una sola directiva de HRD.  

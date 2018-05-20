@@ -3,17 +3,17 @@ title: Uso de Azure Files con AKS
 description: Usar de Azure Disks con AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: ab118cd43f1e3e57627d940072e50405cd85ca58
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 21245688076cf0a21164b549eb68bc6f55d6ec6c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volúmenes persistentes con archivos de Azure
 
@@ -66,10 +66,10 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Cree la clase de almacenamiento con el comando [kubectl create][kubectl-create].
+Cree la clase de almacenamiento con el comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## <a name="create-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
@@ -94,10 +94,10 @@ spec:
       storage: 5Gi
 ```
 
-Cree la notificación del volumen persistente con el comando [kubectl create] [kubectl-create].
+Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Una vez completado, se creará el recurso compartido de archivos. También se crea un secreto Kubernetes que contiene las credenciales y la información de conexión.
@@ -126,10 +126,10 @@ spec:
         claimName: azurefile
 ```
 
-Cree el pod con el comando [kubectl create][kubectl-create].
+Cree el pod con el comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
 Ahora tiene un pod en ejecución con el disco de Azure montado en el directorio `/mnt/azure`. Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`.
@@ -174,7 +174,7 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con Az
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/

@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/14/2018
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2748b078586c27a7625c8e48172048d7a574a4d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d07cf87f736b6df58ed46ef0ae98767d4d8a7a48
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="quickstart-deploy-an-azure-container-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Container Service (AKS)
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guía de inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
 En esta guía de inicio rápido se implementa un clúster de AKS mediante la CLI de Azure. A continuación, se ejecuta en el clúster una aplicación de varios contenedores que consta de un front-end web y una instancia de Redis. Una vez finalizado el proceso, la aplicación es accesible a través de Internet.
 
@@ -108,9 +108,9 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. La imagen proporcionada es una aplicación de ejemplo, pero puede leer cómo [crear una imagen](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app) e [implementarla en Azure Container Registry](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-acr) para utilizar la suya propia.
+Un archivo de manifiesto de Kubernetes define un estado deseado del clúster, por ejemplo, qué imágenes de contenedor se deben ejecutar. En este ejemplo, se usa un manifiesto para crear todos los objetos necesarios para ejecutar la aplicación Azure Vote. Esto incluye dos [implementaciones de Kubernetes][kubernetes-deployment], una para las aplicaciones Python de Azure Vote y otra para una instancia de Redis. Además, se crean dos [servicios de Kubernetes][kubernetes-service], un servicio interno para la instancia de Redis y un servicio externo para acceder a la aplicación Azure Vote desde Internet.
 
-Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual. Si está trabajando de forma local, puede utilizar Visual Studio Code para crear este archivo; para ello, ejecute `code azure-vote.yaml`.
+Cree un archivo denominado `azure-vote.yaml` y copie el siguiente código YAML. Si está trabajando en Azure Cloud Shell, este archivo se puede crear mediante vi o Nano, como si trabajara en un sistema físico o virtual.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -211,13 +211,13 @@ Una vez que la dirección *EXTERNAL-IP* haya cambiado de *pendiente* a una *dire
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Ahora ya puede navegar a la dirección IP externa para ver la aplicación Azure Vote.
+Ahora, vaya a la dirección IP externa para ver la aplicación Azure Vote.
 
 ![Imagen de la exploración hasta Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Eliminación de clúster
 
-Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para quitar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
+Cuando el clúster ya no se necesite, puede usar el comando [az group delete][az-group-delete] para eliminar el grupo de recursos, el servicio de contenedor y todos los recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -242,8 +242,9 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 [kubernetes-documentation]: https://kubernetes.io/docs/home/
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->

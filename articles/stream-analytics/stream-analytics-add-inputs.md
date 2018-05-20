@@ -1,6 +1,6 @@
 ---
-title: Incorporación de una entrada de datos a trabajos de Azure Stream Analytics
-description: Obtenga información acerca de cómo enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage.
+title: Información sobre las entradas de Azure Stream Analytics
+description: En este artículo se describe el concepto de entradas en un trabajo de Azure Stream Analytics y se compara la entrada de streaming con la entrada de datos de referencia.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,71 +8,41 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 13c3c948fbe24d5536b32967c8394060ee898377
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 04/25/2018
+ms.openlocfilehash: 926821e2ba9912ae0140f11c9fe9a2d504609a1e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adición de entradas de datos de streaming o datos de referencia a trabajos de Stream Analytics
-Aprenda a enlazar un origen de datos al trabajo de Stream Analytics como entrada de datos de streaming desde Event Hubs, o bien como datos de referencia desde Blob Storage.
+# <a name="understand-inputs-for-azure-stream-analytics"></a>Información sobre las entradas de Azure Stream Analytics
 
-Los trabajos de Azure Stream Analytics pueden estar conectados a una entrada de datos, donde cada una define una conexión a un origen de datos existente. A medida que los datos se envían a ese origen de datos, el trabajo de Stream Analytics los consume y los procesa en tiempo real como datos de streaming. Stream Analytics cuenta con integración de primera clase con [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) y [Azure Blob Storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md) desde dentro y fuera de la suscripción del trabajo.
+Los trabajos de Azure Stream Analytics se conectan a una o más entradas de datos. Cada entrada define una conexión a un origen de datos existente. Stream Analytics acepta datos procedentes de varios tipos de orígenes de eventos, entre los que se incluyen Event Hubs, IoT Hub y el almacenamiento de blobs. En la consulta SQL de streaming que se escribe para cada trabajo, se hace referencia a las entradas por su nombre. En la consulta, puede combinar varias entradas para fusionar datos o comparar datos de streaming con una búsqueda de datos de referencia y pasar los resultados a las salidas. 
+
+Stream Analytics presenta una integración de primera clase de tres tipos de recursos como entradas:
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Almacenamiento de blobs de Azure](https://azure.microsoft.com/services/storage/blobs/) 
+
+Estos orígenes de entrada pueden proceder de la misma suscripción de Azure que el trabajo de Stream Analytics o de otra suscripción.
+
+Puede usar [Azure Portal](stream-analytics-quick-create-portal.md#configure-input-to-the-job), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), la [API de REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) y [Visual Studio](stream-analytics-tools-for-visual-studio.md) para crear, editar y probar las entradas del trabajo de Stream Analytics.
+
+## <a name="stream-and-reference-inputs"></a>Entradas de flujo y de referencia
+A medida que los datos se insertan en un origen de datos, el trabajo de Stream Analytics los consume y los procesa en tiempo real. Las entradas se dividen en dos tipos distintos: entradas de flujo de datos y entradas de datos de referencia.
+
+### <a name="data-stream-input"></a>Entrada de flujo datos
+Un flujo de datos es una secuencia ilimitada de eventos a lo largo del tiempo. Los trabajos de Stream Analytics deben incluir, como mínimo, una entrada de flujo de datos. Event Hubs, IoT Hub y and Blob Storage se admiten como orígenes de entrada de flujo de datos. Event Hubs sirve para recopilar flujos de eventos desde varios dispositivos y servicios. Es posible que estos flujos incluyan fuentes de actividades de redes sociales, información bursátil o datos de sensores. Los Centros de IoT están optimizados para recopilar datos de dispositivos conectados en escenarios del Internet de las cosas (IoT).  Blob Storage puede usarse como origen de entrada para la ingesta de conjuntos masivos de datos en forma de flujo, como, por ejemplo, archivos de registro.  
+
+Para obtener más información sobre las entradas de streaming, vea [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md) (Datos de flujo como entrada en Stream Analytics).
+
+### <a name="reference-data-input"></a>Entrada de datos de referencia
+Stream Analytics también admite la entrada de *datos de referencia*. Los datos de referencia son completamente estáticos o cambian lentamente. Se utilizan normalmente para realizar la correlación y las búsquedas. Por ejemplo, es posible combinar datos de la entrada de flujo de datos con datos de los datos de referencia, de la misma forma que ejecutaría una instrucción SQL JOIN para buscar valores estáticos. Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia. El tamaño de los blobs de origen de datos de referencia se limita a 100 MB.
+
+Para obtener más información sobre las entradas de datos de referencia, vea [Uso de datos de referencia para las búsquedas en Stream Analytics](stream-analytics-use-reference-data.md)
 
 Este artículo es un paso de la [ruta de aprendizaje de Stream Analytics](/documentation/learning-paths/stream-analytics/).
 
-## <a name="data-input-streaming-data-and-reference-data"></a>Entrada de datos: datos de streaming y datos de referencia
-Hay dos tipos distintos de entradas en Stream Analytics: flujos de datos y datos de referencia.
-
-* **Secuencias de datos**: los trabajos de Stream Analytics deben incluir, al menos, una entrada de secuencia de datos para que el trabajo la consuma y transforme. Azure Blob Storage y Azure Event Hubs se admiten como orígenes de entrada de flujos de datos. Azure Event Hubs se usan para recopilar transmisiones de eventos desde dispositivos conectados, servicios y aplicaciones. El almacenamiento de blobs de Azure puede usarse como origen de entrada para la ingesta de datos en masa como secuencia.  
-* **Datos de referencia**: Stream Analytics admite un segundo tipo de entrada auxiliar denominada datos de referencia.  A diferencia de los datos en movimiento, estos datos son estáticos o están desacelerando los cambios.  Normalmente se usa para realizar búsquedas y correlaciones con secuencias de datos para crear un conjunto de datos más amplio.  Almacenamiento de blobs de Azure es el único origen de entrada admitido actualmente para los datos de referencia.  
-
-Para agregar una entrada a su trabajo de Stream Analytics:
-
-1. En Azure Portal, haga clic en **Entradas** y en **Agregar una entrada** en el trabajo de Stream Analytics.
-   
-    ![Azure Portal: agregar una entrada](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
-   
-    En Azure Portal, haga clic en el icono **Entradas** en el trabajo de Stream Analytics.  
-   
-    ![Portal de Azure: agregar entrada.](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)  
-2. Especifique el tipo de la entrada: **Flujo de datos** o **Datos de referencia**.
-   
-    ![Adición de la entrada correcta de datos, de streaming o de referencia](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)  
-   
-    ![Adición de la entrada correcta de datos, de streaming o de referencia](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)  
-3. Si crea una entrada de Flujo de datos, especifique el tipo de origen para la entrada.  Este paso se omite durante la creación de Datos de referencia ya que, en este momento, solo se admite el almacenamiento de blobs.
-   
-    ![Adición de entrada de datos de flujo de datos](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)  
-   
-    ![Adición de entrada de datos de flujo de datos](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)  
-4. Asigne un nombre descriptivo para esta entrada en el cuadro Alias de entrada.  Este nombre se usará en la consulta de su trabajo más adelante para hacer referencia a la entrada.
-   
-    Rellene el resto de las propiedades de conexión necesarias para conectarse a su origen de datos. 
-   
-    ![Adición de entrada de datos de Centro de eventos](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)  
-5. Especifique la configuración de serialización para los datos de entrada:
-   
-   * Para asegurarse de que las consultas funcionan según lo previsto, especifique el **Formato de serialización de eventos** de los datos entrantes.  Los formatos de serialización compatibles son JSON, CSV y Avro. Asegúrese de que el formato JSON responde a la especificación y no incluye un 0 inicial para números decimales.
-   * Compruebe el valor de **Codificación** para los datos.  Por el momento, UTF-8 es el único formato de codificación compatible.
-     
-     ![Configuración de la serialización de datos para la entrada de datos](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)  
-     
-     ![Configuración de la serialización de datos para la entrada de datos](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)  
-6. Después de completar la creación de la entrada, el Stream Analytics comprobará que se puede conectar al origen de la entrada.  Puede ver el estado de la operación de prueba de conexión en el centro de notificaciones.
-   
-    ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)  
-   
-    ![Prueba de la conexión de la entrada de datos de streaming](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
-
-## <a name="get-help-with-streaming-data-inputs"></a>Obtener ayuda con las entradas de datos de streaming
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
-* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+> [!div class="nextstepaction"]
+> [Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal](stream-analytics-quick-create-portal.md)

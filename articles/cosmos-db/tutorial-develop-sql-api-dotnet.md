@@ -16,11 +16,11 @@ ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: a6ed74de159593003e8a18daefce2eb9a5945481
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 528832473d68fa90e6383873b1e0491f5abe09c7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-develop-with-the-sql-api-in-net"></a>Azure Cosmos DB: desarrollo con la API de SQL en .NET
 
@@ -155,7 +155,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Este método realiza una llamada API de REST a Azure Cosmos DB y el servicio aprovisiona una cantidad de particiones según el rendimiento que se solicite. Puede cambiar el rendimiento de una colección a medida que evolucionan las necesidades de rendimiento con el SDK o [Azure Portal](set-throughput.md).
+Este método realiza una llamada API de REST a Azure Cosmos DB y el servicio aprovisiona una cantidad de particiones según el rendimiento que se solicite. Puede cambiar el rendimiento de una colección, o conjunto de colecciones, a medida que evolucionan las necesidades de rendimiento con el SDK o [Azure Portal](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Creación de documentos JSON
 Vamos a insertar algunos documentos JSON en Azure Cosmos DB. Un [documento](sql-api-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). Esta clase de ejemplo contiene una lectura de dispositivo y una llamada a CreateDocumentAsync para insertar una nueva lectura de dispositivo en una colección.

@@ -1,23 +1,23 @@
 ---
-title: "Creación de un clúster de Azure Container Service (AKS)"
-description: "Creación de un clúster de AKS con la CLI o Azure Portal."
+title: Creación de un clúster de Azure Kubernetes Service (AKS)
+description: Creación de un clúster de AKS con la CLI o Azure Portal.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 37d6dfc0aa6b3e4fcd88a53e83a3a3d7f2157681
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 00672b6272ce9c775621e519c327c0b8368bc220
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-an-azure-container-service-aks-cluster"></a>Creación de un clúster de Azure Container Service (AKS)
+# <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Creación de un clúster de Azure Kubernetes Service (AKS)
 
-Un clúster de Azure Container Service (AKS) se puede crear con la CLI de Azure o Azure Portal.
+Un clúster de Azure Kubernetes Service (AKS) se puede crear con la CLI de Azure o Azure Portal.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -32,7 +32,7 @@ Las siguientes opciones están disponibles con el comando `az aks create`.
 | Argumento | DESCRIPCIÓN | Obligatorio |
 |---|---|:---:|
 | `--name``-n` | Nombre de recurso para el clúster administrado. | Sí |
-| `--resource-group``-g` | Nombre del grupo de recursos de Azure Container Service (AKS). | Sí |
+| `--resource-group``-g` | Nombre del grupo de recursos de Azure Kubernetes Service. | Sí |
 | `--admin-username``-u` | Nombre de usuario para Linux Virtual Machines.  Valor predeterminado: azureuser. | no |
 | ` --client-secret` | Secreto asociado a la entidad de servicio. | no |
 | `--dns-name-prefix``-p` | Prefijo DNS para la dirección ip pública de clústeres. | no |
@@ -48,7 +48,7 @@ Las siguientes opciones están disponibles con el comando `az aks create`.
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Para instrucciones sobre cómo implementar un clúster de AKS con Azure Portal, consulte el [inicio rápido de Azure Portal][aks-portal-quickstart] de Azure Container Service (AKS). 
+Para instrucciones sobre cómo implementar un clúster de AKS con Azure Portal, consulte el [inicio rápido de Azure Portal][aks-portal-quickstart] de Azure Kubernetes Service (AKS).
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create

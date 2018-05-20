@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 512f9e22d01e3bdb90210402aaf123ac6326759a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0f38d05dc720dd596c81a51abf7040ac062e8158
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia de datos optimizables en Azure Cosmos DB
 El diseño de Azure Cosmos DB se llevó a cabo desde el principio pensando en la distribución global de cada modelo de datos. Se ha diseñado para que ofrezca garantías de una baja latencia predecible y varios modelos de coherencia moderada bien definidos. Actualmente, Azure Cosmos DB ofrece cinco niveles de coherencia: fuerte, de obsolescencia limitada, de sesión, de prefijo coherente y final. Obsolescencia limitada, sesión, prefijo coherente y posible se denominan "modelos de coherencia moderada", ya que proporcionan menos coherencia que la coherencia fuerte, que es el modelo más coherente disponible. 
@@ -44,7 +44,7 @@ En la tabla siguiente se muestran las garantías específicas que ofrece cada ni
 | Nivel de coherencia | Garantías |
 | --- | --- |
 | Alta | Linealidad. Se garantiza que las lecturas devolverán la versión más reciente de un elemento.|
-| De obsolescencia entrelazada | Prefijo coherente. Los prefijos k y los intervalos t retrasan las lecturas tras las escrituras |
+| De obsolescencia entrelazada | Prefijo coherente. Los mayoría de los prefijos k y los intervalos t retrasan las lecturas tras las escrituras |
 | Sesión   | Prefijo coherente. Lecturas monótonas, escrituras monótonas, lectura de la escritura, escritura tras las lecturas |
 | De prefijo coherente | Las actualizaciones devueltas son prefijos de todas las actualizaciones, sin espacios |
 | Ocasional  | Lecturas sin orden |

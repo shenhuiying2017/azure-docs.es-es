@@ -3,22 +3,22 @@ title: Administración de registros
 description: En este tema se explica cómo registrar dispositivos en los centros de notificaciones para recibir notificaciones push.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 969f6b9654200b7f742b6405faa2cff2b13ba537
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 7f9052da066fcc0021151bf3b547484859cf216d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="registration-management"></a>Administración de registros
 ## <a name="overview"></a>Información general
@@ -37,7 +37,7 @@ Las siguientes son algunas ventajas clave de usar las instalaciones:
 
 * Crear o actualizar una instalación es completamente idempotente. Por lo tanto, puede volver a intentarla sin preocuparse de obtener registros duplicados.
 * El modelo de instalación facilita la realización de inserciones individuales, orientándose a un dispositivo específico. Una etiqueta de instalación **"$InstallationId:[IdentificadordeInstalación]"** se crea automáticamente con cada registro basado en instalación. Por lo tanto, puede llamar un envío a esta etiqueta para orientarse a un dispositivo específico sin tener que realizar ninguna codificación adicional.
-* El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta especialmente útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
+* El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
 
 Una instalación puede contener las siguientes propiedades. Para una lista completa de las propiedades de instalación, consulte los artículos de [creación o sobreescritura de una instalación con la API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) o de [propiedades de instalación](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
@@ -84,10 +84,10 @@ Los registros y las instalaciones deben contener un controlador PNS válido para
 #### <a name="templates"></a>Plantillas
 Si desea usar [Plantillas](notification-hubs-templates-cross-platform-push-messages.md), la instalación de dispositivo también contiene todas las plantillas asociadas con ese dispositivo en un formato JSON (consulte el ejemplo anterior). Los nombres de las plantillas ayudan a dirigirse a distintas plantillas para el mismo dispositivo.
 
-Observe que cada nombre de plantilla está asignado al cuerpo de una plantilla y a un conjunto opcional de etiquetas. Además, cada plataforma puede tener propiedades de plantilla adicionales. En el caso de Tienda Windows (con WNS) y Windows Phone 8 (con MPNS), un conjunto de encabezados adicional puede formar parte de la plantilla. En el caso de APNs, puede establecer una propiedad de expiración en una constante o en una expresión de plantilla. Para obtener una lista completa de las propiedades de la instalación, consulte el tema [Creación o sobrescritura de una instalación con REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) .
+Cada nombre de plantilla está asignado al cuerpo de una plantilla y a un conjunto opcional de etiquetas. Además, cada plataforma puede tener propiedades de plantilla adicionales. En el caso de Tienda Windows (con WNS) y Windows Phone 8 (con MPNS), un conjunto de encabezados adicional puede formar parte de la plantilla. En el caso de APNs, puede establecer una propiedad de expiración en una constante o en una expresión de plantilla. Para obtener una lista completa de las propiedades de la instalación, consulte el tema [Creación o sobrescritura de una instalación con REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) .
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Iconos secundarios de Aplicaciones de la Tienda Windows
-En el caso de las aplicaciones cliente de la Tienda Windows, enviar notificaciones a los iconos secundarios es igual que enviarlos al icono principal. Esto también se admite en las instalaciones. Tenga en cuenta que los iconos secundarios tienen un ChannelUri distinto, que el SDK de la aplicación cliente administra sin problemas.
+En el caso de las aplicaciones cliente de la Tienda Windows, enviar notificaciones a los iconos secundarios es igual que enviarlos al icono principal. Esto también se admite en las instalaciones. Los iconos secundarios tienen un ChannelUri distinto, que el SDK de la aplicación cliente administra sin problemas.
 
 El diccionario SecondaryTiles utiliza el mismo TileId que se usa para crear el objeto SecondaryTiles en la aplicación de la Tienda Windows.
 Al igual que lo que ocurre con el ChannelUri principal, los ChannelUri de los iconos secundarios pueden cambiar en cualquier momento. Para mantener actualizadas las instalaciones en el centro de notificaciones, el dispositivo debe actualizarlas con los ChannelUri actuales de los iconos secundarios.
@@ -98,7 +98,7 @@ Cuando administra el registro del dispositivo desde las aplicaciones cliente, el
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 El dispositivo primero recupera el identificador de PNS desde el PSN y, luego, se registra directamente con el centro de notificaciones. Una vez que el registro se realiza correctamente, el back-end de la aplicación puede enviar una notificación orientada a ese registro. Para obtener más información sobre cómo enviar notificaciones, consulte [Expresiones de etiqueta y enrutamiento](notification-hubs-tags-segment-push-message.md).
-Tenga en cuenta que, en este caso, solo usará derechos de escucha para tener acceso a los centros de notificaciones desde el dispositivo. Para obtener más información, consulte [Seguridad](notification-hubs-push-notification-security.md).
+En este caso, solo usará derechos de escucha para tener acceso a los centros de notificaciones desde el dispositivo. Para obtener más información, consulte [Seguridad](notification-hubs-push-notification-security.md).
 
 El registro desde el dispositivo es el método más sencillo, pero presenta algunos inconvenientes.
 La primera desventaja es que una aplicación cliente solo puede actualizar sus etiquetas cuando la aplicación está activa. Por ejemplo, si un usuario tiene dos dispositivos que registran las etiquetas relacionadas con equipos deportivos, cuando el primer dispositivo registra una etiqueta adicional (por ejemplo, Seahawks), el segundo dispositivo no recibirá las notificaciones sobre los Seahawks hasta que la aplicación del segundo dispositivo se ejecute por segunda vez. De manera más general, cuando son varios los dispositivos que afectan las etiquetas, la administración de estas desde el back-end es una opción conveniente.

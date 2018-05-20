@@ -1,29 +1,31 @@
 ---
-title: "Opciones de ayuda y soporte técnico para los desarrolladores que trabajan con identidades de Azure | Microsoft Docs"
-description: "Infórmese sobre cómo obtener ayuda y soporte técnico para preguntas relacionadas con el desarrollo, y para resolver los problemas que pueden surgir al crear aplicaciones que se integran con las identidades de Microsoft Azure (Azure Active Directory y MSA)"
+title: Opciones de ayuda y soporte técnico para los desarrolladores que trabajan con identidades de Azure | Microsoft Docs
+description: Infórmese sobre cómo obtener ayuda y soporte técnico para preguntas relacionadas con el desarrollo, y para resolver los problemas que pueden surgir al crear aplicaciones que se integran con las identidades de Microsoft Azure (Azure Active Directory y MSA)
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/27/2017
-ms.author: andret
+ms.author: celested
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 06da07aa699d19602449dc365abb971867214a31
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae682830a8d0e2c5c27211a3396d04c881c41585
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores 
 
-Independientemente de si está empezando a integrarse con Azure Active Directory, las identidades de Microsoft o Microsoft API Graph, o si está implementando una nueva característica en una aplicación, hay ocasiones en las que puede necesitar ayuda de la comunidad de usuarios o querer saber las opciones de soporte técnico que tienen como desarrollador. Este artículo le ayuda a conocer estas opciones, a continuación le presentamos un resumen:
+Independientemente de si está empezando a integrarse con Azure Active Directory, las identidades de Microsoft o Microsoft Graph API, o si está implementando una nueva característica en una aplicación, hay ocasiones en las que puede necesitar ayuda de la comunidad de usuarios o querer saber las opciones de soporte técnico que tienen como desarrollador. Este artículo le ayuda a conocer estas opciones, a continuación le presentamos un resumen:
 
 > [!div class="checklist"]
 > * Realice una búsqueda para comprobar si la pregunta sobre su problema ya ha sido contestada en la comunidad, o si existe documentación para la característica que está intentando implementar
@@ -47,11 +49,11 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 
 ## <a name="use-our-development-support-tools"></a>Uso de nuestras herramientas de soporte técnico de desarrollo
 
-|Herramienta  |Descripción  |
+|Herramienta  |DESCRIPCIÓN  |
 |---------|---------|
 |[jwt.ms](https://jwt.ms)| Pegue un identificador o un token de acceso para descodificar los valores y nombres de notificaciones |
 |[Error Code Analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Pegue un código de error recibido durante el inicio de sesión o las páginas de consentimiento para ver posibles causas y correcciones |
-|[Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Esta herramienta le permite realizar las solicitudes y ver las respuestas en Microsoft API Graph|
+|[Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Esta herramienta le permite realizar las solicitudes y ver las respuestas en Microsoft Graph API|
 
 <br/>
 
@@ -69,7 +71,7 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 |Middleware OWIN  |[[azure-active directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
 |[B2B de Azure](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[B2C de Azure](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft API Graph](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
+|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
 |Cualquier otra área relacionada con temas de autenticación o autorización |[[azure-active directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]

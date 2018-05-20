@@ -1,45 +1,44 @@
 ---
-title: "Implementación y administración de Centros de notificaciones mediante PowerShell"
-description: "Creación y administración de Centros de notificaciones mediante PowerShell con vistas a la automatización"
+title: Implementación y administración de Notification Hubs mediante PowerShell
+description: Creación y administración de centros de notificaciones mediante PowerShell para Automation
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Centros de notificaciones mediante PowerShell
+# <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 ## <a name="overview"></a>Información general
-Este artículo muestra cómo crear y administrar Centros de notificaciones de Azure mediante PowerShell. En este tema se muestran las siguientes tareas de automatización más comunes.
+Este artículo muestra cómo crear y administrar Azure Notification Hubs mediante PowerShell. En este tema se muestran las siguientes tareas de automatización más comunes.
 
 * Creación de un centro de notificaciones
 * Definición de credenciales
 
 Si también necesita crear un nuevo espacio de nombres de Service Bus para sus Notification Hubs, consulte [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
-No se admite la administración de Centros de notificaciones directamente mediante los cmdlets incluidos con Azure PowerShell. El mejor enfoque en PowerShell es hacer referencia al ensamblado Microsoft.Azure.NotificationHubs.dll. El ensamblado se distribuye con el [paquete NuGet de los Centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+No se admite la administración de Centros de notificaciones directamente mediante los cmdlets incluidos con Azure PowerShell. El mejor enfoque en PowerShell es hacer referencia al ensamblado Microsoft.Azure.NotificationHubs.dll. El ensamblado se distribuye con el [paquete NuGet de Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Requisitos previos
-Antes de empezar este artículo, debe tener lo siguiente:
+## <a name="prerequisites"></a>requisitos previos
 
 * Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra], [Ofertas para miembros] o [Evaluación gratuita].
 * Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell].
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
-La administración de los Centros de notificaciones de Azure no está incluida aún con los cmdlets de Azure PowerShell. Para aprovisionar los centros de notificaciones, puede usar el cliente de .NET ofrecido en el [paquete NuGet de los Centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+La administración de Azure Notification Hubs no está incluida aún con los cmdlets de Azure PowerShell. Para aprovisionar centros de notificaciones, puede usar el cliente de .NET ofrecido en el [paquete NuGet de Microsoft Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Microsoft.Azure.NotificationHubs.dll** , que se instala como un paquete NuGet en un proyecto de Visual Studio. Para ser flexible, el script llevará a cabo estos pasos:
 
@@ -71,9 +70,9 @@ catch [System.Exception]
 ```
 
 ## <a name="create-the-namespacemanager-class"></a>Creación de la clase NamespaceManager
-Para aprovisionar los Centros de notificaciones, cree una instancia de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) desde el SDK. 
+Para aprovisionar Notification Hubs, cree una instancia de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) desde el SDK. 
 
-Puede usar el cmdlet [Get-AzureSBAuthorizationRule] que se incluye con Azure PowerShell para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Almacenaremos una referencia a la instancia de `NamespaceManager` en la variable `$NamespaceManager`. Usaremos `$NamespaceManager` para aprovisionar un centro de notificaciones.
+Puede usar el cmdlet [Get-AzureSBAuthorizationRule] que se incluye con Azure PowerShell para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Se almacena una referencia a la instancia de `NamespaceManager` en la variable `$NamespaceManager`. Se usa `$NamespaceManager` para aprovisionar un centro de notificaciones.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -85,16 +84,16 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 
 ## <a name="provisioning-a-new-notification-hub"></a>Aprovisionamiento de un nuevo centro de notificaciones
-Para aprovisionar un nuevo centro de notificaciones, use la [API de .NET para Centros de notificaciones].
+Para aprovisionar un nuevo centro de notificaciones, use la [API de .NET para Notification Hubs].
 
 En esta parte del script, configuramos cuatro variables locales. 
 
 1. `$Namespace` : establezca esta variable en el nombre del espacio de nombres donde quiera crear un centro de notificaciones.
 2. `$Path` : establezca esta ruta de acceso en el nombre del nuevo centro de notificaciones.  Por ejemplo, "MyHub".    
-3. `$WnsPackageSid` : establezca esta variable en el SID del paquete para la aplicación de Windows desde el [Centro de desarrollo de Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+3. `$WnsPackageSid`: establezca esta variable en el SID del paquete para la aplicación de Windows desde el [Centro de desarrollo de Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 4. `$WnsSecretkey`: establezca este valor en la clave secreta para la aplicación de Windows desde el [Centro de desarrollo de Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
-Estas variables se usan para conectar con el espacio de nombres y crear un nuevo centro de notificaciones configurado para controlar las notificaciones de los servicios de notificación de Windows (WNS) con las credenciales de WNS en una aplicación de Windows. Para información sobre cómo obtener el SID del paquete y la clave secreta, vea el tutorial [Introducción a los Centros de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) . 
+Estas variables se usan para conectar con el espacio de nombres y crear un nuevo centro de notificaciones configurado para controlar las notificaciones de los servicios de notificación de Windows (WNS) con las credenciales de WNS en una aplicación de Windows. Para información sobre cómo obtener el SID del paquete y la clave secreta, vea el tutorial [Introducción a Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) . 
 
 * El fragmento de código de script usa el objeto `NamespaceManager` para comprobar si existe el Centro de notificaciones identificado por `$Path`.
 * Si no existe, el script creará una `NotificationHubDescription` con las credenciales de WNS y la pasará al método `CreateNotificationHub` de la clase `NamespaceManager`.
@@ -158,7 +157,7 @@ Además, puede descargar algunos scripts listos para usar:
 [Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
 [Evaluación gratuita]: http://azure.microsoft.com/pricing/free-trial/
 [Instalación y configuración de Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[API de .NET para Centros de notificaciones]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[API de .NET para Notification Hubs]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

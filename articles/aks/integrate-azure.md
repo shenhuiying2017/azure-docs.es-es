@@ -3,16 +3,16 @@ title: Integración con los servicios administrados de Azure mediante Open Servi
 description: Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integración con los servicios administrados de Azure mediante Open Service Broker for Azure (OSBA)
 
@@ -23,11 +23,11 @@ Junto con el [catálogo de servicios de Kubernetes][kubernetes-service-catalog],
 
 * CLI de Azure 2.0: puede [instalarla localmente][azure-cli-install] o usarla en [Azure Cloud Shell][azure-cloud-shell].
 
-* CLI 2.7+ de Helm: puede [instalarla localmente][helm-cli-install] o usarla en [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: puede [instalarla localmente][helm-cli-install] o usarla en [Azure Cloud Shell][azure-cloud-shell].
 
 * Permisos para crear una entidad de servicio con el rol de Colaborador en la suscripción de Azure
 
-* Un clúster de Azure Container Service (AKS) existente. Si necesita un clúster de AKS, siga la guía de inicio rápido [Creación de un clúster de AKS][create-aks-cluster].
+* Un clúster de Azure Kubernetes Service (AKS) existente. Si necesita un clúster de AKS, siga la guía de inicio rápido [Creación de un clúster de AKS][create-aks-cluster].
 
 ## <a name="install-service-catalog"></a>Instalación del catálogo de servicios
 
@@ -182,7 +182,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Al seguir este artículo, implementó el catálogo de servicios en un clúster de Azure Container Service (AKS). Usó Open Service Broker for Azure para implementar una instalación de WordPress que use servicios administrados de Azure, en este caso, Azure Database for MySQL.
+Al seguir este artículo, implementó el catálogo de servicios en un clúster de Azure Kubernetes Service (AKS). Usó Open Service Broker for Azure para implementar una instalación de WordPress que use servicios administrados de Azure, en este caso, Azure Database for MySQL.
 
 Consulte el repositorio de [Azure/helm-charts][helm-charts] para acceder a otros gráficos de Helm basados en OSBA. Si está interesado en crear sus propios gráficos que funcionen con OSBA, consulte [Creación de un nuevo gráfico][helm-create-new-chart].
 

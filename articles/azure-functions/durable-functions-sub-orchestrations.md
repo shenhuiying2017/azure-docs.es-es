@@ -1,12 +1,12 @@
 ---
 title: 'Suborquestaciones en Durable Functions: Azure'
-description: "Aprenda a llamar orquestaciones desde otras orquestaciones en la extensión Durable Functions para Azure Functions."
+description: Aprenda a llamar orquestaciones desde otras orquestaciones en la extensión Durable Functions para Azure Functions.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5184bef81d1cd6ca7b41c1634def24031a4a5942
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 7545a371749ed9af88f08af23cce3a513f494374
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Suborquestaciones en Durable Functions (Azure Functions)
 
@@ -27,6 +27,9 @@ Además de llamar a funciones de actividad, las funciones de orquestador pueden 
 Una función de orquestador puede llamar a otra función de orquestador mediante una llamada a los métodos [CallSubOrchestratorAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorAsync_) o [CallSubOrchestratorWithRetryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallSubOrchestratorWithRetryAsync_). En el artículo [Control de errores y compensación](durable-functions-error-handling.md#automatic-retry-on-failure) se ofrece más información sobre los reintentos automáticos.
 
 Las funciones de suborquestador se comportan como funciones de actividad desde la perspectiva del llamador. Pueden devolver un valor, producir una excepción y ser esperadas por la función de orquestador primaria.
+
+> [!NOTE]
+> Los métodos `CallSubOrchestratorAsync` y `CallSubOrchestratorWithRetryAsync` todavía no están disponibles en JavaScript.
 
 ## <a name="example"></a>Ejemplo
 

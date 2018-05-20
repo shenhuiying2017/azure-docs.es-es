@@ -175,6 +175,8 @@ items:
                 href: bulk-executor-dot-net.md
               - name: 'BulkExecutor: Java'
                 href: bulk-executor-java.md
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Consultar
                 items:
                   - name: Realizar consultas SQL
@@ -263,6 +265,8 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Recursos
             items:
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Área de juegos de SQL
@@ -325,8 +329,12 @@ items:
                 href: mongodb-indexing.md
               - name: Visualización de datos con Power BI
                 href: powerbi-visualize.md
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
           - name: Recursos
             items:
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentos de Graph API
@@ -349,6 +357,8 @@ items:
             items:
               - name: Creación de particiones de Graph
                 href: graph-partitioning.md
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Integrate
                 items:
                   - name: Conexión a Spark GraphX
@@ -359,6 +369,8 @@ items:
                 href: graph-sdk-dotnet.md
           - name: Recursos
             items:
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Extensión de Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentos de Table API
@@ -415,6 +427,8 @@ items:
                 href: table-sdk-python.md
           - name: Recursos
             items:
+              - name: Administración del uso de Explorador de Azure Storage
+                href: storage-explorer.md
               - name: Información general de Table Storage
                 href: table-storage-overview.md
               - name: Guía de diseño de almacenamiento en tablas
@@ -457,8 +471,12 @@ items:
         href: key-value-store-cost.md
       - name: Expiración automática de los datos
         href: time-to-live.md
+      - name: Administración del uso de Explorador de Azure Storage
+        href: storage-explorer.md
   - name: Recursos
     items:
+      - name: Administración del uso de Explorador de Azure Storage
+        href: storage-explorer.md
       - name: Hoja de referencia rápida de consultas
         href: query-cheat-sheet.md
       - name: 20 días de sugerencias

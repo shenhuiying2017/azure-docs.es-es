@@ -2,25 +2,22 @@
 title: Actualización de PhoneFactor al Servidor Azure MFA | Microsoft Docs
 description: Introducción al Servidor Azure MFA al actualizar desde una instancia anterior de PhoneFactor Agent.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
-ms.openlocfilehash: eca7e846aaa17c245a1d904489a25e6de2c3cca7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: e1a216a8bf524d22af815d077b16ab29c817e9e4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
+
 Para actualizar PhoneFactor Agent v5.x o una versión anterior al Servidor Azure Multi-Factor Authentication, desinstale primero PhoneFactor Agent y los componentes asociados. Luego, puede instalar el Servidor Multi-Factor Authentication y sus componentes asociados.
 
 ## <a name="uninstall-the-phonefactor-agent"></a>Desinstalación de PhoneFactor Agent

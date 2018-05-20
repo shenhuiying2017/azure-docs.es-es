@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 8a642b569389d960e7a3a1fa2c7cb0f2d87bd809
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 707f25a71a22f136a3cfc537ec3dd939e06dea08
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalación y uso de Solr en clústeres de Hadoop de HDInsight
 
@@ -87,7 +87,7 @@ Use los pasos siguientes para agregar datos de ejemplo a Solr y luego, consúlte
     Para más información, consulte [Uso SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Unos pasos más adelante en este documento, use un túnel SSL para conectarse a la interfaz de usuario web Solr. Para poder seguir estos pasos, tiene que establecer un túnel SSL y, después, configurar el explorador para que lo utilice.
+     > Más adelante en este documento, deberá seguir ciertos pasos para usar un túnel SSH para conectarse a la interfaz de usuario web Solr. Para poder seguir estos pasos, tiene que establecer un túnel SSH y, a continuación, configurar el explorador para que lo utilice.
      >
      > Para obtener más información, vea el documento [Uso de un túnel SSH con HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 

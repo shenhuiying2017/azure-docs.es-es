@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 72ba97727fd4de1c419091475f14427065790cc7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -63,6 +63,8 @@ Pasos para crear un ASE con un ILB:
 
 4. Cree una red virtual o seleccione una.
 
+    * Si selecciona una red virtual nueva, puede especificar un nombre y una ubicación. Si desea hospedar aplicaciones de Linux en este ASE, solo se admiten estas 6 regiones en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
+
 5. Si selecciona una red virtual existente, debe crear una subred para almacenar el ASE. Asegúrese de establecer un tamaño de subred suficientemente grande para alojar el crecimiento futuro de su ASE. Recomendamos un tamaño de `/25`, que tiene 128 direcciones y puede controlar los ASE de tamaño máximo. El tamaño mínimo que puede seleccionar es `/28`. Tras las necesidades de infraestructura, este tamaño se puede escalar hasta un máximo de 3 instancias.
 
     * Vaya más allá del máximo predeterminado de 100 instancias en los planes de App Service.
@@ -106,7 +108,7 @@ Si establece el valor de **Tipo de dirección VIP** en **Interna**, el nombre de
 
 Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicación en un ASE normalmente.
 
-1. En Azure Portal, seleccione **Crear un recurso** > **Web y móvil** > **Web** o bien **Móvil** o **Aplicación de API**.
+1. En Azure Portal, seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
 
 2. Escriba el nombre de la aplicación.
 
@@ -114,9 +116,13 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 4. Seleccione o cree un grupo de recursos.
 
-5. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
+5. Seleccione el sistema operativo. 
 
-6. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla **Anclar a panel**.
+    * Si desea crear una aplicación de Linux con un contenedor de Docker personalizado, simplemente puede poner su propio contenedor siguiendo las instrucciones que aparecen aquí. 
+
+6. Seleccione o cree un plan de App Service. Si desea crear un nuevo plan de App Service, seleccione su ASE como ubicación. Seleccione el grupo de trabajo donde desea que se cree el plan de App Service. Cuando cree el plan de App Service, seleccione el ASE como ubicación y grupo de trabajo. Al especificar el nombre de la aplicación, el dominio que se encuentra bajo el nombre de la aplicación se reemplaza por el dominio del ASE.
+
+7. Seleccione **Crear**. Si quiere que la aplicación aparezca en el panel, active la casilla **Anclar a panel**.
 
     ![Creación del plan de App Service][2]
 
@@ -209,7 +215,7 @@ El nombre del sitio SCM le lleva a la consola de Kudu, denominada **Advanced Por
 
 En el servicio App Service multiinquilino y en un ASE Externo, hay un inicio de sesión único entre Azure Portal y la consola de Kudu. Sin embargo, para el ASE con un ILB, debe usar las credenciales de publicación para iniciar sesión en la consola de Kudu.
 
-Los sistemas de CI basados en Internet, como GitHub y Visual Studio Team Services, no funcionan con un ASE con un ILB ya que el punto de conexión de publicación no es accesible desde Internet. En lugar de eso, necesita usar un sistema de CI que use un modelo de extracción, como Dropbox.
+Los sistemas de CI basados en Internet, como GitHub y Visual Studio Team Services, seguirán funcionando con un ASE de ILB si se puede acceder al agente de compilación a través de Internet y este está en la misma red que ASE de ILB. Por tanto, en el caso de Visual Studio Team Services, si el agente de compilación se crea en la misma red virtual que el ASE de ILB (también puede usar una red virtual diferente), podrá extraer el código del repositorio Git de VSTS e implementarlo en el ASE de ILB. Si no desea crear su propio agente de compilación, deberá usar un sistema de CI que use un modelo de extracción como Dropbox.
 
 Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Este dominio aparece en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). Si tiene un ASE con un ILB con el subdominio *contoso.net* y una aplicación llamada *mytest*, use *mytest.contoso.net* para FTP y *mytest.scm.contoso.net* para la implementación web.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: tdykstra
-ms.openlocfilehash: e593f58f6b92e562067401381cfce06d5fb18e29
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -302,7 +302,7 @@ module.exports = function(context) {
 Debe definir un archivo `package.json` en la raíz de Function App. La definición del archivo permite que todas las funciones de la aplicación compartan los mismos paquetes almacenados en caché, de tal manera que se ofrece el mejor rendimiento. Cuando hay conflictos con una versión, puede resolverlo mediante la adición de un archivo `package.json` en la carpeta de una función específica.  
 
 ## <a name="environment-variables"></a>Variables de entorno
-Para obtener una variable de entorno o un valor de configuración de aplicación, use `process.env`, como se muestra en el ejemplo de código siguiente:
+Para obtener una variable de entorno o un valor de configuración de aplicación, use `process.env`, como se muestra en la siguiente función `GetEnvironmentVariable`:
 
 ```javascript
 module.exports = function (context, myTimer) {

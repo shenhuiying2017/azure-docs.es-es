@@ -1,6 +1,6 @@
 ---
-title: "Implementación de la solución Device Simulation: Azure | Microsoft Docs"
-description: "Este tutorial muestra cómo aprovisionar la solución Device Simulation desde azureiotsuite.com."
+title: 'Implementación de la solución Device Simulation: Azure | Microsoft Docs'
+description: Este tutorial muestra cómo aprovisionar la solución Device Simulation desde azureiotsuite.com.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: da9fb95ed5d3387c98c3274a53769d3f5f945371
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 52890c51b06777a2d74fcf143bee4e5e8919ba75
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Implementación de la solución Azure IoT Device Simulation
 
@@ -47,7 +47,7 @@ Antes de implementar la solución en la suscripción de Azure, debe elegir algun
 
     ![Seleccionar Device Simulation](media/iot-suite-device-simulation-deploy/select.png)
 
-1. En la página de **creación de Device Simulation**, escriba un **nombre de solución** para su solución Device Simulation.
+1. En la página de **creación de la solución Device Simulation**, escriba un **nombre de solución** para su solución Device Simulation.
 
 1. Seleccione la **Suscripción** y **Región** que desea usar para aprovisionar la solución.
 

@@ -1,6 +1,6 @@
 ---
-title: Conexión SSH con los nodos de un clúster de Azure Container Service (AKS)
-description: Creación de una conexión SSH con los nodos de un clúster de Azure Container Service (AKS)
+title: Conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
+description: Creación de una conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 085a2976443db8ece7a36dbfc133b173432ce4c8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="ssh-into-azure-container-service-aks-cluster-nodes"></a>Conexión SSH con los nodos de un clúster de Azure Container Service (AKS)
+# <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
 
-En ocasiones, necesitará tener acceso a un nodo de Azure Container Service (AKS) para el mantenimiento, la recopilación de registros u otras operaciones de solución de problemas. Los nodos de Azure Container Service (AKS) no están expuestos a Internet. Utilice los pasos indicados en este documento para crear una conexión SSH con un nodo de AKS.
+En ocasiones, necesitará acceder a un nodo de Azure Kubernetes Service (AKS) para el mantenimiento, la recopilación de registros u otras operaciones de solución de problemas. Los nodos de Azure Kubernetes Service (AKS) no están expuestos a Internet. Utilice los pasos indicados en este documento para crear una conexión SSH con un nodo de AKS.
 
 ## <a name="get-aks-node-address"></a>Obtención de la dirección del nodo de AKS
 

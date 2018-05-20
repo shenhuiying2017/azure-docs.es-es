@@ -9,15 +9,15 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Container Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 
-Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Si lo hace, la actualización se preconfigura para que solo una parte de la implementación se actualice simultáneamente. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación. 
+Después de implementar una aplicación en Kubernetes, se puede actualizar especificando una nueva imagen de contenedor o la versión de la imagen. Si lo hace, la actualización se preconfigura para que solo una parte de la implementación se actualice simultáneamente. Esta actualización preconfigurada permite que la aplicación siga ejecutándose durante la actualización. También proporciona un mecanismo de reversión si se produce un error de implementación.
 
 En este tutorial, la sexta parte de ocho, se actualiza la aplicación de ejemplo Azure Vote. Las tareas que debe completar incluyen las siguientes:
 
@@ -31,15 +31,15 @@ En tutoriales posteriores, se va a configurar Log Analytics para supervisar el c
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, se ha cargado la imagen en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes. 
+En tutoriales anteriores se ha empaquetado una aplicación en una imagen de contenedor, se ha cargado la imagen en Azure Container Registry y se ha creado un clúster de Kubernetes. La aplicación se ejecutó después en el clúster de Kubernetes.
 
 También se clonó un repositorio de aplicación que incluye el código fuente de la aplicación y un archivo de Docker Compose creado previamente que se usa en este tutorial. Confirme que ha creado un clon del repositorio y que ha cambiado los directorios en el repositorio clonado. Dentro hay un directorio denominado `azure-vote` y un archivo denominado `docker-compose.yaml`.
 
-Si no ha finalizado estos pasos y desea continuar, vuelva al [Tutorial 1: Creación de las imágenes de contenedor][aks-tutorial-prepare-app]. 
+Si no ha finalizado estos pasos y desea continuar, vuelva al [Tutorial 1: Creación de las imágenes de contenedor][aks-tutorial-prepare-app].
 
 ## <a name="update-application"></a>Actualización de una aplicación
 
-En este tutorial, se realiza un cambio en la aplicación y la aplicación actualizada se implementa en el clúster de Kubernetes. 
+En este tutorial, se realiza un cambio en la aplicación y la aplicación actualizada se implementa en el clúster de Kubernetes.
 
 El código fuente de la aplicación está en el directorio `azure-vote`. Abra el archivo `config_file.cfg` con cualquier editor de texto o código. En este ejemplo se usa `vi` .
 
@@ -69,13 +69,13 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Prueba local de la aplicación
 
-Vaya a http://localhost:8080 para ver la aplicación actualizada.
+Navegue hasta http://localhost:8080 para ver la aplicación actualizada.
 
 ![Imagen del clúster de Kubernetes en Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>Etiquetado e inserción de imágenes
 
-Etiquete la imagen `azure-vote-front` con el loginServer del registro de contenedor. 
+Etiquete la imagen `azure-vote-front` con el loginServer del registro de contenedor.
 
 El nombre del servidor de inicio de sesión se obtiene con el comando [az acr list](/cli/azure/acr#az_acr_list).
 

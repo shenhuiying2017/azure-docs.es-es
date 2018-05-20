@@ -1,25 +1,24 @@
 ---
-title: "Creación y publicación de un elemento de Marketplace en Azure Stack | Microsoft Docs"
+title: Creación y publicación de un elemento de Marketplace en Azure Stack | Microsoft Docs
 description: Cree y publique un elemento de Marketplace en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 77e5f60c-a86e-4d54-aa8d-288e9a889386
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5ac91dac3cb446abaf07492d8b6ec8aa0c120ef4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 5e0349d6bae9295e7a0ba9f366f84753ebd838c2
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creación y publicación de un producto en Marketplace
 
@@ -101,14 +100,14 @@ ms.lasthandoff: 02/21/2018
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referencia: manifest.json del elemento de Marketplace
 ### <a name="identity-information"></a>Información de identidad
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | NOMBRE |X |string |[A-Za-z0-9]+ | |
 | Publicador |X |string |[A-Za-z0-9]+ | |
 | Versión |X |string |[SemVer v2](http://semver.org/) | |
 
 ### <a name="metadata"></a>Metadatos
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |Se recomiendan 80 caracteres |Es posible que el portal no muestre el nombre del elemento correctamente si tiene más de 80 caracteres. |
 | PublisherDisplayName |X |string |Se recomiendan 30 caracteres |Es posible que el portal no muestre el nombre del editor correctamente si tiene más de 30 caracteres. |
@@ -134,7 +133,7 @@ Todos los elementos de Marketplace deben etiquetarse con una categoría que iden
 ### <a name="links"></a>Vínculos
 Cada elemento de Marketplace puede incluir varios vínculos a contenido adicional. Los vínculos se especifican en forma de lista de nombres e identificadores URI.
 
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |64 caracteres como máximo | |
 | Identificador URI |X |URI | | |
@@ -142,7 +141,7 @@ Cada elemento de Marketplace puede incluir varios vínculos a contenido adiciona
 ### <a name="additional-properties"></a>Propiedades adicionales
 Además de los metadatos anteriores, los creadores de Marketplace pueden proporcionar datos con el par clave-valor personalizado de la forma siguiente:
 
-| NOMBRE | Obligatorio | type | Restricciones | DESCRIPCIÓN |
+| NOMBRE | Obligatorio | Escriba | Restricciones | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |25 caracteres como máximo | |
 | Valor |X |string |30 caracteres como máximo | |

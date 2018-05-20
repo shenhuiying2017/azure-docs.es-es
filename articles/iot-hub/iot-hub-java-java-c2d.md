@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 83fe0e2e39d414120bb09ad58d17b5081caef745
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 4c748f01a83c7f569953f7c7f2fc5631ca0efd17
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envío mensajes de nube a dispositivo con IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -198,7 +198,7 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial, aprendió a enviar y recibir mensajes de nube a dispositivo. 
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usen IoT Hub, consulte [Documentación de Azure IoT Suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -215,5 +215,5 @@ Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, c
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [Control de errores transitorios]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Portal]: https://portal.azure.com
-[Documentación de Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[acelerador de la solución de supervisión remota de Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

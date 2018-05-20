@@ -1,11 +1,11 @@
 ---
 title: H264 Multiple Bitrate 16x9 SD| Microsoft Docs
-description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Multiple Bitrate 16x9 SD**."
+description: El tema proporciona información general sobre el valor predeterminado de la tarea **H264 Multiple Bitrate 16x9 SD**.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 8b16385a-9a3d-4939-aef3-ca6ac82f455f
 ms.service: media-services
 ms.workload: media
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: d5836589932e27e7439fb89fca7be63f0856681e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-multiple-bitrate-16x9-sd"></a>H264 Multiple Bitrate 16x9 SD
-`Media Encoder Standard` define un conjunto de valores predeterminados de Encoding que puede usar al crear trabajos de Encoding. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  
+`Media Encoder Standard` define un conjunto de valores predeterminados de codificación que puede usar al crear trabajos de codificación. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  
   
  En este tema se muestra el valor predeterminado `H264 Multiple Bitrate 16x9 SD` en formato XML y JSON.  
   

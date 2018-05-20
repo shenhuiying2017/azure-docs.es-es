@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d6bc7824687f5418f1270e22b216f8637578aa6d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Supervisión de Azure SQL Database mediante Azure SQL Analytics (versión preliminar) en Log Analytics
 
@@ -136,7 +136,8 @@ Con las perspectivas de duración de consulta y esperas de consulta, puede corre
 
 ### <a name="analyze-data-and-create-alerts"></a>Análisis de datos y creación de alertas
 
-Las alertas se pueden crear fácilmente con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas:
+Las [alertas se pueden crear fácilmente](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) con los datos procedentes de los recursos de Azure SQL Database. Estas son algunas consultas de [búsqueda de registros](log-analytics-log-searches.md) útiles que puede usar para las alertas de registros:
+
 
 
 *DTU alta en Azure SQL Database*
@@ -157,18 +158,7 @@ AzureMetrics
 | render timechart
 ```
 
-Puede usar estas consultas basadas en alertas para generar alertas sobre umbrales específicos para Azure SQL Database y los grupos elásticos. Para configurar una alerta para el área de trabajo de Log Analytics, siga estos pasos:
 
-#### <a name="to-configure-an-alert-for-your-workspace"></a>Configuración de una alerta para el área de trabajo
-
-1. Abra el [portal de OMS](http://mms.microsoft.com/) e inicie sesión.
-2. Abra el área de trabajo que ha configurado para la solución.
-3. En la página Información general, haga clic en el icono de **Azure SQL Analytics (versión preliminar)**.
-4. Ejecute una de las consultas de ejemplo.
-5. En Búsqueda de registros, haga clic en **Alerta**.  
-![crear alerta en la búsqueda](./media/log-analytics-azure-sql/create-alert01.png)
-6. En la página **Agregar regla de alerta** página, configure las propiedades adecuadas y los umbrales específicos que desee y, a continuación, haga clic en **Guardar**. 
-![agregar regla de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0be2952dc39064eaf2814806e81f16e882a6a6fe
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Una introducción a Azure Event Grid
 
@@ -24,11 +24,15 @@ Actualmente, Event Grid admite las siguientes regiones:
 
 * Sudeste de Asia
 * Este de Asia
+* Australia Oriental
+* Sudeste de Australia
 * Central EE. UU:
 *   Este de EE. UU
 *   Este de EE. UU. 2
 * Oeste de Europa
 * Norte de Europa
+* Este de Japón
+* Oeste de Japón
 *   Centro occidental de EE.UU.
 *   Oeste de EE. UU
 *   Oeste de EE. UU. 2
@@ -45,10 +49,13 @@ Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Ev
 * Temas personalizados
 * Event Hubs
 * IoT Hub
+* Media Services
 * Grupos de recursos (operaciones de administración)
 * Azure Service Bus
 * Storage Blob
 * Storage de uso general v2 (GPv2)
+
+En [Event sources in Azure Event Grid](event-sources.md) (Orígenes de eventos de Azure Event Grid), puede encontrar vínculos a artículos que muestran cómo usar cada origen de evento.
 
 ## <a name="event-handlers"></a>Controladores de eventos
 
@@ -57,11 +64,15 @@ Actualmente, los siguientes servicios de Azure admiten el control de eventos de 
 * Azure Automation
 * Azure Functions
 * Event Hubs
+* conexiones híbridas
 * Logic Apps
 * Microsoft Flow
+* Queue Storage
 * WebHooks
 
 Cuando use Azure Functions como controlador, utilice el desencadenador de Event Grid en lugar de los desencadenadores HTTP genéricos. Event Grid valida automáticamente los desencadenadores Function de Event Grid. Con desencadenadores HTTP genéricos, debe implementar la [respuesta de validación](security-authentication.md#webhook-event-delivery).
+
+En [Event handlers in Azure Event Grid](event-handlers.md) (Controladores de eventos de Azure Event Grid), puede encontrar vínculos a artículos que muestran cómo usar cada controlador de eventos.
 
 ## <a name="concepts"></a>Conceptos
 

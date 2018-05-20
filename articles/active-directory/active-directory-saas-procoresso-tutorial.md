@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Procore SSO | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Procore SSO."
+title: 'Tutorial: Integración de Azure Active Directory con Procore SSO | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Procore SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: c6bae8e24f252a535571308467b428832b542e48
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4cba8aa046b84fe63b17a662990824b1823c1572
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -27,19 +27,11 @@ La integración de Procore SSO con Azure AD le proporciona las siguientes ventaj
 
 - Puede controlar en Azure AD quién tiene acceso a Procore SSO.
 - Puede permitir que los usuarios inicien sesión automáticamente en Procore SSO (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Procore SSO, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Procore SSO.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Procore SSO, necesita lo siguiente:
 
@@ -55,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar Procore SSO desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -71,11 +63,11 @@ Para configurar la integración de Procore SSO en Azure AD, tiene que agregar Pr
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Procore SSO**.
 
@@ -192,7 +184,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-procore-sso-test-user"></a>Creación de un usuario de prueba de Procore SSO
 
@@ -216,7 +208,7 @@ Siga estos pasos para crear un usuario de prueba en Procore.
 
     d. Seleccione **Permission Template** (Plantilla de permisos) como **Apply Permission Template Later** (Aplicar plantilla de permisos más tarde).
 
-    e. Haga clic en **Crear**.
+    e. Haga clic en **Create**(Crear).
 
 4. Compruebe los datos del contacto recién agregado y actualícelos.
 

@@ -4,7 +4,7 @@ description: Aprenda acerca de la seguridad de Azure, sus servicios y cómo func
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 51d0f1f6d2689e37c1c39bf4a5e8078a2482c76d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-azure-security"></a>Introducción a la seguridad de Azure
 ## <a name="overview"></a>Información general
@@ -284,7 +284,7 @@ Traffic Manager proporciona una serie de métodos de enrutamiento del tráfico p
 ### <a name="internal-dns"></a>DNS interno
 Puede administrar la lista de servidores DNS usados en una red virtual en el Portal de administración o en el archivo de configuración de red. Un cliente puede agregar hasta 12 servidores DNS para cada red virtual. Al especificar servidores DNS, es importante comprobar que se enumeren los servidores DNS del cliente en el orden correcto para el entorno del cliente. Las listas de servidores DNS no funcionan con Round Robin. Se utilizan en el orden en que se especifican. Si se puede acceder al primer servidor DNS de la lista, el cliente usa ese servidor DNS con independencia de si el servidor DNS funciona correctamente o no. Para cambiar el orden del servidor DNS para la red virtual del cliente, quite los servidores DNS de la lista y agréguelos en el orden en que el cliente desee. DNS es compatible con el aspecto de disponibilidad, parte de la tríada de seguridad formada también por la confidencialidad y la integridad.
 
-### <a name="azure-dns"></a>DNS de Azure
+### <a name="azure-dns"></a>Azure DNS
 El [sistema de nombres de dominio](https://technet.microsoft.com/library/bb629410.aspx), o DNS, es responsable de traducir (o resolver) el nombre del sitio web o del servicio en su dirección IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) es un servicio de hospedaje para dominios DNS que permite resolver nombres mediante la infraestructura de Microsoft Azure. Al hospedar dominios en Azure, puede administrar los registros DNS con las mismas credenciales, API, herramientas y facturación que con los demás servicios de Azure. DNS es compatible con el aspecto de disponibilidad, parte de la tríada de seguridad formada también por la confidencialidad y la integridad.
 ### <a name="log-analytics-nsgs"></a>Grupos de seguridad de red de Log Analytics
 Puede habilitar las siguientes categorías de registro de diagnóstico para los NSG:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: a84393c5c53b8f8e4a8b688a462f433b2d611b0e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Agite para un Tweet: recuperar un mensaje de Twitter con Azure Functions.
 
@@ -33,7 +33,7 @@ Siga la [Guía de introducción](https://docs.microsoft.com/azure/iot-hub/iot-hu
 
 Una suscripción de Azure activa. Si no tiene una, puede registrarse a través de uno de estos métodos:
 
-* Active una [cuenta de Microsoft Azure de prueba de 30 días gratis](https://azure.microsoft.com/en-us/free/)
+* Active una [cuenta de Microsoft Azure de prueba de 30 días gratis](https://azure.microsoft.com/free/)
 * Reclame su [crédito de Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) si es suscriptor de MSDN o Visual Studio
 
 ## <a name="open-the-project-folder"></a>Apertura de la carpeta del proyecto
@@ -44,10 +44,6 @@ Una suscripción de Azure activa. Si no tiene una, puede registrarse a través d
 - Inicie VS Code.
 - Conecte el DevKit al equipo.
 
-VS Code busca automáticamente el DevKit y muestra una página de introducción:
-
-![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_start.png)
-
 > [!NOTE]
 > Al iniciar VS Code, podría recibir un mensaje de error indicando que el IDE de Arduino o el paquete de placa relacionado no se encuentra. Si se produce este error, cierre VS Code y vuelva a iniciar el IDE de Arduino. Ahora VS Code debe encontrar la ruta de acceso del IDE de Arduino correctamente.
 
@@ -57,7 +53,8 @@ Expanda la sección de la izquierda **EJEMPLOS DE ARDUINO**, vaya a **Ejemplos p
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 
-Si cierra el panel, puede volver a abrirlo. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
+> [!NOTE]
+> También puede abrir el ejemplo desde la paleta de comandos. Utilice `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) para abrir la paleta de comandos, escriba **Arduino** y, a continuación, busque y seleccione **Arduino: ejemplos** .
 
 ## <a name="provision-azure-services"></a>Aprovisionamiento de los servicios de Azure
 
@@ -68,7 +65,7 @@ En el terminal de VS Code, una línea de comandos interactiva le guía durante e
 ![Aprovisionamiento en la nube](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
-> Si la página se bloquea en el estado de carga al intentar iniciar sesión en Azure, consulte las [Preguntas más frecuentes] ({{"/docs/faq/#page-hangs-when-log-in-azure" | 
+> Si la página se bloquea en el estado de carga al intentar iniciar sesión en Azure, vea este [paso de las preguntas más frecuentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
  
 ## <a name="modify-the-hashtag"></a>Modificación del #hashtag
 
@@ -191,6 +188,6 @@ Si se encuentra otros problemas, puede consultar las [preguntas más frecuentes]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha aprendido cómo conectar un dispositivo DevKit a Azure IoT Suite y recuperar un tweet, estos son los siguientes pasos sugeridos:
+Ahora que ha aprendido cómo conectar un dispositivo DevKit al acelerador de la solución de supervisión remota de Azure IoT y recuperar un tweet, estos son los siguientes pasos sugeridos:
 
-* [Información general de Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)
+* [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

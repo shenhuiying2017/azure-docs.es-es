@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 390e917990586642e55913a69873b1707e371de3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9b0d2df078c59c7d261fd3231450ddfb2fdcd88e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Información de precios de IoT Hub de Azure
 
@@ -35,11 +35,11 @@ ms.lasthandoff: 04/03/2018
 | Mensajes de nube a dispositivo | Los mensajes enviados correctamente se cobran en fragmentos de 4 KB; por ejemplo, un mensaje de 6 KB se cobra como dos mensajes. |
 | Cargas de archivos | IoT Hub no mide el uso de la transferencia de archivos a Azure Storage. Los mensajes de inicio y finalización de transferencia de archivos se cobran como mensajes medidos en incrementos de 4 KB. Por ejemplo, por transferir un archivo de 10 MB se cobra el precio de dos mensajes, además del costo de Azure Storage. |
 | Métodos directos | Las solicitudes de métodos correctas se cobrarán en fragmentos de 4 KB; las respuestas con cuerpos no vacíos se cobran en fragmentos de 4 KB como mensajes adicionales. Las solicitudes a dispositivos desconectados se cobran como mensajes en fragmentos de 4 KB. Por ejemplo, un método con un cuerpo de 6 KB que genera una respuesta sin cuerpo desde el dispositivo se cobra como dos mensajes. Un método con un cuerpo de 6 KB que genera una respuesta de 1 KB desde el dispositivo se cobra como dos mensajes para la solicitud más otro mensaje para la respuesta. |
-| Lecturas de dispositivos gemelos | Las lecturas de dispositivos gemelos desde el dispositivo y desde el back-end de solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
-| Actualizaciones de dispositivos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos desde el dispositivo y desde el back-end de solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
-| Consultas de dispositivos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
+| Lecturas de dispositivos gemelos y módulos gemelos | Las lecturas desde dispositivos gemelos o módulos gemelos y desde el back-end de la solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
+| Actualizaciones de dispositivos gemelos y módulos gemelos (etiquetas y propiedades) | Las actualizaciones de dispositivos gemelos o módulos gemelos y desde el back-end de la solución se cobran como mensajes en fragmentos de 512 bytes. Por ejemplo, la lectura de un dispositivo gemelo de 6 KB se cobra como 12 mensajes. |
+| Consultas de dispositivos y módulos gemelos | Las consultas se cobran como mensajes según el tamaño de los resultados en fragmentos de 512 bytes. |
 | Operaciones de trabajos <br/> (crear, actualizar, enumerar, eliminar) | No se aplicará ningún cargo. |
-| Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de dispositivos gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobra como 1000 mensajes. |
+| Operaciones por dispositivo de trabajos | Las operaciones de trabajos (como actualizaciones de gemelos y métodos) se cobran del modo habitual. Por ejemplo, un trabajo que dé como resultado 1000 llamadas de método con solicitudes de 1 KB y respuestas con cuerpo vacío se cobra como 1000 mensajes. |
 
 > [!NOTE]
 > Todos los tamaños se calculan teniendo en cuenta el tamaño de carga en bytes (se omiten las tramas de protocolo). En el caso de los mensajes, que tienen propiedades y cuerpo, el tamaño se calcula independiente del protocolo. Para más información, consulte la [guía del desarrollador de mensajería de IoT Hub][lnk-message-size].

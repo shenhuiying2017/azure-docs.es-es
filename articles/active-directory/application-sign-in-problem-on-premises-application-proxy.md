@@ -1,11 +1,11 @@
 ---
-title: "Problemas de inicio de sesión en una aplicación local mediante el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Solución de problemas comunes cuando no se puede iniciar sesión en una aplicación local integrada con Azure AD mediante el proxy de aplicación de Azure AD"
+title: Problemas de inicio de sesión en una aplicación local mediante el proxy de aplicación de Azure AD | Microsoft Docs
+description: Solución de problemas comunes cuando no se puede iniciar sesión en una aplicación local integrada con Azure AD mediante el proxy de aplicación de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e3db08e5615385cbbbc77972f3cc560e9de9957b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5aba26d14ba0ee8e8ee58f62deb8a82ad147a8aa
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas de inicio de sesión en una aplicación local mediante el proxy de aplicación de Azure AD
 
@@ -27,33 +27,33 @@ Si tiene problemas para iniciar sesión en una aplicación local, puede intentar
 
 Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
 
-  * [Puedo acceder a mi aplicación, pero la página de la aplicación no se muestra correctamente](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
-  * [Puedo acceder a mi aplicación, pero la aplicación tarda mucho en cargarse](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
-  * [Puedo acceder a mi aplicación, pero los vínculos en la página de la aplicación no funcionan](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
+  * [Puedo acceder a mi aplicación, pero la página de la aplicación no se muestra correctamente](application-proxy-page-appearance-broken-problem.md)
+  * [Puedo acceder a mi aplicación, pero la aplicación tarda mucho en cargarse](application-proxy-page-load-speed-problem.md)
+  * [Puedo acceder a mi aplicación, pero los vínculos en la página de la aplicación no funcionan](application-proxy-page-links-broken-problem.md)
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Tengo un problema de conectividad en mi aplicación
   Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
-  * [No sé qué puertos abrir para mi aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
-  * [Se detectó un problema porque no funcionaba ningún conector en un grupo de conectores para mi aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-no-working-connector/)
+  * [No sé qué puertos abrir para mi aplicación](application-proxy-connectivity-ports-how-to.md)
+  * [Se detectó un problema porque no funcionaba ningún conector en un grupo de conectores para mi aplicación](application-proxy-connectivity-no-working-connector.md)
 
 ## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Tengo un problema al configurar el proxy de aplicación de Azure AD en el portal de administración
   Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
-  * [Tengo problemas para configurar una aplicación del proxy de aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-config-how-to/)
-  * [No sé cómo configurar un inicio de sesión único en mi aplicación del proxy de aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
-  * [Se detectó un problema al crear mi aplicación en el portal de administración](https://docs.microsoft.com/azure/active-directory/application-proxy-config-problem/)
+  * [Tengo problemas para configurar una aplicación del proxy de aplicación](application-proxy-config-how-to.md)
+  * [No sé cómo configurar un inicio de sesión único en mi aplicación del proxy de aplicación](application-proxy-config-sso-how-to.md)
+  * [Se detectó un problema al crear mi aplicación en el portal de administración](application-proxy-config-problem.md)
 
 ## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Tengo un problema al configurar la autenticación back-end en mi aplicación
   Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
-  * [No sé cómo configurar la delegación limitada de Kerberos](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
-  * [No sabe cómo configurar mi aplicación con PingAccess](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
+  * [No sé cómo configurar la delegación limitada de Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+  * [No sabe cómo configurar mi aplicación con PingAccess](application-proxy-back-end-ping-access-how-to.md)
 
 ## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Tengo un problema al iniciar sesión en mi aplicación
   Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
-  * [Obtengo un error "Can't Access this Corporate Application"](https://docs.microsoft.com/azure/active-directory/application-proxy-sign-in-bad-gateway-timeout-error/)
+  * [Obtengo un error "Can't Access this Corporate Application"](application-proxy-sign-in-bad-gateway-timeout-error.md)
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Tengo un problema con el conector del agente proxy de la aplicación
   Los siguientes documentos pueden ayudarle a resolver algunos de los problemas más comunes de esta categoría.
-  * [Tengo problemas para instalar el conector de agente del proxy de aplicación](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
+  * [Tengo problemas para instalar el conector de agente del proxy de aplicación](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
+[Provisión de acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md)

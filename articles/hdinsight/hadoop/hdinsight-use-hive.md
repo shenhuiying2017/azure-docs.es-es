@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9f67bc93758b98060efbef2cb7f1c200a62d7e65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e418411cc6b681e304cc1ba66f0c815ad0d4db64
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -43,11 +43,11 @@ Utilice la siguiente tabla para descubrir distintas formas de usar Hive con HDIn
 
 | **Use este método** si desea… | ... consultas **interactivas** | ...procesamiento por**lotes** | ...con este **sistema operativo de clúster** | ...desde este **sistema operativo de cliente** |
 |:--- |:---:|:---:|:--- |:--- |
+| [Herramientas de HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X o Windows |
+| [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux o Windows* |Windows |
 | [Vista de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |Cualquiera (en función del explorador) |
 | [Cliente Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X o Windows |
 | [API de REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux o Windows* |Linux, Unix, Mac OS X o Windows |
-| [Herramientas de HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux, Unix, Mac OS X o Windows |
-| [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |&nbsp; |✔ |Linux o Windows* |Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux o Windows* |Windows |
 
 > [!IMPORTANT]

@@ -3,7 +3,7 @@ title: 'Ejemplo de directiva de Azure API Management: use OAuth2 para la autoriz
 description: 'Ejemplo de directiva de Azure API Management: se explica cómo usar OAuth2 para la autorización entre la puerta de enlace y un back-end. Muestra cómo obtener un token de acceso en AAD y reenviarlo al back-end.'
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: fc896656a4725475fc78cadb5bab54a27cfc02a2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 240f78bc66af681d0089c45229ab142adf515e60
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="use-oauth2-for-authorization-between-the-gateway-and-a-backend"></a>Use OAuth2 para la autorización entre la puerta de enlace y un back-end
 
@@ -31,8 +31,8 @@ El siguiente script usa propiedades que aparecen en {{property}}. Para informaci
 
 Pegue el código en el bloque de **entrada**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.xml)]
-
+[!code-xml[Main](../../../api-management-policy-samples/Snippets/Get OAuth2 access token from AAD and forward it to the backend.policy.xml)]
+  
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre las directivas APIM:

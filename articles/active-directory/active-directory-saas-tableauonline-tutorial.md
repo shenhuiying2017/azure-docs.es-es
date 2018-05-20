@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Tableau Online | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tableau Online."
+title: 'Tutorial: Integración de Azure Active Directory con Tableau Online | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Tableau Online.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 47ae9dbde509726065da7eaee2c7aec491389f45
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e7de7946769eb2aeeac1c8b21448efa142728bb
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integración de Azure Active Directory con Tableau Online
 
@@ -27,11 +27,11 @@ Integrar Tableau Online con Azure AD le proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a Tableau Online.
 - Puede permitir que los usuarios inicien sesión automáticamente en Tableau Online (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
 Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Tableau Online, necesita los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Tableau Online desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de Tableau Online en Azure AD, será preciso que
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Tableau Online**.
 
@@ -86,7 +86,7 @@ Para establecer la relación de vínculo, en Tableau Online, asigne el valor de 
 
 Para configurar y probar el inicio de sesión único de Azure AD con Tableau Online, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Tableau Online](#creating-a-tableau-online-test-user)** : para tener un homólogo de Britta Simon en Tableau Online vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -112,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com`
 
-    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/<instancename>`
+    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -161,10 +161,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_14.png)
 
-> [!TIP]
-> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -194,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-tableau-online-test-user"></a>Crear un usuario de prueba de Tableau Online
 
@@ -206,7 +202,7 @@ En esta sección, creará una usuaria llamada Britta Simon en Tableau Online.
 2. Seleccione **Add users for single sign-on (SSO) authentication**[Agregar usuarios para la autenticación mediante inicio de sesión único (SSO)]. En el cuadro de texto **Especificar direcciones de correo electrónico** agregue britta.simon@contoso.com
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-tableauonline-tutorial/tutorial_tableauonline_11.png)
-3. Haga clic en **Crear**.
+3. Haga clic en **Create**(Crear).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -262,4 +258,3 @@ Al hacer clic en el icono de Tableau Online en el panel de acceso, debería inic
 [201]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tableauonline-tutorial/tutorial_general_203.png
-

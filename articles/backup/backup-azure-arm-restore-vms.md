@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: d3e088841bcf291363ec7c042b0fa160fc7d25ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Uso de Azure Portal para restaurar máquinas virtuales
 Proteja sus datos tomando instantáneas de sus datos a intervalos definidos. Estas instantáneas se denominan puntos de recuperación y se almacenan en almacenes de Recovery Services. Si es necesario reparar o recompilar una máquina virtual, puede restaurarla desde cualquiera de los puntos de recuperación guardados. Cuando restaura un punto de recuperación, puede:
@@ -90,12 +90,12 @@ Para restaurar una máquina virtual o todos los discos a partir de copias de seg
 
     La hoja **Restaurar** muestra que el punto de restauración está establecido.
 
-9. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
+9. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-a-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Elección de la configuración de restauración de una máquina virtual
 Después de seleccionar el punto de restauración, elija la configuración de restauración de una máquina virtual. Para configurar la máquina virtual restaurada, puede usar Azure Portal o PowerShell.
 
-1. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
+1. Si aún no está allí, vaya a la hoja **Restaurar**. Asegúrese de que se selecciona un [punto de restauración](#select-a-restore-point-for-restore) y seleccione **Restaurar configuración**. Se abre la hoja **Restaurar configuración**.
 
     ![Asistente para configuración de restauración](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. En la hoja **Configuración de restauración** tiene dos opciones:

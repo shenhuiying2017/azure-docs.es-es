@@ -1,6 +1,6 @@
 ---
-title: "Conexión a Azure Database for PostgreSQL mediante el lenguaje Go"
-description: "En este tutorial rápido se proporciona un ejemplo del lenguaje de programación Go que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio."
+title: Conexión a Azure Database for PostgreSQL mediante el lenguaje Go
+description: En este tutorial rápido se proporciona un ejemplo del lenguaje de programación Go que puede usar para conectarse a Azure Database for PostgreSQL y consultar datos en este servicio.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 305a9ad066ad504b7564945d8ccce1be19a4135a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d3bcfb3369510bdbcf325eab41fb7eacf3e2a228
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL: uso del lenguaje Go para conectarse y consultar datos
 En este tutorial rápido se muestra cómo conectarse a una instancia de Azure Database for PostgreSQL mediante código escrito en el lenguaje [Go](https://golang.org/) (golang). Se indica cómo usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos en la base de datos. En este artículo se da por hecho que está familiarizado con el desarrollo mediante Go, pero que nunca ha trabajado con Azure Database para PostgreSQL.
@@ -213,6 +213,7 @@ func main() {
     sql_statement := "SELECT * from inventory;"
     rows, err := db.Query(sql_statement)
     checkError(err)
+    defer rows.Close()
 
     for rows.Next() {
         switch err := rows.Scan(&id, &name, &quantity); err {

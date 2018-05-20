@@ -1,0 +1,163 @@
+- name: Documentación de Virtual Machines Scale Sets
+  href: index.yml
+- name: Información general
+  items:
+    - name: ¿Qué son los conjuntos de escalado de máquina virtual?
+      href: overview.md
+- name: Guías de inicio rápido
+  items:
+    - name: Creación en Azure Portal
+      href: quick-create-portal.md
+    - name: Creación con la CLI de Azure 2.0
+      href: quick-create-cli.md
+    - name: Creación con Azure PowerShell
+      href: quick-create-powershell.md
+    - name: Creación con una plantilla
+      items:
+        - name: Conjunto de escalado de Linux
+          href: quick-create-template-linux.md
+        - name: Conjunto de escalado de Windows
+          href: quick-create-template-windows.md
+- name: Tutoriales
+  items:
+    - name: 1 - Creación y administración de un conjunto de escalado
+      items:
+        - name: CLI de Azure 2.0
+          href: tutorial-create-and-manage-cli.md
+        - name: Azure PowerShell
+          href: tutorial-create-and-manage-powershell.md
+    - name: 2 - Uso de discos de datos
+      items:
+        - name: CLI de Azure 2.0
+          href: tutorial-use-disks-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-disks-powershell.md
+    - name: 3 - Uso de una imagen de máquina virtual personalizada
+      items:
+        - name: CLI de Azure 2.0
+          href: tutorial-use-custom-image-cli.md
+        - name: Azure PowerShell
+          href: tutorial-use-custom-image-powershell.md
+    - name: 4 - Implementación de aplicaciones en un conjunto de escalado
+      items:
+        - name: CLI de Azure 2.0
+          href: tutorial-install-apps-cli.md
+        - name: Azure PowerShell
+          href: tutorial-install-apps-powershell.md
+        - name: Plantilla
+          href: tutorial-install-apps-template.md
+    - name: 5 - Escalado automático de un conjunto de escalado
+      items:
+        - name: CLI de Azure 2.0
+          href: tutorial-autoscale-cli.md
+        - name: Azure PowerShell
+          href: tutorial-autoscale-powershell.md
+        - name: Plantilla
+          href: tutorial-autoscale-template.md
+    - name: Implementación de aplicaciones en un conjunto de escalado de máquinas virtuales de Azure con una imagen de Packer personalizada
+      items:
+        - name: CLI de Azure 2.0
+          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
+- name: Ejemplos
+  items:
+    - name: CLI de Azure 2.0
+      href: cli-samples.md
+    - name: PowerShell
+      href: powershell-samples.md
+- name: Procedimientos
+  items:
+    - name: Planeamiento y diseño
+      items:
+        - name: Consideraciones de diseño
+          href: virtual-machine-scale-sets-design-overview.md
+        - name: Descripción de los identificadores de instancias
+          href: virtual-machine-scale-sets-instance-ids.md
+    - name: Creación de una plantilla
+      items:
+        - name: Más información acerca de las plantillas de conjunto de escalado
+          href: virtual-machine-scale-sets-mvss-start.md
+        - name: Uso de una red virtual existente
+          href: virtual-machine-scale-sets-mvss-existing-vnet.md
+        - name: Uso de una imagen personalizada
+          href: virtual-machine-scale-sets-mvss-custom-image.md
+        - name: Uso del escalado automático basado en invitado con una plantilla del conjunto de escalado de Linux
+          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Implementación
+      items:
+        - name: Creación con Visual Studio
+          href: virtual-machine-scale-sets-vs-create.md
+        - name: Uso de zonas de disponibilidad
+          href: virtual-machine-scale-sets-use-availability-zones.md
+        - name: Escalado automático de un conjunto de escalado
+          href: virtual-machine-scale-sets-autoscale-overview.md
+          items:
+            - name: Uso de Azure Portal
+              href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: Escalado automático avanzado
+              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Aplicaciones en conjuntos de escalado
+          href: virtual-machine-scale-sets-deploy-app.md
+        - name: Uso de discos de datos con conjuntos de escalado
+          href: virtual-machine-scale-sets-attached-disks.md
+        - name: Cifrado de discos en conjuntos de escalado
+          items:
+            - name: Uso de PowerShell
+              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+            - name: Uso de la CLI de Azure 2.0
+              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        - name: Uso de grandes conjuntos de escalado
+          href: virtual-machine-scale-sets-placement-groups.md
+        - name: Conversión de una plantilla de conjunto de escalado para que use un disco administrado
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Uso de la prioridad baja
+          href: virtual-machine-scale-sets-use-low-priority.md
+    - name: administración
+      items:
+        - name: Tareas comunes de administración
+          items:
+            - name: Uso de la CLI de Azure 2.0
+              href: virtual-machine-scale-sets-manage-cli.md
+            - name: Uso de Azure PowerShell
+              href: virtual-machine-scale-sets-manage-powershell.md
+        - name: Escalado vertical en un conjunto de escalado
+          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+        - name: Actualizaciones automáticas del sistema operativo
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Modificación de un conjunto de escalado
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Uso de DSC y conjuntos de escalado
+          href: virtual-machine-scale-sets-dsc.md
+        - name: Redes para conjuntos de escalado
+          href: virtual-machine-scale-sets-networking.md
+        - name: Conversión de una plantilla en discos administrados
+          href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Solución de problemas
+      items:
+        - name: Escalado automático
+          href: virtual-machine-scale-sets-troubleshoot.md
+    - name: Preguntas más frecuentes
+      items:
+        - name: Preguntas más frecuentes sobre los conjuntos de escalado
+          href: virtual-machine-scale-sets-faq.md
+- name: Referencia
+  items:
+    - name: Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Azure CLI
+      href: ../virtual-machines/azure-cli-arm-commands.md
+    - name: REST
+      href: /rest/api/virtualmachinescalesets/
+- name: Recursos
+  items:
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Precios
+      items:
+        - name: Linux
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
+        - name: Windows
+          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'

@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2017
+ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: b2f78e8debd367f86ee9bb06bf7de50590c61ad7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>Scripts de PowerShell para administrar certificados X.509 firmados por la entidad de certificación
 
@@ -33,15 +33,18 @@ En este tutorial se da por supuesto que ha adquirido los archivos binarios de Op
 ## <a name="create-x509-certificates"></a>Creación de certificados X.509
 Los pasos siguientes muestran un ejemplo de cómo crear los certificados raíz X.509 localmente. 
 
-1. Abra una ventana de PowerShell como *administrador*. 
+1. Abra una ventana de PowerShell como *administrador*.  
+   **NOTA:** Debe abrirla en el propio PowerShell, no en PowerShell ISE, Visual Studio Code u otras herramientas que encapsulen la consola de PowerShell subyacente.  Si se usa PowerShell no basado en consola, se colgarán los comandos `openssl` siguientes.
+
 2. Navegue hasta el directorio de trabajo. Ejecute el siguiente script para establecer las variables globales. 
     ```PowerShell
     $openSSLBinSource = "<full_path_to_the_binaries>\OpenSSL\bin"
     $errorActionPreference    = "stop"
 
     # Note that these values are for test purpose only
-    $_rootCertSubject         = "CN=Azure IoT Root CA"
-    $_intermediateCertSubject = "CN=Azure IoT Intermediate {0} CA"
+    $_rootCertCommonName      = "Azure IoT Root CA"
+    $_rootCertSubject         = "CN=$_rootCertCommonName"
+    $_intermediateCertSubject = "Azure IoT Intermediate {0} CA"
     $_privateKeyPassword      = "123"
 
     $rootCACerFileName          = "./RootCA.cer"
@@ -120,10 +123,10 @@ Los pasos siguientes muestran un ejemplo de cómo crear los certificados raíz X
 Cree una cadena de certificados con una CA raíz, por ejemplo, "CN = Azure IoT Root CA" que usa este ejemplo, mediante la ejecución del siguiente script de PowerShell. Este script también actualiza el almacén de certificados del sistema operativo Windows, además de crear archivos de certificado en el directorio de trabajo. 
     1. El siguiente script crea una función de PowerShell para crear un certificado autofirmado para un *nombre de firmante* dado y una autoridad de firma. 
     ```PowerShell
-    function New-CASelfsignedCertificate([string]$subjectName, [object]$signingCert, [bool]$isASigner=$true)
+    function New-CASelfsignedCertificate([string]$commonName, [object]$signingCert, [bool]$isASigner=$true)
     {
         # Build up argument list
-        $selfSignedArgs =@{"-DnsName"=$subjectName; 
+        $selfSignedArgs =@{"-DnsName"=$commonName; 
                            "-CertStoreLocation"="cert:\LocalMachine\My";
                            "-NotAfter"=(get-date).AddDays(30); 
                           }
@@ -156,10 +159,10 @@ Cree una cadena de certificados con una CA raíz, por ejemplo, "CN = Azure IoT R
     ``` 
     2. La siguiente función de PowerShell crea certificados X.509 intermedios con la función anterior, así como los archivos binarios de OpenSSL. 
     ```PowerShell
-    function New-CAIntermediateCert([string]$subjectName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
+    function New-CAIntermediateCert([string]$commonName, [Microsoft.CertificateServices.Commands.Certificate]$signingCert, [string]$pemFileName)
     {
-        $certFileName = ($subjectName + ".cer")
-        $newCert = New-CASelfsignedCertificate $subjectName $signingCert
+        $certFileName = ($commonName + ".cer")
+        $newCert = New-CASelfsignedCertificate $commonName $signingCert
         Export-Certificate -Cert $newCert -FilePath $certFileName -Type CERT | Out-Null
         Import-Certificate -CertStoreLocation "cert:\LocalMachine\CA" -FilePath $certFileName | Out-Null
 
@@ -204,13 +207,12 @@ En la ventana de PowerShell del escritorio, ejecute el siguiente código:
    ```PowerShell
    function New-CAVerificationCert([string]$requestedSubjectName)
    {
-       $cnRequestedSubjectName = ("CN={0}" -f $requestedSubjectName)
        $verifyRequestedFileName = ".\verifyCert4.cer"
        $rootCACert = Get-CACertBySubjectName $_rootCertSubject
        Write-Host "Using Signing Cert:::" 
        Write-Host $rootCACert
    
-       $verifyCert = New-CASelfsignedCertificate $cnRequestedSubjectName $rootCACert $false
+       $verifyCert = New-CASelfsignedCertificate $requestedSubjectName $rootCACert $false
 
        Export-Certificate -cert $verifyCert -filePath $verifyRequestedFileName -Type Cert
        if (-not (Test-Path $verifyRequestedFileName))
@@ -218,7 +220,7 @@ En la ventana de PowerShell del escritorio, ejecute el siguiente código:
            throw ("Error: CERT file {0} doesn't exist" -f $verifyRequestedFileName)
        }
    
-       Write-Host ("Certificate with subject {0} has been output to {1}" -f $cnRequestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
+       Write-Host ("Certificate with subject {0} has been output to {1}" -f $requestedSubjectName, (Join-Path (get-location).path $verifyRequestedFileName)) 
    }
    New-CAVerificationCert "<your verification code>"
    ```
@@ -237,7 +239,6 @@ En la ventana de PowerShell de la máquina local, ejecute el siguiente script pa
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
    {
-       $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
@@ -245,7 +246,7 @@ En la ventana de PowerShell de la máquina local, ejecute el siguiente script pa
    
        $signingCert = Get-CACertBySubjectName $signingCertSubject ## "CN=Azure IoT CA Intermediate 1 CA"
 
-       $newDeviceCertPfx = New-CASelfSignedCertificate $cnNewDeviceSubjectName $signingCert $false
+       $newDeviceCertPfx = New-CASelfSignedCertificate $deviceName $signingCert $false
    
        $certSecureStringPwd = ConvertTo-SecureString -String $_privateKeyPassword -Force -AsPlainText
 

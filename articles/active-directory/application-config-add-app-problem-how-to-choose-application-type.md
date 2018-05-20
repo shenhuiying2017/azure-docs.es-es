@@ -1,11 +1,11 @@
 ---
-title: "Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación | Microsoft Docs"
-description: "Describir los tipos admitidos de aplicaciones que se pueden integrar con Azure AD y sus opciones de configuración relacionadas"
+title: Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación | Microsoft Docs
+description: Describir los tipos admitidos de aplicaciones que se pueden integrar con Azure AD y sus opciones de configuración relacionadas
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e4a5ee41349a97493636327e3bda25cbd507867c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a34c3343b669cb80ad88c1b09fe95b1b1d9b5275
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Cómo elegir el tipo de aplicación que se debe usar al agregar una aplicación
 
@@ -67,7 +67,7 @@ En la tabla siguiente se describen los diferentes modos de inicio de sesión ún
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Cómo elegir un modo de inicio de sesión único
 
-A continuación se enumeran los modos de **inicio de sesión único** admitidos para aplicaciones de Azure AD.
+A continuación, se enumeran los modos de **inicio de sesión único** admitidos para aplicaciones de Azure AD.
 
 -   **Se desactivó el inicio de sesión único de Azure AD.**: elija el **modo de inicio de sesión único** Se desactivó el inicio de sesión único de Azure AD, si aún no está preparado para integrar esta aplicación con el inicio de sesión único de Azure AD, o simplemente la está probando.
 
@@ -171,4 +171,4 @@ Para establecer el modo de **inicio de sesión único** de una aplicación, siga
 7.  Cuando se cargue la aplicación, haga clic en **Aprovisionamiento** desde el menú de navegación izquierdo de la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Administración de aplicaciones con Azure Active Directory](manage-apps/what-is-application-management.md)

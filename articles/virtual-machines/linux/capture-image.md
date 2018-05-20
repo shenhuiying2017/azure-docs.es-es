@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 9fa87f8dc0c94ec93e049e35be727c031b4b06ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bb70b3ff84392797ce0d93b8cf5d4018ff8ebdd8
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Creación de una imagen de una máquina virtual o un disco duro virtual
 
@@ -45,7 +45,7 @@ Para una versión simplificada de este tema, con fines de prueba, evaluación o 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Paso 1: Desaprovisionamiento de la máquina virtual
-Desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure para eliminar los archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro *-deprovision+user* en la máquina virtual Linux de origen. Consulte la [Guía de usuario del Agente de Linux de Azure](../windows/agent-user-guide.md) para más información.
+Desaprovisione la máquina virtual con el agente de máquinas virtuales de Azure para eliminar los archivos y datos específicos de la máquina. Use el comando `waagent` con el parámetro *-deprovision+user* en la máquina virtual Linux de origen. Consulte la [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md) para más información.
 
 1. Conexión a una máquina virtual Linux de Azure mediante un cliente SSH.
 2. En la ventana de SSH, escriba el siguiente comando:

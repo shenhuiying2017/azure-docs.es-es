@@ -1,29 +1,29 @@
 ---
-title: "Aspectos básicos de la administración de identidades de Azure"
+title: Aspectos básicos de la administración de identidades de Azure
 description: Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.
-keywords: 
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewr: jsnow
 ms.author: jeffgilb
 ms.date: 07/05/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: a7eb669aac109ae8cde6d75129004d322c270651
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 7c00ccf214cfd683d04a76cc3cfad9bd27080561
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Aspectos básicos de la administración de identidades de Azure
 
 Cada vez más recursos digitales corporativos residen fuera de la red corporativa, en la nube y en dispositivos, y disponer de una solución de administración de acceso y de identidades basada en la nube se está convirtiendo en una necesidad. Las identidades basadas en la nube constituyen ahora la mejor manera de mantener el control y la visibilidad sobre el modo y el momento en que los usuarios acceden a las aplicaciones y los datos corporativos.
 
-Microsoft lleva más de una década protegiendo identidades basadas en la nube y ahora, con [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/active-directory-editions), los usuarios pueden acceder a los mismos sistemas de protección. Con Azure AD, los administradores de las empresas pueden garantizar fácilmente la responsabilidad de los usuarios y administradores con mayor seguridad y gobernanza que nunca.
+Microsoft lleva más de una década protegiendo identidades basadas en la nube y ahora, con [Azure Active Directory (AD)](active-directory-whatis.md), los usuarios pueden acceder a los mismos sistemas de protección. Con Azure AD, los administradores de las empresas pueden garantizar fácilmente la responsabilidad de los usuarios y administradores con mayor seguridad y gobernanza que nunca.
 
 Azure AD Premium está una solución de administración de acceso y de identidades basada en la nube con funcionalidades de protección avanzadas que habilite una identidad segura para todas las aplicaciones, protección de identidad (mejoradas por el [gráfico de inteligencia de seguridad de Microsoft](https://www.microsoft.com/en-us/security/intelligence)) y Privileged Identity Management. Azure AD Premium no es solo otra herramienta de supervisión o generación de informes, sino que también puede proteger las identidades del usuario en tiempo real y permite crear directivas de acceso que se adaptan en función del riesgo, adaptable para proteger los datos de su organización.
 

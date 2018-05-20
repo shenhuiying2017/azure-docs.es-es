@@ -11,11 +11,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: omidm
-ms.openlocfilehash: 9875d9884f04d26ebfbd44e858beb272c2306958
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 31b58176a75918cf68cda695f27216031670493e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Administración de clústeres de HDInsight unidos a dominio
 Conozca los usuarios y los roles de HDInsight unido a un dominio y cómo administrar clústeres de HDInsight unidos a dominio.
@@ -101,6 +101,8 @@ El aislamiento de usuarios y la seguridad son importantes para un clúster de HD
 |Interactive Query (LLAP)|Interactive|<ul><li>[Beeline](#beeline)</li><li>[Vista de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC: Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Cualquiera|Instalar aplicaciones personalizadas|<ul><li>[Acciones de script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
+   > [!NOTE]
+   > Jupyter no está instalado en Enterprise Security Package o no es compatible con él.
 
 El uso de API estándar ayuda desde el punto de vista de la seguridad. Además, obtendrá las siguientes ventajas:
 

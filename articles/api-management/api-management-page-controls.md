@@ -1,11 +1,11 @@
 ---
-title: "Controles de página de Azure API Management | Microsoft Docs"
-description: "Aprenda sobre los controles de página disponibles para su uso en las plantillas del portal para desarrolladores de Azure API Management."
+title: Controles de página de Azure API Management | Microsoft Docs
+description: Aprenda sobre los controles de página disponibles para su uso en las plantillas del portal para desarrolladores de Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página de Azure API Management
 Azure API Management proporciona los siguientes controles para su uso en las plantillas del portal para desarrolladores.  
@@ -30,7 +30,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
  Los valores de los parámetros se pasan como parte del modelo de datos de la plantilla. En la mayoría de los casos, puede pegarlos simplemente en el ejemplo proporcionado para cada control para que funcione correctamente. Para más información sobre los valores de parámetros, puede ver la sección del modelo de datos de cada plantilla en la que se puede usar un control.  
   
- Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ## <a name="developer-portal-template-page-controls"></a>Controles de página de las plantillas del portal para desarrolladores  
   
@@ -54,9 +54,9 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
   
-|Parámetro|Descripción|  
+|.|DESCRIPCIÓN|  
 |---------------|-----------------|  
 |appId|Identificador de la aplicación.|  
   
@@ -76,7 +76,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <basic-SignIn></basic-SignIn>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -95,7 +95,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <paging-control></paging-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -118,7 +118,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <providers></providers>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -137,7 +137,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <search-control></search-control>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -158,7 +158,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <sign-up></sign-up>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -177,7 +177,7 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
 <subscribe-button></subscribe-button>  
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
  Ninguno.  
   
 ### <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores  
@@ -198,9 +198,9 @@ Para usar un control, colóquelo en la ubicación deseada en la plantilla del po
   
 ```  
   
-### <a name="parameters"></a>parameters  
+### <a name="parameters"></a>Parámetros  
   
-|Parámetro|Descripción|  
+|.|DESCRIPCIÓN|  
 |---------------|-----------------|  
 |subscriptionId|Identificador de la suscripción para cancelar.|  
 |cancelUrl|Dirección URL de cancelación de la suscripción.|  

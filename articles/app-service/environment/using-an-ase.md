@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure App Service Environment
-description: "Cómo crear, publicar y escalar aplicaciones en Azure App Service Environment"
+description: Cómo crear, publicar y escalar aplicaciones en Azure App Service Environment
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 64e1652ac4067a3f1639bf81cfcd0f79637ade9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4aaef3fb6748eb974bc9d129b2bd8d42393e1cb8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="use-an-app-service-environment"></a>Uso de una instancia de App Service Environment #
 
@@ -58,19 +58,28 @@ Para crear una aplicación web en ASE:
 
 4. Especifique un nombre para un grupo de recursos nuevo o seleccione **Usar existente** y seleccione uno en la lista desplegable.
 
+5. Seleccione el sistema operativo. 
+
+    * El hospedaje de una aplicación Linux en un ASE es una nueva característica en versión preliminar, por lo que se recomienda no agregar aplicaciones Linux en un ASE que esté ejecutando en ese momento cargas de trabajo de producción. 
+    * Agregar una aplicación Linux en un ASE significa que el ASE estará también en modo versión preliminar. 
+
 5. Seleccione un plan de App Service existente en ASE o cree uno nuevo siguiendo estos pasos:
 
     a. Seleccione **Crear nuevo**.
 
     b. Especifique el nombre del plan de App Service.
 
-    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**.
+    c. Seleccione el entorno ASE en la lista desplegable **Ubicación**. El hospedaje de una aplicación Linux en ASE solo está habilitado en 6 regiones, en este momento: **Oeste de EE. UU., Este de EE. UU., Europa Occidental, Europa del Norte, Este de Australia, Sudeste Asiático.** 
 
     d. Seleccione un plan de tarifa **Aislado**. Elija **Seleccionar**.
 
     e. Seleccione **Aceptar**.
     
     ![Planes de tarifa aislados][2]
+
+    > [!NOTE]
+    > Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
+    >
 
 6. Seleccione **Crear**.
 

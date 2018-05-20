@@ -3,16 +3,17 @@ title: Migración de una cuenta de Automation y sus recursos
 description: En este artículo se describe cómo mover una cuenta de Automation en Azure Automation y sus recursos relacionados correspondientes de una suscripción a otra.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a9e76634a7392bca93ba06749741505e7b34cb41
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d417f26eb9bad47b9742921156ff232e65ffd5aa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-automation-account-and-resources"></a>Migrar una cuenta de Automation y sus recursos
 Para las cuentas de Automation y los recursos asociados (es decir, recursos, runbooks, módulos, etc.) que creó en Azure Portal y que desea migrar de un grupo de recursos a otro o de una suscripción a otra, puede hacerlo fácilmente con la característica de [mover recursos](../azure-resource-manager/resource-group-move-resources.md), disponible en Azure Portal. Pero, antes de llevar esto a cabo, conviene revisar la siguiente [lista de comprobación antes de mover recursos](../azure-resource-manager/resource-group-move-resources.md#checklist-before-moving-resources) y, además, la siguiente lista específica de Automation.  

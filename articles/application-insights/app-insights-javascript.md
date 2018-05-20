@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a2cb3d504abcd3f9c50df2427884d478ad2240c4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c3c5a3029916b91b65a5bd0f6efa5c83f5dfcb66
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas web
 Obtenga información sobre el rendimiento y la utilización de su página web o aplicación. Si agrega [Application Insights](app-insights-overview.md) al script de la página, obtendrá los intervalos de carga de la página y de las llamadas AJAX, recuentos y detalles sobre las excepciones del explorador y los errores de AJAX, así como usuarios y recuentos de sesiones. Todos estos datos se pueden segmentar por página, sistema operativo del cliente y versión del explorador, geolocalización y otras dimensiones. Puede establecer alertas sobre recuentos de errores o sobre cargas de página lentas. Y mediante la inserción de llamadas de seguimiento en el código de JavaScript, puede controlar cómo se utilizan las distintas características de la aplicación de la página web.
@@ -113,11 +113,8 @@ Entre los [parámetros disponibles](https://github.com/Microsoft/ApplicationInsi
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
-    // Set these dynamically for an authenticated user.
-    appUserId: string,
+    // Set dynamically for an authenticated user.
     accountId: string,
-
-
 
 ## <a name="run"></a>Ejecución de la aplicación
 Ejecute la aplicación web, úsela un rato para generar datos de telemetría y espere unos segundos. Puede ejecutarla con la tecla **F5** en la máquina de desarrollo, o publicarla y dejar que los usuarios jueguen con ella.

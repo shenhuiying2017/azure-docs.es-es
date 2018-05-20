@@ -15,7 +15,7 @@
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
   ```
 
 #### <a name="mobility-service-installer-command-line-arguments"></a>Argumentos de la línea de comandos del instalador de Mobility Service
@@ -25,7 +25,7 @@ Usage :
 UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
 ```
 
-| .|type|DESCRIPCIÓN|Valores posibles|
+| .|Escriba|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |/Role|Obligatorio|Especifica si se debe instalar Mobility Service (MS) o MasterTarget(MT).|MS </br> MT|
 |/InstallLocation|Opcional|Ubicación en que se instala Mobility Service.|Cualquier carpeta del equipo|
@@ -42,7 +42,7 @@ Usage :
 UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 ```
 
-  | .|type|DESCRIPCIÓN|Valores posibles|
+  | .|Escriba|DESCRIPCIÓN|Valores posibles|
   |-|-|-|-|
   |/CSEndPoint |Obligatorio|Dirección IP del servidor de configuración| Cualquier dirección IP válida|
   |/PassphraseFilePath|Obligatorio|Ubicación de la frase de contraseña |Cualquier ruta de acceso local o UNC válida|

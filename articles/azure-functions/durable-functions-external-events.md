@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ffbe6a7d74f0be2193d711d304f19e62ab08741
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 77087f04ea641c24a92edd2091432cbcb4329ecd
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Control de eventos externos con Durable Functions (Azure Functions)
 
@@ -27,6 +27,8 @@ Las funciones de orquestador tienen la capacidad de esperar y escuchar eventos e
 ## <a name="wait-for-events"></a>Espera de eventos
 
 El método [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) permite que una función de orquestador espere y escuche un evento externo de forma asincrónica. La función de orquestador de escucha declara el *nombre* del evento y la *forma de los datos* que espera recibir.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -45,9 +47,26 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const approved = yield context.df.waitForExternalEvent("Approval");
+    if (approved) {
+        // approval granted - do the approved action
+    } else {
+        // approval denied - send a notification
+    }
+});
+```
+
 El ejemplo anterior escucha un evento único específico y toma medidas cuando se recibe.
 
 Puede escuchar varios eventos al mismo tiempo, al igual que en el ejemplo siguiente, que espera una de tres notificaciones de eventos posibles.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Select")]
@@ -74,7 +93,30 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const event1 = context.df.waitForExternalEvent("Event1");
+    const event2 = context.df.waitForExternalEvent("Event2");
+    const event3 = context.df.waitForExternalEvent("Event3");
+
+    const winner = yield context.df.Task.any([event1, event2, event3]);
+    if (winner === event1) {
+        // ...
+    } else if (winner === event2) {
+        // ...
+    } else if (winner === event3) {
+        // ...
+    }
+});
+```
+
 El ejemplo anterior escucha *cualquiera* de varios eventos posibles. También es posible esperar *todos* los eventos.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("NewBuildingPermit")]
@@ -94,12 +136,31 @@ public static async Task Run(
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo Functions v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const applicationId = context.df.getInput();
+
+    const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
+    const gate2 = context.df.waitForExternalEvent("FireDeptApproval");
+    const gate3 = context.df.waitForExternalEvent("BuildingDeptApproval");
+
+    // all three departments must grant approval before a permit can be issued
+    yield context.df.Task.all([gate1, gate2, gate3]);
+
+    yield context.df.callActivityAsync("IssueBuildingPermit", applicationId);
+});
+```
+
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) espera indefinidamente alguna entrada.  La aplicación de función puede descargarse con seguridad mientras espera. En el momento en que un evento llega a esta instancia de orquestación, esta se activa automáticamente y procesa de inmediato el evento.
 
 > [!NOTE]
 > Si la aplicación de función utiliza el plan de consumo, no se aplican costos de facturación mientras una función de orquestador espera una tarea de `WaitForExternalEvent`, independientemente de cuánto tiempo espere.
 
-Si la carga del evento no se puede convertir al tipo `T` esperado, se produce una excepción.
+En .NET, si la carga del evento no se puede convertir al tipo `T` esperado, se produce una excepción.
 
 ## <a name="send-events"></a>Envío de eventos
 

@@ -1,36 +1,39 @@
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: e035b49d9e386287baf67bba756f7b58a764acc5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/14/2018
+---
 Para crear una memoria caché, primero inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Crear un recurso** > **Bases de datos** > **Redis Cache**.
-
-> [!NOTE]
-> Si no tiene una cuenta de Azure, puede [abrir una cuenta de Azure gratis](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) en tan solo un par de minutos.
-> 
-> 
 
 ![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-> [!NOTE]
-> Además de crear memorias caché en el Portal de Azure, también puede crearlas mediante las plantillas de Resource Manager, PowerShell o la CLI de Azure.
-> 
-> * Para crear una caché mediante plantillas de Resource Manager, consulte [Creación de una caché en Redis mediante una plantilla](../articles/redis-cache/cache-redis-cache-arm-provision.md).
-> * Para crear una caché con Azure PowerShell, consulte [Administración de Azure Redis Cache con Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
-> * Para crear una caché mediante la CLI de Azure, consulte [Creación y administración de Azure Redis Cache mediante la interfaz de línea de comandos de Azure (CLI de Azure)](../articles/redis-cache/cache-manage-cli.md).
-> 
-> 
+En **Nueva Redis Cache**, configure las opciones de la nueva caché.
 
-En **Nueva caché en Redis**, especifique la configuración que desee para la memoria caché.
+| Configuración      | Valor sugerido  | DESCRIPCIÓN |
+| ------------ |  ------- | -------------------------------------------------- |
+| **Nombre DNS** | Nombre único globalmente | El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-` . El nombre de la memoria caché no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.  | 
+| **Suscripción** | Su suscripción | Se crea la suscripción en la instancia de Azure Redis Cache. | 
+| **Grupo de recursos** |  *TestResources* | Nombre del nuevo grupo de recursos en el que se va a crear la caché. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. | 
+| **Ubicación** | Este de EE. UU | Elija una [región](https://azure.microsoft.com/regions/) cerca de otros servicios que vayan a usar la memoria caché. |
+| **[Plan de tarifa](https://azure.microsoft.com/pricing/details/cache/)** |  C0 para básico (caché de 250 MB) |  El plan de tarifa determina el tamaño, el rendimiento y las características disponibles de la memoria caché. Para obtener más información, consulte [Azure Redis Cache Overview](../articles/redis-cache/cache-overview.md) (Información general de Azure Redis Cache). |
+| **Anclar al panel** |  Seleccionado | Si hace clic en la opción para anclar la nueva caché, la búsqueda será aún más fácil. |
 
 ![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* En **Nombre DNS**, especifique un nombre exclusivo de memoria caché que se va a usar para el punto de conexión de la memoria caché. El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-` . El nombre de la memoria caché no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.
-* En **Suscripción**, seleccione la suscripción de Azure que quiera usar para la memoria caché. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y no aparecerá la lista desplegable **Suscripción**.
-* En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md). 
-* Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda su caché. Para optimizar el rendimiento, Microsoft recomienda encarecidamente que cree la memoria caché en la misma región que la aplicación cliente de caché.
-* Use **Plan de tarifa** para seleccionar el tamaño y las características de caché que desee.
-* **Redis clúster** le permite crear cachés más grandes de 53 GB y los datos de partición entre varios nodos de Redis. Para más información, vea [Cómo configurar la agrupación en clústeres de Redis para una Azure Redis Cache Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
-* **Persistencia de Redis** ofrece la posibilidad de conservar la memoria caché para una cuenta de Azure Storage. Para obtener instrucciones sobre cómo configurar la persistencia, consulte [Configuración de la persistencia para una Azure Redis Cache de nivel Premium](../articles/redis-cache/cache-how-to-premium-persistence.md).
-* **Virtual Network** ofrece seguridad y aislamiento mejorados al restringir el acceso a la memoria caché solo a los clientes dentro de la instancia de Azure Virtual Network especificada. Además, puede usar todas las características de la red virtual, como las subredes y las directivas de control de acceso, entre otras, para restringir aún más el acceso a Redis. Para más información, vea [Cómo configurar la compatibilidad de red virtual para Azure Redis Cache Premium](../articles/redis-cache/cache-how-to-premium-vnet.md).
-* El acceso no SSL está deshabilitado de forma predeterminada para las nuevas cachés. Para habilitar el puerto no SSL, seleccione **Desbloquear puerto 6379 (no está cifrado con SSL)**.
+Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Crear**. 
 
-Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Crear**. La creación de la caché puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio. Después de crear la memoria caché, tendrá el estado **En ejecución** y estará lista para usarse con la [configuración predeterminada](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+La creación de la caché puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel. Después de crear la memoria caché, tendrá el estado **En ejecución** y estará lista para su uso.
 
 ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 

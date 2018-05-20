@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Importación de datos para su uso con Table API de Azure Cosmos DB
 
@@ -29,6 +29,10 @@ En este tutorial se describen las tareas siguientes:
 > * Importación de datos con la Herramienta de migración de datos
 > * Importación de datos con AzCopy
 > * Migración de Table API (versión preliminar) a Table API 
+
+## <a name="prerequisites"></a>requisitos previos
+
+* Aumente el rendimiento: la duración de la migración de datos depende de la cantidad de rendimiento configurado para una sola colección o un conjunto de colecciones. Asegúrese de aumentar el rendimiento para migraciones de datos más grandes. Después de haber completado la migración, reduzca el rendimiento para ahorrar costos. Para más información acerca de cómo aumentar el rendimiento en Azure Portal, consulte Niveles de rendimiento y planes de tarifa de Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Herramienta de migración de datos
 

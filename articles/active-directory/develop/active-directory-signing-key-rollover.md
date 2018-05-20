@@ -1,24 +1,26 @@
 ---
-title: "Sustitución de claves de firma en Azure AD"
-description: "En este artículo se analizan las prácticas recomendadas de sustitución de claves de firma de Azure Active Directory."
+title: Sustitución de claves de firma en Azure AD
+description: En este artículo se analizan las prácticas recomendadas de sustitución de claves de firma de Azure Active Directory.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 5396baa57fe0b49809d9fe06eb2b2feda2ed9ba8
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Sustitución de claves de firma de Azure Active Directory
 En este artículo se describe lo que necesita saber de las claves públicas que se usan en Azure Active Directory (Azure AD) para firmar los tokens de seguridad. Es importante tener en cuenta que estas claves se sustituyen de forma periódica y, en caso de emergencia, podrían ser sustituidas inmediatamente. Todas las aplicaciones que usan Azure AD deben poder manejar mediante programación el proceso de sustitución de claves o establecer un proceso de sustitución manual periódico. Siga leyendo para comprender cómo funcionan las claves, cómo evaluar el impacto de la sustitución en la aplicación y cómo actualizar la aplicación o establecer un proceso de sustitución manual periódico para controlar la sustitución de claves si fuera necesario.

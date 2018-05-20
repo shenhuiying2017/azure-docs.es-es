@@ -1,25 +1,48 @@
-- name: Documentación de Chef
-  href: index.md
+- name: Chef Software en la documentación de Azure
+  href: ./index.yml
+- name: Información general
+  items:
+    - name: Acerca de Chef en Azure
+      href: ./chef-overview.md
+    - name: Acerca de Habitat en Azure
+      href: ./chef-habitat-overview.md
+    - name: Acerca de InSpec en Azure
+      href: ./chef-inspec-overview.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: 'Automatización: plantilla de inicio rápido'
-      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview'
+    - name: Chef
+      expanded: true
+      items:
+        - name: Instalación de Chef mediante Azure Portal
+          href: ./chef-extension-portal.md
 - name: Tutoriales
   items:
-    - name: Automatización de máquinas virtuales
-      href: /azure/virtual-machines/windows/chef-automation
+    - name: Chef
+      items:
+        - name: Creación de una máquina virtual Windows
+          href: /azure/virtual-machines/windows/chef-automation
+- name: Referencia
+  items:
+    - name: Extensión de Chef para Azure
+      href: 'https://docs.chef.io/azure_portal.html#azure-chef-extension'
 - name: Recursos
   items:
-    - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: 'Blog: VSTS y Chef'
-      href: 'https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/'
-    - name: Chef y Azure PS
-      href: 'https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0'
-    - name: Chef y VSTS
-      href: 'https://github.com/chef-partners/vsts-chef/wiki/Getting-Started'
-    - name: Sitio de Chef
-      href: 'https://www.chef.io'
-    - name: 'Vídeo: Chef y VSTS'
-      href: 'https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment'
+    - name: Chef Automate
+      items:
+        - name: Introducción a Chef Automate
+          href: 'https://docs.chef.io/chef_automate.html'
+        - name: Guía de instalación de Chef Automate
+          href: 'https://docs.chef.io/install_chef_automate.html'
+        - name: Chef Automate en Azure Marketplace
+          href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate'
+    - name: Noticias sobre Chef Software
+      items:
+        - name: Blog de Chef Software
+          href: 'https://blog.chef.io/'
+- name: Herramientas
+  items:
+    - name: Extensión de Visual Studio Team Services para Chef
+      href: 'https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-chef-tasks'
+    - name: Extensión de Visual Studio Team Services para Habitat
+      href: 'https://marketplace.visualstudio.com/items?itemName=chef-software.vsts-habitat-tasks'

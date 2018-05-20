@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 33b958b97a5883d585bbfda167db35107c0c5997
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: db0117b0b4ddee002fc69d71e78eca2b9008e4f6
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configuración de una directiva de autorización de claves de contenido
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -58,7 +58,7 @@ Para elegir la directiva de token restringida, seleccione el botón **TOKEN**.
 
 La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de token de web simple ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y de token de web JSON (JWT). Para más información, consulte la sección de [autenticación de JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/).
 
-Tenga en cuenta que Media Services no proporciona STS. Puede crear un STS personalizado o usar Azure Access Control Service para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. Si el token es válido y las notificaciones del token coinciden con las que se han configurado en la clave de contenido, el servicio de entrega de claves de Media Services devuelve la clave de cifrado al cliente. Para más información, consulte [Uso de Azure Access Control Service para emitir tokens](http://mingfeiy.com/acs-with-key-services).
+Tenga en cuenta que Media Services no proporciona STS. Puede crear un STS personalizado para emitir tokens. Se debe configurar el STS para crear un token firmado con las notificaciones de clave y emisión que especificó en la configuración de restricción de tokens. Si el token es válido y las notificaciones del token coinciden con las que se han configurado en la clave de contenido, el servicio de entrega de claves de Media Services devuelve la clave de cifrado al cliente.
 
 Al configurar la directiva de restricción de token, debe especificar los parámetros de clave de comprobación principal, el emisor y el público. La clave de comprobación principal contiene la clave con la que se firmó el token. El emisor es el STS que emite el token. El público (a veces denominado ámbito) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Media Services valida que estos valores del token coincidan con los valores de la plantilla.
 

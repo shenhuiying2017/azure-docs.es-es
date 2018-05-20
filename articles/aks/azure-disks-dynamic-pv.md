@@ -3,22 +3,22 @@ title: Uso de discos de Azure con AKS
 description: Usar de Azure Disks con AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volúmenes persistentes con discos de Azure
 
 Un volumen persistente representa un fragmento de almacenamiento aprovisionado para su uso con pods de Kubernetes. Un volumen persistente puede usarse en uno o varios pods y puede aprovisionarse de forma dinámica o estática. Para más información sobre volúmenes persistentes de Kubernetes, vea el artículo sobre [volúmenes persistentes de Kubernetes][kubernetes-volumes].
 
-En este documento se detalla el uso de los volúmenes persistentes con discos de Azure en un clúster de Azure Container Service (AKS).
+En este documento se detalla el uso de los volúmenes persistentes con discos de Azure en un clúster de Azure Kubernetes Service (AKS).
 
 > [!NOTE]
 > Solo se puede montar un disco de Azure con el tipo de modo de acceso ReadWriteOnce, que lo pone a disposición de un único nodo de AKS. Si necesita compartir un volumen persistente en varios nodos, considere la posibilidad de usar [Azure Files][azure-files-pvc].
@@ -60,10 +60,10 @@ spec:
       storage: 5Gi
 ```
 
-Cree la notificación del volumen persistente con el comando [kubectl create][kubectl-create].
+Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-premimum.yaml
+kubectl apply -f azure-premimum.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Uso del volumen persistente
@@ -90,10 +90,10 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Cree el pod con el comando [kubectl create][kubectl-create].
+Cree el pod con el comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-disk.yaml
+kubectl apply -f azure-pvc-disk.yaml
 ```
 
 Ahora tiene un pod en ejecución con el disco de Azure montado en el directorio `/mnt/azure`. Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`.
@@ -107,7 +107,7 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con di
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/

@@ -3,22 +3,22 @@ title: Plantillas
 description: En este tema se explican las plantillas para los Centros de notificaciones de Azure.
 services: notification-hubs
 documentationcenter: .net
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 3e587bdf0efc7c5b416183640abb19286a5cff31
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="templates"></a>Plantillas
 ## <a name="overview"></a>Información general
@@ -52,7 +52,7 @@ Este requisito obliga al back-end de la aplicación a generar cargas distintas p
 
 La característica de plantilla de Notification Hubs permite que una aplicación cliente cree registros especiales, llamados registros de plantilla, que, además del conjunto de etiquetas, incluye una plantilla. La característica de plantilla de Notification Hubs permite que una aplicación cliente asocie los dispositivos con plantillas, ya sea que trabaje con Instalaciones (la opción de preferencia) o con Registros. Dados los ejemplos de carga anteriores, la única información independiente de la plataforma es el mensaje de alerta mismo (Hello!). Una plantilla es un conjunto de instrucciones para el Centro de notificaciones sobre cómo dar formato a un mensaje independiente de la plataforma para el registro de esa aplicación cliente específica. En el ejemplo anterior, el mensaje independiente de la plataforma es una propiedad única: **message = Hello!**.
 
-La siguiente ilustración muestra el proceso anterior:
+La siguiente ilustración muestra el proceso:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
@@ -74,7 +74,7 @@ Observe que la expresión $(message) sustituye al mensaje mismo. Esta expresión
 
 Si trabaja con el modelo de Instalación, la clave "plantillas" de la instalación contiene el código JSON de varias plantillas. Si trabaja con el modelo de Registro, la aplicación cliente puede crear varios registros para usar varias plantillas; por ejemplo, una plantilla para los mensajes de alerta y una plantilla para las actualizaciones de icono. Las aplicaciones cliente también pueden combinar los registros nativos (registros sin plantilla) y los registros de plantilla.
 
-El Centro de notificaciones envía una notificación para cada plantilla sin considerar si pertenecen a la misma aplicación cliente. Este comportamiento se puede usar para traducir las notificaciones independientes de la plataforma en más notificaciones. Por ejemplo, el mismo mensaje independiente de la plataforma al Centro de notificaciones se puede traducir sin problemas en una alerta de notificación del sistema y una actualización de icono, sin requerir que el back-end lo sepa. Tenga en cuenta que algunas plataformas (por ejemplo, iOS) puede contraer las diversas notificaciones en el mismo dispositivo si se envían en un período breve.
+El Centro de notificaciones envía una notificación para cada plantilla sin considerar si pertenecen a la misma aplicación cliente. Este comportamiento se puede usar para traducir las notificaciones independientes de la plataforma en más notificaciones. Por ejemplo, el mismo mensaje independiente de la plataforma al Centro de notificaciones se puede traducir sin problemas en una alerta de notificación del sistema y una actualización de icono, sin requerir que el back-end lo sepa. Algunas plataformas (por ejemplo, iOS) pueden contraer las diversas notificaciones en el mismo dispositivo si se envían en un período breve.
 
 ## <a name="using-templates-for-personalization"></a>Uso de plantillas para personalización
 Otra ventaja de usar plantillas es la capacidad de usar Notification Hubs para ejecutar la personalización por registro de las notificaciones. Por ejemplo, considere una aplicación para el clima que muestra un icono con las condiciones climáticas de una ubicación específica. Un usuario puede elegir entre grados Celsius o Fahrenheit, además de un pronóstico de un día o de cinco días. Con las plantillas, cada instalación de aplicación cliente puede registrar el formato requerido (pronóstico de 1 día en grados Celsius, pronóstico de 1 día en grados Fahrenheit, pronóstico de 5 días en grados Celsius, pronóstico de 5 días en grados Fahrenheit) y hacer que el back-end envíe un mensaje único con toda la información necesaria para rellenar esas plantillas (por ejemplo, un pronóstico de 5 días con grados Celsius y Fahrenheit).
@@ -139,7 +139,7 @@ El siguiente ejemplo no es una plantilla XML válida:
     </tile>
 
 
-Como se explicó anteriormente, cuando se usa la concatenación, las expresiones deben ir entre llaves. Por ejemplo: 
+Como se explicó anteriormente, cuando se usa la concatenación, las expresiones deben ir entre corchetes. Por ejemplo: 
 
     <tile>
       <visual>

@@ -2,24 +2,19 @@
 title: Introducción al Proveedor de Azure Multi-Factor Authentication | Microsoft Docs
 description: Aprenda cómo crear un Proveedor de Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: a7dd5030-7d40-4654-8fbd-88e53ddc1ef5
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: a2f4ece603cfd8e0ec891feafe344f27a2ead90a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 453b8cc399c78ddb26ae601abf64626d2a6bf36f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="getting-started-with-an-azure-multi-factor-authentication-provider"></a>Introducción al proveedor de Azure Multi-Factor Authentication
 La verificación en dos pasos está disponible de forma predeterminada para los administradores globales que tienen usuarios de Azure Active Directory y Office 365. Sin embargo, si desea aprovechar las [características avanzadas](howto-mfa-mfasettings.md), debe adquirir la versión completa de Azure Multi-Factor Authentication (MFA).

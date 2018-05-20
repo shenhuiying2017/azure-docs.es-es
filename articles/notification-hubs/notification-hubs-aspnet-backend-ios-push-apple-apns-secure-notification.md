@@ -1,10 +1,10 @@
 ---
 title: Notificaciones push seguras de Azure Notification Hubs
-description: "Obtenga información acerca de cómo enviar notificaciones de inserción seguras a una aplicación iOS desde Azure. Ejemplos de código escritos en Objective-C y C#."
+description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras a una aplicación iOS desde Azure. Ejemplos de código escritos en Objective-C y C#.
 documentationcenter: ios
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: 17d42b0a-2c80-4e35-a1ed-ed510d19f4b4
 ms.service: notification-hubs
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: e5f09fb3716303bb21fe7442aa6fa8832174838e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: d3ba967a164a35af5bf66f7e74d5f95b5dc2a37f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Notificaciones push seguras de Azure Notification Hubs
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ A un alto nivel, el flujo es el siguiente:
    * El dispositivo entra en contacto con el back-end que solicita la carga segura.
    * La aplicación puede mostrar la carga como una notificación en el dispositivo.
 
-Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin ningún problema, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
+Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin problemas, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial [Notificar a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , por lo que debe completar los pasos de ese tutorial primero.
 
@@ -151,6 +151,6 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 1. En XCode, ejecute la aplicación en un dispositivo iOS físico (las notificaciones de inserción no funcionarán en el simulador).
 2. En la interfaz de usuario de la aplicación iOS, escriba un nombre de usuario y contraseña. Esta información puede ser cualquier cadena, pero deben tener el mismo valor.
-3. En la interfaz de usuario de la aplicación iOS, haga clic en **Log in**(Iniciar sesión). A continuación, haga clic en **Send push**(Enviar inserción). Debe ver la notificación segura mostrada en el centro notificaciones.
+3. En la interfaz de usuario de la aplicación iOS, haga clic en **Log in**(Iniciar sesión). A continuación, haga clic en **Enviar inserción**. Debe ver la notificación segura mostrada en el centro notificaciones.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png

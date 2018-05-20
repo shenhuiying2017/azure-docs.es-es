@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 391985f3ad0e07c4559545e9d0c5fffc45fe27d2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 942c2bce3a5907917b8d1cc9e8c251b5779542b5
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="quickstart-create-a-key-vault-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Key Vault mediante Azure Portal
 
@@ -58,7 +58,7 @@ En este momento, su cuenta de Azure es la única autorizada para realizar operac
 
 ## <a name="add-a-secret-to-key-vault"></a>Incorporación de un secreto a Key Vault
 
-Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. En este caso, se ha agregado una contraseña que una aplicación podría usar. La contraseña se denomina **ExamplePassword** y se almacena el valor **Pa$$w0rd** en ella.
+Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. En este caso, se ha agregado una contraseña que una aplicación podría usar. La contraseña se denomina **ExamplePassword** y se almacena el valor de **Pa$$w0rd** en ella.
 
 1. En la página de propiedades de Key Vault seleccione **Secretos**.
 2. Haga clic en **Generar o Importar**.
@@ -87,4 +87,4 @@ Cuando ya no lo necesite, elimine el grupo de recursos y con esto eliminará Key
 En esta guía de inicio rápido, ha creado una instancia de Key Vault y almacenado un secreto. Para más información sobre Key Vault y cómo lo puede utilizar con sus aplicaciones, siga con el tutorial sobre aplicaciones web que funcionan con Key Vault.
 
 > [!div class="nextstepaction"]
-> Consulte [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md) para más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una [identidad de servicio administrada](/active-directory/managed-service-identity/overview.md), continúe con el siguiente tutorial: [Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves](tutorial-web-application-keyvault.md)
+> Para obtener más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una identidad de servicio administrada, consulte el siguiente tutorial: [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar una aplicación web de Azure para que lea un secreto desde el almacén de claves).

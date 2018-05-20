@@ -1,9 +1,9 @@
 ---
-title: "Identificación de escenarios de análisis avanzados para Azure Machine Learning | Microsoft Docs"
-description: "Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos."
+title: Identificación de escenarios de análisis avanzados para Azure Machine Learning | Microsoft Docs
+description: Seleccione los escenarios adecuados para el proceso de análisis predictivo avanzado con el proceso de ciencia de datos en equipos.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b6a92f4f4615954902124c59adca25560182de6
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.author: deguhath
+ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Escenarios para análisis avanzado en Azure Machine Learning
 En este artículo se describen los distintos escenarios de origen y destino de datos de ejemplo que se pueden administrar con el [proceso de ciencia de datos en equipos (TDSP)](overview.md). El TDSP proporciona un enfoque sistemático a los equipos que colaboran en la compilación de aplicaciones inteligentes. Los escenarios que se exponen aquí muestran las opciones disponibles en el flujo de trabajo de procesamiento de datos en función de las características de datos, las ubicaciones de origen y los repositorios de destino de Azure.
@@ -35,7 +35,7 @@ Cada una de las secciones siguientes presenta un escenario de ejemplo. Para cada
 > **Para todos los escenarios siguientes, debe:**
 > <br/>
 > 
-> * [Crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md)
+> * [crear una cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md)
 >   <br/>
 > * [Creación de un área de trabajo de Azure Machine Learning](../studio/create-workspace.md)
 > 

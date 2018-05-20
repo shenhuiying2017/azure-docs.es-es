@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 2b69b3b5fee0d1148a762f817d9c5a8bc67806e7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de solicitud en Azure Cosmos DB
 
@@ -32,9 +32,9 @@ Para proporcionar un rendimiento predecible, debe reservar el rendimiento en uni
 Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
 * ¿Qué son las unidades de solicitud y los cargos de solicitud en Azure Cosmos DB?
-* ¿Cómo se puede especificar la capacidad de unidad de solicitud para un contenedor en Azure Cosmos DB?
+* ¿Cómo se puede especificar la capacidad de unidad de solicitud para un contenedor o un conjunto de contenedores en Azure Cosmos DB?
 * ¿Cómo puedo estimar mis necesidades de unidad de solicitud de la aplicación?
-* ¿Qué ocurre si supero la capacidad de unidad de solicitud para un contenedor en Azure Cosmos DB?
+* ¿Qué ocurre si supero la capacidad de unidad de solicitud para un contenedor o un conjunto de contenedores en Azure Cosmos DB?
 
 Como Azure Cosmos DB es una base de datos de varios modelos, es importante tener en cuenta que este artículo es aplicable a todos los modelos de datos y las API de Azure Cosmos DB. En este artículo usa términos genéricos como *contenedor* y *elemento* para hacer referencia genéricamente a una colección, grafo o tabla y un documento, nodo o entidad, respectivamente.
 
@@ -49,60 +49,19 @@ Recomendamos comenzar viendo el siguiente vídeo, donde Andrew Liu, administrado
 > 
 > 
 
-## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificación de la capacidad de unidad de solicitud en Azure Cosmos DB
-Al iniciar un nuevo contenedor, especifique el número de unidades de solicitud por segundo (RU por segundo) que desea reservar. Según el rendimiento aprovisionado, Azure Cosmos DB asigna las particiones físicas para hospedar el contenedor y divide y reequilibra los datos entre las particiones a medida que va creciendo.
-
-Los contenedores de Azure Cosmos DB se pueden crear como fijos o ilimitados. Los contenedores de tamaño fijo tienen un límite máximo de 10 GB y un rendimiento de 10 000 RU/s. Para crear un contenedor ilimitado, debe especificar un rendimiento mínimo de mil RU/s y una [clave de partición](partition-data.md). Como es posible que se tengan que dividir los datos entre varias particiones, es necesario elegir una clave de partición que tenga una cardinalidad alta (de cientos a millones de valores distintos). Al seleccionar una clave de partición con muchos valores distintos, se asegura de que Azure Cosmos DB pueda escalar el contenedor, la tabla, el grafo y las solicitudes de manera uniforme. 
-
-> [!NOTE]
-> Una clave de partición es un límite lógico, no uno físico. Por lo tanto, no es necesario limitar el número de los valores de clave de partición distintos. De hecho, es mejor tener más valores distintos de clave de partición que tener menos, ya que Azure Cosmos DB dispondrá de más opciones de equilibrio de carga.
-
-Este es un fragmento de código para crear un contenedor con 3000 unidades de solicitud por segundo con el SDK de .NET:
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-Azure Cosmos DB funciona con un modelo de reserva para el rendimiento. Es decir, se le cobrará por la cantidad de rendimiento *reservada*, independientemente de la que *use* activamente. A medida que los patrones de uso, datos y carga de la aplicación cambian, puede escalar y reducir verticalmente de forma sencilla la cantidad de unidades de solicitud reservadas mediante los SDK o con [Azure Portal](https://portal.azure.com).
-
-Cada contenedor está asignado a un recurso `Offer` de Azure Cosmos DB que contiene metadatos sobre el rendimiento aprovisionado. Puede cambiar el rendimiento asignado buscando el recurso de oferta correspondiente para un contenedor y, a continuación, actualizándolo con el nuevo valor de rendimiento. A continuación se muestra un fragmento de código para cambiar el rendimiento del contenedor a 5000 unidades de solicitud por segundo mediante el SDK de .NET:
-
-```csharp
-// Fetch the resource to be updated
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-No se producirá ningún cambio en la disponibilidad del contenedor cuando cambie el rendimiento. Por lo general, el nuevo rendimiento reservado es efectivo en cuestión de segundos después de su aplicación.
-
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Aislamiento del rendimiento en las bases de datos distribuidas globalmente
 
 Cuando la base de datos se ha replicado en más de una región, Azure Cosmos DB proporciona aislamiento del rendimiento para asegurarse de que el uso de la unidad de solicitud (RU) en una región no afecta a su uso en otra región. Por ejemplo, si escribe datos en una región y lee datos de otra región, las RU usadas para realizar la operación de escritura en la región *A* no se quitan de las RU usadas para la operación de lectura en la región *B*. Las RU no se dividen entre las regiones en las que ha implementado. Cada región en la que se replica la base de datos tiene la cantidad total de RU aprovisionadas. Para más información, consulte [Cómo se distribuyen datos globalmente con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Consideraciones de la unidad de solicitud
-Al estimar el número de unidades de solicitud que se aprovisionan para el contenedor de Azure Cosmos DB, es importante tener en cuenta las siguientes variables:
+Al estimar el número de unidades de solicitud que se aprovisionan, es importante tener en cuenta las siguientes variables:
 
 * **Tamaño del elemento**. Cuando aumenta el tamaño, también aumenta el número de unidades de solicitud que se usan para leer o escribir los datos.
 * **Recuento de propiedades del elemento**. Suponiendo que la indexación predeterminada de todas las propiedades, las unidades usadas para escribir un documento/nodo/entidad aumentarán conforme aumenta el recuento de propiedades.
 * **Coherencia de datos**. Al usar los modelos de coherencia de datos Alta y Obsolescencia limitada, se usarán unidades de solicitud adicionales para leer elementos.
-* **Propiedades indexadas**. Una directiva de índice en cada contenedor determina qué propiedades se indexan de forma predeterminada. Puede reducir el consumo de unidades de solicitud limitando el número de las propiedades indexadas o habilitando la indexación diferida.
+* **Propiedades indexadas**. Una directiva de índice en cada contenedor determina qué propiedades se indexan de forma predeterminada. Puede reducir el consumo de unidades de solicitud para operaciones de escritura limitando el número de las propiedades indexadas o habilitando la indexación diferida.
 * **Indexación de documentos**. De forma predeterminada, cada elemento se indexa automáticamente. Consumirá menos unidades de solicitud si decide no indexar algunos elementos.
-* **Patrones de consultas**. La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, las proyecciones, el número de UDF y el tamaño de los datos de origen influyen en el costo de operaciones de consulta.
+* **Patrones de consultas**. La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de resultados de consulta, el número de predicados, la naturaleza de los predicados, las proyecciones, el número de UDF y el tamaño de los datos de origen influyen en el costo de las operaciones de consulta.
 * **Uso de script**.  Las consultas, procedimientos almacenados y desencadenadores consumen unidades de solicitud según la complejidad de las operaciones que se están llevando a cabo. Cuando desarrolla su aplicación, inspeccione el encabezado request charge para entender mejor cómo consumen las operaciones la capacidad de unidad de solicitud.
 
 ## <a name="estimating-throughput-needs"></a>Estimación de necesidades de rendimiento
@@ -174,11 +133,11 @@ La herramienta también permite calcular las necesidades de almacenamiento de da
 
 El uso de la herramienta es simple:
 
-1. Cargue uno o más elementos representativos (por ejemplo, un documento JSON).
+1. Cargue uno o más elementos representativos (por ejemplo, un documento JSON de ejemplo).
    
     ![Carga de elementos en la calculadora de unidades de solicitud][2]
-2. Para calcular los requisitos de almacenamiento de datos, escriba el número total de elementos (como documentos, tablas o grafos) que espera almacenar.
-3. Escriba el número de operaciones de creación, lectura, actualización y eliminación que necesita (por segundo). Para calcular los cargos en materia de unidad de solicitud de las operaciones de actualización de elementos, cargue una copia del elemento de ejemplo del paso 1 anterior que incluya actualizaciones de campo típicas.  Por ejemplo, si las actualizaciones de elementos suelen modifican dos propiedades denominadas *lastLogin* y *userVisits*, bastará con copiar el elemento de ejemplo, actualizar los valores de esas dos propiedades y cargar el elemento copiado.
+2. Para calcular los requisitos de almacenamiento de datos, escriba el número total de elementos (como documentos, filas o vértices) que espera almacenar.
+3. Escriba el número de operaciones de creación, lectura, actualización y eliminación que necesita (por segundo). Para calcular los cargos en materia de unidad de solicitud de las operaciones de actualización de elementos, cargue una copia del elemento de ejemplo del paso 1 anterior que incluya actualizaciones de campo típicas.  Por ejemplo, si las actualizaciones de elementos suelen modificar dos propiedades denominadas *lastLogin* y *userVisits*, copie un elemento de ejemplo, actualice los valores de esas dos propiedades y cargue el elemento copiado.
    
     ![Especificar los requisitos de rendimiento en la calculadora de unidades de solicitud][3]
 4. Haga clic en calcular y examine los resultados.
@@ -299,7 +258,7 @@ Con esta información, puede hacer una estimación de los requisitos de RU para 
 | Selección por grupo de alimentos |10 |700 |
 | Selección de los 10 principales |15 |150 en total |
 
-En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden proporcionar 1300 RU/s para este contenedor de la aplicación.
+En este caso, se espera un requisito de rendimiento medio de 1,275 RU/s.  Redondeando hasta los 100 más cercanos, se pueden aprovisionar 1300 RU/s para el contenedor (o conjunto de contenedores) de esta aplicación.
 
 ## <a id="RequestRateTooLarge"></a> Superación de los límites de rendimiento reservados en Azure Cosmos DB
 La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por segundo. En el caso de las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada, la frecuencia de las solicitudes se limitará hasta que caiga por debajo del nivel de rendimiento aprovisionado. Cuando se limita la frecuencia de una solicitud, el servidor finaliza de forma preventiva la solicitud con `RequestRateTooLargeException` (código de estado HTTP 429) y devuelve el encabezado `x-ms-retry-after-ms` que indica la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
@@ -310,9 +269,14 @@ La retirada del consumo de la unidad de solicitud se evalúa como frecuencia por
 
 Si utiliza las consultas de LINQ y de SDK de cliente para .NET, no tendrá que tratar con esta excepción la mayoría del tiempo, ya que la versión actual del SDK de cliente .NET detecta implícitamente esta respuesta, respeta el encabezado retry-after especificado por el servidor y vuelve a intentar la solicitud automáticamente. A menos que varios clientes obtengan acceso a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
-Si tiene más de un cliente de manera acumulativa funcionando por encima de la frecuencia de solicitud, el comportamiento de reintento predeterminado puede no ser suficiente y el cliente producirá un `DocumentClientException` con el código de estado 429 en la aplicación. En casos como este, es posible que desee controlar el comportamiento de reintento y la lógica en las rutinas de control del error de la aplicación o aumentar el rendimiento aprovisionado para el contenedor.
+Si tiene más de un cliente de manera acumulativa funcionando por encima de la frecuencia de solicitud, el comportamiento de reintento predeterminado puede no ser suficiente y el cliente producirá un `DocumentClientException` con el código de estado 429 en la aplicación. En casos como este, es posible que desee controlar el comportamiento de reintento y la lógica en las rutinas de control de errores de la aplicación o aumentar el rendimiento aprovisionado en el contenedor (o el conjunto de contenedores).
 
 ## <a name="next-steps"></a>Pasos siguientes
+ 
+Para obtener información acerca de cómo establecer y obtener el rendimiento mediante Azure Portal y el SDK, consulte:
+
+* [Configuración y obtención del rendimiento para contenedores de Azure Cosmos DB](set-throughput.md)
+
 Para más información sobre el rendimiento con bases de datos de Azure Cosmos DB, explore estos recursos:
 
 * [Precios de Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
@@ -326,3 +290,4 @@ Para empezar a usar pruebas de escala y rendimiento con Azure Cosmos DB, consult
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+

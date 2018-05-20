@@ -1,26 +1,26 @@
 ---
-title: "Optimización del streaming multimedia mediante Azure CDN"
+title: Optimización del streaming multimedia con Azure CDN
 description: Optimizar el streaming de archivos multimedia para una entrega sin problemas
 services: cdn
-documentationcenter: 
-author: smcevoy
-manager: erikre
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: dksimpson
+manager: akucer
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
-ms.author: v-semcev
-ms.openlocfilehash: c953baad9ca5def916800e6abe7032b4572def5a
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.date: 05/01/2018
+ms.author: v-deasim
+ms.openlocfilehash: 8a2b69aaa601e1d00152f57841a4d67f98680181
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="media-streaming-optimization-via-azure-cdn"></a>Optimización del streaming multimedia mediante Azure CDN 
+# <a name="media-streaming-optimization-with-azure-cdn"></a>Optimización del streaming multimedia con Azure CDN 
  
 El uso de vídeo de alta definición está aumentando en Internet, lo que crea problemas de entrega eficaz de archivos grandes. Los clientes esperan una reproducción fluida de vídeo bajo demanda o de recursos de vídeo en vivo en una variedad de redes y clientes en todo el mundo. Un mecanismo de entrega rápido y eficiente de los archivos de streaming multimedia es fundamental para garantizar una experiencia sin complicaciones y divertida para el consumidor.  
 
@@ -28,33 +28,57 @@ El streaming en vivo de contenido multimedia es especialmente difícil de entreg
 
 Los patrones de solicitud de streaming también ofrecen algunos desafíos nuevos. Cuando se publica para vídeo bajo demanda una transmisión en vivo popular o una nueva serie, es posible que miles o millones de espectadores soliciten la transmisión al mismo tiempo. En este caso, la consolidación de solicitud inteligente es vital para no sobrecargar los servidores de origen cuando los recursos todavía no están almacenados en caché.
  
-**Azure CDN de Akamai** ahora proporciona una característica que entrega recursos de elementos multimedia en streaming de manera eficaz a usuarios en todo el mundo a escala. La característica reduce las latencias porque reduce la carga en los servidores de origen. Esta característica está disponible con el plan de tarifa estándar de Akamai. 
 
-**Azure CDN de Verizon**entrega streaming multimedia directamente en el tipo de optimización de entrega web general.
+## <a name="media-streaming-optimizations-for-azure-cdn-from-microsoft"></a>Optimizaciones de streaming multimedia para Azure CDN de Microsoft
+
+Los puntos de conexión **Azure CDN Estándar de Microsoft** proporcionan streaming de recursos multimedia directamente mediante el uso del tipo de optimización de entrega web general. 
+
+La optimización del streaming multimedia de **Azure CDN Estándar de Microsoft** es eficaz para el streaming multimedia en vivo o de vídeo bajo demanda donde se usan fragmentos multimedia individuales para la entrega. Este proceso es diferente a la transferencia de un solo recurso de gran tamaño a través de descarga progresiva o mediante solicitudes de intervalo de bytes. Para información sobre ese estilo de entrega multimedia, consulte [Optimización de descarga de archivos grandes mediante Azure CDN](cdn-large-file-optimization.md).
+
+Los tipos de optimización de entrega multimedia general o de vídeo bajo demanda usan Azure Content Delivery Network (CDN) con optimizaciones de back-end para entregar los recursos multimedia más rápidamente. También usan configuraciones para recursos multimedia en función de procedimientos recomendados aprendidos con el tiempo.
+
+### <a name="partial-cache-sharing"></a>Uso compartido de caché parcial
+El uso compartido de caché parcial permite que la red CDN entregue contenido parcialmente almacenado en caché a las nuevas solicitudes. Por ejemplo, si la primera solicitud a la red CDN produce un error de caché, la solicitud se envía al origen. Aunque este contenido incompleto se cargue en la memoria caché de la red CDN, las demás solicitudes a la red CDN pueden empezar a obtener estos datos. 
+
+
+## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Optimizaciones de streaming multimedia para la red CDN de Azure de Verizon
+
+Los puntos de conexión **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon** proporcionan streaming de recursos multimedia directamente mediante el uso del tipo de optimización de entrega web general. Algunas características en la red CDN ayudan directamente en la entrega de recursos multimedia de forma predeterminada.
+
+### <a name="partial-cache-sharing"></a>Uso compartido de caché parcial
+
+El uso compartido de caché parcial permite que la red CDN entregue contenido parcialmente almacenado en caché a las nuevas solicitudes. Por ejemplo, si la primera solicitud a la red CDN produce un error de caché, la solicitud se envía al origen. Aunque este contenido incompleto se cargue en la memoria caché de la red CDN, las demás solicitudes a la red CDN pueden empezar a obtener estos datos. 
+
+### <a name="cache-fill-wait-time"></a>Tiempo de espera de relleno de caché
+
+ La característica del tiempo de espera de relleno de caché exige al servidor perimetral mantener todas las solicitudes posteriores para el mismo recurso hasta que los encabezados de respuesta HTTP lleguen desde el servidor de origen. Si los encabezados de respuesta HTTP del servidor de origen llegan antes de que el temporizador expire, todas las solicitudes colocadas en espera se sirven desde la memoria caché creciente. Al mismo tiempo, la memoria caché se rellena con datos del origen. De forma predeterminada, el tiempo de espera de relleno de caché se establece en 3.000 milisegundos. 
+
  
-## <a name="configure-an-endpoint-to-optimize-media-streaming"></a>Configuración de un punto de conexión para optimizar el streaming multimedia
+## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Optimizaciones de streaming multimedia para la red CDN de Azure de Akamai
  
-Puede configurar el punto de conexión de la red de entrega de contenido (CDN) para optimizar la entrega de archivos grandes a través de Azure Portal. También puede usar las API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal para un perfil de **Azure CDN de Akamai**:
+**Azure CDN Estándar de Akamai** ofrece una característica que proporciona streaming de recursos multimedia de manera eficaz a usuarios de todo el mundo a escala. La característica reduce las latencias porque reduce la carga en los servidores de origen. Esta característica está disponible con el plan de tarifa estándar de Akamai. 
+
+La optimización del streaming multimedia de **Azure CDN Estándar de Akamai** es eficaz para el streaming multimedia en vivo o de vídeo bajo demanda donde se usan fragmentos multimedia individuales para la entrega. Este proceso es diferente a la transferencia de un solo recurso de gran tamaño a través de descarga progresiva o mediante solicitudes de intervalo de bytes. Para obtener información sobre ese estilo de entrega multimedia, vea [Optimización de archivos grandes](cdn-large-file-optimization.md).
+
+Los tipos de optimización de entrega multimedia general o de vídeo bajo demanda usan una red CDN con optimizaciones de back-end para entregar los recursos multimedia más rápidamente. También usan configuraciones para recursos multimedia en función de procedimientos recomendados aprendidos con el tiempo.
+
+### <a name="configure-an-akamai-cdn-endpoint-to-optimize-media-streaming"></a>Configuración de un punto de conexión de CDN de Akamai para optimizar el streaming multimedia
+ 
+Puede configurar el punto de conexión de la red de entrega de contenido (CDN) para optimizar la entrega de archivos grandes a través de Azure Portal. También puede usar las API de REST o cualquiera de los SDK de cliente para hacer esto. En los pasos siguientes se muestra el proceso a través de Azure Portal para un perfil de **Azure CDN Estándar de Akamai**:
 
 1. Para agregar un nuevo punto de conexión, en la página **Perfil de CDN**, seleccione **Punto de conexión**.
   
-    ![Nuevo punto de conexión](./media/cdn-media-streaming-optimization/01_Adding.png)
+    ![Nuevo punto de conexión](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 
 2. En la lista desplegable **Optimizado para**, seleccione **Streaming multimedia de vídeo a petición** para los recursos de vídeo bajo demanda. Si realiza una combinación de streaming en vivo y bajo demanda, seleccione **Streaming multimedia general**.
 
     ![Streaming seleccionado](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
 Después de crear el punto de conexión, aplica la optimización para todos los archivos que coincidan con determinados criterios. En la sección siguiente se describe este proceso. 
- 
-## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Optimizaciones de streaming multimedia para la red CDN de Azure de Akamai
- 
-La optimización del streaming multimedia de **Azure CDN de Akamai** es eficaz para el streaming multimedia en vivo o de vídeo bajo demanda que usa fragmentos multimedia individuales para la entrega. Este proceso es diferente a la transferencia de un solo recurso de gran tamaño a través de descarga progresiva o mediante solicitudes de intervalo de bytes. Para obtener información sobre ese estilo de entrega multimedia, vea [Optimización de archivos grandes](cdn-large-file-optimization.md).
-
-Los tipos de optimización de entrega multimedia general o de vídeo bajo demanda usan una red CDN con optimizaciones de back-end para entregar los recursos multimedia más rápidamente. También usan configuraciones para recursos multimedia en función de procedimientos recomendados aprendidos con el tiempo.
 
 ### <a name="caching"></a>Almacenamiento en caché
 
-Si **Azure CDN de Akamai** detecta que el recurso es un fragmento o manifiesto de streaming, usa diferentes tiempos de expiración de almacenamiento en caché que la entrega web general. (Vea la lista completa en la tabla siguiente). Como siempre, se respetan los encabezados Cache-Control o Expires enviados desde el origen. Si el recurso no es un recurso multimedia, almacena en caché mediante los tiempos de expiración para la entrega web general.
+Si **Azure CDN Estándar de Akamai** detecta que el recurso es un fragmento o manifiesto de streaming, usa tiempos de expiración de almacenamiento en caché diferentes a los de la entrega web general. (Vea la lista completa en la tabla siguiente). Como siempre, se respetan los encabezados Cache-Control o Expires enviados desde el origen. Si el recurso no es un recurso multimedia, almacena en caché mediante los tiempos de expiración para la entrega web general.
 
 El tiempo de almacenamiento en caché negativo corto es útil para la descarga de origen cuando muchos usuarios solicitan un fragmento que no existe todavía. Un ejemplo es una transmisión en directo en la que los paquetes no están disponibles desde el origen en ese segundo. Un intervalo de almacenamiento en caché más largo también ayuda a descargar solicitudes del origen, ya que el contenido de vídeo no suele modificarse.
  
@@ -83,17 +107,4 @@ Adobe HDS | f4m, f4x, drmmeta, arranque, f4f,<br>Estructura de dirección URL Se
 DASH | mpd, guión, divx, ismv, m4s, m4v, mp4,. mp4v, <br> sidx, webm, mp4a, m4a y isma
 Streaming con velocidad de transmisión adaptable | /manifest/, /QualityLevels/Fragments/
   
-
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Optimizaciones de streaming multimedia para la red CDN de Azure de Verizon
-
-**Azure CDN de Verizon** entrega recursos de streaming multimedia directamente mediante el tipo de optimización de entrega web general. Algunas características en la red CDN ayudan directamente en la entrega de recursos multimedia de forma predeterminada.
-
-### <a name="partial-cache-sharing"></a>Uso compartido de caché parcial
-
-El uso compartido de caché parcial permite que la red CDN entregue contenido parcialmente almacenado en caché a las nuevas solicitudes. Por ejemplo, si la primera solicitud a la red CDN produce un error de caché, la solicitud se envía al origen. Aunque este contenido incompleto se cargue en la memoria caché de la red CDN, las demás solicitudes a la red CDN pueden empezar a obtener estos datos. 
-
-### <a name="cache-fill-wait-time"></a>Tiempo de espera de relleno de caché
-
- La característica del tiempo de espera de relleno de caché exige al servidor perimetral mantener todas las solicitudes posteriores para el mismo recurso hasta que los encabezados de respuesta HTTP lleguen desde el servidor de origen. Si los encabezados de respuesta HTTP del servidor de origen llegan antes de que el temporizador expire, todas las solicitudes colocadas en espera se sirven desde la memoria caché creciente. Al mismo tiempo, la memoria caché se rellena con datos del origen. De forma predeterminada, el tiempo de espera de relleno de caché se establece en 3.000 milisegundos. 
-

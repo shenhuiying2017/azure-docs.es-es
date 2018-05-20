@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 17043ef3450554dd4ea272a4b7732367bae8e369
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de datos y servicios vinculados en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -193,7 +193,7 @@ Propiedad | DESCRIPCIÓN | Obligatorio
 Nombre | Nombre de la columna. | Sí
 Tipo | Tipo de datos de la columna. Data Factory admite los siguientes tipos de datos provisionales como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset y Timespan**. | Sin 
 culture | Referencia cultural basada en .NET que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`. | Sin 
-formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin 
+formato | Cadena de formato que se usará cuando se trate de un tipo .NET: `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. | Sin 
 
 ### <a name="example"></a>Ejemplo
 En el ejemplo siguiente, supongamos que los datos del blob de origen presentan el formato CSV y que contienen tres columnas: userid, name y lastlogindate. Son del tipo Int64, cadena y fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.

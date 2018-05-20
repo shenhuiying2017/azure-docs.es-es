@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: mazha
-ms.openlocfilehash: bbb62a5f47c2fda6e24a204f30939e43676b33a9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 373095d1783a8e6e52d43e80377c01b448706fbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Ubicaciones POP para Azure CDN por abreviatura
 > [!div class="op_single_selector"]
@@ -35,10 +35,12 @@ AGA | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 AGB | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 AKL | Auckland, Nueva Zelanda | Asia
 AMA | Ámsterdam, Países Bajos | Europa
+AMB | Ámsterdam, Países Bajos | Europa
 AMS | Ámsterdam, Países Bajos | Europa
 ARN | Estocolmo, Suecia | Europa
 ATL | Atlanta, Georgia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 BAQ | Barranquilla, Colombia | América Latina
+BLR | Bengaluru, India | Asia
 BNJ | Newark, Nueva Jersey, Estados Unidos | Norteamérica: Costa Este de los EE. UU.
 BOS | Boston, Massachusetts, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 BTH | Batam, Indonesia | Asia
@@ -49,10 +51,10 @@ CGH | São Paulo, Brasil | América Latina
 CGK | Yakarta, Indonesia | Asia
 CHA | Chicago, Illinois, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 CHB | Chicago, Illinois, EE. UU. | Norteamérica: Costa Este de los EE. UU.
-CJB | Bengaluru, India | Asia
 CNJ | Newark, Nueva Jersey, Estados Unidos | Norteamérica: Costa Este de los EE. UU.
 CPH | Copenhague, Dinamarca | Europa
 CPM | Los Ángeles, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
+CVA | Ashburn, Virginia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 DAA | Dallas, Texas, EE. UU. | Norteamérica: Costa Central de EE. UU.
 DAB | Dallas, Texas, EE. UU. | Norteamérica: Costa Central de EE. UU.
 DCA | Ashburn, Virginia, EE. UU. | Norteamérica: Costa Este de los EE. UU.
@@ -108,9 +110,10 @@ MEX | Ciudad de México, México | Norteamérica
 MIA | Miami, Florida, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 MIB | Miami, Florida, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 MIC | Miami, Florida, EE. UU. | Norteamérica: Costa Este de los EE. UU.
+MRS | Marsella, Francia | Europa
 MXP | Milán, Italia | Europa
 NAG | Bombay, India | Asia
-NJA | Tokio, Japón | Asia
+NDL | Delhi, India | Asia
 NRT | Tokio, Japón | Asia
 NYA | Nueva York, Nueva York, EE. UU. | Norteamérica: Costa Este de los EE. UU.
 NYB | Nueva York, Nueva York, EE. UU. | Norteamérica: Costa Este de los EE. UU.
@@ -118,6 +121,7 @@ OMM | Muscat, Omán | Oriente Medio
 ORD | Chicago, Illinois, EE. UU. | Norteamérica: Costa Central de EE. UU.
 ORY | París, Francia | Europa
 OXR | Los Ángeles, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
+PAB | París, Francia | Europa
 PAE | Seattle, Washington, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 PBC | Puebla, México | Norteamérica
 PHL | Filadelfia, Pennsylvania, EE. UU. | Norteamérica: Costa Este de los EE. UU.
@@ -125,6 +129,7 @@ PNQ | Bombay, India | Asia
 POX | París, Francia | Europa
 QRO | Santiago de Querétaro, México | Norteamérica
 RHV | San José, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
+RIB | Río de Janeiro, Brasil | América Latina
 RIX | Riga, Letonia | Europa
 RTM | Ámsterdam, Países Bajos | Europa
 SAA | San José, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
@@ -133,12 +138,13 @@ SCL | Valparaíso, Chile | América Latina
 SEA | Seattle, Washington, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 SEB | Seattle, Washington, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 SEC | Seattle, Washington, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
+SGB | Singapur | Asia
 SIN | Singapur | Asia
 SJC | San José, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 SJO | San José, California, EE. UU. | Norteamérica: Costa Oeste de los EE. UU.
 STO | Estocolmo, Suecia | Europa
 SYD | Sídney, Australia | Asia
-TEB | Nueva York, Nueva York, EE. UU. | Norteamérica: Costa Este de los EE. UU.
+TIR | Chennai, India | Asia
 TKA | Tokio, Japón | Asia
 TKB | Tokio, Japón | Asia
 TOJ | Madrid, España | Europa

@@ -1,11 +1,11 @@
 ---
-title: "Problemas en la configuración del inicio de sesión único federado para una aplicación ajena a la galería | Microsoft Docs"
-description: "Resolver algunos de los problemas comunes que pueden surgir al configurar un inicio de sesión único federado con una aplicación SAML personalizada que se muestre en la galería de aplicaciones de Azure AD"
+title: Problemas en la configuración del inicio de sesión único federado para una aplicación ajena a la galería | Microsoft Docs
+description: Resolver algunos de los problemas comunes que pueden surgir al configurar un inicio de sesión único federado con una aplicación SAML personalizada que se muestre en la galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 77f4bf0fc38043afd7a6634bcf16a0f10f7ddfeb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1990f6595be86d7f3a50f6c764a855aedf2cbcbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problemas en la configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
@@ -68,4 +68,4 @@ Azure AD no proporciona una dirección URL para obtener los metadatos. Solo se p
 Para obtener información sobre cómo personalizar las notificaciones de atributo SAML que se han enviado a su aplicación, vea [Asignación de notificaciones en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Administración de aplicaciones con Azure Active Directory](manage-apps/what-is-application-management.md)

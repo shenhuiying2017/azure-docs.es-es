@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Envío de datos a Log Analytics con la API del recopilador de datos HTTP (versión preliminar pública)
 Este artículo muestra cómo utilizar la API del recopilador de datos HTTP para enviar datos a Log Analytics desde un cliente de la API de REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud se autorice por Log Analytics.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -57,7 +57,7 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Encabezado | DESCRIPCIÓN |
 |:--- |:--- |
 | Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
-| Log-Type |Especifica el tipo de registro de los datos que se envían. Actualmente, el tipo de registro solo admite caracteres alfabéticos. No admite valores numéricos ni caracteres especiales. |
+| Log-Type |Especifica el tipo de registro de los datos que se envían. Actualmente, el tipo de registro solo admite caracteres alfabéticos. No admite valores numéricos ni caracteres especiales. El límite de tamaño para este parámetro es de 100 caracteres. |
 | x-ms-date |Fecha en que se procesó la solicitud, en formato RFC 1123. |
 | time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 

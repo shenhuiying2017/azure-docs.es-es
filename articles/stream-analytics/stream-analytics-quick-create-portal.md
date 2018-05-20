@@ -2,23 +2,22 @@
 title: Creación de un trabajo de Stream Analytics mediante Azure Portal | Microsoft Docs
 description: En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics, configurar las entradas y salidas y definir una consulta.
 services: stream-analytics
-keywords: Stream analytics, Cloud jobs, Azure portal, job input, job output, job transformation
-author: SnehaGunda
-ms.author: sngun
-ms.date: 03/16/2018
+author: mamccrea
+ms.author: mamccrea
+ms.date: 05/11/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: c421ab96585da011cdaef9933ceb8a78ffe356a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal
 
-En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics. Se define un trabajo de Stream Analytics que lee datos de muestra de un sensor y filtra las filas que tienen una temperatura media superior a 100 cada 30 segundos. En este artículo leerá datos de almacenamiento de blobs, transformará los datos y los escribirla de nuevo en un contenedor diferente en el mismo almacenamiento de blobs.
+En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de Stream Analytics. Se define un trabajo de Stream Analytics que lee datos de un sensor de muestra y filtra las filas que tienen una temperatura media superior a 100 cada 30 segundos. En este artículo se pueden leer datos del almacenamiento de blobs, transformar los datos y volver a escribirlos en otro contenedor del mismo almacenamiento de blobs. El archivo de datos de entrada usado en esta guía de inicio rápido contiene datos estáticos solo con fines ilustrativos. En un escenario real, se usan datos de entrada de streaming para los trabajos de Stream Analytics.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -28,43 +27,43 @@ En esta guía de inicio rápido se muestra cómo empezar a crear un trabajo de S
 
 ## <a name="prepare-the-input-data"></a>Preparación de los datos de entrada
 
-Antes de definir el trabajo de Stream Analytics, debe preparar los datos que se configuran como entrada para el trabajo. Ejecute los pasos siguientes para preparar los datos de entrada requeridos por el trabajo:
+Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se configuran como entrada en el trabajo. Para preparar los datos de entrada que requiere el trabajo, siga estos pasos:
 
-1. Descargue los [datos de ejemplo del sensor](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) desde GitHub. Los datos de ejemplo contienen información sobre el sensor en el siguiente formato JSON:  
+1. Descargue los [datos de ejemplo del sensor](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) desde GitHub. Los datos de ejemplo contienen información sobre el sensor en el siguiente formato JSON:  
 
    ```json
    {
-     "time": "2016-01-26T21:18:52.0000000",
+     "time": "2018-01-26T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
    }
    ```
-2. Inicie sesión en el Portal de Azure.  
+2. Inicie sesión en Azure Portal.  
 
-3. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la hoja del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "myasastorageaccount", en **Ubicación**, escriba "Oeste de EE. UU. 2" y en **Grupo de recursos**, escriba "MyRG" (para conseguir un mejor rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de streaming). El resto de la configuración se puede dejar en sus valores predeterminados.  
+3. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Almacenamiento** > **Cuenta de almacenamiento**. Rellene la página del trabajo de la cuenta de almacenamiento. En **Nombre**, escriba "myasastorageaccount", en **Ubicación**, escriba "Oeste de EE. UU. 2" y en **Grupo de recursos**, escriba "MyRG" (para conseguir un mejor rendimiento, hospede la cuenta de almacenamiento en el mismo grupo de recursos que el trabajo de streaming). El resto de la configuración se puede dejar con sus valores predeterminados.  
 
    ![Crear cuenta de almacenamiento](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
-4. En la hoja **Todos los recursos**, busque la cuenta de almacenamiento que creó en el paso anterior. Abra la hoja **Información general** y, luego, el icono **Blobs**.  
+4. En la página **Todos los recursos**, busque la cuenta de almacenamiento que creó en el paso anterior. Abra la página **Información general** y seleccione el icono **Blobs**.  
 
-5. En la hoja **Blob Service**, seleccione **Contenedor**, especifique un **nombre** para el contenedor, como *container1*, cambie la opción **Nivel de acceso público** a Blob (acceso de lectura anónimo solo para blobs) y, por último, haga clic en **Aceptar**.  
+5. En la página **Blob Service**, seleccione **Contenedor**, especifique un **nombre** para el contenedor, como *container1*, cambie la opción **Nivel de acceso público** a Blob (acceso de lectura anónimo solo para blobs) y, por último, haga clic en **Aceptar**.  
 
    ![Crear un contenedor](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
-6. Vaya al contenedor que creó en el paso anterior, seleccione **Cargar** y cargue los datos del sensor que obtuvo en el paso 1.  
+6. Vaya al contenedor que creó en el paso anterior. Seleccione **Cargar** y cargue los datos del sensor que obtuvo en el primer paso.  
 
    ![Carga de los datos de ejemplo en el blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
 
 ## <a name="create-a-stream-analytics-job"></a>Creación de un trabajo de Stream Analytics
 
-1. Inicie sesión en el Portal de Azure.  
+1. Inicie sesión en el Portal de Azure.
 
 2. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.  
 
 3. Seleccione **Datos y análisis** > **Trabajo de Stream Analytics** en la lista de resultados.  
 
-4. Rellene la hoja del trabajo de Stream Analytics con la siguiente información:
+4. Rellene la página del trabajo de Stream Analytics con la siguiente información:
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
@@ -91,7 +90,7 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
 
 2. Seleccione **Entradas** > **Add Stream input** >  (Agregar entrada de flujo) **Blob Storage**.  
 
-3. Rellene la hoja **Blob Storage** con los siguientes valores:
+3. Rellene la página **Blob Storage** con los siguientes valores:
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
@@ -110,7 +109,7 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
 
 2. Seleccione **Salidas > Agregar > Blob storage**.  
 
-3. Rellene la hoja **Blob Storage** con los siguientes valores:
+3. Rellene la página **Blob Storage** con los siguientes valores:
 
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
@@ -135,9 +134,9 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
@@ -148,9 +147,9 @@ En esta sección, configurará el almacenamiento de blobs como entrada al trabaj
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Inicio del trabajo de Stream Analytics y consulta de la salida
 
-1. Vuelva a la hoja de información general del trabajo y seleccione **Iniciar**  
+1. Vuelva a la página de información general del trabajo y seleccione **Iniciar**.
 
-2. En **Iniciar trabajo**, seleccione **Personalizado** en el campo **Hora de inicio**. Seleccione un día antes a cuando se cargó el archivo en el almacenamiento de blobs, ya que la hora a la que se cargó el archivo es anterior a la hora actual. Cuando finalice, seleccione **Guardar**.  
+2. En **Iniciar trabajo**, seleccione **Personalizado** en el campo **Hora de inicio**. Seleccione `2018-01-24` como fecha de inicio, pero no cambie la hora. Esta fecha de inicio se elige porque es anterior a la marca de tiempo del evento de los datos del ejemplo. Cuando finalice, seleccione **Guardar**.
 
    ![Inicio del trabajo](./media/stream-analytics-quick-create-portal/start-the-job.png)
 

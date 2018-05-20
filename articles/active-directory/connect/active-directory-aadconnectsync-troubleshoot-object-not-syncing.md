@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 05b60b091fe87620c88ad9eb761f1028c24d5730
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5bc0fd3854488704f5368bfe1134d8fa9c959c9b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Solución de problemas de un objeto que no se sincroniza con Azure AD
 
@@ -139,7 +139,7 @@ Debe tener un conector para los siguientes elementos:
 - Todos los bosques de Active Directory donde esté representado el usuario. Esta representación puede incluir foreignSecurityPrincipals y objetos de contacto.
 - Un conector de Azure AD.
 
-Si falta el conector en Azure AD, lea la sección de [atributos del metaverso](#MV-attributes) para comprobar los criterios de aprovisionamiento en Azure AD.
+Si falta el conector en Azure AD, lea la sección de [atributos del metaverso](#mv-attributes) para comprobar los criterios de aprovisionamiento en Azure AD.
 
 Esta pestaña también permite navegar al [objeto de espacio del conector](#connector-space-object-properties). Seleccione una fila y haga clic en **Propiedades**.
 

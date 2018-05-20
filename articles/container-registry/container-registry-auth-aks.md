@@ -1,6 +1,6 @@
 ---
-title: Autenticación con Azure Container Registry desde Azure Container Service
-description: Aprenda a proporcionar acceso a las imágenes del registro de contenedor privado desde Azure Container Service mediante una entidad de servicio de Azure Active Directory.
+title: Autenticación con Azure Container Registry desde Azure Kubernetes Service
+description: Aprenda a proporcionar acceso a las imágenes del registro de contenedor privado desde Azure Kubernetes Service mediante una entidad de servicio de Azure Active Directory.
 services: container-service
 author: neilpeterson
 manager: jeconnoc
@@ -8,19 +8,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
-ms.openlocfilehash: 6f2f035015445ee1fb2009b64d20d654484d7775
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0888afbb9087251e2c9219e2eb32fbf0d5600304
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-container-service"></a>Autenticación con Azure Container Registry desde Azure Container Service
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticación con Azure Container Registry desde Azure Kubernetes Service
 
-Cuando se usa Azure Container Registry (ACR) con Azure Container Service (AKS), es preciso establecer un mecanismo de autenticación. En este documento se detallan las configuraciones recomendadas para la autenticación entre estos dos servicios de Azure.
+Cuando se usa Azure Container Registry (ACR) con Azure Kubernetes Service (AKS), es preciso establecer un mecanismo de autenticación. En este documento se detallan las configuraciones recomendadas para la autenticación entre estos dos servicios de Azure.
 
 ## <a name="grant-aks-access-to-acr"></a>Concesión de acceso de AKS a ACR
 
-Cuando se crea un clúster de AKS, también se crea una entidad de servicio que administre su operatividad con los recursos de Azure. Esta entidad de servicio también se puede utilizar para la autenticación con un registro de control de acceso. Para ello, es preciso crear una asignación de roles para conceder a la entidad de servicio acceso de lectura al recurso de ACR. 
+Cuando se crea un clúster de AKS, también se crea una entidad de servicio que administre su operatividad con los recursos de Azure. Esta entidad de servicio también se puede utilizar para la autenticación con un registro de control de acceso. Para ello, es preciso crear una asignación de roles para conceder a la entidad de servicio acceso de lectura al recurso de ACR.
 
 Para completar esta operación se puede usar el siguiente ejemplo.
 
@@ -46,7 +46,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 
 En algunos casos, la entidad de servicio que usa AKS no tendrá el ámbito en el registro de ACR. Para estos casos, puede crear a una entidad de servicio único y que su ámbito sea solo el registro de ACR.
 
-El siguiente script se puede utilizar para crear la entidad de servicio. 
+El siguiente script se puede utilizar para crear la entidad de servicio.
 
 ```bash
 #!/bin/bash
@@ -54,11 +54,11 @@ El siguiente script se puede utilizar para crear la entidad de servicio.
 ACR_NAME=myacrinstance
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
-# Populate the ACR login server and resource id. 
+# Populate the ACR login server and resource id.
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a contributor role assignment with a scope of the ACR resource. 
+# Create a contributor role assignment with a scope of the ACR resource.
 SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principle client id.
@@ -69,7 +69,7 @@ echo "Service principal ID: $CLIENT_ID"
 echo "Service principal password: $SP_PASSWD"
 ```
 
-Las credenciales de la entidad de servicio ahora se pueden almacenar en un [secreto de extracción de imágenes][image-pull-secret] de Kubernetes y se puede hacer referencia a ellas al ejecutar contenedores en un clúster de AKS. 
+Las credenciales de la entidad de servicio ahora se pueden almacenar en un [secreto de extracción de imágenes][image-pull-secret] de Kubernetes y se puede hacer referencia a ellas al ejecutar contenedores en un clúster de AKS.
 
 El siguiente comando crea el secreto de Kubernetes. Reemplace el nombre del servidor por el servidor de inicio de sesión de ACR, el nombre de usuario por el identificador de la entidad de servicio y la contraseña por la contraseña de la entidad de servicio.
 
@@ -77,7 +77,7 @@ El siguiente comando crea el secreto de Kubernetes. Reemplace el nombre del serv
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>
 ```
 
-El secreto de Kubernetes se puede utilizar en una implementación de pod, para lo que debe usarse el parámetro `ImagePullSecrets`. 
+El secreto de Kubernetes se puede utilizar en una implementación de pod, para lo que debe usarse el parámetro `ImagePullSecrets`.
 
 ```yaml
 apiVersion: apps/v1beta1

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 05/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d824272f5b5569971eddcf0a43bd5ba97f60f506
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c86d1274ed46ff725c9db3093a8852fbae7f67ff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solución Wire Data 2.0 (versión preliminar) en Log Analytics
 
@@ -379,7 +379,7 @@ Después de instalar los agentes y la solución, el icono de Wire Data 2.0 apare
 
 ## <a name="using-the-wire-data-20-solution"></a>Uso de la solución Wire Data 2.0
 
-En el portal de OMS, haga clic en el icono **Wire Data 2.0** para abrir el panel de Wire Data. El panel incluye las hojas de la tabla siguiente. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros si hace clic en **Ver todo** en la parte inferior de la hoja o si hace clic en el encabezado de esta.
+En la página **Introducción** del área de trabajo de Log Analytics en Azure Portal, haga clic en el icono **Wire Data 2.0** para abrir el panel de Wire Data. El panel incluye las hojas de la tabla siguiente. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros si hace clic en **Ver todo** en la parte inferior de la hoja o si hace clic en el encabezado de esta.
 
 | **Hoja** | **Descripción** |
 | --- | --- |

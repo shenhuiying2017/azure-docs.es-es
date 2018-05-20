@@ -5,18 +5,18 @@ services: iot-dps
 keywords: ''
 author: bryanla
 ms.author: v-jamebr;bryanla
-ms.date: 04/06/2018
+ms.date: 05/11/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 439d4ffa8eec12481f52bd15f0060800411f316e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 87932c1ae1676d36ea0eb1ba7885f2ac455949ae
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Desaprovisionamiento de dispositivos aprovisionados automáticamente 
 
@@ -29,7 +29,7 @@ En general, el desaprovisionamiento de un dispositivo implica dos pasos:
    - Para aprender a dar de baja un dispositivo, consulte [Baja del servicio Azure IoT Hub Device Provisioning para un dispositivo](how-to-revoke-device-access-portal.md).
    - Para información sobre cómo dar de baja un dispositivo mediante programación con uno de los SDK del servicio de aprovisionamiento, consulte el artículo sobre la [administración de las inscripciones de dispositivos con los SDK de servicio](how-to-manage-enrollments-sdks.md).
 
-2. Anule el registro del dispositivo de la instancia de IoT Hub para evitar la transferencia de datos y la comunicación en el futuro. De nuevo, deshabilite temporalmente o elimine la entrada del dispositivo en el registro de identidades de manera definitiva para la instancia de IoT Hub en la que se aprovisionó. Consulte [Deshabilitación de dispositivos](/azure/iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) para más información sobre la deshabilitación. En [Azure Portal](https://portal.azure.com), consulte "Device Management / IoT Devices" (Administración de dispositivos /Dispositivos IoT) para el recurso de IoT Hub.
+2. Anule el registro del dispositivo de la instancia de IoT Hub para evitar la transferencia de datos y la comunicación en el futuro. De nuevo, deshabilite temporalmente o elimine la entrada del dispositivo en el registro de identidades de manera definitiva para la instancia de IoT Hub en la que se aprovisionó. Consulte [Deshabilitación de dispositivos](/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices) para más información sobre la deshabilitación. En [Azure Portal](https://portal.azure.com), consulte "Device Management / IoT Devices" (Administración de dispositivos /Dispositivos IoT) para el recurso de IoT Hub.
 
 Los pasos exactos que se realizan para el desaprovisionamiento de un dispositivo dependen del mecanismo de atestación y de la entrada de inscripción aplicable en el servicio de aprovisionamiento. En las secciones siguientes se ofrece una introducción al proceso basada en el tipo de inscripción y la atestación.
 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: aaf8b93a41399b7754fb458d7d1d278a64f82139
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 64a092de1ae6c005355063d43541a20fa9076395
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Guía de inicio rápido: Creación de una instancia de Azure Key Vault mediante la CLI
 
-Azure Key Vault es un servicio en la nube que funciona como un almacén de secretos seguro. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Para más información sobre Key Vault, puede consultar esta [introducción](key-vault-overview.md). La CLI de Azure se usa para crear y administrar recursos de Azure mediante comandos o scripts. En este artículo, va a crear una instancia de Key Vault. En esta guía de inicio rápido, va a crear un almacén de claves. Una vez que haya terminado, almacenará un secreto.
+Azure Key Vault es un servicio en la nube que funciona como un almacén de secretos seguro. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Para más información sobre Key Vault, puede consultar esta [introducción](key-vault-overview.md). La CLI de Azure se usa para crear y administrar recursos de Azure mediante comandos o scripts. En esta guía de inicio rápido, va a crear un almacén de claves. Una vez que haya terminado, almacenará un secreto.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -99,4 +99,4 @@ az group delete --name ContosoResourceGroup
 En esta guía de inicio rápido, ha creado una instancia de Key Vault y almacenado un secreto en ella. Para más información sobre Key Vault y cómo lo puede utilizar con sus aplicaciones, siga con el tutorial sobre aplicaciones web que funcionan con Key Vault.
 
 > [!div class="nextstepaction"]
-> Consulte [Uso de Azure Key Vault desde una aplicación web](key-vault-use-from-web-application.md) para más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una [identidad de servicio administrada](/active-directory/managed-service-identity/overview.md), continúe con el siguiente tutorial: [Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves](tutorial-web-application-keyvault.md)
+> Para obtener más información sobre cómo leer un secreto desde Key Vault mediante una aplicación web con una identidad de servicio administrada, consulte el siguiente tutorial: [Configure an Azure web application to read a secret from Key vault (Configuración de una aplicación web de Azure para que lea un secreto desde Key Vault)](tutorial-web-application-keyvault.md)

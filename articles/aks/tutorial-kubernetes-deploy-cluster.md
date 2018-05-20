@@ -3,19 +3,19 @@ title: 'Tutorial de Kubernetes en Azure: implementación del clúster'
 description: 'Tutorial de AKS: implementación del clúster'
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 99b65ba5e5f0be40e464fd6565db40fda4170a0f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c793aa02e614ead146806888d26a18867ff2eebb
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Container Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
 Kubernetes proporciona una plataforma distribuida para aplicaciones en contenedores. Con AKS, el aprovisionamiento de un clúster de Kubernetes listo para producción se realiza de forma rápida y sencilla. En este tutorial, la tercera parte de ocho, se implementa un clúster de Kubernetes en AKS. Los pasos completados incluyen:
 

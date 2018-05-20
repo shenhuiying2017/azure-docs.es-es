@@ -1,26 +1,26 @@
 ---
-title: "Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory | Microsoft Docs"
-description: "Cómo eliminar la asignación del acceso de un usuario o grupo de una aplicación empresarial en Azure Active Directory"
+title: Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory | Microsoft Docs
+description: Cómo eliminar la asignación del acceso de un usuario o grupo de una aplicación empresarial en Azure Active Directory
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-editor: 
-ms.assetid: 7b2d365b-ae92-477f-9702-353cc6acc5ea
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 084ffcbe473290a8734b1c8b8847b517dac4f6b6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b3c5c6c4bc1cfd5a9b68277e21fc06f37fa18f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Eliminación de asignaciones de usuario o grupo de una aplicación empresarial en Azure Active Directory
 Evitar que se asigne acceso a un usuario o grupo a una de sus aplicaciones empresariales en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para administrar la aplicación de empresa y debe ser administrador global en el directorio.

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6374e49f3f682d022613e3e5244d273337213311
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b1c8c981c0b1c3b599d2dd737b680390a52888eb
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Creación de una cuenta de Batch con Azure Portal
 
@@ -37,8 +37,7 @@ Para más información acerca de los escenarios y las cuentas de Batch, consulte
 
 ## <a name="create-a-batch-account"></a>Crear una cuenta de Batch
 
-> [!NOTE]
-> Cuando se crea una cuenta de Batch, por lo general debería elegir el modo de **servicio Batch** predeterminado, en el que los grupos se asignan en segundo plano en suscripciones administradas por Azure. En el modo de **suscripción de usuario** alternativo, que no se recomienda en la mayor parte de los escenarios, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Para crear una cuenta de Batch en modo de suscripción de usuario, también debe registrar su suscripción a Azure Batch y asociar la cuenta a una instancia de Azure Key Vault.
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. Inicie sesión en [Azure Portal][azure_portal].
 2. Haga clic en **Crear un recurso** y busque **Servicio de Batch** en Marketplace.

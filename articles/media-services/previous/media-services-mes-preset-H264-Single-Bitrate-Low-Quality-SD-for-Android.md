@@ -1,11 +1,11 @@
 ---
 title: H264 Single Bitrate Low Quality SD for Android | Microsoft Docs
-description: "El tema proporciona información general sobre el valor predeterminado de tarea **H264 Single Bitrate Low Quality SD for Android**."
+description: El tema proporciona información general sobre el valor predeterminado de la tarea **H264 Single Bitrate Low Quality SD for Android**.
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 67d3446d-e3b8-419f-bbf8-e5149c108531
 ms.service: media-services
 ms.workload: media
@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
 ms.openlocfilehash: af10b703615e35c28038ef5b8e15f3e58e0eecb1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 Single Bitrate Low Quality SD for Android
 `Media Encoder Standard` define un conjunto de valores predeterminados de codificación que puede usar al crear trabajos de codificación. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  
   
  En este tema se muestra el valor predeterminado `H264 Single Bitrate Low Quality SD for Android` en formato XML y JSON.  
   
- Este valor predeterminado genera un único archivo MP4 con una velocidad de bits de 56 kbps y audio AAC estéreo. Para información detallada sobre el perfil, la velocidad de bits, la frecuencia de muestreo, etc., de este valor predeterminado, examine el código XML o JSON definido más adelante. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
+ Este valor predeterminado genera un único archivo MP4 con una velocidad de bits de 56 kbps y audio AAC estéreo. Para información detallada sobre el perfil, la velocidad de bits, la frecuencia de muestreo, etc. de este valor predeterminado, examine el código XML o JSON definido más adelante. Para obtener explicaciones de lo que cada elemento significa en estos nombres predeterminados y los valores válidos para cada elemento, vea el tema sobre el [esquema de Media Encoder Standard](media-services-mes-schema.md).  
   
  XML  
   

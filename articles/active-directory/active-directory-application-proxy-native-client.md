@@ -3,23 +3,23 @@ title: 'Publicación de aplicaciones cliente nativas: Azure AD | Microsoft Docs'
 description: Explica cómo habilitar las aplicaciones cliente nativas para comunicarse con el conector del proxy de la aplicación de Azure AD para proporcionar acceso remoto seguro a las aplicaciones locales.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 823939e76bcf982d37b58595795dca84c1830e19
-ms.sourcegitcommit: 4bc2aa08a116a0acca0af3b02b5c1d144d3cf9b1
+ms.openlocfilehash: 79ee3aca783d7c29959c2730696a313bf821b3bc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Habilitación de las aplicaciones cliente nativas para interactuar con el proxy de la aplicación
 
@@ -34,7 +34,7 @@ Utilice la biblioteca de Autenticación de Azure AD, que se encarga de la autent
 Este artículo le guiará por los cuatro pasos para publicar una aplicación nativa con el proxy de aplicación y la biblioteca de Autenticación de Azure AD. 
 
 ## <a name="step-1-publish-your-application"></a>Paso 1: Publicación de la aplicación
-Publique su aplicación de proxy al igual que haría con cualquier otra aplicación y asigne a los usuarios el acceso a la aplicación. Para más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](active-directory-application-proxy-publish.md).
+Publique su aplicación de proxy al igual que haría con cualquier otra aplicación y asigne a los usuarios el acceso a la aplicación. Para más información, consulte [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-publish-azure-portal.md).
 
 ## <a name="step-2-configure-your-application"></a>Paso 2: Configuración de la aplicación
 Configure su aplicación nativa de la manera siguiente:
@@ -47,7 +47,7 @@ Configure su aplicación nativa de la manera siguiente:
    ![Creación de un registro de aplicaciones](./media/active-directory-application-proxy-native-client/create.png)
 5. Seleccione **Crear**.
 
-Para más información sobre cómo crear un registro de aplicación, consulte [Integración de aplicaciones con Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+Para más información sobre cómo crear un registro de aplicación, consulte [Integración de aplicaciones con Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 
 ## <a name="step-3-grant-access-to-other-applications"></a>Paso 3: Conceder acceso a otras aplicaciones
@@ -97,4 +97,4 @@ Una vez que se edita la ADAL con estos parámetros, los usuarios deberían poder
 
 Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
-Más información sobre cómo configurar el [inicio de sesión único para el proxy de la aplicación](application-proxy-sso-overview.md)
+Más información sobre cómo configurar el [inicio de sesión único para el proxy de la aplicación](manage-apps/application-proxy-single-sign-on.md)

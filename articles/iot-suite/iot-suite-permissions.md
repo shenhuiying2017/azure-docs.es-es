@@ -1,12 +1,12 @@
 ---
-title: Conjunto de aplicaciones de IoT de Azure y Azure Active Directory | Microsoft Docs
-description: Describe la forma en que el conjunto de aplicaciones Azure IoT usa Azure Active Directory para administrar permisos.
-services: 
+title: Aceleradores de soluciones de Azure IoT y Azure Active Directory | Microsoft Docs
+description: Describe la forma en que los aceleradores de soluciones de Azure IoT usan Azure Active Directory para administrar permisos.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: e5804cda921e9d598d0ed02c4fafccdb40fbe7a5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b7360ca4df63cac114b0eb1f93375367da6735cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permisos en el sitio azureiotsuite.com
 
@@ -29,35 +29,35 @@ La primera vez que inicie sesión en [azureiotsuite.com][lnk-azureiotsuite], el 
 
 1. En primer lugar, para rellenar la lista de los inquilinos que aparece junto al nombre de usuario, el sitio descubre en Azure a qué inquilinos de AAD pertenece el usuario. Actualmente, el sitio no puede obtener tokens de usuario para más de un solo inquilino a la vez. Por tanto, al cambiar inquilinos mediante la lista desplegable de la esquina superior derecha, el sitio inicia si sesión en dicho inquilino para obtener los tokens de este.
 
-2. A continuación, el sitio descubre en Azure qué suscripciones ha asociado al inquilino seleccionado. Las suscripciones disponibles se ven cuando se crea una nueva solución preconfigurada.
+2. A continuación, el sitio descubre en Azure qué suscripciones ha asociado al inquilino seleccionado. Las suscripciones disponibles se ven al crear un nuevo acelerador de soluciones.
 
-3. Por último, el sitio recupera todos los recursos de las suscripciones y los grupos de recursos etiquetados como soluciones preconfiguradas y rellena los iconos de la página principal.
+3. Por último, el sitio recupera todos los recursos de las suscripciones y los grupos de recursos etiquetados como aceleradores de soluciones y rellena los iconos de la página principal.
 
-En las secciones siguientes se describen los roles que controlan el acceso a las soluciones preconfiguradas.
+En las secciones siguientes se describen los roles que controlan el acceso a los aceleradores de soluciones.
 
 ## <a name="aad-roles"></a>Roles de AAD
 
-Los roles de AAD controlan las soluciones preconfiguradas de aprovisionamiento de capacidades y administran los usuarios en una solución preconfigurada.
+Los roles de AAD controlan los aceleradores de soluciones de aprovisionamiento de capacidades y administran los usuarios en un acelerador de soluciones.
 
-Puede encontrar más información sobre los roles del administrador en AAD en [Asignación de roles de administrador en Azure Active Directory][lnk-aad-admin]. El artículo actual se centra en los roles de **administrador global** y de directorio de **usuario** que utilizan las soluciones preconfiguradas.
+Puede encontrar más información sobre los roles del administrador en AAD en [Asignación de roles de administrador en Azure Active Directory][lnk-aad-admin]. El artículo actual se centra en los roles de **administrador global** y de directorio de **usuario** que utilizan los aceleradores de soluciones.
 
 ### <a name="global-administrator"></a>Administrador global
 
 Puede haber muchos administradores globales por inquilino de AAD:
 
 * Al crear un inquilino de AAD, quien lo crea es de forma predeterminada el administrador global del mismo.
-* El administrador global puede aprovisionar soluciones preconfiguradas básicas y estándar.
+* El administrador global puede aprovisionar aceleradores de soluciones básicos y estándar.
 
 ### <a name="domain-user"></a>Usuario de dominio
 
 Puede haber muchos usuarios de dominio por inquilino de AAD:
 
-* Un usuario de dominio puede aprovisionar una solución preconfigurada básica mediante el sitio [azureiotsuite.com][lnk-azureiotsuite].
-* Un usuario de dominio puede crear una solución preconfigurada básica mediante la CLI.
+* Un usuario de dominio puede aprovisionar un acelerador de soluciones básico mediante el sitio [azureiotsuite.com][lnk-azureiotsuite].
+* Un usuario de dominio puede crear un acelerador de soluciones básico mediante la CLI.
 
 ### <a name="guest-user"></a>Usuario invitado
 
-Puede haber muchos usuarios invitados por inquilino de AAD. Los usuarios invitados tienen un conjunto de derechos limitado en el inquilino de AAD. Como consecuencia, los usuarios invitados no pueden aprovisionar una solución preconfigurada en el inquilino de AAD.
+Puede haber muchos usuarios invitados por inquilino de AAD. Los usuarios invitados tienen un conjunto de derechos limitado en el inquilino de AAD. Como consecuencia, los usuarios invitados no pueden aprovisionar un acelerador de soluciones en el inquilino de AAD.
 
 Para más información acerca de los usuarios y roles de AAD, consulte estos recursos:
 
@@ -94,7 +94,7 @@ Observe el diagrama siguiente para obtener instrucciones:
 Si está seguro de que tiene una suscripción de Azure, valide la asignación del inquilino de la suscripción y asegúrese de que se ha seleccionado el inquilino correcto en la lista desplegable. Si ha validado que el inquilino deseado es el correcto, siga el diagrama anterior y valide la asignación de la suscripción y de este inquilino de AAD.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información sobre el Conjunto de aplicaciones de IoT, consulte cómo puede [personalizar una solución preconfigurada][lnk-customize].
+Para seguir obteniendo más información sobre los aceleradores de soluciones de IoT, va cómo puede [personalizar un acelerador de soluciones][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

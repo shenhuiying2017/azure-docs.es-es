@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 679fb066441fd75d5e12f9374d012f50c6f65966
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -132,6 +132,11 @@ docker run -d --name my-web-site helloworldapp
 Una vez que el contenedor se inicia, busque su dirección IP para que pueda conectarse a su contenedor en ejecución desde un explorador:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
+```
+
+Si este comando no devuelve nada, ejecute el siguiente e inspeccione la dirección IP del elemento **NetworkSettings**->**Networks**:
+```
+docker inspect my-web-site
 ```
 
 Conéctese al contenedor en ejecución. Abra un explorador web que apunte a la dirección IP devuelta; por ejemplo, "http://172.31.194.61". Debería ver que el título "¡Hola mundo!" se muestra en el explorador.

@@ -14,11 +14,11 @@ ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 636de232e38a7d940a5f20a1c9d37971942fae34
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d61907ddbd6eaecc8aeae8d2f1cea204f287daea
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
 Este artículo contiene instrucciones para usar cmdlets de PowerShell de Azure Active Directory (Azure AD) para crear y actualizar grupos. Este contenido se aplica únicamente a grupos de Office 365, también conocidos como grupos unificados. 
@@ -72,7 +72,7 @@ Con estos pasos se crean configuraciones en el nivel de directorio que se aplica
 4. Luego, actualice el valor de instrucciones de uso:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "<https://guideline.com>"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.com"
   ```  
 5. Por último, aplique la configuración:
   
@@ -141,7 +141,7 @@ Con estos pasos se lee la configuración en el nivel de directorio, la cual se a
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            <https://guideline.com>
+  UsageGuidelinesUrl            https://guideline.com
   ClassificationList
   EnableGroupCreation           True
   ```

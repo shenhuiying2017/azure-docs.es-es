@@ -3,24 +3,24 @@ title: Cambio del nombre o el logotipo de una aplicación empresarial en Azure A
 description: Cómo cambiar el nombre o el logotipo de una aplicación empresarial personalizada en Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: d01303ce-e6cb-4f3b-a4d6-ec29dfd68146
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 18e5555d4eaf49fceb5aec673eedce8ed90d46a3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a8c166e4c0abeddbdb23622e147cd7ecd5395b05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Cambio del nombre o el logotipo de una aplicación empresarial en Azure Active Directory
 Cambiar el nombre o el logotipo de una aplicación empresarial personalizada en Azure Active Directory (Azure AD) es fácil. Debe tener los permisos adecuados para realizar estos cambios, y debe ser el creador de la aplicación personalizada.

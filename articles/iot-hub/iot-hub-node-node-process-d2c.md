@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2017
 ms.author: v-masebo;dobett
-ms.openlocfilehash: 02edb06d2d871cffac717358e33a6720c444a9b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: baed8a4c5086a9e3c757a3ecb8a6811c7be6b09e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-node"></a>Enrutamiento de mensajes con IoT Hub (Node)
 
@@ -231,7 +231,7 @@ En este tutorial, ha aprendido a enviar de manera confiable mensajes del disposi
 
 El tutorial sobre [cómo enviar mensajes de dispositivo a la nube con IoT Hub][lnk-c2d] muestra cómo enviar mensajes a los dispositivos desde la solución de back-end.
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usan IoT Hub, consulte [Azure IoT Suite][lnk-suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT][lnk-suite].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 

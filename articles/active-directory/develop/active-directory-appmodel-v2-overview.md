@@ -1,25 +1,27 @@
 ---
-title: "Punto de conexión v2.0 de Azure Active Directory | Documentos de Microsoft"
-description: "Introducción a la creación de aplicaciones con inicio de sesión de cuentas Microsoft y de Azure Active Directory."
+title: Punto de conexión v2.0 de Azure Active Directory | Documentos de Microsoft
+description: Introducción a la creación de aplicaciones con inicio de sesión de cuentas Microsoft y de Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 18319ad461500fac13b3f6ac1117a52b94e695e7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Inicio de sesión de usuarios de cuentas Microsoft y Azure Active Directory en una sola aplicación
 Antes, los desarrolladores de aplicaciones que querían admitir cuentas de Microsoft personales y profesionales de Azure Active Directory debían realizar la integración con dos sistemas independientes. El punto de conexión de la versión 2.0 de Azure Active Directory (Azure AD) presenta una nueva versión de la API de autenticación que simplifica este proceso. El punto de conexión de la versión 2.0 de Azure AD permite iniciar sesión con ambos tipos de cuenta mediante el uso de una única integración. Las aplicaciones que usan el punto de conexión de la versión 2.0 de Azure AD también pueden usar las API de REST de [Microsoft Graph API](https://graph.microsoft.io) con cualquier tipo de cuenta.

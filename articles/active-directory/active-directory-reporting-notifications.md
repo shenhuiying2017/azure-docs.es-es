@@ -1,11 +1,11 @@
 ---
 title: Notificaciones de informes de Azure Active Directory
-description: "Uso de las notificaciones de informes de Azure Active Directory para inicios de sesión sospechosos"
+description: Uso de las notificaciones de informes de Azure Active Directory para inicios de sesión sospechosos
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 01/03/2018
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 99783eebb76363ca3fa96c6777906239f3de1131
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notificaciones de informes de Azure Active Directory
 ## <a name="what-reports-generate-email-notifications"></a>Qué informes generan notificaciones de correo electrónico
@@ -39,7 +39,7 @@ El correo electrónico se envía si se producen 10 nuevas actividades de inicio 
 Al hacer clic en el vínculo, se le redirigirá a la página del informe de Azure Portal. Para tener acceso al informe, deberá ser:
 
 * Administrador o coadministrador de su suscripción de Azure
-* Administrador global en el directorio y tener asignada una licencia de Active Directory Premium. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+* Administrador global en el directorio y tener asignada una licencia de Active Directory Premium. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-whatis.md).
 
 ## <a name="can-i-turn-off-these-emails"></a>¿Puedo desactivar los correos electrónicos?
 Sí, para desactivar las notificaciones relacionadas con inicios de sesión anómalos en Azure Portal, haga clic en **Configurar** y, luego, seleccione **Deshabilitado** en la sección **Notificaciones**.

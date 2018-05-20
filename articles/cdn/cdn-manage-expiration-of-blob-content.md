@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 6d2681ad05890fc5f9f2821245e0f0280bf45a5f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a0f89a272fa300f6acced2de02ba5465ab282079
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Administrar la caducidad de Azure Blob Storage en Azure Content Delivery Network
+# <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenido web de Azure](cdn-manage-expiration-of-cloud-service-content.md)
 > * [Almacenamiento de blobs de Azure](cdn-manage-expiration-of-blob-content.md)

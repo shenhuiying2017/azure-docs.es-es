@@ -1,21 +1,21 @@
 ---
-title: "Escala de un clúster de Azure Container Service (AKS)"
-description: "Escale un clúster de Azure Container Service (AKS)."
+title: Escalado de un clúster de Azure Kubernetes Service (AKS)
+description: Escalado de un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 author: gabrtv
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: fbbc24c958152806964412b426aff81a894d4412
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 577fff2e659759647ffc7e96158ebcbe5a88ab25
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="scale-an-azure-container-service-aks-cluster"></a>Escala de un clúster de Azure Container Service (AKS)
+# <a name="scale-an-azure-kubernetes-service-aks-cluster"></a>Escalado de un clúster de Azure Kubernetes Service (AKS)
 
 Es fácil escalar un clúster de AKS a un número de nodos diferente.  Seleccione el número de nodos deseado y ejecute el comando `az aks scale`.  Durante la reducción vertical, los nodos se [acordonarán y vaciarán][kubernetes-drain] minuciosamente para minimizar las interrupciones en las aplicaciones en ejecución.  Durante el escalado vertical, el comando `az` espera hasta que el clúster de Kubernetes marca los nodos como `Ready`.
 

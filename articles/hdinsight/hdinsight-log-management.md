@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d3ca9983eee4db09a68bf772b80c9ef841117872
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Administración de registros de un clúster de HDInsight
 
@@ -105,17 +105,6 @@ El paso siguiente es revisar los archivos de registro de ejecución de trabajo d
 HDInsight almacena los archivos de registro en el sistema de archivos del clúster y en Azure Storage. Puede examinar los archivos de registro del clúster abriendo una conexión SSH para el clúster y examinando el sistema de archivos, o bien mediante el portal de estado de Hadoop YARN en el servidor remoto del nodo principal. Puede examinar los archivos de registro en Azure Storage mediante cualquiera de las herramientas que pueden acceder a los datos de Azure Storage y descargarlos. Algunos ejemplos son AZCopy, CloudXplorer y el Explorador de servidores de Visual Studio. También puede usar las bibliotecas de cliente de Azure Storage y PowerShell, o bien los SDK de Azure .NET, para tener acceso a los datos de Azure Blob Storage.
 
 Hadoop ejecuta la labor de los trabajos como *intentos de tareas* en varios nodos del clúster. HDInsight puede iniciar intentos de tareas especulativas, lo que finaliza cualquier otro intento de tarea que no se complete primero. Esto genera una actividad significativa que se registra en el controlador, en stderr y en los archivos de registro de Syslog sobre la marcha. Además, varios intentos de tareas se ejecutan simultáneamente, pero un archivo de registro solo puede mostrar los resultados de forma lineal.
-
-#### <a name="hdinsight-logs-written-to-azure-tables"></a>Registros de HDInsight escritos en tablas de Azure
-
-Los registros que se escriben en las tablas de Azure proporcionan información sobre lo que ocurre en un clúster de HDInsight. Al crear un clúster de HDInsight basado en Linux, se crean automáticamente seis tablas en el almacenamiento de tablas predeterminado:
-
-* hdinsightagentlog
-* syslog
-* daemonlog
-* hadoopservicelog
-* ambariserverlog
-* ambariagentlog
 
 #### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>Registros de HDInsight escritos en Azure Blob Storage
 

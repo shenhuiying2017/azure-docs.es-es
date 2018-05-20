@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6a8565c70097b3ac9a419b652a652824adebba88
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c46bd64b3fec06e4ba4050542f27ba3e70862e45
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="use-helm-with-azure-container-service-aks"></a>Uso de Helm con Azure Container Service (AKS)
+# <a name="use-helm-with-azure-kubernetes-service-aks"></a>Uso de Helm con Azure Kubernetes Service (AKS)
 
 [Helm][helm] es una herramienta de empaquetado de código abierto que le ayuda a instalar y administrar el ciclo de vida de las aplicaciones de Kubernetes. Helm, que funciona de forma similar a los administradores de paquetes de Linux como *APT* y *Yum*, se utiliza para administrar los gráficos de Kubernetes, que son paquetes de recursos de Kubernetes preconfigurados.
 

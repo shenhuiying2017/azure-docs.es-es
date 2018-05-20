@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a202efd08de69e6e766c9c42047c01a03be4d96
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desarrollo de soluciones de procesos paralelos a gran escala con Batch
 
@@ -72,10 +72,7 @@ Puede crear una cuenta de Azure Batch mediante [Azure Portal](batch-account-crea
 
 Se pueden ejecutar varias cargas de trabajo de Batch en una sola cuenta de Batch, o bien distribuir las cargas de trabajo entre cuentas de Batch que se encuentren en la misma suscripción, pero en diferentes regiones de Azure.
 
-> [!NOTE]
-> Cuando se crea una cuenta de Batch, por lo general debería elegir el modo de **servicio Batch** predeterminado, en el que los grupos se asignan en segundo plano en suscripciones administradas por Azure. En el modo de **suscripción de usuario** alternativo, que no se recomienda en la mayor parte de los escenarios, tanto las máquinas virtuales de Batch como otros recursos se crean directamente en su suscripción cuando se crea un grupo. Para crear una cuenta de Batch en modo de suscripción de usuario, también debe registrar su suscripción a Azure Batch y asociar la cuenta a una instancia de Azure Key Vault.
->
-
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 ## <a name="azure-storage-account"></a>Cuenta de Azure Storage
 

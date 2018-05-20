@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f5bee7b85a423ba7a1b0b36b4b6910275551849c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 ## <a name="overview"></a>Información general
 En Azure Media Services (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
-* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para Live Encoding con Media Services, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Media Services, con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 * Un codificador local en vivo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de velocidad de bits múltiple al canal que no está habilitado para realizar la codificación en directo con AMS. Las secuencias recopiladas pasan a través de **canales**sin más procesamiento. Este método se llama **paso a través**. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek y Tricaster.  El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Media Services entrega la secuencia a los clientes.
   
   > [!NOTE]
@@ -79,7 +79,7 @@ A partir del 25 de enero de 2016, Media Services implementó una actualización 
 El umbral para un período sin usar nominalmente es de 12 horas, pero está sujeta a cambios.
 
 ## <a name="live-encoding-workflow"></a>Flujo de trabajo de Live Encoding
-El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits. 
+El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. A continuación, la codifica como secuencia de varias velocidades de bits. 
 
 ![Flujo de trabajo activo][live-overview]
 
@@ -91,7 +91,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 > 
 > 
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). 
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP o Smooth Streaming. 
    
     Este paso también puede realizarse después de crear el canal.
 2. Cree e inicie un canal. 
@@ -125,48 +125,8 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 ### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
-* **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
 * **RTMP**
 * **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
-
-#### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
-Caso de uso típico: 
-
-Los emisores profesionales suelen trabajar con codificadores locales en directo de tecnología avanzada (de proveedores como Elemental Technologies, Ericsson, Ateme, Imagine o Envivio) para enviar secuencias. Estos suelen usarse conjuntamente con un departamento de TI y redes privadas.
-
-Consideraciones:
-
-* Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS). 
-* Puede introducir un máximo de ocho secuencias de audio con MPEG-2 TS a través de RTP. 
-* La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
-* La suma de la velocidad de bits media de las secuencias de audio debe ser inferior a 1 Mbps.
-* A continuación, se indican los códecs admitidos:
-  
-  * MPEG-2/H.262 Video 
-    
-    * Perfil Principal (4:2:0)
-    * Perfil Alta (4:2:0, 4:2:2)
-    * Perfil 422 (4:2:0, 4:2:2)
-  * MPEG-4 AVC/H.264 Video  
-    
-    * Perfil Línea de base, Principal, Alta (4:2:0 de 8 bits)
-    * Perfil Alta 10 (4:2:0 de 10 bits)
-    * Perfil Alta 422 (4:2:2 de 10 bits)
-  * MPEG-2 AAC-LC Audio 
-    
-    * Mono, estéreo, Surround (5.1, 7.1)
-    * Empaquetado ADTS estilo MPEG-2
-  * Audio Dolby Digital (AC-3) 
-    
-    * Mono, estéreo, Surround (5.1, 7.1)
-  * Audio MPEG (nivel II y III) 
-    
-    * Mono, estéreo
-* Entre los codificadores de difusión recomendados se incluyen:
-  
-  * Imagine Communications Selenio ENC 1
-  * Imagine Communications Selenio ENC 2
-  * Elemental Live
 
 #### <a id="single_bitrate_RTMP"></a>RTMP de una sola velocidad de bits
 Consideraciones:
@@ -232,36 +192,21 @@ Puede definir las direcciones IP permitidas para conectarse al extremo de vista 
 En esta sección se describe cómo configurar los valores del codificador en directo dentro del canal cuando el **Tipo de codificación** del canal se establece en **Estándar**.
 
 > [!NOTE]
-> Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
+> La fuente de contribución solo puede contener una pista de audio: la introducción de varias pistas de audio no es compatible actualmente. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), puede enviar una fuente de contribución a través del protocolo Smooth Streaming que contenga varias pistas de audio.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Origen de marcador de anuncio
 Puede especificar el origen de las señales de los marcadores de anuncio. El valor predeterminado es **Api**, que indica que el codificador en directo del canal debe escuchar una **API de marcadores de anuncio** asincrónica.
 
-La otra opción válida es **Scte35** (solo permitida si el protocolo de streaming de ingesta está establecido en RTP (MPEG-TS). Cuando se especifica Scte35, el codificador en directo analizará las señales de SCTE-35 del flujo de entrada RTP (MPEG-TS).
-
 ### <a name="cea-708-closed-captions"></a>Subtítulos CEA 708
 Marca opcional que indica al codificador en directo que omita cualquier dato de los subtítulos CEA 708 insertado en el vídeo entrante. Si la marca está establecida en false (valor predeterminado), el codificador detectará y volverá a insertar los datos de CEA 708 en las secuencias de vídeo salientes.
-
-### <a name="video-stream"></a>Secuencia de vídeo
-Opcional. Describe la secuencia de vídeo de entrada. Si este campo no se especifica, se usa el valor predeterminado. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
-
-#### <a name="index"></a>Índice
-Índice basado en cero que especifica qué secuencia de vídeo de entrada debe procesar el codificador en directo dentro del canal. Esta configuración solo se aplica si el protocolo de streaming de ingesta es RTP (MPEG-TS).
-
-El valor predeterminado es cero. Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 Video o H.264 y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
-
-### <a name="audio-stream"></a>Secuencia de audio
-Opcional. Describe las secuencias de audio de entrada. Si este campo no se especifica, se aplican los valores predeterminados. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
 
 #### <a name="index"></a>Índice
 Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo del canal analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
 
 #### <a name="language"></a>Idioma
 El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por ejemplo, ENG. Si no aparece, el valor predeterminado es UND (sin definir).
-
-Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al canal es MPEG-2 TS a través de RTP. Sin embargo, no puede haber dos entradas con el mismo valor para Índice.
 
 ### <a id="preset"></a>Valor preestablecido del sistema
 Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
@@ -387,13 +332,11 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 * Solo se le cobrará cuando el canal esté en estado **En ejecución** . Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
 * Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 * Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido tenga el estado **En ejecución**.
-* Al introducir varias pistas de idioma y realizar codificación en directo con Azure, solo se admite RTP como entrada de varios idiomas. Puede definir hasta ocho secuencias de audio con MPEG-2 TS a través de RTP. Actualmente no se admite la introducción de varias pistas de audio con Smooth Streaming ni RTMP. Al realizar la codificación en directo con [codificaciones en directo locales](media-services-live-streaming-with-onprem-encoders.md), no hay ninguna limitación de este tipo porque todo lo que se envía a AMS pasa a través de un canal sin más procesamiento.
 * El valor predeterminado de codificación usa la noción de "velocidad de fotogramas máxima" de 30 fps. Por tanto, si la entrada es de 60fps 59.97i, los fotogramas de entrada se quitan o se elimina su entrelazado a 30/29.97 fps. Si la entrada es 50fps/50i, los fotogramas de entrada se quitan o se elimina su entrelazado a 25 fps. Si la entrada es de 25 fps, la salida permanece a 25 fps.
 * No olvide DETENER SUS CANALES cuando haya terminado. Si no lo hace, la facturación continuará.
 
 ## <a name="known-issues"></a>Problemas conocidos
 * El tiempo de inicio del canal se ha mejorado en un promedio de 2 minutos, pero cuando se produce mayor demanda, podría tardar hasta más de 20 minutos.
-* La compatibilidad con RTP está dirigida a los operadores de radiodifusión profesionales. Revise las notas sobre RTP en [este](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 * Las imágenes de careta deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
 * Una vez más... no se olvide de DETENER SUS CANALES cuando haya terminado de realizar el streaming. Si no lo hace, la facturación continuará.
 

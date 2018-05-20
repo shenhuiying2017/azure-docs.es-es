@@ -1,16 +1,16 @@
-Ahora se ofrece en Azure compatibilidad con dos características de depuración, Salida de la consola y Captura de pantalla, para el modelo de implementación de Resource Manager en máquinas virtuales de Azure. 
+Ahora se ofrece en Azure compatibilidad con dos características de depuración, Salida de la consola y Captura de pantalla, para el modelo de implementación de Resource Manager en Azure Virtual Machines. 
 
 Cuando lleva su propia imagen a Azure o incluso cuando arranca una de las imágenes de la plataforma, hay muchas razones por las que una máquina virtual puede entrar en un estado que no permita el arranque. Estas características le permiten diagnosticar y recuperar fácilmente las máquinas virtuales de los errores de arranque.
 
-Para las máquinas virtuales Linux, puede ver fácilmente la salida de su registro de consola desde el portal:
+En las máquinas virtuales Linux, puede ver fácilmente la salida de su registro de consola desde el portal:
 
 ![Azure Portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-Sin embargo, para las máquinas virtuales Windows y Linux, Azure también le permite ver una captura de pantalla de la máquina virtual desde el hipervisor:
+Sin embargo, en las máquinas virtuales Windows y Linux, Azure también le permite ver una captura de pantalla de la máquina virtual desde el hipervisor:
 
 ![Error](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Ambas características son compatibles para las máquinas virtuales de Azure en todas las regiones. Tenga en cuenta que las capturas de pantalla y la salida pueden tardar hasta 10 minutos en aparecer en la cuenta de almacenamiento.
+Ambas características son compatibles con Azure Virtual Machines en todas las regiones. Tenga en cuenta que las capturas de pantalla y la salida pueden tardar hasta 10 minutos en aparecer en la cuenta de almacenamiento.
 
 ## <a name="common-boot-errors"></a>Errores comunes de arranque
 
@@ -29,13 +29,18 @@ Ambas características son compatibles para las máquinas virtuales de Azure en 
 - [Error de arranque o INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitación del diagnóstico en una nueva máquina virtual
-1. Cuando cree una máquina virtual desde la versión preliminar del portal, seleccione **Azure Resource Manager** en la lista desplegable de modelo de implementación:
+1. Cuando cree una máquina virtual desde Azure Portal, seleccione **Azure Resource Manager** en la lista desplegable de modelos de implementación:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Configure la opción Supervisión para seleccionar la cuenta de almacenamiento donde desee colocar estos archivos de diagnóstico.
+2. En **Configuración**, habilite **Diagnósticos de arranque** y, a continuación, seleccione una cuenta de almacenamiento donde le gustaría colocar estos archivos de diagnóstico.
  
-    ![Creación de una máquina virtual](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
+    ![Creación de una máquina virtual](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > La característica Diagnósticos de arranque no es compatible con las cuenta de almacenamiento premium. Si usa la cuenta de almacenamiento premium con Diagnósticos de arranque, podría recibir el error StorageAccountTypeNotSupported al iniciar la máquina virtual.
+    >
+    > 
 
 3. Si va a realizar la implementación con una plantilla de Azure Resource Manager, vaya al recurso de máquina virtual y anexe la sección de perfil de diagnóstico. Recuerde usar el encabezado de versión de API "2015-06-15".
 
@@ -59,11 +64,18 @@ Ambas características son compatibles para las máquinas virtuales de Azure en 
         }
     ```
 
-Para implementar una máquina virtual de ejemplo con el diagnóstico de arranque habilitado, visite nuestro repositorio aquí.
+Para implementar una máquina virtual de ejemplo con Diagnósticos de arranque habilitado, visite nuestro repositorio aquí.
 
-## <a name="update-an-existing-virtual-machine"></a>Actualización de una máquina virtual existente ##
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitación de Diagnósticos de arranque en una máquina virtual existente 
 
-Para habilitar el diagnóstico de arranque a través del portal, también puede actualizar una máquina virtual existente en el portal. Seleccione la opción Diagnósticos de arranque y guarde. Reinicie la máquina virtual para que surta efecto.
+Para habilitar Diagnósticos de arranque en una máquina virtual existente, siga estos pasos:
 
-![Actualización de una máquina virtual existente](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, luego, seleccione la máquina virtual.
+2. En **Support + troubleshooting** (Soporte técnico y solución de problemas), seleccione **Diagnósticos de arranque** > **Configuración**, cambie el estado a **Activado** y, luego, seleccione una cuenta de almacenamiento. 
+4. Asegúrese de que está seleccionada la opción Diagnósticos de arranque y, a continuación, guarde el cambio.
+
+    ![Actualización de una máquina virtual existente](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
+
+3. Reinicie la máquina virtual para que surta efecto.
+
 

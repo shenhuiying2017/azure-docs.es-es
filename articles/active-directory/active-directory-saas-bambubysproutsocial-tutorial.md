@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bambu by Sprout Social."
+title: 'Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bambu by Sprout Social.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 7cc057263f2b2fc5f83201b2edcb519e682b2ffc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4fe3c9d3a603ef822a53031d0fda866efc4aaded
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integración de Azure Active Directory con Bambu by Sprout Social
 
@@ -31,15 +31,7 @@ La integración de Bambu by Sprout Social con Azure AD proporciona las siguiente
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Bambu by Sprout Social, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Bambu by Sprout Social.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Bambu by Sprout Social, necesita los siguientes elementos:
 
@@ -55,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Bambu by Sprout Social desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -71,11 +63,11 @@ Para configurar la integración de Bambu by Sprout Social en Azure AD, debe agre
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo para agregar la nueva aplicación.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Bambu by Sprout Social**.
 
@@ -133,7 +125,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
 7. Para configurar el inicio de sesión único en **Bambu by Sprout Social**, debe enviar el **XML de metadatos** y la **dirección URL de servicio de inicio de sesión de SAML** al [soporte técnico de Bambu by Sprout Social](mailto:support@getbambu.com). Ellos realizarán esta operación para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 > [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro del [portal de Azure](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Documentación insertada sobre Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Documentación insertada sobre Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 <!--### Next steps
@@ -178,11 +170,11 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-bambu-by-sprout-social-test-user"></a>Creación de un usuario de prueba de Bambu by Sprout Social
 
-La aplicación admite aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crearán automáticamente en la aplicación.
+La aplicación admite el aprovisionamiento de usuarios Just-In-Time y, tras la autenticación, los usuarios se crearán automáticamente en la aplicación.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
@@ -192,7 +184,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Britta Simon a Bambu by Sprout Social, realice los pasos siguientes:**
 
-1. En el portal de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 

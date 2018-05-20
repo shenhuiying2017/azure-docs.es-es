@@ -1,13 +1,13 @@
 ---
-title: "Automatización de la implementación de recursos para una aplicación de función en Azure Functions | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una plantilla de Azure Resource Manager que implemente su aplicación de función."
+title: Automatización de la implementación de recursos para una aplicación de función en Azure Functions | Microsoft Docs
+description: Obtenga información sobre cómo crear una plantilla de Azure Resource Manager que implemente su aplicación de función.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure functions, funciones, arquitectura sin servidor, infraestructura como código, azure resource manager"
+editor: ''
+tags: ''
+keywords: azure functions, funciones, arquitectura sin servidor, infraestructura como código, azure resource manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.server: functions
 ms.devlang: multiple
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 6f31ba7b43c70f52bdd67d27512a322ec6258608
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 28b2f5aba69e5c058feb7119eb31352220922998
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
 
@@ -56,7 +56,9 @@ Se necesita una cuenta de Azure Storage para una aplicación de función. Se nec
 }
 ```
 
-Además, las propiedades `AzureWebJobsStorage` y `AzureWebJobsDashboard` deben especificarse como valores de la aplicación en la configuración del sitio. El tiempo de ejecución de Azure Functions usa la cadena de conexión `AzureWebJobsStorage` para crear colas internas. La cadena de conexión `AzureWebJobsDashboard` se usa para registrar en el almacenamiento de tablas de Azure y alimentar la pestaña **Monitor** en el portal.
+Además, la propiedad `AzureWebJobsStorage` se debe especificar como una configuración de aplicación en la configuración del sitio. Si la aplicación de función no usa Application Insights para la supervisión, debe especificar también `AzureWebJobsDashboard` como configuración de aplicación.
+
+El tiempo de ejecución de Azure Functions usa la cadena de conexión `AzureWebJobsStorage` para crear colas internas.  Cuando Application Insights no está habilitado, el entorno de tiempo de ejecución usa la cadena de conexión `AzureWebJobsDashboard` para iniciar sesión en Azure Table Storage y activar la pestaña **Supervisión** en el portal.
 
 Estas propiedades se especifican en la colección `appSettings` del objeto `siteConfig`:
 
@@ -260,7 +262,7 @@ Puede usar cualquiera de los siguientes métodos para implementar la plantilla:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API de REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure

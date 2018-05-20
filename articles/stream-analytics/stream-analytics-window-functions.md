@@ -1,6 +1,6 @@
 ---
 title: Introducción a las funciones de ventana de Azure Stream Analytics
-description: Este artículo describen tres funciones de ventana (saltos de tamaño constante, salto y deslizamiento) que se usan en los trabajos de Azure Stream Analytics.
+description: En este artículo se describen cuatro funciones de ventana (saltos de tamaño constante, salto, deslizante y sesión) que se usan en los trabajos de Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,35 +8,48 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/30/2018
+ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="introduction-to-stream-analytics-window-functions"></a>Introducción a las funciones de ventana de Stream Analytics
-En numerosos escenarios de transmisión en tiempo real, es necesario realizar operaciones solamente en los datos contenidos en ventanas temporales. La compatibilidad nativa para las funciones de ventanas es una característica clave de Azure Stream Analytics que marca la diferencia en la productividad del desarrollador en la creación de trabajos de procesamiento de transmisiones complejos. Stream Analytics permite a los desarrolladores usar ventanas de [**saltos de tamaño constante**](https://msdn.microsoft.com/library/dn835055.aspx), [**salto**](https://msdn.microsoft.com/library/dn835041.aspx) y [**deslizantes**](https://msdn.microsoft.com/library/dn835051.aspx) para realizar operaciones temporales en datos de transmisión. Es importante destacar que todas las operaciones de [ventana](https://msdn.microsoft.com/library/dn835019.aspx) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. Por último, es importante tener en cuenta que todas las funciones de ventana se deben usar en una cláusula [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
+# <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
+En los escenarios de streaming en tiempo real, realizar operaciones en los datos contenidos en ventanas temporales es un patrón común. Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo.
+
+Hay cuatro tipos de ventanas temporales entre las que se puede elegir: [**saltos de tamaño constante**](https://msdn.microsoft.com/library/dn835055.aspx), [**salto**](https://msdn.microsoft.com/library/dn835041.aspx), [**deslizante**](https://msdn.microsoft.com/library/dn835051.aspx) y **sesión**.  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) de la sintaxis de consulta en los trabajos de Stream Analytics.
+
+Todas las operaciones de [ventana](https://msdn.microsoft.com/library/dn835019.aspx) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
 
 ![Conceptos de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
 ## <a name="tumbling-window"></a>Ventana de saltos de tamaño constante
 Las funciones de ventana de saltos de tamaño constante se usan para segmentar una transmisión de datos en segmentos de tiempo distintos y realizar una función con ellos, como en el ejemplo siguiente. Los diferenciadores clave de una ventana de saltos de tamaño constante son que se repiten, no se superponen y un evento no puede pertenecer a más de una ventana de saltos de tamaño constante.
 
-![Introducción al salto de tamaño constante de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
+![Ventana de saltos de tamaño constante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-tumbling-intro.png)
 
 ## <a name="hopping-window"></a>Ventana de salto
-Las funciones de ventana de salto saltan hacia adelante en el tiempo un período fijo. Es fácil pensar en ellas como ventanas de salto que se pueden superponer, por lo que los eventos pueden pertenecer a más de un conjunto de resultados de ventana de salto. Para hacer que una ventana de salto sea igual que un una ventana de saltos de tamaño constante simplemente se debe especificar el tamaño de salto de forma que coincida con el tamaño de la ventana. 
+Las funciones de ventana de salto saltan hacia adelante en el tiempo un período fijo. Es fácil pensar en ellas como ventanas de salto que se pueden superponer, por lo que los eventos pueden pertenecer a más de un conjunto de resultados de ventana de salto. Para hacer que una ventana de salto sea igual que una ventana de saltos de tamaño constante, especifique el tamaño de salto de forma que coincida con el tamaño de la ventana. 
 
-![Introducción al salto de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
+![Ventana de salto de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## <a name="sliding-window"></a>Ventana deslizante
 Las funciones de ventana deslizante, a diferencia de las ventanas de saltos de tamaño constante o de salto, producen una salida **solo** cuando se produce un evento. Todas las ventanas tendrán al menos un evento y la ventana aumenta continuamente un valor € (épsilon). Al igual que las ventanas de salto, los eventos pueden pertenecer a más de una ventana deslizante.
 
-![Introducción al deslizamiento de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
+![Ventana deslizante de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
-## <a name="getting-help-with-window-functions"></a>Obtener ayuda con las funciones de ventana
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+## <a name="session-window-preview"></a>Ventana de sesión (versión preliminar)
+Las funciones de ventana de sesión agrupan eventos que llegan a la misma hora, filtrando los periodos en los que no hay ningún dato. Tiene tres parámetros principales: tiempo de espera, duración máxima y clave de partición (opcional).
+
+![Ventana de sesión de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-session-intro.png)
+
+Una ventana de sesión se inicia cuando se produce el primer evento. Si se produce otro evento en el tiempo de espera especificado desde el último evento ingerido, la ventana se amplía para incluir el nuevo evento. En caso contrario, si no se produce ningún evento en el tiempo de espera, se cierra la ventana en el tiempo de espera.
+
+Si se siguen produciendo eventos en el tiempo de espera especificado, la ventana de sesión se sigue ampliando hasta que se alcanza la duración máxima. Los intervalos de comprobación de la duración máxima se establecen para que tengan el mismo tamaño que la duración máxima especificada. Por ejemplo, si la duración máxima es 10, las comprobaciones, si la ventana supera la duración máxima, se producirán en t = 0, 10, 20, 30, etc.
+
+Cuando se proporciona una clave de partición, los eventos se agrupan por clave, y la ventana de sesión se aplica independientemente a cada grupo. Esta creación de particiones es útil para los casos donde son necesarias distintas ventanas de sesión para distintos usuarios o dispositivos.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)

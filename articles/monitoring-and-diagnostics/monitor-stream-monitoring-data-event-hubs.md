@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 1b1c50f106be8848fb1f32deefa6cb9acb7a298a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -79,7 +79,7 @@ Debe instalar un agente para enviar los datos de supervisión de sistema operati
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>Flujo de datos de Linux a un centro de eventos
 
-Puede utilizarse el [agente de Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md) para enviar datos de supervisión de una máquina Linux a un centro de eventos. Esto se hace al agregar el centro de eventos como receptor en el archivo de configuración protegido JSON de LAD. [Consulte este artículo para más información sobre cómo agregar el centro de eventos receptor al agente de Azure Diagnostics para Linux](../virtual-machines/linux/diagnostic-extension.md#protected-settings).
+Puede utilizarse el [agente de Azure Diagnostics para Linux](../virtual-machines/extensions/diagnostics-linux.md) para enviar datos de supervisión de una máquina Linux a un centro de eventos. Esto se hace al agregar el centro de eventos como receptor en el archivo de configuración protegido JSON de LAD. [Consulte este artículo para más información sobre cómo agregar el centro de eventos receptor al agente de Azure Diagnostics para Linux](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > No se puede establecer el flujo de datos de supervisión de sistema operativo invitado a un centro de eventos en el portal. En su lugar, debe editar manualmente el archivo de configuración.

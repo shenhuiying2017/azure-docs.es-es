@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: v-deasim
-ms.openlocfilehash: 8b609beb67cfb0873bf9926ca648f0ad5568ad2e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -49,15 +49,15 @@ Para más información sobre cómo establecer los parámetros, consulte [Conside
 
 ### <a name="option-1-using-sas-with-pass-through-to-blob-storage-from-azure-cdn"></a>Opción 1: Uso de SAS con paso a través a Blob Storage desde la red CDN de Azure
 
-Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde la red CDN de Azure al servidor de origen. Es compatible con la red **CDN de Azure de Verizon** y la red **CDN de Azure de Akamai**. 
+Esta opción es la más simple y solo usa un único token de SAS, que se pasa desde la red CDN de Azure al servidor de origen. Es compatible con los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Estándar de Akamai**. 
  
 1. Elija un punto de conexión, seleccione **Reglas de caché** y luego, en la lista **Almacenamiento en caché de cadenas de consulta**, elija **Almacenar en caché todas las URL únicas**.
 
     ![Reglas de caché de la red CDN](./media/cdn-sas-storage-support/cdn-caching-rules.png)
 
-2. Después de configurar SAS en la cuenta de almacenamiento, use el token de SAS con la dirección URL de la red CDN de Azure para tener acceso al archivo. 
+2. Después de configurar SAS en la cuenta de almacenamiento, debe usar el token de SAS con las direcciones URL del punto de conexión de CDN y del servidor de origen para acceder al archivo. 
    
-   La dirección URL resultante tiene el formato siguiente: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
+   La dirección URL del punto de conexión de CDN resultante tiene el formato siguiente: `https://<endpoint hostname>.azureedge.net/<container>/<file>?sv=<SAS token>`
 
    Por ejemplo:    
    ```
@@ -66,9 +66,9 @@ Esta opción es la más simple y solo usa un único token de SAS, que se pasa de
    
 3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que la red CDN de Azure trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de la red CDN de Azure una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en la red CDN de Azure, vea [Control del comportamiento del almacenamiento en caché de la red CDN de Azure con reglas de caché](cdn-caching-rules.md).
 
-### <a name="option-2-hidden-cdn-security-token-using-a-rewrite-rule"></a>Opción 2: Token de seguridad de la red CDN oculto mediante una regla de reescritura
+### <a name="option-2-hidden-cdn-sas-token-using-a-rewrite-rule"></a>Opción 2: Token de SAS de CDN oculto mediante una regla de reescritura
  
-Con esta opción, puede proteger el almacenamiento de blobs de origen sin exigir que un usuario de la red CDN de Azure utilice un token de SAS en la dirección URL. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de la red CDN de Azure. Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. 
+Esta opción solo está disponible para los perfiles de **Azure CDN Premium de Verizon**. Con esta opción, puede proteger el almacenamiento de blobs en el servidor de origen. Puede que quiera usar esta opción si no necesita restricciones de acceso específicas para el archivo, pero quiere evitar que los usuarios tengan acceso directo al origen de almacenamiento para mejorar los tiempos de descarga de la red CDN de Azure. Cualquiera que acceda a los archivos en el contenedor especificado del servidor de origen requiere el token de SAS, que es desconocido para el usuario. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN.
  
 1. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL. Las reglas nuevas tardan unos 90 minutos en propagarse.
 
@@ -79,7 +79,7 @@ Con esta opción, puede proteger el almacenamiento de blobs de origen sin exigir
    La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión de nombre *storagedemo*:
    
    Origen:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destino:   
    ```
@@ -88,22 +88,21 @@ Con esta opción, puede proteger el almacenamiento de blobs de origen sin exigir
 
    ![Regla de reescritura de direcciones URL de CDN](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
-2. Cuando la nueva regla esté activa, tiene acceso al archivo en la red CDN de Azure sin usar un token de SAS en la dirección URL, en el formato siguiente: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Una vez que la nueva regla esté activa, cualquiera puede acceder a los archivos del contenedor especificado en el punto de conexión de CDN, con independencia de si usan un token de SAS en la dirección URL. Este es el formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por ejemplo:    
    `https://demoendpoint.azureedge.net/container1/demo.jpg`
        
-   Tenga en cuenta que nadie, independientemente de que use un token de SAS, tiene acceso a un punto de conexión en la red CDN. 
 
 3. Ajuste la duración de la caché mediante las reglas de caché o al agregar los encabezados `Cache-Control` en el servidor de origen. Debido a que la red CDN de Azure trata el token de SAS como cadena de consulta sin formato, el procedimiento recomendado que debe seguirse es configurar una duración de la caché con la misma hora de expiración que la SAS o una anterior. De lo contrario, si un archivo se almacena en caché más tiempo que el que está activa la SAS, es posible acceder al archivo desde el servidor de origen de la red CDN de Azure una vez que haya transcurrido la hora de expiración de la SAS. Si esto ocurre y quiere que el archivo en caché no sea accesible, debe realizar una operación de purga en el archivo para eliminarlo de la memoria caché. Para obtener información sobre cómo establecer la duración de la caché en la red CDN de Azure, vea [Control del comportamiento del almacenamiento en caché de la red CDN de Azure con reglas de caché](cdn-caching-rules.md).
 
 ### <a name="option-3-using-cdn-security-token-authentication-with-a-rewrite-rule"></a>Opción 3: Uso de la autenticación de token de seguridad de red CDN con una regla de reescritura
 
-Esta opción es la más segura y personalizable. Para usar la autenticación de token de seguridad de la red CDN de Azure, debe tener un perfil de **red CDN premium de Azure de Verizon**. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Aunque, si posteriormente la SAS deja de ser válida, la red CDN de Azure no podrá volver a validar el contenido del servidor de origen.
+Para usar la autenticación de token de seguridad de la red CDN de Azure, debe tener un perfil de **red CDN premium de Azure de Verizon**. Esta opción es la más segura y personalizable. El acceso de cliente se basa en los parámetros de seguridad que se establezcan en el token de seguridad. Una vez que ha creado y configurado el token de seguridad, se requerirá en todas las direcciones URL de punto de conexión de CDN. Sin embargo, debido a la regla de reescritura de direcciones URL, el token de SAS no es necesario en el punto de conexión de CDN. Si posteriormente el token de SAS deja de ser válido, Azure CDN ya no podrá revalidar el contenido del servidor de origen.
 
 1. [Cree un token de seguridad de red CDN de Azure](https://docs.microsoft.com/azure/cdn/cdn-token-auth#setting-up-token-authentication) y actívelo mediante el motor de reglas para el punto de conexión de red CDN y la ruta de acceso donde los usuarios pueden acceder al archivo.
 
-   Una dirección URL de token de seguridad tiene el formato siguiente:   
+   Una dirección URL de punto de conexión de token de seguridad tiene el formato siguiente:   
    `https://<endpoint hostname>.azureedge.net/<container>/<file>?<security_token>`
  
    Por ejemplo:    
@@ -111,14 +110,14 @@ Esta opción es la más segura y personalizable. Para usar la autenticación de 
    https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
-   Las opciones de parámetro de una autenticación de token de seguridad son distintas a las opciones de parámetro de un token de SAS. Si al crear un token de seguridad, decide usar una hora de expiración, establézcala en el mismo valor que la hora de expiración del token de SAS. De este modo se garantiza que la hora de expiración sea predecible. 
+   Las opciones de parámetro de una autenticación de token de seguridad son distintas a las opciones de parámetro de un token de SAS. Si al crear un token de seguridad decide usar una hora de expiración, establézcala en el mismo valor que la hora de expiración del token de SAS. De este modo se garantiza que la hora de expiración sea predecible. 
  
 2. Use el [motor de reglas](cdn-rules-engine.md) para crear una regla de reescritura de direcciones URL a fin de habilitar el acceso del token de SAS a todos los blobs del contenedor. Las reglas nuevas tardan unos 90 minutos en propagarse.
 
    La siguiente regla de reescritura de direcciones URL de ejemplo usa un patrón de expresión regular con un grupo de captura y un punto de conexión de nombre *storagedemo*:
    
    Origen:   
-   `(/test/*.)`
+   `(/test/.*)`
    
    Destino:   
    ```

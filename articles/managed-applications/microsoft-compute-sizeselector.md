@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3966de95233f32a09d4799630632c2bb6a490d78
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a38a5461e96d741b3a0d556990418e022afdb305
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interfaz de usuario Microsoft.Compute.SizeSelector
 Control para seleccionar un tamaño para una o varias instancias de máquina virtual.
@@ -39,7 +39,9 @@ Control para seleccionar un tamaño para una o varias instancias de máquina vir
   ],
   "constraints": {
     "allowedSizes": [],
-    "excludedSizes": []
+    "excludedSizes": [],
+    "numAvailabilityZonesRequired": 3,
+    "zone": "3"
   },
   "osPlatform": "Windows",
   "imageReference": {
@@ -60,6 +62,7 @@ Tanto `constraints.allowedSizes` como `constraints.excludedSizes` son opcionales
 - `osPlatform` debe especificarse y puede ser **Windows** o **Linux**. Se usa para determinar los costos de hardware de las máquinas virtuales.
 - `imageReference` se omite para las imágenes propias, pero se proporciona para las imágenes de terceros. Se usa para determinar los costos de software de las máquinas virtuales.
 - `count` se usa para establecer el multiplicador apropiado para el elemento. Admite un valor estático, como **2**, o un valor dinámico de otro elemento, como `[steps('step1').vmCount]`. El valor predeterminado es **1**.
+- `numAvailabilityZonesRequired` puede ser 1, 2 o 3.
 
 ## <a name="sample-output"></a>Salida de ejemplo
 ```json

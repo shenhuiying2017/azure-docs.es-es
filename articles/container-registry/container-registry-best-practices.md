@@ -6,13 +6,13 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 12/20/2017
+ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: c993e55193ffb140f6c3aabfa7626b501ab24b9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Procedimientos recomendados para Azure Container Registry
 
@@ -27,7 +27,7 @@ Además, todas las nubes públicas, Azure incluido, implementan cuotas de salida
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Implementación de la replicación geográfica en varias regiones
 
-Utilice la característica de [replicación geográfica](container-registry-geo-replication.md) de Azure Container Registry si está implementando contenedores en varias regiones. Si se está prestando servicio a clientes globales de centros de datos locales o su equipo de desarrollo se encuentra en distintas ubicaciones, puede simplificar la administración del registro y minimizar la latencia mediante la replicación geográfica del registro. Esta característica, actualmente en versión preliminar, está disponible con registros [Premium](container-registry-skus.md).
+Utilice la característica de [replicación geográfica](container-registry-geo-replication.md) de Azure Container Registry si está implementando contenedores en varias regiones. Si se está prestando servicio a clientes globales de centros de datos locales o su equipo de desarrollo se encuentra en distintas ubicaciones, puede simplificar la administración del registro y minimizar la latencia mediante la replicación geográfica del registro. La replicación geográfica solo está disponible con los registros [Premium](container-registry-skus.md).
 
 Para aprender a usar la replicación geográfica, vea el tutorial de tres partes [Geo-replication in Azure Container Registry](container-registry-tutorial-prepare-registry.md) (Replicación geográfica en Azure Container Registry).
 

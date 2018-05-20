@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Dispositivos gemelos en IoT Hub
 
@@ -352,6 +352,7 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya conoce algo más sobre los dispositivos gemelos, quizás le interesen los siguientes temas de la guía para desarrolladores de IoT Hub:
 
+* [Uso de módulos gemelos en IoT Hub][lnk-module-twins]
 * [Invocación de un método directo en un dispositivo][lnk-methods]
 * [Programación de trabajos en varios dispositivos][lnk-jobs]
 
@@ -385,5 +386,6 @@ Para probar algunos de los conceptos descritos en este artículo, vea los siguie
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow
+[lnk-module-twins]:iot-hub-devguide-module-twins.md
 
 [img-twin]: media/iot-hub-devguide-device-twins/twin.png

@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión de la actualización 3 de la serie StorSimple 8000 | Microsoft Docs"
+title: Notas de la versión de la actualización 3 de la serie StorSimple 8000 | Microsoft Docs
 description: Describe las nuevas funciones, problemas y soluciones alternativas de Update 3 de la serie StorSimple 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
 ms.devlang: NA
@@ -15,16 +15,13 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c22e3859fad55a8632d62aaf5f656081d6d662bd
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 9308602b77903e553e26d6f0586d963a4c58230d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="update-3-release-notes-for-your-storsimple-8000-series-device"></a>Actualización de las notas de la versión Update 3 del dispositivo StorSimple serie 8000
-> [!NOTE]
-> El portal clásico para StorSimple está en desuso. Los administradores de dispositivos StorSimple realizarán la transición automáticamente al nuevo Azure Portal según la programación de puesta en desuso. Recibirá un correo electrónico y una notificación del portal en los que se avisa de este paso. Este documento también se retirará pronto. Si tiene alguna pregunta sobre este paso, consulte las [preguntas frecuentes de la migración a Azure Portal](storsimple-8000-move-azure-portal-faq.md).
-
 
 ## <a name="overview"></a>Información general
 Las siguientes notas de la versión describen las funciones nuevas e identifican los problemas críticos abiertos de Update 3 de la serie StorSimple 8000. También contienen una lista de las actualizaciones de software de StorSimple incluidas en esta versión. 
@@ -83,7 +80,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 17 |Volúmenes anclados localmente |El trabajo de restauración expone la copia de seguridad de instantánea temporal en el catálogo de copia de seguridad, pero solo para la duración de la tarea de restauración. Además, expone un grupo de discos virtuales con el prefijo **tmpCollection** en la página **Directivas de copia de seguridad**, pero solo para la duración del trabajo de restauración. |Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. |Sí |Sin  |
 | 18 |Volúmenes anclados localmente |Si cancela un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. Si se produce un error en un trabajo de restauración y se produce una conmutación por error de controlador inmediatamente después, el trabajo de restauración mostrará **Cancelado** en lugar de **Erróneo**. |Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. |Sí |Sin  |
 | 19 |Volúmenes anclados localmente |Si se cancela un trabajo de restauración o si se produce un error en una restauración y, a continuación, se produce una conmutación por error de controlador, aparece un trabajo de restauración adicional en la página **Trabajos** . |Este comportamiento puede producirse si el trabajo de restauración ha anclado solo localmente volúmenes o una mezcla de volúmenes nivelados y anclados localmente. Si el trabajo de restauración incluye solo volúmenes nivelados, este comportamiento no se producirá. No se requiere ninguna intervención del usuario. |Sí |Sin  |
-| 20  |Volúmenes anclados localmente |Si intenta convertir un volumen en niveles (creado y clonado con la actualización 1.2 o anterior) a un volumen anclado localmente y el dispositivo ya no tiene espacio o si hay una interrupción en la nube, es posible que los clones resulten dañados. |Este problema solo se produce con los volúmenes que se crearon y clonaron con software anterior a la actualización 2.1. Este debería ser un escenario poco frecuente. | | |
+| 20 |Volúmenes anclados localmente |Si intenta convertir un volumen en niveles (creado y clonado con la actualización 1.2 o anterior) a un volumen anclado localmente y el dispositivo ya no tiene espacio o si hay una interrupción en la nube, es posible que los clones resulten dañados. |Este problema solo se produce con los volúmenes que se crearon y clonaron con software anterior a la actualización 2.1. Este debería ser un escenario poco frecuente. | | |
 | 21 |Conversión de volumen |No actualice los ACR anexados a un volumen mientras se realiza una conversión de volumen (de un volumen en niveles a un volumen anclado localmente o viceversa). Actualizar los ACR podría dañar los datos. |En caso de ser necesario, actualice los ACR antes de realizar la conversión de volumen y no realice ninguna actualización ACR adicional mientras la conversión esté en progreso. | | |
 | 22 |Actualizaciones |Al aplicar Update 3, la página **Mantenimiento** del Portal de Azure clásico mostrará el siguiente mensaje relacionado con Update 2: "La serie StorSimple 8000 Update 2 permite que Microsoft recopile proactivamente información de registro del dispositivo cuando se detecten posibles problemas". Esto puede resultar confuso ya que indica que el dispositivo se está actualizando a Update 2. Después de que el dispositivo se ha actualizado correctamente a Update 3, este mensaje desaparece. |Este comportamiento se solucionará en futuras versiones. |Sí |Sin  |
 

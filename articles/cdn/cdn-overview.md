@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/06/2018
-ms.author: rli
+ms.date: 04/20/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 2da919a880332be928c211a2493f2c0b09a0fcbb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 36de1011e48f274759c0aeebde74bd26c6604e19
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>¿Qué es una red de entrega de contenido en Azure?
 Una red de entrega de contenido (CDN) es una red distribuida de servidores que puede proporcionar contenido web a los usuarios de manera eficaz. Las redes CDN guardan contenido almacenado en caché en servidores perimetrales en ubicaciones de punto de presencia (POP) que están cerca de los usuarios finales, para minimizar la latencia. 
@@ -50,7 +50,7 @@ Para ver una lista de las ubicaciones actuales de los nodos de CDN, consulte [Ub
 6. Si no ha expirado el período de vida del archivo, el servidor perimetral del punto POP devolverá el archivo directamente desde la memoria caché. Este proceso da lugar a una experiencia de usuario más rápida y una mayor capacidad de respuesta.
 
 ## <a name="requirements"></a>Requisitos
-Para usar Azure CDN, debe poseer al menos una suscripción de Azure. También debe crear al menos un perfil de CDN, que es una colección de puntos de conexión de CDN. Cada punto de conexión de CDN representa una configuración específica del comportamiento de la entrega de contenido y su acceso. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio. Dado que los [precios de Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) se aplican en el nivel de perfil de CDN, debe crear varios perfiles de CDN si desea utilizar una combinación de los planes de tarifa.
+Para usar Azure CDN, debe poseer al menos una suscripción de Azure. También debe crear al menos un perfil de CDN, que es una colección de puntos de conexión de CDN. Cada punto de conexión de CDN representa una configuración específica del comportamiento de la entrega de contenido y su acceso. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio. Dado que los [precios de Azure CDN](https://azure.microsoft.com/pricing/details/cdn/) se aplican en el nivel de perfil de CDN, debe crear varios perfiles de CDN si desea utilizar una combinación de los planes de tarifa. Para obtener información sobre la estructura de la facturación de Azure CDN, vea [Descripción de la facturación de Azure CDN](cdn-billing.md).
 
 ### <a name="limitations"></a>Limitaciones
 Cada suscripción de Azure tiene límites predeterminados para los siguientes recursos:
@@ -77,4 +77,5 @@ Para obtener una lista completa de características que admite cada producto de 
 - Puede administrar los puntos de conexión de CDN con [Microsoft Azure Portal](https://portal.azure.com) o [PowerShell](cdn-manage-powershell.md).
 - Aprenda a automatizar Azure CDN con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 - Para ver Azure CDN en acción, tiene a su disposición los [vídeos de Azure CDN](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
+- Para obtener información sobre las características más recientes de Azure CDN, vea el [blog de Azure CDN](https://azure.microsoft.com/blog/tag/azure-cdn/).
 

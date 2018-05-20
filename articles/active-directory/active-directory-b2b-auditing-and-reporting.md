@@ -1,26 +1,20 @@
 ---
-title: "Auditoría y generación de informes para usuarios de colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "Las propiedades de un usuario invitado son configurables en la colaboración B2B de Azure Active Directory."
+title: Auditoría y generación de informes para usuarios de colaboración B2B de Azure Active Directory | Microsoft Docs
+description: Las propiedades de un usuario invitado son configurables en la colaboración B2B de Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 04/12/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 38ae8f5f1a8f4292eaf617c15c6a59a48dd348c5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58b84688ded993b4e592af3dcf6a070d6bf52d6a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoría y generación de informes para usuarios de colaboración 2B
 Con usuarios invitados, cuenta con funcionalidades de auditoría similares a las que tiene con los usuarios miembros. A continuación, se muestra un ejemplo del historial de canje e invitación de los usuario Sam Oogle al que se acaba de invitar:
@@ -35,16 +29,5 @@ También puede exportar estos registros de Azure AD y utilizar la herramienta de
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+- [Propiedades de usuario de la colaboración B2B](active-directory-b2b-user-properties.md)
 
-* [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [Propiedades de usuario de la colaboración B2B](active-directory-b2b-user-properties.md)
-* [Incorporación de usuarios de colaboración B2B a un rol](active-directory-b2b-add-guest-to-role.md)
-* [Delegación de las invitaciones de colaboración B2B](active-directory-b2b-delegate-invitations.md)
-* [Grupos dinámicos y colaboración B2B](active-directory-b2b-dynamic-groups.md)
-* [Código de colaboración B2B y ejemplos de PowerShell](active-directory-b2b-code-samples.md)
-* [Configuración de aplicaciones de SaaS para la colaboración B2B](active-directory-b2b-configure-saas-apps.md)
-* [Tokens de usuario de colaboración B2B](active-directory-b2b-user-token.md)
-* [Asignación de notificaciones de usuario de colaboración B2B](active-directory-b2b-claims-mapping.md)
-* [Uso compartido externo de Office 365](active-directory-b2b-o365-external-user.md)
-* [Limitaciones actuales de la colaboración B2B](active-directory-b2b-current-limitations.md)

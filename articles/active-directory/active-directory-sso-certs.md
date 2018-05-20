@@ -1,24 +1,24 @@
 ---
-title: "Administrar certificados de federación en Azure AD | Microsoft Docs"
-description: "Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto."
+title: Administrar certificados de federación en Azure AD | Microsoft Docs
+description: Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jeevansd
 manager: mtillman
-editor: 
-ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 2247b668584c7bb501043917f98e77c7c5cecfdc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 97a70781adaaaa5fd661474336373e70a3923ef5
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administrar certificados para inicio de sesión único federado en Azure Active Directory
 En este artículo se aborda información y preguntas comunes relacionadas con los certificados que crea Azure Active Directory (Azure AD) para establecer el inicio de sesión único (SSO) federado para las aplicaciones SaaS. Estas aplicaciones se agregan desde la galería de aplicaciones de Azure AD o mediante una plantilla de aplicación ajena a la galería. Configure la aplicación mediante la opción de inicio de sesión único federado.
@@ -50,7 +50,7 @@ En las capturas de pantalla se usa Salesforce como ejemplo, pero estos pasos se 
 
     ![Generar un certificado nuevo](./media/active-directory-sso-certs/create_new_certficate.png)
 
-5. El vínculo **Crear un nuevo certificado** abre el control de calendario. Puede establecer cualquier fecha y hora hasta tres años a partir de la fecha actual. La fecha y hora seleccionadas son la fecha y hora de expiración nuevas del nuevo certificado. Haga clic en **Guardar**.
+5. El vínculo **Crear un nuevo certificado** abre el control de calendario. Puede establecer cualquier fecha y hora hasta tres años a partir de la fecha actual. La fecha y hora seleccionadas son la fecha y hora de expiración nuevas del nuevo certificado. Haga clic en **Save**(Guardar).
 
     ![Descarga y carga del certificado](./media/active-directory-sso-certs/certifcate_date_selection.PNG)
 

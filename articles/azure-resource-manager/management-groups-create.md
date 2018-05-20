@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 31249584891a1bb07628fde56e445fda9b2bb467
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 Los grupos de administración son contenedores que ayudan a administran el acceso, las directivas y el cumplimiento de varias suscripciones. Cree estos contenedores para construir una jerarquía eficaz y eficiente que pueda usarse con [Azure Policy](../azure-policy/azure-policy-introduction.md) y los [controles de acceso basados en roles de Azure](../role-based-access-control/overview.md). Para más información sobre los grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md). 
@@ -34,7 +34,7 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 2. Seleccione **Todos los servicios** > **Grupos de administración**.
 3. En la página principal, seleccione **Nuevo grupo de administración**. 
 
-    ![Crear grupo](media/management-groups/create_main.png) 
+    ![Grupo principal](media/management-groups/main.png) 
 4.  Rellene el campo de identificador de grupo de administración. 
     - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado el grupo, dado que se usa en todo el sistema de Azure para identificar ese grupo. 
     - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  

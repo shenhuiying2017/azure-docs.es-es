@@ -1,11 +1,11 @@
 ---
-title: "Conexión segura a un clúster de Azure Service Fabric | Microsoft Docs"
-description: "Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric y cómo proteger la comunicación entre los clientes y un clúster."
+title: Conexión segura a un clúster de Azure Service Fabric | Microsoft Docs
+description: Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric y cómo proteger la comunicación entre los clientes y un clúster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 2ddb72f267fc46d7980007d41c5d512f50eaf47e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 
@@ -89,25 +89,32 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Conexión a un clúster seguro mediante un certificado de cliente
-Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro que utiliza certificados de cliente para autorizar el acceso de administrador. Proporcione la huella digital del certificado del clúster y la huella digital del certificado de cliente al que se han concedido permisos para administrar el clúster. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
+Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro que utiliza certificados de cliente para autorizar el acceso de administrador. 
+
+#### <a name="connect-using-certificate-common-name"></a>Conexión mediante el nombre común del certificado
+Proporcione el nombre común del certificado del clúster y el nombre común del certificado de cliente al que se han concedido permisos para administrar el clúster. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint <Certificate Thumbprint> `
-          -FindType FindByThumbprint -FindValue <Certificate Thumbprint> `
-          -StoreLocation CurrentUser -StoreName My
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName <certificate common name>  `
+    -FindType FindBySubjectName `
+    -FindValue <certificate common name> `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
-
-*ServerCertThumbprint* es la huella digital del certificado de servidor instalado en los nodos del clúster. *FindValue* es la huella digital del certificado de cliente de administración.
-Cuando los parámetros están rellenos, el comando es parecido al del ejemplo siguiente: 
-
+*ServerCommonName* es el nombre común del certificado de servidor instalado en los nodos del clúster. *FindValue* es el nombre común del certificado de cliente de administración. Cuando los parámetros están rellenos, el comando es parecido al del ejemplo siguiente:
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
-          -KeepAliveIntervalInSec 10 `
-          -X509Credential -ServerCertThumbprint A8136758F4AB8962AF2BF3F27921BE1DF67F4326 `
-          -FindType FindByThumbprint -FindValue 71DE04467C9ED0544D021098BCD44C71E183414E `
-          -StoreLocation CurrentUser -StoreName My
+$ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
+$certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
+
+Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCommonName $certCN  `
+    -FindType FindBySubjectName `
+    -FindValue $certCN `
+    -StoreLocation CurrentUser `
+    -StoreName My 
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Conexión a un clúster seguro mediante Windows Active Directory

@@ -3,17 +3,17 @@ title: Inserción de una imagen de Docker en el registro privado de Azure
 description: Inserción y extracción de imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d729a45b28ad02a652c265974d46fe1aaf752198
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
 
@@ -61,7 +61,7 @@ Ejecute el siguiente comando [docker run](https://docs.docker.com/engine/referen
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Vaya a [http://localhost: 8080](http://localhost:8080) para ver la página web predeterminada que proporciona Nginx en el contenedor en ejecución. Debería ver una página similar a la siguiente:
+Vaya a [http://localhost:8080](http://localhost:8080) para ver la página web predeterminada que suministra Nginx en el contenedor en ejecución. Debería ver una página similar a la siguiente:
 
 ![Nginx en un equipo local](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -125,6 +125,6 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ¡Ahora que conoce los fundamentos, ya está listo para empezar a usar el registro! Implementación de imágenes de contenedor del registro en:
 
-* [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

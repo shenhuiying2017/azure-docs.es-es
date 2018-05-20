@@ -1,11 +1,11 @@
 ---
 title: Enrutamiento de mensajes con Azure IoT Hub (Java) | Microsoft Docs
-description: "Cómo procesar mensajes de dispositivo a nube de Azure IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end."
+description: Cómo procesar mensajes de dispositivo a nube de Azure IoT Hub mediante reglas de enrutamiento y puntos de conexión personalizados para enviar mensajes a otros servicios de back-end.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bd9af5f9-a740-4780-a2a6-8c0e2752cf48
 ms.service: iot-hub
 ms.devlang: java
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: dobett
-ms.openlocfilehash: 92ab10e5b8487e03d92b69114a2e3c5302f95ed6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: ff45e9d717b93f89eb8f751294788f08a2fd4592
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-java"></a>Enrutamiento de mensajes con IoT Hub (Java)
 
@@ -208,7 +208,7 @@ En este tutorial, ha aprendido a enviar de manera confiable mensajes del disposi
 
 El tutorial sobre [cómo enviar mensajes de dispositivo a la nube con IoT Hub][lnk-c2d] muestra cómo enviar mensajes a los dispositivos desde la solución de back-end.
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usan IoT Hub, consulte [Azure IoT Suite][lnk-suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT][lnk-suite].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 

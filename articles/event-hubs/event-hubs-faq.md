@@ -5,7 +5,7 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 6bdcbbe37613d5384017409f3be2772085e276ae
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -112,7 +112,7 @@ Para obtener una lista de posibles excepciones de Event Hubs, consulte [Informac
 Event Hubs admite dos tipos de [registros de diagnóstico](event-hubs-diagnostic-logs.md): los registros de errores de Capture y los registros operativos. Ambos, se representan en JSON y se pueden activar a través de Azure Portal.
 
 ### <a name="support-and-sla"></a>SLA y soporte técnico
-El soporte técnico para Event Hubs está disponible a través de los [foros de la comunidad](https://social.msdn.microsoft.com/forums/azure/home). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
+El soporte técnico para Event Hubs está disponible a través de los [foros de la comunidad](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Se ofrece de forma gratuita soporte técnico para la administración de suscripciones y la facturación.
 
 Para más información sobre nuestro SLA, consulte la página [Acuerdos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) .
 

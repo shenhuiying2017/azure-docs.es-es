@@ -1,33 +1,33 @@
 ---
-title: "Inicio de sesión único en aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Active el inicio de sesión único para sus aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD en Azure Portal."
+title: Inicio de sesión único en aplicaciones mediante el proxy de aplicación de Azure AD | Microsoft Docs
+description: Active el inicio de sesión único para sus aplicaciones locales publicadas mediante el proxy de aplicación de Azure AD en Azure Portal.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 501017ae416cc8aa473077c98ae0a213db749547
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 77e7288060abd2577867023a777eb3bdd4331e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Almacén de contraseñas para el inicio de sesión único con el proxy de aplicación
 
 El proxy de aplicación de Azure Active Directory le ayuda a mejorar la productividad mediante la publicación de aplicaciones locales de manera que los empleados remotos puedan tener acceso seguro a estas. En Azure Portal, puede configurar también el inicio de sesión único (SSO) para estas aplicaciones. Los usuarios solo necesitan autenticarse con Azure AD y podrán acceder a la aplicación de empresa sin necesidad de volver a iniciar sesión.
 
-El proxy de aplicación admite varios [modos de inicio de sesión único](application-proxy-sso-overview.md). El inicio de sesión basado en contraseña se ha creado para aplicaciones que usan una combinación de nombre de usuario/contraseña para la autenticación. Al configurar el inicio de sesión basado en contraseña para su aplicación, los usuarios tendrán que iniciar sesión en la aplicación local una vez. Después de eso, Azure Active Directory almacena la información de inicio de sesión y la proporciona automáticamente a la aplicación cuando los usuarios acceden a ella de forma remota. 
+El proxy de aplicación admite varios [modos de inicio de sesión único](manage-apps/application-proxy-single-sign-on.md). El inicio de sesión basado en contraseña se ha creado para aplicaciones que usan una combinación de nombre de usuario/contraseña para la autenticación. Al configurar el inicio de sesión basado en contraseña para su aplicación, los usuarios tendrán que iniciar sesión en la aplicación local una vez. Después de eso, Azure Active Directory almacena la información de inicio de sesión y la proporciona automáticamente a la aplicación cuando los usuarios acceden a ella de forma remota. 
 
-Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si no es así, siga los pasos de [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md) (Publicación de aplicaciones mediante el proxy de aplicación de Azure AD) y luego vuelva a este punto. 
+Debe haber publicado y probado ya la aplicación con el proxy de aplicación. Si no es así, siga los pasos de [Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md) (Publicación de aplicaciones mediante el proxy de aplicación de Azure AD) y luego vuelva a este punto. 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>Configuración del almacenamiento de contraseñas para la aplicación
 
@@ -55,5 +55,5 @@ Vaya a la dirección URL externa configurada para obtener acceso remoto a la apl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre otras maneras de implementar el [inicio de sesión único con el proxy de aplicación](application-proxy-sso-overview.md)
+- Obtenga información sobre otras maneras de implementar el [inicio de sesión único con el proxy de aplicación](manage-apps/application-proxy-single-sign-on.md)
 - Más información sobre [Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD](application-proxy-security-considerations.md)

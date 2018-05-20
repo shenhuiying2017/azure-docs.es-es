@@ -1,30 +1,31 @@
 ---
 title: Referencia del servicio Infrastructure Backup de Azure Stack | Microsoft Docs
-description: "Este artículo contiene material de referencia para el servicio Infrastructure Backup de Azure Stack."
+description: Este artículo contiene material de referencia para el servicio Infrastructure Backup de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 4/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4e6e0a52b2c55239e38757223f54e5e94dc98c42
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.reviewer: hectorl
+ms.openlocfilehash: 608f3043e0e4b851820274ca743cbc44d1c8c0f1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="infrastructure-backup-service-reference"></a>Referencia del servicio Infrastructure Backup
 
 ## <a name="azure-backup-infrastructure"></a>Infraestructura de copia de seguridad de Azure
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Azure Stack consta de muchos servicios entre los que figuran el portal, Azure Resource Manager y la experiencia de administración de la infraestructura. La experiencia de administración de Azure Stack, similar a la de un dispositivo, se centra en reducir la complejidad expuesta al operador de la solución.
 

@@ -3,21 +3,21 @@ title: Uso de Azure Files con AKS
 description: Usar de Azure Disks con AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 04380e5e9e0f1f9b0c88fdba8d21b3e7e8e8a358
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e0e62d37fbcc8f296deaee8e0f6658c0f72321ad
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="volumes-with-azure-files"></a>Volúmenes con archivos de Azure
 
-Las aplicaciones que usan contenedores a menudo necesitan acceder a un volumen de datos externo y conservar datos en él. Azure Files puede utilizarse como este almacén de datos externos. En este artículo se detallan el uso de Azure Files como un volumen de Kubernetes Azure Container Service.
+Las aplicaciones que usan contenedores a menudo necesitan acceder a un volumen de datos externo y conservar datos en él. Azure Files puede utilizarse como este almacén de datos externos. En este artículo se detallan el uso de Azure Files como volumen de Kubernetes Azure Kubernetes Service.
 
 Para más información sobre volúmenes de Kubernetes, consulte el artículo sobre [volúmenes de Kubernetes][kubernetes-volumes].
 

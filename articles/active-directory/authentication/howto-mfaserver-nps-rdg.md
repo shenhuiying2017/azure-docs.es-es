@@ -2,26 +2,22 @@
 title: RDG y Servidor Azure MFA mediante RADIUS | Microsoft Docs
 description: Se trata de la página de Azure Multi-Factor Authentication que le ayudará en la implementación de la puerta de enlace de escritorio remoto (RD) y el servidor Azure Multi-Factor Authentication mediante RADIUS.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 5bec531d1d14bf3aaac3950762fc8d2ed545fb4b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ef090b51141e8d77f23472058f9c3a8d096ca171
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Puerta de enlace de Escritorio remoto y Servidor Azure Multi-Factor Authentication con RADIUS
+
 A menudo, Puerta de enlace de Escritorio remoto utiliza los servicios de directivas de red (NPS) local para autenticar a los usuarios. En este artículo se describe cómo enrutar la solicitud RADIUS desde Puerta de enlace de Escritorio remoto (a través del NPS local) a Servidor Multi-Factor Authentication. La combinación de Azure MFA y Puerta de enlace de Escritorio remoto significa que los usuarios pueden tener acceso a sus entornos de trabajo desde cualquier lugar mientras realicen una autenticación segura. 
 
 Puesto que no se admite la autenticación de Windows para los servicios de terminal en Server 2012 R2, utilice Puerta de enlace de Escritorio remoto y RADIUS para integrar con el servidor MFA. 

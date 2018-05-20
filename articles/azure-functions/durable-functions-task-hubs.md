@@ -1,12 +1,12 @@
 ---
 title: 'Centrales de tareas en Durable Functions: Azure'
-description: "Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Obtenga información acerca de cómo configurar las centrales de tareas."
+description: Aprenda qué son las centrales de tareas en la extensión Durable Functions para Azure Functions. Obtenga información acerca de cómo configurar las centrales de tareas.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: b241bad7b0060551eba5e78efbb1b729bf5d0098
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 563667684accf8b434052cd412bf6e93c77ea63a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Centrales de tareas en Durable Functions (Azure Functions)
 
@@ -28,13 +28,14 @@ Cada aplicación de función tiene una central de tareas independiente. Si varia
 
 ![Diagrama de almacenamiento que muestra las cuentas de almacenamiento compartidas y dedicadas.](media/durable-functions-task-hubs/task-hubs-storage.png)
 
-## <a name="azure-storage-resources"></a>Recursos de almacenamiento de Azure
+## <a name="azure-storage-resources"></a>Recursos de Azure Storage
 
 Una central de tareas consta de los siguientes recursos de almacenamiento: 
 
 * Una o más colas de control.
 * Una cola de elementos de trabajo.
 * Una tabla de historial.
+* Una tabla de instancias.
 * Un contenedor de almacenamiento que contiene uno o varios blobs de concesión.
 
 Todos estos recursos se crean automáticamente en la cuenta de Azure Storage predeterminada cuando se ejecutan funciones de orquestador o de actividad o cuando se programa su ejecución. El artículo [Rendimiento y escala](durable-functions-perf-and-scale.md) explica cómo se utilizan estos recursos.

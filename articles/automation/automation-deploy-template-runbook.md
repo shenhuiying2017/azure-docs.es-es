@@ -3,17 +3,18 @@ title: Implementación de una plantilla de Azure Resource Manager en un runbook 
 description: Procedimiento para implementar una plantilla de Azure Resource Manager almacenada en Azure Storage desde un runbook
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
 keywords: powershell, runbook, json, azure automation
-ms.openlocfilehash: 7b3198c6ea60004a5a747256096c7f6aec68c711
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b6571b87e5753adcd03d7916218ed5a085fb6f82
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implementación de una plantilla de Azure Resource Manager en un runbook de Azure Automation PowerShell
 

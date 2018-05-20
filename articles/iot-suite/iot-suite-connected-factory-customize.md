@@ -1,13 +1,13 @@
 ---
-title: "Personalizar la solución de fábrica conectada: Azure | Microsoft Docs"
-description: "En este artículo se describe cómo personalizar el comportamiento de la solución preconfigurada de la factoría conectada."
-services: 
+title: 'Personalizar la solución de factoría conectada: Azure | Microsoft Docs'
+description: En este artículo se describe cómo personalizar el comportamiento del acelerador de la solución de la factoría conectada.
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: c#
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 48c8036d0bc9534ce94529b96d32b004769246c1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 5d074a5cf0dd5191b5d94531068341ad1b953391
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar la manera en que la solución de fábrica conectada muestra los datos de los servidores de OPC UA
+# <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar la manera en que la solución de factoría conectada muestra los datos de los servidores de OPC UA
 
-La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la fábrica conectada](iot-suite-faq-cf.md).
+La solución de factoría conectada agrega y muestra datos de los servidores de OPC UA conectados a la solución. Puede examinar y enviar comandos a los servidores de OPC UA en la solución. Para más información acerca de OPC UA, consulte las [preguntas frecuentes sobre la factoría conectada](iot-suite-faq-cf.md).
 
 Entre los ejemplos de datos agregados en la solución se pueden mencionar Overall Equipment Efficiency (OEE) (Eficacia general de equipos) y Key Performance Indicators (Indicadores clave de rendimiento) (KPI) que se pueden ver en el panel en los ámbitos de factoría, línea y estación. En las capturas de pantalla siguientes se muestran los valores de OEE y KPI para la estación **Assembly**, en **Production line 1**, en la factoría **Munich**:
 
@@ -72,7 +72,7 @@ Puede usar el archivo de configuración para:
 - Editar las líneas de producción, las estaciones y las factorías simuladas existentes.
 - Asignar datos de los servidores de OPC UA reales que se conectan a la solución.
 
-Para obtener más información acerca de cómo asignar y agregar los datos para satisfacer necesidades específicas, consulte [How to configure the Connected factory preconfigured solution](iot-suite-connected-factory-configure.md) (Cómo configurar la solución preconfigurada de factoría conectada).
+Para obtener más información acerca de cómo asignar y agregar los datos para satisfacer necesidades específicas, consulte [Configuración del acelerador de la solución de factoría conectada](iot-suite-connected-factory-configure.md).
 
 ## <a name="deploy-the-changes"></a>Implementación de los cambios
 
@@ -82,12 +82,12 @@ El repositorio **-azure-iot-connected-factory** incluye un script de PowerShell 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la solución preconfigurada de factoría conectada, lea los siguientes artículos:
+Para obtener más información sobre el acelerador de la solución de factoría conectada, lea los siguientes artículos:
 
-* [Tutorial de la solución preconfigurada de fábrica conectada][lnk-rm-walkthrough]
-* [Implementación de una puerta de enlace para una solución de fábrica conectada][lnk-connect-cf]
+* [Tutorial del acelerador de soluciones de factoría conectada][lnk-rm-walkthrough]
+* [Implementación de una puerta de enlace para una solución de factoría conectada][lnk-connect-cf]
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
-* [Preguntas más frecuentes sobre fábrica conectada](iot-suite-faq-cf.md)
+* [Preguntas frecuentes sobre factoría conectada](iot-suite-faq-cf.md)
 * [Preguntas más frecuentes][lnk-faq]
 
 

@@ -41,7 +41,7 @@
 ### [Concesión de código de autenticación de OAuth 2.0](active-directory-protocols-oauth-code.md)
 ### [Concesión implícita de Oauth 2.0](active-directory-dev-understanding-oauth2-implicit-grant.md)
 ## [SAML 2.0](active-directory-saml-protocol-reference.md)
-### [Configuración de notificación de rol](active-directory-enterprise-app-role-management.md)
+### [Configuración de notificación de rol](../active-directory-enterprise-app-role-management.md)
 ### [Personalización de notificaciones](active-directory-saml-claims-customization.md)
 ### [Depuración de SSO basado en SAML](active-directory-saml-debugging.md)
 ### [Protocolo SAML de inicio de sesión único](active-directory-single-sign-on-protocol-reference.md)

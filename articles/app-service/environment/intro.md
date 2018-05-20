@@ -11,26 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/20/2018
+ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6be6bb3b6b75b278a7c28307d93d6273c5bb18d6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introducción a App Service Environment #
  
 ## <a name="overview"></a>Información general ##
 
-Azure App Service Environment es una característica de Azure App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. Esta funcionalidad puede hospedar sus aplicaciones web, [aplicaciones móviles][mobileapps], aplicaciones de API y [funciones][Functions].
+Azure App Service Environment es una característica de Azure App Service que proporciona un entorno completamente aislado y dedicado para ejecutar de forma segura las aplicaciones de App Service a gran escala. Esta funcionalidad puede hospedar sus:
+
+* Aplicaciones web de Windows
+* Aplicaciones web de Linux (en versión preliminar)
+* Contenedores de Docker (en versión preliminar)
+* Aplicaciones móviles
+* Functions
 
 Las instancias de App Service Environment (ASE) son adecuadas para cargas de trabajo de aplicaciones que necesitan:
 
-- Una gran escala
-- Aislamiento y acceso a redes seguro
-- Alta utilización de memoria
+* Una gran escala
+* Aislamiento y acceso a redes seguro
+* Alta utilización de memoria
 
 Los clientes pueden crear varias instancias de ASE en una o en varias regiones de Azure. Esta flexibilidad hace que las instancias de ASE sean perfectas para capas de aplicación sin estado de escalado horizontal que apoyan a cargas de trabajo RPS elevadas.
 
@@ -39,7 +45,7 @@ Las instancias de ASE están aisladas para ejecutar únicamente las aplicaciones
 * Las instancias de ASE habilitan el hospedaje de aplicaciones de gran escala con acceso seguro a la red. Para obtener más información, consulte [Profundización de AzureCon](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/) en instancias de ASE.
 * Varias instancias de ASE pueden utilizarse para escalar horizontalmente. Para más información, consulte [Configuración de una huella de aplicaciones distribuidas geográficamente](app-service-app-service-environment-geo-distributed-scale.md).
 * Las instancias de ASE pueden utilizarse para configurar la arquitectura de seguridad, como se muestra en Profundización de AzureCon. Para ver cómo se ha configurado la arquitectura de seguridad mostrada en la inmersión en AzureCon, consulte el artículo sobre cómo implementar una [arquitectura de seguridad en capas](app-service-app-service-environment-layered-security.md) con entornos de App Service.
-* Las aplicaciones que se ejecutan en ASE pueden tener su acceso validado por dispositivos de subida como firewalls de aplicación web (WAF). Para obtener más información, consulte [Configuración de WAF para entornos de App Service](app-service-app-service-environment-web-application-firewall.md).
+* Las aplicaciones que se ejecutan en ASE pueden tener su acceso validado por dispositivos de subida como firewalls de aplicación web (WAF). Para obtener más información, consulte [Integración de ILB App Service Environment con Azure Application Gateway][AppGW].
 
 ## <a name="dedicated-environment"></a>Entorno dedicado ##
 
@@ -59,7 +65,7 @@ Hay una tarifa plana mensual para una instancia de ASE que paga por la infraestr
 
 ## <a name="virtual-network-support"></a>Compatibilidad con redes virtuales ##
 
-Una instancia de ASE únicamente puede crearse en una red virtual de Azure Resource Manager. Para obtener más información acerca de redes virtuales de Azure, consulte las [Preguntas más frecuentes sobre las redes virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Una instancia de ASE siempre existe en una red virtual y, más concretamente, dentro de una subred de una red virtual. Puede usar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes de las aplicaciones.
+La característica de ASE es una implementación de Azure App Service directamente en la red virtual de Azure Resource Manager de un cliente. Para obtener más información acerca de redes virtuales de Azure, consulte las [Preguntas más frecuentes sobre las redes virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Una instancia de ASE siempre existe en una red virtual y, más concretamente, dentro de una subred de una red virtual. Puede usar las características de seguridad de las redes virtuales para controlar las comunicaciones de red entrantes y salientes de las aplicaciones.
 
 Una instancia de ASE puede tener conexión a Internet con una dirección IP pública o tener una conexión interna solo con la dirección de un equilibrador de carga interno (ILB) de Azure.
 

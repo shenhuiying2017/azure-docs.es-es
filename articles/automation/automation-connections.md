@@ -3,16 +3,17 @@ title: Recursos de conexión en Azure Automation
 description: Los activos de conexión en Azure Automation contienen la información necesaria para conectarse a una aplicación o a un servicio externo desde un runbook o una configuración de DSC. En este artículo se explican los detalles de las conexiones y cómo trabajar con ellas en la creación de texto y de gráficos.
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d2c2cc2964b8223a564d45359f332597a1ca1f87
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 548748843443fe28d801912ae37de9b584096ffa
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="connection-assets-in-azure-automation"></a>Recursos de conexión en Azure Automation
 

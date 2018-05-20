@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: mihauss
-ms.openlocfilehash: 649838af1d4c753ac1d82a66c855ef313f14e85b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminación temporalmente de blobs de Azure Storage (versión preliminar)
 
@@ -292,7 +292,7 @@ Sí, la eliminación temporal se puede configurar tanto para las cuentas de alma
 
 **Si elimino toda una cuenta o un contenedor con la eliminación temporal activada, ¿se guardarán todos los blobs asociados?**
 
-No, si elimina toda una cuenta o un contenedor, todos los blobs asociados se eliminarán permanentemente. Para aprender a proteger una cuenta de almacenamiento contra eliminaciones accidentales, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](/azure-resource-manager/resource-group-lock-resources.md).
+No, si elimina toda una cuenta o un contenedor, todos los blobs asociados se eliminarán permanentemente. Para aprender a proteger una cuenta de almacenamiento contra eliminaciones accidentales, consulte el artículo de Azure Resource Manager [Bloqueo de recursos para impedir cambios inesperados](../../azure-resource-manager/resource-group-lock-resources.md).
 
 **¿Puedo ver las métricas de capacidad de los datos eliminados?**
 

@@ -1,25 +1,27 @@
 ---
-title: "Ámbitos, permisos y consentimiento de Azure Active Directory v2.0 | Microsoft Docs"
-description: "Descripción de la autorización del punto de conexión v2.0 de Azure AD, que incluye los ámbitos, los permisos y el consentimiento."
+title: Ámbitos, permisos y consentimiento de Azure Active Directory v2.0 | Microsoft Docs
+description: Descripción de la autorización del punto de conexión v2.0 de Azure AD, que incluye los ámbitos, los permisos y el consentimiento.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b35e4a7619c23660d93d91219a92be7e93a35139
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Ámbitos, permisos y consentimiento en el punto de conexión v2.0 de Azure Active Directory
 Las aplicaciones que se integran con Azure Active Directory (Azure AD) siguen un modelo de autorización que ofrece a los usuarios control sobre el modo en que una aplicación puede acceder a sus datos. La implementación v2.0 del modelo de implementación se ha actualizado, y cambia el modo en que una aplicación debe interactuar con Azure AD. En este artículo se tratan los conceptos básicos de este modelo de autorización, incluidos los ámbitos, los permisos y el consentimiento.
@@ -199,6 +201,6 @@ Content-Type: application/json
 }
 ```
 
-Puede usar el token de acceso resultante en las solicitudes HTTP al recurso. Dicho token indica al recurso de forma confiable que la aplicación tiene el permiso apropiado para realizar una tarea específica.  
+Puede usar el token de acceso resultante en las solicitudes HTTP al recurso. Dicho token indica al recurso de forma confiable que la aplicación tiene el permiso apropiado para realizar una tarea específica. 
 
 Para más información sobre el protocolo OAuth 2.0 y cómo obtener tokens de acceso, consulte la [referencia de protocolo del punto de conexión v2.0](active-directory-v2-protocols.md).

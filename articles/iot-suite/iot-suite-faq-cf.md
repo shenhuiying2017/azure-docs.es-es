@@ -1,13 +1,13 @@
 ---
-title: "Preguntas frecuentes sobre la solución de fábrica conectada: Azure | Microsoft Docs"
-description: "Preguntas más frecuentes sobre la fábrica conectada a Conjunto de aplicaciones de IoT"
-services: 
+title: 'Preguntas frecuentes sobre la solución de factoría conectada: Azure | Microsoft Docs'
+description: Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
+services: iot-suite
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: ab72152fc937e3c4552147fce29c95ea0efcadf4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 12ebd8b8dfa90ab736190e842b35744dbf1c5b96
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Preguntas más frecuentes sobre la solución preconfigurada de fábrica conectada a Conjunto de aplicaciones de IoT
+# <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Preguntas frecuentes sobre el acelerador de la solución de factoría conectada
 
-Consulte, además, las [preguntas más frecuentes](iot-suite-faq.md) sobre Conjunto de aplicaciones de IoT.
+Consulte, además, las [preguntas más frecuentes](iot-suite-faq.md) sobre aceleradores de soluciones de IoT.
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solution"></a>¿Dónde se puede encontrar el código fuente de la solución preconfigurada?
+### <a name="where-can-i-find-the-source-code-for-the-solution-accelerator"></a>¿Dónde se puede encontrar el código fuente del acelerador de la solución?
 
 El código fuente se almacena en el siguiente repositorios de GitHub:
 
-* [Solución preconfigurada de fábrica conectada](https://github.com/Azure/azure-iot-connected-factory)
+* [Acelerador de la solución de factoría conectada](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="what-is-opc-ua"></a>¿Qué es OPC UA?
 
@@ -40,7 +40,7 @@ OPC Unified Architecture (UA), publicado en 2008, es un estándar de interoperab
 * Technology
 * Procesos
 
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>¿Por qué Microsoft ha elegido a OPC UA para la solución preconfigurada de fábrica conectada?
+### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-solution-accelerator"></a>¿Por qué Microsoft ha elegido a OPC UA para el acelerador de la solución de factoría conectada?
 
 Microsoft ha elegido OPC UA porque es un estándar abierto, independiente de la plataforma, no es de propiedad, es reconocido por el sector y está probado. Es un requisito para las soluciones de arquitectura de referencia de Industrie 4.0 (RAMI4.0), que garantiza la interoperabilidad entre un amplio conjunto de procesos y equipos de fabricación. Microsoft ha detectado una demanda por parte de sus clientes para crear soluciones de Industrie 4.0. La compatibilidad con OPC UA ayuda a reducir las barreras para que los clientes puedan lograr sus objetivos y les proporciona un valor de negocio inmediato.
 
@@ -100,7 +100,7 @@ Si ha implementado la solución con el script `build.ps1` en el [repositorio](ht
 
 También puede encontrar la cadena de conexión mediante Azure Portal: En el recurso de IoT Hub del grupo de recursos de la implementación, busque el valor de la cadena de conexión.
 
-### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>¿Qué dispositivos de IoT Hub usa la simulación de fábrica conectada?
+### <a name="which-iot-hub-devices-does-the-connected-factory-simulation-use"></a>¿Qué dispositivos de IoT Hub usa la simulación de factoría conectada?
 
 La misma simulación registra los siguientes dispositivos:
 
@@ -148,11 +148,11 @@ Si ve que ningún dato se envía a IoT Hub, hay un problema con la simulación. 
 
 Para habilitar un mapa interactivo en una solución de factoría conectada, debe disponer de un plan de Bing Maps API for Enterprise.
 
-Cuando se implementa desde [www.azureiotsuite.com](http://www.azureiotsuite.com), el proceso de implementación comprueba que la suscripción tiene un plan de Bing Maps API for Enterprise e implementa automáticamente un mapa interactivo en Fábrica conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
+Cuando se implementa desde [www.azureiotsuite.com](http://www.azureiotsuite.com), el proceso de implementación comprueba que la suscripción tiene un plan de Bing Maps API for Enterprise e implementa automáticamente un mapa interactivo en Factoría conectada. Si no es el caso, de todos modos puede habilitar un mapa interactivo en la implementación, tal como se indica a continuación:
 
-Cuando realiza la implementación con el script `build.ps1` en el repositorio GitHub de Fábrica conectada y tiene un plan de Bing Maps API for Enterprise, establezca la variable de entorno `$env:MapApiQueryKey` en la ventana de compilación a la clave de consulta del plan. El mapa interactivo se habilita de manera automática.
+Cuando realiza la implementación con el script `build.ps1` en el repositorio GitHub de Factoría conectada y tiene un plan de Bing Maps API for Enterprise, establezca la variable de entorno `$env:MapApiQueryKey` en la ventana de compilación a la clave de consulta del plan. El mapa interactivo se habilita de manera automática.
 
-Si no tiene un plan de Bing Maps API for Enterprise, implemente la solución Fábrica conectada desde [www.azureiotsuite.com](http://www.azureiotsuite.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Fábrica conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
+Si no tiene un plan de Bing Maps API for Enterprise, implemente la solución Factoría conectada desde [www.azureiotsuite.com](http://www.azureiotsuite.com) o con el script `build.ps1`. Luego, agregue un plan de Bing Maps API for Enterprise a la suscripción, tal como se explica en [¿Cómo se crea una cuenta de Bing Maps API for Enterprise?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Busque la clave de consulta de esta cuenta como se explica en [Cómo obtener la clave de consulta de Bing Maps API for Enterprise](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) y guarde esta clave. Vaya a Azure Portal y acceda al recurso App Service en la implementación de Factoría conectada. Vaya a **Configuración de la aplicación**, donde encontrará una sección denominada **Configuración de la aplicación**. Establezca el valor de **MapApiQueryKey** en la clave de consulta que obtuvo. Guarde la configuración, vaya a la **información general** y reinicie App Service.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>¿Cómo se crea una cuenta de Bing Maps API for Enterprise?
 
@@ -210,8 +210,8 @@ Para enviar datos de telemetría desde dispositivos que no son de OPC UA a la fa
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
+También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
-* [Información general de la solución preconfigurada de mantenimiento predictivo](iot-suite-predictive-overview.md)
-* [Introducción a la solución preconfigurada de fábrica conectada](iot-suite-connected-factory-overview.md)
+* [Introducción al acelerador de la solución de mantenimiento predictivo](iot-suite-predictive-overview.md)
+* [Información general del acelerador de soluciones de factoría conectada](iot-suite-connected-factory-overview.md)
 * [Seguridad de Internet de las cosas desde el principio](securing-iot-ground-up.md)

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: v-masebo;kgremban
-ms.openlocfilehash: c6182f878076bae27b18d0556a77c8d95677e9c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 98216328e970af5f8acf04c7e7c3ca855f7065f1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-messages-with-iot-hub-python"></a>Enrutamiento de mensajes con IoT Hub (Python)
 
@@ -259,7 +259,7 @@ En esta sección, se crea una cuenta de Storage, se conecta con el IoT Hub y se 
 
 En este tutorial, ha aprendido a enviar de manera confiable mensajes del dispositivo a la nube mediante la funcionalidad de enrutamiento de mensajes de IoT Hub.
 
-Para ver ejemplos de soluciones completas de un extremo a otro que usan IoT Hub, consulte [Azure IoT Suite][lnk-suite].
+Para ver ejemplos de soluciones de un extremo a otro que usen IoT Hub, vea el [acelerador de la solución de supervisión remota de Azure IoT][lnk-suite].
 
 Para obtener más información sobre cómo desarrollar soluciones con IoT Hub, consulte la [Guía del desarrollador de IoTHub de Azure].
 
@@ -294,5 +294,5 @@ Para obtener más información sobre el enrutamiento de mensajes en IoT Hub, con
 
 [lnk-suite]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-free-trial]: https://azure.microsoft.com/free/
-[lnk-storage]: https://docs.microsoft.com/en-us/azure/storage/
+[lnk-storage]: https://docs.microsoft.com/azure/storage/
 [lnk-python-service-bus]: https://pypi.python.org/pypi/azure-servicebus

@@ -1,11 +1,11 @@
 ---
-title: "Envío de notificaciones push seguras a Azure Notification Hubs"
-description: "Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#."
+title: Envío de notificaciones push seguras a Azure Notification Hubs
+description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#.
 documentationcenter: android
 keywords: push notification,push notifications,push messages,android push notifications
-author: ysxu
-manager: erikre
-editor: 
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
@@ -13,13 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
-ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 04/25/2018
+ms.author: dimazaid
+ms.openlocfilehash: 58f6967c59a5060baa10ff83752b9c6ed08226cb
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Envío de notificaciones push seguras a Azure Notification Hubs
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="overview"></a>Información general
 > [!IMPORTANT]
-> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
+> Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 > 
 > 
 
@@ -48,7 +48,7 @@ A un alto nivel, el flujo es el siguiente:
    * El dispositivo Android entra en contacto con el back-end que solicita la carga segura.
    * La aplicación puede mostrar la carga como una notificación en el dispositivo.
 
-Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asumimos que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Esto garantiza una experiencia sin ningún problema, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens pueden haber caducado, la aplicación del dispositivo, al recibir la notificación push, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
+Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se asumió que el dispositivo almacena un token de autenticación localmente y, después, el usuario inicia sesión. Este enfoque garantiza una experiencia sin problemas, ya que el dispositivo puede recuperar la carga segura de la notificación usando este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens pueden haber caducado, la aplicación del dispositivo, al recibir la notificación push, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
 Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tutorial sobre [notificar a los usuarios](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , por lo que debe completar los pasos de ese tutorial primero si no lo ha hecho todavía.
 
@@ -63,7 +63,7 @@ Este tutorial muestra cómo enviar notificaciones push seguras. Se basa en el tu
 Una vez modificado el back-end de la aplicación para enviar solamente el *identificador* de una notificación push, deberá modificar la aplicación Android para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 Para lograr este objetivo, tiene que asegurarse de que la aplicación Android sabe cómo autenticarse a sí misma con el back-end cuando recibe las notificaciones de inserción.
 
-A continuación, modificaremos el flujo de *inicio de sesión* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo tokens OAuth) que la aplicación tendrá que usar sin solicitar credenciales de usuario.
+A continuación, modifique el flujo de *inicio de sesión* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo, tokens OAuth) que la aplicación tiene que usar sin solicitar credenciales de usuario.
 
 1. En el proyecto de la aplicación Android, agregue las siguientes constantes en la parte superior de la clase **MainActivity** :
    
@@ -126,10 +126,10 @@ Ahora cambiaremos el controlador al que se llama cuando se recibe la notificaci�
 
 Este método llama al back-end de la aplicación para recuperar el contenido de la notificación usando las credenciales almacenadas en las preferencias compartidas y lo muestra como una notificación normal. El aspecto de la notificación para el usuario de la aplicación es exactamente el mismo que cualquier otra notificación de inserción.
 
-Tenga en cuenta que es preferible administrar los casos de propiedad de encabezado de autenticación ausente o rechazo por el backend. La administración específica de estos casos depende principalmente de la experiencia del usuario de destino. Una opción es mostrar una notificación con un mensaje genérico para el usuario con el fin de que se autentique para recuperar la notificación real.
+Es preferible administrar los casos de propiedad de encabezado de autenticación ausente o rechazo por el back-end. La administración específica de estos casos depende principalmente de la experiencia del usuario de destino. Una opción es mostrar una notificación con un mensaje genérico para el usuario con el fin de que se autentique para recuperar la notificación real.
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
-Para ejecutar la aplicación, realice las siguientes tareas:
+Para ejecutar la aplicación, realice las siguientes acciones:
 
 1. Asegúrese de que **AppBackend** se ha implementado en Azure. Si usa Visual Studio, ejecute la aplicación de API web **AppBackend** . Se mostrará una página web ASP.NET.
 2. En Eclipse, ejecute la aplicación en un dispositivo Android físico o en el emulador.

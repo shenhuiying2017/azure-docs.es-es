@@ -1,11 +1,11 @@
 ---
 title: Plantillas de API en Azure API Management | Microsoft Docs
-description: "Aprenda a personalizar el contenido de las páginas de API en el portal para desarrolladores en Azure API Management."
+description: Aprenda a personalizar el contenido de las páginas de API en el portal para desarrolladores en Azure API Management.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2317047165f49de8c42c41dc864f0752df4af068
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 9abbdda2300fd8d51bec372624f0349455cf2b01
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="api-templates-in-azure-api-management"></a>Plantillas de API en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -26,7 +26,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 Las plantillas de esta sección le permiten personalizar el contenido de las páginas de API en el portal para desarrolladores.  
   
 -   [API list](#APIList)  
--   [Operación](#Product)  
+-   [operación](#Product)  
 -   [Ejemplos de código](#CodeSamples)  
     -   [Curl](#Curl)  
     -   [C#](#CSharp)  
@@ -38,7 +38,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para obtener más información sobre el trabajo con plantillas, consulte [Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a> API list  
  La plantilla **API list** le permite personalizar el cuerpo de la página de lista de API en el portal para desarrolladores.  
@@ -84,7 +84,7 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |apis|Colección de entidades de [resumen de API](api-management-template-data-model-reference.md#APISummary).|Las API visibles para el usuario actual.|  
   
@@ -339,13 +339,13 @@ Las plantillas de esta sección le permiten personalizar el contenido de las pá
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
 |apiId|string|Id. de la API actual.|  
 |apiName|string|Nombre de la API.|  
 |apiDescription|string|Descripción de la API.|  
 |api|Entidad [API summary](api-management-template-data-model-reference.md#APISummary).|API actual.|  
-|operación|[Operación](api-management-template-data-model-reference.md#Operation)|La operación mostrada actualmente.|  
+|operación|[operación](api-management-template-data-model-reference.md#Operation)|La operación mostrada actualmente.|  
 |sampleUrl|string|La dirección URL de la operación actual.|  
 |operationMenu|[Operation menu](api-management-template-data-model-reference.md#Menu)|Un menú de operaciones de esta API.|  
 |consoleUrl|URI|El URI del botón **Pruébelo**.|  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/04/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: fa04e7a3c0d6f19603befed026b316eba6e46eb7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ef7517e91965b0d7444d158f041b1d2bddea6bd2
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Análisis y visualización de eventos con Application Insights
 
@@ -32,7 +32,7 @@ El propósito de este artículo es mostrar cómo se obtiene información y se so
 
 ## <a name="monitoring-in-app-insights"></a>Supervisión en Application Insights
 
-Application Insights se integra directamente con Service Fabric, sin necesidad de configuraciones adicionales. En la página información general, AI proporciona información esencial sobre el servicio, como el tiempo de respuesta y el número de solicitudes procesadas. Al hacer clic en el botón "Buscar" de la parte superior, verá una lista de las solicitudes recientes en la aplicación. Además, podrá ver aquí las solicitudes con error y determinar a qué se deben estos errores.
+Application Insights se integra directamente con Service Fabric. En la página información general, AI proporciona información esencial sobre el servicio, como el tiempo de respuesta y el número de solicitudes procesadas. Al hacer clic en el botón "Buscar" de la parte superior, verá una lista de las solicitudes recientes en la aplicación. Además, podrá ver aquí las solicitudes con error y determinar a qué se deben estos errores.
 
 ![Introducción a AI](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

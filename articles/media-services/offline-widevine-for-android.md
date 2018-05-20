@@ -1,12 +1,12 @@
 ---
-title: "Configuración de la cuenta para el streaming sin conexión de contenido protegido de Widevine - Azure"
-description: "En este tema se muestra cómo configurar la cuenta de Azure Media Services para streaming sin conexión de contenido protegido de Widevine."
+title: Configuración de la cuenta para el streaming sin conexión de contenido protegido de Widevine - Azure
+description: En este tema se muestra cómo configurar la cuenta de Azure Media Services para streaming sin conexión de contenido protegido de Widevine.
 services: media-services
-keywords: "DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android"
-documentationcenter: 
+keywords: DASH, DRM, Modo sin conexión de Widevine, ExoPlayer, Android
+documentationcenter: ''
 author: willzhan
 manager: steveng
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b27ffcbf5749d612e63ba08df0adad72f357a83a
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: 158b58c13aee4d6241900db4a5e2b3fe8a45cc3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Streaming de Widevine sin conexión para Android
 
@@ -122,7 +122,7 @@ Los desarrolladores deben consultar [ExoPlayer Developer Guide](https://google.g
 
 En algunos dispositivos Android antiguos, debe configurar los valores de las siguientes propiedades de **policy_overrides** (que se definen en la [plantilla de la licencia de Widevine](media-services-widevine-license-template-overview.md): **rental_duration_seconds**, **playback_duration_seconds** y **license_duration_seconds**. También puede configurarlos en cero, lo que implica una duración infinita/ilimitada.  
 
-Los valores se deben configurar para evitar un error de desbordamiento de enteros. Para obtener más información sobre el problema, consulte https://github.com/google/ExoPlayer/issues/3150 y https://github.com/google/ExoPlayer/issues/3112. <br/>Si no se establecen explícitamente, se asignarán valores muy elevados para **PlaybackDurationRemaining** y **LicenseDurationRemaining** (por ejemplo, 9223372036854775807, que es el valor positivo máximo para un entero de 64 bits). Como resultado, la licencia de Widevine aparece caducada y, por tanto, no se realizará el descifrado. 
+Los valores se deben configurar para evitar un error de desbordamiento de enteros. Para más información sobre el problema, vea https://github.com/google/ExoPlayer/issues/3150 y https://github.com/google/ExoPlayer/issues/3112. <br/>Si no se establecen explícitamente, se asignarán valores muy elevados para **PlaybackDurationRemaining** y **LicenseDurationRemaining** (por ejemplo, 9223372036854775807, que es el valor positivo máximo para un entero de 64 bits). Como resultado, la licencia de Widevine aparece caducada y, por tanto, no se realizará el descifrado. 
 
 Este problema no se produce en Android 5.0 Lollipop ni en versiones posteriores, ya que Android 5.0 es la primera versión de Android que se ha diseñado para admitir completamente ARMv8 ([Advanced RISC Machine](https://en.wikipedia.org/wiki/ARM_architecture)) y las plataformas de 64 bits, mientras que Android 4.4 KitKat se diseñó originalmente para admitir ARMv7 y plataformas de 32 bits como en otras versiones anteriores de Android.
 
@@ -148,7 +148,7 @@ Si actualiza el explorador Chrome móvil a la versión 62 (o posterior) en un te
 
 La aplicación de PWA de código abierto anterior se creó en Node.js. Si desea hospedar su propia versión en un servidor de Ubuntu, tenga en cuenta los siguientes problemas habituales que pueden impedir la reproducción:
 
-1. Problema CORS: el vídeo de ejemplo de la aplicación de ejemplo está hospedado en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: no se encontró el encabezado "acceso-control-permitir-origen" en el recurso solicitado). Así pues, el origen "https://13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
+1. Problema de CORS: el vídeo de ejemplo de la aplicación de ejemplo se hospeda en https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurado CORS para todos sus ejemplos de prueba hospedados en el cubo de Google Cloud Storage. Se proporcionan con encabezados CORS, especificando explícitamente la entrada CORS: https://biograf-155113.appspot.com (el dominio en el que Google hospeda su ejemplo) impidiendo el acceso de cualquier otro sitio. Si lo intenta, verá el siguiente error HTTP: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource (No se pudo cargar, no se encontró el encabezado "acceso-control-permitir-origen" en el recurso solicitado). Así pues, el origen "https://13.85.80.81:8080" no tiene el acceso permitido. Si una respuesta opaca sirve a sus necesidades, establezca el modo de la solicitud en 'no-cors' para obtener el recurso con CORS deshabilitado.
 2. Problema de certificado: a partir de la versión 58 de Chrome, EME para Widevine requiere HTTPS. Por lo tanto, debe hospedar la aplicación de ejemplo a través de HTTPS con un certificado X509. Un certificado de prueba habitual no funciona debido a lo que se especifica a continuación. Debe obtener un certificado que cumpla los siguientes requisitos mínimos:
     - Chrome y Firefox requieren que existan los parámetros de SAN (nombre alternativo del firmante) en el certificado
     - El certificado debe tener una entidad de certificación de confianza y un certificado de desarrollo autofirmado no sirve para ello
@@ -172,7 +172,7 @@ Esto significa que el servicio de token de seguridad (STS) debe tener la informa
 
 ### <a name="question"></a>Pregunta
 
-En el caso de niveles de seguridad de Widevine, en el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google, se definen tres niveles de seguridad diferentes. Sin embargo, en la [documentación de Azure Media Services sobre la plantillas de licencias de Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), se describen cinco niveles de seguridad diferentes. ¿Cuál es la relación o la asignación entre los dos conjuntos diferentes de niveles de seguridad?
+En el caso de niveles de seguridad de Widevine, en el documento [Widevine DRM Architecture Overview](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) (Información general de la arquitectura de Widevine DRM) de Google, se definen tres niveles de seguridad diferentes. Sin embargo, en la [documentación de Azure Media Services sobre la plantillas de licencias de Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), se describen cinco niveles de seguridad diferentes. ¿Cuál es la relación o la asignación entre los dos conjuntos diferentes de niveles de seguridad?
 
 ### <a name="answer"></a>Respuesta
 
@@ -182,7 +182,7 @@ En el documento [Widevine DRM Architecture Overview](https://storage.googleapis.
 2.  Seguridad de nivel 2: realiza la criptografía (pero no el procesamiento de vídeo) dentro de la TEE: los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de TEE.
 3.  Nivel de seguridad 3: no tiene un TEE en el dispositivo. Es posible que tengan que adoptarse las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también puede incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad.
 
-Al mismo tiempo, en la [documentación de Azure Media Services sobre la plantilla de licencia de Widevine](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), la propiedad security_level de content_key_specs puede tener los siguientes cinco valores diferentes (requisitos de solidez de cliente para la reproducción):
+Al mismo tiempo, en la [documentación de Azure Media Services sobre la plantilla de licencia de Widevine](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), la propiedad security_level de content_key_specs puede tener los siguientes cinco valores diferentes (requisitos de solidez de cliente para la reproducción):
 
 1.  Se requiere criptografía white-box basada en software.
 2.  Se requiere criptografía de software y un descodificador de ofuscación.

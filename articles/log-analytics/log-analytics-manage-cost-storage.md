@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 865b0e485480f5ee7d676d3a6c90cb51fd50d19c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Administración de los costos mediante el control del volumen de datos y la retención en Log Analytics
 Log Analytics está diseñado para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
@@ -33,14 +33,15 @@ El costo de datos puede ser considerable dependiendo de los factores siguientes:
 - Período durante el que los datos se retengan en el área de trabajo  
 - Número de soluciones de administración habilitadas, origen de datos y frecuencia de recopilación 
 
-Consulte la documentación de cada solución, ya que proporciona una estimación de la cantidad de datos que recopila.   
+> [!NOTE]
+> Consulte la documentación de cada solución, ya que proporciona una estimación de la cantidad de datos que recopila.   
 
-Si se encuentra en un plan de tarifa "Gratis", los datos tienen una retención limitada de siete días. Para los niveles de "Por nodo (OMS)" o "Por GB (independiente)", los datos recopilados están disponibles durante los últimos 31 días y la retención se puede aumentar a 2 años. Se aplican cargos si elige seleccionar un período de retención mayor. El plan Gratis tiene 500 MB diarios de límite de ingesta, si observa que supera constantemente el volumen permitido, puede cambiar el área de trabajo a un plan de pago por GB o nodo para recopilar más datos. Puede cambiar el tipo de plan en cualquier momento. Para obtener más información sobre los precios, vea la [información sobre los precios](https://azure.microsoft.com/pricing/details/log-analytics/). 
+Si se encuentra en un plan *Gratis*, los datos tienen una retención limitada de siete días. En el plan *Independiente* o *De pago*, los datos recopilados están disponibles durante los últimos 31 días. El plan *Gratis* tiene 500 MB diarios de límite de ingesta, si observa que supera de forma uniforme las cantidades permitidas de volumen, puede cambiar el área de trabajo a un plan de pago para recopilar datos más allá de este límite. 
 
 > [!NOTE]
-> En abril de 2018, [introdujimos](https://azure.microsoft.com/en-us/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) un nuevo modelo de precios para la supervisión de Azure. Este modelo adopta un modelo de "pago por uso" sencillo en toda la cartera de servicios de supervisión. Más información sobre el [nuevo modelo de precios](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs), cómo [valorar el impacto de pasar a este modelo](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#assessing-the-impact-of-the-new-pricing-model) en función de los patrones de uso y [cómo participar en el nuevo modelo](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs#moving-to-the-new-pricing-model). 
+> Pueden aplicarse cargos si elige seleccionar un período de retención mayor para el nivel de pago. Puede cambiar el tipo de plan en cualquier momento. Para obtener más información sobre los precios, vea la [información sobre los precios](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Independientemente del modelo o nivel de precios, la administración del volumen de datos es fundamental para controlar los costos. Aparte de la elección y la configuración de una solución concreta, en Log Analytics hay dos maneras para limitar el volumen de datos y ayudar a controlar el costo: el límite diario y la retención de datos.  
+Hay dos maneras para limitar el volumen de datos y ayudar a controlan el costo, son el límite diario y la retención de datos.  
 
 ## <a name="review-estimated-cost"></a>Revisión del costo estimado
 Log Analytics permite entender fácilmente lo que los costos probablemente vayan a ser, en base a los patrones de uso reciente.  Para ello, siga estos pasos.  
@@ -54,9 +55,9 @@ Desde aquí puede revisar el volumen de datos para el mes. Esto incluye todos lo
 Los cargos de Log Analytics se agregarán a la factura de Azure. Puede consultar los detalles de su factura de Azure en la sección de facturación de Azure Portal o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions).  
 
 ## <a name="daily-cap"></a>Límite diario
-Al crear un área de trabajo de Log Analytics desde Azure Portal y elegir el plan *Gratis*, el límite por día se establece en 500 MB. No hay ningún límite para otros planes de precios. Puede configurar un límite diario y limitar la ingesta diaria para el área de trabajo, pero tenga cuidado de establecer el límite diario como el objetivo al que llegar.  De ser así, en ese punto se empezarán a perder datos y la pérdida continuará el resto del día, con ello se verá afectada su capacidad para observar las condiciones de mantenimiento de los recursos que soportan los servicios de TI.  El límite diario está pensado para usarse como una manera de administrar el aumento inesperado del volumen de datos de los recursos administrados y permanecer dentro de su límite, o simplemente cuando desee limitar cargos no planeados para el área de trabajo.  
+Al crear un área de trabajo de Log Analytics desde Azure Portal y elegir el plan *Gratis*, el límite por día se establece en 500 MB. No hay ningún límite para otros planes de precios. Puede configurar un límite diario y limitar la ingesta diaria para el área de trabajo, pero tenga cuidado de establecer el límite diario como el objetivo al que llegar.  En caso contrario, perderá los datos para el resto del día, lo que puede afectar a otros servicios y soluciones de Azure cuya funcionalidad puede depender de la disponibilidad de datos actualizados en el área de trabajo.  Como resultado, esto afecta a la capacidad de observar y recibir alertas cuando cambian las condiciones de mantenimiento de los recursos que respaldan los servicios de TI.  El límite diario está pensado para usarse como una manera de administrar el aumento inesperado del volumen de datos de los recursos administrados y permanecer dentro de su límite, o simplemente cuando desee limitar cargos no planeados para el área de trabajo.  
 
-Cuando se alcanza el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día.  Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
+Cuando se alcanza el límite diario, la recopilación de tipos de datos facturables se detiene durante el resto del día. Un mensaje emergente de advertencia aparece en la parte superior de la página del área de trabajo de Log Analytics seleccionada, y se envía un evento de operación para la tabla *Operación* en la categoría **LogManagement**. La recopilación de datos se reanuda después de que se restablezca el tiempo definido en *Daily limit will be set at* (El límite diario se establecerá en). Se recomienda definir una regla de alerta en función de este evento de operación que esté configurada para notificar cuando se ha alcanzado el límite diario de datos. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificación del límite diario de datos para definir 
 Revise el [uso de Log Analytics y costos estimados](log-analytics-usage.md) para comprender la tendencia de ingesta de datos y cuál es el límite de volumen diario para definir. Se debe considerar con cuidado, ya que no podrá supervisar los recursos una vez que se alcance el límite. 

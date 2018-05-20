@@ -1,13 +1,13 @@
 ---
-title: "Registro de la aplicación para utilizar Azure Active Directory | Microsoft Docs"
-description: "Escrito para los profesionales de TI, este artículo ofrece instrucciones para integrar las aplicaciones de Azure con Active Directory."
+title: Registro de la aplicación para utilizar Azure Active Directory | Microsoft Docs
+description: Escrito para los profesionales de TI, este artículo ofrece instrucciones para integrar las aplicaciones de Azure con Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
+editor: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 514db22ad070fed20d89be442cecc2f3ee808ead
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 66102836b954bf4fafc4379cf573658d89e0d409
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desarrollo de aplicaciones de línea de negocio para Azure Active Directory
 Esta guía proporciona información general sobre el desarrollo de aplicaciones de línea de negocio (LoB) para Azure Active Directory (AD) y se ha diseñado expresamente para administradores globales de Active Directory y Office 365.
@@ -77,7 +77,7 @@ Para aplicaciones de confianza, puede otorgar el consentimiento para la aplicaci
 Para obtener más información sobre el consentimiento de usuarios y cómo se utiliza esta característica en Azure, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
+* [Provisión de acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md)
 * [Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Administración del acceso a las aplicaciones con Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

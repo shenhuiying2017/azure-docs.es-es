@@ -2,23 +2,22 @@
 title: Acciones de los nodos de unidad de escalado en Azure Stack | Microsoft Docs
 description: Aprenda a ver el estado de los nodos y usar las acciones de nodo para encender, apagar, purgar y reanudar en un sistema integrado de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: dbb68b10-c721-4188-aa07-584d0cd63138
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Acciones de los nodos de unidad de escalado en Azure Stack
 

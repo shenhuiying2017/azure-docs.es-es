@@ -1,13 +1,13 @@
 ---
-title: "Preguntas más frecuentes sobre Azure App Service en Linux | Microsoft Docs"
-description: "Peguntas más frecuentes sobre Azure App Service en Linux."
-keywords: "azure app service, web app, preguntas más frecuentes, linux, oss"
+title: Preguntas más frecuentes sobre Azure App Service en Linux | Microsoft Docs
+description: Peguntas más frecuentes sobre Azure App Service en Linux.
+keywords: azure app service, web app, preguntas más frecuentes, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b22d5f3497c388192764aa6b4ee8c95fec568bd8
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -46,6 +46,10 @@ Esta acción es igual a un reinicio de Docker.
 **¿Puedo usar Secure Shell (SSH) para conectarme a la máquina virtual del contenedor de la aplicación?**
 
 Sí, puede hacerlo a través del sitio de administración de control de código fuente (SCM).
+
+> [!NOTE] 
+> También puede conectarse al contenedor de la aplicación directamente desde la máquina de desarrollo local mediante SSH, SFTP o Visual Studio Code (para aplicaciones de Node.js de depuración en directo). Para más información, consulte [Depuración remota y SSH en App Service en Linux](https://aka.ms/linux-debug).
+>
 
 **¿Cómo se puede crear un plan de App Service en Linux a través de un SDK o una plantilla de Azure Resource Manager?**
 

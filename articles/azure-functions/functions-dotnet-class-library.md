@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e5310c59cbfe4080911768f29e1b8f635a611e63
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -44,7 +44,7 @@ En Visual Studio, la plantilla de proyecto de **Azure Functions** crea un proyec
 > [!IMPORTANT]
 > El proceso de compilación crea un archivo *function.json* para cada función. Este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. Para deshabilitar una función, utilice el atributo [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Por ejemplo, agregue una configuración de aplicación booleana MY_TIMER_DISABLED y aplique `[Disable("MY_TIMER_DISABLED")]` a la función. A continuación, puede habilitarlo y deshabilitarlo al cambiar la configuración de la aplicación.
 
-### <a name="functionname-and-trigger-attributes"></a>Atributos FunctionName y desencadenador
+## <a name="methods-recognized-as-functions"></a>Métodos reconocidos como funciones
 
 En una biblioteca de clases, una función es un método estático con un atributo `FunctionName` y un atributo desencadenador, tal como se muestra en el ejemplo siguiente:
 
@@ -61,13 +61,24 @@ public static class SimpleExample
 } 
 ```
 
-El atributo `FunctionName` marca el método como punto de entrada de una función. El nombre debe ser único dentro de un proyecto.
+El atributo `FunctionName` marca el método como punto de entrada de una función. El nombre debe ser único dentro de un proyecto. Las plantillas de proyecto suelen crear un método denominado `Run`, pero el nombre de método puede ser cualquier nombre de método de C# válido.
 
 El atributo desencadenador especifica el tipo de desencadenador y enlaza los datos de entrada a un parámetro del método. La función de ejemplo se desencadena mediante un mensaje de cola, y este último se pasa al método en el `myQueueItem` parámetro.
 
-### <a name="additional-binding-attributes"></a>Atributos de enlace adicionales
+## <a name="method-signature-parameters"></a>Parámetros de la firma del método
 
-Se pueden usar atributos de enlace de entrada y salida adicionales. En el ejemplo siguiente se modifica el ejemplo anterior mediante la adición de un enlace de la cola de salida. La función escribe el mensaje de la cola de entrada en un nuevo mensaje de cola de una cola distinta.
+La firma del método puede contener parámetros distintos del usado con el atributo desencadenador. Estos son algunos de los parámetros adicionales que puede incluir:
+
+* [Enlaces de entrada y salida](functions-triggers-bindings.md) marcados como tales con atributos.  
+* Un parámetro `ILogger` o `TraceWriter` para el [registro](#logging).
+* Un parámetro `CancellationToken` para el [cierre estable](#cancellation-tokens).
+* Parámetros de [expresiones de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) para obtener metadatos de desencadenador.
+
+El orden de los parámetros en la signatura de función no es importante. Por ejemplo, puede colocar los parámetros de desencadenador antes o después de otros enlaces y puede colocar el parámetro de registrador antes o después de los parámetros de desencadenador o enlace.
+
+### <a name="output-binding-example"></a>Ejemplo de enlace de salida
+
+En el ejemplo siguiente se modifica el ejemplo anterior mediante la adición de un enlace de la cola de salida. La función escribe el mensaje de la cola que desencadena la función en un nuevo mensaje de cola de una cola distinta.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -84,13 +95,11 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-### <a name="order-of-parameters"></a>Orden de los parámetros
+En los artículos de referencia de enlace ([colas de almacenamiento](functions-bindings-storage-queue.md), por ejemplo) se explica qué tipos de parámetros puede usar con los atributos de enlace de entrada o salida y desencadenador.
 
-El orden de los parámetros en la signatura de función no es importante. Por ejemplo, puede colocar los parámetros de desencadenador antes o después de otros enlaces y puede colocar el parámetro de registrador antes o después de los parámetros de desencadenador o enlace.
+### <a name="binding-expressions-example"></a>Ejemplo de expresiones de enlace
 
-### <a name="binding-expressions"></a>Expresiones de enlace
-
-Puede usar expresiones de enlace en los parámetros de constructor de atributo y en los parámetros de función. Por ejemplo, el código siguiente recibe el nombre de la cola que se va a supervisar desde una configuración de aplicación y recibe la hora de creación del mensaje de cola en el parámetro `insertionTime`.
+El código siguiente recibe el nombre de la cola que se va a supervisar desde una configuración de aplicación y recibe la hora de creación del mensaje de cola en el parámetro `insertionTime`.
 
 ```csharp
 public static class BindingExpressionsExample
@@ -107,9 +116,7 @@ public static class BindingExpressionsExample
 }
 ```
 
-Para más información, consulte **Patrones y expresiones de enlace** en [Desencadenadores y enlaces](functions-triggers-bindings.md#binding-expressions-and-patterns).
-
-### <a name="conversion-to-functionjson"></a>Conversión a function.json
+## <a name="autogenerated-functionjson"></a>Archivo function.json generado automáticamente
 
 El proceso de compilación crea un archivo *function.json* en una carpeta de la función en la carpeta de compilación. Como se indicó anteriormente, este archivo no está pensado para que se pueda modificar directamente. No se puede cambiar la configuración del enlace ni deshabilitar la función mediante la edición de este archivo. 
 
@@ -134,7 +141,7 @@ El archivo *function.json* generado incluye una propiedad `configurationSource` 
 }
 ```
 
-### <a name="microsoftnetsdkfunctions-nuget-package"></a>Paquete NuGet Microsoft.NET.Sdk.Functions
+## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
 El archivo *function.json* se genera mediante el paquete NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
@@ -169,7 +176,7 @@ El `Sdk` paquete también depende de [Newtonsoft.Json](http://www.nuget.org/pack
 
 El código fuente de `Microsoft.NET.Sdk.Functions` está disponible en el repositorio de GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-### <a name="runtime-version"></a>Versión en tiempo de ejecución
+## <a name="runtime-version"></a>Versión en tiempo de ejecución
 
 Visual Studio usa [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) para ejecutar proyectos de Functions. Core Tools es una interfaz de línea de comandos para Functions Runtime.
 

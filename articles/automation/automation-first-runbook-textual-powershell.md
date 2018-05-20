@@ -4,16 +4,17 @@ description: Tutorial que le guiará a través de la creación, prueba y publica
 keywords: powershell de Azure, tutorial de scripts de powershell, automatización de powershell
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 76d14b0d9bf14c6b9f342b0aae8fd42e871ea18d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aaf03369b9272c1c428795ceb5e9c0de3d89b7ad
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="my-first-powershell-runbook"></a>Mi primer runbook de PowerShell
 
@@ -99,7 +100,7 @@ Ha probado y publicado su runbook, pero hasta ahora no hace nada útil. Quiere q
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Paso 6: Incorporación de una actividad para iniciar una máquina virtual
 Ahora que el runbook está autenticado en la suscripción a Azure, puede administrar los recursos. Agregue un comando para iniciar una máquina virtual. Puede seleccionar cualquier máquina virtual de la suscripción de Azure. Por ahora, codificará ese nombre directamente en el runbook.
 
-1. Tras *Connect-AzureRmAccount*, escriba *Start-AzureRmVM -Name 'NombreVM' -ResourceGroupName 'NombreGrupoRecursos'* y proporcione el nombre y el nombre del grupo de recursos de la máquina virtual que se iniciará.  
+1. Tras *Connect-AzureRmAccount*, escriba *Start-AzureRmVM -Name "NombreVM" -ResourceGroupName "NombreGrupoRecursos"* y proporcione el nombre y el nombre del grupo de recursos de la máquina virtual que quiere iniciar.  
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection

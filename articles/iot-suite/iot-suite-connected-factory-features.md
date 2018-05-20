@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: fea9ccc53bd019039cf1e989d72db7a218e4517c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0bd023e73088897303fe0f9de47641cd6ea0389
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-iot-suite-connected-factory"></a>¿Qué es Connected Factory de Azure IoT Suite?
 
@@ -51,7 +51,7 @@ Connected Factory incluye las siguientes características:
 ## <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 - [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) se ha compilado para almacenar, visualizar y consultar grandes cantidades de datos de series temporales. Connected Factory aprovecha este servicio.
-- Connected Factory se integra con este servicio para permitir los análisis profundos y en tiempo real de los datos del dispositivo.
+- Factoría conectada se integra con este servicio para permitir los análisis profundos y en tiempo real de los datos del dispositivo.
 
 ## <a name="rules-and-alerts"></a>Reglas y alertas
 
@@ -65,11 +65,11 @@ Connected Factory incluye las siguientes características:
 ## <a name="customizability"></a>Personalización
 
 - [Personalización](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) de la solución para satisfacer requisitos empresariales específicos.
-- Código fuente de la solución completo disponible en GitHub. Consulte el repositorio de la [solución preconfigurada Connected Factory](https://github.com/Azure/azure-iot-connected-factory).
+- Código fuente de la solución completo disponible en GitHub. Consulte el repositorio de la [solución preconfigurada Factoría conectada](https://github.com/Azure/azure-iot-connected-factory).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la solución preconfigurada de factoría conectada, lea los siguientes artículos:
+Para obtener más información sobre la solución preconfigurada Factoría conectada, lea los siguientes artículos:
 
-* [Tutorial de la solución Connected Factory preconfigurada](iot-suite-connected-factory-sample-walkthrough.md)
-* [Implementación de una puerta de enlace para Connected Factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Tutorial de la solución preconfigurada Factoría conectada](iot-suite-connected-factory-sample-walkthrough.md)
+* [Implementación de una puerta de enlace para Factoría conectada]( iot-suite-connected-factory-gateway-deployment.md)

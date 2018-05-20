@@ -12,21 +12,25 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 46ba7b6e638fafa512d4a3f291c49acc1ddf02e4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1ba02afa775343f496a2b5fec98699e593a330ba
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Supervisión del clúster y la plataforma
 
 Es importante supervisar en el nivel de infraestructura para determinar si el hardware y el clúster se comportan según lo previsto. Aunque Service Fabric puede mantener las aplicaciones en ejecución durante un error de hardware, es necesario diagnosticar si un error se produce en una aplicación o en la infraestructura subyacente. También debe supervisar los clústeres para planear mejor la capacidad, lo que ayuda a decidir si es necesario agregar o quitar hardware.
 
-Service Fabric proporciona los siguientes canales de registro integrados:
+Service Fabric expone varios eventos de plataforma estructurados, como "[Eventos de Service Fabric](service-fabric-diagnostics-events.md)", a través de EventStore y varios canales de registro listos para usar. 
 
-* **Operativo**  
+EventStore proporciona acceso a los eventos del clúster por entidades (entre las que se incluyen el clúster, los nodos, las aplicaciones, los servicios, las particiones, las réplicas y los contenedores) y los expone a través de las API de REST y la biblioteca de cliente de Service Fabric. Use EventStore para supervisar los clústeres de desarrollo y pruebas, así como para obtener una descripción en un momento dado del estado de los clústeres de producción. Obtenga más información sobre esto en [Información general de EventStore](service-fabric-diagnostics-eventstore.md).
+
+Service Fabric también proporciona los siguientes canales de registro listos para usar para configurar una canalización de supervisión de los clústeres de producción:
+
+* [**Operativo**](service-fabric-diagnostics-event-generation-operational.md)  
 Operaciones de alto nivel que realiza Service Fabric y el clúster, incluidos eventos para un nodo próximo, una nueva aplicación que se implementa o la reversión de una actualización, etc.
 
 * **Operativo: detallado**  

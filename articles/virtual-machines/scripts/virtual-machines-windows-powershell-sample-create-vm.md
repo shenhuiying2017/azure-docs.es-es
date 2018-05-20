@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows"
+title: 'Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: creación de una máquina virtual Windows'
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: neilpeterson
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -17,10 +17,10 @@ ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.openlocfilehash: a9e46aded0cf3792558a7fba6f00e5662166cc0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creación una máquina virtual completamente configurada con PowerShell
 
@@ -46,7 +46,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 Este script usa los siguientes comandos para crear la implementación. Cada elemento de la tabla incluye vínculos a la documentación específica del comando.
 
-| Comando | Notas |
+| Get-Help | Notas |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | Crea una configuración de subred. Esta configuración se utiliza con el proceso de creación de la red virtual. |

@@ -1,25 +1,25 @@
 ---
-title: "Publicación de aplicaciones en redes y ubicaciones independientes mediante grupos de conectores en el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD."
+title: Publicación de aplicaciones en redes y ubicaciones independientes mediante grupos de conectores en el proxy de aplicación de Azure AD | Microsoft Docs
+description: Explica cómo crear y administrar grupos de conectores en el Proxy de aplicación de Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 58886fc8d1b713207d8cd2c5547d2f99420ba6eb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3ffc453c98f8d21f1cd6f7025387031bdacf073a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicación de aplicaciones en redes independientes y ubicaciones mediante grupos de conectores
 
@@ -33,7 +33,7 @@ Todas las aplicaciones se asignan a un grupo de conectores. Si no crea grupos, t
 >Si cuenta con una implementación del proxy de aplicación grande, no asigne ninguna aplicación al grupo de conectores predeterminado. De ese modo, los nuevos conectores no recibirán tráfico directo hasta que los asigne a un grupo de conectores activo. Esta configuración también permite poner los conectores en modo inactivo moviéndolos de nuevo al grupo predeterminado para que se pueda realizar el mantenimiento sin que esto afecte a los usuarios.
 
 ## <a name="prerequisites"></a>requisitos previos
-Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](active-directory-application-proxy-enable.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado** .
+Para agrupar los conectores, debe asegurarse de [tener instalados varios conectores](manage-apps/application-proxy-enable.md). Cuando se instala un nuevo conector, se une automáticamente al grupo de conectores **predeterminado** .
 
 ## <a name="create-connector-groups"></a>Creación de grupos de conectores
 Siga estos pasos para crear tantos grupos de conectores como desee. 
@@ -126,6 +126,6 @@ En el ejemplo siguiente, la empresa tiene dos centros de datos, A y B, con dos c
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md)
-* [Habilitar el inicio de sesión único](application-proxy-sso-overview.md)
+* [Habilitar el inicio de sesión único](manage-apps/application-proxy-single-sign-on.md)
 
 

@@ -49,7 +49,7 @@
 - name: Procedimientos
   items:
     - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas
-      href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+      href: load-balancer-get-started-internet-az-portal.md
       items:
         - name: Creación de una instancia de Load Balancer estándar pública con redundancia de zonas (PowerShell)
           href: load-balancer-get-started-internet-az-powershell.md

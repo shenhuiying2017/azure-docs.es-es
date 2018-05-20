@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Teamphoria | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Teamphoria."
+title: 'Tutorial: Integración de Azure Active Directory con Teamphoria | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: 260c85b14032e17def01ded4a461e6337d66239b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 724d1624a3ba86aba3665169a14115b2a90e0069
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: Integración de Azure Active Directory con Teamphoria
 
@@ -27,19 +27,11 @@ La integración de Teamphoria con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a Teamphoria
 - Puede permitir que los usuarios inicien sesión automáticamente en Teamphoria (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!--## Overview
-
-To enable single sign-on with Teamphoria, it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Teamphoria.
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
-
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Teamphoria, necesita los siguientes elementos:
 
@@ -55,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar Teamphoria desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -71,11 +63,11 @@ Para configurar la integración de Teamphoria en Azure AD, es preciso agregar Te
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Teamphoria**.
 
@@ -201,7 +193,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-teamphoria-test-user"></a>Crear un usuario de prueba Teamphoria
 

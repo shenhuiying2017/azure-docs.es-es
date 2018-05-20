@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](log-analytics-itsmc-overview.md).
@@ -271,7 +271,10 @@ Cuando el usuario se crea correctamente, el estado de **Check Installation Check
 
 > [!NOTE]
 
-> El Conector ITSM puede enviar incidentes a ServiceNow sin otros módulos instalados en la instancia de ServiceNow. Si usa el módulo EventManagement en su instancia de ServiceNow y quiere crear eventos o alertas en ServiceNow mediante el conector, agregue los siguientes roles para el usuario de integración: - evt_mgmt_integration - evt_mgmt_operator  
+> El Conector ITSM puede enviar incidentes a ServiceNow sin otros módulos instalados en la instancia de ServiceNow. Si usa el módulo EventManagement en su instancia de ServiceNow y quiere crear eventos o alertas en ServiceNow mediante el conector, agregue los siguientes roles para el usuario de integración:
+
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Conectar Provance al Conector de Administración de servicios de TI en Azure

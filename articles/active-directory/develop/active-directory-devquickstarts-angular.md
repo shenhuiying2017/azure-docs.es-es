@@ -3,29 +3,31 @@ title: Introducción a Azure AD AngularJS | Microsoft Docs
 description: Creación de una aplicación de una sola página AngularJS que se integra con Azure AD para el inicio de sesión y llama a las API protegidas de Azure AD mediante OAuth.
 services: active-directory
 documentationcenter: ''
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b99ce605d9ecea6c7d67ab9a2ea679d531787d7
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Introducción a AngularJS de Azure AD
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Con Azure Active Directory (Azure AD), es sencillo y directo agregar llamadas de inicio y cierre de sesión, así como llamadas seguras de API de OAuth a las aplicaciones de una sola página.  Permite que la aplicación autentique a los usuarios con sus cuentas de Active Directory de Windows Server, además de consumir cualquier web API que Azure AD ayuda a proteger, como las API de Office 365 o la API de Azure.
+Con Azure Active Directory (Azure AD), es sencillo y directo agregar llamadas de inicio y cierre de sesión, así como llamadas seguras de API de OAuth a las aplicaciones de una sola página. Permite que la aplicación autentique a los usuarios con sus cuentas de Active Directory de Windows Server, además de consumir cualquier web API que Azure AD ayuda a proteger, como las API de Office 365 o la API de Azure.
 
 Para las aplicaciones de JavaScript que se ejecutan en un explorador, Azure AD proporciona la biblioteca de autenticación de Active Directory (ADAL), o adal.js. La única finalidad de adal.js es facilitar a su aplicación la obtención de tokens de acceso. Para demostrar lo fácil que es, crearemos aquí una aplicación de lista de tareas pendientes (ToDo) de AngularJS que permita realizar las siguientes acciones:
 
@@ -53,7 +55,7 @@ Para habilitar la aplicación a fin de autenticar a los usuarios y obtener token
 5. Siga las indicaciones y cree una nueva aplicación web y/o API web:
   * **Nombre** describe la aplicación a los usuarios.
   * La **dirección URL de inicio de sesión** es la ubicación en la que Azure AD devolverá los tokens. La ubicación predeterminada para este ejemplo es `https://localhost:44326/`.
-6. Cuando termine el registro, Azure AD asignará un identificador de aplicación único a la aplicación.  Necesitará este valor en las secciones siguientes, así que cópielo de la pestaña de la aplicación.
+6. Cuando termine el registro, Azure AD asignará un identificador de aplicación único a la aplicación. Necesitará este valor en las secciones siguientes, así que cópielo de la pestaña de la aplicación.
 7. Adal.js utiliza el flujo implícito de OAuth para comunicarse con Azure AD. Debe habilitar el flujo implícito para la aplicación mediante estos pasos:
   1. Haga clic en la aplicación y seleccione **Manifiesto** para abrir el editor de manifiestos en línea.
   2. Busque la propiedad `oauth2AllowImplicitFlow`. Establezca su valor en `true`.
@@ -118,11 +120,11 @@ Adal.js se integra con la ruta de AngularJS y los proveedores HTTP, por lo que p
     ```
 
 ## <a name="summary"></a>Resumen
-Ahora tiene una aplicación de una sola página segura con capacidad para iniciar la sesión de los usuarios y emitir solicitudes protegidas de token de portador a su API de back-end. Cuando un usuario hace clic en el vínculo **TodoList**, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. Además, adal.js adjuntará automáticamente un token de acceso a cualquier solicitud de Ajax que se envíe al servidor back-end de la aplicación.  
+Ahora tiene una aplicación de una sola página segura con capacidad para iniciar la sesión de los usuarios y emitir solicitudes protegidas de token de portador a su API de back-end. Cuando un usuario hace clic en el vínculo **TodoList**, adal.js le redireccionará automáticamente a Azure AD para iniciar sesión si es necesario. Además, adal.js adjuntará automáticamente un token de acceso a cualquier solicitud de Ajax que se envíe al servidor back-end de la aplicación. 
 
 Los pasos anteriores son los mínimos necesarios para compilar una aplicación de una sola página mediante adal.js. Pero algunas otras características son útiles en una aplicación de una sola página:
 
-* Para emitir explícitamente solicitudes de inicio y cierre de sesión, puede definir funciones en sus controladores que invocan adal.js.  En `App/Scripts/homeCtrl.js`:
+* Para emitir explícitamente solicitudes de inicio y cierre de sesión, puede definir funciones en sus controladores que invocan adal.js. En `App/Scripts/homeCtrl.js`:
 
     ```js
     ...
@@ -143,7 +145,7 @@ Los pasos anteriores son los mínimos necesarios para compilar una aplicación d
     ...
     ```
 
-* Hay muchos casos en los que deseará saber si el usuario ha iniciado sesión o no. También puede utilizar el objeto `userInfo` para recopilar esta información.  Por ejemplo, en `index.html` puede mostrar el botón **Iniciar sesión** o **Cerrar sesión** en función del estado de autenticación:
+* Hay muchos casos en los que deseará saber si el usuario ha iniciado sesión o no. También puede utilizar el objeto `userInfo` para recopilar esta información. Por ejemplo, en `index.html` puede mostrar el botón **Iniciar sesión** o **Cerrar sesión** en función del estado de autenticación:
 
     ```js
     <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>

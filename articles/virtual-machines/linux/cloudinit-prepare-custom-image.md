@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: dda444e77f588cd1ba5989b393e9a3987241ef9a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Preparación de la imagen de máquina virtual Linux en Azure para usarse con cloud-init
 En este artículo se explica cómo utilizar una máquina virtual de Azure y prepararla para volver a implementarse y poder usar cloud-init. La imagen resultante se puede utilizar para implementar una nueva máquina virtual o conjuntos de escalado de máquinas virtuales (luego se pueden personaliza más aún mediante cloud-init durante la implementación).  Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -136,7 +136,7 @@ Todas las imágenes de la plataforma Azure tienen el agente Linux de Azure insta
 sudo waagent -deprovision+user -force
 ```
 
-Para obtener más información sobre los comandos de desaprovisionamiento del agente Linux de Azure, consulte el artículo sobre el [agente Linux de Azure](agent-user-guide.md).
+Para obtener más información sobre los comandos de desaprovisionamiento del agente Linux de Azure, consulte el artículo sobre el [agente Linux de Azure](../extensions/agent-linux.md).
 
 Salga de la sesión SSH y, luego, en el shell de Bash, ejecute los siguientes comandos de la CLI de Azure para desasignar, generalizar y crear una nueva imagen de máquina virtual de Azure.  Reemplace `myResourceGroup` y `sourceVmName` con la información adecuada que refleja la máquina virtual de origen.
 

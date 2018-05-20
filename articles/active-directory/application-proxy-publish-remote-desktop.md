@@ -1,25 +1,25 @@
 ---
-title: "Publicación de Escritorio remoto con el proxy de aplicación de Azure AD | Microsoft Docs"
-description: "Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD."
+title: Publicación de Escritorio remoto con el proxy de aplicación de Azure AD | Microsoft Docs
+description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
 services: active-directory
-documentationcenter: 
-author: daveba
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: daveba
+ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 44b54ad4331d48202044316486a5b1d1ef9202d2
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: c24781ad432a4682ebb0afcb95390bdcf8962d90
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -46,7 +46,7 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 
 - Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso de Escritorio remoto y Puerta de enlace de Escritorio remoto se publican como una sola aplicación con el proxy de aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones.
 
-- Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](active-directory-application-proxy-enable.md).
+- Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](manage-apps/application-proxy-enable.md).
 
 - En este escenario se da por hecho que los usuarios finales acceden a través de Internet Explorer en escritorios de Windows 7 y Windows 10 que se conectan a través de la página Acceso web de Escritorio remoto. Si necesita compatibilidad con otros sistemas operativos, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
 
@@ -58,7 +58,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
 
 ### <a name="publish-the-rd-host-endpoint"></a>Publicar el punto de conexión del host de RD
 
-1. [Publique una nueva aplicación del proxy de aplicación](application-proxy-publish-azure-portal.md) con los valores siguientes:
+1. [Publique una nueva aplicación del proxy de aplicación](manage-apps/application-proxy-publish-azure-portal.md) con los valores siguientes:
    - Dirección URL interna: https://\<rdhost\>.com/, donde \<rdhost\> es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
@@ -82,7 +82,7 @@ Conéctese a la implementación de RDS como administrador y cambie el nombre del
 
   ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
 
-8. Ejecute este comando para cada colección. Reemplace  *\<yourcollectionname\>*  y  *\<proxyfrontendurl\>*  por su propia información. Este comando habilita el inicio de sesión único entre Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto, además de optimizar el rendimiento:
+8. Ejecute este comando para cada colección. Reemplace *\<yourcollectionname\>* y *\<proxyfrontendurl\>* por su propia información. Este comando habilita el inicio de sesión único entre Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto, además de optimizar el rendimiento:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"

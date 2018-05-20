@@ -1,10 +1,10 @@
 ---
 ms.topic: include
-ms.openlocfilehash: b41b93db63038645257bc348d5a027fbc4f7fdc9
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 31b0d0018129ee65bb124c8008759cc6c7c8510e
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="prepay-for-virtual-machines-with-reserved-vm-instances"></a>Pagar por adelantado máquinas virtuales con instancias reservadas de máquina virtual
 
@@ -13,6 +13,7 @@ Pague por adelantado máquinas virtuales y ahorre dinero con instancias reservad
 Puede comprar instancias reservadas de máquina virtual en [Azure Portal](https://portal.azure.com). Para comprar una instancia reservada de máquina virtual:
 -   Debe tener un rol de propietario al menos en suscripción Enterprise o de Pago por uso.
 -   Para las suscripciones Enterprise, las compras de reserva deben habilitarse en el [portal de EA](https://ea.azure.com).
+-   En el caso del programa del Proveedor de soluciones en la nube (CSP) solo los agentes de administración o de ventas pueden adquirir las reservas.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Comprar una instancia reservada de máquina virtual
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -50,3 +51,4 @@ Para más información acerca de las instancias reservadas de máquina virtual, 
 - [Información sobre el uso de instancias reservadas para suscripciones de pago por uso](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Interpretación del uso de instancias reservadas para la inscripción Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Costos de software de Windows no incluidos con las instancias reservadas](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+- [Instancias reservadas en el programa del Proveedor de soluciones en la nube (CSP) del centro de asociados](https://docs.microsoft.com/partner-center/azure-reservations)

@@ -8,18 +8,19 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 9d1763697e93ea0bd5eaeaeb92f5f882f39a6c64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/25/2018
+ms.openlocfilehash: 6dd96ee96201b05e4b272214983e955fcc5b9125
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso de datos de referencia para las búsquedas en Stream Analytics
 Los datos de referencia (también denominados tabla de consulta) son un conjunto finito de datos estáticos o de cambio lento de naturaleza, que se usan para realizar una búsqueda o para relacionarlos con el flujo de datos. Para usar los datos de referencia en un trabajo de Azure Stream Analytics, por lo general usará una [instrucción JOIN de los datos de referencia](https://msdn.microsoft.com/library/azure/dn949258.aspx) en la consulta. Stream Analytics usa Azure Blob Storage como capa de almacenamiento para los datos de referencia y con Azure Data Factory los datos de referencia se pueden transformar o copiar en Azure Blob Storage para su uso como datos de referencia, desde [cualquier número de almacenes de datos locales y en la nube](../data-factory/copy-activity-overview.md). Los datos de referencia se modelan como una secuencia de blobs (que se define en la configuración de entrada) en orden ascendente por la fecha y hora que se especifique en el nombre del blob. **Solo** se admite que se agreguen al final de la secuencia con una fecha y hora **posteriores** a las especificadas en el último blob de la secuencia.
 
 Stream Analytics tiene un **límite de 100 MB por blob**, pero los trabajos pueden procesar varios blobs de referencia mediante la propiedad **patrón de la ruta de acceso**.
 
+La compatibilidad con la compresión no está disponible para los datos de referencia. 
 
 ## <a name="configuring-reference-data"></a>Configuración de datos de referencia
 Para configurar los datos de referencia, tiene que crear primero una entrada que sea del tipo **Datos de referencia**. En la siguiente tabla se explica cada propiedad que necesitará proporcionar al crear la entrada de los datos de referencia con su descripción:
@@ -91,16 +92,9 @@ Si los datos de referencia son un conjunto de datos que cambia con poca frecuenc
 2. Los blobs de datos de referencia **no** se ordenan por la hora de "Última modificación" del blob sino únicamente por la fecha y la hora que se especifiquen en el nombre del blob mediante las sustituciones de {date} y {time}.
 3. Para evitar tener que enumerar un gran número de blobs, considere la posibilidad de eliminar los blobs muy antiguos para los que ya no se va a realizar el procesamiento. Tenga en cuenta que ASA puede tener que reprocesar una pequeña cantidad en algunos escenarios como un reinicio.
 
-## <a name="get-help"></a>Obtención de ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-
 ## <a name="next-steps"></a>Pasos siguientes
-Ya conoce Stream Analytics, un servicio administrado para el análisis del streaming de datos desde Internet de las cosas. Para obtener más información acerca de este servicio, consulte:
-
-* [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Guía de inicio rápido: Creación de un trabajo de Stream Analytics mediante Azure Portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

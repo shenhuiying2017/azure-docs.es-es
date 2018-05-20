@@ -1,11 +1,33 @@
-
-# <a name="call-the-microsoft-graph-api-from-an-android-app"></a>Llamada a Microsoft Graph API desde una aplicación de Android
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/28/2018
+---
+# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Iniciar sesión de los usuarios y todas las API de Microsoft Graph desde una aplicación de Android
 
 En esta guía se muestra cómo una aplicación nativa de Android puede obtener un token de acceso y llamar a Microsoft Graph API u otras API que requieran tokens de acceso desde un punto de conexión de Azure Active Directory v2.
 
 Cuando haya completado la guía, la aplicación podrá aceptar inicios de sesión de cuentas personales (como outlook.com, live.com y otras), y cuentas profesionales y educativas de cualquier empresa u organización que utilice Azure Active Directory. La aplicación llamará a una API que está protegida por el punto de conexión de Azure Active Directory v2.  
 
-## <a name="how-this-sample-works"></a>Funcionamiento de este ejemplo
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funcionamiento de la aplicación de ejemplo generada por esta guía
 ![Funcionamiento de este ejemplo](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
 La aplicación de ejemplo creada con esta guía se basa en un escenario en el que se usa una aplicación Android para consultar a una API web que acepta tokens desde un punto de conexión de Azure Active Directory v2 (en este caso, Microsoft Graph API). En este escenario, la aplicación agrega el token adquirido a las solicitudes HTTP mediante el encabezado de autorización. La biblioteca de autenticación de Microsoft (MSAL) administra la adquisición y renovación de los tokens para los usuarios.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 1625b37a41082f8536d103701b1356a13a5dd837
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 140779ca1786bc9fa2afcfd08fdac0857580e8cf
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Expresiones y funciones de Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -215,7 +215,7 @@ En el ejemplo siguiente, la canalización toma los parámetros **inputPath** y *
 |-------------------|-----------------|  
 |int|Convierte el parámetro en un entero. Por ejemplo, la siguiente expresión devuelve 100 como un número, en lugar de una cadena: `int('100')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un entero.|  
 |string|Convierte el parámetro en una cadena. Por ejemplo, la siguiente expresión devuelve `'10'`: `string(10)`. También puede convertir un objeto en una cadena. Por ejemplo, si el parámetro **foo** es un objeto con una propiedad `bar : baz` se devolvería `{"bar" : "baz"}` `string(pipeline().parameters.foo)`.<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en una cadena.|  
-|json|Convierte el parámetro en un valor de tipo JSON. Es lo contrario de string(). Por ejemplo, la siguiente expresión devuelve `[1,2,3]` como una matriz, en lugar de una cadena:<br /><br /> `parse('[1,2,3]')`<br /><br /> Del mismo modo, puede convertir una cadena en un objeto. Por ejemplo, `json('{"bar" : "baz"}')` devuelve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que se convierte en un valor de tipo nativo.<br /><br /> La función json también es compatible con la entrada XML. Por ejemplo, el valor del parámetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> se convierte en el siguiente JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
+|json|Convierte el parámetro en un valor de tipo JSON. Es lo contrario de string(). Por ejemplo, la siguiente expresión devuelve `[1,2,3]` como una matriz, en lugar de una cadena:<br /><br /> `json('[1,2,3]')`<br /><br /> Del mismo modo, puede convertir una cadena en un objeto. Por ejemplo, `json('{"bar" : "baz"}')` devuelve:<br /><br /> `{ "bar" : "baz" }`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: cadena<br /><br /> **Descripción**: necesaria. La cadena que se convierte en un valor de tipo nativo.<br /><br /> La función json también es compatible con la entrada XML. Por ejemplo, el valor del parámetro de:<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> se convierte en el siguiente JSON:<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|Convierte el argumento del parámetro en un número de punto flotante. Por ejemplo, la siguiente expresión devuelve `10.333`: `float('10.333')`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un número de punto flotante.|  
 |booleano|Convierte el parámetro en un booleano. Por ejemplo, la siguiente expresión devuelve `false`: `bool(0)`<br /><br /> **Número de parámetro**: 1<br /><br /> **Nombre**: valor<br /><br /> **Descripción**: necesaria. El valor que se convierte en un booleano.|  
 |coalesce|Devuelve el primer objeto no null en los argumentos pasados. Nota: Una cadena vacía no es null. Por ejemplo, si no se definen los parámetros 1 y 2, se devolverá `fallback`: `coalesce(pipeline().parameters.parameter1', pipeline().parameters.parameter2 ,'fallback')`<br /><br /> **Número de parámetro**: 1... *n*<br /><br /> **Nombre**: objeto *n*<br /><br /> **Descripción**: necesaria. Los objetos que deben comprobar si hay valores `null`.|  

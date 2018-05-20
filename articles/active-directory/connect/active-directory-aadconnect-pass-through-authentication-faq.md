@@ -1,9 +1,9 @@
 ---
-title: "Autenticación de paso a través de Azure AD Connect: Preguntas más frecuentes | Microsoft Docs"
-description: "Respuestas a las preguntas más frecuentes sobre la autenticación de paso a través de Azure Active Directory."
+title: 'Autenticación de paso a través de Azure AD Connect: Preguntas más frecuentes | Microsoft Docs'
+description: Respuestas a las preguntas más frecuentes sobre la autenticación de paso a través de Azure Active Directory.
 services: active-directory
-keywords: "Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único"
-documentationcenter: 
+keywords: Autenticación de paso a través de Azure AD Connect, instalación de Active Directory, componentes necesarios para Azure AD, SSO, inicio de sesión único
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: 077a60949b5eed24cb9a1c56008a0073693f121e
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 7a817092581ef0be0b6be063282f7484c46ff094
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticación de paso a través de Azure Active Directory: Preguntas más frecuentes
 
@@ -48,7 +48,7 @@ Sí. La autenticación de paso a través admite `Alternate ID` como nombre de us
 
 Nº La autenticación de paso a través _no_ realiza una conmutación automática por error a la sincronización de hash de contraseña. Solo actúa como reserva para [escenarios en los que la autenticación de paso a través no se admite en la actualidad](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar errores de inicio de sesión de usuario, debe configurar la autenticación de paso a través para una [alta disponibilidad](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
-## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../active-directory-application-proxy-get-started.md) en el mismo servidor que un agente de autenticación de paso a través?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>¿Puedo instalar un conector del [proxy de aplicación de Azure AD](../manage-apps/application-proxy.md) en el mismo servidor que un agente de autenticación de paso a través?
 
 Sí. Esta configuración es compatible con las nuevas versiones del agente de autenticación de paso a través (versiones 1.5.193.0 o posteriores).
 

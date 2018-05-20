@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5e01ea901f1ba07c0ee5a99720c00c5f03574365
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: cf1842c6abbbfd767184d8f480a5f3a5fd654ed0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Información sobre alertas en Log Analytics
 
@@ -67,7 +67,7 @@ Las reglas de alerta se definen mediante los siguientes detalles:
  
     - **Falsas alertas**. A veces, las alertas están diseñadas para identificar la ausencia de eventos. Un ejemplo de esto es detectar cuándo está una máquina virtual fuera de línea mediante la búsqueda de latidos que faltan. Tal como se ha indicado, si el latido no está disponible para la búsqueda dentro de la ventana de tiempo de la alerta, se genera una alerta porque todavía no se podían buscar los datos de latido y, por lo tanto, faltaban. Este es el mismo resultado que si la máquina virtual estuviera legítimamente fuera de línea y no generara ningún dato de latido. La ejecución de la consulta al día siguiente en la ventana de tiempo correcta muestra que había latidos y que se produjo un error en la alerta. En realidad, los latidos no estaban aún disponibles para la búsqueda porque la ventana de tiempo de la alerta se había configurado demasiado pequeña.
 
-- **Frecuencia**.  Especifica la frecuencia con la que se ejecuta la consulta y se puede utilizar para dar mayor capacidad de respuesta a las alertas en los casos habituales. El valor puede estar comprendido entre 5 minutos y 24 horas, y tiene que ser igual o menor que la ventana de tiempo de la alerta.  Si el valor es mayor que la ventana de tiempo, se arriesga a que se pierdan registros.<br>Si el objetivo es confiable para retrasos de hasta 30 minutos y el retraso normal es de 10 minutos, la ventana de tiempo debe ser de una hora y el valor de frecuencia debe ser de 10 minutos. Esto podría desencadenar una alerta con datos que tengan un retraso de ingesta de 10 minutos entre 10 y 20 minutos después de que se generara la alerta de datos.<br>Para evitar crear varias alertas para los mismos datos porque la ventana de tiempo es demasiado amplia, se puede utilizar la opción [Suprimir alertas](log-analytics-tutorial-response.md#create-alerts) para suprimir alertas al menos durante la ventana de tiempo.
+- **Frecuencia**.  Especifica la frecuencia con la que se ejecuta la consulta y se puede utilizar para dar mayor capacidad de respuesta a las alertas en los casos habituales. El valor puede estar comprendido entre 5 minutos y 24 horas, y tiene que ser igual o menor que la ventana de tiempo de la alerta.  Si el valor es mayor que la ventana de tiempo, se arriesga a que se pierdan registros.<br>Si el objetivo es confiable para retrasos de hasta 30 minutos y el retraso normal es de 10 minutos, la ventana de tiempo debe ser de una hora y el valor de frecuencia debe ser de 10 minutos. Esto podría desencadenar una alerta con datos que tengan un retraso de ingesta de 10 minutos entre 10 y 20 minutos después de que se generara la alerta de datos.<br>Para evitar crear varias alertas para los mismos datos porque la ventana de tiempo es demasiado amplia, se puede utilizar la opción Suprimir alertas para suprimir alertas al menos durante la ventana de tiempo.
   
 - **Umbral**. Los resultados de la búsqueda de registros se evalúan para determinar si se debe crear una alerta. El umbral es diferente para los distintos tipos de reglas de alerta.
 

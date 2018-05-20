@@ -1,24 +1,24 @@
 ---
-title: "Solución del problema de la lentitud de copias de seguridad de archivos y carpetas en Azure Backup | Microsoft Docs"
-description: "Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Azure Backup"
+title: Solución del problema de la lentitud de copias de seguridad de archivos y carpetas en Azure Backup | Microsoft Docs
+description: Le proporciona una guía para solucionar problemas que le ayudará a diagnosticar la causa de los problemas de rendimiento de Azure Backup
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 373a98855886cc7be7518c664f82bb6f92ca86f3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 6ed1e2d7bfc08afe135cb85995fdebaa30202c23
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solución de problemas de lentitud en la copia de seguridad de archivos y carpetas en Azure Backup
 Este artículo proporciona una guía para la solución de problemas que le ayudará a diagnosticar la causa de un rendimiento lento en la copia de seguridad de archivos y carpetas cuando se usa Azure Backup. Si se utiliza el agente de Azure Backup para hacer copia de seguridad de los archivos, el proceso puede tardar más de lo esperado. Este problema puede deberse a uno o a varios de los siguientes motivos:
@@ -43,7 +43,7 @@ Windows proporciona una herramienta integrada que se denomina [Monitor de rendim
 
 Estos son algunos contadores de rendimiento e intervalos que pueden resultar útiles para diagnosticar cuellos de botella, con el fin de que las copias de seguridad sean óptimas.
 
-| Contador | Estado |
+| Contador | Status |
 | --- | --- |
 | Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% de inactividad |• Entre 100 % y 50 % de inactividad = Correcto</br>• Entre 49 % y 20 % de inactividad = Advertencia o supervisión</br>• Del 19 % al 0 % de inactividad = Situación crítica o fuera de la especificación |
 | Logical Disk(Physical Disk) [Disco lógico (disco físico)]--% promedio Disk Sec Read or Write (Segundos de disco de lectura o escritura) |• De 0,001 ms a 0,015 ms = Correcto</br>• De 0,015 ms a 0,025 ms = Advertencia o supervisión</br>• 0.026 o más = Situación crítica o fuera de la especificación |

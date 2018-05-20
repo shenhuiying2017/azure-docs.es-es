@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 90fb659abfcff09eb715fcc29bbfb7e4facd3a6b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovechados por un atacante. Se recomienda solucionar estas vulnerabilidades para mejorar la posición de seguridad de su organización y evitar que los atacantes se aprovechen de ellas.
@@ -47,7 +47,7 @@ En las empresas modernas, los departamentos de TI a menudo no son conscientes de
 
 Le recomendamos que su organización implemente Cloud App Discovery para detectar aplicaciones en la nube no administradas, así como administrar estas aplicaciones con Azure Active Directory.
 
-Para obtener más detalles, consulte [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+Para obtener más detalles, consulte [Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alertas de seguridad de administración de identidades con privilegios
 Este punto vulnerable ayuda a detectar y resolver alertas acerca de las identidades con privilegios en su organización.  

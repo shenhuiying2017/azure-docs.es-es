@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Conceptos básicos y modelo jerárquico de recursos de Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Tal y como muestra el siguiente diagrama, el **modelo de recursos** jerárquico 
 ![Modelo jerárquico de recursos de Azure Cosmos DB][1]  
 **Modelo jerárquico de recursos**   
 
-Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos de base de datos](create-sql-api-dotnet.md) con su suscripción de Azure. Una cuenta de base de datos puede estar formada por un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Si bien las bases de datos, los usuarios, los permisos y las colecciones son recursos que define el sistema con esquemas conocidos, los documentos y los elementos adjuntos tienen contenido JSON arbitrario que define el usuario.  
+Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos de base de datos](create-sql-api-dotnet.md) con su suscripción de Azure. Una cuenta de base de datos puede estar formada por un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos y datos adjuntos relacionados**. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Si bien las bases de datos, los usuarios, los permisos y las colecciones son recursos que define el sistema con esquemas conocidos, los documentos y los elementos adjuntos tienen contenido JSON arbitrario que define el usuario.  
 
 | Recurso | DESCRIPCIÓN |
 | --- | --- |
@@ -58,7 +58,7 @@ Para empezar a trabajar con recursos, debe [crear una cuenta de base de datos de
 | Base de datos |Una base de datos es un contenedor lógico de almacenamiento de documentos particionado en recopilaciones. Es también un contenedor de usuarios. |
 | Usuario |El espacio de nombres lógico para dirigir los permisos. |
 | Permiso |Un token de autorización asociado con un usuario para el acceso a un recurso específico. |
-| Colección |Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. Una colección es una entidad facturable, donde el [costo](performance-levels.md) está determinado por el nivel de rendimiento asociado a la colección. Las colecciones pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento. |
+| Colección |Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. Las colecciones pueden abarcar una o varias particiones o uno o varios servidores y se pueden escalar para administrar volúmenes prácticamente ilimitados de almacenamiento o rendimiento. |
 | Procedimiento almacenado |Lógica de aplicaciones creada en JavaScript que se registra con una recopilación y se ejecuta de manera transaccional en el motor de la base de datos. |
 | Desencadenador |Lógica de aplicaciones creada en JavaScript que se ejecuta antes o después de una operación de inserción, reemplazo o eliminación. |
 | UDF |Lógica de aplicaciones creada en JavaScript. Las UDF le permiten modelar un operador de consultas personalizado y con ello ampliar el lenguaje de consultas central de SQL API. |
@@ -166,14 +166,14 @@ Una base de datos de Cosmos DB es un contenedor lógico de una o varias coleccio
 ![Modelo jerárquico de colecciones y cuenta de base de datos][2]  
 **Una base de datos es un contenedor lógico de usuarios y colecciones**
 
-Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado y particionado en colecciones.
+Una base de datos puede contener almacenamiento de documentos ilimitado y particionado en colecciones.
 
 ### <a name="elastic-scale-of-an-azure-cosmos-db-database"></a>Escala elástica de una base de datos de Azure Cosmos DB
 Una base de datos de Cosmos DB es elástica de forma predeterminada, desde unos pocos GB hasta petabytes de almacenamiento de documentos respaldado y capacidad de rendimiento aprovisionada de SSD. 
 
 A diferencia de una base de datos en RDBMS tradicional, una base de datos en Cosmos DB no está dirigida a un único equipo. Con Cosmos DB, a medida que aumenten las necesidades de escalado de la aplicación, podrá crear más colecciones, bases de datos o ambas. De hecho, varias aplicaciones propias dentro de Microsoft han usado Azure Cosmos DB a nivel de consumidor creando bases de datos de Azure Cosmos DB extremadamente grandes, que contienen cada una miles de colecciones con terabytes de almacenamiento de documentos. Puede ampliar o reducir una base de datos agregando o eliminando colecciones para cumplir con los requisitos de escala de su aplicación. 
 
-Puede crear cualquier número de colecciones dentro de una base de datos en función de la oferta. Cada colección tiene almacenamiento con copia de seguridad en SSD y el rendimiento aprovisionado para usted según el nivel de rendimiento seleccionado.
+Puede crear cualquier número de colecciones dentro de una base de datos en función de la oferta. Cada colección o conjunto de colecciones (en una base de datos) tiene almacenamiento con copia de seguridad en SSD y el rendimiento aprovisionado para usted según la oferta seleccionada.
 
 Una base de datos de Aure Cosmos DB también es un contenedor de usuarios. Un usuario, a su vez, es un espacio de nombres lógico para un conjunto de permisos que proporciona autorización y acceso detallado a colecciones, documentos y datos adjuntos.  
 
@@ -183,7 +183,7 @@ Como sucede con otros recursos del modelo de recursos de Azure Cosmos DB, las ba
 Una colección de Cosmos DB es un contenedor de sus documentos JSON. 
 
 ### <a name="elastic-ssd-backed-document-storage"></a>Almacenamiento de documentos respaldado con SSD elástico
-Una colección es elástica de forma intrínseca; crece y se reduce automáticamente a medida que agrega o elimina documentos. Las colecciones son recursos lógicos y pueden abarcar una o varios servidores o particiones físicos. El número de particiones que hay en una colección lo determina Cosmos DB basándose en el tamaño de almacenamiento y el rendimiento aprovisionado de la colección. Todas las particiones de Cosmos DB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure Cosmos DB se encarga de administrar las particiones de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Las colecciones de Cosmos DB ofrecen funcionalidades de almacenamiento y rendimiento **prácticamente ilimitadas** . 
+Una colección es elástica de forma intrínseca; crece y se reduce automáticamente a medida que agrega o elimina documentos. Las colecciones son recursos lógicos y pueden abarcar una o varios servidores o particiones físicos. El número de particiones asignadas a una colección lo determina Cosmos DB basándose en el tamaño de almacenamiento y el rendimiento aprovisionado de la colección o un conjunto de colecciones. Todas las particiones de Cosmos DB tienen una cantidad fija de almacenamiento con respaldo SSD asociado y se replican para ofrecer una alta disponibilidad. Azure Cosmos DB se encarga de administrar las particiones de principio a fin, por lo que no tendrá que escribir ningún código complejo ni administrar ninguna partición. Las colecciones de Cosmos DB son **ilimitadas** en términos de almacenamiento y rendimiento. 
 
 ### <a name="automatic-indexing-of-collections"></a>Indexación automática de las colecciones
 Azure Cosmos DB es un verdadero sistema de bases de datos libre de esquemas. No asume ni requiere ningún esquema para los documentos JSON. A medida que agrega documentos a una colección, Azure Cosmos DB los indexa automáticamente y están disponibles para que los consulte. La indexación automática de documentos sin requerir un esquema ni índices secundarios es una capacidad clave de Azure Cosmos DB y se habilita mediante técnicas de mantenimiento de índices de escritura optimizada, sin bloqueos y estructuradas por registros. Azure Cosmos DB admite un volumen constante de operaciones de escritura muy rápidas mientras sigue dando servicio a consultas coherentes. Tanto el almacenamiento de documentos como de índices se utilizan para calcular el almacenamiento consumido por cada colección. Puede controlar el equilibrio entre almacenamiento y rendimiento asociado con la indexación configurando la directiva de indexación de una colección. 
@@ -222,7 +222,7 @@ Debido a su profundo compromiso con JavaScript y JSON directamente dentro del mo
 * Implementación eficaz del control simultáneo, la recuperación, la indexación automática de los gráficos de objeto JSON directamente en el motor de la base de datos.
 * Expresión de forma natural del flujo de control, el ámbito de las variables, la asignación y la integración de primitivos de control de excepciones con transacciones de bases de datos directamente en términos del lenguaje de programación de JavaScript.
 
-La lógica de JavaScript registrada a nivel de colección puede entonces emitir operaciones de base de datos en los documentos de la colección dada. Azure Cosmos DB ajusta los procedimientos almacenados y desencadenadores basados en JavaScript dentro de transacciones ACID ambientales con un aislamiento de instantáneas en los documentos de una colección. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción. El modelo de programación resultante es muy sencillo, pero eficaz. Los desarrolladores de JavaScript obtienen un modelo de programación “duradero” mientras siguen utilizando sus construcciones de lenguaje y primitivos de biblioteca familiares.   
+La lógica de JavaScript registrada a nivel de colección puede entonces emitir operaciones de base de datos en los documentos de la colección dada. Azure Cosmos DB ajusta los procedimientos almacenados y desencadenadores basados en JavaScript dentro de una transacción ACID ambiental con un aislamiento de instantáneas en los documentos de una colección. Durante el transcurso de esta ejecución, si JavaScript lanza una excepción, entonces se cancela toda la transacción. El modelo de programación resultante es sencillo, pero eficaz. Los desarrolladores de JavaScript obtienen un modelo de programación “duradero” mientras siguen utilizando sus construcciones de lenguaje y primitivos de biblioteca familiares.   
 
 La capacidad de ejecutar JavaScript directamente en el motor de la base de datos en el mismo espacio de dirección que el grupo de búferes, permite la ejecución transaccional y con mayor rendimiento de las operaciones de base de datos en los documentos de una colección. Además, debido a que el motor de base de datos de Cosmos DB tiene un fuerte compromiso con JSON y JavaScript, elimina cualquier error de coincidencia de impedancia entre los sistemas tipo de la aplicación y la base de datos.   
 
@@ -282,7 +282,7 @@ Los procedimientos almacenados y desencadenadores interactúan con una colecció
 Las colecciones de SQL API se pueden crear, eliminar, leer o enumerar fácilmente con las [API de REST](/rest/api/cosmos-db/) o con cualquier [SDK de cliente](sql-api-sdk-dotnet.md). SQL API siempre proporciona una alta coherencia para leer o consultar los metadatos de una colección. Eliminar una colección automáticamente garantiza que no puede obtener acceso a ningún documento, dato adjunto, procedimiento almacenado, desencadenador o UDF contenido en la misma.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF)
-Como se describe en la sección anterior, puede escribir lógica de aplicación para ejecutarla directamente en una transacción dentro del motor de base de datos. La lógica de la aplicación se puede escribir totalmente en JavaScript y se puede modelar como un procedimiento almacenado, desencadenador o UDF. El código de JavaScript de un procedimiento almacenado o desencadenador puede insertar, reemplazar, eliminar, leer o consultar documentos de una colección. Por otro lado, el código JavaScript de una UDF no puede insertar, reemplazar o eliminar documentos. Las UDF enumeran los documentos del conjunto de resultados de una consulta y producen otro conjunto de resultados. Para los servicios multiinquilino, Azure Cosmos DB impone una estricta gobernanza de los recursos basada en las reservas. Cada procedimiento almacenado, desencadenador o UDF obtiene un cuanto de recursos del sistema operativo para realizar su trabajo. Además, los procedimientos almacenados, los desencadenadores o las UDF no se pueden vincular con bibliotecas externas de JavaScript y están en la lista negra si superan el presupuesto de recursos que se les asignó. Puede registrar y anular el registro de los procedimientos almacenados, los desencadenadores o las UDF de una colección mediante las API de REST.  Tras el registro de un procedimiento almacenado, desencadenador o UDF, se compila de forma previa y almacena como código de bytes que se ejecutará más tarde. La siguiente sección ilustra cómo puede utilizar el SDK de JavaScript de Azure Cosmos DB para registrar, ejecutar o anular el registro de un procedimiento almacenado, un desencadenador o una UDF. El SDK de JavaScript es un contenedor sencillo de las [API de REST](/rest/api/cosmos-db/). 
+Como se describe en la sección anterior, puede escribir lógica de aplicación para ejecutarla directamente en una transacción dentro del motor de base de datos. La lógica de la aplicación se puede escribir totalmente en JavaScript y se puede modelar como un procedimiento almacenado, desencadenador o UDF. El código de JavaScript de un procedimiento almacenado o desencadenador puede insertar, reemplazar, eliminar, leer o consultar documentos de una colección. Por otro lado, el código JavaScript de una UDF no puede insertar, reemplazar o eliminar documentos. Las UDF enumeran los documentos del conjunto de resultados de una consulta y producen otro conjunto de resultados. Para los servicios multiinquilino, Azure Cosmos DB impone una estricta gobernanza de los recursos basada en las reservas. Cada procedimiento almacenado, desencadenador o UDF obtiene un cuanto de recursos del sistema operativo para realizar su trabajo. Además, los procedimientos almacenados, los desencadenadores o las UDF no se pueden vincular con bibliotecas externas de JavaScript y están en la lista negra si superan el presupuesto de recursos que se les asignó. Puede registrar y anular el registro de los procedimientos almacenados, los desencadenadores o las UDF de una colección mediante las API de REST.  Tras el registro de un procedimiento almacenado, desencadenador o UDF, se compila de forma previa y almacena como código de bytes que se ejecutará más tarde. En la siguiente sección se ilustra cómo puede utilizar el SDK de JavaScript de Azure Cosmos DB para registrar, ejecutar o anular el registro de un procedimiento almacenado, un desencadenador o una UDF. El SDK de JavaScript es un contenedor sencillo de las [API de REST](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Registro de un procedimiento almacenado
 El registro de un procedimiento almacenado crea un nuevo recurso de procedimiento almacenado en una colección mediante POST HTTP.  
@@ -322,7 +322,7 @@ La ejecución de un procedimiento almacenado se realiza emitiendo un POST HTTP e
         });
 
 ### <a name="unregistering-a-stored-procedure"></a>Anulación del registro de un procedimiento almacenado
-Anular el registro de un procedimiento almacenado es sencillo mediante la emisión de una solicitud HTTP DELETE en un recurso de procedimiento almacenado existente.   
+La anulación del registro de un procedimiento almacenado se lleva a cabo mediante la emisión de una solicitud HTTP DELETE en un recurso de procedimiento almacenado existente.   
 
     client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
         .then(function (response) {
@@ -364,7 +364,7 @@ La ejecución de un desencadenador se realiza especificando el nombre de un dese
         });
 
 ### <a name="unregistering-a-pre-trigger"></a>Anulación del registro de un desencadenador previo
-Anular el registro de un desencadenador es sencillo mediante la emisión de una solicitud HTTP DELETE en un recurso de desencadenador existente.  
+La anulación del registro de un desencadenador se lleva a cabo mediante la emisión de una solicitud HTTP DELETE en un recurso de desencadenador existente.  
 
     client.deleteTriggerAsync(createdPreTrigger._self);
         .then(function(response) {
@@ -430,7 +430,7 @@ Considere una aplicación de lectura social que use Azure Cosmos DB para almacen
 
 Tenga en cuenta que los ejemplos anteriores usan identificadores sencillos para transmitir la jerarquía de recursos. Se obtiene acceso a los recursos mediante las API REST a través de los identificadores de recurso únicos. 
 
-En cuanto a los archivos multimedia gestionados por Azure Cosmos DB, la propiedad _media de los datos adjuntos hará referencia al archivo multimedia mediante su URI. Azure Cosmos DB garantizará la recolección de archivos multimedia no utilizados cuando se quiten todas las referencias pendientes. Azure Cosmos DB genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y rellena la propiedad _media para señalar al nuevo archivo multimedia agregado. Si almacena el archivo multimedia en un almacén de blobs remoto que gestiona usted mismo (por ejemplo, OneDrive, Azure Storage, DropBox etc), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad _media.   
+En cuanto a los archivos multimedia gestionados por Azure Cosmos DB, la propiedad _media de los datos adjuntos hará referencia al archivo multimedia mediante su URI. Azure Cosmos DB garantizará la recolección de archivos multimedia no utilizados cuando se quiten todas las referencias pendientes. Azure Cosmos DB genera automáticamente el dato adjunto cuando carga nuevos archivos multimedia y rellena la propiedad _media para señalar al nuevo archivo multimedia agregado. Si almacena el archivo multimedia en un almacén de blobs remoto que gestiona usted mismo (por ejemplo, OneDrive, Azure Storage, DropBox, etc.), puede seguir utilizando los datos adjuntos para hacer referencia a los archivos multimedia. En este caso, creará los datos adjuntos usted mismo y rellenará la propiedad _media.   
 
 Tal como sucede con el resto de recursos, se pueden crear, reemplazar, eliminar, leer o enumerar datos adjuntos fácilmente mediante las API de REST o con cualquier SDK de cliente. Como con los documentos, el nivel de coherencia de lectura de datos adjuntos sigue la Directiva de coherencia en la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar datos adjuntos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
  
@@ -457,7 +457,7 @@ Tal como sucede con el resto de recursos, los usuarios de Azure Cosmos DB se pue
 ## <a name="permissions"></a>Permisos
 Desde la perspectiva del control de acceso, los recursos como las cuentas de base de datos, las bases de datos, los usuarios y los permisos se consideran recursos *administrativos*, puesto que requieren permisos administrativos. Por otro lado, los recursos que incluyen colecciones, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF se dirigen a una base de datos dada y se consideran *recursos de aplicación*. Conforme a los dos tipos de recursos y a los roles a los que obtienen acceso (a saber, el administrador y usuario), el modelo de autorización define dos tipos de *claves de acceso*: *clave maestra* y *clave de recursos*. La clave maestra forma parte de la cuenta de base de datos y se proporciona al desarrollador (o administrador) que está aprovisionando la cuenta de base de datos. Esta clave maestra tiene semánticas de administrador y se pueden utilizar para autorizar acceso a recursos tanto administrativos como de aplicación. Al contrario, una clave de recurso es una clave de acceso granular que permite el acceso a recursos de aplicación *específicos* . Por lo tanto, se captura la relación entre el usuario de una base de datos y los permisos que tiene el usuario para un recurso específico (por ejemplo, colección, documento, elemento adjunto, procedimiento almacenado, desencadenador o UDF).   
 
-La única forma de obtener una clave de recurso es creando un recurso de permiso para un usuario determinado. Tenga en cuenta que para poder crear o recuperar un permiso, se debe presentar una clave maestra en el encabezado de autorización. Un recurso de permiso está relacionado con el recurso, su acceso y el usuario. Tras crear un recurso de permiso, el usuario solo necesita presentar la clave de recurso asociada para obtener acceso al recurso relevante. Así, una clave de recurso se puede visualizar como una representación lógica y compacta del recurso de permiso.  
+La única forma de obtener una clave de recurso es creando un recurso de permiso para un usuario determinado. Para poder crear o recuperar un permiso, se debe presentar una clave maestra en el encabezado de autorización. Un recurso de permiso está relacionado con el recurso, su acceso y el usuario. Tras crear un recurso de permiso, el usuario solo necesita presentar la clave de recurso asociada para obtener acceso al recurso relevante. Así, una clave de recurso se puede visualizar como una representación lógica y compacta del recurso de permiso.  
 
 Tal como sucede con el resto de recursos, los permisos de Azure Cosmos DB se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API de REST o con cualquier SDK de cliente. Azure Cosmos DB siempre proporciona una coherencia para leer o consultar los metadatos de un permiso. 
 

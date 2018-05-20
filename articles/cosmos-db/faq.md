@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 0118e78ee7240c139ff808582d6b9b47c6b64b4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Preguntas más frecuentes sobre Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Conceptos básicos de Azure Cosmos DB
@@ -114,7 +114,7 @@ El valor PreferredLocations se puede establecer en cualquiera de las regiones de
 ### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-the-world-via-the-azure-datacenters"></a>¿Hay algo que deba tener en cuenta al distribuir datos en todo el mundo a través de centros de datos de Azure? 
 Azure Cosmos DB se ofrece en todas las regiones de Azure, tal y como se especifica en la página [Regiones de Azure](https://azure.microsoft.com/regions/). Puesto que se trata del servicio principal, cada nuevo centro de datos está presente en Azure Cosmos DB. 
 
-Al establecer una región, debe recordar que Cosmos DB respeta las nubes independientes y de administración pública. Es decir, si crea una cuenta en una región independiente, no puede replicarla fuera de dicha región. De manera similar, tampoco puede habilitar la replicación en otras ubicaciones independientes desde una cuenta externa. 
+Al establecer una región, debe recordar que Cosmos DB respeta las nubes independientes y de administración pública. Es decir, si crea una cuenta en una [región independiente](https://azure.microsoft.com/global-infrastructure/), no puede replicarla fuera de dicha [región](https://azure.microsoft.com/global-infrastructure/). De manera similar, tampoco puede habilitar la replicación en otras ubicaciones independientes desde una cuenta externa. 
 
 ## <a name="develop-against-the-sql-api"></a>Desarrollo con SQL API
 
@@ -170,6 +170,9 @@ Sí. Como Azure Cosmos DB es un servicio RESTful, los vínculos de recursos son 
 ### <a name="is-a-local-instance-of-sql-api-available"></a>¿Hay disponible una instancia local de SQL API?
 Sí. El [Emulador de Azure Cosmos DB](local-emulator.md) proporciona una emulación de gran fidelidad del servicio Cosmos DB. Admite una funcionalidad que es idéntica a la de Azure Cosmos DB, incluida la compatibilidad con la creación y la consulta de documentos JSON, el aprovisionamiento y el escalado de colecciones y la ejecución de desencadenadores y procedimientos almacenados. Puede desarrollar y probar aplicaciones mediante el Emulador de Azure Cosmos DB e implementarlas en Azure a escala global con tan solo un cambio de configuración en el punto de conexión de la conexión de Azure Cosmos DB.
 
+### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>¿Por qué se redondean los valores de punto flotante largos cuando se ven desde el explorador de datos en el portal? 
+Se trata de una limitación de JavaScript. JavaScript usa números de formato de punto flotante de doble precisión como se especifica en IEEE 754 y puede representar de forma segura números entre -(253 - 1) y 253 - 1 (es decir, 9007199254740991) solamente.
+
 ## <a name="develop-against-the-api-for-mongodb"></a>Desarrollo con la API de MongoDB
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>¿Qué es API de MongoDB de Azure Cosmos DB?
 La API de MongoDB de Azure Cosmos DB es una capa de compatibilidad que permite a las aplicaciones comunicarse de manera sencilla y transparente con el motor de base de datos nativo de Azure Cosmos DB mediante los controladores y las API de Apache MongoDB admitidas por la comunidad. Los desarrolladores ahora pueden usar cadenas de herramienta de MongoDB existentes y las aptitudes para crear aplicaciones que aprovechan las ventajas de Azure Cosmos DB. Los desarrolladores pueden beneficiarse de la funcionalidad única de Azure Cosmos DB, que incluye indexación automática, mantenimiento de copia de seguridad, contratos de nivel de servicio con respaldo financiero, etc.
@@ -187,7 +190,7 @@ Además de los códigos de error comunes de MongoDB, la API de MongoDB tiene sus
 
 | Error               | Código  | DESCRIPCIÓN  | Solución  |
 |---------------------|-------|--------------|-----------|
-| TooManyRequests     | 16500 | El número total de unidades de solicitud consumido ha superado la tasa de unidades de solicitud aprovisionadas de la colección y se ha limitado. | Considere la posibilidad de escalar el rendimiento de la colección desde Azure Portal o vuelva a intentarlo. |
+| TooManyRequests     | 16500 | El número total de unidades de solicitud consumido ha superado la tasa de unidades de solicitud aprovisionadas de la colección y se ha limitado. | Considere la posibilidad de escalar el rendimiento asignado a un contenedor o un conjunto de contenedores desde Azure Portal o reintentarlo de nuevo. |
 | ExceededMemoryLimit | 16501 | Como se trata de un servicio de varios inquilinos, la operación ha superado la asignación de memoria del cliente. | Reduzca el ámbito de la operación a través de criterios de consulta más restrictivos o póngase en contacto con soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Ejemplo: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ## <a name="develop-with-the-table-api"></a>Desarrollo con Table API
@@ -211,6 +214,7 @@ Hay algunas diferencias de comportamiento que los usuarios acostumbrados a Azure
 * En los nombres de tabla de Azure Table Storage no se distinguen mayúsculas de minúsculas, a diferencia de lo que ocurre en Table API de Azure Cosmos DB
 * Algunos de los formatos internos de Azure Cosmos DB para codificar la información, como los campos binarios, no son actualmente tan eficientes como se podría desear. Por lo tanto, esto puede causar limitaciones inesperadas en el tamaño de los datos. Por ejemplo, actualmente no se puede utilizar el Meg completo de una entidad de tabla para almacenar datos binarios porque la codificación aumenta el tamaño de los datos.
 * El identificador del nombre de la propiedad de identidad no se admite actualmente
+* TableQuery TakeCount no se limita a 1000
 
 En cuanto a la API de REST, hay una serie de opciones de puntos de conexión o consulta que no son compatibles con Table API de Azure Cosmos DB:
 | Métodos de REST | Opción de punto de conexión o consulta de REST | Direcciones URL de documento | Explicación |
@@ -382,7 +386,7 @@ Table API proporciona la misma funcionalidad de consulta que Azure Table Storage
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>¿Cuándo se debe cambiar TableThroughput por Table API?
 Debe cambiar el valor de TableThroughput cuando se cumpla alguna de las condiciones siguientes:
 * Va a realizar una extracción, transformación y carga (ETL) de datos o quiere cargar una gran cantidad de datos en un período corto de tiempo. 
-* Necesita más rendimiento desde el contenedor en el back-end. Por ejemplo, verá que el rendimiento de uso es mayor que el rendimiento aprovisionado, lo que se traduce en limitaciones. Para más información, vea [Configuración del rendimiento para contenedores de Azure Cosmos DB](set-throughput.md).
+* Necesita más rendimiento desde el contenedor o desde un conjunto de contenedores en el back-end. Por ejemplo, verá que el rendimiento de uso es mayor que el rendimiento aprovisionado, lo que se traduce en limitaciones. Para más información, vea [Configuración del rendimiento para contenedores de Azure Cosmos DB](set-throughput.md).
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>¿Se puede escalar o reducir verticalmente el rendimiento de mi tabla de Table API? 
 Sí, puede usar el panel de escala del portal de Azure Cosmos DB para ello. Para más información, vea [Establecimiento del rendimiento](set-throughput.md).
@@ -397,7 +401,7 @@ Ninguno. No hay ningún cambio de precio para los clientes existentes de Azure T
 El precio depende del TableThroughput asignado. 
 
 ### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>¿Cómo se tratan las limitaciones en las tablas de la oferta de Table API? 
-Si la tasa de solicitudes supera la capacidad del rendimiento aprovisionado para el contenedor subyacente, obtiene un error y el SDK vuelve a intentar la llamada aplicando la directiva de reintentos.
+Si la tasa de solicitudes supera la capacidad del rendimiento aprovisionado para el contenedor subyacente o un conjunto de contenedores, obtiene un error y el SDK vuelve a intentar la llamada aplicando la directiva de reintentos.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>¿Por qué hay que elegir un rendimiento además de PartitionKey y RowKey para aprovechar las ventajas de la oferta de Table API de Azure Cosmos DB?
 Si no se especifica un rendimiento predeterminado para el contenedor en el archivo app.config o a través del portal, Azure Cosmos DB establecerá uno. 

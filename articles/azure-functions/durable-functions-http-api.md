@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 07e6e5beb96042c2da82ac8be19e391d6153eabd
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API de HTTP en Durable Functions (Azure Functions)
 
@@ -131,6 +131,7 @@ La carga de respuesta para los casos **HTTP 200** y **HTTP 202** es un objeto JS
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | Estado en tiempo de ejecución de la instancia. Los valores son *En ejecución*, *Pendiente*, *Erróneo*, *Cancelado*, *Finalizado*, *Completado*. |
 | input           | JSON      | Datos JSON usados para inicializar la instancia. |
+| customStatus    | JSON      | Datos JSON que se usan en el estado de orquestación personalizada. Este campo es `null` si no se establece. |
 | output          | JSON      | Salida JSON de la instancia. Este campo es `null` si el estado de la instancia no es Completado. |
 | createdTime     | string    | Hora a la que se creó la instancia. Usa la notación ampliada de ISO 8601. |
 | lastUpdatedTime | string    | Hora a la que se almacenó la instancia por última vez. Usa la notación ampliada de ISO 8601. |
@@ -180,6 +181,7 @@ Este es un ejemplo de una carga de respuesta que incluye las salidas de historia
       }
   ],
   "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
   "lastUpdatedTime": "2018-02-28T05:18:54Z",
   "output": [
       "Hello Tokyo!",

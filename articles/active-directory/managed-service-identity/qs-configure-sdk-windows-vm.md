@@ -1,23 +1,24 @@
 ---
-title: "Cómo configurar una máquina virtual de Azure con MSI habilitado mediante un SDK de Azure"
-description: "Instrucciones paso a paso para configurar y utilizar Managed Service Identity (MSI) en una máquina virtual de Azure mediante un SDK de Azure."
+title: Cómo configurar una máquina virtual de Azure con MSI habilitado mediante un SDK de Azure
+description: Instrucciones paso a paso para configurar y utilizar Managed Service Identity (MSI) en una máquina virtual de Azure mediante un SDK de Azure.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: 42a238d0fda8d5ac87fbb23ab5c191452ef6e2be
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 781f332b2892d9af536bf9a6f81642842285927b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configuración de Managed Service Identity (MSI) de una máquina virtual mediante un SDK de Azure
 

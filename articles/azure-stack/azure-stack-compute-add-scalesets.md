@@ -5,18 +5,16 @@ services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
-ms.reviewer: anajod
-keywords: ''
-ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: kivenkat
+ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack
 
@@ -38,14 +36,15 @@ En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el e
    Instalación y configuración de PowerShell para Azure Stack y las herramientas de Azure Stack. Consulte [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md) (Ponerse en marcha con PowerShell en Azure Stack).
 
    Después de instalar las herramientas de Azure Stack, asegúrese de importar el siguiente módulo de PowerShell (ruta de acceso relativa a la carpeta .\ComputeAdmin en la carpeta AzureStack-Tools-master):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Imagen del sistema operativo**
 
    Si no ha agregado ninguna imagen de sistema operativo a la plataforma Marketplace de Azure Stack, consulte [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md) (Agregar la imagen de VM de Windows Server 2016 a la plataforma Marketplace de Azure Stack).
 
-   Para obtener compatibilidad con Linux, descargue Ubuntu Server 16.04 y agréguelo con ```Add-AzsVMImage``` con los siguientes parámetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   Para obtener compatibilidad con Linux, descargue Ubuntu Server 16.04 y agréguelo con ```Add-AzsPlatformImage``` con los siguientes parámetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Adición del conjunto de escalado de máquinas virtuales
@@ -54,7 +53,7 @@ Edite el siguiente script de PowerShell para su entorno y, después, ejecútelo 
 
 ``$User`` es la cuenta que usa para conectar el portal de administración. Por ejemplo, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -72,7 +71,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Actualización de imágenes en un conjunto de escalado de máquinas virtuales 
 Después de crear un conjunto de escalado de máquinas virtuales, los usuarios pueden actualizar imágenes en él sin tener que volver a crearlo. El proceso para actualizar una imagen depende de los siguientes escenarios:
@@ -83,12 +82,14 @@ Después de crear un conjunto de escalado de máquinas virtuales, los usuarios p
 
    A continuación se muestra un ejemplo en el que se especifica *latest*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Antes de que el escalado vertical pueda usar una nueva imagen, debe descargar esa imagen:  
 
@@ -110,12 +111,12 @@ Para más información, consulte [Imágenes y discos del sistema operativo](.\us
 
 Para eliminar un elemento de la galería del conjunto de escalado de máquinas virtuales, ejecute el siguiente comando de PowerShell:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > Es posible que el elemento de la galería no se quite de forma inmediata. Es posible que deba actualizar el portal varias veces para que el elemento se muestre como eliminado de Marketplace.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 [Preguntas frecuentes acerca de Azure Stack](azure-stack-faq.md)
-

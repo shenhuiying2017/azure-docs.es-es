@@ -3,23 +3,25 @@ title: Directrices de personalización de marca para aplicaciones | Microsoft Do
 description: Una guía completa sobre recursos orientados al desarrollador para Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: skwan
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: skwan
+ms.author: celested
+ms.reviewer: skwan
 ms.custom: aaddev
-ms.openlocfilehash: e5ce970913d767dbf6b13381cf18c1f7b05d252f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7794388a067cb8fb876d70b7186bc555e6ff2975
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="branding-guidelines-for-applications"></a>Directrices de personalización de marca para aplicaciones
 En este artículo se describen las directrices de personalización de marca que hay que usar al desarrollar aplicaciones con Azure Active Directory (Azure AD). Gracias a ellas, podrá dirigir a los clientes cuando estos quieran usar su cuenta profesional o educativa (administrada en Azure AD), o su cuenta personal, para suscribirse a la aplicación o iniciar sesión en ella.

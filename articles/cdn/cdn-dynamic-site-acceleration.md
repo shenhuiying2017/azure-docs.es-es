@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 2ffe547d1d1333a5469d313f9f9cc60f5118f814
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4c0a68fd7b6cdf96bb495f6b447299bdbc5772f7
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Aceleración de sitios dinámicos a través de Azure CDN
 
@@ -183,9 +183,6 @@ Para acceder al motor de reglas:
 Como alternativa, puede utilizar dos puntos de conexión de CDN: uno optimizado con DSA para entregar recursos dinámicos y el otro optimizado con un tipo de optimización estático, como entrega web general, para entregar recursos almacenables en caché. Modifique las direcciones URL de página web para crear un vínculo directo con el recurso en el punto de conexión de CDN que planea usar. 
 
 Por ejemplo: `mydynamic.azureedge.net/index.html` es una página dinámica y se carga desde el punto de conexión DSA.  La página HTML hace referencia a varios recursos estáticos como bibliotecas de JavaScript o imágenes que se cargan desde el punto de conexión de red CDN estático, como `mystatic.azureedge.net/banner.jpg` y `mystatic.azureedge.net/scripts.js`. 
-
-Para obtener un ejemplo de cómo usar controladores en una aplicación web de ASP.NET para suministrar contenido mediante una dirección URL de CDN específica, consulte [Suministro de contenido de acciones de controlador a través de la red CDN de Azure](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller).
-
 
 
 

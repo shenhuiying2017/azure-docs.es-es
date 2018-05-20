@@ -1,7 +1,7 @@
 ---
-title: "Simulación de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar el simulador de dispositivos con la solución preconfigurada de la supervisión remota."
-services: 
+title: 'Simulación de dispositivos en la solución de supervisión remota: Azure | Microsoft Docs'
+description: En este tutorial se muestra cómo usar el simulador de dispositivos con el acelerador de la solución de supervisión remota.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -12,15 +12,19 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 563a5a1c177b1f18be18d9b3cc9f3f9a7ee8ae4a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 905e64d004c02db663634eb784cacf6fab805193
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="create-a-new-simulated-device"></a>Creación de un nuevo dispositivo simulado
 
-En este tutorial se muestra cómo personalizar el microservicio del simulador de dispositivos en la solución preconfigurada de la supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
+En este tutorial se muestra cómo personalizar el microservicio del simulador de dispositivos en el acelerador de la solución de supervisión remota. Para mostrar las funcionalidades del simulador de dispositivos, en este tutorial se usan dos escenarios en la aplicación IoT de Contoso.
+
+En el siguiente vídeo se presenta información general de las opciones para personalizar el microservicio del simulador de dispositivos:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/How-to-customize-the-Remote-Monitoring-Preconfigured-Solution-for-Azure-IoT/Player]
 
 En el primer escenario, Contoso desea probar un nuevo dispositivo de bombilla inteligente. Para realizar las pruebas, crea un dispositivo simulado nuevo con las características siguientes:
 
@@ -68,7 +72,7 @@ La tabla siguiente muestra el estado inicial del dispositivo:
 
 En el segundo escenario, agrega un tipo de telemetría nuevo al dispositivo **Refrigerador** existente de Contoso.
 
-En este tutorial se muestra cómo usar el simulador de dispositivos con la solución preconfigurada de la supervisión remota:
+En este tutorial se muestra cómo usar el simulador de dispositivos con el acelerador de la solución de supervisión remota:
 
 En este tutorial, aprenderá a:
 
@@ -86,7 +90,7 @@ En el vídeo siguiente se muestra un tutorial sobre cómo conectar dispositivos 
 
 Para utilizar este tutorial, necesitará:
 
-* Una instancia implementada de la solución de supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-deploy.md).
+* Una instancia implementada de la solución de supervisión remota en la suscripción de Azure. Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](iot-suite-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Si aún no tiene Visual Studio 2017 instalado, puede descargar y usar la edición gratis de [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 
@@ -289,10 +293,10 @@ El archivo **lightbulb-01.json** define las características del tipo, como la t
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```
@@ -474,7 +478,7 @@ Ya está listo para probar el nuevo tipo de bombilla simulada; para ello, ejecut
 
     ![Número de dispositivos conectados](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de los dos dispositivos simulados se muestra en el gráfico:
+1. En el explorador, navegue hasta el **panel** de la solución de supervisión remota. En el panel de telemetría del **Panel** principal, seleccione **Temperatura**. La temperatura de todos los dispositivos simulados se muestra en el gráfico:
 
     ![Telemetría de temperatura](media/iot-suite-remote-monitoring-test/telemetry.png)
 

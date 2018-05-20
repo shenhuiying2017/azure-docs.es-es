@@ -1,26 +1,20 @@
 ---
-title: "Acceso condicional para usuarios de colaboración B2B de Azure Active Directory | Microsoft Docs"
-description: "La colaboración B2B de Azure Active Directory admite Multi-Factor Authentication (MFA) para poder acceder de manera selectiva a las aplicaciones corporativas."
+title: Acceso condicional para usuarios de colaboración B2B de Azure Active Directory | Microsoft Docs
+description: La colaboración B2B de Azure Active Directory admite Multi-Factor Authentication (MFA) para poder acceder de manera selectiva a las aplicaciones corporativas.
 services: active-directory
-documentationcenter: 
-author: twooley
-manager: mtillman
-editor: 
-tags: 
-ms.assetid: 
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 09/11/2017
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 4c8827bdf18d59fbe6ba92593513e25e493974b5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2fed28bb7f7b61556a36b11b325ace9773f89991
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -107,16 +101,8 @@ Actualmente, no se pueden aplicar directivas de inicio de sesión basadas en el 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 * [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
-* [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B?](active-directory-b2b-iw-add-users.md)
-* [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md)
-* [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md)
 * [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
-* [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](active-directory-b2b-faq.md)
-* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
-* [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

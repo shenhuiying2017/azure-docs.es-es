@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 03104b497034ef92ddb2c6216d6e9200e65168b0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ce349aedc6b733d34ab61eb2e23b378727e01800
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover datos a una base de datos de SQL de Azure para Azure Machine Learning
 En este tema se describen las opciones para mover datos de archivos planos (formatos CSV o TSV) o de datos almacenados en un servidor de SQL Server local a Azure SQL Database. Estas tareas para mover datos a la nube forman parte del proceso de ciencia de datos en equipos.
@@ -33,8 +33,8 @@ En la tabla siguiente se resumen las opciones para mover datos a Azure SQL Datab
 
 | <b>ORIGEN</b> | <b>DESTINO: Azure SQL Database</b> |
 | --- | --- |
-| <b>Archivo plano (formatos CSV o TSV)</b> |<a href="#bulk-insert-sql-query">Consulta SQL de inserción masiva |
-| <b>SQL Server local</b> |1. <a href="#export-flat-file">Exportación a un archivo plano<br> 2. <a href="#insert-tables-bcp">SQL Database Migration Wizard<br> 3. <a href="#db-migration">Copia de seguridad y restauración de una base de datos<br> 4. <a href="#adf">Azure Data Factory |
+| <b>Archivo plano (formatos CSV o TSV)</b> |[Consulta SQL de inserción masiva](#bulk-insert-sql-query) |
+| <b>SQL Server local</b> |1.[Exportación a un archivo plano](#export-flat-file)<br> 2. [SQL Database Migration Wizard](#insert-tables-bcp)<br> 3. [Copia de seguridad y restauración de una base de datos](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Requisitos previos
 El procedimiento aquí descrito requiere disponer de:

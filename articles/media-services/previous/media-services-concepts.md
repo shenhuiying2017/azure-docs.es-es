@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: juliako
-ms.openlocfilehash: cfc8ac74f626ada30dda72b58e4b4bc7f0d9e806
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f9d51869b9a6ba63c73637c50f5a19e864bc23e4
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="azure-media-services-concepts"></a>Conceptos de Azure Media Services
 En este tema se proporciona información general sobre los conceptos más importantes de Media Services.
@@ -108,7 +108,7 @@ Para obtener información acerca de los codificadores compatibles, consulte [Cod
 En Azure Media Services, un canal representa una canalización para procesar contenido de streaming en directo. Los canales reciben el flujo de entrada en directo de dos maneras posibles:
 
 * Un codificador local en directo envía contenido RTMP o Smooth Streaming (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming con velocidad de bits múltiple: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco y Elemental. Los siguientes codificadores en directo generan RTMP: Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision y Tricaster. Las secuencias recopiladas pasan a través de canales sin más procesamiento ni codificación. Cuando se solicita, Media Services entrega la secuencia a los clientes.
-* Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Media Services. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
+* Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: RTP o Smooth Streaming (MP4 fragmentado)) se envía al canal habilitado para realizar la codificación en directo con Media Services. Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Media Services entrega la secuencia a los clientes.
 
 ### <a name="channel"></a>Canal
 En Media Services, los [canal](https://docs.microsoft.com/rest/api/media/operations/channel)es son los responsables de procesar el contenido de streaming en vivo. Un canal proporciona un extremo de entrada (dirección URL de introducción) que luego se brinda a un transcodificador en vivo. El canal recibe flujos de entrada en vivo desde el transcodificador en vivo y las deja a disposición del streaming a través de uno o más StreamingEndpoints. Los canales también proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar el flujo antes de mayor procesamiento y entrega.

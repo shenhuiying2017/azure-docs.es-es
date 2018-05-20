@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9d431d94a6df9636a48e1b2aaa59aaa576e2dc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transacciones y modos de bloqueo en Reliable Collections de Azure Service Fabric
 
 ## <a name="transaction"></a>Transacción
 Una transacción es una secuencia de operaciones realizadas como una única unidad lógica de trabajo.
-Una transacción debe presentar las siguientes propiedades ACID. (consulte: https://technet.microsoft.com/en-us/library/ms190612)
+Una transacción debe presentar las siguientes propiedades ACID. (vea: https://technet.microsoft.com/library/ms190612)
 * **Atomicidad**: una transacción debe ser una unidad atómica de trabajo. Es decir, o se modifican todos sus datos o ninguno de ellos.
 * **Coherencia**: cuando ha finalizado, una transacción debe dejar todos los datos en un estado coherente. Todas las estructuras de datos internos deben ser correctas al final de la transacción.
 * **Aislamiento**: las modificaciones realizadas por transacciones simultáneas se deben aislar de las modificaciones realizadas por otras transacciones simultáneas. El nivel de aislamiento usado para una operación dentro de ITransaction viene determinado por el elemento IReliableState que realiza la operación.
@@ -34,13 +34,13 @@ Una transacción debe presentar las siguientes propiedades ACID. (consulte: http
 Un nivel de aislamiento define el grado en el que debe aislarse la transacción de las modificaciones que realicen otras transacciones.
 Hay dos niveles de aislamiento que se admiten en Colecciones confiables:
 
-* **Repeatable Read**: especifica que las instrucciones no puedan leer datos que se han modificado, pero que aún no han confirmado otras transacciones, y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+* **Repeatable Read**: especifica que las instrucciones no puedan leer datos que se han modificado, pero que aún no han confirmado otras transacciones, y que ninguna otra transacción puede modificar los datos leídos por la transacción actual hasta que esta finalice. Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Instantánea**: especifica que los datos que ha leído cualquier instrucción de una transacción sea la versión coherente, desde el punto de vista transaccional, de los datos existentes al comienzo de la transacción.
   La transacción solo puede reconocer las modificaciones de datos que se confirmaron antes del inicio de la transacción.
   Las modificaciones de datos realizadas por otras transacciones después del inicio de la transacción actual no son visibles para las instrucciones que se ejecutan en la transacción actual.
   El efecto es como si las instrucciones de una transacción obtienen una instantánea de los datos confirmados tal como se encontraban al inicio de la transacción.
   Las instantáneas son coherentes entre colecciones confiables.
-  Para obtener más información, consulte [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
+  Para obtener información, vea [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 
 Colecciones confiables elige automáticamente el nivel de aislamiento que se usará para una operación de lectura determinada dependiendo del funcionamiento y el rol de la réplica.
 A continuación, se encuentra la tabla que muestra los valores predeterminados de nivel de aislamiento para las operaciones Diccionario confiable y Cola confiable.

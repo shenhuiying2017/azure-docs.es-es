@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: curtand
 ms.custom: pim
-ms.openlocfilehash: b8df65c969a37eb22589c297ecb9b0d0b840a52c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4bc41727c30d4dd213baca1d7c56cdfdf741692d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -32,7 +32,7 @@ Con Privileged Identity Management de Azure Active Directory (AD), puede adminis
 >- Están asignados a un rol de recursos de Azure con asignaciones Just-In-Time o directas (basadas en tiempo).  
 >- Están asignados a una revisión de acceso.
 >
->Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
+>Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-whatis.md).
 
 Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que usuarios malintencionados obtengan acceso a ellos o de que algún usuario autorizado haga algo involuntariamente que pueda afectar a recursos sensibles.  Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en aplicaciones de Azure AD, Azure, Office 365 o SaaS. Las organizaciones pueden permitir a usuarios con privilegios acceder a los recursos de Azure como Suscripciones y Azure AD. Hay una necesidad de supervisión sobre lo que hacen estos usuarios con sus privilegios de administración. Azure AD Privileged Identity Management ayuda a mitigar el riesgo de unos derechos de acceso excesivos, innecesarios o mal utilizados.
 

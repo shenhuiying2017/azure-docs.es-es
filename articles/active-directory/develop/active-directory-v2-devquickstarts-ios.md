@@ -1,30 +1,30 @@
 ---
-title: "Incorporación del inicio de sesión a una aplicación iOS mediante el punto de conexión de Azure AD v2.0 | Microsoft Docs"
-description: "Procedimiento para compilar una aplicación iOS con la que los usuarios pueden iniciar sesión utilizando su cuenta personal de Microsoft como sus cuentas profesionales o educativas mediante bibliotecas de terceros"
+title: Incorporación del inicio de sesión a una aplicación iOS mediante el punto de conexión de Azure AD v2.0 | Microsoft Docs
+description: Procedimiento para compilar una aplicación iOS con la que los usuarios pueden iniciar sesión utilizando su cuenta personal de Microsoft como sus cuentas profesionales o educativas mediante bibliotecas de terceros
 services: active-directory
-documentationcenter: 
-author: brandwe
+author: CelesteDG
 manager: mtillman
-editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: brandwe
+ms.author: celested
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7476417e6585976ea2404a83602a6d9aa77d9c7a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación iOS mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
+# <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación iOS mediante una biblioteca de terceros con Graph API mediante la versión 2.0 del punto de conexión
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.
 
-Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscar a otros de la misma organización mediante la API Graph.
+Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscar a otros de la misma organización mediante Graph API.
 
 Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran parte de esta configuración de ejemplo no le sea relevante. Si este es el caso, le recomendamos que lea [Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
@@ -36,12 +36,12 @@ Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran p
 No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión.
 
 > [!NOTE]
-> Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download-code-from-github"></a>Descarga del código desde GitHub
-El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2).  Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) o clonar el esqueleto:
+El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) o clonar el esqueleto:
 
 ```
 git clone --branch skeleton git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.git
@@ -54,7 +54,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ```
 
 ## <a name="register-an-app"></a>Registrar una aplicación
-Cree una aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o siga los pasos que se detallan en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md).  Asegúrese de que:
+Cree una aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o siga los pasos que se detallan en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Asegúrese de que:
 
 * Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
 * Agregar la plataforma **Móvil** a la aplicación.
@@ -103,7 +103,7 @@ Pasaremos por varios archivos del esquema para agregar la autenticación. Aunque
   * `redirectUri` es la URL de redirección que ha proporcionado el portal.
 
 ## <a name="set-up-the-nxoauth2client-library-in-your-loginviewcontroller"></a>Configuración de la biblioteca de NXOAuth2Client en LoginViewController
-La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Después de completar esa tarea, puede usar el token obtenido para llamar a la API Graph. Como se llamará a `LoginView` cada vez que tengamos que autenticarnos, procede insertar los valores de configuración en ese archivo.
+La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Después de completar esa tarea, puede usar el token obtenido para llamar a Graph API. Como se llamará a `LoginView` cada vez que tengamos que autenticarnos, procede insertar los valores de configuración en ese archivo.
 
 * Vamos a agregar algunos valores al archivo `LoginViewController.m` para establecer el contexto de la autenticación y autorización. Después del código, encontrará los detalles de los valores.
   
@@ -124,7 +124,7 @@ La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Despué
 
 Analicemos los detalles del código.
 
-La primera cadena es para `scopes`.  El valor `User.Read` permite leer el perfil básico del usuario que ha iniciado sesión.
+La primera cadena es para `scopes`. El valor `User.Read` permite leer el perfil básico del usuario que ha iniciado sesión.
 
 Puede obtener más información sobre todos los ámbitos disponibles en [Microsoft Graph permission scopes](https://graph.microsoft.io/docs/authorization/permission_scopes)(Ámbitos de los permisos de Microsoft Graph).
 
@@ -243,7 +243,7 @@ El siguiente código controlará la URL de redireccionamiento que se devuelve de
 ```
 
 ### <a name="set-up-the-oauth-context-called-account-store"></a>Configuración del contexto de OAuth (denominado "almacén de cuentas")
-Aquí se puede llamar a `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` en el almacén de cuentas compartidas para cada servicio al que quiere que acceda la aplicación. El tipo de cuenta es una cadena que se utiliza como identificador para un servicio determinado. Como va a acceder a la API Graph, el código hará referencia a ella como `"myGraphService"`. Después, configuramos un observador que nos indicará cuándo cambia algo con el token. Una vez obtenido el token, devolvemos al usuario a la `masterView`.
+Aquí se puede llamar a `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` en el almacén de cuentas compartidas para cada servicio al que quiere que acceda la aplicación. El tipo de cuenta es una cadena que se utiliza como identificador para un servicio determinado. Como va a acceder a Graph API, el código hará referencia a ella como `"myGraphService"`. Después, configuramos un observador que nos indicará cuándo cambia algo con el token. Una vez obtenido el token, devolvemos al usuario a la `masterView`.
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -288,7 +288,7 @@ Aquí se puede llamar a `-[NXOAuth2AccountStore setClientID:secret:authorization
 }
 ```
 
-## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Configuración de la vista principal para buscar y mostrar los usuarios de la API Graph
+## <a name="set-up-the-master-view-to-search-and-display-the-users-from-the-graph-api"></a>Configuración de la vista principal para buscar y mostrar los usuarios de Graph API
 Las aplicaciones de control de vista principal (MVC) que muestran los datos devueltos en la cuadrícula no se tratan en este tutorial. Hay varios en línea que explican cómo crear una. Todo este código se encuentra en el archivo de esquema. Sin embargo, debemos tratar algunos aspectos en esta aplicación MVC:
 
 * Interceptar cuando el usuario escribe algo en el campo de búsqueda
@@ -318,7 +318,7 @@ La aplicación no sirve de mucho si el usuario no ha iniciado sesión, por lo qu
 ```
 
 ### <a name="update-the-table-view-when-data-is-received"></a>Actualizar la vista de tabla cuando se reciben datos
-Cuando la API Graph devuelve los datos, debe mostrarlos. Para simplificar, este es todo el código que necesita si quiere actualizar la tabla. Solo tiene que pegar los valores correctos en el código reutilizable de MVC.
+Cuando Graph API devuelve los datos, debe mostrarlos. Para simplificar, este es todo el código que necesita si quiere actualizar la tabla. Solo tiene que pegar los valores correctos en el código reutilizable de MVC.
 
 ```objc
 #pragma mark - Table View
@@ -353,8 +353,8 @@ Cuando la API Graph devuelve los datos, debe mostrarlos. Para simplificar, este 
 
 ```
 
-### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Proporcionar una manera de llamar a la API Graph cuando alguien escribe en el campo de búsqueda
-Cuando un usuario escribe una búsqueda en el cuadro, hay que llevarla a la API Graph. La clase `GraphAPICaller` , que creará en el código siguiente, separa la funcionalidad de búsqueda de la de presentación. Por ahora, vamos a escribir el código que transmite los caracteres de búsqueda a la API Graph. Para ello, se proporciona el método denominado " `lookupInGraph`", que toma la cadena que queremos buscar.
+### <a name="provide-a-way-to-call-the-graph-api-when-someone-types-in-the-search-field"></a>Proporcionar una manera de llamar a Graph API cuando alguien escribe en el campo de búsqueda
+Cuando un usuario escribe una búsqueda en el cuadro, hay que llevarla a Graph API. La clase `GraphAPICaller` , que creará en el código siguiente, separa la funcionalidad de búsqueda de la de presentación. Por ahora, vamos a escribir el código que transmite los caracteres de búsqueda a Graph API. Para ello, se proporciona el método denominado " `lookupInGraph`", que toma la cadena que queremos buscar.
 
 ```objc
 
@@ -391,7 +391,7 @@ if (searchText.length > 0) {
 }
 ```
 
-## <a name="write-a-helper-class-to-access-the-graph-api"></a>Escritura de una clase auxiliar para acceder a la API Graph
+## <a name="write-a-helper-class-to-access-the-graph-api"></a>Escritura de una clase auxiliar para acceder a Graph API
 Se trata del núcleo de nuestra aplicación. Mientras que el resto consistía en insertar código en el patrón MVC predeterminado de Apple, aquí escribimos código para consultar el gráfico cuando el usuario escribe y devolver los datos. Aquí se muestra el código y, abajo de este, proporcionamos una explicación detallada.
 
 ### <a name="create-a-new-objective-c-header-file"></a>Creación de un nuevo archivo de encabezado Objective C
@@ -483,13 +483,13 @@ Analicemos pormenorizadamente este método.
 
 El núcleo de este código se encuentra en el método `NXOAuth2Request`, que toma los parámetros que ya hemos definido dentro del archivo settings.plist.
 
-El primer paso consiste en crear la llamada correcta a la API Graph. Como vamos a llamar a `/users`, lo especificamos anexándolo a nuestro recurso de API Graph junto con la versión. Se recomienda colocarlos en un archivo de configuración externo, ya que pueden cambiar cuando evolucione la API.
+El primer paso consiste en crear la llamada correcta a Graph API. Como vamos a llamar a `/users`, lo especificamos anexándolo a nuestro recurso de Graph API junto con la versión. Se recomienda colocarlos en un archivo de configuración externo, ya que pueden cambiar cuando evolucione la API.
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
 ```
 
-Después, tenemos que especificar los parámetros, que también proporcionaremos a la llamada de API Graph. Es *muy importante* que no coloque los parámetros en el punto de conexión de los recursos, ya que se eliminan todos los caracteres del identificador URI no compatibles en el entorno de tiempo de ejecución. Todo el código de consulta debe indicarse en los parámetros.
+Después, tenemos que especificar los parámetros, que también proporcionaremos a la llamada de Graph API. Es *muy importante* que no coloque los parámetros en el punto de conexión de los recursos, ya que se eliminan todos los caracteres del identificador URI no compatibles en el entorno de tiempo de ejecución. Todo el código de consulta debe indicarse en los parámetros.
 
 ```objc
 

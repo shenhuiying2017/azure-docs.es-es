@@ -1,25 +1,27 @@
 ---
-title: "Descripción del flujo de concesión implícita de OAuth2 en Azure AD | Microsoft Docs"
-description: "Sepa más de la implementación del flujo de concesión implícita de OAuth2 de Azure Active Directory y vea si es adecuado para su aplicación."
+title: Descripción del flujo de concesión implícita de OAuth2 en Azure AD | Microsoft Docs
+description: Sepa más de la implementación del flujo de concesión implícita de OAuth2 de Azure Active Directory y vea si es adecuado para su aplicación.
 services: active-directory
 documentationcenter: dev-center-name
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2016
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b3ed6edb0b770e8b57bb5bfde4c183d435335ce
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 263a093d5cf4b48ed1dadd4a288e548065ddf282
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Descripción del flujo de concesión implícita de OAuth2 de Azure Active Directory (AD)
 La concesión implícita de OAuth2 es conocida por tratarse de la lista más amplia de problemas de seguridad de la especificación de OAuth2. Además, es el enfoque que ha implementado ADAL JS y el que recomendamos a la hora de crear aplicaciones SPA. ¿Qué ventajas aporta? Se trata de analizar los pros y los contras: cuando se adopta, la concesión implícita es el mejor enfoque que puede aplicarse a las aplicaciones que usan una API web a través de JavaScript en un explorador.
@@ -36,7 +38,7 @@ Tal y como declara la propia especificación de OAuth2, la concesión implícita
 
 Las aplicaciones que aplican el enfoque basado en JavaScript en su punto de conexión se denominan "aplicaciones de una sola página" o "SPA": la idea es que estas aplicaciones solo publican una página HTML inicial y el código JavaScript asociado; las interacciones subsiguientes se controlan mediante llamadas a API web realizadas a través de JavaScript. Sin embargo, los enfoques híbridos, donde la aplicación se basa fundamentalmente en eventos postback, pero realiza llamadas de JavaScript ocasionales, no son habituales. El debate sobre el uso del flujo implícito es pertinente para este tipo de enfoques.
 
-Por lo general, las aplicaciones basadas en redirecciones protegen sus solicitudes a través de las cookies; sin embargo, este enfoque no funciona tan bien para aplicaciones JavaScript. Las cookies solo funcionan con el dominio para el que se han generado, aunque las llamadas de JavaScript pueden ser dirigidas a otros dominios. De hecho, esto pasará con frecuencia. Piense en las aplicaciones que invocan la API Graph de Microsoft, la API de Office o la API de Azure: todas residen fuera del dominio desde donde se publica la aplicación. Una tendencia que se está volviendo más popular en las aplicaciones JavaScript es no tener ningún back-end y depender exclusivamente de API web de terceros para implementar su función empresarial.
+Por lo general, las aplicaciones basadas en redirecciones protegen sus solicitudes a través de las cookies; sin embargo, este enfoque no funciona tan bien para aplicaciones JavaScript. Las cookies solo funcionan con el dominio para el que se han generado, aunque las llamadas de JavaScript pueden ser dirigidas a otros dominios. De hecho, esto pasará con frecuencia. Piense en las aplicaciones que invocan Microsoft Graph API, la API de Office o la API de Azure: todas residen fuera del dominio desde donde se publica la aplicación. Una tendencia que se está volviendo más popular en las aplicaciones JavaScript es no tener ningún back-end y depender exclusivamente de API web de terceros para implementar su función empresarial.
 
 Actualmente, el método preferido para proteger las llamadas a una API web es usar el enfoque de token de portador de OAuth2, donde cada llamada viene acompañada de un token de acceso OAuth2. La API web examina el token de acceso entrante y, si se encuentran en él los ámbitos necesarios, concede acceso a la operación solicitada. El flujo implícito proporciona un cómodo mecanismo para que las aplicaciones JavaScript obtengan tokens de acceso para una API web, con lo que ofrece numerosas ventajas con respecto a las cookies:
 

@@ -1,32 +1,31 @@
 ---
-title: "Operaciones de implementación con Azure Resource Manager | Microsoft Docs"
-description: "Se describe cómo ver las operaciones de implementación de Azure Resource Manager con el portal, PowerShell, CLI de Azure y API de REST."
+title: Operaciones de implementación con Azure Resource Manager | Microsoft Docs
+description: Se describe cómo ver las operaciones de implementación de Azure Resource Manager con el portal, PowerShell, CLI de Azure y API de REST.
 services: azure-resource-manager,virtual-machines
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 01/13/2017
+ms.date: 04/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 197f890690ff68236cba221988ead9b9abd8c04e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 26c2c333a97abff75f6b4caefb1e351dea826081
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Visualización de operaciones de implementación con Azure Resource Manager
 
-
 Puede ver las operaciones de una implementación mediante el Portal de Azure. Es posible que le resulte más interesante ver las operaciones si ha recibido un error durante la implementación; por ello, este artículo se centrará en la visualización de las operaciones en las que se han producido errores. El portal proporciona una interfaz que permite buscar los errores y determinar posibles correcciones con facilidad.
 
-Puede solucionar los problemas de la implementación examinando los registros de auditoría o las operaciones de implementación. En este tema se muestran ambos métodos. Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Puede solucionar los problemas de la implementación examinando los registros de auditoría o las operaciones de implementación. En el artículo se muestran ambos métodos. Para obtener ayuda con la resolución de errores de implementación concretos, consulte [Solución de problemas comunes al implementar recursos en Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="portal"></a>Portal
 Para ver las operaciones de implementación, siga estos pasos:
@@ -136,21 +135,19 @@ Para ver las operaciones de implementación, siga estos pasos:
 1. Obtenga el estado general de una implementación con el comando **azure group deployment show** .
 
   ```azurecli
-  azure group deployment show --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-  Uno de los valores devueltos es **correlationId**. Este valor se usa para realizar un seguimiento de eventos relacionados, y puede ser útil al colaborar con el soporte técnico para solucionar un problema de implementación.
+1. Uno de los valores devueltos es **correlationId**. Este valor se usa para realizar un seguimiento de eventos relacionados, y puede ser útil al colaborar con el soporte técnico para solucionar un problema de implementación.
 
   ```azurecli
-  "properties": {
-    "provisioningState": "Failed",
-    "correlationId": "4002062a-a506-4b5e-aaba-4147036b771a",
+  az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-2. Para ver las operaciones para una implementación, use:
+1. Para ver las operaciones para una implementación, use:
 
   ```azurecli
-  azure group deployment operation list --resource-group ExampleGroup --name ExampleDeployment --json
+  az group deployment operation list -g ExampleGroup -n ExampleDeployment
   ```
 
 ## <a name="rest"></a>REST

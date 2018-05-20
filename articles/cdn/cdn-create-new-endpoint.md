@@ -1,5 +1,5 @@
 ---
-title: Creación de un perfil y un punto de conexión de Azure CDN | Microsoft Docs
+title: 'Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN | Microsoft Docs'
 description: En esta guía de inicio rápido se describe cómo crear un perfil y un punto de conexión de CDN nuevos para habilitar Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 6237b47be878217115849b87ebcd3d980665643a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 En esta guía de inicio rápido se describe cómo habilitar Azure Content Delivery Network (CDN) mediante la creación de un perfil de CDN y un punto de conexión de CDN nuevos. Una vez haya creado un perfil y un punto de conexión, puede iniciar la entrega de contenido a sus clientes.
@@ -69,8 +69,10 @@ Después de crear un perfil de CDN, puede usarlo para crear un punto de conexió
     
    ![Punto de conexión de CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata. 
-
+   Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata: 
+   - En los perfiles **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en diez minutos. 
+   - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
+   - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**, la propagación se completa normalmente en 90 minutos. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en un grupo de recursos. Guarde estos recursos si desea continuar con los [Pasos siguientes](#next-steps) y aprender cómo agregar un dominio personalizado al punto de conexión. No obstante, si no cree que vaya a necesitar estos recursos en el futuro, puede eliminarlos mediante la eliminación del grupo de recursos y así evitar cargos adicionales:
@@ -85,6 +87,6 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 Para obtener información acerca de cómo agregar un dominio personalizado al punto de conexión de CDN, consulte el tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Agregar un dominio personalizado](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Incorporación de Azure CDN a una aplicación web](app-service-web-tutorial-content-delivery-network.md)
 
 

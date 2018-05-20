@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -29,34 +29,46 @@ ms.lasthandoff: 03/30/2018
 
 ![Explorador de métricas de Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-Functions también dispone de supervisión incorporada que no usa Application Insights. Se recomienda Application Insights porque ofrece más datos y mejores maneras de analizar los datos. Para obtener información más información acerca de la supervisión integrada, consulte la [última sección de este artículo](#monitoring-without-application-insights).
+Functions también dispone de [supervisión incorporada que no usa Application Insights](#monitoring-without-application-insights). Se recomienda Application Insights porque ofrece más datos y mejores maneras de analizar los datos.
 
-## <a name="enable-application-insights-integration"></a>Habilitación de la integración de Application Insights
+## <a name="application-insights-pricing-and-limits"></a>Precios y límites de Application Insights
 
-Para que una aplicación de función envíe datos a Application Insights, debe conocer la clave de instrumentación de una instancia de Application Insights. Existen dos maneras de realizar esa conexión en el [Azure Portal](https://portal.azure.com):
+Puede probar la integración de Application Insights con instancias de Function App de forma gratuita. De todas formas, hay un límite diario para la cantidad de datos que se pueden procesar de forma gratuita, y es posible que llegue a este límite durante las pruebas. Azure proporciona notificaciones de portal y correo electrónico cuando se esté aproximando al límite diario.  Pero si pasa por alto esas alertas y llega al límite, los nuevos registros no aparecerán en las consultas de Application Insights. Por tanto, no olvide tener en cuenta el límite para evitar el tiempo que puede perder, de forma innecesaria, solucionando problemas. Para más información, consulte [Administración de precios y volúmenes de datos de Application Insights](../application-insights/app-insights-pricing.md).
 
-* [Crear una instancia de Application Insights conectada al crear la aplicación de función](#new-function-app).
-* [Conectar una instancia de Application Insights a una aplicación de función existente](#existing-function-app).
+## <a name="enable-app-insights-integration"></a>Habilitación de la integración de Application Insights
+
+Para que una aplicación de función envíe datos a Application Insights tiene que conocer la clave de instrumentación de un recurso de Application Insights. La clave tiene que proporcionarse en un valor de configuración de la aplicación denominado APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Puede configurar esta conexión en [Azure Portal](https://portal.azure.com):
+
+* [Automáticamente para una nueva aplicación de función](#new-function-app)
+* [Conectando manualmente un recurso de App Insights](#manually-connect-an-app-insights-resource)
 
 ### <a name="new-function-app"></a>Nueva aplicación de función
 
-Habilite Application Insights en la página **Crear** de Function App:
+1. Vaya a la página **Crear** de la aplicación de función.
 
 1. Establezca el conmutador **Application Insights** en **Habilitado**.
 
 2. Seleccione una **ubicación de Application Insights**.
 
+   Elija la región más cercana al área de la aplicación de función, en una de las [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) en la que desee almacenar los datos.
+
    ![Habilitar Application Insights al crear una aplicación de función](media/functions-monitoring/enable-ai-new-function-app.png)
 
-### <a name="existing-function-app"></a>Aplicación de función existente
+3. Escriba el resto de información necesaria.
 
-Obtenga la clave de instrumentación y guárdela en una aplicación de función:
+1. Seleccione **Crear**.
 
-1. Cree la instancia de Application Insights. Establezca el tipo de aplicación en **General**.
+El paso siguiente consiste en [deshabilitar el registro integrado](#disable-built-in-logging).
 
-   ![Crear una instancia de Application Insights habilitada de tipo General](media/functions-monitoring/ai-general.png)
+### <a name="manually-connect-an-app-insights-resource"></a>Conexión manual de un recurso de App Insights 
 
-2. Copie la clave de instrumentación de la página **Essentials** de la instancia de Application Insights. Mantenga el puntero al final del valor de la clave que se muestra para obtener un botón **Haga clic para copiar**.
+1. Cree el recurso de Application Insights. Establezca el tipo de aplicación en **General**.
+
+   ![Creación de un recursos de Application Insights del tipo General](media/functions-monitoring/ai-general.png)
+
+2. Copie la clave de instrumentación de la página **Essentials** del recurso de Application Insights. Mantenga el puntero al final del valor de la clave que se muestra para obtener un botón **Haga clic para copiar**.
 
    ![Copiar la clave de instrumentación de Application Insights](media/functions-monitoring/copy-ai-key.png)
 
@@ -70,13 +82,46 @@ Obtenga la clave de instrumentación y guárdela en una aplicación de función:
 
 Si habilita Application Insights, es recomendable que deshabilite el [registro integrado que usa Azure Storage](#logging-to-storage). El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está diseñado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría estar incompleto debido a la limitación de Azure Storage.
 
-Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función).
+Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función). Antes de eliminar el valor de configuración de la aplicación, asegúrese de que no hay ninguna función existente en la misma aplicación de función que lo utilice para los desencadenadores o enlaces de Azure Storage.
 
-Cuando se habilita Application Insights y se deshabilita el registro integrado, la pestaña **Supervisión** de una función en Azure Portal le lleva a Application Insights.
+## <a name="view-telemetry-in-monitor-tab"></a>Visualización de datos de telemetría en la pestaña Supervisar
 
-## <a name="view-telemetry-data"></a>Visualización de datos de telemetría
+Una vez haya configurado la integración de Application Insights tal como se muestra en las secciones anteriores, puede ver los datos de telemetría en la pestaña **Supervisar**.
 
-Para navegar a la instancia de Application Insights conectada desde una aplicación de función en el portal, seleccione el vínculo **Application Insights** en la página **Introducción** de la aplicación de función.
+1. En la página de aplicación de función, seleccione una función que se haya ejecutado por lo menos una vez después de que se configurase Application Insights, y a continuación, seleccione la pestaña **Supervisar**.
+
+   ![Selección de la pestaña Supervisar](media/functions-monitoring/monitor-tab.png)
+
+2. Seleccione **Actualizar** periódicamente hasta que aparezca la lista de las invocaciones de funciones.
+
+   La lista puede tardar hasta 5 minutos en aparecer, debido al modo en el que el cliente de telemetría agrupa los datos en lotes para su transmisión al servidor. (Este retraso no se aplica a [Live Metrics Stream](../application-insights/app-insights-live-stream.md). Este servicio se conecta al host de Functions cuando se carga la página, por lo que los registros se transmiten directamente a la página).
+
+   ![Lista de invocaciones](media/functions-monitoring/monitor-tab-ai-invocations.png)
+
+2. Para ver los registros de una invocación de función determinada, seleccione el vínculo de la columna **Fecha** para esa invocación.
+
+   ![Vínculo de detalles de la invocación](media/functions-monitoring/invocation-details-link-ai.png)
+
+   La salida del registro para esa invocación aparece en una nueva página.
+
+   ![Detalles de la invocación](media/functions-monitoring/invocation-details-ai.png)
+
+Ambas páginas (lista de invocación y detalles) se vinculan a la consulta de análisis de Application Insights que recupera los datos:
+
+![Ejecución en Application Insights](media/functions-monitoring/run-in-ai.png)
+
+![Lista de invocación del análisis de Application Insights](media/functions-monitoring/ai-analytics-invocation-list.png)
+
+En estas consultas, puede ver que la lista de invocación se limita a los últimos 30 días, no más de 20 filas (`where timestamp > ago(30d) | take 20`) y la lista de detalles de la invocación es de los últimos 30 días sin ningún límite.
+
+Para más información, consulte la sección [Consultar datos de telemetría](#query-telemetry-data) que se encuentra más adelante en este artículo.
+
+## <a name="view-telemetry-in-app-insights"></a>Visualización de la telemetría en Application Insights
+
+Para abrir Application Insights desde una aplicación de función en Azure Portal, seleccione el vínculo **Application Insights** en la sección **Características configuradas** de la página **Información general** de la aplicación de función.
+
+![Vínculo de Application Insights en la página Información general](media/functions-monitoring/ai-link.png)
+
 
 Para obtener más información acerca de Application Insights, consulte [Documentación de Application Insights](https://docs.microsoft.com/azure/application-insights/). En esta sección se muestran algunos ejemplos de cómo ver los datos de Application Insights. Si ya está familiarizado con Application Insights, puede ir directamente a [las secciones acerca de cómo configurar y personalizar los datos de telemetría](#configure-categories-and-log-levels).
 
@@ -256,7 +301,7 @@ Como se indicó en la sección anterior, el tiempo de ejecución agrega datos ac
 
 ## <a name="configure-sampling"></a>Configurar el muestreo
 
-Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando el número de elementos de telemetría supera una tasa especificada, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. Puede configurar el muestreo en *host.json*.  Este es un ejemplo:
+Application Insights tiene una característica de [muestreo](../application-insights/app-insights-sampling.md) que le puede ayudar a impedir que se recopilen demasiados datos de telemetría en los momentos de picos de carga. Cuando el número de elementos de telemetría supera una tasa especificada, Application Insights empieza a omitir aleatoriamente algunos de los elementos entrantes. La configuración predeterminada para el número máximo de elementos por segundo es 5. Puede configurar el muestreo en *host.json*.  Este es un ejemplo:
 
 ```json
 {
@@ -489,13 +534,19 @@ Para notificar un problema con la integración de Application Insights en Functi
 
 ## <a name="monitoring-without-application-insights"></a>Supervisión sin Application Insights
 
-Se recomienda Application Insights para supervisar funciones porque ofrece más datos y mejores maneras de analizarlos. No obstante, también puede encontrar registros y datos de telemetría en las páginas de Azure Portal de una instancia de Function App.
+Se recomienda Application Insights para supervisar funciones porque ofrece más datos y mejores maneras de analizarlos. Pero si prefiere el sistema de registro integrado que utiliza Azure Storage, puede continuar usando este.
 
 ### <a name="logging-to-storage"></a>Registro en el almacenamiento
 
-El registro integrado usa la cuenta de almacenamiento especificada por la cadena de conexión en la configuración de la aplicación `AzureWebJobsDashboard`. Si la configuración de la aplicación está establecida, puede ver los datos del registro en Azure Portal. En el recurso de almacenamiento, vaya a Archivos, seleccione el servicio de archivos para la función y, a continuación, vaya a `LogFiles > Application > Functions > Function > your_function` para ver el archivo de registro. En la página de una aplicación de función, seleccione una función y elija la pestaña **Supervisión**. Obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
+El registro integrado usa la cuenta de almacenamiento especificada por la cadena de conexión en la configuración de la aplicación `AzureWebJobsDashboard`. En la página de una aplicación de función, seleccione una función, luego la pestaña **Supervisar** y elija mantener la vista clásica.
 
-Si usa Application Insights y tiene el [registro integrado deshabilitado](#disable-built-in-logging), la pestaña **Supervisión** le lleva a Application Insights.
+![Cambio a la vista clásica](media/functions-monitoring/switch-to-classic-view.png)
+
+ Obtendrá una lista de las ejecuciones de la función. Seleccione una ejecución de la función para revisar la duración, los datos de entrada, los errores y los archivos de registro asociados.
+
+Si ha habilitado Application Insights anteriormente, pero ahora desea ir al registro integrado, deshabilite Application Insights manualmente y, a continuación, seleccione la pestaña **Supervisar**. Para deshabilitar la integración de Application Insights, elimine el valor de la configuración de aplicación APPINSIGHTS_INSTRUMENTATIONKEY.
+
+Incluso si la pestaña **Supervisar** muestra datos de Application Insights, puede ver los datos de registro del sistema de archivos si no ha [deshabilitado el registro integrado](#disable-built-in-logging). En el recurso de almacenamiento, vaya a Archivos, seleccione el servicio de archivos para la función y, a continuación, vaya a `LogFiles > Application > Functions > Function > your_function` para ver el archivo de registro.
 
 ### <a name="real-time-monitoring"></a>Supervisión en tiempo real
 

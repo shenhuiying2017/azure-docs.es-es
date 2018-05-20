@@ -4,7 +4,7 @@ description: En este artículo se proporciona un conjunto de comprobaciones de l
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c03e8bcfe3b874e3897d3c2d94f42d10d64d7af5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ae8f2393b6965cc2fc78a297ea79e1170acc011f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de comprobación de seguridad operativa de Azure
 La implementación de una aplicación en Azure es un procedimiento rápido, sencilla y rentable. Antes de implementar la aplicación en la nube en producción, es útil disponer de una lista de comprobación que ayude en la evaluación de la aplicación en relación con una lista de acciones de seguridad operativas esenciales y recomendadas que tener en cuenta.

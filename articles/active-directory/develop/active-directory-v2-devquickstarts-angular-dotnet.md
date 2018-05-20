@@ -1,25 +1,27 @@
 ---
-title: "Introducción a la aplicación de página única de AngularJS de .NET v2.0 de Azure AD | Microsoft Docs"
-description: "Cómo crear una aplicación de una página Angular JS que inicia la sesión de los usuarios tanto con cuentas de Microsoft personales como educativas o profesionales."
+title: Introducción a la aplicación de página única de AngularJS de .NET v2.0 de Azure AD | Microsoft Docs
+description: Cómo crear una aplicación de una página Angular JS que inicia la sesión de los usuarios tanto con cuentas de Microsoft personales como educativas o profesionales.
 services: active-directory
-documentationcenter: 
-author: jmprieur
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6a341781-278f-461b-92ca-7572a06e6852
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d2a2108fb2205f646b2ac807922a90939bdee9f6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d1ddeb957096dc506bc76e1aac600eaa5bc2fbc
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Agregar inicio de sesión a una aplicación de una página AngularJS (.NET)
 En este artículo vamos a agregar inicio de sesión con cuentas con tecnología de Microsoft a una aplicación AngularJS mediante el punto de conexión v2.0 de Azure Active Directory.  El punto de conexión v2.0 le permite realizar una sola integración en su aplicación y autenticar a los usuarios con cuentas tanto personales como educativas o profesionales.
@@ -224,7 +226,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-¡Enhorabuena!  La aplicación de una sola página integrada de Azure AD está terminada ahora.  !Ya puede salir a recibir el aplauso del público!  Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario.  De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD.  Ejecute la aplicación, y en un explorador, vaya a `https://localhost:44326/`.  Inicie sesión con una cuenta de Microsoft personal, profesional o educativa.  Agregue tareas a la lista de tareas del usuario y cierre la sesión.  Intente iniciar sesión con el otro tipo de cuenta. Si necesita un inquilino de Azure AD para crear usuarios de cuentas profesionales o educativas, [obtenga información sobre cómo conseguir uno aquí](active-directory-howto-tenant.md) (es gratuito).
+Felicidades.  La aplicación de una sola página integrada de Azure AD está terminada ahora.  !Ya puede salir a recibir el aplauso del público!  Con ella puede autenticar usuarios, llamar de forma segura a su API de REST de back-end mediante OpenID Connect y obtener información básica sobre el usuario.  De forma predeterminada, es compatible con cualquier usuario con una cuenta de Microsoft personal, profesional o educativa desde Azure AD.  Ejecute la aplicación, y en un explorador, vaya a `https://localhost:44326/`.  Inicie sesión con una cuenta de Microsoft personal, profesional o educativa.  Agregue tareas a la lista de tareas del usuario y cierre la sesión.  Intente iniciar sesión con el otro tipo de cuenta. Si necesita un inquilino de Azure AD para crear usuarios de cuentas profesionales o educativas, [obtenga información sobre cómo conseguir uno aquí](active-directory-howto-tenant.md) (es gratuito).
 
 Para obtener más información sobre el punto de conexión v2.0, regrese a nuestra [guía para desarrolladores de v2.0](active-directory-appmodel-v2-overview.md).  Para obtener recursos adicionales, consulte:
 

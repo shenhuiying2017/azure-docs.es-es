@@ -1,5 +1,5 @@
 ---
-title: "Implementación de recursos con la API de REST y plantilla | Microsoft Docs"
+title: Implementación de recursos con la API de REST y plantilla | Microsoft Docs
 description: Use Azure Resource Manager y la API de REST de Resource Manager para implementar recursos en Azure. Los recursos se definen en una plantilla de Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,22 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b46b36805c2f33b1e066bbee2d0333113a26922a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: bf2fc2aeb094a828fa1efe6904b897f3a4ab46d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
-> [!div class="op_single_selector"]
-> * [PowerShell](resource-group-template-deploy.md)
-> * [CLI de Azure](resource-group-template-deploy-cli.md)
-> * [Portal](resource-group-template-deploy-portal.md)
-> * [API DE REST](resource-group-template-deploy-rest.md)
-> 
-> 
 
 En este artículo se explica cómo usar la API de REST de Resource Manager con plantillas de Resource Manager para implementar sus recursos en Azure.  
 
@@ -44,47 +37,79 @@ La plantilla puede ser un archivo local o en un archivo externo que está dispon
 [!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 ## <a name="deploy-with-the-rest-api"></a>Implementación con la API de REST
-1. Establezca los [encabezados y parámetros comunes](https://docs.microsoft.com/rest/api/index), incluidos los tokens de autenticación.
-2. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](https://docs.microsoft.com/rest/api/resources/resourcegroups#ResourceGroups_CreateOrUpdate).
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
-          <common headers>
-          {
-            "location": "West US",
-            "tags": {
-               "tagname1": "tagvalue1"
-            }
-          }
-3. Valide la implementación antes de ejecutarla. Para ello, ejecute la operación de [validación de una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Validate). Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación (como se muestra en el paso siguiente).
+1. Establezca los [encabezados y parámetros comunes](/rest/api/azure/), incluidos los tokens de autenticación.
+
+2. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  {
+    "location": "West US",
+    "tags": {
+      "tagname1": "tagvalue1"
+    }
+  }
+  ```
+
+3. Valide la implementación antes de ejecutarla. Para ello, ejecute la operación de [validación de una implementación de plantilla](/rest/api/resources/deployments/validate). Al probar la implementación, proporcione los parámetros exactamente como lo haría al ejecutar la implementación (como se muestra en el paso siguiente).
+
 4. Cree una implementación. Especifique el identificador de suscripción, el nombre del grupo de recursos, el nombre de la implementación y un vínculo a su plantilla. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](#parameter-file). Para obtener más información acerca de la API de REST para crear un grupo de recursos, consulte [Creación de una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). Observe que el **modo** se establece en **Incremental**. Para ejecutar una implementación completa, establezca el **modo** en **Completo**. Tenga cuidado al usar este modo, ya que puede eliminar accidentalmente los recursos que no estén en la plantilla.
-   
-        PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-          <common headers>
-          {
-            "properties": {
-              "templateLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-                "contentVersion": "1.0.0.0"
-              },
-              "mode": "Incremental",
-              "parametersLink": {
-                "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-                "contentVersion": "1.0.0.0"
-              }
-            }
-          }
-   
-      Si desea registrar el contenido de la respuesta y el de la solicitud, o ambos, incluya **debugSetting** en la solicitud.
-   
-        "debugSetting": {
-          "detailLevel": "requestContent, responseContent"
-        }
-   
-      Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)(Delegación del acceso con una firma de acceso compartido).
-5. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get).
-   
-          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
-           <common headers>
+
+  ```HTTP
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  {
+    "properties": {
+      "templateLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
+        "contentVersion": "1.0.0.0"
+      },
+      "mode": "Incremental",
+      "parametersLink": {
+        "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
+        "contentVersion": "1.0.0.0"
+      }
+    }
+  }
+  ```
+
+    Si desea registrar el contenido de la respuesta y el de la solicitud, o ambos, incluya **debugSetting** en la solicitud.
+
+  ```HTTP
+  "debugSetting": {
+    "detailLevel": "requestContent, responseContent"
+  }
+  ```
+
+    Puede configurar la cuenta de almacenamiento para utilizar un token de firma de acceso compartido (SAS). Para obtener más información, consulte [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)(Delegación del acceso con una firma de acceso compartido).
+
+5. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](/rest/api/resources/deployments/get).
+
+  ```HTTP
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  ```
+
+## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
+
+Si se produce un error en las implementaciones, puede especificar que se vuelva a implementar automáticamente una implementación anterior desde el historial de implementaciones. Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
+
+Para volver a implementar la última implementación correcta si se produce un error en la actual, use:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "LastSuccessful",
+},
+```
+
+Para volver a implementar una implementación específica si se produce un error en la implementación actual, use:
+
+```HTTP
+"onErrorDeployment": {
+  "type": "SpecificDeployment",
+  "deploymentName": "<deploymentname>"
+}
+```
+
+La implementación especificada debe haberse realizado correctamente.
 
 ## <a name="parameter-file"></a>Archivo de parámetros
 

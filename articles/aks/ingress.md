@@ -1,25 +1,25 @@
 ---
-title: Configuración de la entrada con un clúster de Azure Container Service (AKS)
-description: Instale y configure un controlador de entrada NGINX en un clúster de Azure Container Service (AKS).
+title: Configuración de la entrada con un clúster de Azure Kubernetes Service (AKS)
+description: Instale y configure un controlador de entrada NGINX en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 03/03/2018
+ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: dbb37c6fc2b5db8b2799eaacbfb4864c4e04fee7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a6c9036a85e1c979d649896a9361e401f6f7cc0a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="https-ingress-on-azure-container-service-aks"></a>Entrada HTTPS en Azure Container Service (AKS)
+# <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Entrada HTTPS en Azure Kubernetes Service (AKS)
 
 Un controlador de entrada es un software que proporciona el proxy inverso, el enrutamiento del tráfico configurable y la terminación de TLS para los servicios de Kubernetes. Los recursos de entrada de Kubernetes se usan para configurar las reglas de entrada y las rutas de los distintos servicios de Kubernetes. Mediante reglas de entrada y un controlador de entrada, se puede enrutar el tráfico a varios servicios de Kubernetes de un clúster de Kubernetes con una sola dirección externa.
 
-Este documento le guiará con la implementación de ejemplo del [controlador de entrada NGINX][nginx-ingress] en un clúster de Azure Container Service (AKS). Además, con el proyecto [KUBE-LEGO][kube-lego] se generan y se configuran automáticamente certificados de [Let's Encrypt][lets-encrypt]. Por último, en el clúster de AKS se ejecutan varias aplicaciones, a las cuales se puede acceder con una sola dirección.
+Este documento le guiará con la implementación de ejemplo del [controlador de entrada NGINX][nginx-ingress] en un clúster de Azure Kubernetes Service (AKS). Además, con el proyecto [KUBE-LEGO][kube-lego] se generan y se configuran automáticamente certificados de [Let's Encrypt][lets-encrypt]. Por último, en el clúster de AKS se ejecutan varias aplicaciones, a las cuales se puede acceder con una sola dirección.
 
 ## <a name="prerequisite"></a>Requisito previo
 
@@ -46,9 +46,9 @@ Durante la instalación se crea una dirección IP pública de Azure para el cont
 ```console
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
+NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 Dado que no se han creado reglas de entrada, si llega hasta la dirección IP pública, se le dirigirá a la página 404 predeterminada de los controladores de entrada NGINX.
@@ -63,7 +63,7 @@ Dado que se usan certificados HTTPS, debe configurar un nombre de dominio comple
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

@@ -3,7 +3,7 @@ title: 'Plano de procesamiento de pagos de Azure: requisitos de acceso'
 description: Requisito 7 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: ac3afee9-0471-465d-a115-67488a1635a6
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 5a3c9eac552fb96309cfa791a2e72a7102662e60
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: fb16a7973022421525e13313f53f615120caa38a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>Requisitos de acceso para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-7"></a>Requisito 7 de PCI DSS
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/16/2017
 **Restricción del acceso a los datos de los titulares de tarjetas según la necesidad de conocimiento de la información de las empresas**
 
 > [!NOTE]
-> El [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para el sector de tarjetas de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos (DDS) para la PCI, versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el PCI DSS para obtener información sobre procedimientos de comprobación e instrucciones para cada requisito.
+> [Payment Card Industry (PCI) Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) (Consejo de estándares de seguridad para la industria de tarjeta de pago) define estos requisitos como parte del [Estándar de Seguridad de Datos PCI (PCI DSS), versión 3.2](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss). Consulte el estándar PCI DSS para más información sobre los procedimientos de comprobación e instrucciones para cada requisito.
 
 Para asegurarse de que solo el personal autorizado puede acceder a los datos más importantes, los sistemas y los procesos deben estar configurados para limitar el acceso según la necesidad de conocimiento de la información y según las responsabilidades del trabajo.
 
@@ -41,7 +41,7 @@ Con "necesidad de conocimiento de la información" hacemos referencia a cuando s
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Azure exige las directivas de ISMS existentes relacionadas con el acceso de usuarios de Azure a los componentes del sistema de Azure, la verificación de la efectividad del control de acceso, la proporción de acceso administrativo Just-In-Time, la revocación de acceso cuando ya no es necesario y la seguridad de que el personal que accede al entorno de la plataforma de Azure lo hace porque es necesario. El acceso de Azure a entornos de clientes está restringido y solo se permite bajo aprobación del cliente.<br /><br />Se han establecido procedimientos para restringir el acceso físico al centro de datos a empleados, proveedores, autónomos y visitantes autorizados. La verificación de seguridad y de entrada son pasos necesarios para el personal que solicita acceso temporal al interior de las instalaciones del centro de datos. Los equipos de Azure revisan los registros de acceso físico cada trimestre. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la limitación de acceso a los componentes del sistema y datos de titulares de tarjetas solo a aquellas personas cuyo trabajo exige ese acceso. Esto incluye la limitación y la restricción de acceso al Portal de administración de Azure, así como la especificación de cuentas o roles con permisos para crear, modificar o eliminar servicios PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la limitación de acceso a los componentes del sistema y datos de titulares de tarjetas solo a aquellas personas cuyo trabajo exige ese acceso. Esto incluye la limitación y la restricción de acceso al Portal de administración de Azure, así como la especificación de cuentas o roles con permisos para crear, modificar o eliminar servicios PaaS.|
 
 
 
@@ -56,7 +56,7 @@ Con "necesidad de conocimiento de la información" hacemos referencia a cuando s
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la definición y documentación del proceso de aprobación del id. de usuario, de la definición de privilegios mínimos, de la restricción de acceso a datos de titulares de tarjetas, del uso de id. únicos, de la proporción de división de tareas y de la revocación de acceso de usuario cuando ya no es necesario.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la definición y documentación del proceso de aprobación del id. de usuario, de la definición de privilegios mínimos, de la restricción de acceso a datos de titulares de tarjetas, del uso de id. únicos, de la proporción de división de tareas y de la revocación de acceso de usuario cuando ya no es necesario.|
 
 
 
@@ -69,7 +69,7 @@ Con "necesidad de conocimiento de la información" hacemos referencia a cuando s
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ha adoptado directivas aplicables de seguridad corporativa y organizativa, incluida una directiva de seguridad de la información. Las directivas han sido aprobadas, publicadas y comunicadas a Microsoft Azure. La directiva de seguridad de la información de Microsoft Azure exige que el acceso a los recursos de Microsoft Azure se conceda basándose en una justificación empresarial, que tenga la autorización del propietario del recurso y que se vea limitado en función de los principios de "necesidad de conocimiento de la información" y "privilegios mínimos". La directiva también aborda los requisitos de ciclo de vida de administración de acceso, incluido el aprovisionamiento de acceso, la autorización de acceso, la autenticación, la eliminación de derechos de acceso y las revisiones de acceso periódicas. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso crea tres cuentas durante la implementación: admin, sqladmin y edna (el usuario predefinido con la sesión iniciada en la aplicación web durante la ejecución de la demostración). Los roles de usuario están limitados a tareas según el escenario documentado en la demostración.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso crea tres cuentas durante la implementación: admin, sqladmin y edna (el usuario predefinido con la sesión iniciada en la aplicación web durante la ejecución de la demostración). Los roles de usuario están limitados a tareas según el escenario documentado en la demostración.|
 
 
 
@@ -82,7 +82,7 @@ Con "necesidad de conocimiento de la información" hacemos referencia a cuando s
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | La tienda web de Contoso crea tres cuentas durante la implementación: admin, sqladmin y edna (el usuario predefinido con la sesión iniciada en la aplicación web durante la ejecución de la demostración). Los roles de usuario están limitados a tareas según el escenario documentado en la demostración.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | La tienda web de Contoso crea tres cuentas durante la implementación: admin, sqladmin y edna (el usuario predefinido con la sesión iniciada en la aplicación web durante la ejecución de la demostración). Los roles de usuario están limitados a tareas según el escenario documentado en la demostración.|
 
 
 
@@ -95,7 +95,7 @@ Con "necesidad de conocimiento de la información" hacemos referencia a cuando s
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la limitación de acceso a los componentes del sistema y datos de titulares de tarjetas solo a aquellas personas cuyo trabajo exige ese acceso. Esto incluye la limitación y la restricción de acceso al Portal de administración de Azure, así como la especificación de cuentas o roles con permisos para crear, modificar o eliminar servicios PaaS.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | Los clientes son responsables de la limitación de acceso a los componentes del sistema y datos de titulares de tarjetas solo a aquellas personas cuyo trabajo exige ese acceso. Esto incluye la limitación y la restricción de acceso al Portal de administración de Azure, así como la especificación de cuentas o roles con permisos para crear, modificar o eliminar servicios PaaS.|
 
 
 
@@ -112,7 +112,7 @@ Este sistema de control de acceso debe incluir lo siguiente:
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso se usa Azure Active Directory para restringir el acceso solo a los usuarios designados. Para obtener más información, consulte [Guía de PCI: Administración de identidades](payment-processing-blueprint.md#identity-management).|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la tienda web de Contoso se usa Azure Active Directory para restringir el acceso solo a los usuarios designados. Para obtener más información, consulte [PCI Guidance - Identity Management](payment-processing-blueprint.md#identity-management) (Guía de PCI: Administración de identidades).|
 
 
 
@@ -125,7 +125,7 @@ Este sistema de control de acceso debe incluir lo siguiente:
 |||
 |---|---|
 | **Proveedor<br />(Microsoft&nbsp;Azure)** | No aplicable. |
-| **Cliente<br />(plano técnico de &nbsp;PCI&#8209;DSS)** | En la documentación de la tienda web de Contoso se proporciona un caso de uso y una descripción relacionadas con quien usa la CHD y cómo se usa.|
+| **Cliente<br />(proyecto de&nbsp;PCI&#8209;DSS)** | En la documentación de la tienda web de Contoso se proporciona un caso de uso y una descripción relacionadas con quien usa la CHD y cómo se usa.|
 
 
 

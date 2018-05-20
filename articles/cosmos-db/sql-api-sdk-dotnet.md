@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4d33fc513b3a2aaa70a3402a42b31efe63c62dd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5e96c57151899a7365431d0f6f82382d56d81a40
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>API de SQL para el SDK de .NET para Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -33,8 +33,8 @@ ms.lasthandoff: 04/16/2018
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Proveedor de recursos de REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor: .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor: Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -52,6 +52,12 @@ ms.lasthandoff: 04/16/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
+
+* Se agregó la propiedad ConsistencyLevel a FeedOptions.
+* Se agregó JsonSerializerSettings a RequestOptions y FeedOptions.
+* Se agregó EnableReadRequestsFallback a ConnectionPolicy.
+
 ### <a name="a-name12111211"></a><a name="1.21.1"/>1.21.1
 
 * Se ha corregido KeyNotFoundException para el orden de particiones cruzadas por consultas en casos excepcionales.
@@ -293,6 +299,7 @@ El servicio rechaza cualquier solicitud realizada a Azure Cosmos DB mediante un 
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.22.0](#1.22.0) |19 de abril de 2018 |--- |
 | [1.21.1](#1.20.1) |9 de marzo de 2018 |--- |
 | [1.20.2](#1.20.1) |21 de febrero de 2018 |--- |
 | [1.20.1](#1.20.1) |5 de febrero de 2018 |--- |

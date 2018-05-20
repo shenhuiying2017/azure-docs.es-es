@@ -155,6 +155,8 @@
       href: 'https://catalog.azureiotsuite.com/'
     - name: Centro para desarrolladores de Azure
       href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Solicitudes de datos del cliente
+      href: iot-dps-customer-data-requests.md
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
     - name: Herramienta Explorador de dispositivos

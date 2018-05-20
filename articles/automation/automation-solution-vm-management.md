@@ -3,16 +3,17 @@ title: Solución Start/Stop VMs during off-hours (versión preliminar)
 description: Esta solución de administración de máquinas virtuales inicia y detiene máquinas virtuales de Azure Resource Manager según una programación y realiza una supervisión proactiva desde Log Analytics.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 41a5ff2613706b7454a96daa52c7cb20c734c394
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 410f76d406ab65ff1732525a501fe007eeeb5f6a
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Solución Start/Stop VMs during off-hours (versión preliminar) en Azure Automation
 
@@ -26,7 +27,7 @@ Esta solución proporciona una opción de automatización descentralizada para l
 
 ## <a name="prerequisites"></a>requisitos previos
 
-* Los Runbooks funciona con una [cuenta de ejecución de Azure](automation-offering-get-started.md#authentication-methods). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
+* Los Runbooks funciona con una [cuenta de ejecución de Azure](automation-create-runas-account.md). La cuenta de ejecución es el método de autenticación preferido, ya que emplea la autenticación mediante certificado, en lugar de una contraseña que puede expirar o cambiar con frecuencia.
 * Esta solución solo administrar máquinas virtuales que se encuentren en la misma suscripción que la cuenta de Azure Automation.
 * Esta solución se implementa únicamente en las siguientes regiones de Azure: Sudeste de Australia, Centro de Canadá, Centro de la India, Este de EE. UU., Japón Oriental, Sudeste Asiático, Sur de Reino Unido y Europa Occidental.
 
@@ -80,8 +81,8 @@ Realice los siguientes pasos para agregar la solución Start/Stop VMs during off
    * Seleccione una **programación**. Se trata de la fecha y hora recurrentes para iniciar y detener las máquinas virtuales en los grupos de recursos de destino. De forma predeterminada, la programación se configura para la zona horaria UTC. No se puede seleccionar otra región. Para configurar su zona horaria concreta después de configurar la solución, consulte el siguiente artículo [Modificación de la programación de inicio y apagado](#modify-the-startup-and-shutdown-schedule).
    * Para recibir **notificaciones por correo electrónico** de SendGrid, acepte el valor predeterminado **Sí** y proporcione una dirección de correo electrónico válida. Si selecciona **No** pero posteriormente decide que desea recibir notificaciones por correo electrónico, puede actualizar la variable **External_EmailToAddress** con direcciones de correo electrónico válidas separadas por una coma y, después, modificar la variable **External_IsSendEmail** con el valor **Yes**.
 
-> [!IMPORTANT]
-> El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;**. Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
+    > [!IMPORTANT]
+    > El valor predeterminado de los **nombres del grupo de recursos de destino** es **&ast;**. Este se dirige a todas las máquinas virtuales de una suscripción. Si no desea que la solución se dirija a todas las máquinas virtuales de su suscripción, este valor debe actualizarse a una lista de nombres del grupo de recursos antes de habilitar las programaciones.
 
 1. Cuando haya configurado los valores iniciales necesarios para la solución, haga clic en **Aceptar** para cerrar la página **Parámetros** y seleccione **Crear**. Cuando todos los valores se hayan validado, la solución se implementa en su suscripción. Este proceso puede tardar varios segundos en finalizar y se puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.
 
@@ -218,7 +219,7 @@ En todos los escenarios, las variables **External_Start_ResourceGroupNames**, **
 
 ### <a name="schedules"></a>Programaciones
 
-En la tabla siguiente se enumera cada una de las programaciones predeterminadas que se crean en su cuenta de Automation.  Puede modificarlas o crear sus propias programaciones personalizadas. De forma predeterminada, se deshabilitan todas ellas, excepto **Scheduled_StartVM** y **Scheduled-StopVM**.
+En la tabla siguiente se enumera cada una de las programaciones predeterminadas que se crean en su cuenta de Automation. Puede modificarlas o crear sus propias programaciones personalizadas. De forma predeterminada, se deshabilitan todas ellas, excepto **Scheduled_StartVM** y **Scheduled-StopVM**.
 
 No se deben habilitar todas las programaciones, ya que ello podría crear acciones de programación que se superpongan. Lo mejor es determinar las optimizaciones que se desean y realizar las modificaciones oportunas. Vea los escenarios de ejemplo en la sección de información general para obtener una explicación.
 
@@ -226,7 +227,7 @@ No se deben habilitar todas las programaciones, ya que ello podría crear accion
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Cada ocho horas | Ejecuta el runbook AutoStop_CreateAlert_Parent cada ocho horas, que a su vez detiene los valores basados en la máquina virtual en External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames y External_ExcludeVMNames en las variables de Azure Automation. Como alternativa, puede especificar una lista separada por comas de las máquinas virtuales mediante el parámetro VMList.|
 |Scheduled_StopVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de *Stop* cada día a la hora especificada. Detiene automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables de los recursos. Debe habilitar la programación relacionada, **Scheduled-StartVM**.|
-|Scheduled_StartVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de *Start* cada día a la hora especificada.  Inicia automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables adecuadas. Debe habilitar la programación relacionada, **Scheduled-StopVM**.|
+|Scheduled_StartVM | Definido por el usuario, diario | Ejecuta el runbook Scheduled_Parent con un parámetro de *Start* cada día a la hora especificada. Inicia automáticamente todas las máquinas virtuales que cumplan las reglas definidas por las variables adecuadas. Debe habilitar la programación relacionada, **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), todos los viernes | Ejecuta el runbook Sequenced_Parent con un parámetro de *Stop* todos los viernes a la hora especificada. Detiene secuencialmente (de forma ascendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStop** definida por las variables adecuadas. Para más información acerca de los valores de las etiquetas y las variables de los recursos, consulte la sección Runbooks. Debe habilitar la programación relacionada, **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (hora UTC), todos los lunes | Ejecuta el runbook Sequenced_Parent con un parámetro de *Start* cada lunes a la hora determinada. Inicia secuencialmente (de forma descendente) todas las máquinas virtuales que tengan la etiqueta **SequenceStart** definida por las variables adecuadas. Para más información acerca de los valores de las etiquetas y las variables de los recursos, consulte la sección Runbooks. Debe habilitar la programación relacionada, **Sequenced-StopVM**.|
 

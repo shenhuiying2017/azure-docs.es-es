@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ba73f386a19cc8bedb8879e6f7eea316154b7a57
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
@@ -26,9 +26,11 @@ Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memori
 
 * Las serie Ev3 tiene el mismo procesador E5-2673 v4 (Broadwell) de 2,3 GHz en una configuración de hyperthreading. Gracia a esto, proporciona una mejor propuesta de valor para la mayoría de las cargas de trabajo de uso general y la equipara con las máquinas virtuales de propósito general de la mayoría de las demás tecnologías de nube.  Se ha ampliado la memoria (de 7 GiB/vCPU a 8 GiB/vCPU), y los límites de disco y red se han ajustado por núcleo para equipararse con el cambio a hyperthreading.  La serie Ev3 es la continuación de los tamaños de máquina virtual de memoria alta de las familias D/Dv2.
 
-## <a name="esv3-series-sup1sup"></a>Serie Esv3 <sup>1</sup>
+* Azure Compute ofrece tamaños de máquinas virtuales que están aislados para un tipo concreto de hardware y dedicados a un solo cliente.  Estos tamaños de máquina virtual son más adecuados para cargas de trabajo que requieren un alto grado de aislamiento de otros clientes como, por ejemplo, las cargas de trabajo que incluyen elementos como el cumplimiento normativo y los requisitos legales.  Los clientes también puede elegir subdividir aún más los recursos de estas máquinas virtuales aisladas mediante la [compatibilidad de Azure para máquinas virtuales anidadas](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Consulte las tablas de familias de máquinas virtuales que aparecen a continuación para ver las opciones de las máquinas virtuales aisladas.
 
-ACU: 160-190
+## <a name="esv3-series"></a>Serie Esv3 
+
+ACU: 160-190 <sup>1</sup>
 
 Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0 y el uso de Premium Storage. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -51,9 +53,9 @@ Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 
 
-## <a name="ev3-series-sup1sup"></a>Serie Ev3 <sup>1</sup>
+## <a name="ev3-series"></a>Serie Ev3 
 
-ACU: 160 - 190 
+ACU: 160 - 190 <sup>1</sup>
 
 Las instancias de la serie Ev3 se basan en el procesador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -75,9 +77,9 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 <sup>2</sup> Tamaños de núcleos restringidos disponibles. 
 
 
-## <a name="m-series-sup1sup"></a>Serie M <sup>1</sup>
+## <a name="m-series"></a>Serie M 
 
-ACU: 160-180
+ACU: 160-180 <sup>1</sup>
 
 | Tamaño            | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -95,9 +97,9 @@ ACU: 160-180
 <sup>4</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
 
-## <a name="gs-series-sup1sup"></a>Serie GS <sup>1</sup>
+## <a name="gs-series"></a>Serie GS 
 
-ACU: 180 - 240
+ACU: 180 - 240 <sup>1</sup>
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -131,9 +133,9 @@ ACU: 180 - 240
 <br>
 
 
-## <a name="dsv2-series-sup1sup"></a>Serie DSv2 <sup>1</sup>
+## <a name="dsv2-series"></a>DSv2-series 
 
-ACU: 210 - 250
+ACU: 210 - 250 <sup>1</sup>
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -174,9 +176,9 @@ ACU: 210 - 250
 
 <br>
 
-## <a name="ds-series-sup1sup"></a>Serie DS <sup>1</sup>
+## <a name="ds-series"></a>Serie DS 
 
-ACU: 160
+ACU: 160 <sup>1</sup>
 
 | Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento de almacenamiento temporal en caché y máx.: E/S por segundo / MBps (tamaño de caché en GiB) | Rendimiento de disco no en caché máx.: E/S por segundo / Mbps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

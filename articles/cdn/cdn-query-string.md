@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con cadenas de consulta: nivel estándar
 > [!div class="op_single_selector"]
@@ -27,11 +27,10 @@ ms.lasthandoff: 04/05/2018
 > 
 
 ## <a name="overview"></a>Información general
-Con el almacenamiento en caché de cadenas de consulta, Azure Content Delivery Network (CDN) controla cómo se almacenan en caché los archivos de una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen. 
+Azure Content Delivery Network (CDN) le permite controlar cómo se almacenan los archivos en caché para una solicitud web que contiene una cadena de consulta. En una solicitud web con una cadena de consulta, esta última es la parte de la solicitud que hay después del signo de interrogación (?). Una cadena de consulta puede contener uno o más pares clave-valor, en los cuales el nombre de campo y su valor están separados por un signo igual (=). Los pares clave-valor están separados entre ellos por una Y comercial (&). Por ejemplo, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. Si hay más de un par clave-valor en una cadena de consulta de una solicitud, no importa el orden en el que se especifiquen. 
 
-> [!NOTE]
-> Los productos estándar y premium de Azure CDN ofrecen la misma funcionalidad de almacenamiento en caché de cadenas de consulta, pero la interfaz de usuario es distinta.  En este artículo se describe la interfaz de **Azure CDN Standard de Akamai** y **Azure CDN Standard de Verizon**. Para información sobre el almacenamiento en caché de cadenas de consulta con el **Azure CDN premium de Verizon**, consulte [Control del comportamiento de almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium](cdn-query-string-premium.md).
->
+> [!IMPORTANT]
+> Los productos estándar y premium de Azure CDN ofrecen la misma funcionalidad de almacenamiento en caché de cadenas de consulta, pero la interfaz de usuario es distinta. En este artículo se describe la interfaz de **Azure CDN Estándar de Microsoft**, **Azure CDN Estándar de Akamai** y **Azure CDN Estándar de Verizon**. Para información sobre el almacenamiento en caché de cadenas de consulta con el **Azure CDN premium de Verizon**, consulte [Control del comportamiento de almacenamiento en caché de Azure CDN con cadenas de consulta: nivel premium](cdn-query-string-premium.md).
 
 Existen tres modos de cadena de consulta:
 
@@ -58,9 +57,10 @@ Existen tres modos de cadena de consulta:
    ![Opciones del almacenamiento en caché de cadenas de consultas de CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Es posible que los cambios en la configuración de la cadena de caché no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de CDN: 
+> Es posible que los cambios en la configuración de la cadena de caché no sean visibles de forma inmediata, ya que el registro puede tardar en propagarse a través de CDN:
+> - En los perfiles **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en diez minutos. 
 > - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
-> - En los perfiles de **Azure CDN estándar de Verizon**, la propagación normalmente se completa en 90 minutos.
->
+> - En los perfiles **Azure CDN Estándar de Verizon** y **Azure CDN Premium de Verizon**, la propagación se completa normalmente en 90 minutos. 
+
 
 

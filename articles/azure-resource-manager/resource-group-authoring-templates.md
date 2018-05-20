@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: b0bc5abd768be0fa5876aaef108cd71a15d94510
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 3b70817f973f0bfbdcec2aa8c76a431eec308bcf
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para obtener instrucciones detalladas sobre cómo crear una plantilla, consulte [Creación de la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
@@ -32,6 +32,7 @@ En la estructura más simple, una plantilla contiene los siguientes elementos:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
+    "functions": {  },
     "resources": [  ],
     "outputs": {  }
 }
@@ -43,6 +44,7 @@ En la estructura más simple, una plantilla contiene los siguientes elementos:
 | contentVersion |Sí |Versión de la plantilla (por ejemplo, 1.0.0.0). Puede especificar cualquier valor para este elemento. Al implementar los recursos con la plantilla, este valor se puede usar para asegurarse de que se está usando la plantilla correcta. |
 | parameters |Sin  |Valores que se proporcionan cuando se ejecuta la implementación para personalizar la implementación de recursos. |
 | variables |Sin  |Valores que se usan como fragmentos JSON en la plantilla para simplificar expresiones de idioma de la plantilla. |
+| functions |Sin  |Funciones definidas por el usuario que están disponibles dentro de la plantilla. |
 | resources |Sí |Tipos de servicios que se implementan o actualizan en un grupo de recursos. |
 | outputs |Sin  |Valores que se devuelven después de la implementación. |
 
@@ -92,6 +94,25 @@ Cada elemento contiene propiedades que pueden incluirse. En el ejemplo siguiente
             }
         ]
     },
+    "functions": [
+      {
+        "namespace": "<namespace-for-your-function>",
+        "members": {
+          "<function-name>": {
+            "parameters": [
+              {
+                "name": "<parameter-name>",
+                "type": "<type-of-parameter-value>"
+              }
+            ],
+            "output": {
+              "type": "<type-of-output-value>",
+              "value": "<function-expression>"
+            }
+          }
+        }
+      }
+    ],
     "resources": [
       {
           "condition": "<boolean-value-whether-to-deploy>",
@@ -184,6 +205,59 @@ En el ejemplo siguiente se muestra una definición de variable simple:
 ```
 
 Para obtener más información acerca de cómo definir variables, consulte [Sección de variables de plantillas de Azure Resource Manager](resource-manager-templates-variables.md).
+
+## <a name="functions"></a>Functions
+
+Dentro de la plantilla, puede crear sus propias funciones. Estas funciones están disponibles para su uso en la plantilla. Normalmente, definirá una expresión compleja que no desea repetir en toda la plantilla. Creará las funciones definidas por el usuario a partir de las expresiones y [funciones](resource-group-template-functions.md) que se admiten en las plantillas.
+
+Al definir una función de usuario, hay algunas restricciones:
+
+* La función no puede acceder a las variables.
+* La función no puede usar la [función de referencia](resource-group-template-functions-resource.md#reference).
+* Los parámetros de la función no pueden tener valores predeterminados.
+
+Las funciones requieren un valor de espacio de nombres para evitar conflictos de nomenclatura con las funciones de plantilla. En el ejemplo siguiente se muestra una función que devuelve un nombre de cuenta de almacenamiento:
+
+```json
+"functions": [
+  {
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
+  }
+],
+```
+
+Se llama a la función con:
+
+```json
+"resources": [
+  {
+    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2016-01-01",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "location": "South Central US",
+    "tags": {},
+    "properties": {}
+  }
+]
+```
 
 ## <a name="resources"></a>Recursos
 En la sección de recursos, se define que los recursos se implementan o se actualizan. Esta sección se puede complicar porque debe comprender los tipos que va a implementar para proporcionar los valores adecuados.

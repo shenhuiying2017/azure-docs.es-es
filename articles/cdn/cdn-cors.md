@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f9429e88525e27c0b6bad29d1927d53d05dfbcc8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de la red CDN de Azure con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -57,7 +57,7 @@ Una solicitud compleja es una solicitud de CORS en la que es necesario que el ex
 ## <a name="wildcard-or-single-origin-scenarios"></a>Escenarios de origen único o carácter comodín
 En la red CDN de Azure, CORS funcionará automáticamente sin ninguna configuración adicional, cuando el encabezado **Access-Control-Allow-Origin** esté establecido en un carácter comodín (*) o en un solo origen.  La red CDN copiará en caché la primera respuesta, y las solicitudes siguientes usarán el mismo encabezado.
 
-Si ya se han enviado solicitudes a la red CDN antes de establecer CORS en el origen, tendrá que purgar el contenido del punto de conexión para volver a cargarlo con el encabezado **Access-Control-Allow-Origin** .
+Si ya se han enviado solicitudes a la red CDN antes de establecer CORS en el origen, tendrá que purgar el contenido del punto de conexión para volver a cargarlo con el encabezado **Access-Control-Allow-Origin**.
 
 ## <a name="multiple-origin-scenarios"></a>Escenarios de varios orígenes
 Si necesita permitir una lista específica de orígenes admitidos para CORS, el proceso puede resultar un poco más complicado. Encontramos el primer problema cuando la red CDN copia en caché el encabezado **Access-Control-Allow-Origin** el primer origen de CORS.  Cuando un origen de CORS distinto realiza una solicitud posteriormente, la red CDN enviará el encabezado **Access-Control-Allow-Origin** copiado en la caché, que no coincidirá.  Existen diversas formas de corregir este problema.
@@ -65,9 +65,9 @@ Si necesita permitir una lista específica de orígenes admitidos para CORS, el 
 ### <a name="azure-cdn-premium-from-verizon"></a>Red CDN premium de Azure de Verizon
 La mejor forma de habilitarlo es usar la **red CDN premium de Azure de Verizon**, que expone una serie de funciones avanzadas. 
 
-Tendrá que [crear una regla](cdn-rules-engine.md) para comprobar encabezado **Origin** de la solicitud.  Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el origen proporcionado en la solicitud.  Si el origen especificado en el encabezado **Origin** no se permite, la regla tendrá que omitir el encabezado **Access-Control-Allow-Origin** que ocasionará que el explorador rechace la solicitud. 
+Tendrá que [crear una regla](cdn-rules-engine.md) para comprobar encabezado **Origin** de la solicitud.  Si se trata de un origen válido, la regla establecerá el encabezado **Access-Control-Allow-Origin** con el origen proporcionado en la solicitud.  Si el origen especificado en el encabezado **Origin** no se permite, la regla tendrá que omitir el encabezado **Access-Control-Allow-Origin**, lo que ocasionará que el explorador rechace la solicitud. 
 
-Hay dos formas de hacerlo con el motor de reglas.  En ambos casos, el encabezado **Access-Control-Allow-Origin** del servidor de origen del archivo se pasa por alto completamente; el motor de reglas de la red CDN administra totalmente los orígenes de CORS admitidos.
+Hay dos formas de hacerlo con el motor de reglas. En ambos casos, el encabezado **Access-Control-Allow-Origin** del servidor de origen del archivo se pasa por alto; el motor de reglas de la red CDN administra totalmente los orígenes de CORS admitidos.
 
 #### <a name="one-regular-expression-with-all-valid-origins"></a>Una expresión regular con todos los orígenes válidos
 En este caso, creará una expresión regular en la que incluirá todos los orígenes que desea permitir: 
@@ -75,7 +75,7 @@ En este caso, creará una expresión regular en la que incluirá todos los oríg
     https?:\/\/(www\.contoso\.com|contoso\.com|www\.microsoft\.com|microsoft.com\.com)$
 
 > [!TIP]
-> **red CDN de Azure de Verizon** utiliza las [expresiones regulares compatibles con Perl](http://pcre.org/) como su motor de expresiones regulares.  Puede usar una herramienta como [Regular Expressions 101](https://regex101.com/) para validar la expresión regular.  Tenga en cuenta que el carácter "/" es válido en expresiones regulares y no hace falta darle formato de escape; sin embargo, darle dicho formato se considera el procedimiento recomendado y algunos validadores de expresiones regulares lo esperan.
+> **Azure CDN Premium de Verizon** utiliza las [expresiones regulares compatibles con Perl](http://pcre.org/) como su motor de expresiones regulares.  Puede usar una herramienta como [Regular Expressions 101](https://regex101.com/) para validar la expresión regular.  Tenga en cuenta que el carácter "/" es válido en expresiones regulares y no hace falta darle formato de escape; sin embargo, darle dicho formato se considera el procedimiento recomendado y algunos validadores de expresiones regulares lo esperan.
 > 
 > 
 
@@ -93,6 +93,6 @@ En lugar de usar expresiones regulares, puede crear una regla aparte para cada o
 > 
 > 
 
-### <a name="azure-cdn-standard"></a>Estándar de red CDN de Azure
-En los perfiles estándar de la red CDN de Azure, el único mecanismo para permitir varios orígenes sin usar el carácter comodín consiste en utilizar el [almacenamiento en caché de la cadena de consulta](cdn-query-string.md).  Debe habilitar la configuración de la cadena de consulta para el punto de conexión de la red CDN y, después, utilizar una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN copiará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.  
+### <a name="azure-cdn-standard-profiles"></a>Perfiles estándar de Azure CDN
+En los perfiles estándar de Azure CDN (**Azure CDN Estándar de Microsoft**, **Azure CDN Estándar de Akamai** y **Azure CDN Estándar de Verizon**), el único mecanismo que permite varios orígenes sin el uso del origen comodín es utilizar el [almacenamiento en caché de cadenas de consulta](cdn-query-string.md). Habilite la configuración de la cadena de consulta para el punto de conexión de CDN y, después, use una cadena de consulta única para las solicitudes de cada dominio permitido. De este modo, la red CDN almacenará en caché un objeto independiente para cada cadena de consulta única. Sin embargo, este enfoque no es ideal, ya que conllevará varias copias del mismo archivo en caché en la red CDN.  
 

@@ -73,6 +73,16 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 4- Implementación de API Management con Service Fabric
           href: service-fabric-tutorial-deploy-api-management.md
+    - name: Creación de un clúster independiente en AWS
+      items:
+        - name: 1- Creación de la infraestructura en AWS
+          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 2- Configuración de una instancia de Service Fabric
+          href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
+        - name: 3- Implementación de una aplicación en el clúster
+          href: service-fabric-tutorial-standalone-install-an-application.md
+        - name: 4- Limpieza del clúster y eliminación de la infraestructura
+          href: service-fabric-tutorial-standalone-clean-up.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código

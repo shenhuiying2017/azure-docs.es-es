@@ -1,11 +1,11 @@
 ---
-title: "Requisitos de identidad para el diseño de identidades en la nube híbridas en Azure | Microsoft Docs"
-description: "Identificar las necesidades empresariales de la compañía que le llevarán a definir los requisitos para el diseño de la identidad híbrida."
-documentationcenter: 
+title: Requisitos de identidad para el diseño de identidades en la nube híbridas en Azure | Microsoft Docs
+description: Identificar las necesidades empresariales de la compañía que le llevarán a definir los requisitos para el diseño de la identidad híbrida.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 90c65ca22ff384bd22819eb589b3f781f8992a4e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5741a5024b5f5105a71d9404191601b951a301e4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de identidad para la solución de identidad híbrida
 El primer paso para diseñar una solución de identidad híbrida es determinar los requisitos de la organización que aprovechará esta solución.  Un identidad híbrida se inicia como un rol de soporte (admite todas las demás soluciones de nube mediante la autenticación) y avanza proporcionando capacidades nuevas e interesantes que desbloquean nuevas cargas de trabajo para los usuarios.  Estas cargas de trabajo o servicios que se quieran adoptar para los usuarios, determinan los requisitos para el diseño de la identidad híbrida.  Estos servicios y cargas de trabajo tienen que aprovechar la identidad híbrida tanto a nivel local como en la nube.  
@@ -56,7 +56,7 @@ También tiene que tener en cuenta los servicios en la nube que su compañía po
 * ¿Está esta integración actualmente en producción o se trata de una prueba piloto?
 
 > [!NOTE]
-> Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para comenzar, consulte [Detección de aplicaciones de nube](active-directory-cloudappdiscovery-whatis.md).
+> Si no tiene una idea precisa de la asignación de todas las aplicaciones y servicios en la nube, puede usar la herramienta Cloud App Discovery. Esta herramienta puede proporcionar al departamento de TI visibilidad en la estructura empresarial de la organización y las aplicaciones de nube del consumidor. Gracias a esto, es más fácil que nunca detectar las zonas oscuras de TI en su empresa, con la obtención de información detallada sobre modelos de uso y los usuarios que acceden a las aplicaciones en la nube. Para comenzar, consulte [Detección de aplicaciones de nube](manage-apps/cloud-app-discovery.md).
 > 
 > 
 

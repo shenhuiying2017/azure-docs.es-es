@@ -1,33 +1,33 @@
 ---
-title: "Implementación de la solución de supervisión remota: Azure | Microsoft Azure"
-description: "Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota desde azureiotsuite.com."
-services: 
+title: 'Implementación de la solución de supervisión remota: Azure | Microsoft Azure'
+description: En este tutorial se explica cómo aprovisionar el acelerador de la solución de supervisión remota desde azureiotsuite.com.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: fa08817c870372488b1e03a2c282add2eaa85478
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eb78ce91755c43f1c6fedf62a70238df911b940f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="deploy-the-remote-monitoring-preconfigured-solution"></a>Implementación de la solución preconfigurada de supervisión remota
+# <a name="deploy-the-remote-monitoring-solution-accelerator"></a>Implementación del acelerador de la solución de supervisión remota
 
-Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. Puede implementar la solución desde azureiotsuite.com. También puede implementar la solución con la CLI. Para información sobre esta opción, consulte el artículo sobre la [implementación de una solución preconfigurada desde la línea de comandos](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
+En este tutorial se muestra cómo aprovisionar el acelerador de la solución de supervisión remota. Puede implementar la solución desde azureiotsuite.com. También puede implementar la solución con la CLI. Para información sobre esta opción, consulte el artículo sobre la [implementación del acelerador de una solución desde la línea de comandos](iot-suite-remote-monitoring-deploy-cli.md).
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Configurar la solución preconfigurada
-> * Implementar la solución preconfigurada
-> * Iniciar sesión en la solución preconfigurada
+> * Configuración del acelerador de la solución
+> * Implementación del acelerador de solución
+> * Inicio de sesión en el acelerador de la solución
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -35,19 +35,17 @@ Para completar este tutorial, deberá tener una suscripción activa de Azure.
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="deploy-the-preconfigured-solution"></a>Implementar la solución preconfigurada
+## <a name="deploy-the-solution-accelerator"></a>Implementación del acelerador de solución
 
-Antes de implementar la solución preconfigurada en la suscripción de Azure, debe elegir algunas opciones de configuración:
+Antes de implementar el acelerador de la solución en la suscripción de Azure, debe elegir algunas opciones de configuración:
 
-1. Inicie sesión en [azureiotsuite.com](https://www.azureiotsuite.com) con las credenciales de su cuenta de Azure y haga clic en **+** para crear una solución nueva:
+1. Inicie sesión en [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) con las credenciales de la cuenta de Azure.
 
-    ![Crear una solución nueva](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. Haga clic en **Seleccionar** en el icono **Vista previa de la supervisión remota**.
+1. Haga clic en **Intentar ahora** en el icono **Supervisión remota**.
 
     ![Elegir una supervisión remota](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
-1. En la página **Create Remote Monitoring solution** (Crear solución de supervisión remota), escriba un **nombre de la solución** para la solución preconfigurada de supervisión remota.
+1. En la página **Creación de una solución de supervisión remota**, escriba un **nombre de solución** para el acelerador de la solución de supervisión remota.
 
 1. Seleccione una implementación **Básica** o **Estándar**. Si implementa la solución para saber cómo funciona o para ejecutar una demostración, elija la opción **Básica** para minimizar los costos.
 
@@ -63,9 +61,9 @@ Antes de implementar la solución preconfigurada en la suscripción de Azure, de
 
 Para información sobre la solución de problemas, consulte la sección sobre [lo que se debe hacer cuando se produce un error en una implementación](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide#what-to-do-when-a-deployment-fails) del repositorio GitHub.
 
-## <a name="sign-in-to-the-preconfigured-solution"></a>Iniciar sesión en la solución preconfigurada
+## <a name="sign-in-to-the-solution-accelerator"></a>Inicio de sesión en el acelerador de la solución
 
-Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en la solución preconfigurada de supervisión remota.
+Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en el acelerador de la solución de supervisión remota.
 
 1. En la página **Soluciones aprovisionadas**, elija la solución de supervisión remota nueva:
 
@@ -85,9 +83,9 @@ Cuando el proceso de aprovisionamiento se completa, puede iniciar sesión en la 
 En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
-> * Configurar la solución preconfigurada
-> * Implementar la solución preconfigurada
-> * Iniciar sesión en la solución preconfigurada
+> * Configuración del acelerador de la solución
+> * Implementación del acelerador de solución
+> * Inicio de sesión en el acelerador de la solución
 
 Ahora que ha implementado la solución de supervisión remota, el paso siguiente es [explorar las funcionalidades del panel de soluciones](./iot-suite-remote-monitoring-explore.md).
 

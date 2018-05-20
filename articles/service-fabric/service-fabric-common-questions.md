@@ -14,17 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a112951409fc6177240b9eddc9fcd7f6c0c932cc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Preguntas frecuentes sobre Service Fabric
 
 Hay muchas preguntas que se plantean con frecuencia acerca de qué puede hacer Service Fabric y cómo se debe usar. En este documento se incluyen muchas de esas preguntas y sus respuestas.
 
 ## <a name="cluster-setup-and-management"></a>Instalación y administración de clústeres
+
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>¿Cómo se revierte el certificado de clúster de Service Fabric?
+
+Revertir cualquier actualización de la aplicación requiere la detección de errores de mantenimiento antes de que el cuórum de clúster de Service Fabric confirme el cambio; solo se pueden poner al día los cambios confirmados. Puede ser necesario el escalamiento a otro ingeniero a través de los servicios de soporte técnico al cliente para recuperar el clúster, si se ha introducido un cambio de certificado importante no supervisado.  La [actualización de la aplicación de Service Fabric](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) aplica [parámetros de actualización de la aplicación](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), y ofrece la promesa de actualización sin tiempo de inactividad.  Al seguir el modo supervisado recomendado de actualización de la aplicación, el progreso automático de actualización de los dominios se basa en pasar comprobaciones de mantenimiento y se revierte automáticamente si se produce un error en la actualización de un servicio predeterminado.
+ 
+Si el clúster todavía utiliza la propiedad clásica de huella digital del certificado en la plantilla de Resource Manager, se recomienda [cambiar el clúster de huella digital del certificado por el nombre común](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), para aprovechar las modernas características de administración de secretos.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>¿Puedo crear un clúster que abarque varias regiones de Azure o mis propios centros de datos?
 
@@ -89,7 +95,7 @@ Mientras trabajamos en una experiencia mejorada, por el momento, el usuario es e
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>¿Se pueden cifrar los discos de datos asociados en un tipo de nodo de clúster (conjunto de escalado de máquinas virtuales)?
 Sí.  Para más información, consulte [Creación de un clúster con discos de datos asociados](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) (Cifrado de discos [PowerShell]) y [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md) (Cifrado de discos [CLI]).
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>¿Qué directorios y procesos es necesario excluir al ejecutar un programa antivirus en un clúster?
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>¿Qué directorios y procesos es necesario excluir al ejecutar un programa antivirus en un clúster?
 
 | **Directorios excluidos del antivirus** |
 | --- |

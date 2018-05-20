@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 61db8f85e73d2c071bdec0ace60911813fa4f0e8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Hacer que caduquen automáticamente los datos de colecciones de Azure Cosmos DB con período de vida
 Las aplicaciones pueden generar y almacenar enormes cantidades de datos. Algunos de estos datos, como los datos de eventos, los registros y la información de sesión de usuario que se generan automáticamente, solo son útiles durante un tiempo finito. Una vez que los datos se convierten en un excedente para las necesidades de la aplicación, es seguro purgarlos para así reducir sus necesidades de almacenamiento.
@@ -124,7 +124,7 @@ Puede restablecer el TTL en un documento mediante cualquier operación de escrit
     Document readDocument = response.Resource;
     readDocument.TimeToLive = 60 * 30 * 30; // update time to live
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="removing-ttl-from-a-document"></a>Eliminación del TTL de un documento
 Si se ha establecido un TTL en un documento y ya no desea que el documento caduque, puede recuperarlo, quitar el campo TTL y volver a colocar el documento en el servidor. Cuando se quita el campo TTL del documento, se aplica el valor predeterminado de la colección. Para impedir que un documento caduque y que no herede de la colección, debe establecer el valor de TTL en -1.
@@ -136,7 +136,7 @@ Si se ha establecido un TTL en un documento y ya no desea que el documento caduq
     Document readDocument = response.Resource;
     readDocument.TimeToLive = null; // inherit the default TTL of the collection
     
-    response = await client.ReplaceDocumentAsync(salesOrder);
+    response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disabling-ttl"></a>Deshabilitación de TTL
 Para deshabilitar TTL completamente en una colección y detener el proceso en segundo plano de búsqueda de documentos caducados, se debe eliminar la propiedad DefaultTTL en la colección. Eliminar esta propiedad es diferente de establecerla en -1. Establecerla en -1 significa que los nuevos documentos agregados a la colección no caducarán nunca; sin embargo, puede invalidar esto en determinados documentos de la colección. Quitar esta propiedad completamente de la colección significa que ningún documento caducará, incluso si hay documentos que hayan invalidado explícitamente un valor predeterminado anterior.

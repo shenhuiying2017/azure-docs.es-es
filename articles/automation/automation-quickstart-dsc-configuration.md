@@ -1,19 +1,21 @@
 ---
-title: "Inicio rápido de Azure: Configuración de una máquina virtual con DSC | Microsoft Docs"
-description: "Configurar una pila de LAMP en una máquina virtual Linux con Desired State Configuration"
+title: 'Inicio rápido de Azure: Configuración de una máquina virtual con DSC | Microsoft Docs'
+description: Configurar una pila de LAMP en una máquina virtual Linux con Desired State Configuration
 services: automation
-keywords: "dsc, configuración, automation"
+ms.service: automation
+ms.component: dsc
+keywords: dsc, configuración, automation
 author: KrisBash
 ms.author: krbash
 ms.date: 12/17/2017
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7f35acc0d8d553a3f5d1576ae18cbafd1dcbb225
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar una máquina virtual Linux con Desired State Configuration
 
@@ -27,8 +29,8 @@ Para completar este inicio rápido necesita instalar:
 * Una cuenta de Azure Automation Para obtener instrucciones sobre cómo crear una cuenta de ejecución de Azure Automation, consulte el artículo sobre las [cuentas de ejecución de Azure](automation-sec-configure-azure-runas-account.md).
 * Una máquina virtual de Azure Resource Manager (no clásica) que ejecute Red Hat Enterprise Linux, CentOS u Oracle Linux. Para obtener instrucciones sobre la creación de una máquina virtual, consulte [Creación de máquinas virtuales Linux con Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
-Inicie sesión en Azure en https://portal.azure.com.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="onboard-a-virtual-machine"></a>Incorporar una máquina virtual
 Hay muchos métodos diferentes para incorporar una máquina y habilitar Desired State Configuration. Esta guía de inicio rápido trata la incorporación a través de una cuenta de Automation. Para obtener más información sobre los distintos métodos de incorporación de máquinas a Desired State Configuration, lea el artículo sobre la [incorporación](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding).

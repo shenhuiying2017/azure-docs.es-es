@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: b053993bec74d358dd7a0a8889fa05885b563b16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: be400d674068d89f60d3c999006bc9291944ab1c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure Portal
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Complete los pasos siguientes para solucionar problemas de los NSG para una máq
 
 Puede ver una lista completa de las reglas de seguridad vigentes en una NIC, desde la propia máquina virtual. También puede agregar, modificar y eliminar reglas de NIC y de subred de NSG en la hoja reglas vigentes, si dispone de permisos para realizar estas operaciones.
 
-1. Inicie sesión en Azure Portal en https://portal.azure.com con una cuenta de Azure. La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Inicie sesión en Azure Portal en https://portal.azure.com con una cuenta de Azure. La cuenta debe tener asignada la operación *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* para la interfaz de red. Para más información sobre cómo asignar operaciones a las cuentas, consulte [Creación de roles personalizados para el control de acceso basado en rol de Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Haga clic en **Todos los servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
 3. En la lista seleccione una máquina virtual para solucionar problemas, después de hacerlo se abrirá una hoja de máquina virtual con opciones.
 4. Haga clic en **Diagnosticar y solucionar problemas** y, a continuación, seleccione un problema común. En este ejemplo está seleccionado **No puedo conectar con mi VM Windows** . 

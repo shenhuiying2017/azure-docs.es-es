@@ -1,18 +1,18 @@
 ---
-title: "Autenticación de Azure Container Registry con entidades de servicio"
-description: "Aprenda a proporcionar acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory."
+title: Autenticación de Azure Container Registry con entidades de servicio
+description: Aprenda a proporcionar acceso a las imágenes de su registro de contenedor privado mediante una entidad de servicio de Azure Active Directory.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
-ms.openlocfilehash: 97036ecabceb12b87b76c6ecb7e521157cbef827
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 16af83522dd55744c485f6dd3696481e16da1b22
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticación de Azure Container Registry con entidades de servicio
 
@@ -38,16 +38,25 @@ Para obtener acceso individual a un registro, como, por ejemplo, al extraer manu
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## <a name="sample-scripts"></a>Scripts de ejemplo
+
+Puede encontrar los scripts del ejemplo anterior para la CLI de Azure en GitHub, así como versiones para Azure PowerShell:
+
+* [CLI de Azure][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Cuando disponga de una entidad de servicio con acceso a su registro de contenedor, podrá usar sus credenciales en aplicaciones y servicios para interactuar con el registro.
 
 Pese a que la configuración de aplicaciones individuales para usar las credenciales de la entidad de servicio está fuera del ámbito del presente artículo, podrá encontrar instrucciones para determinados servicios y plataformas aquí:
 
-* [Autenticación con Azure Container Registry desde Azure Container Service (AKS)](container-registry-auth-aks.md)
+* [Autenticación con Azure Container Registry desde Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Autenticación con Azure Container Registry desde Azure Container Instances (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

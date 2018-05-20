@@ -3,23 +3,23 @@ title: Administración del inicio de sesión único para aplicaciones empresaria
 description: Administre la configuración de inicio de sesión único para aplicaciones empresariales de su organización desde la galería de aplicaciones de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 45141551c502c89311ab7e43b53af50450d8babd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: baf437294dbbca7f63f9d4cdc80ac1cb33a67e42
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Administración de inicio de sesión único para aplicaciones empresariales
 
@@ -28,13 +28,13 @@ En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure
 ## <a name="finding-your-apps-in-the-portal"></a>Búsqueda de aplicaciones en el portal
 Todas las aplicaciones empresariales configuradas para el inicio de sesión único se pueden ver y administrar en Azure Portal. Las aplicaciones pueden encontrarse en la sección **Todos los servicios** &gt; **Aplicaciones empresariales** del portal. 
 
-![Hoja Aplicaciones empresariales][1]
+![Hoja Aplicaciones empresariales](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.png)
 
 Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones configuradas. Al seleccionar una aplicación se muestran los recursos de esa aplicación, donde se pueden ver informes de ella y se pueden administrar diversas opciones de configuración.
 
 Para administrar la configuración de inicio de sesión único, seleccione **Inicio de sesión único**.
 
-![Hoja Recursos de aplicación][2]
+![Hoja Recursos de aplicación](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.png)
 
 ## <a name="single-sign-on-modes"></a>Modos de inicio de sesión único
 La hoja **Inicio de sesión único** comienza con un menú **Modo**, que permite la configuración del modo de inicio de sesión único. Las opciones disponibles incluyen:
@@ -76,24 +76,19 @@ El menú emergente **Configurar aplicación** proporciona nuevas instrucciones c
 > 
 > 
 
-![Documentos insertados][3]
+![Documentos insertados](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.png)
 
 ## <a name="password-based-sign-on"></a>Inicio de sesión único con contraseña
 Si se admite para la aplicación, si se selecciona el modo SSO basado en contraseña y se selecciona **Guardar** , se configura instantáneamente para el inicio de sesión único basado en contraseña. Para más información sobre la implementación del inicio de sesión único basado en contraseña, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Inicio de sesión único con contraseña][4]
+![Inicio de sesión único con contraseña](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.png)
 
 ## <a name="linked-sign-on"></a>Inicio de sesión vinculado
 Si se admite para la aplicación, la selección del modo de inicio de sesión único vinculado permite especificar la dirección URL a la que desea que redirijan el Panel de acceso de Azure AD u Office 365 cuando los usuarios hacen clic en esta aplicación. Para más información sobre el inicio de sesión único vinculado, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
-![Inicio de sesión vinculado][5]
+![Inicio de sesión vinculado](./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.png)
 
 ## <a name="feedback"></a>Comentarios
 
 Esperamos que le guste usa la experiencia mejorada de Azure AD. Envíenos sus comentarios. Publique sus comentarios y sugerencias para la mejora en la sección **Portal de administración** de nuestro [foro de comentarios](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Nos interesa cómo crear innovaciones estupendas todos los días y usamos sus comentarios para dar forma y definir qué será lo próximo que crearemos.
 
-[1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG
-[3]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-embedded-docs.PNG
-[4]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-password-sso.PNG
-[5]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade-linked-sso.PNG

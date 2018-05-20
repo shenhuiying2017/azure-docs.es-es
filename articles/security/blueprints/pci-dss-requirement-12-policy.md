@@ -3,7 +3,7 @@ title: 'Proyecto del procesamiento de pagos de Azure: requisitos de directiva'
 description: Requisito 12 de PCI DSS
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: a79d59d8-20e3-4efe-8686-c8f4ed80e220
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
-ms.author: frasim
-ms.openlocfilehash: 05e9ed7c886d37a024db1eedbc541705b7d8a9a9
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.author: jomolesk
+ms.openlocfilehash: 2fb238e9b95180d6156159c87ec008a71943e698
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="policy-requirements-for-pci-dss-compliant-environments"></a>Requisitos de directiva para entornos compatibles con PCI DSS  
 ## <a name="pci-dss-requirement-12"></a>Requisito 12 de PCI DSS
@@ -241,7 +241,7 @@ Si existe una necesidad empresarial autorizada, las directivas de uso deben soli
 - Definir el acta de un programa de cumplimiento de PCI DSS y comunicación con los ejecutivos de administración. 
 
 > [!NOTE]
-> Este requisito es un procedimiento recomendado hasta el 31 de enero de 2018; después de esta fecha se convertirá en un requisito.
+> Este requisito se va a considerar un procedimiento recomendado hasta el 31 de enero de 2018. A partir de esa fecha, pasará a convertirse en un requisito.
 
 **Responsabilidades:&nbsp;&nbsp;`Customer Only`**
 
@@ -596,7 +596,7 @@ Las revisiones deben incluir los siguientes procesos:
 - Cambiar los procesos de administración 
 
 > [!NOTE]
-> Este requisito es un procedimiento recomendado hasta el 31 de enero de 2018; después de esta fecha se convertirá en un requisito.
+> Este requisito se va a considerar un procedimiento recomendado hasta el 31 de enero de 2018. A partir de esa fecha, pasará a convertirse en un requisito.
 
 
 **Responsabilidades:&nbsp;&nbsp;`Customer Only`**

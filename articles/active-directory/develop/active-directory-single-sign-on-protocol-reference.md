@@ -1,13 +1,14 @@
 ---
-title: "Protocolo SAML de inicio de sesión único de Azure | Microsoft Docs"
-description: "En este artículo se describe el protocolo SAML de inicio de sesión único de Azure Active Directory."
+title: Protocolo SAML de inicio de sesión único de Azure | Microsoft Docs
+description: En este artículo se describe el protocolo SAML de inicio de sesión único de Azure Active Directory.
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,11 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
-ms.openlocfilehash: 096a250685bf023f789f98e16d2bea13bf448e3b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ddd5fa6f2ed0878afd8bbd6399471e92dfa30385
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 Este artículo se centra en las solicitudes y las respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles con el inicio de sesión único.
@@ -42,7 +43,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parámetro |  | Description |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | ID |requerido |Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
 | Versión |requerido |Debe ser **2.0**. |
@@ -157,7 +158,7 @@ Por ejemplo, una respuesta de ejemplo con el elemento Issuer podría ser similar
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>Estado
+### <a name="status"></a>Status
 El elemento `Status` transmite el éxito o el fracaso del inicio de sesión. Incluye el elemento `StatusCode` , que contiene un código o un conjunto de códigos anidados que representan el estado de la solicitud. También incluye el elemento `StatusMessage` , que contiene mensajes de error personalizados que se generan durante el proceso de inicio de sesión.
 
 <!-- TODO: Add a authentication protocol error reference -->

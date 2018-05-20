@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: da78f88f0c79c0ad853dd644ef278f8402824760
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8efbc1d400f1d32e6aee2c1e2d78847bea786940
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Análisis y visualización de eventos con Log Analytics
 
@@ -36,7 +36,7 @@ Después de que Log Analytics recibe los datos, Azure dispone de varias *solucio
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acceso a la solución de Service Fabric Analytics
 
-1. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione el recurso **ServiceFabric\<nameOfOMSWorkspace\>** y vaya a su página de información general.
+1. Vaya al grupo de recursos donde creó la solución Service Fabric Analytics. Seleccione el recurso **ServiceFabric\<nameOfOMSWorkspace\>** y vaya a su página de introducción.
 
 2. En la página de información general, haga clic en el vínculo junto a la parte superior para ir al portal de OMS.
 
@@ -67,13 +67,14 @@ La imagen anterior es la página principal de la solución de Service Fabric Ana
     
     ![Canal operativo de consulta de OMS](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
 
-También puede hacer clic en la lupa de la izquierda y usar el lenguaje de consulta Kusto para encontrar lo está buscando. Por ejemplo, para buscar todos los eventos relacionados con las acciones realizadas en los nodos por parte del clúster, puede usar la consulta siguiente. Los identificadores de evento que se usan a continuación se encuentran en la [referencia de eventos del canal operativo](service-fabric-diagnostics-event-generation-operational.md).
+También puede hacer clic en la lupa de la izquierda y usar el lenguaje de consulta Kusto para encontrar lo está buscando. Por ejemplo, para buscar todas las acciones realizadas en los nodos del clúster, puede usar la consulta siguiente. Los identificadores de evento que se usan a continuación se encuentran en la [referencia de eventos del canal operativo](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
-| where EventId < 29627 and EventId > 29619 
+| where EventId < 25627 and EventId > 25619 
 ```
-Puede consultar en muchos más campos, como los nodos específicos (Computer), el servicio del sistema (TaskName), etc.
+
+Puede consultar en muchos más campos, como los nodos específicos (Computer), el servicio del sistema (TaskName).
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visualización de eventos de Reliable Services y Reliable Actors
 

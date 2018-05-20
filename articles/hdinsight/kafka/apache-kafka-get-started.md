@@ -1,6 +1,6 @@
 ---
-title: Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs
-description: Obtenga información acerca de cómo crear un clúster de Apache Kafka en Azure HDInsight. Obtenga información acerca de cómo crear temas, suscriptores y consumidores.
+title: 'Guía de inicio rápido: Introducción a Apache Kafka en Azure HDInsight | Microsoft Docs'
+description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure Portal. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -8,24 +8,48 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: mvc,hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/20/2018
+ms.date: 04/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c405d95c53baa07ff21a7d919177bd720202ac14
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="start-with-apache-kafka-on-hdinsight"></a>Inicio de Apache Kafka en HDInsight
+# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guía de inicio rápido: Creación de un clúster de Kafka en HDInsight
 
-Obtenga información acerca de cómo crear y usar un clúster de [Apache Kafka](https://kafka.apache.org) en Azure HDInsight. Kafka es una plataforma de streaming distribuida de código abierto que está disponible con HDInsight. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción. Kafka se utiliza a menudo junto con Apache Spark y Apache Storm para mensajería, seguimiento de actividades, agregación de flujos o transformación de datos.
+Kafka es una plataforma de streaming distribuida de código abierto. A menudo se usa como agente de mensajes, ya que proporciona una funcionalidad similar a una cola de mensajes de publicación o suscripción. 
+
+En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka](https://kafka.apache.org) con Azure Portal. También se muestra cómo utilizar las utilidades incluidas para enviar y recibir mensajes mediante Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
+
+> [!IMPORTANT]
+> Solo los recursos dentro de la misma red virtual pueden tener acceso a la API de Kafka. En esta guía de inicio rápido, tendrá acceso al clúster directamente mediante SSH. Para conectar otros servicios, redes o máquinas virtuales con Kafka, primero debe crear una red virtual y, a continuación, crear los recursos dentro de la red.
+>
+> Para obtener más información, consulte el documento [Conexión a Kafka en HDInsight mediante una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md).
+
+## <a name="prerequisites"></a>requisitos previos
+
+* Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+* Un cliente SSH. Los pasos descritos en este documento utilizan SSH para conectarse al clúster.
+
+    El comando `ssh` se proporciona de forma predeterminada en los sistemas Linux, Unix y macOS. En Windows 10, utilice uno de los métodos siguientes para instalar el comando `ssh`:
+
+    * Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). El shell de nube proporciona el comando `ssh` y puede configurarse para usar Bash o PowerShell como entorno de shell.
+
+    * [Instale el subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). Las distribuciones de Linux disponibles a través de Microsoft Store proporcionan el comando `ssh`.
+
+    > [!IMPORTANT]
+    > Los pasos descritos en este documento suponen que usa uno de los clientes SSH mencionados anteriormente. Si utiliza un cliente SSH diferente y tiene problemas, consulte la documentación para el cliente SSH.
+    >
+    > Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-a-kafka-cluster"></a>Creación de un clúster de Kafka
 
@@ -35,76 +59,115 @@ Siga estos pasos para crear un clúster de Kafka en HDInsight:
    
     ![Creación de un clúster de HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. En **Básico**, escriba la siguiente información:
+2. En **Básico**, escriba o seleccione la siguiente información:
 
-    * **Nombre del clúster**: nombre del clúster de HDInsight. Este nombre debe ser único.
-    * **Suscripción**: seleccione la suscripción que vaya a usar.
-    * **Tipo de clúster**: seleccione esta entrada y luego establezca los siguientes valores de **Configuración de clúster**:
+    | Configuración | Valor |
+    | --- | --- |
+    | Cluster Name | Un nombre exclusivo para el clúster de HDInsight. |
+    | La suscripción | Seleccione su suscripción. |
+    
+    Seleccione __Tipo de clúster__ para mostrar **Configuración del clúster**.
 
-        * **Tipo de clúster**: Kafka
-        * **Versión**: Kafka 0.10.0 (HDI 3.6)
+    ![Seleccione la suscripción.](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-        Use el botón **Seleccionar** para guardar la configuración.
+3. En __Configuración del clúster__, seleccione los valores siguientes:
 
-        ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+    | Configuración | Valor |
+    | --- | --- |
+    | Tipo de clúster | Kafka |
+    | Versión | Kafka 0.10.0 (HDI 3.6) |
 
-    * **Nombre de usuario de inicio de sesión del clúster** y **contraseña de inicio de sesión de clúster**: inicio de sesión de acceso al clúster a través de HTTPS. Use estas credenciales para acceder a servicios como la interfaz de usuario de Ambari Web o la API REST.
-    * **Nombre de usuario de Secure Shell (SSH)**: inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster.
-    * **Grupo de recursos**: en el que se va a crear el clúster.
-    * **Ubicación**: región de Azure donde se va crear el clúster.
+    Use el botón **Seleccionar** para guardar la configuración del tipo de clúster y vuelva a __Básico__.
 
-        > [!IMPORTANT]
-        > Para lograr alta disponibilidad de los datos, se recomienda seleccionar una ubicación (región) que contenga __tres dominios de error__. Para más información, consulte la sección [Alta disponibilidad de los datos](#data-high-availability).
-   
- ![Seleccione la suscripción.](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
+    ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-3. Use el botón __Siguiente__ para finalizar la configuración básica.
+4. En __Básico__, escriba o seleccione la siguiente información:
 
-4. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento.
+    | Configuración | Valor |
+    | --- | --- |
+    | Nombre de usuario de inicio de sesión del clúster | El nombre de inicio de sesión al acceder a los servicios web o las API de REST hospedados en el clúster. Mantenga el valor predeterminado (admin). |
+    | Contraseña de inicio de sesión de clúster | La contraseña de inicio de sesión al acceder a los servicios web o las API de REST hospedados en el clúster. |
+    | Nombre de usuario de Secure Shell (SSH) | Inicio de sesión para acceder al clúster a través de SSH. De forma predeterminada, la contraseña es la misma que la de inicio de sesión en el clúster. |
+    | Grupo de recursos | El grupo de recursos en el que se va a crear el clúster. |
+    | Ubicación | La región de Azure donde se va crear el clúster. |
 
-    ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
+    > [!TIP]
+    > Cada región de Azure (ubicación) proporciona _dominios de error_. Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
+    >
+    > Para lograr la alta disponibilidad de los datos, seleccione una ubicación (región) que contenga __tres dominios de error__. Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-5. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar. Para este ejemplo no se requieren aplicaciones.
+    ![Seleccione la suscripción.](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-6. En __Tamaño del clúster__, seleccione __Siguiente__ para continuar.
+    Use el botón __Siguiente__ para finalizar la configuración básica.
 
-    > [!WARNING]
-    > Para garantizar la disponibilidad de Kafka en HDInsight, el clúster debe contener al menos tres nodos de trabajo. Para más información, consulte la sección [Alta disponibilidad de los datos](#data-high-availability).
+5. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento.
+
+    ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+
+6. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
+
+7. En __Tamaño de clúster__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
+
+    > [!IMPORTANT]
+    > Para garantizar la disponibilidad de Kafka en HDInsight, la entrada del __número de nodos de trabajo__ debe establecerse en 3 o superior. El valor predeterminado es 4.
+    
+    > [!TIP]
+    > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster para almacenar los datos. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). El tipo de disco depende del tamaño VM que utilizan los nodos de trabajo (agentes de Kafka). Los discos Premium se utilizan automáticamente con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
 
     ![Establecer al tamaño de clúster de Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!IMPORTANT]
-    > Los **discos por entrada de nodo de trabajo** configuran la escalabilidad de Kafka en HDInsight. Kafka en HDInsight utiliza el disco local de las máquinas virtuales del clúster. Como Kafka tiene muchas E/S, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) se utiliza para proporcionar alto rendimiento y mayor espacio de almacenamiento por nodo. El tipo de disco administrado puede ser __Estándar__ (HDD) o __Premium__ (SSD). Los discos Premium se utilizan con máquinas virtuales de las series DS y GS. Todos los otros tipos de máquina virtual usan discos estándar.
+8. En __Configuración avanzada__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
 
-7. En __Configuración avanzada__, seleccione __Siguiente__ para continuar.
-
-8. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
+9. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
    
-    ![Resumen de configuración del clúster](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
+    ![Resumen de configuración del clúster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
     > [!NOTE]
     > Un clúster puede tardar hasta 20 minutos en crearse.
 
 ## <a name="connect-to-the-cluster"></a>Conexión al clúster
 
-> [!IMPORTANT]
-> Al realizar los pasos siguientes, debe utilizar un cliente de SSH. Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Para conectarse con el nodo principal del clúster de Kafka, use el siguiente comando. Reemplace `sshuser` por el nombre de usuario de SSH. Reemplace `mykafka` por el nombre del clúster de Kafka.
 
-Para conectarse al clúster mediante SSH, debe proporcionar el nombre de la cuenta de usuario SSH y el nombre del clúster. Sustituya `sshuser` y `clustername` por el nombre de la cuenta y del clúster en el siguiente ejemplo:
+    ```bash
+    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```
 
-```ssh sshuser@clustername-ssh.azurehdinsight.net```
+2. Cuando se conecte por primera vez al clúster, el cliente SSH puede mostrar una advertencia de que no se puede establecer la autenticidad del host. Cuando se le pida, escriba __sí__ y presione __ENTRAR__ para agregar el host a la lista de servidores de confianza de su cliente SSH.
 
-Cuando se le solicite, escriba la contraseña usada para la cuenta SSH.
+3. Cuando se le solicite, escriba la contraseña del usuario de SSH.
 
-Para más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Una vez que se haya conectado, verá información similar al texto siguiente:
+
+```text
+Authorized uses only. All activity may be monitored and reported.
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+83 packages can be updated.
+37 updates are security updates.
+
+
+
+Welcome to Kafka on HDInsight.
+
+Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
+ssuhuser@hn0-mykafk:~$
+```
 
 ## <a id="getkafkainfo"></a>Obtención de la información del host de Zookeeper y del agente
 
-Cuando se trabaja con Kafka, debe conocer los hosts de *Zookeeper* y los hosts de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
+Cuando se trabaja con Kafka, debe conocer los hosts de *Zookeeper* y de *Broker*. Estos hosts se usan con la API de Kafka y muchas de las utilidades que se incluyen con Kafka.
 
-Use los pasos siguientes para crear variables de entorno que contengan la información de host:
+En esta sección, obtendrá la información de host de la API de REST de Ambari en el clúster.
 
-1. Desde una conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se emplea para analizar documentos JSON y es útil para recuperar la información de host del agente:
+1. Desde la conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se emplea para analizar documentos JSON y es útil para recuperar la información de host:
    
     ```bash
     sudo apt -y install jq
@@ -113,8 +176,10 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
 2. Para establecer una variable de entorno en el nombre del clúster, use el comando siguiente:
 
     ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
+    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
     ```
+
+    Cuando se le solicite, escriba el nombre del clúster de Kafka.
 
 3. Para establecer una variable de entorno con la información de host de Zookeeper, use el comando siguiente:
 
@@ -122,7 +187,10 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (administrador).
+    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
+
+    > [!NOTE]
+    > Este comando recupera todos los hosts de Zookeeper y, a continuación, devuelve solo las primeras dos entradas. Esto se debe a que desea cierta redundancia en caso de que un host sea inaccesible.
 
 4. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -140,7 +208,7 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (administrador).
+    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
 
 6. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
@@ -151,35 +219,73 @@ Use los pasos siguientes para crear variables de entorno que contengan la inform
     Este comando devuelve información similar al texto siguiente:
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
-   
-> [!WARNING]
-> No confíe en que la información que se devuelve en esta sesión sea siempre precisa. Cuando escala el clúster, se agregan o se quitan nuevos agentes. Si se produce un error y se reemplaza un nodo, el nombre de host del nodo puede cambiar.
->
-> Debe recuperar la información de los hosts de Zookeeper y del agente antes de usarla para garantizar que tiene información válida.
 
-## <a name="create-a-topic"></a>de un tema
+## <a name="manage-kafka-topics"></a>Administración de los temas de Kafka
 
-Kafka almacena los flujos de datos en categorías denominadas *temas*. Desde una conexión SSH a un nodo principal de un clúster, use un script proporcionado con Kafka para crear un tema:
+Kafka almacena los flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.sh` para administrar los temas.
+
+* **Para crear un tema**, use el comando siguiente en la conexión SSH:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Kafka llamado **test**. 
+
+    * Los datos almacenados en este tema se dividen en ocho particiones.
+
+    * Cada partición se replica en tres nodos de trabajo del clúster.
+
+        > [!IMPORTANT]
+        > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
+        
+        En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
+        
+        Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+
+        > [!IMPORTANT] 
+        > Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
+
+        Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una conexión SSH en el nodo principal del clúster de Kafka.
+
+        Para obtener la máxima disponibilidad de los datos de Kafka, debe reequilibrar las réplicas de las particiones del tema cuando:
+
+        * Cree un nuevo tema o una partición
+
+        * Escale verticalmente un clúster
+
+* **Para mostrar temas**, use el comando siguiente:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Este comando muestra los temas disponibles en el clúster de Kafka.
+
+* **Para eliminar un tema**, use el comando siguiente:
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
+    ```
+
+    Este comando elimina el tema `topicname`.
+
+    > [!WARNING]
+    > Si elimina el tema `test` que ha creado anteriormente, debe volver a crearlo. Se usa más adelante en este documento.
+
+Para obtener más información acerca de los comandos disponibles con la utilidad `kafka-topics.sh`, use el siguiente comando:
 
 ```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh
 ```
-
-Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Kafka llamado **test**. También puede comprobar que se creó el tema mediante el siguiente script para mostrar temas:
-
-```bash
-/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
-```
-
-La salida de este comando muestra los temas de Kafka en el clúster.
 
 ## <a name="produce-and-consume-records"></a>Generación y consumo de registros
 
-Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores*. Los productores generan registros para los *agentes* de Kafka. Cada nodo de trabajo del clúster de HDInsight es un agente de Kafka.
+Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores*. Los productores y consumidores se comunican con el servicio de *agente de Kafka*. Cada nodo de trabajo del clúster de HDInsight es un host de agente de Kafka.
 
 Use los pasos siguientes para almacenar registros en el tema de prueba que creó anteriormente y luego leerlos mediante un consumidor:
 
-1. Desde la sesión SSH, use un script que se proporciona con Kafka para escribir registros en el tema:
+1. Para escribir registros en el tema, use la utilidad `kafka-console-producer.sh` desde la conexión SSH:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
@@ -189,7 +295,7 @@ Use los pasos siguientes para almacenar registros en el tema de prueba que creó
 
 2. Escriba un mensaje de texto en la línea vacía y presione ENTRAR. Escriba algunos mensajes de esta forma y, a continuación, use **Ctrl + C** para volver al símbolo del sistema normal. Cada línea se envía como un registro independiente al tema de Kafka.
 
-3. Use un script proporcionado con Kafka para leer registros del tema:
+3. Para leer registros del tema, use la utilidad `kafka-console-consumer.sh` desde la conexión SSH:
    
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
@@ -204,47 +310,23 @@ Use los pasos siguientes para almacenar registros en el tema de prueba que creó
 
 También puede crear mediante programación los productores y consumidores. Para obtener un ejemplo del uso de esta API, consulte el documento [Producer y Consumer API de Kafka](apache-kafka-producer-consumer-api.md).
 
-## <a name="data-high-availability"></a>Alta disponibilidad de los datos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cada región de Azure (ubicación) proporciona _dominios de error_. Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
+Para limpiar los recursos creados por esta guía de inicio rápido, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, también se elimina el clúster de HDInsight asociado y otros recursos asociados al grupo.
 
-Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+Para quitar el grupo de recursos mediante Azure Portal:
 
-> [!IMPORTANT]
-> Si es posible, use una región de Azure que contenga tres dominios de error y cree temas con un factor de replicación de 3.
+1. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija __Grupos de recursos__ para mostrar la lista de sus grupos de recursos.
+2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en __Más__ (...) en el lado derecho de la lista.
+3. Seleccione __Eliminar grupo de recursos__ y confirme la elección.
 
-Si utiliza una región que contiene solo dos dominios de error, use un factor de replicación de 4 para distribuir las réplicas uniformemente entre los dos dominios de error.
-
-### <a name="kafka-and-fault-domains"></a>Kafka y los dominios de error
-
-Kafka no es compatible con dominios de error. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad. Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una sesión de SSH en el nodo principal del clúster de Kafka.
-
-Para garantizar la máxima disponibilidad de los datos de Kafka, es preciso reequilibrar las réplicas de las particiones del tema cuando:
-
-* Cree un nuevo tema o una partición
-
-* Escale verticalmente un clúster
-
-## <a name="delete-the-cluster"></a>Eliminación del clúster
-
-[!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
-
-## <a name="troubleshoot"></a>Solución de problemas
-
-Si experimenta problemas con la creación de clústeres de HDInsight, consulte los [requisitos de control de acceso](../hdinsight-administer-use-portal-linux.md#create-clusters).
+> [!WARNING]
+> La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando.
+> 
+> Al eliminar un clúster de Kafka en HDInsight se eliminan todos los datos almacenados en Kafka.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este documento, ha aprendido los conceptos básicos de trabajar con Apache Kafka en HDInsight. Para más información sobre cómo trabajar con Kafka:
+> [!div class="nextstepaction"]
+> [Uso de Apache Spark con Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
 
-* [Análisis de los registros de Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Réplica de datos entre clústeres de Kafka](apache-kafka-mirroring.md)
-* [Uso de Producer y Consumer API de Kafka con HDInsight](apache-kafka-producer-consumer-api.md)
-* [Streams API de Kafka con HDInsight](apache-kafka-streams-api.md)
-* [Ejemplo de streaming de Apache Spark (DStream) con Kafka (versión preliminar) en HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Uso del flujo estructurado de Spark con Kafka (versión preliminar) en HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md)
-* [Uso de los flujos estructurados de Apache Spark para mover datos de Kafka para HDInsight a Cosmos DB](../apache-kafka-spark-structured-streaming-cosmosdb.md)
-* [Uso de Apache Kafka con Storm en HDInsight](../hdinsight-apache-storm-with-kafka.md)
-* [Conexión a Kafka a través de una instancia de Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
-* [Uso de Kafka con Azure Container Service](apache-kafka-azure-container-services.md)
-* [Uso de Kafka con Azure Function Apps](apache-kafka-azure-functions.md)

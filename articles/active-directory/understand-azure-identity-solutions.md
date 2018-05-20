@@ -13,11 +13,11 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: bd8e122324ab2d4c783fb6d4e09a9f4f197f91ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 53d34f373dc31befe75072733976b2e4126ff2b0
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Información acerca de las soluciones de identidad de Azure
 Microsoft Azure Active Directory (Azure AD) es una solución en la nube de administración de identidades y acceso que proporciona servicios de directorio, control de identidad y administración del acceso a las aplicaciones. Azure AD [habilita rápidamente el inicio de sesión único (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) en miles de aplicaciones comerciales y personalizadas preintegradas de la [galería de aplicaciones de Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Probablemente ya use muchas de estas aplicaciones, como Office 365, Salesforce.com, Box, ServiceNow y Workday.
@@ -113,10 +113,10 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 * [Administración de contraseñas desde cualquier lugar](active-directory-passwords-update-your-own-password.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
-* [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
+* [Provisión de acceso remoto seguro a aplicaciones locales](manage-apps/application-proxy.md)
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [¿Qué es la licencia de Microsoft Azure Active Directory?](active-directory-licensing-whatis-azure-portal.md)
-* [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
+* [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](manage-apps/cloud-app-discovery.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

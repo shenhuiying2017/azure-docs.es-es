@@ -3,16 +3,17 @@ title: Integración del control de código fuente en Azure Automation
 description: En este artículo se describe la integración del control de código fuente con GitHub en Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 96b4f38ea990edcb23ae792d40651672a921a7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 29ec32c933f3dbe07a844bd99a1f5aa3fa57d61b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 La integración del control de código fuente permite asociar runbooks de su cuenta de Automation a un repositorio de control de código fuente de GitHub. El control de código fuente le permite colaborar fácilmente con su equipo, realizar el seguimiento de los cambios y revertir a versiones anteriores de los runbooks. Por ejemplo, le permite sincronizar distintas ramas de control de código fuente con sus cuentas de Automation de desarrollo, prueba o producción, lo que facilita la promoción de código que se ha probado en el entorno de desarrollo a la cuenta de Automation de producción.
@@ -60,7 +61,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
      | **Parámetro** | **Valor** |
      |:--- |:--- |
      | NOMBRE |Microsoft.Azure.Automation.SourceControl.Connection |
-     | type |string |
+     | Escriba |string |
      | Valor |{"Branch":\<*nombreDeRama*>,"RunbookFolderPath":\<*rutaDeCarpetaDeRunbook*>,"ProviderType":\<*tiene un valor de 1 para GitHub*>,"Repository":\<*nombreDelRepositorio*>,"Username":\<*nombreDe UsuarioDeGitHub*>} |
 
     * La variable **Microsoft.Azure.Automation.SourceControl.OAuthToken**contiene el valor cifrado seguro de OAuthToken.  
@@ -68,7 +69,7 @@ Si ya tiene una cuenta de GitHub y un repositorio que desea vincular a Azure Aut
     |**Parámetro**            |**Valor** |
     |:---|:---|
     | NOMBRE  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | type | Unknown(Encrypted) |
+    | Escriba | Unknown(Encrypted) |
     | Valor | <*OAuthToken cifrado*> |  
 
     ![variables](media/automation-source-control-integration/automation_04_Variables.png)  

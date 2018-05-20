@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 05/04/2018
 ms.author: jeedes
-ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f3c3bbb23b9d4439188286342d80eb1cc1d0833
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integración de Azure Active Directory con Workday
 
@@ -174,19 +174,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Proveedores de identidades SAML](./media/active-directory-saas-workday-tutorial/IC7829272.png "Proveedores de identidades SAML")
    
-    c. Seleccione **Enable idp Initiated Logout** (Habilitar el cierre de sesión iniciado de idp).
-   
-    d. En la ventana **Configurar inicio de sesión único** de Azure Portal, copie el valor de **Dirección URL de cierre de sesión** y péguelo en el cuadro de texto **Logout Request URL** (URL de solicitud de cierre de sesión).
+    c. En la ventana **Configurar inicio de sesión único** de Azure Portal, copie el valor de **Dirección URL de cierre de sesión** y péguelo en el cuadro de texto **Logout Request URL** (URL de solicitud de cierre de sesión).
 
-    e. En la ventana **Configurar inicio de sesión único** de Azure Portal, copie el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) y péguelo en el cuadro de texto **IdP SSO Service URL** (URL de servicio SSO de IdP).
+    d. En la ventana **Configurar inicio de sesión único** de Azure Portal, copie el valor de **SAML Single Sign-On Service URL** (Dirección URL del servicio de inicio de sesión único de SAML) y péguelo en el cuadro de texto **IdP SSO Service URL** (URL de servicio SSO de IdP).
 
-    f. En el cuadro de texto **Used for Environments** (Se usa en entornos), seleccione el nombre del entorno.
+    e. En el cuadro de texto **Used for Environments** (Se usa en entornos), seleccione el nombre del entorno.
 
-    g. Haga clic en **Identity Provider Public Key Certificate** (Certificado de clave pública de proveedor de identidades) y, después, en **Crear**. 
+    f. Haga clic en **Identity Provider Public Key Certificate** (Certificado de clave pública de proveedor de identidades) y, después, en **Crear**. 
 
     ![Crear](./media/active-directory-saas-workday-tutorial/IC782928.png "Crear")
 
-    h. Haga clic en **Create x509 Public Key**(Crear clave pública x509). 
+    g. Haga clic en **Create x509 Public Key**(Crear clave pública x509). 
 
     ![Crear](./media/active-directory-saas-workday-tutorial/IC782929.png "Crear")
 

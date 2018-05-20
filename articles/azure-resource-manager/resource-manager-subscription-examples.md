@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2c16c0414ddf023e7055a8b57c514fc069f3112a
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Ejemplos de implementación de plantillas scaffold empresariales de Azure
-En este tema se ofrecen ejemplos de cómo una empresa puede implementar las recomendaciones de una [plantilla scaffold empresarial de Azure](resource-manager-subscription-governance.md). Se usa una compañía ficticia denominada "Contoso" con el objetivo de ilustrar las prácticas recomendadas para escenarios comunes.
+En este artículo se ofrecen ejemplos de cómo una empresa puede implementar las recomendaciones de un [scaffolding empresarial de Azure](resource-manager-subscription-governance.md). Se usa una compañía ficticia denominada "Contoso" con el objetivo de ilustrar las prácticas recomendadas para escenarios comunes.
 
 ## <a name="background"></a>Fondo
-Contoso es una empresa con presencia internacional que proporciona soluciones de la cadena de suministro para clientes de, por ejemplo, modelos de software como servicio y modelos empaquetados implementados en un entorno local.  Desarrollan software en todo el mundo con centros de desarrollo importantes en India, Estados Unidos y Canadá.
+Contoso es una empresa con representación en todo el mundo que ofrece soluciones de cadena de suministro a sus clientes. Proporcionan todos los elementos, desde un modelo de software como servicio a un modelo de empaquetado implementado de forma local.  Desarrollan software en todo el mundo con centros de desarrollo importantes en India, Estados Unidos y Canadá.
 
 La parte de ISV de la compañía está dividida en varias unidades de negocio independientes que administran productos con una importante actividad empresarial. Cada unidad de negocio tiene sus propios arquitectos, directores de producto y desarrolladores.
 
 La unidad de negocio de servicios de tecnología empresariales (ETS) proporciona las funcionalidades de TI centralizadas y administra varios centros de datos donde las unidades de negocio hospedan sus aplicaciones. Además de la administración de los centros de datos, la organización ETS proporciona y administra la colaboración centralizada (por ejemplo, el correo electrónico y los sitios web) y los servicios de red y telefonía. También se encargan de las cargas de trabajo orientadas al cliente de las unidades de negocio más pequeñas que no disponen de personal de operaciones.
 
-En este tema se usan los siguientes nombres de persona:
+En este artículo se usan los siguientes roles:
 
 * David, administrador de Azure en ETS
 * Alicia, directora de desarrollo de Contoso en la unidad de negocio de la cadena de suministro
@@ -38,10 +38,10 @@ En este tema se usan los siguientes nombres de persona:
 Contoso necesita compilar una aplicación de línea de negocio y una aplicación orientada al cliente. Ha decidido ejecutar las aplicaciones en Azure. David lee el tema sobre [gobierno de suscripción preceptivo](resource-manager-subscription-governance.md) y ahora está listo para implementar las recomendaciones.
 
 ## <a name="scenario-1-line-of-business-application"></a>Escenario 1: aplicación de línea de negocio
-Contoso está creando un sistema de administración de código fuente (BitBucket) para que puedan utilizarlo desarrolladores de todo el mundo.  La aplicación utiliza la infraestructura como servicio (IaaS) para el hospedaje y consta de servidores web y un servidor de bases de datos. Los desarrolladores acceden a los servidores en sus entornos de desarrollo, pero no necesitan entrar en los servidores de Azure. La unidad ETS de Contoso quiere permitir que el equipo y el propietario de la aplicación puedan administrar la aplicación. Esta solo está disponible mientras lo esté la red corporativa de Contoso. David debe configurar la suscripción para esta aplicación. La suscripción también hospedará más adelante otro software relacionado con el desarrollador.  
+Contoso está creando un sistema de administración de código fuente (BitBucket) para que puedan utilizarlo desarrolladores de todo el mundo.  La aplicación utiliza la infraestructura como servicio (IaaS) para el hospedaje y consta de servidores web y un servidor de bases de datos. Los desarrolladores acceden a los servidores en sus entornos de desarrollo, pero no necesitan entrar en los servidores de Azure. La unidad ETS de Contoso desea permitir que tanto el equipo como el propietario de la aplicación puedan administrar la aplicación. Esta solo está disponible mientras lo esté la red corporativa de Contoso. David debe configurar la suscripción para esta aplicación. La suscripción también hospedará más adelante otro software relacionado con el desarrollador.  
 
 ### <a name="naming-standards--resource-groups"></a>Estándares de nomenclatura y grupos de recursos
-David crea una suscripción para admitir las herramientas de desarrollo que son comunes a todas las unidades de negocio. Debe crear nombres descriptivos para la suscripción y los grupos de recursos (de la aplicación y las redes). Por tanto, genera la siguiente suscripción y estos grupos de recursos:
+David crea una suscripción para admitir las herramientas de desarrollo que son comunes a todas las unidades de negocio. Dave necesita crear nombres descriptivos para la suscripción y los grupos de recursos (de la aplicación y las redes). Por tanto, genera la siguiente suscripción y estos grupos de recursos:
 
 | item | NOMBRE | DESCRIPCIÓN |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ David asigna los siguientes roles a la suscripción:
 | Rol | Asignado a | DESCRIPCIÓN |
 | --- | --- | --- |
 | [Propietario](../role-based-access-control/built-in-roles.md#owner) |Identificador administrado del servicio AD de Contoso |Este identificador se controla con acceso Just-In-Time (JIT) a través de la herramienta de administración de identidades de Contoso, y garantiza que se audite por completo el acceso del propietario de la suscripción |
-| [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-manager) |Departamento de administración de riesgos y seguridad |Este rol permite a los usuarios ver Azure Security Center y el estado de los recursos |
+| [Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader) |Departamento de administración de riesgos y seguridad |Este rol permite a los usuarios ver Azure Security Center y el estado de los recursos |
 | [Colaborador de la red](../role-based-access-control/built-in-roles.md#network-contributor) |Equipo de red |Este rol permite al equipo de red de Contoso administrar la VPN de sitio a sitio y las redes virtuales |
 | *Rol personalizado* |Propietario de la aplicación |David crea un rol que concede la capacidad de modificar recursos en el grupo de recursos. Para obtener más información, vea el artículo [Roles personalizados en RBAC de Azure](../role-based-access-control/custom-roles.md). |
 
@@ -90,7 +90,7 @@ Para ello, agrega las siguientes [etiquetas](resource-group-using-tags.md) a los
 | BusinessUnit |**ETS** (la unidad de negocio asociada a la suscripción). |
 
 ### <a name="core-network"></a>Red principal
-El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Quieren asegurarse de que no pueda accederse a la aplicación a través de Internet.  David también tiene aplicaciones de desarrollador que, más adelante, se migrarán a Azure. Estas aplicaciones requieren interfaces públicas.  Para cumplir estos requisitos, proporciona redes virtuales externas e internas, y un grupo de seguridad de red para restringir el acceso.
+El equipo de administración de riesgos y de seguridad de información de la unidad ETS de Contoso revisa el plan que ha propuesto David para migrar la aplicación a Azure. Desean asegurarse de que no puede accederse a la aplicación a través de Internet.  David también tiene aplicaciones de desarrollador que, más adelante, se migrarán a Azure. Estas aplicaciones requieren interfaces públicas.  Para cumplir estos requisitos, proporciona redes virtuales externas e internas, y un grupo de seguridad de red para restringir el acceso.
 
 Además, crea estos recursos:
 
@@ -137,7 +137,7 @@ Para la **suscripción de desarrollo**, crean la siguiente directiva:
 | --- | --- | --- |
 | location |audit |Audita la creación de los recursos en cualquier región. |
 
-No limitan el tipo de SKU que puede crear un usuario durante el desarrollo y no exigen etiquetas para ningún recurso o grupo de recursos.
+No limitan el tipo de SKU que puede crear un usuario durante el desarrollo y no requieren etiquetas para ningún recurso o grupo de recursos.
 
 Para la **suscripción de producción**, crean las siguientes directivas:
 

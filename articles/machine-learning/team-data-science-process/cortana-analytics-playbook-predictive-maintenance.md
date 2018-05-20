@@ -1,8 +1,8 @@
 ---
-title: "Mantenimiento predictivo en empresas aeroespaciales con Azure: plantilla de la solución Cortana Intelligence | Microsoft Docs"
-description: "Plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
+title: Cuaderno de estrategias de Azure AI para soluciones de mantenimiento predictivo | Microsoft Docs
+description: Una descripción completa de la ciencia de datos que ofrece soluciones de mantenimiento predictivo en varios sectores verticales.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 05/01/2018
 ms.author: fboylu
-ms.openlocfilehash: da7826c49c3548600187956908f5369cc4891065
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: ad06617fb8c14928dca7d9ce18ad86190e8255fe
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras
+# <a name="azure-ai-playbook-for-predictive-maintenance-solutions"></a>Cuaderno de estrategias de Azure AI para soluciones de mantenimiento predictivo 
 ## <a name="executive-summary"></a>Resumen ejecutivo
 El mantenimiento predictivo es una de las aplicaciones más solicitadas del análisis predictivo, ya que sus beneficios, entre los que se incluye un gran ahorro de costos, son indiscutibles. El objetivo de este cuaderno de estrategias es servir de referencia para las soluciones de mantenimiento predictivo y en él se hace énfasis en casos de uso importantes.
 Además, proporciona al lector información exhaustiva sobre los escenarios empresariales de mantenimiento predictivo más comunes, los desafíos de los problemas empresariales en que se pueden usar estas soluciones, los datos necesarios para resolver dichos problemas, las técnicas de modelado predictivo para crear soluciones con dichos datos y procedimientos recomendados con arquitecturas de solución de ejemplo.
@@ -206,7 +206,7 @@ Si desea ver un ejemplo, en la ilustración 1, donde los valores de los sensores
 
 ![Figura 1. Características de agregado en ventanas acumuladas](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
 
-Ilustración 1. Características de agregado en ventanas acumuladas
+Figura 1. Características de agregado en ventanas acumuladas
 
 Como ejemplos, en el caso del error de un componente de un avión, se usaron los valores de los sensores de la semana anterior, los últimos tres días y el día anterior para crear medias acumuladas, la desviación estándar y características de suma. De forma similar, en el caso de los errores de los cajeros automáticos, se usaron tanto los valores sin procesar de los sensores como la media acumulada, mediana, intervalo, desviaciones estándar, número de valores atípicos más allá de las tres desviaciones estándar y las características superiores e inferiores de CUMSUM.
 
@@ -323,9 +323,9 @@ Como práctica recomendada, en esta sección veremos con más detalle cómo impl
 Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales como medidas de diferentes sensores. Las características de los ejemplos de entrenamiento y de prueba, así como sus etiquetas, se definen en períodos de tiempo que contienen varios eventos.
 Por ejemplo, para la clasificación binaria, tal y como se describe en las secciones de ingeniería de características y técnicas de modelado, las características se crean en función de los eventos pasados y las etiquetas se crean en función de los eventos futuros que se produzcan en "X" unidades de tiempo en el futuro. Por lo tanto, el período de tiempo del etiquetado de un ejemplo es posterior al período de tiempo de sus características. Para la división dependiente del tiempo, seleccionamos un punto en el tiempo en el que se entrenará un modelo con hiperparámetros optimizados mediante el uso de datos históricos hasta ese punto. Para evitar que etiquetas futuras que están más allá del límite de entrenamiento se fuguen a los datos de entrenamiento, elegimos el período de tiempo más reciente para etiquetar los ejemplos de formación en X unidades antes de la fecha límite de entrenamiento. En la ilustración 7, cada círculo sólido representa una fila en el conjunto de datos de características finales para el que se calculan las características y las etiquetas según el método descrito anteriormente. Con esta premisa, la ilustración muestra los registros que deben ir en los conjuntos de entrenamiento y de prueba al implementar la división dependiente del tiempo para X=2 y W=3:
 
-![Figura 7. División dependiente del tiempo para la clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+![Ilustración 7. División dependiente del tiempo para la clasificación binaria](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
 
-Figura 7. División dependiente del tiempo para la clasificación binaria
+Ilustración 7. División dependiente del tiempo para la clasificación binaria
 
 Los cuadrados verdes representan los registros que pertenecen a las unidades de tiempo que pueden usarse para el entrenamiento. Como se explicó antes, cada ejemplo de entrenamiento de la tabla de características final se genera consultando tres períodos pasados para la generación de características y dos períodos futuros para el etiquetado antes del día límite de entrenamiento. No usamos ejemplos en el conjunto de entrenamiento si alguna parte de los 2 períodos futuros para ese ejemplo está fuera del límite de entrenamiento porque damos por hecho que no tenemos visibilidad más allá del límite de entrenamiento. Debido a esa restricción, los ejemplos en negro representan los registros del conjunto de datos etiquetados final que no se deben usar en el conjunto de datos de entrenamiento. Estos registros no se usarán en los datos de prueba porque son anteriores al límite de entrenamiento y sus períodos de etiquetado dependen parcialmente del período de entrenamiento, lo que no debería ser el caso, ya que nos gustaría separar totalmente los períodos de etiquetado para el entrenamiento y las pruebas a fin de prevenir la fuga de información del etiquetado.
 

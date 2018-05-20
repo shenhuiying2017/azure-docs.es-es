@@ -1,26 +1,26 @@
 ---
-title: "Envío de notificaciones entre plataformas a usuarios con Azure Notification Hubs (ASP.NET)"
-description: "Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas."
+title: Envío de notificaciones entre plataformas a usuarios con Azure Notification Hubs (ASP.NET)
+description: Obtenga información acerca de cómo utilizar las plantillas de Notification Hubs para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas.
 services: notification-hubs
-documentationcenter: 
-author: ysxu
-manager: erikre
-editor: 
+documentationcenter: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: yuaxu
-ms.openlocfilehash: 3c6dde338cb154f0cbe02642e4ff0f81d070aa25
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/14/2018
+ms.author: dimazaid
+ms.openlocfilehash: 95793aac3c25563e3af39f3c47cebdd06e25e35f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/07/2018
 ---
-# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
+# <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envío de notificaciones entre plataformas a los usuarios con Notification Hubs
 En un tutorial anterior, [Notificación a los usuarios con Notification Hubs], aprendió a insertar notificaciones en todos los dispositivos que están registrados en un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Azure Notification Hubs admite plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Este método simplifica el envío de notificaciones entre plataformas. 
 
 En este artículo se muestra cómo aprovechar las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Para más información sobre las plantillas, consulte [Introducción a Azure Notification Hubs][Templates].
@@ -81,17 +81,17 @@ Para enviar notificaciones entre plataformas mediante plantillas, haga lo siguie
             return Request.CreateResponse(HttpStatusCode.OK);
         }
    
-    Este código envía una notificación a todas las plataformas al mismo tiempo, sin que sea necesario especificar una carga nativa. Los Centros de notificaciones crean y entregan la carga correcta a cada dispositivo con el valor de *etiqueta* especificado, como se indica en las plantillas registradas.
+    Este código envía una notificación a todas las plataformas al mismo tiempo, sin que sea necesario especificar una carga nativa. Notification Hubs crea y entrega la carga correcta a cada dispositivo con el valor *tag* proporcionado, tal como se especifica en las plantillas registradas.
 
 4. Publique de nuevo su proyecto de back-end de WebApi.
 
 5. Vuelva a ejecutar la aplicación cliente y, a continuación, compruebe que el registro se ha realizado correctamente.
 
 6. (Opcional) Implemente la aplicación cliente en un segundo dispositivo y, a continuación, ejecute la aplicación.
-    Observe que aparecerá una notificación en cada dispositivo.
+    Aparece una notificación en cada dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que completó este tutorial, obtenga más información acerca de los Centros de notificaciones y las plantillas en estos temas:
+Ahora que completó este tutorial, obtenga más información acerca de Notification Hubs y las plantillas en estos temas:
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
 * [Introducción a Azure Notification Hubs][Templates]: contiene información más detallada sobre las plantillas.
