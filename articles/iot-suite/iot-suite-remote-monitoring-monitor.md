@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 63d5d8de82d97e7f8ca65ad04cdd4357cace0be1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e6bf1962115c4ee9212ae73eb98f664efa3b6a2d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Supervisión avanzada mediante la solución de supervisión remota
 
@@ -37,7 +37,7 @@ En este tutorial, aprenderá a:
 
 Para seguir este tutorial, necesitará una instancia implementada de la solución de supervisión remota en la suscripción de Azure.
 
-Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](iot-suite-remote-monitoring-deploy.md).
+Si aún no ha implementado la solución de supervisión remota, debe completar el tutorial [Implementación del acelerador de la solución de supervisión remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="choose-the-devices-to-display"></a>Elección de los dispositivos que se van a mostrar
 
@@ -115,7 +115,7 @@ Este tutorial muestra cómo usar la página **Panel** para filtrar y supervisar 
 
 Ahora que aprendió a supervisar los dispositivos, los siguientes pasos sugeridos son para aprender a:
 
-* [Detectar problemas mediante reglas basadas en el umbral](./iot-suite-remote-monitoring-automate.md).
+* [Detectar problemas mediante reglas basadas en el umbral](../iot-accelerators/iot-accelerators-remote-monitoring-automate.md).
 * [Administrar y configurar los dispositivos](./iot-suite-remote-monitoring-manage.md).
 * [Solucionar problemas de los dispositivos](./iot-suite-remote-monitoring-maintain.md).
 * [Probar la solución con dispositivos simulados](iot-suite-remote-monitoring-test.md).
