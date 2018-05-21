@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Network y máquinas virtuales Linux | Microsoft Docs
-description: 'Tutorial: Administración de Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure'
+title: 'Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux | Microsoft Docs'
+description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear y administrar redes virtuales de Azure para máquinas virtuales Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4fc6779472a0c680c53d7f25e6fe412ab386fc32
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 306d33dd5b5910e990caf80dae4c37fee020f7a1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="manage-azure-virtual-networks-and-linux-virtual-machines-with-the-azure-cli"></a>Administrar Azure Virtual Networks y máquinas virtuales de Linux con la CLI de Azure
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Creación y administración de redes virtuales de Azure para máquinas virtuales Linux con la CLI de Azure 2.0
 
 Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicación de red interna y externa. Este tutorial le guía a través de la implementación de dos máquinas virtuales y la configuración de redes de Azure para estas máquinas virtuales. Se da por supuesto que en los ejemplos de este tutorial las máquinas virtuales hospedan una aplicación web con un back-end de base de datos, sin embargo, no se implementa ninguna aplicación en el tutorial. En este tutorial, aprenderá a:
 
@@ -33,7 +33,15 @@ Las máquinas virtuales de Azure utilizan las redes de Azure para la comunicaci�
 > * Protegen el tráfico de red.
 > * Crear una máquina virtual de back-end
 
-Al completar este tutorial, podrá ver que se crearon los siguientes recursos:
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+
+## <a name="vm-networking-overview"></a>Introducción a las redes de máquinas virtuales
+
+Las redes virtuales de Azure habilitan las conexiones de red seguras entre máquinas virtuales, Internet y otros servicios de Azure SQL Database. Las redes virtuales se dividen en segmentos lógicos llamados subredes. Las subredes se utilizan para controlar el flujo de red y como límite de seguridad. La implementación de una máquina virtual incluye, por lo general, una interfaz de red virtual, que está conectada a una subred.
+
+Cuando haya completado el tutorial, se crean los siguientes recursos de red virtual:
 
 ![Red virtual con dos subredes](./media/tutorial-virtual-network/networktutorial.png)
 
@@ -46,15 +54,6 @@ Al completar este tutorial, podrá ver que se crearon los siguientes recursos:
 - *myBackendSubnet*: subred asociada a *myBackendNSG* y que usan los recursos de back-end.
 - *myBackendNic*: interfaz de red que usa *myBackendVM* para comunicarse con *myFrontendVM*.
 - *myBackendVM*: máquina virtual que usa los puertos 22 y 3306 para comunicarse con *myFrontendVM*.
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
-
-## <a name="vm-networking-overview"></a>Introducción a las redes de máquinas virtuales
-
-Las redes virtuales de Azure habilitan las conexiones de red seguras entre máquinas virtuales, Internet y otros servicios de Azure SQL Database. Las redes virtuales se dividen en segmentos lógicos llamados subredes. Las subredes se utilizan para controlar el flujo de red y como límite de seguridad. La implementación de una máquina virtual incluye, por lo general, una interfaz de red virtual, que está conectada a una subred.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creación de una red virtual y una subred
 

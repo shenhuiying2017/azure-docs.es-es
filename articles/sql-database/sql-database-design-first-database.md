@@ -1,5 +1,5 @@
 ---
-title: Diseño de la primera instancia de Azure SQL Database mediante SSMS | Microsoft Docs
+title: 'Tutorial: Diseño de la primera instancia de Azure SQL Database mediante SSMS | Microsoft Docs'
 description: Aprenda a diseñar su primera base de datos SQL de Azure mediante SQL Server Management Studio.
 services: sql-database
 author: CarlRabeler
@@ -7,28 +7,30 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
-ms.openlocfilehash: 1415edf8ea70b3835e99daa1691d278fe833b950
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ba14208e971d712184052e7470757ce48ac26879
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="design-your-first-azure-sql-database-using-ssms"></a>Diseño de la primera instancia de Azure SQL Database mediante SSMS
+# <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>Tutorial: Diseño de la primera instancia de Azure SQL Database mediante SSMS
 
 Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) para: 
 
 > [!div class="checklist"]
-> * Crear una base de datos en Azure Portal
+> * Crear una base de datos en Azure Portal*
 > * Establecer una regla de firewall de nivel de servidor en Azure Portal
 > * Conéctese a la base de datos con SSMS
 > * Crear tablas con SSMS
 > * Carga masiva de datos con BCP
 > * Consultar los datos con SSMS
-> * Restaurar la base de datos a una [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) anterior en Azure Portal
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+   >[!NOTE]
+   > Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore (versión preliminar)](sql-database-service-tiers-vcore.md). 
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -42,13 +44,13 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-database"></a>Crear una instancia en blanco en SQL Database
 
-Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
+Se crea una instancia de Azure SQL Database con un conjunto definido de [recursos de proceso y almacenamiento](sql-database-service-tiers-dtu.md). La base de datos se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) y en un [servidor lógico de Azure SQL Database](sql-database-features.md). 
 
 Siga estos pasos para crear una instancia en blanco de SQL Database. 
 
 1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Databases** en la página **Nuevos** y seleccione **Crear** en **Base de datos SQL** en la página **Nuevos**.
+2. En la página **Nuevo**, seleccione **Bases de datos** en la sección de Microsoft Azure Marketplace y, a continuación, haga clic en **SQL Database** en la sección **Destacados**.
 
    ![crear una base de datos en blanco](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -74,7 +76,7 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 
 5. Haga clic en **Seleccionar**.
 
-6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Explore las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio. 
+6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Explore las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio. Dada la finalidad de este tutorial, usamos el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), pero tiene la posibilidad de elegir la [modelo de compra basado en vCore (versión preliminar)](sql-database-service-tiers-vcore.md). 
 
 7. Para este tutorial, seleccione el nivel de servicio **Estándar** y, a continuación, utilice el control deslizante para seleccionar **100 DTU (S3)** y **400** GB de almacenamiento.
 
@@ -83,10 +85,9 @@ Siga estos pasos para crear una instancia en blanco de SQL Database.
 8. Acepte los términos de la versión preliminar para usar la opción de **almacenamiento de complementos**. 
 
    > [!IMPORTANT]
-   > \* Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+   > -  Los tamaños de almacenamiento mayores que la cantidad de almacenamiento incluida están en su versión preliminar y pueden generar costos adicionales. Para obtener información detallada, vea [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >-  En el nivel Premium, más de 1 TB de almacenamiento se encuentra actualmente disponible en las siguientes regiones: Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Centro de Francia, Centro de Alemania, Este de Japón, Oeste de Japón, Centro de Corea, Centro y Norte de EE. UU., Europa del Norte, Centro y Sur de EE. UU., Sudeste Asiático, Sur de Reino Unido, Oeste de Reino Unido, Este de EE. UU. 2, Oeste de EE. UU., Virginia Gob. EE. UU. y Europa Occidental. Consulte [Limitaciones actuales P11-P15](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+
 
 9. Después de seleccionar el nivel del servidor, el número de DTU y la cantidad de almacenamiento, haga clic en **Aplicar**.  
 
@@ -108,7 +109,7 @@ El servicio SQL Database crea un firewall en el nivel de servidor, lo que impide
 
 1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20170824.database.windows.net**) y proporciona opciones para otras configuraciones. 
 
-2. Copie este nombre para conectarse a su servidor y a sus bases de datos en las guías de inicio rápido posteriores. 
+2. Copie este nombre del servidor completo para conectarse a su servidor y a sus bases de datos en los tutoriales e inicios rápido posteriores. 
 
    ![nombre del servidor](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -147,7 +148,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Tipo de servidor | Motor de base de datos | Este valor es necesario. |
+   | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver20170824.database.windows.net**. |
    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
@@ -297,26 +298,6 @@ Ejecute las siguientes consultas para recuperar información de las tablas de ba
    AND person.LastName = 'Coleman'
    ```
 
-## <a name="restore-a-database-to-a-previous-point-in-time"></a>Restauración de una base de datos a un momento anterior en el tiempo
-
-Imagine que ha eliminado accidentalmente una tabla. No se puede recuperar con facilidad. Azure SQL Database permite volver a cualquier momento dado en el período de los últimos 35 días y restaurar este punto en una nueva base de datos. Puede usar esta base de datos para recuperar los datos eliminados. Los pasos siguientes restauran la base de datos de ejemplo a un punto anterior a la eliminación de las tablas.
-
-1. En la página SQL Database de la base de datos, haga clic en **Restaurar** en la barra de herramientas. Se abre la página de **restauración**.
-
-   ![Restauración](./media/sql-database-design-first-database/restore.png)
-
-2. Rellene el formulario de **restauración** con la información necesaria:
-    * Nombre de la base de datos: escriba un nombre para la base de datos 
-    * Momento dado: seleccione la pestaña **Momento dado** en el formulario de restauración 
-    * Punto de restauración: seleccione una hora antes de que se modificara la base de datos
-    * Servidor de destino: no puede modificar este valor cuando restaura una base de datos 
-    * Grupo de bases de datos elásticas: seleccione **Ninguno**  
-    * Plan de tarifa: seleccione **20 DTU** y **40 GB** de almacenamiento.
-
-   ![punto de restauración](./media/sql-database-design-first-database/restore-point.png)
-
-3. Haga clic en **Aceptar** para restaurar la base de datos a [un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) antes de que se agregaran las tablas. Restaurar una base de datos a un momento dado distinto crea una base de datos duplicada en el mismo servidor que la base de datos original a partir del momento dado que especifique, siempre que se encuentre dentro del período de retención para el [nivel de servicio](sql-database-service-tiers.md).
-
 ## <a name="next-steps"></a>Pasos siguientes 
 En este tutorial ha aprendido las tareas básicas de una base de datos, como crear una base de datos y tablas, cargar y consultar datos, y restaurar la base de datos a un momento anterior en el tiempo. Ha aprendido a:
 > [!div class="checklist"]
@@ -326,7 +307,6 @@ En este tutorial ha aprendido las tareas básicas de una base de datos, como cre
 > * Cree las tablas.
 > * Realizar cargas masivas de datos
 > * Consultar los datos
-> * Restaurar la base de datos a un momento anterior en el tiempo mediante las funcionalidades de [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore) de SQL Database
 
 Avance hasta el próximo tutorial para obtener información sobre cómo diseñar una base de datos mediante Visual Studio y C#.
 

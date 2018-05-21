@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados
 Para expandir el almacenamiento disponible, los [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure admiten instancias de máquina virtual con discos de datos asociados. Puede asociar discos de datos cuando se crea el conjunto de escalado, o a un conjunto de escalado existente.
@@ -91,21 +91,12 @@ Para preparar automáticamente los discos de datos en un clúster de Linux, aña
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Adición de discos de datos previamente rellenados a un conjunto de escalado existente 
-> Cuando se agregan discos a un modelo de conjunto de escalado existente, los discos siempre se crean vacíos. Esto es así por diseño. Este escenario también incluye nuevas instancias creadas por el conjunto de escalado. Este comportamiento se debe a que la definición de conjunto de escalado tiene un disco de datos vacío. Para crear unidades de datos rellenadas previamente para un modelo de conjunto de escalado existente, puede elegir entre las dos opciones siguientes:
-
-* Copiar datos de la máquina virtual de instancia 0 en discos de datos de las otras máquinas virtuales mediante la ejecución de un script personalizado.
-* Crear una imagen administrada con el disco de SO más un disco de datos (con los datos necesarios) y crear un nuevo conjunto de escalado con la imagen. De esta forma cada nueva máquina creada tiene un disco de datos que se proporciona en la definición del conjunto de escalado. Dado que esta definición hace referencia a una imagen con un disco de datos que tiene datos personalizados, cada máquina virtual del conjunto de escalado tiene estos cambios.
-
-> La forma de crear una imagen personalizada se puede encontrar aquí: [Captura de una imagen administrada de una máquina virtual generalizada en Azure](/azure/virtual-machines/windows/capture-image-resource/). 
-
-> El usuario tiene que capturar la máquina virtual de instancia 0 que tenga los datos necesarios y luego usar ese disco duro virtual para la definición de la imagen.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Adición de discos de datos previamente rellenados a un conjunto de escalado existente
+Los discos de datos especificados en el modelo de conjunto de escalado siempre están vacíos. Sin embargo, puede asociar un disco de datos existente a una máquina virtual determinada de un conjunto de escalado. Esta característica está en versión preliminar y puede encontrar ejemplos en [GitHub](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). Si quiere propagar los datos entre todas las máquinas virtuales del conjunto de escalado, puede duplicar el disco de datos y asociarlo a cada una de las máquinas virtuales del conjunto de escalado; también puede crear una imagen personalizada que contenga los datos y aprovisionar el conjunto de escalado a partir de ella, o usar Azure Files o una oferta de almacenamiento de datos similar.
 
 
 ## <a name="additional-notes"></a>Notas adicionales
 Hay compatibilidad disponible con Azure Managed Disks y con discos de datos asociados al conjunto de escalado en la versión de API [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) o posterior de Microsoft.Compute API.
-
-En la implementación inicial de la compatibilidad con los discos conectados para los conjuntos de escalado, no se puede conectar ni desconectar discos de datos de máquinas virtuales individuales, o hacia ellas, en un conjunto de escalado.
 
 La compatibilidad con Azure Portal para discos de datos conectados en los conjuntos de escalado está limitada inicialmente. Dependiendo de los requisitos, puede usar plantillas de Azure, CLI, PowerShell, SDK y API de REST para administrar los discos conectados.
 

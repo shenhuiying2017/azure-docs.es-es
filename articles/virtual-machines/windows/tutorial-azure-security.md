@@ -1,36 +1,36 @@
 ---
-title: Azure Security Center y máquinas virtuales Windows en Azure | Microsoft Docs
-description: Obtenga información acerca de la seguridad de máquinas virtuales Windows en Azure con Azure Security Center.
+title: 'Tutorial: Uso de Azure Security Center para máquinas virtuales Windows en Azure | Microsoft Docs'
+description: En este tutorial, aprenderá sobre las características de Azure Security Center para ayudar a proteger las máquinas virtuales Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-tags: azure-service-management
+tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 35b6c8910b0dd5e8d1c388ee83223ce77a08f6d1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Supervisión de la seguridad de máquinas virtuales mediante Azure Security Center
+# <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Windows
 
 Azure Security Center puede ayudarle a conocer mejor los procedimientos de seguridad de los recursos de Azure. Security Center ofrece una supervisión integrada de la seguridad. que puede detectar las amenazas que podrían pasar desapercibidas. En este tutorial, aprenderá no solo a usar Azure Security Center, sino también a:
- 
+
 > [!div class="checklist"]
 > * Configuración de una recolección de datos
 > * Configurar directivas de seguridad
 > * Ver y corregir problemas de estado de la configuración
-> * Revisar las amenazas que se detecten  
+> * Revisar las amenazas que se detecten
 
 ## <a name="security-center-overview"></a>Introducción a Security Center
 

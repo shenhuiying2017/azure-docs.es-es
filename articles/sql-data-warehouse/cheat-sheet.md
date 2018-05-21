@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 172780512dd179d91300459987ad0ba683727859
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Hoja de referencia rápida de Azure SQL Data Warehouse
 En esta hoja de referencia, se proporcionan sugerencias útiles y procedimientos recomendados para la creación de soluciones de Azure SQL Data Warehouse. Antes de empezar, consulte los detalles de cada paso en [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Patrones y antipatrones de la carga de trabajo de Azure SQL Data Warehouse), que explica qué es y qué no es SQL Data Warehouse.
@@ -34,7 +34,7 @@ Conocer los tipos de operaciones de antemano ayuda a optimizar el diseño de las
 
 ## <a name="data-migration"></a>Migración de datos
 
-Primero, cargue los datos en [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) o Azure Blob Storage. A continuación, use PolyBase para cargar los datos en SQL Data Warehouse en una tabla de almacenamiento provisional. Use la configuración siguiente:
+Primero, cargue los datos en [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) o Azure Blob Storage. A continuación, use PolyBase para cargar los datos en SQL Data Warehouse en una tabla de almacenamiento provisional. Use la configuración siguiente:
 
 | Diseño | Recomendación |
 |:--- |:--- |
@@ -43,7 +43,7 @@ Primero, cargue los datos en [Azure Data Lake Store](https://docs.microsoft.com/
 | Creación de particiones | None |
 | Clase de recursos | largerc o xlargerc |
 
-Obtenga más información sobre la [migración de datos], la [carga de datos] y el [proceso de extracción, carga y transformación (ETL)](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Obtenga más información sobre la [migración de datos], la [carga de datos] y el [proceso de extracción, carga y transformación (ETL)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tablas replicadas o distribuidas
 
@@ -78,7 +78,7 @@ La indexación es útil para leer rápidamente las tablas. Existe un conjunto ú
 **Sugerencias:**
 * A partir de un índice agrupado, puede que quiera agregar un índice no agrupado a una columna que se usa mucho como filtro. 
 * Tenga cuidado con cómo administra la memoria en una tabla con CCI. Al cargar los datos, querrá que el usuario (o la consulta) se beneficie de una clase de recursos grande. Asegúrese de evitar recortes y la creación de muchos grupos de filas comprimidos pequeños.
-* Optimizado para filas de nivel de proceso con CCI.
+* En Gen2, las tablas de CCI se almacenan en caché de manera local en los nodos de proceso con el fin de maximizar el rendimiento.
 * En CCI, puede producirse un rendimiento lento debido a la compresión deficiente de los grupos de filas. Si ocurre esto, recompile o reorganice el CCI. Es aconsejable tener al menos 100 000 filas por grupos de filas comprimidos. Lo más conveniente es 1 millón de filas en un grupo de filas.
 * Según la frecuencia y el tamaño de la carga incremental, querrá automatizar la reorganización o recompilación de los índices. Hacer limpieza primaveral siempre es útil.
 * Cree una estrategia cuando desee recortar un grupo de filas. ¿Qué tamaño tienen los grupos de filas abiertos? ¿cuántos datos espera cargar los próximos días?
@@ -111,7 +111,7 @@ SQL Data Warehouse usa grupos de recursos para asignar memoria a las consultas. 
 
 Si observa que las consultas tardan demasiado tiempo, compruebe que los usuarios no se ejecutan en clases de recursos grandes. Las clases de recursos grande consumen mucho espacio de simultaneidad y pueden enviar a otras consultas a la cola.
 
-Por último, si usa el nivel optimizado de proceso, cada clase de recurso obtiene 2,5 veces más memoria que en el nivel optimizado elástico.
+Por último, mediante Gen2 de SQL Data Warehouse, cada clase de recurso obtiene 2,5 veces más memoria que Gen1.
 
 Aprenda más sobre cómo trabajar con [clases de recursos y simultaneidad].
 

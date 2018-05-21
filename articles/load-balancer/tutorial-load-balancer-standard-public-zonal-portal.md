@@ -1,29 +1,41 @@
 ---
-title: 'Máquinas virtuales de Load Balancer en una zona: Azure Portal | Microsoft Docs'
-description: Creación de una instancia de Load Balancer Estándar con un front-end de zona para equilibrar la carga de las máquinas virtuales en una zona de disponibilidad mediante Azure Portal
+title: 'Tutorial: VM de Load Balancer en una zona: Azure Portal | Microsoft Docs'
+description: Este tutorial demuestra cómo crear una instancia de Load Balancer estándar con un front-end de zona para equilibrar la carga de las VM en una zona de disponibilidad mediante Azure Portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/18/2018
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 41a33436cb0d2c4c2bbfef4888bb704c62e2b91e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: mvc
+ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Equilibrio de carga de máquinas virtuales en una zona de disponibilidad con Load Balancer Estándar mediante Azure Portal
+# <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de VM en una zona de disponibilidad con Load Balancer estándar mediante Azure Portal
 
-Este artículo le ayudará a crear una instancia de [Load Balancer Estándar](https://aka.ms/azureloadbalancerstandard) público con un front-end de zona mediante una dirección IP pública estándar y Azure Portal. En este escenario, puede especificar una zona determinada para sus instancias de servidor front-end y back-end para alinear la ruta de acceso a los datos y los recursos con una zona específica.
+Este tutorial le ayudará a crear una instancia pública de [Load Balancer estándar](https://aka.ms/azureloadbalancerstandard) con un front-end de zona mediante una dirección IP pública estándar y Azure Portal. En este escenario, puede especificar una zona determinada para sus instancias de servidor front-end y back-end para alinear la ruta de acceso a los datos y los recursos con una zona específica. Aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un Load Balancer estándar de Azure con un front-end de zona
+> * Crear grupos de seguridad de red para definir las reglas de tráfico de entrada
+> * Crear VM de zona y conectarlas a un equilibrador de carga
+> * Crear el sondeo de estado de un equilibrador de carga
+> * Crear reglas de tráfico del equilibrador de carga
+> * Crear un sitio de IIS básico
+> * Ver un equilibrador de carga en acción
+
 Para más información sobre cómo usar las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
 
 Si lo prefiere, puede realizar los pasos de este artículo con la [CLI de Azure](load-balancer-standard-public-zonal-cli.md).

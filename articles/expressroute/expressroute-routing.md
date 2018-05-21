@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 8bf1381ad089b9db41a3ef9f6fd3b9521a16da7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -183,10 +183,11 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 | Este de Japón | 12076:51012 |
 | Oeste de Japón | 12076:51013 |
 | **Australia** | |
-| Centro de Australia | 12076:51032 |
-| Centro de Australia 2 | 12076:51033 |
 | Australia Oriental | 12076:51015 |
 | Sudeste de Australia | 12076:51016 |
+| **Australia Government** | |
+| Centro de Australia | 12076:51032 |
+| Centro de Australia 2 | 12076:51033 |
 | **India** | |
 | Sur de India | 12076:51019 |
 | India occidental | 12076:51018 |

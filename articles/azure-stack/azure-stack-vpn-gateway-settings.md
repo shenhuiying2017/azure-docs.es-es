@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2018
 ms.author: brenduns
-ms.openlocfilehash: b732770b2eace07690d112e81c6916b16b2cb5b0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Valores de la configuración de una puerta de enlace VPN para Azure Stack
 
@@ -45,16 +45,13 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 ### <a name="gateway-skus"></a>SKU de puerta de enlace
 Al crear una puerta de enlace de red virtual, debe especificar la SKU de la puerta de enlace que desea usar. Seleccione las SKU que cumplan sus requisitos en función de los tipos de cargas de trabajo, rendimientos, características y Acuerdos de Nivel de Servicio.
 
->[!NOTE]
-> Las redes virtuales clásicas deben seguir utilizando las SKU antiguas. Para más información acerca de las SKU de puerta de enlace antiguas, consulte [Working with virtual network gateway SKUs (old)](/azure/vpn-gateway/vpn-gateway-about-skus-legacy) (Uso de las antiguas SKU de puerta de enlace de red virtual).
-
 Azure Stack ofrece las siguientes SKU de VPN Gateway:
 
 |   | Rendimiento de VPN Gateway |Túneles IPsec máx. de VPN Gateway |
 |-------|-------|-------|
 |**SKU básica**  | 100 Mbps  | 10    |
 |**SKU estándar**           | 100 Mbps  | 10    |
-|**SKU de alto rendimiento** | 200 Mbps    | 30    |
+|**SKU de alto rendimiento** | 200 Mbps    | 5 |
 
 ### <a name="resizing-gateway-skus"></a>Cambio de tamaño de las SKU de puerta de enlace
 Azure Stack no admite un cambio de tamaño de las SKU entre las SKU heredadas admitidas.
@@ -90,11 +87,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 Al crear la puerta de enlace de red virtual para una configuración de puerta de enlace de VPN, debe especificar un tipo de VPN. El tipo de VPN que elija dependerá de la topología de conexión que desee crear.  Un tipo de VPN también puede depender del hardware que se esté usando. Las configuraciones de S2S requieren un dispositivo VPN. Algunos dispositivos VPN solo serán compatibles con un determinado tipo de VPN.
 
 > [!IMPORTANT]  
-> En este momento, Azure Stack solo admite el tipo de VPN basado en ruta. Si el dispositivo solo admite VPN basadas en directiva, no se admiten conexiones a dichos dispositivos desde Azure Stack.
+> En este momento, Azure Stack solo admite el tipo de VPN basado en ruta. Si el dispositivo solo admite VPN basadas en directiva, no se admiten conexiones a dichos dispositivos desde Azure Stack.  Además, Azure Stack no admite el uso de selectores de tráfico basados en directivas para puertas de enlace basadas en enrutamiento en este momento, ya que las configuraciones de directivas personalizadas de IPSec/IKE no se admiten todavía.
 
 - **PolicyBased**: *(compatible con Azure, pero no con Azure Stack)* las VPN basadas en directiva cifran y dirigen los paquetes a través de túneles de IPsec basados en las directivas de IPsec, que están configuradas con las combinaciones de prefijos de dirección entre su red local y la red virtual de Azure Stack. La directiva (o el selector de tráfico) se define normalmente como una lista de acceso en la configuración del dispositivo VPN.
 
-- **RouteBased**: las VPN basadas en rutas utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o el selector de tráfico para las VPN basadas en enrutamiento se configura como una conectividad del tipo de cualquiera a cualquiera (o caracteres comodín). El valor de un tipo de VPN basada en ruta es RouteBased.
+- **RouteBased**: las VPN basadas en rutas utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva (o el selector de tráfico) para las VPN basadas en enrutamiento se configura como una conectividad del tipo de cualquiera a cualquiera (o caracteres comodín) de forma predeterminada y no se puede modificar. El valor de un tipo de VPN basada en ruta es RouteBased.
 
 En el siguiente ejemplo de PowerShell se especifica -VpnType como RouteBased. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
 
@@ -110,7 +107,7 @@ La tabla siguiente enumera los requisitos de las puertas de enlace VPN.
 |--|--|--|--|--|
 | **Conectividad de sitio a sitio (conectividad S2S)** | No compatible | Configuración de VPN de RouteBased | Configuración de VPN de RouteBased | Configuración de VPN de RouteBased |
 | **Método de autenticación**  | No compatible | Clave precompartida para conectividad S2S  | Clave precompartida para conectividad S2S  | Clave precompartida para conectividad S2S  |   
-| **Número máximo de conexiones S2S**  | No compatible | 10 | 10| 30|
+| **Número máximo de conexiones S2S**  | No compatible | 10 | 10| 5|
 |**Compatibilidad con enrutamiento activo (BGP)** | No compatible | No compatible | Compatible | Compatible |
 
 ### <a name="gateway-subnet"></a>Subred de puerta de enlace
@@ -160,7 +157,7 @@ A diferencia de Azure, que admite varias ofertas como iniciador y respondedor, A
 |Versión de IKE |IKEv2 |
 |Cifrados y algoritmos hash (cifrado)     | GCMAES256|
 |Cifrados y algoritmos hash (autenticación) | GCMAES256|
-|Vigencia de SA (tiempo)  | 27 700 segundos |
+|Vigencia de SA (tiempo)  | 27 000 segundos |
 |Vigencia de SA (bytes) | 819 200       |
 |Confidencialidad directa perfecta (PFS) |PFS2048 |
 |Detección de cuellos del mismo nivel | Compatible|  

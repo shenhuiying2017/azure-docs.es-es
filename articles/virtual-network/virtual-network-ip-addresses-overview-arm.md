@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2017
+ms.date: 05/02/2017
 ms.author: jdial
-ms.openlocfilehash: d50333888592d2d3e13c40c07a7e58f8676df075
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 30bed569887ce4b25d0b464e9f14a1491c38c736
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de direcciones IP y métodos de asignación en Azure
 
@@ -53,11 +53,15 @@ Las direcciones IP públicas se crean con una dirección IPv4 o IPv6. Las direcc
 
 Las direcciones IP públicas se crean con una de las SKU siguientes:
 
+>[!IMPORTANT]
+> En los recursos de IP pública y en el equilibrador de carga se deben usar SKU coincidentes. No puede tener una combinación de recursos de SKU básica y recursos de SKU estándar. No se pueden asociar máquinas virtuales independientes, máquinas virtuales en un recurso de conjunto de disponibilidad o conjuntos de escalado de máquinas virtuales a ambas SKU simultáneamente.  Para los nuevos diseños, deberá considerar usar los recursos de SKU estándar.  Consulte [Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obtener más información.
+
 #### <a name="basic"></a>Básica
 
 Todas las direcciones IP públicas creadas antes de la introducción de SKU son direcciones IP públicas de SKU básica. Con la introducción de SKU, tiene la opción de especificar qué SKU le gustaría que fuera la dirección IP pública. Las direcciones de SKU básica:
 
 - Se asignan con el método de asignación estática o el de asignación dinámica.
+- Están abiertas de forma predeterminada.  Se recomienda el uso de grupos de seguridad de red, pero es opcional para restringir el tráfico de entrada o de salida.
 - Se asignan a cualquier recurso de Azure al que se pueda asignar una dirección IP pública, como interfaces de red, instancias de VPN Gateway, Application Gateway y equilibradores de carga accesibles desde Internet.
 - Se pueden asignar a una zona específica.
 - No tienen redundancia de zona. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
@@ -67,17 +71,18 @@ Todas las direcciones IP públicas creadas antes de la introducción de SKU son 
 Las direcciones IP públicas de SKU estándar:
 
 - Solo se asignan con el método de asignación estática.
-- Se asignan a interfaces de red o equilibradores de carga estándar accesibles desde Internet. Para más información sobre las SKU de los equilibradores de carga de Azure, consulte [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (SKU estándar de equilibrador de carga de Azure).
-- Tienen redundancia de zona de forma predeterminada. Se pueden crear de forma zonal y garantizada en una zona de disponibilidad específica. Para más información sobre las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Son seguras de forma predeterminada y se cierran al tráfico de entrada. Debe especificar de forma explícita la lista blanca de que permite el tráfico de entrada con un [grupo de seguridad de red](security-overview.md#network-security-groups).
+- Se asignan a interfaces de red o equilibradores de carga estándar públicos. Para más información sobre Azure Load Balancer Estándar, consulte [Azure Load Balancer Estándar](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Tienen redundancia de zona de forma predeterminada. Se pueden crear de forma zonal y garantizada en una zona de disponibilidad específica. Para obtener más información acerca de las zonas de disponibilidad, consulte [Introducción a las zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Load Balancer Standard y zonas de disponibilidad).
  
 > [!NOTE]
-> Cuando asigna una dirección IP pública de SKU estándar a la interfaz de red de una máquina virtual, debe permitir explícitamente el tráfico previsto con un [grupo de seguridad de red](security-overview.md#network-security-groups). Para evitar que se produzca un error en la comunicación con el recurso, debe crear un grupo de seguridad de red, asociarlo y permitir explícitamente el tráfico deseado.
+> Para evitar que se produzca un error en la comunicación con el recurso SKU estándar, debe crear un [grupo de seguridad de red](security-overview.md#network-security-groups), asociarlo y permitir explícitamente el tráfico de entrada deseado.
 
 ### <a name="allocation-method"></a>Método de asignación
 
-Existen dos métodos en los que se asigna una dirección IP a un recurso de dirección IP pública: *dinámico* o *estático*. El predeterminado es el *dinámico*, en el que **no** se asigna ninguna dirección IP en el momento de su creación. En su lugar, se asigna la dirección IP pública cuando se inicia (o crea) el recurso asociado (como una máquina virtual o un equilibrador de carga). La dirección IP se libera cuando se detiene (o elimina) el recurso, Después de liberarse del recurso A, por ejemplo, la dirección IP se puede asignar a un recurso diferente. Si la dirección IP se asigna a un recurso diferente mientras está detenido el recurso A, al reiniciar este recurso, se asignará una dirección IP diferente.
+Las direcciones IP públicas SKU básicas y estándar son compatibles con el método de asignación *estático*.  Se asigna una dirección IP al recurso en el momento en que se crea y la dirección IP se libera cuando el recurso se elimina.
 
-Para asegurarse de que la dirección IP para el recurso asociado siga siendo la misma, puede establecer explícitamente el método de asignación en *estático*. Una dirección IP estática se asigna de inmediato. La dirección se libera cuando se elimina el recurso o se cambia su método de asignación a *dinámico*.
+Las direcciones IP públicas de SKU de nivel básico también admiten un método de asignación *dinámico*, que es el valor predeterminado si no se especifica el método de asignación.  La selección de método de asignación *dinámico* para un recurso de dirección IP pública de nivel básico significa que la dirección IP **no** se asigna en el momento de la creación de recursos.  Al asociar la dirección IP pública con una máquina virtual o cuando se coloca la primera instancia de máquina virtual en el grupo back-end de un equilibrador de carga de nivel básico, se asigna la dirección IP pública.   La dirección IP se libera cuando se detiene (o elimina) el recurso,  Después de liberarse del recurso A, por ejemplo, la dirección IP se puede asignar a un recurso diferente. Si la dirección IP se asigna a un recurso diferente mientras está detenido el recurso A, al reiniciar este recurso, se asignará una dirección IP diferente. Si cambia el método de asignación de un recurso de dirección IP pública de nivel básico de *estático* a *dinámico*, se libera la dirección. Para asegurarse de que la dirección IP para el recurso asociado siga siendo la misma, puede establecer explícitamente el método de asignación en *estático*. Una dirección IP estática se asigna de inmediato.
 
 > [!NOTE]
 > Incluso cuando se establece el método de asignación en *estático*, no se puede especificar la dirección IP real asignada al recurso de dirección IP pública. Azure asigna la dirección IP desde un grupo de direcciones IP disponibles en la ubicación de Azure cuando se crea el recurso.
@@ -111,11 +116,11 @@ Puede asociar una dirección IP pública creada con una [SKU](#SKU) o con una in
 
 ### <a name="vpn-gateways"></a>Puertas de enlace de VPN
 
-Una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite conectar una red virtual de Azure a otras redes virtuales de Azure o a una red local. Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. Solo puede asignar una dirección IP pública *dinámica* a una puerta de enlace de VPN.
+Una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite conectar una red virtual de Azure a otras redes virtuales de Azure o a una red local. Se asigna una dirección IP pública a la instancia de VPN Gateway para habilitar la comunicación con la red remota. Solo puede asignar una dirección IP pública *dinámica* de nivel básico a una puerta de enlace de VPN.
 
 ### <a name="application-gateways"></a>Puertas de enlace de aplicaciones
 
-Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo se puede asignar una dirección IP pública *dinámica* a una configuración del front-end de la puerta de enlace de aplicaciones.
+Puede asociar una dirección IP pública con una [puerta de enlace de aplicaciones](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)de Azure asignándola a la configuración del **front-end** de la puerta de enlace. Esta dirección IP pública actúa como VIP de carga equilibrada. Solo se puede asignar una dirección IP pública *dinámica* de nivel básico a una configuración front-end de la puerta de enlace de aplicaciones.
 
 ### <a name="at-a-glance"></a>De un vistazo
 La siguiente tabla muestra la propiedad específica a través de la cual una dirección IP pública se puede asociar a un recurso de nivel superior y los métodos de asignación posibles (dinámicos o estáticos) que se pueden usar.

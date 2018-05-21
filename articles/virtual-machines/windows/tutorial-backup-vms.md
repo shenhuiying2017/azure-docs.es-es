@@ -1,6 +1,6 @@
 ---
-title: Copia de seguridad de máquinas virtuales Windows de Azure | Microsoft Docs'
-description: Para proteger las máquinas virtuales Windows, realice una copia de seguridad de ellas mediante Azure Backup.
+title: 'Tutorial: Copia de seguridad de máquinas virtuales Windows en Azure Portal | Microsoft Docs'
+description: En este tutorial, aprenderá a usar Azure Portal para proteger las máquinas virtuales Windows con Azure Backup.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,29 +10,26 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 12859bf967cf8de1b57ab9dfd5c0bd080806f2eb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6ae014597a89c75e4426715227bbb19f1e98a438
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-windows-virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Windows en Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Windows en Azure
 
-Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o solo determinados archivos. En este artículo se explica cómo restaurar un único archivo en una máquina virtual que ejecuta Windows Server e IIS. Si aún no tiene una máquina virtual que pueda usar, puede crear una mediante la guía de [inicio rápido de Windows](quick-create-portal.md). En este tutorial, aprenderá a:
+Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda la máquina virtual o determinados archivos. En este artículo se explica cómo restaurar un único archivo en una máquina virtual que ejecuta Windows Server e IIS. Si aún no tiene una máquina virtual que pueda usar, puede crear una mediante la guía de [inicio rápido de Windows](quick-create-portal.md). En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.
 > * Programar una copia de seguridad diaria.
 > * Restaurar un archivo desde una copia de seguridad.
-
-
-
 
 ## <a name="backup-overview"></a>Introducción a Backup
 
@@ -63,7 +60,7 @@ La primera copia de seguridad tarda aproximadamente 20 minutos. Cuando la copia 
 
 ## <a name="recover-a-file"></a>Recuperación de un archivo
 
-Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. Recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como unidad local. Estas unidades permanecerán montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
+Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. Recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como unidad local. Estas unidades permanecen montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
 
 En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en la página web predeterminada de IIS. 
 
@@ -77,13 +74,13 @@ En este ejemplo, se muestra cómo recuperar el archivo de imagen que se usa en l
 
     ![Página web predeterminada de IIS](./media/tutorial-backup-vms/iis-broken.png)
 
-5. En el equipo local, abra una nueva pestaña y vaya al [portal de Azure](https://portal.azure.com).
+5. En el equipo local, abra una nueva pestaña y vaya a [Azure Portal](https://portal.azure.com).
 6. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione la máquina virtual de la lista.
 8. En la hoja de la máquina virtual, en la sección **Configuración**, haga clic en **Copia de seguridad**. Se abre la hoja **Copia de seguridad**. 
 9. En el menú de la parte superior de la hoja, seleccione **Recuperación de archivos**. Se abrirá la hoja **Recuperación de archivos**.
 10. En **Paso 1: Seleccionar punto de recuperación**, seleccione un punto de recuperación en la lista desplegable.
 11. En **Paso 2: Descargar script para examinar y recuperar archivos**, haga clic en el botón **Download Executable** (Descargar ejecutable). Guarde el archivo en la carpeta **Descargas**.
-12. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo llevará delante el nombre de su máquina virtual. 
+12. En el equipo local, abra el **Explorador de archivos**, vaya a la carpeta **Descargas** y copie el archivo .exe descargado. El nombre de archivo lleva delante el nombre de su máquina virtual. 
 13. En la máquina virtual (a través de la conexión RDP), pegue el archivo .exe en el escritorio de la máquina virtual. 
 14. Vaya al escritorio de la máquina virtual y haga doble clic en el archivo .exe. Se inicia un símbolo del sistema y luego se monta el punto de recuperación como un recurso compartido de archivos al que puede obtener acceso. Cuando se termine de crear el recurso compartido, escriba **q** para cerrar el símbolo del sistema.
 15. En la máquina virtual, abra el **Explorador de archivos** y vaya a la letra de unidad que se usó para el recurso compartido de archivos.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/01/2017
 ms.author: brenduns
-ms.openlocfilehash: 9c821f20ce5826666a05121e1a39882fae0930d3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7e489db0d9a65b850df41360ce11616d518c5265
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Acerca de VPN Gateway para Azure Stack
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -26,11 +26,11 @@ ms.lasthandoff: 04/23/2018
 
 Antes de poder enviar tráfico de red entre una red virtual de Azure y un sitio local, es preciso crear una puerta de enlace de red virtual para la red virtual.
 
-Una puerta de enlace VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado a través de una conexión pública. Las puertas de enlace VPN se pueden usar para enviar el tráfico de forma segura entre una red virtual de Azure Stack y una red virtual de Azure, o bien entre una red virtual y otra red conectada a un dispositivo de VPN.
+Una puerta de enlace VPN es un tipo de puerta de enlace de red virtual que envía tráfico cifrado a través de una conexión pública. Puede usar las puertas de enlace de VPN para enviar tráfico de forma segura entre una red virtual en Azure Stack y una red virtual en Azure. También puede enviar tráfico de forma segura entre una red virtual y otra red conectada a un dispositivo VPN.
 
 Al crear una puerta de enlace de red virtual, debe especificar el tipo de puerta de enlace que desea crear. Azure Stack admite un tipo de puerta de enlace de red virtual: el tipo 'Vpn'.
 
-Cada red virtual solo puede tener dos puertas de enlace de red virtual, pero solo una de cada tipo. Según la configuración que elija, puede crear varias conexiones a una única instancia de VPN Gateway. Un ejemplo de esto es una configuración de conexión multisitio.
+Cada red virtual solo puede tener dos puertas de enlace de red virtual, pero solo una de cada tipo. Según la configuración que elija, puede crear varias conexiones a una única instancia de VPN Gateway. Un ejemplo de esto es la configuración de conexión multisitio.
 
 > [!NOTE]
 > En Azure, el rendimiento de ancho de banda de la SKU de VPN Gateway que elija debe dividirse entre todas las conexiones que están conectadas a él.  En Azure Stack, el valor de ancho de banda de la SKU de VPN Gateway se aplica a cada recurso de conexión que está conectado a él.     
@@ -46,7 +46,7 @@ Una conexión de puerta de enlace de VPN se basa en varios recursos con una conf
 La configuración que ha elegido para cada recurso es fundamental para crear una conexión correcta. Para más información acerca de los recursos individuales y la configuración de VPN Gateway, consulte [VPN gateway configuration settings for Azure Stack](azure-stack-vpn-gateway-settings.md) (Acerca de la configuración de VPN Gateway para Azure Stack). Puede encontrar información que le ayude a conocer los tipos de puerta de enlace, los tipos de VPN, los tipos de conexión, las subredes de puerta de enlace, las puertas de enlace de red local y otras configuraciones de recursos que puede tener en cuenta.
 
 ### <a name="deployment-tools"></a>Herramientas de implementación
-Puede empezar a crear y configurar recursos mediante una herramienta de configuración, como el portal de Azure. Después, puede decidir cambiar a otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea aplicable. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en el portal de Azure. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica.
+Puede crear y configurar recursos mediante una herramienta de configuración, como Azure Portal. Más adelante, puede usar otra herramienta, como PowerShell, para configurar recursos adicionales o para modificar los existentes cuando sea necesario. Actualmente, no se pueden configurar todos los recursos ni establecer todas las configuraciones de recurso en el portal de Azure. Las instrucciones de los artículos para cada topología de configuración indican cuándo se necesita una herramienta de configuración específica.
 
 ## <a name="connection-topology-diagrams"></a>Diagramas de topologías de conexión
 Es importante saber que hay distintas configuraciones disponibles para las conexiones de VPN Gateway. Es preciso determinar qué configuración es la que mejor se adapta a sus necesidades. En las secciones siguientes, puede ver información y diagramas de topología sobre las siguientes conexiones de VPN Gateway. En las secciones siguientes se incluyen tablas que enumeran:
@@ -78,7 +78,7 @@ Cuando se selecciona una SKU de puerta de enlace superior, como Estándar con re
 
 Azure Stack no admite la SKU de puerta de enlace Ultrarrendimiento, que se utiliza exclusivamente con Express Route.
 
-Al seleccionar un SKU, considere los siguientes factores:
+Tenga en cuenta la siguiente información cuando seleccione la SKU:
 - Azure Stack no admite puertas de enlace basadas en directivas.
 - El protocolo Border Gateway Protocol (BGP) no se admite en la SKU de nivel Básico.
 - Las configuraciones de la coexistencia de ExpressRoute-VPN Gateway no se admiten en Azure Stack
@@ -93,7 +93,7 @@ En la tabla siguiente se muestran los tipos de puerta de enlace y el rendimiento
 |**SKU estándar**       | 100 Mbps  | 10    |
 |**SKU de alto rendimiento** | 200 Mbps    | 5 |
 ***(1)*** El rendimiento de la VPN no está garantizado para las conexiones entre locales a través de Internet. Es el valor máximo posible del rendimiento.  
-***(2)*** El número de túneles máximo es el total por cada implementación de Azure Stack para TODAS las suscripciones.
+***(2)*** El número de túneles máximo es el total por cada implementación de Azure Stack para TODAS las suscripciones.  
 ***(3)*** BGP no es compatible con la SKU de nivel Básico.
 
 ## <a name="next-steps"></a>Pasos siguientes

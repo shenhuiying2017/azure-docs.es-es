@@ -1,21 +1,21 @@
 ---
-title: "Creación de una instancia de Azure Database Migration Service mediante Azure Portal | Microsoft Docs"
+title: Creación de una instancia de Azure Database Migration Service mediante Azure Portal | Microsoft Docs
 description: Utilice Azure Portal para crear una instancia de Azure Database Migration Service
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Creación de una instancia de Azure Database Migration Service mediante Azure Portal
 En esta guía de inicio rápido, puede usar Azure Portal para crear una instancia de Azure Database Migration Service.  Después de crear el servicio, puede usarlo para migrar datos de SQL Server local a una base de datos de Azure SQL Database.
@@ -39,9 +39,9 @@ Registre el proveedor de recursos Microsoft.DataMigration antes de crear su prim
 ![Registro del proveedor de recursos](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Creación de una instancia del servicio
-1. Haga clic en **+ Crear un recurso** para crear una instancia de Azure Database Migration Service, que actualmente está en versión preliminar.
+1. Haga clic en **+ Crear un recurso** para crear una instancia de Azure Database Migration Service.
 
-2. Busque "migration" en Marketplace, seleccione **Azure Database Migration Service** y, en la pantalla **Azure Database Migration Service (versión preliminar)**, haga clic en **Crear**.
+2. Busque "migration" en Marketplace, seleccione **Azure Database Migration Service** y, en la pantalla **Azure Database Migration Service**, haga clic en **Crear**.
 
 3. En la pantalla **Database Migration Service**: 
 

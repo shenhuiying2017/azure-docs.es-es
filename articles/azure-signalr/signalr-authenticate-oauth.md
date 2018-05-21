@@ -14,19 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: autenticación del servicio Azure SignalR
 
-El servicio Microsoft Azure SignalR se encuentra actualmente en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Este tutorial se basa en la aplicación de salón de chat presentada en la guía de inicio rápido. Si no ha realizado [Creación de un salón de chat con el servicio SignalR](signalr-quickstart-dotnet-core.md), lleve a cabo ese ejercicio primero. 
 
-En este tutorial, aprenderá a implementar su propia autenticación y a integrarla con el servicio Microsoft Azure SignalR. 
+En este tutorial, aprenderá a implementar su propia autenticación e integrarla con el servicio Azure SignalR. 
 
 La autenticación utilizada inicialmente en la aplicación de salón de chat de la guía de inicio rápido es demasiado simple para escenarios del mundo real. La aplicación permite que cada cliente notifique quién es y el servidor lo acepta simplemente. Este enfoque no es muy útil en aplicaciones del mundo real, donde un usuario no autorizado podría suplantar a otros usuarios para acceder a información confidencial. 
 
@@ -605,7 +603,9 @@ Transcurridos unos instantes, el grupo de recursos y todos los recursos que cont
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha agregado la autenticación con OAuth para proporcionar un enfoque más adecuado para la autenticación con el servicio Azure SignalR. Para más información sobre el uso de Azure SignalR Server, continúe con los ejemplos de la CLI de Azure para SignalR Service.
+En este tutorial, ha agregado la autenticación con OAuth para proporcionar un enfoque más adecuado para la autenticación con el servicio Azure SignalR. Para más información sobre el uso de Azure SignalR Server, continúe con el siguiente tutorial que muestra la integración con Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Ejemplos de la CLI de Azure SignalR](./signalr-cli-samples.md)
+> [Integración de Azure Functions con el servicio Azure SignalR](./signalr-integrate-functions.md)
+
+

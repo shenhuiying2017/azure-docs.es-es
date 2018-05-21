@@ -1,24 +1,24 @@
 ---
-title: "Integración de soluciones de seguridad en Azure Security Center | Microsoft Docs"
-description: "Aprenda cómo Azure Security Center se integra con los asociados para mejorar la seguridad general de los recursos de Azure."
+title: Integración de soluciones de seguridad en Azure Security Center | Microsoft Docs
+description: Aprenda cómo Azure Security Center se integra con los asociados para mejorar la seguridad general de los recursos de Azure.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
-ms.author: yurid
-ms.openlocfilehash: 48648c2e84d2a2e4de01f04495fb08df603c6017
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 05/04/2018
+ms.author: terrylan
+ms.openlocfilehash: ac1e49400f32194ada319f23b5233cc81de02a02
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integración de soluciones de seguridad en Azure Security Center
 Este documento le ayuda a administrar las soluciones de seguridad que ya está conectadas a Azure Security Center y a agregar otras nuevas.
@@ -32,7 +32,7 @@ Security Center facilita la habilitación de soluciones de seguridad integradas 
 
 En la actualidad, las soluciones de seguridad integradas incluyen:
 
-- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, Windows Defender y System Center Endpoint Protection (SCEP))
+- Endpoint Protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), Symantec, McAfee, Windows Defender y System Center Endpoint Protection (SCEP))
 - Firewall de aplicaciones web ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets) y [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - Firewall de última generación ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2) y [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html))
 - Evaluación de vulnerabilidades ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/))  
@@ -44,8 +44,8 @@ La experiencia de integración de Endpoint Protection puede variar según la sol
 | Windows Defender (Microsoft Antimalware)                  | Windows Server 2016                   | No, se integra en el sistema operativo.           | Sí                       |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 | Mediante extensión                | Sí                       |
 | Trend Micro: todas las versiones         | Familia de Windows Server                 | Mediante extensión                | Sí                       |
-| Symantec v12.1.1100+                     | Familia de Windows Server                 | Sin                            | Sí                        |
-| MacAfee                           | Familia de Windows Server                 | Sin                            | Sin                         |
+| Symantec v12.1.1100+              | Familia de Windows Server                 | Sin                            | Sí                       |
+| McAfee v10 o posterior                       | Familia de Windows Server                 | Sin                            | Sí                       |
 | Kaspersky                         | Familia de Windows Server                 | Sin                            | Sin                         |
 | Sophos                            | Familia de Windows Server                 | Sin                            | Sin                         |
 
@@ -86,7 +86,7 @@ Para más información, consulte [Administración de las soluciones conectadas d
 Security Center detecta automáticamente las soluciones de seguridad que se ejecutan en Azure, pero que no están conectadas a Security Center y las muestra en la sección **Soluciones detectadas**. Aquí se incluyen tanto soluciones de Azure, como [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), como soluciones de asociados.
 
 > [!NOTE]
-> La característica de soluciones detectadas está disponible en el nivel Estándar de Security Center. Para más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+> El nivel estándar de Security Center es necesario en el nivel de suscripción de la característica de soluciones detectadas. Para obtener más información sobre los planes de tarifa de Security, consulte [Precios](security-center-pricing.md).
 >
 >
 
