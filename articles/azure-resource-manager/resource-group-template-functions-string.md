@@ -6,19 +6,19 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -62,9 +62,9 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 
 Devuelve la representación de base64 de la cadena de entrada.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | inputString |Sí |string |Valor que se va a devolver como una representación de base64. |
 
@@ -115,10 +115,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | string | b25lLCB0d28sIHRocmVl |
+| toStringOutput | string | one, two, three |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -140,9 +140,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte una representación en base64 a un objeto JSON.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | base64Value |Sí |string |La representación en base64 para convertir en un objeto JSON. |
 
@@ -193,10 +193,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | string | b25lLCB0d28sIHRocmVl |
+| toStringOutput | string | one, two, three |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -218,11 +218,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte una representación en base64 en una cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sí |cadena |La representación en base64 para convertir en una cadena. |
+| base64Value |Sí |string |La representación en base64 para convertir en una cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -271,10 +271,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | string | b25lLCB0d28sIHRocmVl |
+| toStringOutput | string | one, two, three |
 | toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
@@ -296,12 +296,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Combina varios valores de cadena y devuelve la cadena concatenada, o combina varias matrices y devuelve la matriz concatenada.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o matriz |El primer valor para la concatenación. |
-| argumentos adicionales |No |cadena |Valores adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin  |string |Valores adicionales en orden secuencial para la concatenación. |
 
 ### <a name="return-value"></a>Valor devuelto
 Una cadena o matriz de valores concatenados.
@@ -332,9 +332,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | string | prefix-5yj4yjf5mbg72 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -385,7 +385,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -408,9 +408,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -474,7 +474,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | True |
 | stringFalse | Booleano | False |
@@ -502,11 +502,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte un valor en un identificador URI de datos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sí |cadena |El valor para convertir en un identificador URI de datos. |
+| stringToConvert |Sí |string |El valor para convertir en un identificador URI de datos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -546,10 +546,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hola mundo. |
+| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | string | Hola mundo. |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -570,11 +570,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte un valor con formato de identificador URI de datos en una cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sí |cadena |El valor del identificador URI para convertir. |
+| dataUriToConvert |Sí |string |El valor del identificador URI para convertir. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -614,10 +614,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hola mundo. |
+| dataUriOutput | string | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | string | Hola mundo. |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -638,9 +638,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Determina si una matriz, un objeto o una cadena están vacíos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -691,7 +691,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Booleano | True |
 | objectEmpty | Booleano | True |
@@ -716,11 +716,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Determina si una cadena termina con un valor. La comparación distingue entre mayúsculas y minúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -767,7 +767,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Booleano | True |
 | startsCapTrue | Booleano | True |
@@ -795,9 +795,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el primer carácter de la cadena o el primer elemento de la matriz.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -836,10 +836,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | string | one |
+| stringOutput | string | O |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -861,10 +861,10 @@ Crea un valor en el formato de un identificador único global en función de los
 
 ### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseString |Sí |cadena |El valor utilizado en la función hash para crear el GUID. |
-| parámetros adicionales según sea necesario |No |cadena |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| baseString |Sí |string |El valor utilizado en la función hash para crear el GUID. |
+| parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -943,11 +943,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve la primera posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -990,7 +990,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1017,9 +1017,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el último carácter de la cadena, o el último elemento de la matriz.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -1058,10 +1058,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | string | three |
+| stringOutput | string | e |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1082,11 +1082,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve la última posición de un valor dentro de una cadena. La comparación distingue entre mayúsculas y minúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -1129,7 +1129,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1156,9 +1156,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el número de caracteres de una cadena, o elementos de una matriz.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
@@ -1204,7 +1204,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -1228,13 +1228,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToPad |Sí |cadena o entero |Valor que se va a alinear a la derecha. |
 | totalLength |Sí |int |El número total de caracteres de la cadena devuelta. |
-| paddingCharacter |No |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
+| paddingCharacter |Sin  |carácter individual |El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total. El valor predeterminado es un espacio. |
 
 Si la cadena original es mayor que el número de caracteres que se va a rellenar, no se agrega ningún carácter.
 
@@ -1268,9 +1268,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | string | 0000000123 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1291,13 +1291,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una nueva cadena con todas las instancias de una cadena reemplazadas por otra cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| originalString |Sí |cadena |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
-| oldString |Sí |cadena |Cadena que se va a quitar de la cadena original. |
-| newString |Sí |cadena |La cadena que se va a agregar en lugar de la cadena eliminada. |
+| originalString |Sí |string |Valor que tiene todas las instancias de una cadena reemplazadas por otra cadena. |
+| oldString |Sí |string |Cadena que se va a quitar de la cadena original. |
+| newString |Sí |string |La cadena que se va a agregar en lugar de la cadena eliminada. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1333,10 +1333,10 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| firstOutput | string | 1231231234 |
+| secodeOutput | string | 123-123-xxxx |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1357,9 +1357,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una cadena con todos los caracteres después del número especificado de caracteres, o una matriz con todos los elementos después del número especificado de elementos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
@@ -1414,10 +1414,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | string | two three |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1438,11 +1438,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una matriz de cadenas que contiene las subcadenas de la cadena de entrada que están delimitadas por los delimitadores especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| inputString |Sí |cadena |La cadena que se va a dividir. |
+| inputString |Sí |string |La cadena que se va a dividir. |
 | delimiter |Sí |cadena o matriz de cadenas |Delimitador que se utilizará para dividir la cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -1486,7 +1486,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | firstOutput | Matriz | ["one", "two", "three"] |
 | secondOutput | Matriz | ["one", "two", "three"] |
@@ -1510,11 +1510,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Determina si una cadena empieza con un valor. La comparación distingue entre mayúsculas y minúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sí |cadena |El valor que contiene el elemento para buscar. |
+| stringToSearch |Sí |string |El valor que contiene el elemento para buscar. |
 | stringToFind |Sí |string |El valor para buscar. |
 
 ### <a name="return-value"></a>Valor devuelto
@@ -1561,7 +1561,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | startsTrue | Booleano | True |
 | startsCapTrue | Booleano | True |
@@ -1584,14 +1584,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="string" />
 
-## <a name="string"></a>cadena
+## <a name="string"></a>string
 `string(valueToConvert)`
 
 Convierte el valor especificado en cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí | Cualquiera |El valor que se convierte en cadena. Se puede convertir cualquier tipo de valor, incluidos objetos y matrices. |
 
@@ -1648,11 +1648,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| objectOutput | string | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | string | ["a","b","c"] |
+| intOutput | string | 5 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1673,13 +1673,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una subcadena que empieza en la posición de carácter especificada y que contiene el número especificado de caracteres.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sí |cadena |La cadena original desde la que se extrae la subcadena. |
-| startIndex |No |int |La posición de carácter inicial basado en cero de la subcadena. |
-| length |No |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. |
+| stringToParse |Sí |string |La cadena original desde la que se extrae la subcadena. |
+| startIndex |Sin  |int |La posición de carácter inicial basado en cero de la subcadena. |
+| length |Sin  |int |El número de caracteres de la subcadena. Debe hacer referencia a una ubicación dentro de la cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1724,9 +1724,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | string | two |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1747,9 +1747,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una cadena con el número especificado de caracteres desde el inicio de la cadena, o una matriz con el número especificado de elementos desde el inicio de la matriz.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
@@ -1804,10 +1804,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["one", "two"] |
-| stringOutput | String | en |
+| stringOutput | string | en |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1828,9 +1828,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte la cadena especificada a minúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToChange |Sí |string |Valor que se va a convertir a minúsculas. |
 
@@ -1868,10 +1868,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | string | one two three |
+| toUpperOutput | string | ONE TWO THREE |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1892,11 +1892,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte la cadena especificada a mayúsculas.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sí |cadena |Valor que se va a convertir a mayúsculas. |
+| stringToChange |Sí |string |Valor que se va a convertir a mayúsculas. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1932,10 +1932,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | string | one two three |
+| toUpperOutput | string | ONE TWO THREE |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1956,11 +1956,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Quita todos los caracteres de espacio en blanco iniciales y finales de la cadena especificada.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sí |cadena |Valor que se recortará. |
+| stringToTrim |Sí |string |Valor que se recortará. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1992,9 +1992,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | string | one two three |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -2015,12 +2015,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crea una cadena de hash determinista basada en los valores proporcionados como parámetros. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | baseString |Sí |string |Valor utilizado en la función hash para crear una cadena única. |
-| parámetros adicionales según sea necesario |No |cadena |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
+| parámetros adicionales según sea necesario |Sin  |string |Puede agregar tantas cadenas como necesite para crear el valor que especifica el nivel de unicidad. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -2104,11 +2104,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crea un URI absoluto mediante la combinación de la cadena de relativeUri y baseUri.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sí |cadena |La cadena de uri base. |
+| baseUri |Sí |string |La cadena de uri base. |
 | relativeUri |Sí |string |La cadena de uri relativo que se agregará a la cadena de uri base. |
 
 El valor del parámetro **baseUri** puede incluir un archivo específico, pero al construir el identificador URI, solo se usa la ruta de acceso base. Por ejemplo, al pasar `http://contoso.com/resources/azuredeploy.json` como parámetro baseUri, se obtiene como resultado un identificador URI base de `http://contoso.com/resources/`.
@@ -2156,11 +2156,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -2181,9 +2181,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Codifica un identificador URI.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sí |string |El valor para codificar. |
 
@@ -2224,11 +2224,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -2249,11 +2249,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una cadena del valor codificado por el identificador URI.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sí |cadena |El valor codificado por el identificador URI para convertir en una cadena. |
+| uriEncodedString |Sí |string |El valor codificado por el identificador URI para convertir en una cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -2292,11 +2292,11 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | string | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | string | http://contoso.com/resources/nested/azuredeploy.json |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 

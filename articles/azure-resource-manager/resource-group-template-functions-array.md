@@ -6,19 +6,19 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7d040fe55cb46665c97668a76ccbc66adc002f89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funciones de matriz y de objeto para las plantillas de Azure Resource Manager 
 
@@ -51,9 +51,9 @@ Para obtener una matriz de valores de cadena delimitada por un valor, consulte [
 
 Convierte el valor en una matriz.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | convertToArray |Sí |entero, cadena, matriz u objeto |Valor que se convierte en matriz. |
 
@@ -104,7 +104,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | intOutput | Matriz | [1] |
 | stringOutput | Matriz | ["a"] |
@@ -129,12 +129,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el primer valor no nulo de los parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero, cadena, matriz u objeto |El primer valor para comprobar si hay valores nulos. |
-| argumentos adicionales |No |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
+| argumentos adicionales |Sin  |entero, cadena, matriz u objeto |Valores adicionales para probar si hay valores nulos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -190,9 +190,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | default |
+| stringOutput | string | default |
 | intOutput | int | 1 |
 | objectOutput | Objeto | {"first": "default"} |
 | arrayOutput | Matriz | [1] |
@@ -217,12 +217,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Combina varias matrices y devuelve la matriz concatenada, o combina varios valores de cadena y devuelve la cadena concatenada. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La primera matriz o cadena para la concatenación. |
-| argumentos adicionales |No |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
+| argumentos adicionales |Sin  |matriz o cadena |Matrices o cadenas adicionales en orden secuencial para la concatenación. |
 
 Esta función puede tomar cualquier número de argumentos y puede aceptar cadenas o matrices para los parámetros.
 
@@ -268,7 +268,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | return | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -308,9 +308,9 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | string | prefix-5yj4yjf5mbg72 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -331,9 +331,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si una matriz contiene un valor, un objeto contiene una clave o una cadena contiene una subcadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | container |Sí |matriz, objeto o cadena |El valor que contiene el valor para buscar. |
 | itemToFind |Sí |cadena o entero |El valor para buscar. |
@@ -397,7 +397,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | True |
 | stringFalse | Booleano | False |
@@ -425,12 +425,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crea una matriz a partir de los parámetros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |Cadena, entero, matriz u objeto |El primer valor en la matriz. |
-| argumentos adicionales |No |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
+| argumentos adicionales |Sin  |Cadena, entero, matriz u objeto |Valores adicionales en la matriz. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -479,7 +479,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | stringArray | Matriz | ["a", "b", "c"] |
 | intArray | Matriz | [1, 2, 3] |
@@ -506,9 +506,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Determina si una matriz, un objeto o una cadena están vacíos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | itemToTest |Sí |matriz, objeto o cadena |El valor para comprobar si está vacío. |
 
@@ -559,7 +559,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Booleano | True |
 | objectEmpty | Booleano | True |
@@ -584,9 +584,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el primer elemento de la matriz o el primer carácter de la cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el primer elemento o carácter. |
 
@@ -625,10 +625,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | string | one |
+| stringOutput | string | O |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -649,13 +649,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una única matriz u objeto con los elementos comunes de los parámetros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utilizará para buscar elementos comunes. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utilizará para buscar elementos comunes. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
+| argumentos adicionales |Sin  |matriz u objeto |Valores adicionales que se utilizarán para buscar elementos comunes. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -704,7 +704,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "three": "c"} |
 | arrayOutput | Matriz | ["two", "three"] |
@@ -726,11 +726,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve un objeto JSON.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sí |cadena |Valor que se va a convertir en JSON. |
+| arg1 |Sí |string |Valor que se va a convertir en JSON. |
 
 
 ### <a name="return-value"></a>Valor devuelto
@@ -762,7 +762,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | jsonOutput | Objeto | {"a": "b"} |
 | nullOutput | boolean | True |
@@ -786,9 +786,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el último elemento de la matriz o el último carácter de la cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |El valor para recuperar el último elemento o carácter. |
 
@@ -827,10 +827,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | string | three |
+| stringOutput | string | e |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -851,9 +851,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el número de elementos de una matriz, o los caracteres de una cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz o cadena |La matriz que se usará para obtener el número de elementos, o la cadena que se usará para obtener el número de caracteres. |
 
@@ -899,7 +899,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -934,9 +934,9 @@ Para más información sobre cómo usar esta función con una matriz, vea [Creac
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -974,7 +974,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -998,9 +998,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -1038,7 +1038,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -1062,9 +1062,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Crea una matriz de enteros a partir de un entero de inicio y contiene un número de elementos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | startingInteger |Sí |int |El primer entero de la matriz. |
 | numberofElements |Sí |int |El número de enteros en la matriz. |
@@ -1103,7 +1103,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Matriz | [5, 6, 7] |
 
@@ -1126,9 +1126,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una matriz con todos los elementos después del número especificado de la matriz, o devuelve una cadena con todos los caracteres después del número especificado en la cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
 | numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
@@ -1183,10 +1183,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | string | two three |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1207,9 +1207,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una matriz con el número especificado de elementos desde el inicio de la matriz, o una cadena con el número especificado de caracteres desde el inicio de la cadena.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
 | numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
@@ -1264,10 +1264,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | Matriz | ["one", "two"] |
-| stringOutput | String | en |
+| stringOutput | string | en |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -1288,13 +1288,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve una única matriz u objeto con todos los elementos de los parámetros. Los valores o las claves duplicados solo se incluyen una vez.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz u objeto |El primer valor que se utiliza para unir elementos. |
 | arg2 |Sí |matriz u objeto |El segundo valor que se utiliza para unir elementos. |
-| argumentos adicionales |No |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
+| argumentos adicionales |Sin  |matriz u objeto |Valores adicionales que se utilizan para unir elementos. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1343,7 +1343,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | objectOutput | Objeto | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Matriz | ["one", "two", "three", "four"] |

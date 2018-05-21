@@ -1,24 +1,24 @@
 ---
-title: "Funciones lógicas de la plantilla de Azure Resource Manager | Microsoft Docs"
-description: "Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos."
+title: Funciones lógicas de la plantilla de Azure Resource Manager | Microsoft Docs
+description: Describe las funciones que se pueden usar en una plantilla de Azure Resource Manager para determinar valores lógicos.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
@@ -35,9 +35,9 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 
 Comprueba si los dos valores de parámetro son verdaderos.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
@@ -74,7 +74,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True |
@@ -97,9 +97,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte el parámetro en un booleano.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en booleano. |
 
@@ -138,7 +138,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | trueString | Booleano | True |
 | falseString | Booleano | False |
@@ -162,9 +162,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve un valor dependiendo de si una condición es verdadera o falsa.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | condition |Sí |boolean |Valor cuya veracidad se comprueba. |
 | trueValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
@@ -245,10 +245,10 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| yesOutput | String | yes |
-| noOutput | String | no |
+| yesOutput | string | Sí |
+| noOutput | string | no |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -267,9 +267,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte el valor booleano en su valor opuesto.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Valor que se va a convertir. |
 
@@ -305,7 +305,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True |
@@ -341,7 +341,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | True |
 
@@ -362,9 +362,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si cualquiera de los valores de parámetro es verdadero.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |boolean |Primer valor cuya veracidad se comprueba. |
 | arg2 |Sí |boolean |Segundo valor cuya veracidad se comprueba. |
@@ -401,7 +401,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | andExampleOutput | Booleano | False |
 | orExampleOutput | Booleano | True |

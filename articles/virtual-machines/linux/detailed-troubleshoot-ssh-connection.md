@@ -1,12 +1,12 @@
 ---
-title: "Solución de problemas detallada de SSH para una máquina virtual de Azure | Microsoft Docs"
-description: "Pasos de solución de problemas de SSH más detallados para los problemas de conexión a una máquina virtual de Azure"
-keywords: "conexión ssh rechazada, error de ssh azure ssh, error de conexión ssh"
+title: Solución de problemas detallada de SSH para una máquina virtual de Azure | Microsoft Docs
+description: Pasos de solución de problemas de SSH más detallados para los problemas de conexión a una máquina virtual de Azure
+keywords: conexión ssh rechazada, error de ssh azure ssh, error de conexión ssh
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: b8e8be5f-e8a6-489d-9922-9df8de32e839
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 66fc8bac46decacdd2214475e94980c447045935
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Pasos detallados de solución de problemas de SSH para los problemas de conexión a una máquina virtual Linux en Azure
 Hay muchas razones posibles por las que el cliente SSH podría no ser capaz de ponerse en contacto con el servicio SSH en la máquina virtual. Si ha seguido los [pasos más generales de solución de problemas de SSH](troubleshoot-ssh-connection.md), debe solucionar además el problema de conexión. Este artículo le guiará por los pasos de solución de problemas detallados para determinar dónde se producen errores en la conexión SSH y cómo resolverlos.
@@ -39,7 +39,7 @@ Los siguientes pasos ayudan a aislar la causa del error y a averiguar soluciones
 
 2. Seleccione **Configuración** para examinar los puntos de conexión, las direcciones IP, los grupos de seguridad de red y otros valores de configuración.
 
-   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/virtual-networks-nsg.md)**. Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
+   La máquina virtual debe tener un punto de conexión definido para el tráfico SSH que puede ver en **Puntos de conexión** o en **[Grupo de seguridad de red](../../virtual-network/security-overview.md)**. Los puntos de conexión en las máquinas virtuales que se crearon con Resource Manager se almacenan en un grupo de seguridad de red. Compruebe que las reglas se hayan aplicado al grupo de seguridad de red y que se haga referencia a ellas en la subred.
 
 Para comprobar la conectividad de red, compruebe los puntos de conexión configurados y vea si puede conectarse con la máquina virtual a través de otro protocolo, como HTTP u otro servicio.
 
@@ -111,7 +111,7 @@ Para descartar el punto de conexión como causa del problema, quite el actual, c
 
 ## <a name="source-4-network-security-groups"></a>Causa 4: Grupos de seguridad de red
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Compruebe las reglas de los grupos de seguridad de red para asegurarse de que se permite el tráfico de SSH tanto a Internet como desde Internet.
-Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/virtual-networks-nsg.md).
+Para obtener más información, consulte [Acerca de los grupos de seguridad de red](../../virtual-network/security-overview.md).
 
 También puede usar la comprobación de IP para validar la configuración de NSG. Para más información, consulte [Información general sobre la supervisión de red de Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
