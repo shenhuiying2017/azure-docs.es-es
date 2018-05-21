@@ -1,6 +1,6 @@
 ---
-title: "Introducción a máquinas virtuales de Azure Stack"
-description: "Más información sobre máquinas virtuales de Azure Stack"
+title: Introducción a máquinas virtuales de Azure Stack
+description: Más información sobre máquinas virtuales de Azure Stack
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -8,20 +8,20 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2453f2449124cb4956797e0d9748f1ee3bf0d9ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introducción a máquinas virtuales de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 ## <a name="overview"></a>Información general
-Una máquina virtual de Azure Stack es un tipo de recurso informático escalable y a petición que ofrece Azure Stack. Por lo general, elegirá una máquina virtual cuando necesite más control sobre su entorno informático del que ofrecen las otras opciones. En este artículo se proporciona información sobre lo que debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
+Una máquina virtual (VM) de Azure Stack es un tipo de recurso informático escalable y a petición que ofrece Azure Stack. Por lo general, elegirá una máquina virtual cuando necesite más control sobre su entorno informático del que ofrecen las otras opciones. En este artículo se proporciona información sobre lo que debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
-Una máquina virtual de Azure Stack le da la flexibilidad de virtualización sin necesidad de administrar máquinas o clústeres individuales. Sin embargo, aún necesita mantener la máquina virtual con tareas como configurar, aplicar revisiones e instalar el software que se ejecuta en ella.
+Una máquina virtual de Azure Stack le da la flexibilidad de virtualización sin necesidad de administrar clústeres o máquinas individuales. Sin embargo, la máquina virtual sigue necesitando mantenimiento con tareas como configurar, aplicar revisiones e instalar el software que se ejecuta en ella.
 
 Las máquinas virtuales de Azure Stack pueden usarse de diversas maneras. Por ejemplo: 
 
@@ -31,18 +31,18 @@ Las máquinas virtuales de Azure Stack pueden usarse de diversas maneras. Por ej
 
 * **Centro de datos ampliado**: las máquinas virtuales de una red virtual de Azure Stack se pueden conectar fácilmente a la red de su organización o a Azure.
 
-El número de máquinas virtuales usadas por su aplicación se puede escalar vertical y horizontalmente a la cifra necesaria para satisfacer sus necesidades.
+Las máquinas virtuales usadas por su aplicación se pueden escalar vertical u horizontalmente a la cifra necesaria para satisfacer sus necesidades.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>¿Qué hay que considerar antes de crear una máquina virtual?
 
-Siempre hay gran cantidad de consideraciones de diseño cuando se crea una infraestructura de aplicaciones en Azure Stack. Es importante pensar en estos aspectos de una máquina virtual antes de empezar:
+Siempre es necesario tener en cuenta los numerosos aspectos relativos al diseño cuando se crea una infraestructura de aplicaciones en Azure Stack. Es necesario reflexionar sobre estos aspectos antes de crear la infraestructura:
 
-- Los nombres de los recursos de la aplicación
-- El tamaño de la máquina virtual
-- El número máximo de máquinas virtuales que se pueden crear
-- El sistema operativo que ejecuta la máquina virtual
-- La configuración de la máquina virtual después de iniciarse 
-- Los recursos relacionados que necesita la máquina virtual
+* Los nombres de los recursos de la aplicación
+* El tamaño de la máquina virtual
+* El número máximo de máquinas virtuales que se pueden crear
+* El sistema operativo que ejecuta la máquina virtual
+* La configuración de la máquina virtual después de iniciarse
+* Los recursos relacionados que necesita la máquina virtual
 
 ### <a name="naming"></a>Nomenclatura
 
@@ -64,7 +64,6 @@ Las máquinas virtuales utilizan discos duros virtuales (VHD) para almacenar el 
 Azure Stack proporciona un Marketplace para usar con diversas versiones y tipos de sistemas operativos. Las imágenes de Marketplace se identifican mediante el publicador de la imagen, la oferta, la SKU y la versión (normalmente, la versión se especifica como la más reciente).
 
 En la tabla siguiente se muestran algunas maneras de encontrar la información sobre una imagen:
-
 
 |Método|DESCRIPCIÓN|
 |---------|---------|
@@ -112,7 +111,12 @@ En la tabla siguiente se proporciona información para comenzar a crear la máqu
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>¿Cómo administro la máquina virtual que he creado?
 
-Las máquinas virtuales pueden administrarse mediante un portal basado en el explorador, herramientas de línea de comandos con compatibilidad para scripts o directamente a través de API. Algunas tareas de administración habituales que puede realizar es obtener información sobre una máquina virtual, iniciar sesión en una máquina virtual, administrar la disponibilidad y realizar copias de seguridad.
+Las máquinas virtuales pueden administrarse mediante un portal basado en el explorador, herramientas de línea de comandos con compatibilidad con scripts o directamente mediante API. Algunas tareas de administración habituales que puede realizar son:
+
+* Obtener información sobre una máquina virtual
+* Conectarse a una máquina virtual
+* Administrar la disponibilidad
+* Realizar copias de seguridad
 
 ### <a name="get-information-about-a-vm"></a>Obtención información acerca de una máquina virtual
 
@@ -130,5 +134,5 @@ En la tabla siguiente se muestran algunas maneras en que puede obtener informaci
 Puede usar el botón **Conectar** en el portal de Azure Stack para conectarse a la máquina virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Consideraciones sobre máquinas virtuales en Azure Stack](azure-stack-vm-considerations.md)
 
+* [Consideraciones sobre máquinas virtuales en Azure Stack](azure-stack-vm-considerations.md)

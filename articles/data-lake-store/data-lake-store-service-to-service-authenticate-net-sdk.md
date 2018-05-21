@@ -1,23 +1,21 @@
 ---
-title: "Autenticación entre servicios: SDK de .NET con Data Lake Store mediante Azure Active Directory | Microsoft Docs"
-description: "Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory usando SDK de .NET"
+title: 'Autenticación entre servicios: SDK de .NET con Data Lake Store mediante Azure Active Directory | Microsoft Docs'
+description: Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory usando SDK de .NET
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: fb3d3dd518cbe0a603524f1bdc38d122582aa6b0
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 794e46bd4bdbb29158a7d7111712fbf62621c79b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticación entre servicios con Data Lake Store mediante SDK de .NET
 > [!div class="op_single_selector"]
@@ -31,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 En este artículo, aprenderá a usar el SDK de .NET para realizar la autenticación entre servicios con Azure Data Lake Store. En el caso de la autenticación del usuario final con Data Lake Store mediante SDK de .NET, consulte [Autenticación de usuario final con Data Lake Store mediante el SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Visual Studio 2013, 2015 o 2017**. En las instrucciones siguientes se usa Visual Studio 2017.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).

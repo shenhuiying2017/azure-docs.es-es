@@ -1,24 +1,24 @@
 ---
-title: "Limitación de Cluster Resource Manager de Service Fabric | Microsoft Docs"
+title: Limitación de Cluster Resource Manager de Service Fabric | Microsoft Docs
 description: Aprenda a configurar las limitaciones proporcionadas por Cluster Resource Manager de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22223923f6783f11178b44c3c3087f17eb8dc41b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e9db1070066a2a02b72b5cc051e59d8b04dc9928
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitación de Cluster Resource Manager de Service Fabric
 Aunque haya configurado correctamente Cluster Resource Manager, el clúster puede ver alterado su comportamiento. Por ejemplo, podría haber errores simultáneos de nodos y de dominios de error. ¿Qué pasaría si esto sucediera durante una actualización? Cluster Resource Manager siempre intenta corregirlo todo y consume los recursos del clúster tratando de reorganizar y corregir el clúster. Las limitaciones contribuyen a ofrecer un mecanismo de protección a fin de que el clúster pueda usar los recursos para estabilizarse: el nodo se recupera, las particiones de red se reparan y los bits corregidos se implementan.
@@ -91,5 +91,5 @@ Esta información se ofrece por si tiene clústeres anteriores o todavía se con
 La configuración de estas limitaciones sigue el mismo patrón que las limitaciones basadas en porcentajes.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)
+- Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md)
 - Cluster Resource Manager tiene muchas opciones para describir el clúster. Para obtener más información sobre ellas, consulte este artículo [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).

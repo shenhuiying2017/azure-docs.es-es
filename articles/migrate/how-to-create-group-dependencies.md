@@ -4,13 +4,13 @@ description: Describe cómo refinar una evaluación mediante la asignación de d
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 690231b938f60f16dcd10656b9a1f99c8c8f29cb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -55,7 +55,7 @@ Para instalar al agente en una máquina Linux, siga estos pasos:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Obtenga más información](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) sobre los sistemas operativos compatibles con el agente de dependencia. 
+[Obtenga más información](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sobre los sistemas operativos compatibles con el agente de dependencia. 
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Restricción del grupo basada en la visualización de dependencias
 Después de instalar agentes en todas las máquinas del grupo, puede visualizar las dependencias del grupo y restringirlo siguiendo los pasos indicados a continuación.

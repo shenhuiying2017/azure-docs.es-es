@@ -1,24 +1,24 @@
 ---
-title: "Seguridad de los clústeres de Service Fabric: roles del cliente | Microsoft Docs"
-description: "En este artículo, se describen los dos roles del cliente y los permisos que otorga cada uno de ellos."
+title: 'Seguridad de los clústeres de Service Fabric: roles del cliente | Microsoft Docs'
+description: En este artículo, se describen los dos roles del cliente y los permisos que otorga cada uno de ellos.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: coreysa
-editor: 
+editor: ''
 ms.assetid: 7bc808d9-3609-46a1-ac12-b4f53bff98dd
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: e71275d437aabdd5699f0d462fddc5a190ff19db
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Control de acceso basado en roles para clientes de Service Fabric
 Azure Service Fabric admite dos tipos distintos de control de acceso para los clientes que están conectados a un clúster de Service Fabric: administrador y usuario. El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster.  

@@ -1,7 +1,7 @@
 ---
-title: "Integración de Data Lake Store con otros servicios de Azure | Microsoft Docs"
-description: "Descripción de cómo se integra el Almacén de Data Lake con otros servicios de Azure"
-documentationcenter: 
+title: Integración de Data Lake Store con otros servicios de Azure | Microsoft Docs
+description: Descripción de cómo se integra el Almacén de Data Lake con otros servicios de Azure
+documentationcenter: ''
 services: data-lake-store
 author: nitinme
 manager: jhubbard
@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: d43459b900232612d83506438e6a70daa893eb80
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e11100118f599b4fee6362625aff05c50bb07c87
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integración del Almacén de Data Lake con otros servicios de Azure
 El Almacén de Azure Data Lake puede usarse junto con otros servicios de Azure para habilitar una gama más amplia de escenarios. En el siguiente artículo se enumeran los servicios con los que el Almacén de Data Lake puede integrarse.
@@ -28,8 +26,7 @@ Puede aprovisionar un clúster [HDInsight de Azure](https://azure.microsoft.com/
 
 Para obtener instrucciones sobre cómo aprovisionar un clúster de HDInsight con el Almacén de Data Lake, consulte:
 
-* 
-            [Aprovisionamiento de un clúster de HDInsight con Data Lake Store mediante Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Aprovisionamiento de un clúster de HDInsight con Data Lake Store mediante Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Aprovisionamiento de un clúster de HDInsight con Data Lake Store como almacenamiento predeterminado mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Aprovisionamiento de un clúster de HDInsight con Data Lake Store como almacenamiento adicional mediante Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
@@ -68,7 +65,7 @@ Puede usar PolyBase para cargar datos de Azure Data Lake Store en SQL Data Wareh
 Puede usar Azure Data Lake Store para archivar y capturar datos recibidos por Azure Event Hubs. Para más información, vea [Uso de Data Lake Store con Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
 
 ## <a name="see-also"></a>Otras referencias
-* [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+* [Información general de Azure Data Lake Store](data-lake-store-overview.md)
 * [Introducción al Almacén de Data Lake mediante el Portal](data-lake-store-get-started-portal.md)
 * [Introducción al Almacén de Data Lake mediante PowerShell](data-lake-store-get-started-powershell.md)  
 

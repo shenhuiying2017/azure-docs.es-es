@@ -1,35 +1,42 @@
 ---
-title: "Implementación de una máquina virtual con una contraseña almacenada de forma segura en Azure Stack | Microsoft Docs"
-description: "Aprenda a implementar una máquina virtual usando una contraseña almacenada en el almacén de claves de Azure Stack"
+title: Implementación de una máquina virtual con una contraseña almacenada de forma segura en Azure Stack | Microsoft Docs
+description: Aprenda a implementar una máquina virtual usando una contraseña almacenada en el almacén de claves de Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2017
+ms.date: 05/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: 8d9a2cebd7a28ca13cf88518a7c83b217af4c0e1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4239eb31afd4abc8b3555f0ee353f5d96716d623
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-by-retrieving-the-password-stored-in-a-key-vault"></a>Creación de una máquina virtual mediante la recuperación de la contraseña almacenada en un almacén de claves
+# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creación de una máquina virtual mediante una contraseña segura almacenada en Key Vault de Azure Stack
 
-Si necesita pasar un valor seguro, como una contraseña, durante la implementación, puede almacenar ese valor como un secreto en un almacén de claves de Azure Stack y hacer referencia al secreto en las plantillas de Azure Resource Manager. No tiene que escribir manualmente el secreto cada vez que implemente los recursos, solo tiene que especificar qué usuarios o entidades de servicio pueden tener acceso al secreto. 
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-En este artículo, se le guiará por los pasos necesarios para implementar una máquina virtual Windows en Azure Stack mediante la recuperación de la contraseña que está guardada en un almacén de claves. Por lo tanto, la contraseña nunca se coloca en texto sin formato en el archivo de parámetros de plantilla. Puede seguir los pasos descritos aquí ya sea desde Azure Stack Development Kit o desde un cliente externo, si se conecta a través de VPN.
+Los pasos de este artículo describen la implementación de una máquina virtual de Windows Server con una contraseña almacenada en Key Vault de Azure Stack. El uso de una contraseña de almacén de claves es más seguro que pasar una contraseña de texto sin formato.
 
-## <a name="prerequisites"></a>Requisitos previos
- 
-* Debe suscribirse a una oferta que incluya el servicio Key Vault.  
-* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
+## <a name="overview"></a>Información general
+
+Puede almacenar valores, por ejemplo, una contraseña como un secreto, en un almacén de claves de Azure Stack. Después de crear un secreto, puede hacer referencia a él en las plantillas de Azure Resource Manager. El uso de secretos con Resource Manager proporciona las siguientes ventajas:
+
+* No tiene que escribir manualmente el secreto cada vez que implemente un recurso.
+* Puede especificar qué usuarios o entidades de servicio pueden acceder a un secreto.
+
+## <a name="prerequisites"></a>requisitos previos
+
+* Debe suscribirse a una oferta que incluya el servicio Key Vault.
+* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
 * [Configuración del entorno de PowerShell del usuario de Azure Stack.](azure-stack-powershell-configure-user.md)
 
 Los pasos siguientes describen el proceso necesario para crear una máquina virtual mediante la recuperación de la contraseña almacenada en un almacén de claves:
@@ -37,6 +44,8 @@ Los pasos siguientes describen el proceso necesario para crear una máquina virt
 1. Cree un secreto de almacén de claves.
 2. Actualice el archivo azuredeploy.parameters.json.
 3. Implemente la plantilla.
+
+>[NOTA] Puede seguir estos pasos ya sea desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
 
 ## <a name="create-a-key-vault-secret"></a>Creación de un secreto de almacén de claves
 
@@ -74,7 +83,7 @@ Modificar el archivo `azuredeploy.parameters.json` según los valores del entorn
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Actualice el archivo azuredeploy.parameters.json
 
-Actualice el archivo azuredeploy.parameters.json con los valores de KeyVault URI, secretName y adminUsername de la máquina virtual correspondientes a su entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla: 
+Actualice el archivo azuredeploy.parameters.json con los valores de KeyVault URI, secretName y adminUsername de la máquina virtual correspondientes a su entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla:
 
 ```json
 {
@@ -114,13 +123,13 @@ New-AzureRmResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+
 Cuando la plantilla se ha implementado correctamente, se producen en la siguiente salida:
 
 ![Salida de la implementación](media/azure-stack-kv-deploy-vm-with-secret/deployment-output.png)
 
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Implementación de una aplicación de ejemplo con Key Vault](azure-stack-kv-sample-app.md)
 
 [Implementación de una máquina virtual con un certificado de Key Vault](azure-stack-kv-push-secret-into-vm.md)
-
