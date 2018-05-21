@@ -1,11 +1,11 @@
 ---
-title: "Adición manual de una API mediante Azure Portal| Microsoft Docs"
-description: "En este tutorial se muestra cómo utilizar la API de administración (APIM) para agregar manualmente una API."
+title: Adición manual de una API mediante Azure Portal| Microsoft Docs
+description: En este tutorial se muestra cómo utilizar la API de administración (APIM) para agregar manualmente una API.
 services: api-management
-documentationcenter: 
-author: juliako
+documentationcenter: ''
+author: vladvino
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 9426839f88daece1bb688a2079b7854ccaebdc57
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="add-an-api-manually"></a>Adición manual de una API 
 
@@ -27,9 +27,9 @@ Si desea importar una API existente, consulte la sección de [temas relacionados
 
 En este artículo, creará una API en blanco y especificará [httpbin.org](http://httpbin.org) (un servicio de prueba público) como API de back-end.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md).
+Completar la guía de inicio rápido siguiente: [Creación de una instancia de Azure API Management](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -47,9 +47,9 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
     |**Name**|**Valor**|**Descripción**|
     |---|---|---|
     |**Nombre para mostrar**|"*API en blanco*" |El nombre se muestra en el Portal para desarrolladores.|
-    |**Dirección URL de servicio web** (opcional)| "*http://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribiremos [http://httpbin.org](http://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
+    |**Dirección URL de servicio web** (opcional)| "*http://httpbin.org*"| Si desea simular una API, recomendamos no escribir nada. <br/>En este caso, escribimos [http://httpbin.org](http://httpbin.org). Se trata de un servicio de prueba público. <br/>Si desea importar una API que se asigne automáticamente a un back-end, consulte uno de los temas de la sección de [temas relacionados](#related-topics).|
     |**Esquema URL**|"*HTTPS*"|En este caso, aunque el back-end tenga acceso HTTP no seguro, especifique un acceso HTTPS de APIM seguro al back-end. <br/>Este tipo de escenario (HTTPS a HTTP) se denomina "terminación HTTPS". Podría hacerlo si su API se encuentra dentro de una red virtual (donde sabe que el acceso está protegido aunque no se utilice HTTPS). <br/>Puede usar la terminación HTTPS para ahorrar algunos ciclos de CPU.|
-    |**Sufijo de dirección URL**|"*hbin*"| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser único en esta instancia de APIM.|
+    |**Sufijo de dirección URL**|"*hbin*"| El sufijo es un nombre que identifica esta API concreta en esta instancia de APIM. Debe ser exclusivo en esta instancia de APIM.|
     |**Productos**|"*Sin límite*" |Publique la API asociándola a un producto. Si desea que la API se publique y esté disponible para los desarrolladores, agréguela a un producto. Puede hacerlo durante la creación de la API o configurarla más adelante.<br/><br/>Los productos son asociaciones de una o varias API. Puede incluir varias API y ofrecerlas a los desarrolladores mediante el portal para desarrolladores. <br/>En primer lugar, los desarrolladores deben suscribirse a un producto para acceder a la API. Al suscribirse, obtienen una clave de suscripción que funciona con cualquier API de ese producto. Si creó la instancia de APIM, ya es un administrador, así que, de forma predeterminada, está suscrito a todos los productos.<br/><br/> De forma predeterminada, cada instancia de API Management incluye dos productos de ejemplo: **Starter** y **Unlimited**.| 
 5. Seleccione **Crear**.
 
@@ -61,7 +61,7 @@ En este momento, no tiene ninguna operación en APIM que se asigne a las operaci
 
 ## <a name="add-and-test-an-operation"></a>Adición y prueba de una operación
 
-En esta sección se muestra cómo agregar una operación "/get" para asignarla al back-end "http://httpbin.org/get".
+En esta sección se muestra cómo agregar una operación "/get" para asignarla a la operación de back-end "http://httpbin.org/get".
 
 ### <a name="add-the-operation"></a>Adición de la operación
 
@@ -83,7 +83,7 @@ Se muestra la respuesta que genera la operación "http://httpbin.org/get". Si de
 
 ## <a name="add-and-test-a-parameterized-operation"></a>Adición y prueba de una operación con parámetros
 
-En esta sección se explica cómo agregar una operación que toma un parámetro. En este caso, se asignará la operación a "http://httpbin.org/status/200".
+En esta sección se explica cómo agregar una operación que toma un parámetro. En este caso, se asigna la operación a "http://httpbin.org/status/200".
 
 ### <a name="add-the-operation"></a>Adición de la operación
 
