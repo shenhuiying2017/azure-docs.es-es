@@ -1,24 +1,24 @@
 ---
-title: "Información general de Azure Service Fabric con API Management | Microsoft Docs"
-description: "Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric."
+title: Información general de Azure Service Fabric con API Management | Microsoft Docs
+description: Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: ea3b1f50bada3c1301f8661f8f0b4866cb1c732c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -26,7 +26,7 @@ Las aplicaciones en la nube normalmente necesitan una puerta de enlace front-end
 
 Este artículo es una introducción al uso de Azure API Management como puerta de enlace para las aplicaciones de Service Fabric. API Management se integra directamente con Service Fabric, lo que le permite publicar API con un amplio conjunto de reglas de enrutamiento para los servicios back-end de Service Fabric. 
 
-## <a name="architecture"></a>Arquitectura
+## <a name="architecture"></a>Architecture
 Una arquitectura de Service Fabric común usa una aplicación web de una página que realiza llamadas HTTP a servicios back-end que exponen API HTTP. La [aplicación de ejemplo de inicio de Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) presenta una muestra de esta arquitectura.
 
 En este escenario, un servicio web sin estado actúa como puerta de enlace en la aplicación de Service Fabric. Este enfoque precisa que escriba un servicio web que admita solicitudes HTTP proxy para servicios back-end, como se muestra en el siguiente diagrama:
@@ -78,7 +78,7 @@ En este ejemplo, se crea una nueva instancia de servicio sin estado para cada us
  
  - `fabric:/app/users/<username>`
 
- Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo:
+ Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
 
   - Se enruta una solicitud para `/api/users/foo` a la instancia de servicio `fabric:/app/users/foo`
   - Se enruta una solicitud para `/api/users/bar` a la instancia de servicio `fabric:/app/users/bar`
@@ -97,7 +97,7 @@ En este ejemplo, se crea una nueva instancia de servicio con estado para cada us
  
  - `fabric:/app/users/<username>`
 
- Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo:
+ Cada servicio tiene un nombre único, pero los nombres no se conocen por adelantado porque los servicios se crean en respuesta a la entrada del administrador o usuario y, por lo tanto, no se pueden codificar de forma rígida en las directivas APIM o las reglas de enrutamiento. En su lugar, se genera el nombre del servicio que se va a enviar una solicitud en la definición de la directiva de back-end del valor `name` proporcionado en la ruta de acceso de solicitud de la dirección URL. Por ejemplo: 
 
   - Se enruta una solicitud para `/api/users/foo` a la instancia de servicio `fabric:/app/users/foo`
   - Se enruta una solicitud para `/api/users/bar` a la instancia de servicio `fabric:/app/users/bar`

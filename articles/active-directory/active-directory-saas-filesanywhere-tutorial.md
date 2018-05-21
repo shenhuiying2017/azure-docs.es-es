@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con FilesAnywhere | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FilesAnywhere."
+title: 'Tutorial: Integración de Azure Active Directory con FilesAnywhere | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ca017dbfe35d291083c66f41868fd425e74a602
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ad92a3edf8fac79bc9eaa3b4a641b5a03eb4ebe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Tutorial: Integración de Azure Active Directory con FilesAnywhere
 
@@ -27,11 +27,11 @@ La integración de FilesAnywhere con Azure AD le proporciona las siguientes vent
 
 - Puede controlar en Azure AD quién tiene acceso a FilesAnywhere
 - Puede permitir que los usuarios inicien sesión automáticamente en FilesAnywhere (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con FilesAnywhere, necesita los siguientes elementos:
 
@@ -50,7 +50,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar FilesAnywhere desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -67,11 +67,11 @@ Para configurar la integración de FilesAnywhere en Azure AD, será preciso que 
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **FilesAnywhere**.
 
@@ -91,7 +91,7 @@ Esta relación de vínculo se establece asignando el valor del **nombre de usuar
 
 Para configurar y probar el inicio de sesión único de Azure AD con FilesAnywhere, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
+1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba para FilesAnywhere](#creating-a-filesanywhere-test-user)**: para tener un homólogo de Britta Simon en FilesAnywhere que esté vinculado a su representación en Azure AD.
 3. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
@@ -202,7 +202,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**. 
+    d. Haga clic en **Create**(Crear). 
 
 
 
@@ -253,7 +253,7 @@ Al hacer clic en el icono de FilesAnywhere en el panel de acceso, debería inici
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

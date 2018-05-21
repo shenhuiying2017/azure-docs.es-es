@@ -1,6 +1,6 @@
 ---
-title: "Configuración de microservicios de Azure confiables | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar Reliable Services con estado en Service Fabric."
+title: Configuración de microservicios de Azure confiables | Microsoft Docs
+description: Obtenga información sobre cómo configurar Reliable Services con estado en Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 84111b37f5cdecf377442bca0b15af2092d57414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurar Reliable Services con estado
 Hay dos conjuntos de valores de configuración para los servicios de confianza. Un conjunto es global para todos los servicios de confianza del clúster, mientras que el otro conjunto es específico para un servicio de confianza determinado.
@@ -27,7 +27,7 @@ Hay dos conjuntos de valores de configuración para los servicios de confianza. 
 La configuración global de los servicios de confianza se especifica en el manifiesto de clúster para el clúster de la sección KtlLogger. Permite configurar el tamaño y la ubicación del registro compartido, así como los límites de memoria global que usa el registrador. El manifiesto de clúster es un único archivo XML que contiene los valores y las configuraciones que se aplican a todos los nodos y servicios del clúster. El archivo suele llamarse ClusterManifest.xml. Puede ver el manifiesto de clúster para su clúster usando el comando de PowerShell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nombres de configuración
-| Nombre | Unidad | Valor predeterminado | Comentarios |
+| NOMBRE | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobytes |8388608 |Número mínimo de KB que se van a asignar en modo kernel al grupo de memoria del búfer de escritura del registrador. Este grupo de memoria se usa para almacenar en caché la información de estado antes de escribir en el disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobytes |Ilimitado |Tamaño máximo al que puede aumentar el grupo de memoria del búfer de escritura del registrador. |
@@ -80,7 +80,7 @@ De forma predeterminada, el tiempo de ejecución de Azure Service Fabric busca l
 > 
 
 ### <a name="replicator-security-configuration"></a>Configuración de seguridad del replicador
-Las configuraciones de seguridad del replicador se usan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, lo que garantiza que los datos de alta disponibilidad también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de la replicación.
+Las configuraciones de seguridad del replicador se utilizan para proteger el canal de comunicación que se usa durante la replicación. Esto significa que los servicios no podrán ver el tráfico de replicación del otro, lo que garantiza que los datos de alta disponibilidad también están seguros. De forma predeterminada, una sección de configuración de seguridad vacía impide la seguridad de la replicación.
 
 ### <a name="default-section-name"></a>Nombre de sección predeterminado
 ReplicatorSecurityConfig
@@ -90,7 +90,7 @@ ReplicatorSecurityConfig
 > 
 > 
 
-### <a name="replicator-configuration"></a>Configuración de replicador
+### <a name="replicator-configuration"></a>Configuración del replicador
 Las configuraciones de replicador configuran el replicador responsable de hacer que el estado de Reliable Service con estado sea muy confiable replicando y conservando el estado localmente.
 La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
@@ -103,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nombres de configuración
-| Nombre | Unidad | Valor predeterminado | Comentarios |
+| NOMBRE | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
 | ReplicatorEndpoint |N/D |Ningún valor predeterminado: parámetro obligatorio |Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md) para obtener más información sobre cómo definir los recursos de punto de conexión en un manifiesto de servicio. |

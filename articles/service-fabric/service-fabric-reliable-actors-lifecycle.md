@@ -9,16 +9,16 @@ editor: vturecek
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 4abb1ea6e5c79a5280d6ca4ad96070603b81793a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4e919c565574e0765227abda5832c858c36a77c0
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, recolección automática de elementos no utilizados y eliminación manual de actores
 Un actor se activa la primera vez que se realiza una llamada a cualquiera de sus métodos y se desactiva (el runtime de los actores recolecta los elementos no utilizados) si no se usa durante un periodo determinado. Un actor y su estado también se pueden eliminar manualmente en cualquier momento.

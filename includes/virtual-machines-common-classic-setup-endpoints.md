@@ -1,4 +1,19 @@
-
+---
+title: archivo de inclusión
+description: archivo de inclusión
+services: virtual-machines-windows
+author: cynthn
+ms.service: virtual-machines-windows
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: cynthn
+ms.custom: include file
+ms.openlocfilehash: cfe675ca269a69c7c2bfa67638acd0afbcd1c8ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 05/20/2018
+---
 Cada punto de conexión cuenta con un *puerto público* y un *puerto privado*:
 
 * El puerto público que usa el equilibrador de carga de Azure para escuchar el tráfico que entra a la máquina virtual desde Internet.
@@ -6,7 +21,7 @@ Cada punto de conexión cuenta con un *puerto público* y un *puerto privado*:
 
 Se proporcionan los valores predeterminados del protocolo IP y de los puertos TCP o UDP de los protocolos de red conocidos al crear puntos de conexión con Azure Portal. Para los extremos personalizados, deberá especificar el protocolo IP correcto (TCP o UDP) y los puertos públicos y privados. Para distribuir el tráfico entrante de forma aleatoria entre varias máquinas virtuales, deberá crear un conjunto con equilibrio de carga que conste de varios extremos.
 
-Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
+Tras la creación de un extremo, puede utilizar una lista de control de acceso (ACL) para definir reglas que permitan o denieguen el tráfico entrante al puerto público del extremo, en función de su dirección IP de origen. Sin embargo, si la máquina virtual está en una red virtual de Azure, debería usar grupos de seguridad de red en su lugar. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/security-overview.md).
 
 > [!NOTE]
 > La configuración del firewall para máquinas virtuales de Azure se realiza automáticamente para los puertos asociados con los puntos de conexión de conectividad remotos que Azure configura automáticamente. Para los puertos especificados para todos los demás extremos, no se realiza ninguna configuración automáticamente en el firewall de la máquina virtual. Cuando se crea un extremo para la máquina virtual, deberá asegurarse de que el firewall de la máquina virtual también permite el tráfico para el protocolo y el puerto privado correspondiente a la configuración del extremo. Para configurar el firewall, consulte la documentación o la Ayuda en línea para el sistema operativo que se ejecuta en la máquina virtual.
@@ -19,7 +34,7 @@ Tras la creación de un extremo, puede utilizar una lista de control de acceso (
 3. Haga clic en **Puntos de conexión** en el grupo **Configuración**. En la página **Puntos de conexión** se enumeran todos los puntos de conexión actuales de la máquina virtual. (Este ejemplo es una VM Windows. Una VM Linux mostrará de forma predeterminada un punto de conexión para SSH).
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Extremos](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Puntos de conexión](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 4. En la barra de comandos, encima de las entradas de puntos de conexión, haga clic en **Agregar**.
 5. En la página **Agregar punto de conexión**, escriba el nombre del punto de conexión en **Nombre**.
@@ -39,7 +54,7 @@ Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un ext
 >
 >
 
-Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
+Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/security-overview.md).
 
 1. Si aún no lo ha hecho, inicie sesión en el Portal de Azure.
 2. Haga clic en **Máquinas virtuales**y haga clic en el nombre de la máquina virtual que desea configurar.
