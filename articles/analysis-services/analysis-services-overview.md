@@ -5,14 +5,14 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/23/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -57,7 +57,7 @@ Los servidores de Azure Analysis Services se pueden crear en las siguientes [reg
 
 | América | Europa | Asia Pacífico |
 |----------|--------|--------------|
-|  Sur de Brasil<br> Centro de Canadá<br> Este de EE. UU. 2<br> Centro-Norte de EE. UU<br> Centro-Sur de EE. UU<br> Centro occidental de EE.UU.<br> Oeste de EE. UU | Europa del Norte<br> Sur del Reino Unido 2<br> Europa occidental |   Sudeste de Australia<br> Este de Japón<br> Sudeste asiático<br> Oeste de la India  |
+|  Sur de Brasil<br> Centro de Canadá<br> Este de EE. UU<br> Este de EE. UU. 2<br> Centro-Norte de EE. UU<br> Central EE. UU:<br> Centro-Sur de EE. UU<br> Centro occidental de EE.UU.<br> Oeste de EE. UU<br> Oeste de EE. UU. 2 | Europa del Norte<br> Sur del Reino Unido 2<br> Europa occidental |   Sudeste de Australia<br> Este de Japón<br> Sudeste asiático<br> Oeste de la India  |
 
 Constantemente se agregan nuevas regiones, por lo que esta lista puede estar incompleta. Elija una ubicación cuando cree el servidor en Azure Portal o mediante las plantillas de Azure Resource Manager. Para obtener el mejor rendimiento, elija la ubicación más cercana a su base de usuarios más grande. Garantice una [alta disponibilidad](analysis-services-bcdr.md) mediante la implementación de los modelos en servidores redundantes de varias regiones.
 

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3b0ea0e55653e7b6087e21bd531ba3f6649d4967
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
 ---
 Cuando se crea una máquina virtual (VM) de Azure, es preciso crear una [red virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) o usar una red virtual existente. También es preciso decidir la forma en que pretende que se acceda a las máquinas virtuales en la red virtual. Es importante [planear antes de crear recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) y asegurarse de que se conocen los [límites de los recursos de red](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -95,7 +95,7 @@ En esta tabla se enumeran los métodos que se pueden usar para crear una red vir
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
 
-Un [grupo de seguridad de red (NSG)](../articles/virtual-network/virtual-networks-nsg.md) contiene una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a subredes, NIC, o ambas. Los grupos de seguridad de red se pueden asociar con subredes o con NIC individuales conectadas a una subred. Si un grupo de seguridad de red está asociado a una subred, las reglas de la ACL se aplican a todas las máquinas virtuales de dicha subred. Además, se puede limitar el tráfico que llega a una NIC individual, para lo que se debe asociar un NSG directamente a la NIC.
+Un [grupo de seguridad de red (NSG)](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) contiene una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a subredes, NIC, o ambas. Los grupos de seguridad de red se pueden asociar con subredes o con NIC individuales conectadas a una subred. Si un grupo de seguridad de red está asociado a una subred, las reglas de la ACL se aplican a todas las máquinas virtuales de dicha subred. Además, se puede limitar el tráfico que llega a una NIC individual, para lo que se debe asociar un NSG directamente a la NIC.
 
 Contiene dos tipos de reglas: de entrada y de salida. La prioridad de una regla debe ser única dentro de cada conjunto. Cada regla tiene propiedades de protocolo, intervalos de puertos de origen y destino, prefijos de direcciones, dirección de tráfico, prioridad y tipo de acceso. 
 
@@ -103,7 +103,7 @@ Todos los grupos de seguridad de red contienen un conjunto de reglas predetermin
 
 Al asociar un grupo de seguridad de red a una NIC, las reglas de acceso de red del grupo de seguridad de red se aplican solo a esa NIC. Si se aplica un grupo de seguridad de red a una sola NIC en una máquina virtual con varias NIC, el tráfico de las restantes no se verá afectado. Se pueden asociar distintos grupos de seguridad de red a una NIC (o a una máquina virtual, según el modelo de implementación) y a la subred a la que una NIC o una máquina virtual están enlazadas. La prioridad depende de la dirección del tráfico.
 
-Cuando planee las máquinas virtuales y red virtual, no olvide [planear](../articles/virtual-network/virtual-networks-nsg.md#planning) los grupos de seguridad de red.
+Cuando planee las máquinas virtuales y red virtual, no olvide [planear](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) los grupos de seguridad de red.
 
 En esta tabla se enumeran los métodos que se pueden usar para crear un grupo de seguridad de red.
 

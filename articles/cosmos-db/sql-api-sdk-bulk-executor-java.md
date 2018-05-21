@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 446b323e13c3726be36e2b9ae0ab018de77b62fc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9847ecb88f2cc35223e24a0ff13fcbcab1c9a9c
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="java-bulkexecutor-library-download-information"></a>Biblioteca de BulkExecutor en Java: información de descarga
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Biblioteca de BulkExecutor en GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
 
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET]()</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de API de .NET](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
 
 <tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Java para la biblioteca de BulkExecutor](bulk-executor-java.md)</td></tr>
 
