@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con IBM Kenexa Survey Enterprise | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory e IBM Kenexa Survey Enterprise."
+title: 'Tutorial: Integración de Azure Active Directory con IBM Kenexa Survey Enterprise | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e IBM Kenexa Survey Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 929ae8b780c0e18074832adfefb9a7674097fd08
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 88e0072adeeebaf6c9e964db28a45f6fe038fddf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integración de Azure Active Directory con IBM Kenexa Survey Enterprise
 
@@ -29,9 +29,9 @@ La integración de IBM Kenexa Survey Enterprise con Azure AD proporciona las sig
 - Puede permitir que los usuarios inicien sesión automáticamente en IBM Kenexa Survey Enterprise mediante el inicio de sesión único (SSO) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si quiere obtener más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si quiere obtener más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con IBM Kenexa Survey Enterprise, necesita los siguientes elementos:
 
@@ -119,7 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![El cuadro de diálogo Atributos de usuario](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_attribute.png)   
 
-5. Haga clic en **Guardar**.
+5. Haga clic en **Save**(Guardar).
 
     ![Botón Guardar de Configurar inicio de sesión único](./media/active-directory-saas-kenexasurvey-tutorial/tutorial_general_400.png)
 
@@ -164,7 +164,7 @@ En esta sección, creará el usuario de prueba Britta Simon en Azure Portal sigu
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-an-ibm-kenexa-survey-enterprise-test-user"></a>Creación de un usuario de prueba de IBM Kenexa Survey Enterprise
 
@@ -176,7 +176,7 @@ Para crear usuarios en el sistema IBM Kenexa Survey Enterprise y asignarles el i
 
 En esta sección, concederá acceso al usuario Britta Simon a IBM Kenexa Survey Enterprise para que use el inicio de sesión único de Azure.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 Para asignar al usuario Britta Simon a IBM Kenexa Survey Enterprise, siga estos pasos:
 
@@ -211,7 +211,7 @@ Al hacer clic en el icono de **IBM Kenexa Survey Enterprise** en el panel de acc
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
