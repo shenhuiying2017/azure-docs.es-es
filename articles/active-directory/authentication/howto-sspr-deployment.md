@@ -2,35 +2,31 @@
 title: 'Guía de implementación de restablecimiento de contraseña de autoservicio: Azure Active Directory'
 description: Sugerencia para el lanzamiento del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: e34bf6ec106976c1c3aab0f2b5c4ebf4b6ccc54b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 4d3e07c6c395645ef34b1707f33a4e37a20bf05d
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Cómo implementar correctamente el lanzamiento del restablecimiento de contraseña de autoservicio
 
 Para garantizar un lanzamiento fluido de la funcionalidad del restablecimiento de contraseña de autoservicio (SSPR) de Azure Active Directory (Azure AD), la mayoría de los clientes completan los pasos siguientes:
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Habilitación del restablecimiento de contraseña en el directorio](quickstart-sspr.md).
 2. [Configuración de los permisos de Active Directory local para la escritura diferida de contraseñas](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configuración de la escritura diferida de contraseñas](howto-sspr-writeback.md#configure-password-writeback) para escribir contraseñas de Azure AD en su directorio local.
 4. [Asignación y comprobación de las licencias necesarias](concept-sspr-licensing.md).
-5. Determine si desea realizar un lanzamiento gradual. Si desea lanzar SSPR gradualmente, puede limitar el acceso a un grupo de usuarios para probar el programa con un grupo concreto. Para lanzárselo a un grupo concreto, establezca **Se habilitó el restablecimiento de contraseña del autoservicio** en **Seleccionado** y seleccione el grupo de seguridad que quiere que pueda usar el restablecimiento de contraseña. 
+5. Determine si desea realizar un lanzamiento gradual. Si desea lanzar SSPR gradualmente, puede limitar el acceso a un grupo de usuarios para probar el programa con un grupo concreto. Para lanzárselo a un grupo concreto, establezca **Se habilitó el restablecimiento de contraseña del autoservicio** en **Seleccionado** y seleccione el grupo de seguridad que quiere que pueda usar el restablecimiento de contraseña.  Aquí se admite el anidamiento de grupos de seguridad.
 6. Rellene los [Datos de autenticación](howto-sspr-authenticationdata.md) necesarios para que los usuarios se registren, como el teléfono del trabajo, el teléfono móvil y la dirección de correo electrónico alternativa.
 7. [Personalización de la experiencia de inicio de sesión de Azure AD para que incluya la marca de la empresa](concept-sspr-customization.md).
 8. Enseñar a los usuarios a utilizar SSPR. Envíe las instrucciones para mostrar a los usuarios cómo registrarse y cómo restablecer la contraseña.
@@ -66,6 +62,10 @@ Muchos clientes eligen hospedar una página web y crear una entrada DNS raíz, c
 * Otra información específica de la organización
 
 En las comunicaciones por correo electrónico o los folletos que envíe, puede incluir una dirección URL de la marca fácil de recordar que los usuarios puedan visitar cuando necesiten usar los servicios. Para ayudarle, hemos creado una [página de ejemplo de restablecimiento de contraseña](https://github.com/ajamess/password-reset-page) que puede usar y personalizar para las necesidades de su organización.
+
+## <a name="step-by-step-deployment-plan"></a>Plan de implementación paso a paso
+
+El grupo de producto de Azure Active Directory ha creado un [plan de implementación paso a paso](https://aka.ms/SSPRDeploymentPlan) que las organizaciones pueden usar en paralelo con la documentación que se encuentra en este sitio para crear un caso empresarial y un plan de implementación de restablecimiento de contraseña de autoservicio.
 
 ## <a name="use-enforced-registration"></a>Uso del registro forzado
 

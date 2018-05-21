@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba14244a3f5786ebcd667aa090d0245ce45f741d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implementación de Active Directory Federation Services en Azure
 AD FS proporciona funcionalidades de una federación de identidades simplificada y protegida, así como de inicio de sesión único (SSO) web. La federación con Azure AD u Office 365 permite a los usuarios autenticarse con credenciales locales y acceder a todos los recursos en la nube. Por tanto, es importante disponer de una infraestructura de AD FS de alta disponibilidad para garantizar el acceso a los recursos locales y en la nube. La implementación de AD FS en Azure puede ayudar a lograr la alta disponibilidad necesaria con el mínimo esfuerzo.
@@ -38,7 +38,7 @@ El diagrama anterior muestra la topología básica recomendada para empezar a im
 
 * **Servidores de ADFS/controlador de dominio**: si tiene menos de 1000 usuarios, simplemente puede instalar el rol de AD FS en los controladores de dominio. Si no desea que afecte al rendimiento de los controladores de dominio o si tiene más de 1000 usuarios, implemente AD FS en servidores independientes.
 * **Servidor WAP** : es necesario implementar servidores proxy de aplicación web para que los usuarios también puedan acceder a AD FS cuando no están en la red de la empresa.
-* **Red perimetral**: los servidores proxy de aplicación web se colocarán en la red perimetral, y SOLO se permite el acceso a TCP/443 entre dicha red y la subred interna.
+* **DMZ**: los servidores proxy de aplicación web se colocarán en la red perimetral, y SOLO se permite el acceso a TCP/443 entre dicha red y la subred interna.
 * **Equilibradores de carga**: para garantizar la alta disponibilidad de servidores proxy de aplicación web y AD FS se recomienda utilizar un equilibrador de carga interno para servidores AD FS y Azure Load Balancer para los servidores proxy de aplicación web.
 * **Conjuntos de disponibilidad**: para proporcionar redundancia a la implementación de AD FS, se recomienda agrupar dos o más máquinas virtuales en un conjunto de disponibilidad para cargas de trabajo similares. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible.
 * **Cuentas de almacenamiento**: se recomienda tener dos cuentas de almacenamiento. Tener una cuenta de almacenamiento única puede llevar a la creación de un único punto de error y puede provocar que la implementación no esté disponible en un escenario poco probable, en el que la cuenta de almacenamiento deje de funcionar. Dos cuentas de almacenamiento ayudarán a asociar una cuenta de almacenamiento para cada línea con errores.
@@ -55,7 +55,7 @@ Como se describió anteriormente, puede crear dos subredes en una única red vir
 ![Creación de una red virtual](./media/active-directory-aadconnect-azure-adfs/deploynetwork1.png)
 
 Seleccione Red virtual en Azure Portal; a continuación, puede implementar la red virtual y una subred inmediatamente con un solo clic. La subred INT también está definida y lista para las máquinas virtuales que se van a agregar.
-El siguiente paso es agregar otra subred a la red: la subred perimetral.  Para crear la subred perimetral, simplemente:
+El siguiente paso es agregar otra subred a la red: la subred DMZ. Para crear la subred DMZ, simplemente:
 
 * Seleccione la red recién creada.
 * En las propiedades, seleccione Subredes.
@@ -64,7 +64,7 @@ El siguiente paso es agregar otra subred a la red: la subred perimetral.  Para c
 
 ![Subred](./media/active-directory-aadconnect-azure-adfs/deploynetwork2.png)
 
-![Subred perimetral](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
+![Subred DMZ](./media/active-directory-aadconnect-azure-adfs/deploynetwork3.png)
 
 **1.2. Creación de grupos de seguridad de red**
 
@@ -77,7 +77,7 @@ Después de crear el NSG, no habrá ninguna regla de entrada ni de salida. Una v
 
 ![Inicialización de Git](./media/active-directory-aadconnect-azure-adfs/nsgint1.png)
 
-Después de crear los NSG, asocie NSG_INT a la subred INT y NSG_DMZ a la subred perimetral. A continuación se proporciona una captura de pantalla de ejemplo:
+Después de crear los NSG, asocie NSG_INT a la subred INT y NSG_DMZ a la subred DMZ. A continuación se proporciona una captura de pantalla de ejemplo:
 
 ![Configuración de NSG](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 
@@ -214,7 +214,7 @@ Con el fin de garantizar que los servidores proxy de aplicación web puedan lleg
 
 **7.2. Instalación del rol de proxy de aplicación web**
 
-Después de asegurarse de que los servidores proxy de aplicación web pueden acceder a los servidores AD FS detrás del ILB puede instalar los servidores proxy de aplicación web. Los servidores proxy de aplicación web no deben unirse al dominio. Instale los roles de proxy de aplicación web en los dos servidores proxy de aplicación web seleccionando el rol de acceso remoto. El administrador del servidor le guiará para completar la instalación de WAP.
+Después de asegurarse de que los servidores proxy de aplicación web pueden acceder a los servidores AD FS detrás del ILB puede instalar los servidores proxy de aplicación web. Los servidores proxy de aplicación web no tienen que unirse al dominio. Instale los roles de proxy de aplicación web en los dos servidores proxy de aplicación web seleccionando el rol de acceso remoto. El administrador del servidor le guiará para completar la instalación de WAP.
 Para más información sobre cómo implementar WAP, lea [Instalar y configurar el servidor de Proxy de aplicación web](https://technet.microsoft.com/library/dn383662.aspx).
 
 ### <a name="8--deploying-the-internet-facing-public-load-balancer"></a>8.  Implementación del equilibrador de carga accesible desde Internet (público)
@@ -303,7 +303,7 @@ La forma más sencilla es probar AD FS mediante la página IdpInitiatedSignon.as
 
 1. Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Desde cualquier acceso de equipo externo https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. Desde cualquier acceso externo de máquina https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. Debería ver la página de AD FS como aparece a continuación:
 
 ![Prueba de la página de inicio de sesión](./media/active-directory-aadconnect-azure-adfs/test1.png)
@@ -321,7 +321,7 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 
 | . | DESCRIPCIÓN |
 |:--- |:--- |
-| La ubicación |La región para implementar los recursos, por ejemplo, este de EE. UU. |
+| Ubicación |La región para implementar los recursos, por ejemplo, este de EE. UU. |
 | StorageAccountType |El tipo de la cuenta de almacenamiento creada |
 | VirtualNetworkUsage |Indica si se creará una nueva red virtual o se va a utilizar una existente |
 | VirtualNetworkName |El nombre de la red virtual a crear, esto es obligatorio tanto en el caso del uso de una nueva red virtual como de una existente |
@@ -356,7 +356,7 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 * [Azure Virtual Network](https://aka.ms/Azure/VNet)
 * [AD FS y vínculos de proxy de aplicación web](https://aka.ms/ADFSLinks) 
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 * [Configuración y administración de AD FS con Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [Implementación de AD FS en Azure de alta disponibilidad entre regiones geográficas con Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)

@@ -1,39 +1,50 @@
 ---
-title: 'Máquinas virtuales de Load Balancer en distintas zonas de disponibilidad: Azure Portal | Microsoft Docs'
-description: Creación de una instancia de Load Balancer Estándar con un front-end con redundancia de zona para equilibrar la carga de las máquinas virtuales en distintas zonas de disponibilidad mediante Azure Portal
+title: 'Tutorial: Equilibrio de la carga de máquinas virtuales entre distintas zonas de disponibilidad: Azure Portal | Microsoft Docs'
+description: En este tutorial, se explica cómo crear un equilibrador de carga estándar mediante un front-end con redundancia de zona para equilibrar la carga de las máquinas virtuales en distintas zonas de disponibilidad mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: ''
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/18
+ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: ad476922342844a908961960407eb344711932f5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Load Balancer Estándar mediante Azure Portal
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales entre distintas zonas de disponibilidad con un equilibrador de carga estándar mediante Azure Portal
 
-Este artículo le ayudará a crear una instancia de Load Balancer Estándar pública con un front-end con redundancia de zona para lograr redundancia de zona sin dependencia de varios registros de DNS. Una única dirección IP de front-end en Load Balancer Estándar tiene automáticamente redundancia de zona. Mediante un front-end con redundancia de zona para su equilibrador de carga, con una sola dirección IP ahora puede alcanzar cualquier máquina virtual de una red virtual dentro de una región que se encuentra en todas las zonas de disponibilidad. Use zonas de disponibilidad para proteger sus datos y aplicaciones de la improbable pérdida o error de todo un centro de datos. Con redundancia de zona, se puede producir un error en una o más zonas de disponibilidad y la ruta de acceso de datos sobrevive siempre que una zona de la región permanezca correcta. 
+El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribuir las solicitudes entrantes entre varias máquinas virtuales. En este tutorial, se explican los pasos necesarios para crear un equilibrador de carga estándar público que equilibre la carga de las máquinas virtuales entre distintas zonas de disponibilidad. Esto le ayudará a proteger sus aplicaciones y sus datos en el caso improbable de que se produzca una pérdida o un error en la totalidad de un centro de datos. Con la redundancia de zona, aunque se produzcan errores en una o varias zonas disponibilidad, la ruta de los datos puede mantenerse a salvo siempre que una zona de la región permanezca en buen estado. Aprenderá a:
+
+> [!div class="checklist"]
+> * Crear un equilibrador de carga estándar
+> * Crear grupos de seguridad de red para definir las reglas de tráfico de entrada
+> * Crear máquinas virtuales con redundancia de zona entre diferentes zonas y atribuirlas a un equilibrador de carga
+> * Crear un sondeo de estado de un equilibrador de carga
+> * Crear reglas de tráfico del equilibrador de carga
+> * Crear un sitio de IIS básico
+> * Ver un equilibrador de carga en acción
 
 Para más información sobre cómo usar las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
 
-## <a name="create-a-public-standard-load-balancer"></a>Creación de una instancia de Load Balancer Estándar pública
+## <a name="create-a-standard-load-balancer"></a>Crear un equilibrador de carga estándar
 
 La versión Estándar de Load Balancer solo admite direcciones IP públicas estándar. Cuando se crea una dirección IP pública nueva al crear el equilibrador de carga, se configura automáticamente como una versión de la SKU Estándar y también tiene automáticamente redundancia de zona.
 
@@ -51,9 +62,11 @@ La versión Estándar de Load Balancer solo admite direcciones IP públicas est�
 
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En esta sección, se crea una red virtual, se crean máquinas virtuales en zonas diferentes (zona 1, zona 2 y zona 3) de la región para agregar al grupo de back-end del equilibrador de carga y, finalmente, se instala IIS en las máquinas virtuales para ayudar a probar el equilibrador de carga. Por lo tanto, si se produce un error en una zona, se produce un error en el sondeo de estado de la máquina virtual en la misma zona y continúa el tráfico servido por las máquinas virtuales de las demás zonas.
+En esta sección, creará una red virtual y máquinas virtuales en diferentes zonas de la región. Después, instalará IIS en las máquinas virtuales para que le ayude a probar el equilibrador de carga con redundancia de zona. Por lo tanto, si se produce un error en una zona, se produce un error en el sondeo de estado de la máquina virtual en la misma zona y continúa el tráfico servido por las máquinas virtuales de las demás zonas.
 
 ### <a name="create-a-virtual-network"></a>Crear una red virtual
+Cree una red virtual para implementar los servidores back-end.
+
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Redes** > **Red virtual** y especifique estos valores para la red virtual:
     - *myVNet*: como nombre de la red virtual.
     - *myResourceGroupLBAZ*: como nombre del grupo de recursos existente
@@ -64,6 +77,8 @@ En esta sección, se crea una red virtual, se crean máquinas virtuales en zonas
 
 ## <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
 
+Cree un grupo de seguridad de red para definir las conexiones entrantes a la red virtual.
+
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso**, en el cuadro de búsqueda, escriba *Grupo de seguridad de red* y, en la página del grupo de seguridad de red, haga clic en **Crear**.
 2. En la página Crear grupo de seguridad de red, escriba estos valores:
     - *myNetworkSecurityGroup*: como nombre del grupo de seguridad de red.
@@ -71,9 +86,9 @@ En esta sección, se crea una red virtual, se crean máquinas virtuales en zonas
    
 ![Crear una red virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
-### <a name="create-nsg-rules"></a>Creación de reglas de NSG
+### <a name="create-network-security-group-rules"></a>Creación de reglas de grupo de seguridad de red
 
-En esta sección, se crean reglas de NSG para permitir conexiones entrantes que usen HTTP y RDP mediante Azure Portal.
+En esta sección, va a crear reglas de grupo de seguridad de red para permitir conexiones entrantes que usen HTTP y RDP mediante Azure Portal.
 
 1. En Azure Portal, haga clic en **Todos los recursos** en el menú de la izquierda y, a continuación, busque y haga clic en **myNetworkSecurityGroup**, que se encuentra en el grupo de recursos **myResourceGroupLBAZ**.
 2. En **Configuración**, haga clic en **Reglas de seguridad de entrada** y, después, en **Agregar**.
@@ -84,8 +99,8 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
     - *TCP*: en **Protocolo**
     - *Permitir*: en **Acción**
     - *100* en **Prioridad**
-    - *myHTTPRule* como nombre
-    - *Permitir HTTP*: como descripción
+    - *myHTTPRule*: en el nombre de la regla del equilibrador de carga
+    - *Allow HTTP* (Permitir HTTP): en la descripción de la regla del equilibrador de carga
 4. Haga clic en **OK**.
  
  ![Crear una red virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
@@ -99,8 +114,9 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
     - *myRDPRule* como nombre
     - *Permitir RDP*: como descripción
 
-
 ### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
+
+Cree máquinas virtuales en distintas zonas (zona 1, zona 2 y zona 3) de la región que puedan actuar como servidores back-end en el equilibrador de carga.
 
 1. En la parte superior izquierda de la pantalla, haga clic en **Crear un recurso** > **Proceso** > **Windows Server 2016 Datacenter** y especifique estos valores para la máquina virtual:
     - *myVM1*: para el nombre de la máquina virtual.        
@@ -132,7 +148,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
 
 1. En el **Asistente para agregar roles y características**, use los siguientes valores:
     - En la página **Tipo de instalación**, haga clic en **Instalación basada en características o en roles**.
-    - En la página **Seleccionar servidor de destino**, haga clic en** myVM1**.
+    - En la página **Seleccionar servidor de destino **, haga clic en** myVM1**.
     - En la página **Seleccionar rol de servidor**, haga clic en **Servidor web (IIS)**.
     - Siga las instrucciones para completar el resto del asistente.
 2. Cierre la sesión RDP con la máquina virtual *myVM1*.
@@ -140,17 +156,17 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
 
 ## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
 
-En esta sección se configuran los valores del equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y especifique el equilibrador de carga y las reglas NAT.
+En esta sección, va a configurar el equilibrador de carga para un grupo de direcciones de back-end y un sondeo de mantenimiento, y a especificar el equilibrador de carga y las reglas NAT.
 
 
 ### <a name="create-a-backend-address-pool"></a>Crear un grupo de direcciones de back-end
 
-Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtual conectadas al equilibrador de carga. Cree el grupo de direcciones de back-end *myBackendPool* para incluir *VM1* y *VM2*.
+Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtual conectadas al equilibrador de carga. Cree el grupo de direcciones de back-end *myBackendPool* para incluir *VM1*, *VM2* y *VM3*.
 
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
 2. Haga clic en **Configuración**, **Grupos de back-end** y luego en **Agregar**.
 3. En la página **Agregar grupo back-end**, realice lo siguiente:
-    - En el espacio para el nombre, escriba * myBackEndPool como nombre del grupo back-end.
+    - En el espacio para el nombre, escriba *myBackEndPool* como nombre del grupo de servidores back-end.
     - Para **Red virtual**, en el menú desplegable, haga clic en **myVNet**
     - Para **Máquina virtual**, en el menú desplegable, haga clic en **myVM1**.
     - Para **Dirección IP**, en el menú desplegable, haga clic en la dirección IP de myVM1.
@@ -200,6 +216,8 @@ Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye
 2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. La página predeterminada del servidor web de IIS se muestra en el explorador.
 
       ![Servidor web de IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+Para ver cómo el equilibrador de carga reparte el tráfico entre las máquinas virtuales distribuidas por la zona, puede realizar una actualización forzada del explorador web.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

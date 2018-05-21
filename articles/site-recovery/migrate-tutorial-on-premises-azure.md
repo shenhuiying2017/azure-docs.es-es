@@ -1,6 +1,6 @@
 ---
-title: "Migración de máquinas locales a Azure con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se describe cómo migrar máquinas locales a Azure mediante Azure Site Recovery."
+title: Migración de máquinas locales a Azure con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo migrar máquinas locales a Azure mediante Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 656ba02401d9ba610d0ebe33a683164af0b871f0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 3e82983ff171e638415d6e7cafe0cb034dd978af
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
@@ -32,7 +32,7 @@ En este tutorial se muestra cómo migrar máquinas virtuales locales y servidore
 Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores:
 
 1. [Preparación de Azure](tutorial-prepare-azure.md)
-2. Prepare los servidores de [VMware](vmware-azure-tutorial-prepare-on-premises.md) o Hyper-V locales.
+2. Prepare servidores [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md) locales.
 
 Antes de empezar, le recomendamos que revise las arquitecturas del escenario de recuperación ante desastres de [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md).
 
