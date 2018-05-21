@@ -1,8 +1,8 @@
 ---
 title: Application Insights para Azure Cloud Services | Microsoft Docs
-description: "Supervisión de los roles web y de trabajo de manera eficaz con Application Insights"
+description: Supervisión de los roles web y de trabajo de manera eficaz con Application Insights
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Azure Cloud Services
 La disponibilidad, el rendimiento, los errores y el uso de las [aplicaciones de servicio Microsoft Azure Cloud](https://azure.microsoft.com/services/cloud-services/) se pueden supervisar con [Application Insights][start] mediante la combinación de datos de los SDK de Application Insights y datos de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de Cloud Services. Con los comentarios que obtendrá sobre el rendimiento y la eficacia de la aplicación en su entorno natural, pueda tomar decisiones meditadas sobre la dirección del diseño en cada ciclo de vida de desarrollo.
@@ -223,7 +223,7 @@ Para obtener una imagen general del sistema, puede reunir los gráficos de super
 
 Si el sistema usa otros servicios de Azure, como Stream Analytics, incluya también sus gráficos de supervisión. 
 
-Si tiene una aplicación móvil de cliente, inserte algún código para enviar eventos personalizados en operaciones de usuario claves y cree un [puente de HockeyApp](app-insights-hockeyapp-bridge-app.md). Cree consultas en [Analytics](app-insights-analytics.md) para mostrar los recuentos de eventos y anclarlos al panel.
+Si tiene una aplicación móvil cliente, utilice [App Center](app-insights-mobile-center-quickstart.md). Cree consultas en [Analytics](app-insights-analytics.md) para mostrar los recuentos de eventos y anclarlos al panel.
 
 ## <a name="example"></a>Ejemplo
 [El ejemplo](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) supervisa un servicio que tiene un rol web y dos roles de trabajo.
@@ -239,7 +239,7 @@ Si tiene una aplicación móvil de cliente, inserte algún código para enviar e
 * [Configuración del envío de diagnósticos de Azure a Application Insights](app-insights-azure-diagnostics.md)
 * [Automatizar la creación de recursos de Application Insights](app-insights-powershell.md)
 * [Automatizar los diagnósticos de Azure](app-insights-powershell-azure-diagnostics.md)
-* [Funciones de Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md

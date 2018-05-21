@@ -1,113 +1,163 @@
 ---
-title: Administración de registros de flujo de grupos de seguridad de red en Azure Network Watcher | Microsoft Docs
-description: En esta página se explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher.
+title: 'Registrar el flujo del tráfico de red desde y hacia una VM (tutorial): Azure Portal | Microsoft Docs'
+description: Obtenga información acerca de cómo registrar el flujo de tráfico de red desde y hacia una VM mediante la funcionalidad de registro de flujos de NSG de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 04/30/2018
 ms.author: jdial
-ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: mvc
+ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Administración de registros de flujo de grupos de seguridad de red en Azure Portal
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: registrar el tráfico de red hacia y desde una máquina virtual mediante Azure Portal
 
-> [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
-> - [API de REST](network-watcher-nsg-flow-logging-rest.md)
+Un grupo de seguridad de red (NSG) le permite filtrar el tráfico entrante y el tráfico saliente en una máquina virtual (VM). Puede registrar el tráfico de red que fluye a través de un NSG gracias a la capacidad de registro de flujos de NSG de Network Watcher. En este tutorial, aprenderá a:
 
-Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben con formato JSON y brinda información importante, la que incluye: 
+> [!div class="checklist"]
+> * Crear un grupo de seguridad de red con una máquina virtual.
+> * Habilitar Network Watcher y registrar un proveedor de Microsoft.Insights.
+> * Habilitar un registro de flujo de tráfico para un NSG, mediante la capacidad de registro de flujos de NSG de Network Watcher.
+> * Descargar los datos registrados.
+> * Ver los datos registrados.
 
-- Flujos de entrada y de salida por regla.
-- La NIC a la que se aplica el flujo.
-- Información de 5-tupla sobre el flujo (dirección IP de origen o destino, puerto de origen o destino, protocolo).
-- Información sobre si se permitió o denegó el tráfico.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="create-a-vm"></a>Crear una VM
 
-Para completar los pasos descritos en este artículo, ya debe tener los siguientes recursos:
+1. Seleccione **+ Crear un recurso** en la esquina superior izquierda de Azure Portal.
+2. Seleccione **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** o **Ubuntu Server 17.10 VM**.
+3. Escriba o seleccione la siguiente información, acepte los valores predeterminados para el resto de la configuración y luego seleccione **Aceptar**:
 
-- Una instancia de Network Watcher existente. Para crear una instancia de Network Watcher, consulte [Creación de una instancia de Network Watcher](network-watcher-create.md).
-- Un grupo de recursos existente con una máquina virtual válida. Si no tiene una máquina virtual, consulte el artículo sobre cómo crear una máquina virtual [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+    |Configuración|Valor|
+    |---|---|
+    |NOMBRE|myVm|
+    |Nombre de usuario| Escriba un nombre de usuario de su elección.|
+    |Password| Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |La suscripción| Seleccione su suscripción.|
+    |Grupos de recursos| Haga clic en **Crear nuevo** y escriba **myResourceGroup**.|
+    |Ubicación| Seleccione **Este de EE. UU**.|
+
+4. Seleccione un tamaño para la máquina virtual y luego **Seleccionar**.
+5. En **Configuración**, acepte todos los valores predeterminados y seleccione **Aceptar**.
+6. En **Crear** de la página **Resumen**, seleccione **Crear** para iniciar la implementación de la máquina virtual. La maquina virtual tarda unos minutos en implementarse. Espere a que la VM finalice la implementación antes de continuar con los pasos restantes.
+
+La máquina virtual tarda en crearse unos minutos. No continúe con los pasos restantes hasta que la VM haya finalizado el proceso de creación. Además de crear la máquina virtual, el portal también crea un grupo de seguridad de red denominado **myVm nsg** y lo asocia a la interfaz de red de la máquina virtual.
+
+## <a name="enable-network-watcher"></a>Habilitación de Network Watcher
+
+Si ya dispone de un monitor de red habilitado en la región este de EE. UU., vaya al [Registro del proveedor de Insights](#register-insights-provider).
+
+1. En el portal, seleccione **Todos los servicios**. En el **cuadro Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados, selecciónela.
+2. Seleccione **Regiones** para expandirla y, a continuación, seleccione **...**  a la derecha de la opción **Este de EE. UU.**, tal y como se muestra en la siguiente imagen:
+
+    ![Habilitación de Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
+
+3. Seleccione **Habilitar Network Watcher**.
 
 ## <a name="register-insights-provider"></a>Registro del proveedor de Insights
 
-Para que el registro del flujo de trabajo funcione correctamente, es necesario registrar el proveedor **Microsoft.Insights**. Para registrar el proveedor, realice los pasos siguientes: 
+Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Microsoft.Insights**. Para registrar el proveedor, realice los pasos siguientes:
 
-1. Vaya a **Suscripciones** y, luego, seleccione la suscripción para la que desea habilitar los registros de flujo. 
-2. En la hoja **Suscripción**, seleccione **Proveedores de recursos**. 
-3. Observe la lista de proveedores y compruebe que el proveedor **microsoft.insights** está registrado. Si no es así, seleccione **Registrarse**.
+1. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro Filtro, escriba *Suscripciones*. Cuando aparezca la opción **Suscripciones** en los resultados de la búsqueda, selecciónela.
+2. En la lista de suscripciones, seleccione la suscripción con la que quiera habilitar el proveedor.
+3. Seleccione **Proveedores de recursos** en **CONFIGURACIÓN**.
+4. Confirme que el **ESTADO** del proveedor **microsoft.insights** está **registrado**, tal y como se muestra en la figura siguiente. Si el estado está **sin registrar**, seleccione **Registrar** a la derecha del proveedor.
 
-![Visualización de proveedores][providers]
+    ![Registrar el proveedor](./media/network-watcher-nsg-flow-logging-portal/register-provider.png)
 
-## <a name="enable-flow-logs"></a>Habilitar los registros de flujo
+## <a name="enable-nsg-flow-log"></a>Habilitar el registro de flujos de NSG
 
-Estos pasos lo guían en el proceso para habilitar registros de flujo en un grupo de seguridad de red.
+1. Los datos del registro de flujos de NSG se escriben en una cuenta de Azure Storage. Para crear una cuenta de Azure Storage, seleccione **+ Create a resource** (+ Crear un recurso) en la esquina superior izquierda del portal.
+2. Seleccione **Storage** y, a continuación, seleccione **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
+3. Escriba o seleccione la siguiente información, acepte los valores predeterminados restantes y haga clic en **Crear**:
 
-### <a name="step-1"></a>Paso 1
+    | Configuración        | Valor                                                        |
+    | ---            | ---   |
+    | NOMBRE           | Debe tener entre 3 y 24 caracteres de longitud y solo puede contener letras minúsculas y números; asimismo, debe ser único para todas las cuentas de Azure Storage.                                                               |
+    | Ubicación       | Seleccione **Este de EE. UU**.                                           |
+    | Grupos de recursos | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
 
-Vaya a una instancia de Network Watcher y seleccione **Registros de flujo de NSG**.
+    La cuenta de almacenamiento tardará unos minutos en crearse. No continúe con los pasos restantes hasta que haya creado la cuenta de almacenamiento. Si va a usar una cuenta de almacenamiento existente en vez de crear una, asegúrese de seleccionar la cuenta de almacenamiento que tenga la opción **Todas las redes** (valor predeterminado) seleccionada en **Firewalls y redes virtuales**, en la **CONFIGURACIÓN** de la cuenta de almacenamiento.
+4. En la esquina superior izquierda del portal, seleccione **Todos los servicios**. En el cuadro **Filtrar**, escriba *Network Watcher*. Cuando aparezca la opción **Network Watcher** en los resultados de búsqueda, selecciónela.
+5. En **REGISTROS**, seleccione **Registro de flujos de NSG**, tal y como se muestra en la siguiente imagen:
 
-![Información general de los registros de flujo][1]
+    ![Grupos de seguridad de red](./media/network-watcher-nsg-flow-logging-portal/nsgs.png)
 
-### <a name="step-2"></a>Paso 2
+6. En la lista de NSG, seleccione el NSG denominado **myVm-nsg**.
+7. En **Configuración de los registros de flujo**, seleccione **Activada**.
+8. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
+9. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 
-Seleccione un grupo de seguridad de red desde la lista.
+## <a name="download-flow-log"></a>Descargar el registro de flujos
 
-![Información general de los registros de flujo][2]
+1. En el portal de Network Watcher, seleccione **Registro de flujos de NSG** en **REGISTROS**.
+2. Seleccione **You can download flow logs from configured storage accounts** (Puede descargar los registros de flujo desde cuentas de almacenamiento configuradas), tal como se muestra en la siguiente imagen.
 
-### <a name="step-3"></a>Paso 3 
+  ![Descarga de registros de flujo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
-En la hoja **Configuración de los registros de flujo**, establezca el estado en **On** (Activado) y, luego, configure una cuenta de almacenamiento. Seleccione una cuenta de almacenamiento existente que tenga **todas las redes** (valor predeterminado) seleccionadas en **Firewalls y redes virtuales**, en la **configuración** de la cuenta de almacenamiento. Cuando haya seleccionado una cuenta de almacenamiento, seleccione **Aceptar** y, después, seleccione **Guardar**.
+3. Seleccione la cuenta de almacenamiento que configuró en el paso 2 de la opción [Habilitar los registros de flujo de NSG](#enable-nsg-flow-log).
+4. Seleccione **Contenedores** en **SERVICIO DE BLOB** y, a continuación, seleccione el contenedor **insights-logs-networksecuritygroupflowevent**, tal como se muestra en la siguiente imagen:
 
-![Información general de los registros de flujo][3]
+    ![Seleccionar el contenedor](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
+5. Explore la jerarquía de carpetas hasta llegar a un archivo PT1H.json, tal como se muestra en la siguiente imagen:
 
-## <a name="download-flow-logs"></a>Descarga de registros de flujo
+    ![Archivo de registro](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-Los registros de flujo se guardan en una cuenta de almacenamiento. Descargue los registros de flujo para verlos.
+    Los archivos de registro se escriben en una jerarquía de carpetas que tiene la siguiente convención de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-### <a name="step-1"></a>Paso 1
+6. Seleccione **...** a la derecha del archivo PT1H.json de y **Descargar**.
 
-Para descargar registros de flujo, seleccione **Puede descargar los registros de flujo desde cuentas de almacenamiento configuradas**. Este paso lo lleva a una vista de cuenta de almacenamiento en la que puede elegir los registros que se van a descargar.
+## <a name="view-flow-log"></a>Ver el registro de flujos
 
-![Configuración de registros de flujo][4]
+El siguiente formato JSON es un ejemplo de lo que verá en el archivo PT1H.json para cada flujo en el que se registran los datos:
 
-### <a name="step-2"></a>Paso 2
+```json
+{
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [{
+            "rule": "UserRule_default-allow-rdp",
+            "flows": [{
+                "mac": "000D3A170C69",
+                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
+            }]
+        }]
+    }
+}
+```
 
-Vaya a la cuenta de almacenamiento correcta. Luego, seleccione **Contenedores** > **insights-log-networksecuritygroupflowevent**.
+El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de red que se creó cuando creó la máquina virtual. La información separada por comas de **flowTuples** tiene el siguiente aspecto:
 
-![Configuración de registros de flujo][5]
-
-### <a name="step-3"></a>Paso 3
-
-Vaya a la ubicación del registro de flujo, selecciónelo y, luego, seleccione **Descargar**.
-
-![Configuración de registros de flujo][6]
-
-Para información sobre la estructura del registro, visite la [introducción a los registros de flujo de grupos de seguridad de red](network-watcher-nsg-flow-logging-overview.md).
+| Datos de ejemplo | Qué representan los datos   | Explicación                                                                              |
+| ---          | ---                    | ---                                                                                      |
+| 1525186745   | Marca de tiempo             | La marca de tiempo de cuando se produjo el flujo en formato UNIX EPOCH. En el ejemplo anterior, la fecha se convierte en el 1 de mayo de 2018 a las 2:59:05 P.M. GMT.                                                                                    |
+| 192.168.1.4  | Dirección IP de origen      | La dirección IP de origen en la que se ha originado el flujo.
+| 10.0.0.4     | Dirección IP de destino | La dirección IP de destino a la que se destina el flujo. 10.0.0.4 es la dirección IP privada de la VM que creó en el paso [Crear una máquina virtual](#create-a-vm).                                                                                 |
+| 55960        | Puerto de origen            | El puerto de origen en el que se ha originado el flujo.                                           |
+| 3389         | Puerto de destino       | El puerto de destino al que se destina el flujo. Puesto que el tráfico se destinó al puerto 3389, la regla denominada **UserRule_default-allow-rdp**, en el archivo de registro, es la que procesa el flujo.                                                |
+| T            | Protocolo               | Si el protocolo del flujo es TCP (T) o UDP (U).                                  |
+| I            | Dirección              | Si el tráfico es entrante (I) o saliente (O).                                     |
+| Una             | .                 | Si el tráfico está permitido (A) o si está denegado (D).                                           |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo [visualizar los registros de flujo de NSG con Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-portal/figure1.png
-[2]: ./media/network-watcher-nsg-flow-logging-portal/figure2.png
-[3]: ./media/network-watcher-nsg-flow-logging-portal/figure3.png
-[4]: ./media/network-watcher-nsg-flow-logging-portal/figure4.png
-[5]: ./media/network-watcher-nsg-flow-logging-portal/figure5.png
-[6]: ./media/network-watcher-nsg-flow-logging-portal/figure6.png
-[providers]: ./media/network-watcher-nsg-flow-logging-portal/providers.png
+En este tutorial, aprendió a habilitar el registro de flujos de NSG para un grupo de seguridad de red o NSG. Asimismo, también aprendió a descargar y ver los datos registrados en un archivo. Los datos sin procesar del archivo json pueden ser difíciles de interpretar. Para visualizar los datos, puede usar el [análisis del tráfico](traffic-analytics.md) de Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) y otras herramientas.

@@ -1,27 +1,29 @@
 ---
-title: 'Creación de una instancia de Load Balancer Estándar: Azure Portal | Microsoft Docs'
-description: Aprenda a crear una instancia de Load Balancer Estándar mediante Azure Portal.
+title: 'Inicio rápido: creación de un equilibrador de carga estándar - Azure Portal | Microsoft Docs'
+description: Este inicio rápido muestra cómo crear un equilibrador de carga estándar mediante Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
-ms.openlocfilehash: f67da7dc84878ca7418eb644daec1a9681e2f6f2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Cree mediante Azure Portal una instancia de Load Balancer Estándar para equilibrar la carga de máquinas virtuales
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: creación de un equilibrador de carga estándar para equilibrar la carga de las VM mediante Azure Portal
 
 El equilibrio de carga proporciona un mayor nivel de disponibilidad y escala, ya que distribuye las solicitudes entrantes entre varias máquinas virtuales. Puede usar Azure Portal para crear un equilibrador de carga para las máquinas virtuales (VM). En este tutorial rápido se muestra cómo equilibrar la carga de máquinas virtuales mediante Load Balancer Estándar.
 
@@ -114,7 +116,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
 5. En Administrador del servidor, haga clic en **Agregar roles y características**.
 6. En el **Asistente para agregar roles y características**, use los siguientes valores:
     - En la página **Tipo de instalación**, haga clic en **Instalación basada en características o en roles**.
-    - En la página **Seleccionar servidor de destino**, haga clic en** myVM1**.
+    - En la página **Seleccionar servidor de destino **, haga clic en** myVM1**.
     - En la página **Seleccionar rol de servidor**, haga clic en **Servidor web (IIS)**.
     - Siga las instrucciones para completar el resto del asistente 
 7. Repita los pasos 1 a 6 para la máquina virtual *myVM2*.

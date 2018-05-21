@@ -16,11 +16,11 @@ f1_keywords:
 - sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: dde2ec3b68f5951e268c32b1c6551641f22a0511
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: ce561c61d25946a508df3e92c461f1c8e889a07e
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="about-azure-storage-accounts"></a>Acerca de las cuentas de almacenamiento de Azure
 
@@ -63,7 +63,7 @@ También puede configurar un nombre de dominio personalizado para usarlo con la 
 
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En Azure Portal, expanda el menú en el lado izquierdo para abrir el menú de servicios y elija **Más servicios**. A continuación, desplácese hacia abajo hasta **Almacenamiento** y elija **Cuentas de almacenamiento**. En la ventana **Cuentas de almacenamiento** que aparece, elija **Agregar**.
 3. Escriba un nombre para la cuenta de almacenamiento. Consulte [Puntos de conexión de cuenta de almacenamiento](#storage-account-endpoints) para más información sobre la forma en que se usará el nombre de la cuenta de almacenamiento para dirigir los objetos en Azure Storage.
    
@@ -141,7 +141,7 @@ Para quitar una cuenta de almacenamiento que ha dejado de usarse, navegue a la c
 > No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
 > 
 
-Si intenta eliminar una cuenta de almacenamiento asociada a una máquina virtual de Azure, puede obtener un error sobre que la cuenta de almacenamiento aún está usándose. Para obtener ayuda para solucionar este error, consulte [Solución de errores al eliminar las cuentas de almacenamiento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+Si intenta eliminar una cuenta de almacenamiento asociada a una máquina virtual de Azure, puede obtener un error sobre que la cuenta de almacenamiento aún está usándose. Para obtener ayuda para solucionar este error, consulte [Troubleshoot disks attached to Azure VMs](../blobs/storage-troubleshoot-vhds.md) (Solucionar problemas de los discos conectados a VM de Azure).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * El [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.

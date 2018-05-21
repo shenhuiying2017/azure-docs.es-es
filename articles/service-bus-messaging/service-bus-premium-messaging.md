@@ -1,30 +1,30 @@
 ---
-title: "Información general acerca de los planes de tarifa de mensajería Estándar y Premium de Azure Service Bus|Microsoft Docs"
-description: "Niveles de mensajería Premium y Estándar de Service Bus"
+title: Información general acerca de los planes de tarifa de mensajería Estándar y Premium de Azure Service Bus|Microsoft Docs
+description: Niveles de mensajería Premium y Estándar de Service Bus
 services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/10/2017
+ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 613bb074063e436cdbd54fe5aee9c49109a2d8f2
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
 La mensajería de Service Bus, que incluye entidades como colas y temas, combina las funcionalidades de la mensajería empresarial con una completa semántica de publicación-suscripción en la escala de nube. La mensajería de Service Bus se utiliza como la red troncal de comunicación para muchas soluciones sofisticadas en la nube.
 
-El nivel *Premium* de la mensajería de Service Bus atiende solicitudes comunes de los clientes con relación a la escala, el rendimiento y la disponibilidad para aplicaciones fundamentales. Aunque los conjuntos de características son prácticamente idénticos, estos dos niveles de mensajería de Service Bus están diseñados para usarse en distintas situaciones.
+El nivel *Premium* de la mensajería de Service Bus atiende solicitudes comunes de los clientes con relación a la escala, el rendimiento y la disponibilidad para aplicaciones fundamentales. El nivel Premium se recomienda para escenarios de producción. Aunque los conjuntos de características son prácticamente idénticos, estos dos niveles de mensajería de Service Bus están diseñados para usarse en distintas situaciones.
 
 En la tabla siguiente, se resaltan algunas de las principales diferencias.
 
@@ -46,11 +46,7 @@ En las secciones siguientes se describen algunas diferencias existentes entre lo
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
-Los temas y colas con particiones se admiten en la mensajería Premium; de hecho, estas entidades siempre tienen particiones (y no se pueden deshabilitar). Sin embargo, las colas y los temas con particiones Premium no funcionan de la misma forma que en el nivel Estándar de la mensajería de Service Bus. La mensajería Premium no utiliza SQL como almacén de datos y ya no tiene la posible competencia de recursos asociada a una plataforma compartida. Como consecuencia, las particiones no son necesarias para mejorar el rendimiento. Además, se cambió la cantidad de particiones desde la cifra de 16 particiones en la mensajería Estándar a 2 particiones en Premium. Tener dos particiones garantiza la disponibilidad y es un número más apropiado para el entorno de tiempo de ejecución Premium. 
-
-Con la mensajería premium, cuando se especifica el tamaño de una entidad con [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), dicho tamaño se divide por igual entre las dos particiones, a diferencia de las [entidades con particiones estándar](service-bus-partitioning.md#standard), en las que el tamaño total es 16 veces el tamaño especificado. 
-
-Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
+Los temas y colas con particiones no se admiten en Mensajería premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
 
@@ -64,7 +60,7 @@ La introducción a la mensajería premium es muy sencilla y el proceso es simila
 
 ![create-premium-namespace][create-premium-namespace]
 
-También puede crear un [espacios de nombres premium con plantillas de Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/).
+También puede crear un [espacios de nombres premium con plantillas de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

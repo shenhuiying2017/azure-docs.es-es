@@ -1,10 +1,10 @@
 ---
-title: 'Script de ejemplo de Azure PowerShell: configuración de una VPN de sitio a sitio | Microsoft Docs'
-description: Configure una VPN de sitio a sitio.
+title: Ejemplo de script de Azure PowerShell. Configurar una VPN de sitio a sitio | Microsoft Docs
+description: Configurar una VPN de sitio a sitio.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,17 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 04/30/2018
 ms.author: anzaman
-ms.openlocfilehash: da506165dd7c2ca29f977af1452d11189d2fdd2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62381c08892017512dcf2bd5d9c7f8690bedfb6c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Creación de instancia de VPN Gateway y adición de una conexión VPN de sitio a sitio mediante PowerShell
+# <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Creación de una instancia de VPN Gateway y adición de una conexión de sitio a sitio mediante PowerShell
 
-Este script crea una instancia de VPN Gateway basada en enrutamiento y agrega una configuración de punto a sitio mediante la autenticación de nombre de usuario/contraseña RADIUS.
+Este script crea una VPN Gateway basada en rutas y agrega la configuración de sitio a sitio. Para crear la conexión, también se debe configurar el dispositivo VPN. Para obtener más información, consulte [Acerca de los dispositivos VPN y los parámetros de IPsec/IKE para conexiones de VPN Gateway de sitio a sitio](../vpn-gateway-about-vpn-devices.md).
 
 
 ```azurepowershell-interactive

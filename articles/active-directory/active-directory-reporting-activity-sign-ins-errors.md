@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de error de informes de actividad de inicio de sesión en el portal de Azure Active Directory
 
@@ -67,14 +67,21 @@ En la siguiente sección se proporciona una información general completa de tod
 |50058|No se encontró información acerca de la identidad del usuario entre las credenciales proporcionadas, o no se encontró al usuario en el inquilino, o se envió una solicitud de inicio de sesión silenciosa pero ningún usuario inició sesión, o el servicio no pudo autenticar al usuario.|
 |50072|El usuario debe inscribirse para el segundo factor de autenticación (interactivo).|
 |50074|El usuario no superó el desafío MFA.|
+|50076|El usuario no superó el desafío MFA (no interactivo)|
 |50079|El usuario debe inscribirse para el segundo factor de autenticación.|
 |50089|Error de validación del token de flujo, porque este ha caducado.|
 |50097|El dispositivo no está autenticado.|
 |50105|El usuario que ha iniciado sesión no está asignado a un rol de la aplicación.|
+|50125|El inicio de sesión se interrumpió debido a una entrada de registro de contraseña o restablecimiento de contraseña|
 |50126|Nombre de usuario o contraseña no válidos, o nombre de usuario o contraseña locales no válidos.|
+|50127|El usuario necesita instalar una aplicación de agente para obtener acceso a este contenido.|
+|50129|El dispositivo no está unido al área de trabajo: es necesario unirse al área de trabajo para registrar el dispositivo.|
 |50131|Se usa en varios errores de acceso condicional. Por ejemplo, estado de dispositivo incorrecto de Windows, solicitud bloqueada debido a actividades sospechosas, directivas de acceso y decisiones sobre directivas de seguridad.|
 |50133|La sesión no es válida debido a que ha expirado o a un cambio reciente de contraseña.|
+|50140|Se solicitó al usuario su consentimiento para mantenerlo con la sesión iniciada en el dispositivo|
 |50144|Ha expirado la contraseña de Active Directory del usuario.|
+|53000|La directiva de acceso condicional requiere un dispositivo compatible, y el dispositivo no lo es.|
+|53003|Se ha bloqueado el acceso debido a las directivas de acceso condicional.|
 |65001|La aplicación X no tiene permiso para acceder a la aplicación Y o este se ha revocado. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización interactiva para este usuario y recurso. O bien, el usuario o administrador no ha dado su consentimiento para usar la aplicación con el identificador X. Envíe una solicitud de autorización al administrador del inquilino para que actúe en nombre de la aplicación: Y para el recurso: Z.|
 |65005|La lista de acceso a recursos requeridos de la aplicación no contiene aplicaciones reconocibles por el recurso, o la aplicación cliente ha solicitado el acceso a un recurso que no se especificó en su lista de acceso a recursos requeridos, o el servicio Graph devolvió una solicitud incorrecta o no se encontró el recurso.|
 |70001|No se encontró la aplicación denominada X en el inquilino denominado Y. Esto puede pasar si el administrador del inquilino no es el que ha instalado la aplicación o no ha recibido el consentimiento de ningún usuario del inquilino. Es posible que haya enviado la solicitud de autenticación al inquilino incorrecto.|
@@ -98,8 +105,7 @@ En la siguiente sección se proporciona una información general completa de tod
 |81013|No se encuentra el objeto de usuario con la información del vale de Kerberos del usuario.|
 |90014|Se utiliza en varios casos cuando un campo esperado no está presente en la credencial.|
 |90093|Se devolvió un gráfico con un código de error prohibido para la solicitud.|
-
-
+|90094|Se requiere el consentimiento del administrador.|
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte [Introducción a los informes de actividad de inicio de sesión en el portal de Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
