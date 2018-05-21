@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>¿Qué es VPN Gateway?
 
@@ -28,9 +28,9 @@ VPN Gateway es un tipo específico de puerta de enlace de red virtual que se usa
 
 ## <a name="whatis"></a>¿Qué es una puerta de enlace de red virtual?
 
-Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada la *subred de la puerta de enlace*. Las máquinas virtuales que se encuentran en esta subred se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No se pueden configurar directamente las máquinas virtuales que forman parte de la puerta de enlace de red virtual y nunca debe implementar recursos adicionales en la subred de la puerta de enlace.
+Una puerta de enlace de red virtual se compone de dos o más máquinas virtuales que se implementan en una subred específica llamada *subred de puerta de enlace*. Las máquinas virtuales que se encuentran en esta subred se crean al crear la puerta de enlace de red virtual. Las máquinas virtuales de puerta de enlace de red virtual están configuradas para contener tablas de enrutamiento y servicios de puerta de enlace específicos de la puerta de enlace. No se pueden configurar directamente las máquinas virtuales que forman parte de la puerta de enlace de red virtual y nunca debe implementar recursos adicionales en la subred de la puerta de enlace.
 
-Una puerta de enlace VPN puede tardar hasta 45 minutos en completarse. Al crear una instancia de VPN Gateway, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace, y se configuran con las opciones que especifique. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de IKEv2 o SSTP) que le permitirá conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
+La creación de una puerta de enlace de red virtual puede tardar en completarse hasta 45 minutos. Al crear una puerta de enlace de red virtual, las máquinas virtuales de puerta de enlace se implementan en la subred de puerta de enlace y se configuran con las opciones que especifique. Una de las opciones que se configuran es el tipo de puerta de enlace. El tipo de puerta de enlace "vpn" especifica que el tipo de puerta de enlace de red virtual creado es una puerta de enlace de VPN. Después de crear una instancia de VPN Gateway, puede crear una conexión de túnel de VPN de IPsec o IKE entre esa instancia y otra instancia de VPN Gateway (de red virtual a red virtual), o crear una conexión de túnel de VPN de IPsec o IKE con implementaciones locales entre la instancia de VPN Gateway y un dispositivo VPN local (de sitio a sitio). También puede crear una conexión VPN de punto a sitio (VPN a través de IKEv2 o SSTP) que le permitirá conectarse a la red virtual desde una ubicación remota como, por ejemplo, una sala de conferencias o desde su casa.
 
 ## <a name="configuring"></a>Configuración de una instancia de VPN Gateway
 

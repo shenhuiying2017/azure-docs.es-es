@@ -3,17 +3,17 @@ title: 'Tutorial de Azure Container Instances: preparación de la aplicación'
 description: 'Tutorial de Azure Container Instances, parte 1 de 3: preparación de una aplicación para su implementación en Azure Container Instances'
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 134cc6ea84a5851755c757cbcf20130bf890575c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 79041123196559c5759789638228ea0dd21f2762
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>Tutorial: Creación de un contenedor para la implementación en Azure Container Instances
 
@@ -116,7 +116,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Vaya a http://localhost: 8080 en el explorador para confirmar que el contenedor se es ejecuta. Debería ver una página web similar a la siguiente:
+Ahora, vaya a http://localhost:8080 en el explorador para confirmar que el contenedor está en ejecución. Debería ver una página web similar a la siguiente:
 
 ![Ejecución local de la aplicación en el explorador][aci-tutorial-app-local]
 
@@ -125,7 +125,7 @@ Vaya a http://localhost: 8080 en el explorador para confirmar que el contenedor 
 En este tutorial, ha creado una imagen de contenedor que se puede implementar en Azure Container Instances y ha comprobado qu8e funciona localmente. Hasta ahora, esto es lo que ha hecho:
 
 > [!div class="checklist"]
-> * Ha clonado el origen de la aplicación desde GitHub
+> * Se ha clonado el origen de la aplicación desde GitHub
 > * Ha creado una imagen de contenedor a partir del origen de la aplicación
 > * El contenedor se ha probado localmente
 

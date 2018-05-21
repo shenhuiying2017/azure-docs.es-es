@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 2b909c0a8441010b87c913e5937d25c8127058f1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 321a34589277d62290c2fde680bb461de34b4568
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usar datos de Azure Blockchain Workbench con Microsoft Power BI
 
@@ -56,4 +56,5 @@ Ahora puede crear y publicar informes, tal y como lo haría normalmente con Powe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Vistas de base de datos de Azure Blockchain Workbench](blockchain-workbench-database-views.md)
+> [!div class="nextstepaction"]
+> [Vistas de base de datos de Azure Blockchain Workbench](blockchain-workbench-database-views.md)

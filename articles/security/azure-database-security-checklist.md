@@ -1,12 +1,12 @@
 ---
-title: "Lista de comprobación de la seguridad de Azure Database | Microsoft Docs"
-description: "En este artículo se proporciona un conjunto de comprobaciones de la seguridad de Azure Database."
+title: Lista de comprobación de la seguridad de Azure Database | Microsoft Docs
+description: En este artículo se proporciona un conjunto de comprobaciones de la seguridad de Azure Database.
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 37523506369ece144183dba76feb8b23b6c1acb2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-database-security-checklist"></a>Lista de comprobación de la seguridad de Azure Database
 
 Para ayudar a mejorar la seguridad, Azure Database incluye una serie de controles de seguridad integrados que puede usar para limitar y controlar el acceso.
 
-Entre ellos se incluyen los siguientes:
+Entre ellas se incluyen las siguientes:
 
 -   Un firewall que permite crear [reglas de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) que limitan la conectividad en función de su dirección IP
 -   Firewall de nivel de servidor accesible desde Azure Portal
@@ -42,7 +42,7 @@ La informática en la nube requiere nuevos paradigmas de seguridad que son poco 
 Le recomendamos que lea el artículo [Prácticas recomendadas de seguridad de Azure Database](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) antes de revisar esta lista. Una vez que conozca las prácticas recomendadas, podrá obtener el máximo partido de esta lista de comprobación. A continuación, puede usarla para asegurarse de que ha abordado las cuestiones importantes de la seguridad para las bases de datos de Azure.
 
 
-|Categoría de la lista de comprobación| Descripción|
+|Categoría de la lista de comprobación| DESCRIPCIÓN|
 | ------------ | -------- |
 |**Protección de datos**||
 | <br> Cifrado en movimiento o tránsito| <ul><li>[Seguridad de la capa de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para el cifrado de datos cuando los datos se pasan a las redes.</li><li>Las bases de datos requieren una comunicación segura desde los clientes basados en el protocolo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) a través de TLS (Seguridad de la capa de transporte).</li></ul> |

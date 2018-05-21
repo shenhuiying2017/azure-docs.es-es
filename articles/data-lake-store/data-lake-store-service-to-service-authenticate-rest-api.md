@@ -1,23 +1,21 @@
 ---
-title: "Autenticación entre servicios: API de REST con Data Lake Store mediante Azure Active Directory | Microsoft Docs"
-description: "Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory mediante la API de REST"
+title: 'Autenticación entre servicios: API de REST con Data Lake Store mediante Azure Active Directory | Microsoft Docs'
+description: Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory mediante la API de REST
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 80934d3e5ded5c01e473f8450a3484d84c46e94e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 89a747fec08ad96c21429d2034eaf395e65566a4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Autenticación entre servicios con Data Lake Store mediante la API de REST
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 En este artículo, aprenderá a usar la API de REST para realizar la autenticación entre servicios con Azure Data Lake Store. En el caso de la autenticación del usuario final con Data Lake Store mediante la API de REST, consulte [End-user authentication with Data Lake Store using REST API](data-lake-store-end-user-authenticate-rest-api.md) (Autenticación del usuario final con Data Lake Store mediante la API de REST).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).

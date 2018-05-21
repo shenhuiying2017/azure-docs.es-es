@@ -9,16 +9,14 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
@@ -114,7 +112,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
     }
 
 #### <a name="request-log-schema"></a>Esquema de un registro de solicitud
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
@@ -127,7 +125,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | HttpMethod |string |Método HTTP usado en la operación. Por ejemplo, GET. |
 | Ruta de acceso |string |Ruta de acceso en la que se ha realizado la operación. |
@@ -161,7 +159,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
     }
 
 #### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | Twitter en tiempo |string |Marca de tiempo (en UTC) del registro. |
 | ResourceId |string |Identificador del recurso en el que tuvo lugar la operación. |
@@ -174,7 +172,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
-| NOMBRE | type | DESCRIPCIÓN |
+| NOMBRE | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | StreamName |string |Ruta de acceso en la que se ha realizado la operación. |
 

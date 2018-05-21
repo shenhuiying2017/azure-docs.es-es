@@ -1,6 +1,6 @@
 ---
-title: Creación de una pila MEAN en una máquina virtual Linux en Azure | Microsoft Docs
-description: Aprenda a crear una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure.
+title: 'Tutorial: Creación de una pila MEAN en una máquina virtual Linux en Azure | Microsoft Docs'
+description: En este tutorial, aprenda a crear una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Creación de una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure
+# <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Tutorial: Creación de una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure
 
-Este tutorial muestra cómo implementar una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure. La pila MEAN que crea permite agregar, eliminar y enumerar los libros en una base de datos. Aprenderá a:
+En este tutorial se muestra cómo implementar una pila de MongoDB, Express, AngularJS y Node.js (MEAN) en una máquina virtual Linux en Azure. La pila MEAN que crea permite agregar, eliminar y enumerar los libros en una base de datos. Aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de una máquina virtual Linux
@@ -36,7 +36,7 @@ Este tutorial muestra cómo implementar una pila de MongoDB, Express, AngularJS 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Creación de una máquina virtual Linux
