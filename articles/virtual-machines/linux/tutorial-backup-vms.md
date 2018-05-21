@@ -1,6 +1,6 @@
 ---
-title: Copia de seguridad de máquinas virtuales Linux en Azure | Microsoft Docs
-description: Para proteger máquinas virtuales Linux, realice una copia de seguridad mediante Azure Backup.
+title: 'Tutorial: Copia de seguridad de máquinas virtuales Linux en Azure Portal | Microsoft Docs'
+description: En este tutorial, aprenderá a usar Azure Portal para proteger las máquinas virtuales Linux con Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,22 +16,20 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Copia de seguridad de máquinas virtuales Linux en Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Tutorial: Copia de seguridad y restauración de archivos en máquinas virtuales Linux en Azure
 
-Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda una máquina virtual o solo determinados archivos. En este artículo se explica cómo restaurar un archivo individual a una máquina virtual Linux en la que se ejecuta nginx. Si aún no tiene una máquina virtual que pueda usar, siga las instrucciones que se proporcionan en [Creación de una máquina virtual Linux con la CLI de Azure](quick-create-cli.md). En este tutorial, aprenderá a:
+Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se almacenan en almacenes de recuperación con redundancia geográfica. Cuando se realiza una restauración desde un punto de recuperación, se puede restaurar toda la máquina virtual o determinados archivos. En este artículo se explica cómo restaurar un archivo individual a una máquina virtual Linux en la que se ejecuta nginx. Si aún no tiene una máquina virtual que pueda usar, siga las instrucciones que se proporcionan en [Creación de una máquina virtual Linux con la CLI de Azure](quick-create-cli.md). En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una copia de seguridad de una máquina virtual.
 > * Programar una copia de seguridad diaria.
 > * Restaurar un archivo desde una copia de seguridad.
-
-
 
 ## <a name="backup-overview"></a>Introducción a Backup
 
@@ -43,7 +41,7 @@ Cuando finaliza la transferencia de datos, se elimina la instantánea y se crea 
 
 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
-Cree una copia de seguridad diaria programada simple en un almacén de Recovery Services. 
+Cree una copia de seguridad diaria programada en un almacén de Recovery Services:
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, haga clic en **Máquinas virtuales**. 
@@ -62,7 +60,7 @@ La primera copia de seguridad tarda aproximadamente 20 minutos. Cuando la copia 
 
 ## <a name="restore-a-file"></a>Restauración de un archivo
 
-Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. La recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como una unidad local. Estas unidades permanecerán montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
+Si accidentalmente elimina o realiza cambios en un archivo, puede usar Recuperación de archivos para recuperar el archivo del almacén de Backup. La recuperación de archivos usa un script que se ejecuta en la máquina virtual para montar el punto de recuperación como una unidad local. Estas unidades permanecen montadas durante 12 horas para que pueda copiar archivos desde el punto de recuperación y restaurarlos en la máquina virtual.  
 
 En este ejemplo, se muestra cómo recuperar la página web predeterminada de nginx, /var/www/html/index.nginx-debian.html. En este ejemplo, la dirección IP pública de la máquina virtual es *13.69.75.209*. Para encontrar la dirección IP de una máquina virtual, utilice:
 

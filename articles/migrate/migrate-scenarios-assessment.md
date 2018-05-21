@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 04/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fb102cc43c6e1d17afaa78a2833ae447600a96af
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Escenario 1: Evaluación de las cargas de trabajo locales para la migración a Azure
 
 Al plantearse la migración a Azure, la empresa Contoso desea realizar una evaluación técnica y financiera para averiguar si sus cargas de trabajo locales son adecuadas para la migración a la nube. En concreto, desea evaluar la compatibilidad de las máquinas y bases de datos para la migración y calcular la capacidad y los costos de ejecutar sus recursos en Azure.
 
-Para dar los primeros pasos y conocer mejor las tecnologías implicadas, evalúan y migran una pequeña aplicación de viajes local. Es una aplicación de dos niveles en la que una aplicación web se ejecutan en una máquina virtual y una base de datos de SQL Server en la segunda máquina virtual. La aplicación se implementa en VMware, y el entorno lo controla vCenter Server. La evaluación se realiza mediante Data Migration Assistant (DMA) y el servicio Azure Migrate.
+Para dar los primeros pasos y conocer mejor las tecnologías implicadas, evalúan y migran una pequeña aplicación de viajes local. Es una aplicación de dos niveles en la que una aplicación web se ejecutan en una máquina virtual y una base de datos de SQL Server en la segunda máquina virtual. La aplicación se implementa en VMware, y el entorno lo controla vCenter Server. La evaluación se realiza mediante Data Migration Assistant (DMA) y el servicio Azure Migrate. Si quiere probar este escenario con esta aplicación de viajes ilustrativos, puede descargarlo desde [github](https://github.com/Microsoft/SmartHotel360).
 
-**Technology** | **Descripción** | **Costee
+**Technology** | **Descripción** | **Costee**
 --- | --- | ---
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA evalúa y detecta problemas de compatibilidad que pueden afectar a la funcionalidad de la base de datos en Azure. Además, evalúa y presenta la paridad entre el origen y el destino de SQL Server, y ofrece recomendaciones para mejorar el rendimiento y la confiabilidad en su entorno de destino. | Es una herramienta que se puede descargar de forma gratuita. 
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Este servicio le ayuda a evaluar equipos locales para su migración a Azure. Evalúa la idoneidad de la migración de los equipos y proporciona cálculos de tamaño y costo de la ejecución en Azure. En la actualidad, el servicio Azure Migrate puede evaluar las máquinas virtuales de VMware locales para la migración a Azure. | Actualmente (abril de 2018) el uso de este servicio no tiene costo alguno.
@@ -33,11 +33,11 @@ En este escenario, descargaremos y ejecutaremos DMA para evaluar la base de dato
 
 ## <a name="architecture"></a>Architecture
 
-En este escenario, vamos a configurar 
 
- ![Arquitectura de evaluación de migraciones](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Arquitectura de evaluación de migraciones](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 En este escenario:
+- Contoso es un nombre ficticio que representa una organización típica de empresas. Contoso quiere evaluar y migrar su aplicación de viajes local de dos niveles.
 - Contoso tiene un centro de datos local (**contoso-datacenter**), con un controlador de dominio local (**contosodc1**).
 - La aplicación de viajes interna se organiza en niveles en dos máquinas virtuales, **WEBVM** y **SQLVM**, y se encuentra en el host de VMware ESXi **contosohost1.contoso.com**.
 - El entorno de VMware lo administra vCenter Server (**vcenter.contoso.com**), que se ejecuta en una máquina virtual.
@@ -489,7 +489,7 @@ En este escenario, hemos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Pasemos al siguiente escenario, donde realizaremos una migración mediante lift-and-shift de las máquinas virtuales locales a Azure.
+Pasemos al siguiente escenario, donde realizaremos una [migración mediante lift-and-shift](migrate-scenarios-lift-and-shift.md) de la base de datos y de las VM locales a Azure.
 
 
 

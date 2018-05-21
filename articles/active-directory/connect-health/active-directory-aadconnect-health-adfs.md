@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2017
+ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d416c8953f1e41c04a39141c79e0b1568c1dccb3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5b17b4e8581daa5b19aaafd911765d843a9f3fe4
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Supervisión de AD FS mediante Azure AD Connect Health
 La siguiente documentación es específica de la supervisión de la infraestructura de AD FS con Azure AD Connect Health. Para más información sobre la supervisión de Azure AD Connect (Sync) con Azure AD Connect Health, consulte [Uso de Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md). Para obtener información adicional sobre la supervisión de Active Directory Domain Services con Azure AD Connect Health, consulte [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)(Uso de Azure AD Connect Health con AD DS).
@@ -116,7 +116,7 @@ El informe ofrece la siguiente información:
 >
 >
 
-## <a name="risky-ip-report"></a>Informe de direcciones IP de riesgo 
+## <a name="risky-ip-report-public-preview"></a>Informe de direcciones IP de riesgo (versión preliminar pública)
 Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Office 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
 Además, es posible que una única dirección IP intente varios inicios de sesión en varios usuarios. En estos casos, puede que el número de intentos por usuario esté por debajo del umbral de la protección de bloqueo de cuenta de AD FS. Azure AD Connect Health ahora proporciona el "informe de direcciones IP de riesgo", que detecta esta condición y notifica a los administradores cuando esto ocurre. Estas son las ventajas principales de este informe: 
 - Detección de direcciones IP que superan un umbral de inicios de sesión basada en contraseña erróneos
@@ -152,10 +152,12 @@ Por ejemplo, el siguiente elemento del informe indica que en la ventana de las 6
 > - Este informe de alertas no muestra las direcciones IP de Exchange ni las direcciones IP privadas. En cambio, se incluyen en la lista de exportación. 
 >
 
-
 ![portal de Azure AD Connect Health](./media/active-directory-aadconnect-health-adfs/report4c.png)
 
-### <a name="download-risky-ip-report"></a>Descarga del informe de direcciones IP de riesgo
+### <a name="load-balancer-ip-addresses-in-the-list"></a>Direcciones IP de Load Balancer de la lista
+La instancia agregada de Load Balancer no pudo iniciar la sesión de las actividades y alcanzó el umbral de alerta. Si ve direcciones IP del equilibrador de carga, es muy probable que el equilibrador de carga externo no esté enviando la dirección IP del cliente cuando pasa la solicitud al servidor proxy de la aplicación web. Configure el equilibrador de carga correctamente para que pase la dirección IP de reenvío del cliente. 
+
+### <a name="download-risky-ip-report"></a>Descarga del informe de direcciones IP de riesgo 
 Mediante la funcionalidad **Descargar**, se puede exportar la lista de direcciones IP de riesgo completa de los últimos 30 días desde el portal de Connect Health. El resultado de la exportación incluirá todas las actividades de inicio de sesión de AD FS con error en cada ventana de tiempo de detección para que pueda personalizar el filtrado después de la exportación. Además de las agregaciones resaltadas en el portal, el resultado de la exportación también muestra más detalles sobre las actividades de inicio de sesión con error por dirección IP:
 
 |  Elemento de informe  |  DESCRIPCIÓN  | 
@@ -196,12 +198,14 @@ Si ve direcciones IP del equilibrador de carga, es muy probable que el equilibra
 
 3. ¿Qué hacer para bloquear la dirección IP?  <br />
 Debe agregar la dirección IP identificada como malintencionada al firewall o bloquearla en Exchange.   <br />
-Para AD FS 2016, 1803.C y QFE, puede bloquear la dirección IP directamente en AD FS. 
 
 4. ¿Por qué no veo ningún elemento de este informe? <br />
    - Las actividades de inicio de sesión con errores no superan los valores del umbral. 
    - Asegúrese de que no haya ninguna alerta del tipo "Health Service no está actualizado" en la lista de servidores de AD FS.  Más información sobre [cómo solucionar problemas de esta alerta](active-directory-aadconnect-health-data-freshness.md).
    - Las auditorías no están habilitadas en las granjas de servidores de AD FS.
+ 
+5. ¿Por qué no veo ningún acceso al informe?  <br />
+Se requiere el permiso de administrador global o de [lector de seguridad](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader). Póngase en contacto con el administrador global para obtener acceso.
 
 
 ## <a name="related-links"></a>Vínculos relacionados
