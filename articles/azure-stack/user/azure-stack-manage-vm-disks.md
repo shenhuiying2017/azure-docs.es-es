@@ -1,69 +1,86 @@
 ---
-title: "Administración de discos de máquina virtual en Azure Stack | Microsoft Docs"
-description: "Aprovisione discos de máquinas virtuales para Azure Stack."
+title: Administración de discos de máquina virtual en Azure Stack | Microsoft Docs
+description: Aprovisione discos de máquina virtual en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2017
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 0c36e2eaaf2d266842b2b7de0b0c8dc0ed1e0145
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/14/2018
 ---
-# <a name="virtual-machine-disk-storage-for-azure-stack"></a>Almacenamiento de discos de máquina virtual para Azure Stack
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Aprovisionamiento de almacenamiento en discos de máquina virtual en Azure Stack
 
-*Se aplica a: Sistemas integrados de Azure Stack y Azure Stack Development Kit*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Azure Stack admite el uso de [discos no administrados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) en una máquina virtual, que pueden ser tanto discos del sistema operativo (SO) como disco de datos. Para usar discos no administrados, creará una [cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) y luego almacenará en ella los discos como blobs en páginas en contenedores. Estos discos se conocen entonces como discos de máquina virtual.
+En este artículo se describe cómo aprovisionar almacenamiento en disco de máquina virtual mediante el portal de Azure Stack o PowerShell.
 
-Para mejorar el rendimiento y reducir el costo de administración del sistema de Azure Stack, es recomendable colocar cada disco de máquina virtual en un contenedor independiente. Un contenedor debe albergar un disco del sistema operativo o un disco de datos, pero no ambos al mismo tiempo. Sin embargo, no hay ninguna restricción que impida colocar ambos en el mismo contenedor.
+## <a name="overview"></a>Información general
 
-Si agrega uno o más discos de datos a una máquina virtual, considere usar contenedores adicionales como ubicación para albergar esos discos. Al igual que los discos de datos, los discos del sistema operativo de máquinas virtuales adicionales también deben estar en sus propios contenedores independientes.
+Azure Stack admite el uso de [discos no administrados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) en máquinas virtuales, que pueden ser tanto discos del sistema operativo (SO) como disco de datos.
 
-Al crear varias máquinas virtuales, puede volver a usar la misma cuenta de almacenamiento con cada nueva máquina. Solo los contenedores que cree deben ser únicos.  
+Para usar los discos no administrados, cree una [cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para almacenar los discos. Los discos creados se conocen como discos de máquina virtual y se almacenan en los contenedores de la cuenta de almacenamiento.
 
-Para agregar discos a una máquina virtual, use el portal de usuarios o PowerShell.
+### <a name="best-practice-guidelines"></a>Guías de procedimientos recomendados
+
+Para mejorar el rendimiento y reducir el costo total, es recomendable colocar cada disco de máquina virtual en un contenedor independiente. Un contenedor debe albergar un disco del sistema operativo o un disco de datos, pero no ambos al mismo tiempo. (Sin embargo, no existe ningún método para evitar la colocación de ambos tipos de discos en el mismo contenedor).
+
+Si agrega uno o más discos de datos a una máquina virtual, use contenedores adicionales como ubicación para almacenar esos discos. Los discos del sistema operativo de máquinas virtuales adicionales también deben estar en sus propios contenedores.
+
+Al crear varias máquinas virtuales, puede volver a usar la misma cuenta de almacenamiento con cada nueva máquina. Solo los contenedores que cree deben ser únicos.
+
+### <a name="adding-new-disks"></a>Adición de nuevos discos
+
+En la tabla siguiente se resume cómo agregar discos en el portal y PowerShell.
 
 | Método | Opciones
 |-|-|
-|[Portal de usuarios](#use-the-portal-to-add-additional-disks-to-a-vm)|-Agregar nuevos discos de datos a una máquina virtual que se aprovisionó anteriormente. Azure Stack crea nuevos discos. </br> </br>-Agregar un archivo .vhd existente como disco a una máquina virtual que se aprovisionó anteriormente. Para ello, primero debe preparar y cargar el archivo .vhd en Azure Stack. |
+|[Portal de usuarios](#use-the-portal-to-add-additional-disks-to-a-vm)|- Agregue discos de datos nuevos a una máquina virtual existente. Azure Stack crea nuevos discos. </br> </br>- Agregue un archivo (.vhd) de un disco existente a una máquina virtual aprovisionada anteriormente. Para ello, primero debe preparar el archivo .vhd y cargarlo luego en Azure Stack. |
 |[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Crear una nueva máquina virtual con un disco del sistema operativo y, al mismo tiempo, agregar uno o más discos de datos a esa máquina virtual. |
 
+## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Uso del portal para agregar discos a una máquina virtual
 
-## <a name="use-the-portal-to-add-additional-disks-to-a-vm"></a>Uso del portal para agregar discos adicionales a una máquina virtual
-De forma predeterminada, cuando se usa el portal para crear una máquina virtual para la mayoría de los elementos de Marketplace, solo se crea un disco del sistema operativo. Los discos creados por Azure se denominan discos administrados.
+De forma predeterminada, cuando se usa el portal para crear una máquina virtual para la mayoría de los elementos de Marketplace, solo se crea el disco del sistema operativo.
 
-Después de aprovisionar una máquina virtual, puede usar el portal para agregar un nuevo disco de datos o un disco de datos existente a esa máquina virtual. Cada disco adicional debe colocarse en un contenedor independiente. Los discos que se agregan a una máquina virtual se denominan discos no administrados.
+Después de crear una máquina virtual, puede usar el portal para:
+* Crear un disco de datos y asociarlo a la máquina virtual.
+* Cargar un disco de datos existente y asociarlo a la máquina virtual.
 
-### <a name="use-the-portal-to-attach-a-new-data-disk-to-a-vm"></a>Uso del portal para asociar un nuevo disco de datos a una máquina virtual
+Cada disco no administrado que agregue se debe colocar en un contenedor independiente.
 
-1.  En el portal, haga clic en **Máquinas virtuales**.    
+>[!NOTE]
+>Los discos creados y administrados por Azure se denominan [discos administrados](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Uso del portal para crear y asociar un nuevo disco de datos
+
+1.  En el portal, seleccione **Máquinas virtuales**.    
     ![Ejemplo: Panel de la máquina virtual](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Seleccione una máquina virtual que se haya aprovisionado anteriormente.   
     ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  En la máquina virtual, haga clic en **Discos** > **Asociar nuevo**.       
+3.  En la máquina virtual, seleccione **Discos** > **Asociar nuevo**.       
     ![Ejemplo: Asociación de un nuevo disco a la máquina virtual](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  En el panel **Asociar nuevo disco**, haga clic en **Ubicación**. De forma predeterminada, la ubicación se establece en el mismo contenedor que alberga el disco del sistema operativo.      
+4.  En el panel **Asociar nuevo disco**, seleccione **Ubicación**. De forma predeterminada, la ubicación se establece en el mismo contenedor que alberga el disco del sistema operativo.      
     ![Ejemplo: Establecimiento de la ubicación del disco](media/azure-stack-manage-vm-disks/disk-location.png)
 
 5.  Seleccione la **cuenta de almacenamiento** que se usará. A continuación, seleccione el **contenedor** donde desea colocar el disco de datos. En la página **Contenedores**, puede crear un nuevo contenedor si así lo desea. A continuación, puede cambiar la ubicación del nuevo disco por la de su propio contenedor. Cuando use un contenedor independiente para cada disco, distribuya la colocación del disco de datos que pueda mejorar el rendimiento. Haga clic en **Seleccionar** para guardar la selección.     
     ![Ejemplo: Selección de un contenedor](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  En la página **Asociar nuevo disco**, actualice los valores de **Nombre**, **Tipo**, **Tamaño** y **Almacenamiento en caché de host** del disco. A continuación, haga clic en **Aceptar** para guardar la nueva configuración de disco de la máquina virtual.  
+6.  En la página **Asociar nuevo disco**, actualice los valores de **Nombre**, **Tipo**, **Tamaño** y **Almacenamiento en caché de host** del disco. A continuación, seleccione **Aceptar** para guardar la nueva configuración de disco de la máquina virtual.  
     ![Ejemplo: Finalización de la asociación del disco](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
 7.  Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **DISCOS DE DATOS**.   
@@ -71,27 +88,28 @@ Después de aprovisionar una máquina virtual, puede usar el portal para agregar
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Incorporación de un disco de datos existente a una VM
+
 1.  [Prepare un archivo .vhd](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) para usarlo como disco de datos de una máquina virtual. Cargue ese archivo .vhd en una cuenta de almacenamiento que se use con la máquina virtual a la que quiere asociar al archivo .vhd.
 
   Considere usar un contenedor diferente para el archivo .vhd en lugar del que alberga el disco del sistema operativo.   
   ![Ejemplo: Carga de un archivo de disco duro virtual](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Una vez cargado el archivo .vhd, está listo para asociar el disco duro virtual a una máquina virtual. En el menú izquierdo, haga clic en **Máquinas virtuales**.  
+2.  Una vez cargado el archivo .vhd, está listo para asociar el disco duro virtual a una máquina virtual. En el menú de la izquierda, haga clic en **Máquinas virtuales**.  
  ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3.  Seleccione la máquina virtual en la lista.    
   ![Ejemplo: Selección de una máquina virtual en el panel](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  En la página de la máquina virtual, haga clic en **Discos** > **Asociar existente**.   
+4.  En la página de la máquina virtual, seleccione **Discos** > **Asociar existente**.   
   ![Ejemplo: Asociación de un disco existente](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  En la página **Asociar disco existente**, haga clic en **Archivo VHD**. Se abre la página **Cuentas de almacenamiento**.    
+5.  En la página **Asociar disco existente**, seleccione **Archivo VHD**. Se abre la página **Cuentas de almacenamiento**.    
   ![Ejemplo: Selección de un archivo de disco duro virtual](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  En **Cuentas de almacenamiento**, seleccione la cuenta que quiere usar y, a continuación, seleccione un contenedor para albergar el archivo .vhd cargado anteriormente. Seleccione el archivo .vhd y, a continuación, haga clic en **Seleccionar** para guardar la selección.    
+6.  En **Cuentas de almacenamiento**, seleccione la cuenta que quiere usar y, a continuación, elija un contenedor para hospedar el archivo .vhd cargado anteriormente. Seleccione el archivo .vhd y, a continuación, haga clic en **Seleccionar** para guardar la selección.    
   ![Ejemplo: Selección de un contenedor](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  En **Asociar disco existente**, el archivo que seleccionó aparece en **Archivo VHD**. Actualice el valor de **Almacenamiento en caché de host** del disco y luego haga clic en **Aceptar** para guardar la configuración del nuevo disco de la máquina virtual.    
+7.  En **Asociar disco existente**, el archivo que seleccionó aparece en **Archivo VHD**. Actualice el valor de **Almacenamiento en caché de host** del disco y luego seleccione **Aceptar** para guardar la configuración del nuevo disco de la máquina virtual.    
   ![Ejemplo: Asociación del archivo VHD](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
 8.  Una vez que Azure Stack crea el disco y lo asocia a la máquina virtual, el nuevo disco aparece en la configuración de disco de la máquina virtual en **Discos de datos**.   

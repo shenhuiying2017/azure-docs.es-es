@@ -1,27 +1,23 @@
 ---
 title: Integración de directorios entre Active Directory y Azure Multi-Factor Authentication
-description: Se trata de la página Azure Multi-Factor Authentication que describe cómo integrar Servidor Azure Multi-Factor Authentication con Active Directory para poder sincronizar los directorios.
+description: Cómo integrar Servidor Azure Multi-Factor Authentication con Active Directory para poder sincronizar los directorios.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 06/16/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 595359c9d50bceada3674336d4ef3fc8d5d6f416
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3f6f1f351a4870e68f2a5d6562c5c4a8f0031bdd
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integración de directorios entre Servidor Azure MFA y Active Directory
+
 Utilice la sección Integración de directorios del Servidor Azure MFA para integrarlo con Active Directory u otro directorio LDAP. Puede configurar los atributos para que coincidan con el esquema de directorios, así como la sincronización automática de los usuarios.
 
 ## <a name="settings"></a>Settings

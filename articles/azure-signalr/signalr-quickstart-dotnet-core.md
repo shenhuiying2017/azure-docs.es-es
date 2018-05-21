@@ -14,13 +14,15 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b742dc94b6f6bea76a0809114f300287633c2a67
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guía de inicio rápido: Creación de un salón de chat con SignalR Service
+
+El servicio Microsoft Azure SignalR se encuentra actualmente en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure SignalR Service es un servicio de Azure que ayuda a los desarrolladores a compilar fácilmente aplicaciones web con características en tiempo real. Este servicio se basa en [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -84,7 +86,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
 
 1. Para agregar una referencia al paquete de NuGet `Microsoft.Azure.SignalR`, ejecute el comando siguiente:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview1-10009
 
 2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto.
 
@@ -95,7 +97,7 @@ En esta sección, agregará la [herramienta Secret Manager](https://docs.microso
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager solo se usará para probar la aplicación web mientras se hospeda localmente. En un tutorial posterior, se implementará la aplicación web de chat en Azure. Una vez que la aplicación web se haya implementado en Azure, usará una configuración de la aplicación en lugar de almacenar la cadena de conexión con Secret Manager.
@@ -250,7 +252,7 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 
 Inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Grupos de recursos**.
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre…**. Las instrucciones de esta guía de inicio rápido usan un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos en la lista de resultados, haga clic en **…** y, a continuación, en **Eliminar grupo de recursos**.
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...**. Las instrucciones de esta guía de inicio rápido usan un grupo de recursos llamado *SignalRTestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
 
    
 ![Eliminar](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)

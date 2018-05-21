@@ -2,25 +2,19 @@
 title: 'Guía de inicio rápido de restablecimiento de contraseña de autoservicio: Azure Active Directory'
 description: Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 6add6e71c9acf6d63858ea921ec85924b4e6c60f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implementación rápida del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -33,11 +27,13 @@ En esta guía se da por hecho que ya dispone de un inquilino de Azure Active Dir
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitación de SSPR para el inquilino de Azure AD
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. Desde el inquilino de Azure AD existente, en **Azure Active Directory** de **Azure Portal**, seleccione **Restablecimiento de contraseña**.
 
 2. En la página **Propiedades**, en **Se habilitó el restablecimiento de contraseña del autoservicio**, elija una de las siguientes opciones:
    * **Ninguno**: nadie puede usar la funcionalidad SSPR.
-   * **Seleccionado**: solo los miembros de un grupo de Azure AD determinado que elija podrán usar la funcionalidad SSPR. Se recomienda definir un grupo de usuarios y usarlo al implementar la funcionalidad para una prueba de concepto.
+   * **Seleccionado**: solo los miembros de un grupo de Azure AD determinado que elija podrán usar la funcionalidad SSPR. Se recomienda definir un grupo de usuarios y usarlo al implementar la funcionalidad para una prueba de concepto. Aquí se admite el anidamiento de grupos de seguridad.
    * **Todos**: todos los usuarios con cuentas en su inquilino de Azure AD podrán usar la funcionalidad SSPR. Se recomienda establecer esta opción cuando esté listo para implementar la funcionalidad en todo su inquilino una vez haya completado una prueba de concepto.
 
    > [!IMPORTANT]
