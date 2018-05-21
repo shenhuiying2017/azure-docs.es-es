@@ -1,24 +1,24 @@
 ---
-title: "Funciones de la plantilla de Azure Resource Manager: comparación | Microsoft Docs"
+title: 'Funciones de la plantilla de Azure Resource Manager: comparación | Microsoft Docs'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para comparar valores.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3291d545bc7a66ffa9b4845acd890a714cf84ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 364a271d84f9abfe99c7c674a6c504ce94318ac9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funciones de comparación para las plantillas de Azure Resource Manager
 
@@ -35,9 +35,9 @@ Resource Manager proporciona varias funciones para realizar comparaciones en las
 
 Comprueba si dos valores son iguales.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero, cadena, matriz u objeto |El primer valor en el que comprobar la igualdad. |
 | arg2 |Sí |entero, cadena, matriz u objeto |El segundo valor en el que comprobar la igualdad. |
@@ -132,7 +132,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Booleano | True |
 | checkStrings | Booleano | True |
@@ -170,7 +170,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 El resultado del ejemplo anterior es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | True |
 
@@ -191,9 +191,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si el primer valor es mayor que el segundo.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor. |
@@ -245,7 +245,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
@@ -267,9 +267,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si el primer valor es mayor o igual que el segundo.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación mayor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación mayor o igual. |
@@ -321,7 +321,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Booleano | False |
 | checkStrings | Booleano | True |
@@ -343,9 +343,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si el primer valor es menor que el segundo.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor. |
@@ -397,7 +397,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Booleano | True |
 | checkStrings | Booleano | False |
@@ -419,9 +419,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Comprueba si el primer valor es menor o igual que el segundo.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |entero o cadena |El primer valor de la comparación menor o igual. |
 | arg2 |Sí |entero o cadena |El segundo valor de la comparación menor o igual. |
@@ -473,7 +473,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | checkInts | Booleano | True |
 | checkStrings | Booleano | False |
