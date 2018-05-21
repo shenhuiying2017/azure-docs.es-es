@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: cb005549fcd9a5850c990d8ef8acb724443f9908
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -93,7 +93,7 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
         Para más información, vea el documento sobre [Solución de problemas de los grupos de seguridad de red](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
 
         > [!IMPORTANT]
-        > Se aplican reglas de grupo de seguridad de red en orden según la prioridad de la regla. Se aplica la primera regla que coincide con el patrón de tráfico y no se aplica ninguna otra para el tráfico. El orden de las reglas es de más a menos permisiva. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+        > Se aplican reglas de grupo de seguridad de red en orden según la prioridad de la regla. Se aplica la primera regla que coincide con el patrón de tráfico y no se aplica ninguna otra para el tráfico. El orden de las reglas es de más a menos permisiva. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
 
     * Rutas definidas por el usuario
 
@@ -214,7 +214,7 @@ Para conectarse a Ambari y otras páginas web a través de la red virtual, siga 
 
 El tráfico de red en instancias de Azure Virtual Network se puede controlar mediante los métodos siguientes:
 
-* Los **Grupos de seguridad de red** (NSG) permiten filtrar el tráfico de entrada y salida de la red. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+* Los **Grupos de seguridad de red** (NSG) permiten filtrar el tráfico de entrada y salida de la red. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
 
     > [!WARNING]
     > HDInsight no admite la restricción de tráfico saliente.
@@ -242,7 +242,7 @@ Si planea usar **grupos de seguridad de red** o **rutas definidas por el usuario
 
 Para más información sobre grupos de seguridad de red o rutas definidas por el usuario, vea la documentación siguiente:
 
-* [Grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md)
+* [Grupo de seguridad de red](../virtual-network/security-overview.md)
 
 * [Rutas definidas por el usuario](../virtual-network/virtual-networks-udr-overview.md)
 
@@ -666,6 +666,6 @@ Después de completar estos pasos, puede conectarse a recursos en la red virtual
 * Para configurar la replicación geográfica de HBase, consulte [Configuración de la replicación de clúster de HBase en redes virtuales de Azure](hbase/apache-hbase-replication.md).
 * Para más información sobre las redes virtuales de Azure, vea la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
 
 * Para más información sobre las rutas definidas por el usuario, vea [Rutas definidas por el usuario y reenvío IP](../virtual-network/virtual-networks-udr-overview.md).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d07ad69b3a1f6023cf70bb0b9a82cd54defc5c49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 46e4466085200bf9042c4342ea5e6b37fd2fb701
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-identity-management-security-overview"></a>Información general sobre seguridad de administración de identidades de Azure
 Las soluciones de administración de la identidad y el acceso de Microsoft permiten al departamento de TI proteger el acceso a las aplicaciones y los recursos en el centro de datos corporativo y en la nube. Además, esto posibilita que existan más niveles de validación, como la autenticación multifactor y las directivas de acceso condicional. La supervisión de actividades sospechosas mediante auditorías, alertas e informes de seguridad avanzados contribuye a minimizar los posibles problemas de seguridad. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) proporciona un inicio de sesión único para miles de aplicaciones en la nube (SaaS) y acceso a aplicaciones web que se ejecutan de forma local.
@@ -56,7 +56,7 @@ Los usuarios no solo no tienen que administrar varios conjuntos de nombres de us
 Más información:
 
 * [Información general de inicio de sesión único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md)
 * [Integración del inicio de sesión único de Azure Active Directory con aplicaciones SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy inverso

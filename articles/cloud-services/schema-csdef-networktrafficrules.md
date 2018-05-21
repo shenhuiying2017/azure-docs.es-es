@@ -1,23 +1,23 @@
 ---
-title: "Esquema NetworkTrafficRules de definición de Azure Cloud Services | Microsoft Docs"
-ms.custom: 
+title: Esquema NetworkTrafficRules de definición de Azure Cloud Services | Microsoft Docs
+ms.custom: ''
 ms.date: 04/14/2015
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
-caps.latest.revision: "17"
+caps.latest.revision: 17
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: 37ec6c771ad83be680d95e9b5597d8da3cace9ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 779d3b42aeab04bb93756439a0482f32ade6557e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definición de Azure Cloud Services
 El nodo `NetworkTrafficRules` es un elemento opcional del archivo de definición de servicio que especifica cómo se comunican los roles entre sí. Limita qué roles pueden acceder a los puntos de conexión internos del rol en cuestión. `NetworkTrafficRules` no es un elemento independiente; se combina con dos o más roles de un archivo de definición de servicio.
@@ -75,7 +75,7 @@ El elemento `Destinations` describe una colección de elementos RoleEndpoint con
 ##  <a name="RoleEndpoint"></a> Elemento RoleEndpoint
 El elemento `RoleEndpoint` describe un punto de conexión en un rol con el que permitir la comunicación. Puede especificar varios elementos `RoleEndpoint` si hay más de un punto de conexión en el rol.
 
-| Atributo      | Tipo     | Descripción |
+| Atributo      | Escriba     | DESCRIPCIÓN |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Necesario. El nombre del punto de conexión al que permitir el tráfico.|
 | `roleName`     | `string` | Necesario. El nombre del rol web al que permitir la comunicación.|
@@ -86,14 +86,14 @@ El elemento `AllowAllTraffic` es una regla que permite que todos los roles se co
 ##  <a name="WhenSource"></a> Elemento WhenSource
 El elemento `WhenSource` describe una colección de roles que se pueden comunicar con los puntos de conexión definidos en el nodo `Destinations`.
 
-| Atributo | Tipo     | Descripción |
+| Atributo | Escriba     | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Necesario. Especifica la regla que se aplicará al permitir las comunicaciones. Actualmente, el único valor válido es `AnyRule`.|
   
 ##  <a name="FromRole"></a> Elemento FromRole
 El elemento `FromRole` especifica los roles que se pueden comunicar con los puntos de conexión definidos en el nodo `Destinations`. Puede especificar varios elementos `FromRole` si hay más de un rol que pueda comunicarse con los puntos de conexión.
 
-| Atributo  | Tipo     | Descripción |
+| Atributo  | Escriba     | DESCRIPCIÓN |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Necesario. El nombre del rol desde el que se va a permitir la comunicación.|
 

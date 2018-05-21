@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configuración de Google Apps para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs"
-description: "Obtenga información sobre cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Google Apps."
+title: 'Tutorial: Configuración de Google Apps para aprovisionar usuarios automáticamente con Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para Google Apps.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a90fe2c919e0c5452072c4129dcb7a1135d9ec25
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5c68e709b72e4032eca76dd35103df50030ccca
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-google-apps-for-automatic-user-provisioning"></a>Tutorial: Configuración de Google Apps para aprovisionar a los usuarios automáticamente
 
@@ -164,7 +164,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configuración del inicio de sesión único](active-directory-saas-google-apps-tutorial.md)
 
 

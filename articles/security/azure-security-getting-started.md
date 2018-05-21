@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: d0443128064332a37c95d5c39cd73b759a002cca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a908c242b5d41d5cd61d8775bdbe53f3cdddd3ec
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Introducción a la seguridad de Microsoft Azure
 
@@ -136,7 +136,7 @@ Puede colocar las máquinas virtuales en [Azure Virtual Networks](https://azure.
 
 Puede usar las siguientes tecnologías de Azure Virtual Network para ayudar a proteger las comunicaciones de la red virtual:
 
-* [**Grupos de seguridad de red (NSG)**](../virtual-network/virtual-networks-nsg.md) Puede usar un grupo de seguridad de red para controlar el tráfico a una o más instancias de máquina virtual en la red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto.
+* [**Grupos de seguridad de red (NSG)**](../virtual-network/security-overview.md) Puede usar un grupo de seguridad de red para controlar el tráfico a una o más instancias de máquina virtual en la red virtual. Un grupo de seguridad de red contiene reglas de control de acceso que permitan o denieguen el tráfico según la dirección del tráfico, el protocolo, la dirección de origen y el puerto, y la dirección de destino y el puerto.
 * [**Enrutamiento definido por el usuario**](../virtual-network/virtual-networks-udr-overview.md) Puede controlar el enrutamiento de paquetes a través de un dispositivo virtual mediante la creación de rutas definidas por el usuario que especifican el próximo salto de los paquetes que fluyen a una subred específica para que así vayan a su dispositivo de seguridad de red virtual.
 * [**Reenvío de IP**](../virtual-network/virtual-networks-udr-overview.md) Un dispositivo de seguridad de red virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP en la máquina virtual.
 * [**Tunelización forzada**](../vpn-gateway/vpn-gateway-about-forced-tunneling.md). La tunelización forzada permite redirigir o forzar todo el tráfico vinculado a Internet generado por las máquinas virtuales en una red virtual de vuelta a su ubicación local a través de un túnel VPN de sitio a sitio para inspección y auditoría.

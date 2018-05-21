@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA) | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zscaler Private Access (ZPA)."
+title: 'Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA) | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Zscaler Private Access (ZPA).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 9ac65791e8d50d5e5da5d36adee14cd0e88a3da8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1d5434c57a95e53e4fe37c33f3fe11585fc3177f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Tutorial: Integración de Azure Active Directory con Zscaler Private Access (ZPA)
 
@@ -27,11 +27,11 @@ La integración de Zscaler Private Access (ZPA) con Azure AD ofrece las siguient
 
 - Puede controlar en Azure AD quién tiene acceso a Zscaler Private Access (ZPA)
 - Puede permitir que los usuarios inicien sesión automáticamente en Zscaler Private Access (ZPA) (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Zscaler Private Access (ZPA), necesita los siguientes elementos:
 
@@ -50,7 +50,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Zscaler Private Access (ZPA) desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -67,11 +67,11 @@ Para configurar la integración de Zscaler Private Access (ZPA) con Azure AD, de
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Zscaler Private Access (ZPA)**.
 
@@ -122,7 +122,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el Port
     > [!NOTE] 
     > Tenga en cuenta que estos no son valores reales. Tendrá que actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Aquí le recomendamos que utilice el valor único de URL en el identificador. Póngase en contacto con el [equipo de soporte técnico de Zscaler Private Access (ZPA)](https://help.zscaler.com/zpa-submit-ticket) para obtener estos valores.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
+4. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_general_400.png)   
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**. 
+    d. Haga clic en **Create**(Crear). 
 
 
 
@@ -208,7 +208,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 
 **Para asignar a Britta Simon a Zscaler Private Access (ZPA), realice los siguientes pasos:**
 
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y seleccione **Aplicaciones empresariales**. Después, haga clic en **Todas las aplicaciones**.
+1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. A continuación, haga clic en **All applications** (Todas las aplicaciones).
 
     ![Asignar usuario][201] 
 
@@ -242,7 +242,7 @@ Al hacer clic en el icono de Zscaler Private Access (ZPA) en el Panel de acceso,
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: c41a1057bb87c70362477d221b69ca3f5137dec4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Creación de una red virtual (clásica) con varias subredes
 
@@ -162,7 +162,6 @@ Puede crear una red virtual (clásica) mediante [Azure Portal](#portal), la [int
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre todos los valores de red virtual y subred, vea [Administración de redes virtuales](manage-virtual-network.md) y [Manage virtual network subnets (Administración de subredes virtuales)](virtual-network-manage-subnet.md). Tiene varias opciones para el uso de redes virtuales y subredes en un entorno de producción para satisfacer requisitos diferentes.
-- Para filtrar el tráfico de subred entrante y saliente, cree y aplique [grupos de seguridad de red](virtual-networks-nsg.md) a las subredes.
 - Cree una máquina virtual [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y después conéctela a una red virtual existente.
 - Para conectar dos redes virtuales en la misma ubicación de Azure, cree un [emparejamiento de red virtual](create-peering-different-deployment-models.md) entre las redes virtuales. Puede emparejar una red virtual (Resource Manager) en una red virtual (clásica), pero no puede crear un emparejamiento entre dos redes virtuales (clásicas).
 - Conecte la red virtual a una red local mediante un circuito de [VPN Gateway](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

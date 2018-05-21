@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 2498c8b1acff79d50f34c703af77c555a00fd1a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Procedimientos de seguridad recomendados para cargas de trabajo de IaaS de Azure
 
@@ -106,7 +106,7 @@ No hay ningún costo adicional asociado con el uso de DevTest Labs. La creación
 
 El hospedaje de laboratorios o sistemas de producción en Azure significa que debe ser posible acceder a los sistemas desde Internet. De forma predeterminada, se puede acceder al puerto RDP de las máquinas virtuales Windows desde Internet, mientras que las máquinas virtuales Linux tienen el puerto SSH abierto. Es necesario realizar algunos pasos para limitar los puntos de conexión expuestos para minimizar el riesgo de acceso no autorizado.
 
-En Azure, existen tecnologías que pueden ayudarle a limitar el acceso a dichos puntos de conexión administrativos. Por ejemplo, puede usar grupos de seguridad de red ([NSG](../virtual-network/virtual-networks-nsg.md)). Si usa Azure Resource Manager para la implementación, los NSG limitan el acceso desde todas las redes a solo los puntos de conexión de administración (RDP o SSH). Cuando piense en los NSG, piense en las ACL del enrutador. Puede utilizarlas para controlar estrechamente la comunicación de red entre los distintos segmentos de las redes de Azure. Esto es similar a la creación de redes en redes perimetrales u otras redes aisladas. No inspeccionan el tráfico, sino que ayudan con la segmentación de la red.
+En Azure, existen tecnologías que pueden ayudarle a limitar el acceso a dichos puntos de conexión administrativos. Por ejemplo, puede usar grupos de seguridad de red ([NSG](../virtual-network/security-overview.md)). Si usa Azure Resource Manager para la implementación, los NSG limitan el acceso desde todas las redes a solo los puntos de conexión de administración (RDP o SSH). Cuando piense en los NSG, piense en las ACL del enrutador. Puede utilizarlas para controlar estrechamente la comunicación de red entre los distintos segmentos de las redes de Azure. Esto es similar a la creación de redes en redes perimetrales u otras redes aisladas. No inspeccionan el tráfico, sino que ayudan con la segmentación de la red.
 
 
 En Azure, puede configurar una [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) desde la red local. Una VPN de sitio a sitio extiende la red local a la nube. Esto le proporciona otra oportunidad de usar los NSG, ya que también puede modificarlos para no permitir el acceso desde ningún sitio que no sea la red local. Luego, puede exigir que la administración se realice conectando primero con la red de Azure a través de VPN.

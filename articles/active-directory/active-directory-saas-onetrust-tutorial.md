@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con OneTrust Privacy Management Software | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y el software OneTrust Privacy Management."
+title: 'Tutorial: Integración de Azure Active Directory con OneTrust Privacy Management Software | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y el software OneTrust Privacy Management.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 89d657e754f6908a3afbb615a2158c9d7f3380f9
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 38125877a5ab17a81d6fe108e0e8c462ecd5d953
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integración de Azure Active Directory con OneTrust Privacy Management Software
 
@@ -30,7 +30,7 @@ La integración de OneTrust Privacy Management Software con Azure AD proporciona
 - Puede permitir que los usuarios inicien sesión automáticamente en OneTrust Privacy Management Software (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -213,7 +213,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 
