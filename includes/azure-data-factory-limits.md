@@ -5,14 +5,14 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 04/27/2018
+ms.date: 05/16/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 03b7ce49f935c36b0e0652925c41deea987a2a26
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 Data Factory es un servicio multiinquilino que tiene los siguientes límites predeterminados para asegurarse de que las suscripciones de cliente están protegidas frente a las cargas de trabajo de los demás. Se pueden aumentar muchos de los límites para su suscripción fácilmente hasta el límite máximo; para ello, póngase en contacto con el soporte técnico.
 
@@ -27,8 +27,8 @@ Data Factory es un servicio multiinquilino que tiene los siguientes límites pre
 | Servicios vinculados dentro de una factoría de datos | 2.500 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Tiempos de ejecución de integración dentro de una factoría de datos <sup>4</sup> | 2.500 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Núcleos de CPU totales para Integration Runtime de SSIS de Azure en una suscripción | 100 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Ejecuciones de canalizaciones simultáneas por cada canalización | 20 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Actividades máximas por canalización | 20 | 30 |
+| Ejecuciones de canalizaciones simultáneas por cada canalización | 100 | [Ponerse en contacto con soporte técnico](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Actividades máximas por canalización | 20 | 40 |
 | Parámetros máximos por canalización | 20 | 30 |
 | Bytes por objeto para objetos de canalización <sup>1</sup> | 200 KB | 200 KB |
 | Bytes por objeto para objetos de conjunto de datos y de servicio vinculados <sup>1</sup> | 100 KB | 2000 KB |

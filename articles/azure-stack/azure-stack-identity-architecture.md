@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 2/28/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 899e0fc0c1eb93d68c79c92c9cc042462ebc2fef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitectura de identidad para Azure Stack
 Antes de elegir un proveedor de identidad para usarlo con Azure Stack, conozca las diferencias importantes entre las opciones de Azure Active Directory (Azure AD) y Servicios de federación de Active Directory (AD FS). 
@@ -33,7 +33,7 @@ El proveedor de identidad que elija puede limitar las opciones, incluida la comp
 |------------------------------|----------|-------|
 |Conectado a Internet     |Sí       |Opcional|
 |Compatibilidad con arquitectura multiinquilino     |Sí       |Sin       |
-|Redifusión de Marketplace       |Sí       |Sí. Requiere el uso de la herramienta [Marketplace Syndication sin conexión](azure-stack-download-azure-marketplace-item.md#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity).|
+|Redifusión de Marketplace       |Sí       |Sí. Requiere el uso de la herramienta [Marketplace Syndication sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario).|
 |Compatibilidad con la biblioteca de autenticación de Active Directory (ADAL) |Sí |Sí|
 |Compatibilidad con herramientas como la CLI de Azure, Visual Studio y PowerShell  |Sí |Sí|
 |Creación de entidades de servicio mediante Azure Portal     |Sí |Sin |

@@ -1,12 +1,14 @@
+## <a name="register-your-application"></a>Registrar su aplicación
+Puede registrar su aplicación de dos maneras distintas, como se describe en las dos secciones siguientes.
 
-## <a name="create-an-application-express"></a>Creación de una aplicación (proceso rápido)
+### <a name="option-1-express-mode"></a>Opción 1: Modo rápido
 Ahora tiene que registrar la aplicación en el *Portal de registro de aplicaciones de Microsoft*:
 1. Registre la aplicación en el [Portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
 2.  Escriba el nombre de la aplicación y su correo electrónico.
 3.  Asegúrese de que está activada la opción de configuración paso a paso.
 4.  Siga las instrucciones para obtener el identificador de aplicación y péguelo en el código.
 
-### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Adición de la información de registro de la aplicación a la solución (avanzado)
+### <a name="option-2-advanced-mode"></a>Opción 2: Modo avanzado
 
 1.  Vaya al [portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 2.  Escriba el nombre de la aplicación y su correo electrónico.

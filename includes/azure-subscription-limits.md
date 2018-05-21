@@ -5,14 +5,14 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 03/30/2018
+ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 99766ca4cc9d77927030f81cff6bb9c009874f89
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/03/2018
 | [Cuentas de almacenamiento](../articles/storage/common/storage-create-storage-account.md) por región por suscripción<sup>2</sup> |200 |250 |
 | [Servicios en la nube](../articles/cloud-services/cloud-services-choose-me.md) por suscripción |20 |200 |
 | [Redes locales](http://msdn.microsoft.com/library/jj157100.aspx) por suscripción |10 |500 |
-| Servidores de SQL Database por suscripción |6 |150 |
+| Servidores de SQL Database por suscripción |6 |200 |
 | Servidores DNS por suscripción |9 |100 |
 | Direcciones IP reservadas por suscripción |20 |100 |
 | Certificados de servicio hospedados por suscripción |199 |199 |
