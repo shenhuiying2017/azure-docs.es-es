@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb00bd3a9680091827a6e1d768a9b828a15d1b97
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 87e548dcca655436c00b84b440b72e01ad575338
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -116,14 +116,14 @@ El nombre que se muestra y al que hace referencia en los tipos de próximo salto
 
 ### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
-Una puerta de enlace de red local puede intercambiar rutas con una puerta de enlace de red virtual de Azure mediante el protocolo Border Gateway Protocol (BGP). El uso de BGP con una puerta de enlace de red virtual de Azure depende del tipo seleccionado al crear la puerta de enlace. Si el tipo seleccionado es:
+Una puerta de enlace de red local puede intercambiar rutas con una puerta de enlace de red virtual de Azure mediante el protocolo Border Gateway Protocol (BGP). El uso de BGP con una puerta de enlace de red virtual de Azure depende del tipo seleccionado al crear la puerta de enlace. Si el tipo seleccionado fue:
 
-- **ExpressRoute**: debe usar BGP para anunciar rutas locales para el enrutador perimetral de Microsoft. Si implementa una puerta de enlace de red virtual como del tipo ExpressRoute, no puede crear rutas definidas por el usuario para forzar el tráfico a la puerta de enlace de red virtual ExpressRoute. Puede usar las rutas definidas por el usuario para forzar el tráfico de Express Route a, por ejemplo, un dispositivo virtual de red. 
+- **ExpressRoute**: debe usar BGP para anunciar rutas locales para el enrutador perimetral de Microsoft. Si implementa una puerta de enlace de red virtual como del tipo ExpressRoute, no puede crear rutas definidas por el usuario para forzar el tráfico a la puerta de enlace de red virtual ExpressRoute. Puede usar las rutas definidas por el usuario para forzar el tráfico de Express Route a, por ejemplo, una aplicación virtual de red.
 - **VPN**: opcionalmente, puede usar BGP. Para más información, consulte [Información general de BGP con puertas de enlace de VPN de Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Al intercambiar rutas con Azure mediante BGP, se agrega una ruta independiente a la tabla de rutas de todas las subredes de una red virtual para cada prefijo anunciado. La ruta se agrega con *Puerta de enlace de red virtual* como origen y tipo de próximo salto. 
 
-La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante rutas personalizadas (#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](/manage-route-table#create-a-route-table.md).
+La propagación del enrutamiento BGP se puede deshabilitar en una subred mediante una propiedad en una tabla de rutas. Cuando intercambia rutas con Azure mediante BGP, las rutas no se agregan a la tabla de rutas de todas las subredes con la propagación de BGP deshabilitada. La conectividad con las conexiones VPN se logra mediante rutas personalizadas (#custom-routes) con un tipo de VPN de próximo salto. Para más información, consulte [Deshabilitar la propagación de rutas BGP](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Selección de rutas por parte de Azure
 
@@ -259,4 +259,4 @@ La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas 
 - [Configuración de BGP para Azure VPN Gateway con PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uso de BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Solución de problemas de rutas mediante Azure Portal](virtual-network-routes-troubleshoot-portal.md). Las tablas de rutas definidas por el usuario solo muestran las rutas definidas por el usuario, no las rutas predeterminada y de BGP de una subred. La visualización de todas las rutas muestra las rutas predeterminada, de BGP y definidas por el usuario de la subred en que se encuentra una interfaz de red.
-- [Determine el tipo de próximo salto](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre una máquina virtual y una dirección IP de destino. La característica de próximo salto de Azure Network Watcher permite determinar si el tráfico sale de una subred y se enruta al lugar en que cree que debería estar.
+- [Determine el tipo de próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre una máquina virtual y una dirección IP de destino. La característica de próximo salto de Azure Network Watcher permite determinar si el tráfico sale de una subred y se enruta al lugar en que cree que debería estar.

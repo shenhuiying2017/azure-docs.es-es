@@ -4,20 +4,21 @@ description: En este artículo se proporciona una introducción sobre cómo util
 services: automation
 author: zjalexander
 ms.service: automation
+ms.component: update-management
 ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bded1621dc56a6e621408e567ce39a3107bec7c9
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 84ec2a5852e6aaeb4b9fe6ef11924209d03fb54b
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="manage-windows-updates-with-azure-automation"></a>Administración de las actualizaciones de Windows con Azure Automation
 
 Update Management le permite administrar las actualizaciones y las revisiones para las máquinas virtuales.
-En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias y revisar los resultados de la implementación para comprobar que las actualizaciones se apliquen correctamente.
+En este tutorial aprenderá a evaluar rápidamente el estado de las actualizaciones disponibles, programar la instalación de las actualizaciones necesarias, revisar los resultados de la implementación y crear una alerta para verificar que las actualizaciones se aplican correctamente.
 
 Para obtener información de precios, consulte [Precios de automatización de la administración de actualizaciones](https://azure.microsoft.com/pricing/details/automation/).
 
@@ -26,6 +27,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Incorporar máquinas virtuales a Update Management
 > * Visualización de la evaluación de la actualización
+> * Configurar alertas
 > * Programación de una implementación de actualizaciones
 > * Ver los resultados de una implementación
 
@@ -33,44 +35,39 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesita:
 
-* Una suscripción de Azure. Si aún no tiene ninguna, puede [activar las ventajas de la suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Una suscripción de Azure. Si aún no tiene uno, puede [activar su crédito mensual de Azure para suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o suscribirse a una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una [cuenta de Automation](automation-offering-get-started.md) para contener los runbooks de monitor y de acción y la tarea de monitor.
 * Una [máquina virtual](../virtual-machines/windows/quick-create-portal.md) para incorporar.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="enable-update-management"></a>Habilitar la administración de actualizaciones
 
-En primer lugar, debe habilitar la administración de actualizaciones para la máquina virtual en este tutorial. Si habilitó previamente otra solución de automatización para una máquina virtual, este paso no es necesario.
+En primer lugar, debe habilitar la administración de actualizaciones en la máquina virtual de este tutorial.
 
-1. En el menú de la izquierda, seleccione **Máquinas virtuales** y seleccione una máquina virtual de la lista.
-2. En el menú de la izquierda, en la sección **Operaciones**, haga clic en **Update Management**. Se abre la página **Habilitar Update Management**.
+1. En el menú de la izquierda de Azure Portal, seleccione **Máquinas virtuales** y seleccione una máquina virtual de la lista.
+2. En la página de la máquina virtual, haga clic en **Administración de actualizaciones** en la sección **Operaciones**. Se abre la página **Habilitar Update Management**.
 
-Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual.
-La validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución está en el área de trabajo.
+Se realiza la validación para determinar si la administración de actualizaciones está habilitada para esta máquina virtual. Esta validación incluye comprobaciones de un área de trabajo de Log Analytics y la cuenta de Automation vinculada, y si la solución Update Management está en el área de trabajo.
 
-Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Update Management.
-El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
-Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran actualizaciones, Azure Automation permite ejecutar runbooks en máquinas virtuales, por ejemplo, para descargar y aplicar actualizaciones.
+Un área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) se usa para recopilar datos que se generan mediante características y servicios, como, por ejemplo, Update Management. El área de trabajo proporciona una única ubicación para revisar y analizar datos desde varios orígenes.
 
 El proceso de validación también comprueba si la máquina virtual se aprovisiona con Microsoft Monitoring Agent (MMA) y un trabajo de runbook híbrido de Automation.
-Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
-
-Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y haga clic en **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
+Este agente se usa para comunicarse con Azure Automation y obtener información sobre el estado de actualización. El agente requiere que se abra el puerto 443 para comunicarse con el servicio Azure Automation y para descargar actualizaciones.
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
 * Área de trabajo de [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Automation](./automation-offering-get-started.md)
+* [Cuenta de Automation](./automation-offering-get-started.md)
 * [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md) está habilitado en la máquina virtual.
 
 Se abre la pantalla **Update Management**. Configure la ubicación, el área de trabajo de Log Analytics y la cuenta de Automation que use y haga clic en **Habilitar**. Si los campos aparecen atenuados, significa que otra solución de automatización está habilitada para la máquina virtual y que deben usarse la misma área de trabajo y cuenta de Automation.
 
 ![Ventana para habilitar la solución de Update Management](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
+La habilitación de la solución puede tardar unos minutos. Durante este tiempo, no debería cerrar la ventana del explorador.
 Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a Log Analytics.
 Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
@@ -87,9 +84,48 @@ Si hace clic en cualquier otro lugar de la actualización, se abrirá la ventana
 
 ![Ver el estado de la actualización](./media/automation-tutorial-update-management/logsearch.png)
 
+## <a name="configure-alerting"></a>Configurar alertas
+
+En este paso, configurará una alerta para que sepa cuándo las actualizaciones se han implementado correctamente. La alerta que se crea se basa en una consulta de Log Analytics. Se pueden escribir consultas personalizadas para alertas adicionales a fin de abarcar muchos escenarios diferentes. En Azure Portal, vaya a **Monitor** y haga clic en **Crear alerta**. Se abre la página **Crear regla**.
+
+En **1. Definir condición de la alerta** y haga clic en **+  Seleccionar destino**. En **Filter by resource type** (Filtrar por tipo de recurso), seleccione **Log Analytics**. Elija el área de trabajo de Log Analytics y haga clic en **Listo**.
+
+![Creación de una alerta](./media/automation-tutorial-update-management/create-alert.png)
+
+Haga clic en el botón **+Agregar criterios** para abrir la página **Configurar lógica se señal**. Elija **Custom log search** (Búsqueda de registros personalizada) en la tabla. Escriba la consulta siguiente en el cuadro de texto **Consulta de búsqueda**. Esta consulta devuelve los equipos y el nombre de la ejecución de actualización que se completó en el período de tiempo especificado.
+
+```loganalytics
+UpdateRunProgress
+| where InstallationStatus == 'Succeeded'
+| where TimeGenerated > now(-10m)
+| summarize by UpdateRunName, Computer
+```
+
+Escriba **1** en **Umbral** para la lógica de alerta. Cuando termine, haga clic en **Listo**.
+
+![Configuración de la lógica de señal](./media/automation-tutorial-update-management/signal-logic.png)
+
+En **2. Definir detalles de la alerta**, proporcione a la alerta un nombre descriptivo y una descripción. Establezca la **gravedad** en **Informational(Sev 2)** (Informativa [grav. 2]) dado que la alerta es por una ejecución correcta.
+
+![Configuración de la lógica de señal](./media/automation-tutorial-update-management/define-alert-details.png)
+
+En **3. Definir grupo de acciones**, haga clic en **+Nuevo grupo de acciones**. Un grupo de acciones es un conjunto de acciones que puede usar en varias alertas. Por ejemplo, notificaciones por correo electrónico, runbooks, webhooks y muchas más. Para más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+En el cuadro **Nombre del grupo de acciones**, proporcione un nombre descriptivo y un nombre corto. El nombre corto se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+
+En **Acciones**, proporcione a la acción un nombre descriptivo como **Notificaciones por correo electrónico** y, en **TIPO DE ACCIÓN**, seleccione **Email/SMS/Push/Voice** (Correo electrónico/SMS/Inserción/Voz). En **DETALLES**, seleccione **Editar detalles**.
+
+En la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Inserción/Voz), proporciónele un nombre. Marque la casilla **Correo electrónico** y escriba una dirección de correo electrónico válida para usar.
+
+![Configuración del grupo de acciones de correo electrónico](./media/automation-tutorial-update-management/configure-email-action-group.png)
+
+Haga clic en **Aceptar** en la página **Email/SMS/Push/Voice** (Correo electrónico/SMS/Inserción/Voz)para cerrarla y haga clic en **Aceptar** para cerrar la página **Agregar grupo de acciones**.
+
+Si quiere personalizar el asunto del correo electrónico enviado, haga clic en **Asunto del correo electrónico** en **Personalizar las acciones** en la página **Crear regla**. Cuando haya terminado, haga clic en **Crear regla de alertas**. A continuación, se crea la regla que le avisa cuando la implementación de una actualización tiene éxito y qué máquinas formaron parte de la ejecución de la implementación de actualizaciones.
+
 ## <a name="schedule-an-update-deployment"></a>Programación de una implementación de actualizaciones
 
-Ahora sabe que faltan algunas actualizaciones en su máquina virtual. Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones.
+Ahora que la alerta está configurada, programe una implementación que siga su programación de versiones y ventana de servicios para instalar actualizaciones.
 Puede elegir los tipos de actualizaciones que quiere incluir en la implementación.
 Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
@@ -101,22 +137,24 @@ Programe una nueva implementación de actualizaciones para la máquina virtual. 
 En la pantalla **Nueva implementación de actualización**, especifique la siguiente información:
 
 * **Nombre**: proporcione un nombre único para la implementación de actualizaciones.
+
+* **Sistema operativo**: elija el sistema operativo que es el destino de la implementación de actualizaciones.
+
 * **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones incluyó en la implementación. Para este tutorial, seleccione todos los tipos.
 
   Los tipos de clasificación son:
 
-  * Actualizaciones críticas
-  * Actualizaciones de seguridad
-  * Paquetes acumulativos de actualizaciones
-  * Feature Packs
-  * Service Packs
-  * Actualizaciones de definiciones
-  * Herramientas
-  * Actualizaciones
+   |SO  |Escriba  |
+   |---------|---------|
+   |Windows     | Actualizaciones críticas</br>Actualizaciones de seguridad</br>Paquetes acumulativos de actualizaciones</br>Feature Packs</br>Service Packs</br>Actualizaciones de definiciones</br>Herramientas</br>Actualizaciones        |
+   |Linux     | Actualizaciones críticas y de seguridad</br>Otras actualizaciones       |
 
-* **Configuración de la programación**: establezca el tiempo a 5 minutos en el futuro. También puede aceptar el valor predeterminado, que es de 30 minutos después de la hora actual.
-También puede especificar si la implementación se produce una vez o configurar una programación periódica.
-Seleccione **Periódica** en **Periodicidad**. Deje el valor predeterminado a 1 día y haga clic en **Aceptar**. Esta acción configura una programación periódica.
+   Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications).
+
+* **Configuración de la programación**: esta opción abre la página Configuración de la programación. La hora de inicio predeterminada es 30 minutos después de la hora actual. Se puede establecer cualquier hora a partir de 10 minutos en el futuro.
+
+   También puede especificar si la implementación se produce una vez o configurar una programación periódica.
+   Seleccione **Una vez** en **Periodicidad**. Deje el valor predeterminado a 1 día y haga clic en **Aceptar**. Esta acción configura una programación periódica.
 
 * **Ventana de mantenimiento (minutos)**: deje este campo con el valor predeterminado. Puede especificar el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
@@ -148,6 +186,10 @@ Haga clic en el icono **Salida** para ver el flujo de trabajo del runbook respon
 
 Haga clic en **Errores** para ver información detallada sobre los errores de la implementación.
 
+Una vez que la implementación de actualizaciones se realiza correctamente, se envía un correo electrónico similar a la siguiente imagen para mostrar el éxito de la implementación.
+
+![Configuración del grupo de acciones de correo electrónico](./media/automation-tutorial-update-management/email-notification.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial aprendió lo siguiente:
@@ -155,6 +197,7 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Incorporar máquinas virtuales a Update Management
 > * Visualización de la evaluación de la actualización
+> * Configurar alertas
 > * Programación de una implementación de actualizaciones
 > * Ver los resultados de una implementación
 

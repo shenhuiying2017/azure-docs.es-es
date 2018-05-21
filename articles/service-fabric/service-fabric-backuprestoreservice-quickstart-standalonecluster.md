@@ -1,6 +1,6 @@
 ---
-title: Restauración y copia de seguridad periódicas de Azure Service Fabric (versión preliminar) | Microsoft Docs
-description: Use la característica de restauración y copia de seguridad periódicas de Service Fabric para proteger las aplicaciones frente a pérdidas de datos.
+title: Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar) | Microsoft Docs
+description: Use la característica de restauración y copia de seguridad periódica de Service Fabric para proteger las aplicaciones frente a pérdidas de datos.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -9,18 +9,18 @@ editor: hrushib
 ms.assetid: FAADBCAB-F0CF-4CBC-B663-4A6DCCB4DEE1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b8d81e713bce8cdbb2c8000c740b16553620fe7f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Restauración y copia de seguridad periódicas de Azure Service Fabric (versión preliminar)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Restauración y copia de seguridad periódica de Azure Service Fabric (versión preliminar)
 > [!div class="op_single_selector"]
 > * [Clústeres en Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clústeres independientes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
