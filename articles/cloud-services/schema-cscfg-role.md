@@ -1,23 +1,23 @@
 ---
 title: Esquema de rol de Azure Cloud Services | Microsoft Docs
-ms.custom: 
+ms.custom: ''
 ms.date: 12/07/2016
-ms.prod: azure
-ms.reviewer: 
+services: cloud-services
+ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.suite: ''
+ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
-caps.latest.revision: "12"
+caps.latest.revision: 12
 author: thraka
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: c25e7d139c7b7fd7c5da6bde8cfb9050eec8a88e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de rol de configuración de Azure Cloud Services
 
@@ -44,14 +44,14 @@ En el ejemplo siguiente se muestra el elemento `Role` y sus elementos secundario
 
 En la tabla siguiente se describen los atributos del elemento `Role`.
 
-| Atributo | Descripción |
+| Atributo | DESCRIPCIÓN |
 | --------- | ----------- |
-| name   | Necesario. Especifica el nombre del rol. El nombre debe coincidir con el nombre proporcionado en el rol en el archivo de definición de servicio.|
+| Nombre   | Necesario. Especifica el nombre del rol. El nombre debe coincidir con el nombre proporcionado en el rol en el archivo de definición de servicio.|
 | vmName | Opcional. Especifica el nombre DNS de una máquina virtual. El nombre debe tener 10 caracteres como máximo.|
 
 En la siguiente tabla se describen los elementos secundarios del elemento `Role`.
 
-| Elemento | Descripción |
+| Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | Instancias | Necesario. Especifica el número de instancias para implementar en el rol. El número de instancias se define mediante un entero en el atributo `count`.|
 | Configuración   | Opcional. Especifica un nombre y un valor de configuración en una colección de valores para un rol. El nombre de la configuración se define mediante una cadena en el atributo `name` y el valor de configuración se define mediante una cadena en el atributo `value`.|

@@ -1,24 +1,24 @@
 ---
-title: "Funciones de la plantilla de Azure Resource Manager: implementación | Microsoft Docs"
-description: "Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación."
+title: 'Funciones de la plantilla de Azure Resource Manager: implementación | Microsoft Docs'
+description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar información de implementación.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funciones de implementación para las plantillas de Azure Resource Manager 
 
@@ -156,11 +156,11 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve un valor de parámetro. El nombre del parámetro especificado debe definirse en la sección de parámetros de la plantilla.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sí |cadena |El nombre del parámetro que se va a devolver. |
+| parameterName |Sí |string |El nombre del parámetro que se va a devolver. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -245,13 +245,13 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | opción 1 |
+| stringOutput | string | opción 1 |
 | intOutput | int | 1 |
 | objectOutput | Objeto | {"one": "a", "two": "b"} |
 | arrayOutput | Matriz | [1, 2, 3] |
-| crossOutput | String | opción 1 |
+| crossOutput | string | opción 1 |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
 
@@ -272,9 +272,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el valor de variable. El nombre de la variable especificada debe definirse en la sección de variables de la plantilla.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | variableName |Sí |string |El nombre de la variable que se va a devolver. |
 
@@ -348,11 +348,11 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
-| exampleOutput1 | String | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Matriz | [1, 2, 3, 4] |
-| exampleOutput3 | String | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para implementar esta plantilla de ejemplo con la CLI de Azure, use:

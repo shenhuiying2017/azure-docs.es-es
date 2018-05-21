@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 43acf33ec7787378595ad62540a868100bf587f7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 > [!div class="op_single_selector"]
-> * [C en Windows](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [C en Linux](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js (genérico)](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Node.js en Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [C en Raspberry Pi](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [C en Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [C en Linux](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Node.js (genérico)](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Node.js en Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [C en Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-En este tutorial, implementará un dispositivo **Refrigerador** que envía la siguiente telemetría al [acelerador de soluciones](../articles/iot-suite/iot-suite-what-are-solution-accelerators.md) de supervisión remota:
+En este tutorial, implementará un dispositivo **Refrigerador** que envía la siguiente telemetría al [acelerador de soluciones](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de supervisión remota:
 
 * Temperatura
 * Presión
@@ -43,7 +43,7 @@ Antes de escribir ningún código para el dispositivo, implemente el acelerador 
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Implementación del acelerador de soluciones de supervisión remota
 
-El dispositivo **Refrigerador** que se crea en este tutorial envía datos a una instancia del acelerador de soluciones de [supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Si todavía no ha aprovisionado el acelerador de soluciones de supervisión remota en su cuenta de Azure, consulte [Implementación del acelerador de soluciones de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md).
+El dispositivo **Refrigerador** que se crea en este tutorial envía datos a una instancia del acelerador de soluciones de [supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-explore.md). Si todavía no ha aprovisionado el acelerador de soluciones de supervisión remota en su cuenta de Azure, consulte [Implementación del acelerador de soluciones de supervisión remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
 
 Cuando finalice el proceso de implementación para la solución de supervisión remota, haga clic en **Iniciar** para abrir el panel de la solución en el explorador.
 

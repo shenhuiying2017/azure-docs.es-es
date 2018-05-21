@@ -16,8 +16,21 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
     - name: Organización de recursos con grupos de administración
       href: billing-enterprise-mgmt-group-overview.md
-    - name: Ahorre dinero con las instancias reservadas de máquina virtual
+    - name: Ahorre con las instancias reservadas de Azure
       href: billing-save-compute-costs-reservations.md
+      items:
+        - name: Pago por adelantado de máquinas virtuales con instancias reservadas
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Administración de instancias reservadas
+          href: billing-manage-reserved-vm-instance.md
+        - name: Descripción de la aplicación de descuentos para las instancias reservadas
+          href: billing-understand-vm-reservation-charges.md
+        - name: Descripción del pago por uso de las instancias reservadas de máquina virtual
+          href: billing-understand-reserved-instance-usage.md
+        - name: Descripción del uso de las instancias reservadas en el nivel Enterprise
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Costos de Windows de instancias reservadas
+          href: billing-reserved-instance-windows-software-costs.md
     - name: Límites y cuotas
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Procedimientos
@@ -38,20 +51,12 @@
           href: billing-understand-your-azure-marketplace-charges.md
         - name: Descripción de la asignación de medidores de los servicios gratuitos
           href: billing-understand-free-service-meter-mapping.md
-        - name: Costos de Windows de instancias reservadas de máquina virtual
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Descripción de la aplicación de descuentos para las instancias reservadas de máquina virtual
-          href: billing-understand-vm-reservation-charges.md
         - name: Descripción del límite de gasto
           href: billing-spending-limit.md
         - name: Configurar alertas de facturación para las suscripciones de Microsoft Azure
           href: billing-set-up-alerts.md
         - name: Resolución del saldo vencido
           href: billing-azure-subscription-past-due-balance.md
-        - name: Descripción del pago por uso de las instancias reservadas de máquina virtual
-          href: billing-understand-reserved-instance-usage.md
-        - name: Descripción del uso de las instancias reservadas en el nivel Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
     - name: Administrar suscripciones
       items:
         - name: Búsqueda de la suscripción o grupo de administración
@@ -82,8 +87,6 @@
           href: billing-partner-admin-link-started.md
         - name: Visualización de cuentas de facturación
           href: billing-view-all-accounts.md
-    - name: Administración de instancias reservadas de máquina virtual
-      href: billing-manage-reserved-vm-instance.md
     - name: Solución de problemas
       items:
         - name: Problemas de suscripción
