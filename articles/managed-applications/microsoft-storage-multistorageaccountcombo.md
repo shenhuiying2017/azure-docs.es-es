@@ -1,23 +1,23 @@
 ---
 title: Elemento de interfaz de usuario MultiStorageAccountCombo de Azure | Microsoft Docs
 description: Describe el elemento de la interfaz de usuario Microsoft.Storage.MultiStorageAccountCombo para Azure Portal.
-services: azure-resource-manager
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: c395c076a4910e124c1b93ebc61b5e491b2b53ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4ec5a97f8655c0b5b53dea129d4648a05f6ef85
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Storage.MultiStorageAccountCombo
 Un grupo de controles para crear varias cuentas de almacenamiento con nombres que comienzan con un prefijo común.

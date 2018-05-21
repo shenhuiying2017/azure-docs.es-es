@@ -1,46 +1,60 @@
 ---
-title: "Obtención de datos mediante Reporting API de Azure AD con certificados | Microsoft Docs"
-description: "Explica cómo usar Reporting API de Azure AD con credenciales de certificado para obtener datos de directorios sin intervención del usuario."
+title: Obtención de datos mediante Reporting API de Azure AD con certificados | Microsoft Docs
+description: Explica cómo usar Reporting API de Azure AD con credenciales de certificado para obtener datos de directorios sin intervención del usuario.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ramical
 writer: v-lorisc
 manager: kannar
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/08/2017
+ms.date: 05/07/2018
 ms.author: ramical
-ms.openlocfilehash: 4900e47084256ad6c85886f7ba363399678da9aa
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 54e661284c539b835089e858ba7b5e0016e89a83
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>Obtención de datos mediante Reporting API de Azure AD con certificados
-Este artículo trata de cómo usar Reporting API de Azure AD con credenciales de certificado para obtener datos de directorios sin intervención del usuario. 
+# <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obtención de datos mediante Reporting API de Azure Active Directory con certificados
 
-## <a name="use-the-azure-ad-reporting-api"></a>Uso de Reporting API de Azure AD 
-Reporting API de Azure AD requiere que complete los pasos siguientes:
- *  Requisitos previos de instalación
- *  Establecimiento del certificado en la aplicación
- *  Obtención de un token de acceso
- *  Uso del token de acceso para llamar a la API Graph
+Las [Reporting API de Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) proporcionan acceso mediante programación a los datos a través de un conjunto de API de REST. Estas API pueden llamarse desde una variedad de lenguajes de programación y herramientas.
+
+Si quiere acceder a Reporting API de Azure AD sin intervención del usuario, puede configurar el acceso para usar certificados.
+
+Este artículo:
+
+- Proporciona los pasos necesarios para acceder a Reporting API de Azure AD mediante certificados.
+- Se supone que ha completado los [requisitos previos para acceder a Reporting API de Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md). 
+
+
+Para acceder a Reporting API con certificados, debe realizar las acciones siguientes:
+
+1. Instalación de los requisitos previos
+2. Establecimiento del certificado en la aplicación 
+3. Concesión de permisos
+4. Obtención de un token de acceso
+
+
+
 
 Para más información sobre el código fuente, consulte el [módulo Leverage Report API](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils) (Uso de Report API). 
 
-### <a name="install-prerequisites"></a>Requisitos previos de instalación
+## <a name="install-prerequisites"></a>Requisitos previos de instalación
+
 Debe tener instalado Azure AD PowerShell V2 y el módulo AzureADUtils.
 
 1. Descargue e instale Azure AD Powershell V2, según las instrucciones de [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md).
+
 2. Descargue el módulo Azure AD Utils de [AzureAD/azure-activedirectory-powershell](https://github.com/AzureAD/azure-activedirectory-powershell/blob/gh-pages/Modules/AzureADUtils/AzureADUtils.psm1). 
   Este módulo proporciona varios cmdlets de utilidades incluidos los siguientes:
-   * La versión más reciente de ADAL mediante Nuget
-   * Los tokens de acceso de usuario, las claves de aplicación y los certificados mediante ADAL
-   * API Graph con control de resultados paginados
+    - La versión más reciente de ADAL mediante Nuget
+    - Los tokens de acceso de usuario, las claves de aplicación y los certificados mediante ADAL
+    - Graph API con control de resultados paginados
 
 **Para instalar el módulo Azure AD Utils:**
 
@@ -52,14 +66,17 @@ La sesión debe tener un aspecto similar a esta pantalla:
 
   ![Windows Powershell](./media/active-directory-report-api-with-certificates/windows-powershell.png)
 
-### <a name="set-the-certificate-in-your-app"></a>Establecimiento del certificado en la aplicación
-1. Si ya tiene una aplicación, obtenga su identificador de objeto en Azure Portal. 
+## <a name="set-the-certificate-in-your-app"></a>Establecimiento del certificado en la aplicación
 
-  ![Portal de Azure](./media/active-directory-report-api-with-certificates/azure-portal.png)
+**Para establecer el certificado en la aplicación:**
+
+1. [Obtenga el id. de objeto](active-directory-reporting-api-prerequisites-azure-portal.md#get-your-applications-client-id) de la aplicación de Azure Portal. 
+
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/azure-portal.png)
 
 2. Abra una sesión de PowerShell y conéctese a Azure AD mediante el cmdlet Connect-AzureAD.
 
-  ![Portal de Azure](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/connect-azuaread-cmdlet.png)
 
 3. Use el cmdlet New-AzureADApplicationCertificateCredential de AzureADUtils para agregarle una credencial de certificado. 
 
@@ -68,28 +85,32 @@ La sesión debe tener un aspecto similar a esta pantalla:
 >
 
 
-  ![Portal de Azure](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
+  ![Azure Portal](./media/active-directory-report-api-with-certificates/add-certificate-credential.png)
   
-### <a name="get-an-access-token"></a>Obtención de un token de acceso
+## <a name="get-an-access-token"></a>Obtención de un token de acceso
 
-Para obtener un token de acceso, use el cmdlet Get-AzureADGraphAPIAccessTokenFromCert de AzureADUtils. 
+Para obtener un token de acceso, use el cmdlet **Get-AzureADGraphAPIAccessTokenFromCert** de AzureADUtils. 
 
 >[!NOTE]
 >Debe utilizar el identificador de aplicación en lugar del identificador de objeto usado en la última sección.
 >
 
- ![Portal de Azure](./media/active-directory-report-api-with-certificates/application-id.png)
+ ![Azure Portal](./media/active-directory-report-api-with-certificates/application-id.png)
 
-### <a name="use-the-access-token-to-call-the-graph-api"></a>Uso del token de acceso para llamar a la API Graph
+## <a name="use-the-access-token-to-call-the-graph-api"></a>Uso del token de acceso para llamar a Graph API
 
-Ya puede crear el script. A continuación se muestra un ejemplo de cómo utilizar el cmdlet Invoke-AzureADGraphAPIQuery de AzureADUtils. Este cmdlet controla los resultados de paginado múltiple y los envía luego a la canalización de PowerShell. 
+Ya puede crear el script. A continuación se muestra un ejemplo de cómo utilizar el cmdlet **Invoke-AzureADGraphAPIQuery** de AzureADUtils. Este cmdlet controla los resultados de paginado múltiple y los envía luego a la canalización de PowerShell. 
 
- ![Portal de Azure](./media/active-directory-report-api-with-certificates/script-completed.png)
+ ![Azure Portal](./media/active-directory-report-api-with-certificates/script-completed.png)
 
 Ya puede exportar a CSV y guardar en un sistema SIEM. También puede encapsular el script en una tarea programada para obtener datos de Azure AD de su inquilino periódicamente sin tener que almacenar las claves de aplicación en el código fuente. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Aspectos básicos de la administración de identidades de Azure](https://docs.microsoft.com/azure/active-directory/fundamentals-identity)<br>
+
+- [Obtención de una primera impresión de Reporting API](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+
+- [Creación de una solución propia](active-directory-reporting-api-getting-started-azure-portal.md#customize)
+
 
 
 

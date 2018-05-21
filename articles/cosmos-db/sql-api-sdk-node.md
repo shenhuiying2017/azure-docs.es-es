@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c219820fd5b8d5502bae394142dfbe80db1f59
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 271b090468dee306dc0bf2567aeff08eb0526642
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Node.js para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**Descargar SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
 
-<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Node.js](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
+<tr><td>**Documentación de la API**</td><td>[Documentación de referencia de la API de Node.js](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
 
 <tr><td>**Instrucciones de instalación del SDK**</td><td>[Instrucciones de instalación](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
@@ -61,6 +61,16 @@ ms.lasthandoff: 05/07/2018
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="1.14.4"/>1.14.4</a>
+* Documentación de NPM corregida.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Compatibilidad agregada para reintentos predeterminados en los problemas de conexión.
+* Compatibilidad agregada para leer la fuente de cambios de la colección.
+* Error de coherencia con la sesión corregido que de vez en cuando generó el mensaje "sesión de lectura no disponible".
+* Compatibilidad agregada para métricas de consulta.
+* Número máximo de conexiones modificado del Agente de HTTP.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Documentación actualizada para la referencia de Microsoft Azure Cosmos DB en lugar de Azure DocumentDB.
@@ -193,6 +203,8 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.14.4](#1.14.4) |3 de mayo de 2018 |--- |
+| [1.14.3](#1.14.3) |3 de mayo de 2018 |--- |
 | [1.14.2](#1.14.2) |21 de diciembre de 2017 |--- |
 | [1.14.1](#1.14.1) |10 de noviembre de 2017 |--- |
 | [1.14.0](#1.14.0) |9 de noviembre de 2017 |--- |

@@ -3,17 +3,17 @@ title: Configuración de la entrada con un clúster de Azure Kubernetes Service 
 description: Instale y configure un controlador de entrada NGINX en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a6c9036a85e1c979d649896a9361e401f6f7cc0a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b999792876f82de9500dccf9e6263f85e3e3105e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>Entrada HTTPS en Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ helm repo update
 Instale el controlador de entrada NGINX. En este ejemplo se instala el controlador en el espacio de nombres `kube-system`, el cual se puede modificar a uno de su elección.
 
 ```
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
 
 Durante la instalación se crea una dirección IP pública de Azure para el controlador de entrada. Obtenga la dirección IP pública con el comando de servicio get kubectl. La asignación de la dirección IP al servicio puede tardar un tiempo.

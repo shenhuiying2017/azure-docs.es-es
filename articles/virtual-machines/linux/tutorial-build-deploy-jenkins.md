@@ -1,11 +1,11 @@
 ---
-title: "Integración continua o implementación continua desde Jenkins en máquinas virtuales de Azure con Team Services | Microsoft Docs"
-description: "Configure la integración continua (CI) y la implementación continua (CD) de una aplicación de Node.js con Jenkins en máquinas virtuales de Azure desde Release Management para Visual Studio Team Services o Microsoft Team Foundation Server"
+title: 'Tutorial: Integración continua o implementación continua (CI/CD) de Jenkins en máquinas virtuales de Azure con Team Services | Microsoft Docs'
+description: En este tutorial, aprenderá a configurar la integración continua (CI) y la implementación continua (CD) de una aplicación de Node.js con Jenkins en máquinas virtuales de Azure desde Release Management para Visual Studio Team Services o Microsoft Team Foundation Server
 author: ahomer
 manager: douge
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
@@ -14,19 +14,17 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: fc301edf13f8e6874f0b77440e2b0dc01b2a55fc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Implementación de la aplicación en máquinas virtuales Linux con Jenkins y Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux en Azure con Jenkins y Visual Studio Team Services
 
 La integración continua (CI) y la implementación continua (CD) constituyen una canalización mediante la que se puede compilar, publicar e implementar el código. Visual Studio Team Services proporciona un completo conjunto rico en contenido de herramientas de automatización de CI/CD para la implementación en Azure. Jenkins es una popular herramienta de terceros basada en servidor de CI/CD que además proporciona automatización de CI/CD. Puede usar Team Services y Jenkins conjuntamente para personalizar la forma de entrega de la aplicación o el servicio en la nube.
 
-En este tutorial, utilizará Jenkins para compilar una aplicación web de Node.js. Después, usará Team Services o Team Foundation Server para implementarlo en un [grupo de implementación](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) que contiene máquinas virtuales (VM) de Linux.
-
-Podrá:
+En este tutorial, utilizará Jenkins para compilar una aplicación web de Node.js. Después, usará Team Services o Team Foundation Server para implementarlo en un [grupo de implementación](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) que contiene máquinas virtuales (VM) de Linux. Aprenderá a:
 
 > [!div class="checklist"]
 > * Obtener la aplicación de ejemplo.
@@ -169,7 +167,7 @@ Para crear la definición de versión en Team Services:
 5. En el explorador, abra la dirección URL de uno de los servidores agregados al grupo de implementación. Por ejemplo, escriba **http://{your-server-ip-address}**.
 6. Vaya al repositorio de Git de origen y modifique el contenido del encabezado **h1** del archivo app/views/index.jade con parte del texto modificado.
 7. Confirme el cambio.
-8. Pasados unos minutos, verá una nueva versión creada en la página **Versiones** de Team Services o Team Foundation Server. Abra la versión para ver cómo se realiza la implementación. ¡Enhorabuena!
+8. Pasados unos minutos, verá una nueva versión creada en la página **Versiones** de Team Services o Team Foundation Server. Abra la versión para ver cómo se realiza la implementación. Felicidades.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

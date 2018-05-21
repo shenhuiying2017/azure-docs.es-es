@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido de Azure: creación de máquinas virtuales con PowerShell | Microsoft Docs'
-description: Aprenda rápidamente a crear una máquina virtual Linux con PowerShell.
+title: 'Guía de inicio rápido: Creación de una máquina virtual Linux con Azure PowerShell | Microsoft Docs'
+description: En esta guía de inicio rápido, aprenderá a usar Azure PowerShell para crear una máquina virtual Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -13,98 +13,91 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/13/2017
+ms.date: 04/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8c032cdbf3549cdce435c8179777083d653fb058
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-a-linux-virtual-machine-with-powershell"></a>Creación de una máquina virtual Linux con PowerShell
+# <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guía de inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
 
-El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En este inicio rápido se detalla cómo usar el módulo de Azure PowerShell para implementar máquinas virtuales en las que se ejecuta el servidor de Ubuntu. Una vez implementado el servidor, se crea una conexión SSH y se instala un servidor web NGINX.
+El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se muestra cómo usar el módulo de Azure PowerShell para implementar una máquina virtual Linux en Azure que ejecuta Ubuntu. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante SSH e instale el servidor web de NGINX.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-Para realizar este tutorial de inicio rápido se requiere la versión 3.6 o superior del módulo de Azure PowerShell. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Instalación y configuración de Azure PowerShell).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 5.7.0 del módulo de Azure PowerShell, u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 Por último, se tiene que almacenar una clave SSH pública con el nombre *id_rsa.pub* en el directorio *.ssh* de su perfil de usuario de Windows. Para más información sobre cómo crear y usar claves SSH, consulte [Creación de claves SSH en Azure](ssh-from-windows.md).
 
+## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y administran los recursos de Azure.
 
-Inicie sesión en la suscripción de Azure con el comando `Connect-AzureRmAccount` y siga las instrucciones de la pantalla.
-
-```powershell
-Connect-AzureRmAccount
+```azurepowershell-interactive
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
-## <a name="create-resource-group"></a>Creación de un grupo de recursos
+## <a name="create-virtual-network-resources"></a>Creación de recursos de virtual 
 
-Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
+Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red con la máquina virtual y conectarla a Internet:
 
-```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus
-```
-
-## <a name="create-networking-resources"></a>Creación de los recursos de red principales
-
-Cree una red virtual, una subred, una dirección IP pública. Estos recursos se utilizan para proporcionar conectividad de red a la máquina virtual y conectarse a Internet.
-
-```powershell
+```azurepowershell-interactive
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus `
--Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+$vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" -Location "EastUS" `
+-Name "myVNET" -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus `
+$pip = New-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" -Location "EastUS" `
 -AllocationMethod Static -IdleTimeoutInMinutes 4 -Name "mypublicdns$(Get-Random)"
 ```
 
-Cree un grupo de seguridad de red y una regla de grupo de seguridad de red. El grupo de seguridad de red protege la máquina virtual con reglas entrantes y salientes. En este caso, se crea una regla de entrada para el puerto 22, que permite las conexiones entrantes SSH. También queremos crear una regla de entrada para el puerto 80, que permita el tráfico web entrante.
+Cree una regla de tráfico y de grupo de seguridad de red de Azure. El grupo de seguridad de red protege la máquina virtual con reglas de entrada y de salida. En el ejemplo siguiente, se crea una regla de entrada para el puerto TCP 22 que permite conexiones SSH. Para permitir el tráfico web de entrada, también se crea una regla de entrada para el puerto TCP 80.
 
-```powershell
+```azurepowershell-interactive
 # Create an inbound network security group rule for port 22
-$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleSSH  -Protocol Tcp `
--Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 22 -Access Allow
+$nsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleSSH"  -Protocol "Tcp" `
+-Direction "Inbound" -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 22 -Access "Allow"
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleWWW  -Protocol Tcp `
--Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
--DestinationPortRange 80 -Access Allow
+$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRuleWWW"  -Protocol "Tcp" `
+-Direction "Inbound" -Priority 1001 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
+-DestinationPortRange 80 -Access "Allow"
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName myResourceGroup -Location eastus `
--Name myNetworkSecurityGroup -SecurityRules $nsgRuleSSH,$nsgRuleWeb
+$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" -Location "EastUS" `
+-Name "myNetworkSecurityGroup" -SecurityRules $nsgRuleSSH,$nsgRuleWeb
 ```
 
-Cree una tarjeta de red con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) para la máquina virtual. Esta conecta la máquina virtual a una subred, un grupo de seguridad de red y una dirección IP pública.
+Cree una tarjeta de interfaz de red (NIC) virtual con [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface): La NIC virtual conecta la máquina virtual a una subred, un grupo de seguridad de red y una dirección IP pública.
 
-```powershell
+```azurepowershell-interactive
 # Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGroup -Location eastus `
+$nic = New-AzureRmNetworkInterface -Name "myNic" -ResourceGroupName "myResourceGroup" -Location "EastUS" `
 -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-virtual-machine"></a>Crear máquina virtual
+## <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-Cree una configuración de máquina virtual. Esta configuración incluye los ajustes que se usan al implementar la máquina virtual como una imagen de máquina virtual, el tamaño y la configuración de autenticación.
+Una configuración de máquina virtual incluye la configuración que se usa cuando se implementa una máquina virtual, como opciones de imagen, tamaño y autenticación de una máquina virtual. Defina las credenciales de SSH, la información del sistema operativo y el tamaño de máquina virtual de la manera siguiente:
 
-```powershell
+```azurepowershell-interactive
 # Define a credential object
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Linux -ComputerName myVM -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 16.04-LTS -Version latest | `
+$vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_D1" | `
+Set-AzureRmVMOperatingSystem -Linux -ComputerName "myVM" -Credential $cred -DisablePasswordAuthentication | `
+Set-AzureRmVMSourceImage -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS" -Version "latest" | `
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
@@ -112,60 +105,61 @@ $sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 ```
 
-Cree la máquina virtual con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Ahora, combine las definiciones de configuración anteriores para crearlas con [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
 
-```powershell
-New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus -VM $vmConfig
+```azurepowershell-interactive
+New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location eastus -VM $vmConfig
 ```
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
-Una vez finalizada la implementación, cree una conexión SSH con la máquina virtual.
+Finalizada la implementación, conéctese a la máquina virtual mediante SSH. Para ver la máquina virtual en acción, se instala el servidor web de NGINX.
 
-Use el comando [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para devolver la dirección IP pública de la máquina virtual.
+Para ver la dirección IP pública de la máquina virtual, use el cmdlet [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
 
-```powershell
-Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
+```azurepowershell-interactive
+Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-En un sistema con SSH instalado, usa el comando siguiente para conectarse a la máquina virtual. Si trabaja en Windows, puede usar [Putty](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-ssh-from-windows?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-private-key-for-putty) para crear la conexión. 
+Use un cliente de SSH para conectarse a la máquina virtual. Puede usar Azure Cloud Shell desde un explorador web, o, si usa Windows, puede usar [Putty](ssh-from-windows.md) o el [subsistema de Windows para Linux](/windows/wsl/install-win10). Proporcione la dirección IP pública de la máquina virtual:
 
-```bash 
-ssh <Public IP Address>
+```bash
+ssh azureuser@IpAddress
 ```
 
-Cuando se le solicite, el nombre de usuario de inicio de sesión es *azureuser*. Si se ha escrito una frase de contraseña al crear las claves SSH, debe escribirla también.
+Cuando se le solicite, el nombre de usuario de inicio de sesión es *azureuser*. Si se usa una frase de contraseña con las claves SSH, debe especificarla cuando se le solicite.
 
+## <a name="install-web-server"></a>Instalación del servidor web
 
-## <a name="install-nginx"></a>Instalación de NGINX
+Para ver la máquina virtual en acción, instale al servidor de web de NGINX. Para actualizar los orígenes del paquete e instalar el paquete más reciente de NGINX, ejecute los siguientes comandos en la sesión de SSH.
 
-Use los siguientes comandos para actualizar los orígenes del paquete e instalar el paquete NGINX más reciente. 
-
-```bash 
-# update package source
+```bash
+# update packages
 sudo apt-get -y update
 
 # install NGINX
 sudo apt-get -y install nginx
 ```
 
-## <a name="view-the-nginx-welcome-page"></a>Visualización de la página de bienvenida de NGINX
+Cuando haya finalizado, use `exit` para cerrar la sesión SSH
 
-Con NGINX instalado y el puerto 80 abierto en la máquina virtual desde Internet, puede usar el explorador web que elija para ver la página principal de NGINX. Asegúrese de utilizar la dirección IP pública que ha anotado antes para visitar la página predeterminada. 
+## <a name="view-the-web-server-in-action"></a>Visualización del servidor web en acción
 
-![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png) 
+Con NGINX instalado y el puerto 80 ahora abierto en la máquina virtual desde Internet, use el explorador web que prefiera para ver la página principal de NGINX predeterminada. Use la dirección IP pública de la máquina virtual que obtuvo en el paso anterior. En el ejemplo siguiente se muestra el sitio web de NGINX predeterminado:
+
+![Sitio NGINX predeterminado](./media/quick-create-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados.
+Cuando ya no los necesite, puede usar el cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 
-```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
+En esta guía de inicio rápido, implementó una máquina virtual sencilla, creó un grupo de seguridad de red y una regla e instaló un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Linux.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Linux de Azure](./tutorial-manage-vm.md)

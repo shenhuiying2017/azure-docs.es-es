@@ -1,24 +1,24 @@
 ---
-title: "Equilibrio de un clúster de Azure Service Fabric | Microsoft Docs"
-description: "Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric"
+title: Equilibrio de un clúster de Azure Service Fabric | Microsoft Docs
+description: Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d2f195c50750a5c7685f62c909f77b2960613e6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?
@@ -157,7 +157,7 @@ ClusterManifest.xml
     </Section>
 ```
 
-mediante ClusterConfig.json para las implementaciones independientes o Template.json para los clústeres hospedados en Azure:
+a través de ClusterConfig.json para las implementaciones independientes o Template.json para los clústeres hospedados en Azure:
 
 ```json
 "fabricSettings": [

@@ -1,6 +1,6 @@
 ---
-title: Creación y administración de máquinas virtuales Linux con la CLI de Azure | Microsoft Docs
-description: 'Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure'
+title: 'Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure | Microsoft Docs'
+description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear y administrar máquinas virtuales Linux en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Creación y administración de máquinas virtuales Linux con la CLI de Azure
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Tutorial: Creación y administración de máquinas virtuales Linux con la CLI de Azure 2.0
 
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
@@ -33,10 +33,9 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
@@ -85,7 +84,7 @@ La creación de la máquina virtual puede tardar unos minutos. Una vez creada la
 Ahora puede conectarse a la máquina virtual mediante SSH en Azure Cloud Shell o desde un equipo local. Reemplace la dirección IP de ejemplo por la dirección `publicIpAddress` que anotó en el paso anterior.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 Una vez que inicia sesión en la máquina virtual, puede instalar y configurar las aplicaciones. Cuando haya terminado, cierre la sesión SSH como normal:

@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a2818be8ef609946e53f585aadb0a5b4ac0f3a9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Introducción a Azure Analysis Services
+# <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services proporciona modelado de datos de nivel empresarial en la nube. Es una plataforma totalmente administrada como servicio (PaaS), que se integra con los servicios de la plataforma de datos de Azure. 
 
-Con Analysis Services, puede combinar datos de diversos orígenes, definir métricas y proteger los datos en un modelo de datos semántico único y de confianza. El modelo de datos proporciona a los usuarios una manera más fácil y rápida de examinar grandes cantidades de datos con aplicaciones cliente como Power BI, Excel, Reporting Services y aplicaciones de terceros o personalizadas.
+Con Analysis Services, puede combinar datos de diversos orígenes de datos, definir métricas y proteger los datos en un modelo de datos semántico único y de confianza. El modelo de datos proporciona a los usuarios una manera más fácil y rápida de examinar grandes cantidades de datos con aplicaciones cliente como Power BI, Excel, Reporting Services y aplicaciones de terceros o personalizadas.
 
 ![Orígenes de datos](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -96,7 +96,7 @@ Azure Analysis Services usa Azure Blob Storage para conservar el almacenamiento 
 
 #### <a name="firewall"></a>Firewall
 
-El Firewall de Azure Analysis Services bloquea todas las conexiones de cliente a excepción de las especificadas en las reglas. Configure reglas mediante la especificación de las direcciones IP permitidas por direcciones IP de cliente individuales o por intervalo. También se pueden permitir las conexiones de Power BI (servicio) o bloquear. 
+El Firewall de Azure Analysis Services bloquea todas las conexiones de cliente a excepción de las especificadas en las reglas. Configure reglas mediante la especificación de las direcciones IP permitidas por direcciones IP de cliente individuales o por intervalo. También se pueden permitir o bloquear las conexiones de Power BI (servicio). 
 
 #### <a name="on-premises-data-sources"></a>Orígenes de datos locales
 Proteja el acceso a los datos que residen localmente en su organización mediante la instalación y configuración de una [puerta de enlace de datos local](analysis-services-gateway.md). Las puertas de enlace de proporcionan acceso a datos tanto para el modo DirectQuery como para el modo en memoria. Cuando un modelo Azure Analysis Services se conecta a un origen de datos local, se crea una consulta junto con las credenciales cifradas para el origen de datos local. El servicio en la nube de puerta de enlace analiza la consulta e inserta la solicitud en una instancia de Azure Service Bus. La puerta de enlace local sondea Azure Service Bus en busca de solicitudes pendientes. La puerta de enlace obtiene la consulta, descifra las credenciales y se conecta a los orígenes de datos para la ejecución. Los resultados se devuelven desde el origen de datos a la puerta de enlace, y luego se envían a la base de datos Azure Analysis Services.
@@ -134,4 +134,5 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 ¿Tiene sugerencias sobre la documentación? Puede agregar comentarios mediante Livefyre al final de cada artículo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que sabe más acerca de Azure Analysis Services, es momento de empezar a trabajar. Aprenda a [crear un servidor](analysis-services-create-server.md) en Azure. Cuando el servidor esté listo, vaya al [tutorial de Adventure Works](tutorials/aas-adventure-works-tutorial.md) para aprender a crear un modelo tabular totalmente funcional y a implementarlo en el servidor.
+Aprenda a [crear un servidor](analysis-services-create-server.md) en Azure.   
+Una vez que tenga un servidor creado, puede [agregar un modelo de ejemplo](analysis-services-create-sample-model.md).   

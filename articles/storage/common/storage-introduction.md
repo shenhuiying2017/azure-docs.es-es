@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Introducción a Azure Storage
 
@@ -28,7 +28,7 @@ Azure Storage es la solución de almacenamiento de Microsoft para los escenarios
 
 Azure Storage incluye estos servicios de datos: 
 
-- [Blobs de Azure](../blobs/storage-blobs-introduction.md): un almacén de objetos que se pueden escalar de forma masiva pata texto y datos binarios.
+- [Blobs de Azure](../blobs/storage-blobs-introduction.md): un almacén de objetos que se puede escalar de forma masiva para datos de texto y binarios.
 - [Azure Files](../files/storage-files-introduction.md): recursos compartidos de archivos administrados para implementaciones locales y en la nube.
 - [Colas de Azure](../queues/storage-queues-introduction.md): un almacén de mensajería para mensajería confiable entre componentes de aplicación. 
 - [Tablas de Azure](../../cosmos-db/table-storage-overview.md): un almacén NoSQL para el almacenamiento sin esquema de datos estructurados.
@@ -179,7 +179,7 @@ Es posible acceder a los recursos de Azure Storage por medio de cualquier lengua
 * [API de REST de servicios de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/)
 * [Biblioteca de cliente de Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Biblioteca de cliente de Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Biblioteca de cliente de Storage para Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Biblioteca de cliente de Storage para Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Biblioteca de cliente de Storage para Python](https://github.com/Azure/azure-storage-python)
 * [Biblioteca de cliente de Storage para PHP](https://github.com/Azure/azure-storage-php)
 * [Biblioteca de cliente de Storage para Ruby](https://github.com/Azure/azure-storage-ruby)

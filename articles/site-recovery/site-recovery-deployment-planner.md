@@ -1,24 +1,24 @@
 ---
 title: Azure Site Recovery Deployment Planner para VMware en Azure| Microsoft Docs
-description: "Esta es la guía del usuario de Azure Site Recovery Deployment Planner."
+description: Esta es la guía del usuario de Azure Site Recovery Deployment Planner.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 05/02/2018
 ms.author: nisoneji
-ms.openlocfilehash: 77e76e5f9960f8a7c54ebcb82321784be5c1aa99
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d14d7af39af59bb0b4fbcd5857e8686176afb71
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner para VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
@@ -105,9 +105,9 @@ La herramienta se puede ejecutar desde Windows Server 2012 R2 si el servidor tie
 La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
     Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo.
-    E:\ASR Deployment Planner_v2.1zip
+    E:\ASR Deployment Planner_v2.2.zip
 
-    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 Si tiene una versión anterior de Deployment Planner, realice una de las siguientes acciones:
@@ -123,7 +123,7 @@ Si tiene una versión anterior de Deployment Planner, realice una de las siguien
 
 
 ## <a name="version-history"></a>Historial de versiones
-La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.1.
+La versión más reciente de la herramienta Site Recovery Deployment Planner es la 2.2.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
 
 ## <a name="next-steps"></a>Pasos siguientes

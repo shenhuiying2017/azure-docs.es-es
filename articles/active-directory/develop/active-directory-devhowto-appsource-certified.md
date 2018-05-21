@@ -17,11 +17,11 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 72516ce84fc9a4cf2657548be4ef98e75e46d550
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Obtención de AppSource certificado para Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) es un destino para que los usuarios empresariales detecten, prueben y administren aplicaciones SaaS de línea de negocio (SaaS independiente y un complemento para productos SaaS de Microsoft existentes).
@@ -43,7 +43,7 @@ Para habilitar la arquitectura multiempresa en la aplicación:
 Para más información sobre la arquitectura multiempresa, vea [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa](./active-directory-devhowto-multi-tenant-overview.md).
 
 ### <a name="single-tenant-applications"></a>Aplicaciones de inquilino único
-Las aplicaciones que solo aceptan inicios de sesión de usuarios de una instancia de Azure Active Directory definida se denominan *aplicaciones de inquilino único*. Los usuarios externos (incluidas las cuentas profesionales o educativas de otras organizaciones o una cuenta personal) pueden iniciar sesión en una aplicación de inquilino único después de agregar cada usuario como *cuenta de invitado* a la instancia de Azure Active Directory en la que esa aplicación está registrada. Puede agregar usuarios como cuentas de invitado a una instancia de Azure Active Directory a través de la [*Colaboración B2B en Azure AD*](../active-directory-b2b-what-is-azure-ad-b2b.md), que se puede realizar [mediante programación](../active-directory-b2b-code-samples.md). Cuando se agrega un usuario como cuenta de invitado a una instancia de Azure Active Directory, se envía un correo electrónico al usuario, que tiene que aceptar la invitación haciendo clic en el vínculo incluido en el correo electrónico de invitación. Las invitaciones que se envían a un usuario adicional de una organización que invita que también es miembro de la organización asociada no tienen que aceptarse para iniciar sesión.
+Las aplicaciones que solo aceptan inicios de sesión de usuarios de una instancia de Azure Active Directory definida se denominan *aplicaciones de inquilino único*. Los usuarios externos (incluidas las cuentas profesionales o educativas de otras organizaciones o una cuenta personal) pueden iniciar sesión en una aplicación de inquilino único después de agregar cada usuario como *cuenta de invitado* a la instancia de Azure Active Directory en la que esa aplicación está registrada. Puede agregar usuarios como cuentas de invitado a una instancia de Azure Active Directory a través de la [*Colaboración B2B en Azure AD*](../b2b/what-is-b2b.md), que se puede realizar [mediante programación](../b2b/code-samples.md). Cuando se agrega un usuario como cuenta de invitado a una instancia de Azure Active Directory, se envía un correo electrónico al usuario, que tiene que aceptar la invitación haciendo clic en el vínculo incluido en el correo electrónico de invitación. Las invitaciones que se envían a un usuario adicional de una organización que invita que también es miembro de la organización asociada no tienen que aceptarse para iniciar sesión.
 
 Las aplicaciones de inquilino único pueden habilitar la experiencia *Ponerse en contacto conmigo*, pero si se quiere habilitar la experiencia de evaluación gratuita/con un solo clic que AppSource recomienda, habilite en su lugar la arquitectura multiempresa en la aplicación.
 
