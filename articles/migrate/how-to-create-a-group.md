@@ -1,17 +1,17 @@
 ---
-title: "Agrupación de máquinas para su evaluación con Azure Migrate | Microsoft Docs"
-description: "En este artículo se describe cómo agrupar máquinas antes de ejecutar una evaluación con el servicio Azure Migrate."
+title: Agrupación de máquinas para su evaluación con Azure Migrate | Microsoft Docs
+description: En este artículo se describe cómo agrupar máquinas antes de ejecutar una evaluación con el servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2017
+ms.date: 05/15/2018
 ms.author: raynew
-ms.openlocfilehash: f42b184cddb3274d7ee0163c10cac002ccfbef62
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 5c5b5dc97c0faf43c9543422406c4fa1c30ed679
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="group-machines-for-assessment"></a>Agrupación de máquinas para su evaluación
 

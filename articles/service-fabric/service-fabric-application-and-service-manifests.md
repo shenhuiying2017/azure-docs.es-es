@@ -1,6 +1,6 @@
 ---
-title: "Descripción de los servicios y las aplicaciones de Service Fabric | Microsoft Docs"
-description: "Describe cómo se utilizan los manifiestos para describir los servicios y las aplicaciones de Service Fabric."
+title: Descripción de los servicios y las aplicaciones de Service Fabric | Microsoft Docs
+description: Describe cómo se utilizan los manifiestos para describir los servicios y las aplicaciones de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -9,16 +9,16 @@ editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 35288fe5473ab788916503d986aa5360b150b947
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifiestos de servicio y de aplicación de Service Fabric
 En este artículo se describe cómo se definen y tienen versiones los servicios y las aplicaciones de Service Fabric mediante los archivos ApplicationManifest.xml y ServiceManifest.xml.  El esquema XML para estos archivos de manifiesto se documenta en la [documentación del esquema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

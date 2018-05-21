@@ -1,6 +1,6 @@
 ---
-title: Crear imágenes de máquina virtual personalizadas con la CLI de Azure | Microsoft Docs
-description: 'Tutorial: crear una imagen de máquina virtual personalizada mediante la CLI de Azure.'
+title: 'Tutorial: Creación de imágenes de máquina virtual personalizadas con la CLI de Azure | Microsoft Docs'
+description: En este tutorial, aprenderá a usar la CLI de Azure 2.0 para crear una imagen de máquina virtual personalizada en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 911bb639402fb4577eb5bc3ff5b3096c66806378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 766e247775e61d7427b658b66948aa6699a7241a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Crear una imagen personalizada de una máquina virtual de Azure mediante la CLI
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>Tutorial: Creación de una imagen personalizada de una máquina virtual de Azure con la CLI de Azure 2.0
 
 Las imágenes personalizadas son como las imágenes de Marketplace, pero las puede crear usted mismo. Las imágenes personalizadas pueden usarse para configuraciones de arranque como la carga previa de aplicaciones, configuraciones de aplicaciones y otras configuraciones del sistema operativo. En este tutorial, creará su propia imagen personalizada de una máquina virtual de Azure. Aprenderá a:
 
@@ -33,10 +33,9 @@ Las imágenes personalizadas son como las imágenes de Marketplace, pero las pue
 > * Enumerar todas las imágenes en su suscripción
 > * Eliminar una imagen
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tutorial es preciso que ejecute la CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.0.30 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -52,7 +51,7 @@ Para crear una imagen de una máquina virtual, debe preparar la máquina virtual
 
 El desaprovisionamiento generaliza la máquina virtual mediante la eliminación de información específica de la máquina. Esta generalización hace posible implementar muchas máquinas virtuales a partir de una sola imagen. Durante el desaprovisionamiento, el nombre de host se restablece a *localhost.localdomain*. También se eliminan las claves de host SSH, las configuraciones de servidor de nombres, la contraseña raíz y las concesiones DHCP almacenadas en caché.
 
-Para desaprovisionar la máquina virtual, use el agente de máquina virtual de Azure (waagent). El agente de máquina virtual de Azure está instalado en la máquina virtual y administra el aprovisionamiento y la interacción con el controlador de tejido de Azure. Consulte la [Guía de usuario del Agente de Linux de Azure](agent-user-guide.md) para más información.
+Para desaprovisionar la máquina virtual, use el agente de máquina virtual de Azure (waagent). El agente de máquina virtual de Azure está instalado en la máquina virtual y administra el aprovisionamiento y la interacción con el controlador de tejido de Azure. Consulte la [Guía de usuario del Agente de Linux de Azure](../extensions/agent-linux.md) para más información.
 
 Conéctese a la máquina virtual mediante SSH y ejecute el comando para desaprovisionar la máquina virtual. Con el argumento `+user` también se elimina la última cuenta de usuario aprovisionada y los datos asociados. Reemplace la dirección IP de ejemplo con la dirección IP pública de la máquina virtual.
 

@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions 
 
@@ -34,6 +34,8 @@ En este artículo se explica cómo usar desencadenadores de temporizador en Azur
 El desencadenador en temporizador se proporciona en el paquete NuGet [Microsoft.Azure.WebJobs.Extensions.EventGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions). El código fuente del paquete está en el repositorio [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="example"></a>Ejemplo
 
@@ -204,7 +206,7 @@ Una expresión CRON para el desencadenador de temporizador de Azure Functions in
 
 Cada campo puede tener uno de los siguientes tipos de valores:
 
-|type  |Ejemplo  |Cuándo se desencadena  |
+|Escriba  |Ejemplo  |Cuándo se desencadena  |
 |---------|---------|---------|
 |Un valor específico |<nobr>"0 5 * * * *"</nobr>|A las hh:05:00, donde hh es cada hora (una vez por hora)|
 |Todos los valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|A las 5:mm: 00 cada día, donde mm es cada minuto de la hora (60 veces al día)|

@@ -1,26 +1,26 @@
 ---
-title: "Publicación de una aplicación administrada de Azure mediante el portal | Microsoft Docs"
-description: "Se explica cómo usar Azure Portal para crear una aplicación administrada de Azure diseñada para los miembros de su organización."
+title: Publicación de una aplicación administrada de Azure mediante el portal | Microsoft Docs
+description: Se explica cómo usar Azure Portal para crear una aplicación administrada de Azure diseñada para los miembros de su organización.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 11/02/2017
 ms.author: tomfitz
-ms.openlocfilehash: 764eb479733a7d4acdb6e6c3eee721cb4a161c88
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 69d31a7199347574e8866b275ec17ba3997d80c2
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="publish-a-service-catalog-application-through-azure-portal"></a>Publicación de una aplicación de catálogo de servicios mediante Azure Portal
 
 Puede usar Azure Portal para publicar [aplicaciones administradas](overview.md) que están diseñadas para los miembros de su organización. Por ejemplo, un departamento de TI puede publicar aplicaciones administradas que garantizan el cumplimiento de los estándares de la organización. Estas aplicaciones administradas están disponibles a través del catálogo de servicios y no en Azure Marketplace.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 A la hora de publicar una aplicación administrada, debe especificar una identidad para administrar los recursos. Es recomendable que especifique un grupo de usuarios de Azure Active Directory. Para crear un grupo de usuarios de Azure Active Directory, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md). 
 

@@ -1,6 +1,6 @@
 ---
-title: "Diagnóstico y supervisión de Azure Service Fabric | Microsoft Docs"
-description: "En este artículo se describen las características de supervisión del rendimiento del entorno de tiempo de ejecución Reliable ServiceRemoting de Service Fabric, incluidos los contadores de rendimiento y los eventos que emite."
+title: Diagnóstico y supervisión de Azure Service Fabric | Microsoft Docs
+description: En este artículo se describen las características de supervisión del rendimiento del entorno de tiempo de ejecución Reliable ServiceRemoting de Service Fabric, incluidos los contadores de rendimiento y los eventos que emite.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -9,25 +9,25 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d462ba0955a362c27b786ee6a5670eec20c52a22
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Supervisión de diagnósticos y rendimiento de Reliable ServiceRemoting
 El entorno de tiempo de ejecución de Reliable ServiceRemoting emite [contadores de rendimiento](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estos ofrecen información sobre cómo está funcionando Reliable ServiceRemoting y le ayudarán con la solución de problemas y la supervisión de rendimiento.
 
 
-## <a name="performance-counters"></a>Contadores de rendimiento
+## <a name="performance-counters"></a>contadores de rendimiento
 El entorno de tiempo de ejecución de Reliable ServiceRemoting define las siguientes categorías de contador de rendimiento:
 
-| Categoría | Descripción |
+| Categoría | DESCRIPCIÓN |
 | --- | --- |
 | Servicio de Service Fabric |Contadores específicos para la comunicación remota de servicios de Azure Service Fabric como, por ejemplo, el promedio de tiempo empleado en procesar la solicitud |
 | Método del servicio Service Fabric |Contadores específicos de los métodos que implementan los servicios de comunicación remota de Service Fabric. Por ejemplo, la frecuencia con que se invoca un método de servicio. |
@@ -82,7 +82,7 @@ En el ejemplo anterior, `ivoicemailboxservice.leavemessageasync` es un nombre de
 
 El entorno de tiempo de ejecución del servicio de confianza publica los siguientes contadores de rendimiento relacionados con la ejecución de los métodos de servicio.
 
-| Nombre de la categoría | Nombre del contador | Descripción |
+| Nombre de la categoría | Nombre del contador | DESCRIPCIÓN |
 | --- | --- | --- |
 | Método del servicio Service Fabric |Invocaciones/seg. |Número de veces que se invoca el método de servicio del actor por segundo |
 | Método del servicio Service Fabric |Promedio de milisegundos por invocación |Tiempo necesario para ejecutar el método de servicio en milisegundos |
@@ -91,7 +91,7 @@ El entorno de tiempo de ejecución del servicio de confianza publica los siguien
 ### <a name="service-request-processing-performance-counters"></a>Contadores de rendimiento del procesamiento de solicitudes de servicio
 Cuando un cliente invoca un método a través de un objeto de proxy de servicio, se envía un mensaje de solicitud a través de la red al servicio de comunicación remota. El servicio procesa el mensaje de solicitud y envía una respuesta al cliente. El entorno de tiempo de ejecución de Reliable ServiceRemoting publica los siguientes contadores de rendimiento relacionados con el procesamiento de las solicitudes de servicio.
 
-| Nombre de la categoría | Nombre del contador | Descripción |
+| Nombre de la categoría | Nombre del contador | DESCRIPCIÓN |
 | --- | --- | --- |
 | Servicio de Service Fabric |Número de solicitudes pendientes |Número de solicitudes que se procesan en el servicio |
 | Servicio de Service Fabric |Promedio de milisegundos por solicitud |Tiempo que tarda el servicio (en milisegundos) en procesar una solicitud |

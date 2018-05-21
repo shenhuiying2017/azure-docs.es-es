@@ -1,24 +1,24 @@
 ---
-title: "Administración de la carga de microservicios de Azure mediante métricas | Microsoft Docs"
-description: "Aprenda cómo configurar y usar las métricas en Service Fabric para administrar el consumo de recursos del servicio."
+title: Administración de la carga de microservicios de Azure mediante métricas | Microsoft Docs
+description: Aprenda cómo configurar y usar las métricas en Service Fabric para administrar el consumo de recursos del servicio.
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Administración de consumo y carga de recursos en Service Fabric con métricas
 *Métricas* son los recursos por los que se interesan sus servicios y que proporcionan los nodos del clúster. Una métrica es cualquier cosa que debe administrar para mejorar o supervisar el rendimiento de los servicios. Por ejemplo, podría observar el consumo de memoria para saber si el servicio está sobrecargado. Otro uso es averiguar si el servicio se podría mover a cualquier otro lugar en el que la memoria esté menos restringida, para poder obtener un mejor rendimiento.
@@ -141,7 +141,7 @@ Recuerde: si solo desea utilizar las métricas predeterminadas, no necesita toca
 Ahora, vamos a analizar en detalle cada uno de estos valores y a hablar sobre los comportamientos en los que influyen.
 
 ## <a name="load"></a>Carga
-La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo:
+La razón fundamental de la definición de las métricas es la representación de cierta carga. *Carga* es la cantidad de una determinada métrica que alguna instancia del servicio o réplica consume en un nodo específico. El valor Carga puede configurarse prácticamente en cualquier momento. Por ejemplo: 
 
   - Carga se puede definir cuando se crea un servicio. Esto se denomina _carga predeterminada_.
   - La información de la métrica, incluyendo la carga predeterminada, para un servicio puede actualizarse después de crear el servicio. Esto se denomina _actualizar un servicio_. 

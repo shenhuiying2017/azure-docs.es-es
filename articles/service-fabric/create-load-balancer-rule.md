@@ -1,24 +1,24 @@
 ---
-title: "Creación de una regla de Azure Load Balancer para un clúster"
-description: "Configure una instancia de Azure Load Balancer para abrir puertos para el clúster de Azure Service Fabric."
+title: Creación de una regla de Azure Load Balancer para un clúster
+description: Configure una instancia de Azure Load Balancer para abrir puertos para el clúster de Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: 71dbc2b5f6c3c37e432f5318169a088c5607f083
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 53dcd6c0705faa94e83d6e44f813fa9c575843e8
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
@@ -41,7 +41,7 @@ Para crear una regla de equilibrador de carga, debe recopilar la información si
 - Puerto externo.
 - Puerto interno.
 
-## <a name="azure-cli"></a>CLI de Azure
+## <a name="azure-cli"></a>Azure CLI
 Solo hace falta un comando para crear una regla de equilibrador de carga con la **CLI de Azure**. Tiene que saber el nombre del grupo de recursos y del equilibrador de carga para crear una regla.
 
 >[!NOTE]
@@ -57,7 +57,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 El comando de la CLI de Azure tiene unos parámetros que se describen en la tabla siguiente:
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --------- | ----------- |
 | `--backend-port`  | El puerto en que escucha la aplicación de Service Fabric. |
 | `--frontend-port` | El puerto que expone el equilibrador de carga para las conexiones externas. |

@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: darosa
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 02/21/2018
 ms.author: babanisa
-ms.openlocfilehash: 72780bff3807534efb456a9a7998f7d4de3c6f12
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Esquema de eventos de Azure Event Grid para Service Bus
 
@@ -77,7 +77,7 @@ El esquema para un evento de cola de mensajes fallidos es similar:
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
 | subject | string | Ruta al asunto del evento definida por el anunciante. |
@@ -90,7 +90,7 @@ Un evento tiene los siguientes datos de nivel superior:
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
 | nameSpaceName | string | El espacio de nombres de Service Bus donde se encuentra el recurso. |
 | requestUri | string | El URI en el que la cola específica o suscripción específicos emite el evento. |
