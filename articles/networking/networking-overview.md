@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: 47ee22df081b71e7bafa40210a9c4cac0a844825
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2e5862e99b3e883554b42341d2c1dbe9d8b8ec72
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="azure-networking"></a>Redes de Azure
 
@@ -120,7 +120,7 @@ La siguiente imagen muestra una aplicación de niveles múltiples con conexión 
 
 Puede filtrar el tráfico hacia y desde los recursos de Azure mediante las siguientes opciones:
 
-- **Red:** puede implementar grupos de seguridad de red de Azure (NSG) para filtrar el tráfico entrante y saliente en los recursos de Azure. Cada grupo de seguridad de red contiene una o varias reglas de entrada y salida. Cada regla especifica las direcciones IP de origen, las direcciones IP de destino, el puerto y el protocolo con el que se filtra el tráfico. Los grupos de seguridad de red pueden aplicarse a subredes individuales y a máquinas virtuales individuales. Para más información sobre los grupos de seguridad de red, consulte el artículo [Introducción a los grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Red:** puede implementar grupos de seguridad de red de Azure (NSG) para filtrar el tráfico entrante y saliente en los recursos de Azure. Cada grupo de seguridad de red contiene una o varias reglas de entrada y salida. Cada regla especifica las direcciones IP de origen, las direcciones IP de destino, el puerto y el protocolo con el que se filtra el tráfico. Los grupos de seguridad de red pueden aplicarse a subredes individuales y a máquinas virtuales individuales. Para más información sobre los grupos de seguridad de red, consulte el artículo [Introducción a los grupos de seguridad de red](../virtual-network/security-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Aplicación:** al usar una instancia de Application Gateway con el firewall de aplicación web, puede proteger las aplicaciones web de amenazas y ataques. Algunos ejemplos comunes son ataques de inyección de código SQL, scripting entre sitios y encabezados con formato incorrecto. La puerta de enlace de aplicaciones filtra este tráfico y le impide llegar a los servidores web. Es posible configurar qué reglas desea que estén activadas. Se proporciona la capacidad de configurar las directivas de negociación de SSL para permitir que determinadas directivas se deshabiliten. Para más información sobre el servidor de aplicaciones web, consulte el artículo [Firewall de aplicaciones web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fnetworking%2ftoc.json).
 
 Si necesita una funcionalidad de red que no proporciona Azure, o va a usar aplicaciones de red que se utilizan en local, puede implementar los productos en máquinas virtuales y conectarlos a la red virtual. [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances) contiene varias máquinas virtuales diferentes configuradas previamente con aplicaciones de red que es posible que esté utilizando. Estas máquinas virtuales configuradas previamente se conocen normalmente como aplicaciones virtuales de red (NVA). Las aplicaciones virtuales de red están disponibles con aplicaciones como el firewall y la optimización de WAN.

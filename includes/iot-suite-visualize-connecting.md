@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: f6986df19482800ff676c0e05ad680e14dfeca1f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5eca35141544e8ea451dfc7471a83e3e1e980360
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 ## <a name="view-device-telemetry"></a>Ver la telemetría de dispositivo
 
@@ -57,4 +57,4 @@ Para invocar métodos en los dispositivos, use la página **Dispositivos** de la
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) se describen algunas maneras de personalizar el acelerador de soluciones.
+En el artículo [Personalización de la solución preconfigurada de supervisión remota](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) se describen algunas maneras de personalizar el acelerador de soluciones.

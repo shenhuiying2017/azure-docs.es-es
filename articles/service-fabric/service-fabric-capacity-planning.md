@@ -1,24 +1,24 @@
 ---
-title: "Planeación de la capacidad para las aplicaciones de Service Fabric | Microsoft Docs"
-description: "Se describe cómo identificar el número de nodos de proceso necesarios para una aplicación de Service Fabric"
+title: Planeación de la capacidad para las aplicaciones de Service Fabric | Microsoft Docs
+description: Se describe cómo identificar el número de nodos de proceso necesarios para una aplicación de Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: markfuss
-editor: 
+editor: ''
 ms.assetid: 9fa47be0-50a2-4a51-84a5-20992af94bea
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: dc5e81ff7e5466d258624cee80c520c848bd60fa
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planeación de la capacidad para las aplicaciones de Service Fabric
 En este documento se ofrece información sobre cómo estimar la cantidad de recursos (CPU, RAM o almacenamiento en disco) que necesita para ejecutar las aplicaciones de Azure Service Fabric. Es normal que las necesidades de recursos cambien con el paso del tiempo. Normalmente necesitará menos recursos mientras desarrolla o prueba su servicio y luego una cantidad mayor cuando pase a producción y su aplicación se vuelva cada vez más popular. Al diseñar la aplicación, piense en los requisitos a largo plazo y haga elecciones que permitan escalar el servicio para adaptarse a las elevadas exigencias de los clientes.

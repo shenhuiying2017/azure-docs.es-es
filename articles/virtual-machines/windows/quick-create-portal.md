@@ -1,6 +1,6 @@
 ---
-title: 'Inicio rápido de Azure: creación de máquinas virtuales Windows con el Portal | Microsoft Docs'
-description: 'Inicio rápido de Azure: creación de máquinas virtuales Windows con el Portal'
+title: 'Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal | Microsoft Docs'
+description: En esta guía de inicio rápido aprenderá a usar Azure Portal para crear una máquina virtual Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -10,21 +10,21 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/11/2017
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 42e17e2eb4ef64f8d0e80713041d22e6fe182538
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>Cree una máquina virtual Windows en Azure Portal.
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una máquina virtual Windows en Azure Portal
 
-Las máquinas virtuales de Azure pueden crearse a través de Azure Portal. Este método proporciona una interfaz de usuario basada en el explorador para crear y configurar máquinas virtuales y todos los recursos asociados. Esta guía de inicio rápido le lleva paso a paso por la creación de una máquina virtual y la instalación de un servidor web en ella.
+Las máquinas virtuales de Azure pueden crearse mediante Azure Portal. Este método proporciona una interfaz de usuario basada en explorador para crear máquinas virtuales y sus recursos asociados. En esta guía de inicio rápido se muestra cómo usar Azure Portal para implementar una máquina virtual (VM) de Azure que ejecuta Windows Server 2016. Para ver la máquina virtual en acción, conéctese a la máquina virtual mediante RDP e instale al servidor web IIS.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -34,75 +34,74 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
 
-1. Haga clic en **Crear un recurso** en la esquina superior izquierda de Azure Portal.
+1. Elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 
-2. Seleccione **Compute** y, después, seleccione **Windows Server 2016 Datacenter**. 
+2. En el cuadro de búsqueda encima de la lista de recursos de Azure Marketplace, busque y seleccione **Windows Server 2016 Datacenter** y, a continuación, elija **Crear**.
 
-3. Escriba la información de la máquina virtual. El nombre de usuario y la contraseña que especifique aquí se usarán para iniciar sesión en la máquina virtual. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm). Cuando haya terminado, haga clic en **Aceptar**.
+3. Proporcione un nombre de máquina virtual, como *myVM*, deje el tipo de disco como *SSD* y proporcione un nombre de usuario, como *azureuser*. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
+    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-4. Seleccione un tamaño para la máquina virtual. Para ver más tamaños, seleccione **Ver todo** o cambie el filtro **Supported disk type** (Tipo de disco admitido). 
+5. Elija **Crear nuevo** para el grupo de recursos y proporcione un nombre, como *myResourceGroup*. Elija su **ubicación** deseada y seleccione **Aceptar**.
 
-    ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
+4. Seleccione un tamaño para la máquina virtual. Puede filtrar por *Tipo de proceso* o *Tipo de disco*, por ejemplo. Se recomienda un tamaño de máquina virtual de *D2s_v3*.
 
-5. En **Configuración**, conserve los valores predeterminados y haga clic en **Aceptar**. 
+    ![Captura de pantalla que muestra los tamaños de máquina virtual](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-6. En la página Resumen, haga clic en **Aceptar** para iniciar la implementación de máquina virtual.
+5. En **Configuración**, deje los valores predeterminados y seleccione **Aceptar**.
 
-7. La máquina virtual se anclará al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
+6. En la página de resumen, seleccione **Crear** para iniciar la implementación de la máquina virtual.
 
+7. La máquina virtual se ancla al panel de Azure Portal. Una vez completada la implementación, se abrirá automáticamente el resumen de la máquina virtual.
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
-Cree una conexión a Escritorio remoto en la máquina virtual.
+Cree una conexión a Escritorio remoto en la máquina virtual. Estas instrucciones indican cómo conectarse a la máquina virtual desde un equipo Windows. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
 
-1. Haga clic en el botón **Conectar** en las propiedades de la máquina virtual. Se crea y se descarga un archivo de Protocolo de Escritorio remoto (archivo .rdp).
+1. Haga clic en el botón **Conectar** en la página de propiedades de la máquina virtual. 
 
-    ![Portal 9](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png) 
+    ![Conexión a una máquina virtual de Azure desde el portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    
+2. En la página **Connect to virtual machine** (Conexión a una máquina virtual), mantenga las opciones predeterminadas para conectarse por nombre DNS a través del puerto 3389 y haga clic en **Descargar archivo RDP**.
 
-2. Para conectarse a la máquina virtual, abra el archivo RDP descargado. Cuando se le solicite, haga clic en **Conectar**. En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
+2. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite. 
 
-3. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, haga clic en **Aceptar**.
+3. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con este formato *vmname*\*username*, especifique la contraseña que creó para la máquina virtual y luego haga clic en **Aceptar**.
 
 4. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Haga clic en **Sí** o **Conectar** para continuar con la conexión.
 
+## <a name="install-web-server"></a>Instalación del servidor web
 
-## <a name="install-iis-using-powershell"></a>Instalación de IIS mediante PowerShell
-
-En la máquina virtual, inicie una sesión de PowerShell y ejecute el siguiente comando para instalar IIS.
+Para ver la máquina virtual en acción, instale al servidor web IIS. Abra un símbolo del sistema de PowerShell en la máquina virtual y ejecute el siguiente comando:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Cuando haya finalizado, salga de la sesión de RDP y vuelva a las propiedades de la máquina virtual de Azure Portal.
+Cuando haya terminado, cierre la conexión RDP con la máquina virtual.
 
-## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web 
+## <a name="open-port-80-for-web-traffic"></a>Apertura del puerto 80 para el tráfico web
 
 Los grupos de seguridad de red (NSG) protegen el tráfico entrante y saliente. Cuando se crea una máquina virtual desde Azure Portal, se crea una regla de entrada en el puerto 3389 para las conexiones RDP. Dado que esta máquina virtual hospeda un servidor web, es preciso crear una regla de NSG para el puerto 80.
 
-1. En la máquina virtual, haga clic en el nombre del **grupo de recursos**.
-2. Seleccione el **grupo de seguridad de red**. Los NSG pueden identificarse mediante la columna **Tipo**. 
-3. En el menú de la izquierda, en Configuración, haga clic en **Reglas de seguridad de entrada**.
-4. Haga clic en **Agregar**.
-5. En **Nombre**, escriba **http**. Asegúrese de que **Intervalo de puertos** esté establecido en 80 y **Acción** esté establecido en **Permitir**. 
-6. Haga clic en **OK**.
-
+1. En la página de información general de la máquina virtual, seleccione **Redes**.
+2. Se muestra la lista de reglas entrantes y salientes existentes. Elija **Agregar regla de puerto de entrada**.
+3. Seleccione la opción **Básica** en la parte superior, y luego elija *HTTP* en la lista de servicios disponibles. Se proporcionan automáticamente el puerto 80, una prioridad y el nombre.
+4. Para crear la regla, seleccione **Agregar**
 
 ## <a name="view-the-iis-welcome-page"></a>Página principal de IIS
 
-Con IIS instalado y el puerto 80 abierto para la máquina virtual, se puede acceder ahora al servidor web desde Internet. Abra un explorador web y escriba la dirección IP pública de la máquina virtual. La dirección IP pública puede encontrarse en *Máquinas virtuales* en Azure Portal.
+Con IIS instalado y el puerto 80 abierto en la máquina virtual desde Internet, use el explorador web que prefiera para ver la página principal predeterminada de IIS. Use la dirección IP pública de la máquina virtual que obtuvo en el paso anterior. En el ejemplo siguiente se muestra el sitio web IIS predeterminado:
 
-![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png) 
+![Sitio predeterminado de IIS](./media/quick-create-powershell/default-iis-website.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual y haga clic en **Eliminar**.
+Cuando ya no los necesite, puede eliminar el grupo de recursos, la máquina virtual y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la máquina virtual, seleccione **Eliminar** y luego confirme el nombre del grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha implementado una máquina virtual simple y una regla de grupo de seguridad de red, y ha instalado un servidor web. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
+En esta guía de inicio rápido, implementará una máquina virtual sencilla, abrirá un puerto de red para el tráfico web e instalará un servidor web básico. Para más información acerca de las máquinas virtuales de Azure, continúe con el tutorial de máquinas virtuales Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriales de máquinas virtuales Windows de Azure](./tutorial-manage-vm.md)
