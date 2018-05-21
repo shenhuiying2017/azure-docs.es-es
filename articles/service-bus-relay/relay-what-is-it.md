@@ -1,34 +1,36 @@
 ---
-title: "¿Qué es Azure Relay y por qué se usa? | Microsoft Docs"
-description: "Información general sobre Relay de Azure"
+title: ¿Qué es Azure Relay y por qué se usa? | Microsoft Docs
+description: Información general sobre Relay de Azure
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 2b179f8f5de9a0020ea6457c11bb6f48f3a51320
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="what-is-azure-relay"></a>¿Qué es Relay de Azure?
 
 El servicio Relay de Azure facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa. Relay admite diversos protocolos de transporte y estándares de servicios web.
 
-El servicio de retransmisión admite mensajería unidireccional tradicional, de solicitud/respuesta y de punto a punto. También admite la distribución de eventos en el ámbito de internet para habilitar escenarios de publicación/suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. 
+El servicio de retransmisión admite mensajería unidireccional tradicional, de solicitud/respuesta y de punto a punto. También admite la distribución de eventos en el ámbito de internet para habilitar escenarios de publicación/suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto.
 
 En el patrón de transferencia de datos, un servicio local se conecta al servicio de relé mediante un puerto de salida y crea un socket bidireccional para la comunicación enlazada a una dirección de encuentro concreta. Después el cliente puede comunicarse con el servicio local enviando tráfico al servicio de retransmisión destinados a la dirección de encuentro. El servicio de retransmisión "retransmite" entonces los datos al servicio local a través de un socket bidireccional dedicado a cada cliente. El cliente no necesita una conexión directa al servicio local, no es necesario saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
 
-Los elementos de las funcionalidades claves que proporciona Relay son mensajes bidireccionales y no almacenados en búfer en los límites de red con limitación de tipo TCP, detección de puntos de conexión, estado de conectividad y seguridad de puntos de conexión superpuesta. Las funcionalidades de Relay se diferencian de las tecnologías de integración en el nivel de red, como VPN, en que pueden alcanzar un punto de conexión de aplicaciones de un solo equipo, mientras que la tecnología VPN es mucho más intrusiva, ya que se basa en modificar el entorno de red.
+Los elementos de las funcionalidades claves que proporciona Relay son mensajes bidireccionales y no almacenados en búfer en los límites de red con limitación de tipo TCP, detección de puntos de conexión, estado de conectividad y seguridad de puntos de conexión superpuesta.
+
+Las funcionalidades de Relay se diferencian de las tecnologías de integración en el nivel de red, como VPN, en que pueden alcanzar un punto de conexión de aplicaciones de un solo equipo, mientras que la tecnología VPN es mucho más intrusiva, ya que se basa en modificar el entorno de red.
 
 Relay de Azure tiene dos características:
 
@@ -48,7 +50,9 @@ Conexiones híbridas y Retransmisiones de WCF habilitan una conexión segura a l
 
 ## <a name="hybrid-connections"></a>conexiones híbridas
 
-La funcionalidad [Conexiones híbridas de Azure Relay](relay-hybrid-connections-protocol.md) es una evolución segura y de protocolo abierto de las características de retransmisión existentes que se pueden implementar en cualquier plataforma y en cualquier lenguaje que tenga una funcionalidad de WebSocket básica, que incluya explícitamente la API de WebSocket en los exploradores web habituales. Conexiones híbridas se basa en HTTP y WebSockets.
+La funcionalidad Conexiones híbridas de Azure Relay es una evolución segura y de protocolo abierto de las características de Relay existentes que se pueden implementar en cualquier plataforma y en cualquier lenguaje. Las conexiones híbridas pueden retransmitir WebSockets, así como las solicitudes y respuestas HTTP(S). Estas funcionalidades son compatibles con la API de WebSocket en los exploradores web más habituales. Conexiones híbridas se basa en HTTP y WebSockets.
+
+El protocolo está completamente documentado en la guía [Protocolo de conexiones híbridas](relay-hybrid-connections-protocol.md), que permite usar de Conexiones híbridas de Relay con prácticamente cualquier biblioteca de Websockets para cualquier runtime y cualquier lenguaje.
 
 ### <a name="service-history"></a>Historial de servicios
 
@@ -70,6 +74,8 @@ Cuando se establece la conexión de retransmisión, los clientes pueden intercam
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Creación de un espacio de nombres](relay-create-namespace-portal.md)
-* [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [Introducción a Node](relay-hybrid-connections-node-get-started.md)
+* [Introducción a los Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
+* [Introducción a las solicitudes HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
+* [Introducción a los Websockets de Node](relay-hybrid-connections-node-get-started.md)
+* [Introducción a las solicitudes HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
 

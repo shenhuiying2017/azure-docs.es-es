@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 38550d42e9b567f9f9b02657b5a67b9d012ebd62
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8dc12d41d3369bd95c2953607b8efce94f39d46
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,7 +97,7 @@ Aquí encontrará cómo se define una canalización en formato JSON:
 }
 ```
 
-Etiqueta | DESCRIPCIÓN | type | Obligatorio
+Etiqueta | DESCRIPCIÓN | Escriba | Obligatorio
 --- | ----------- | ---- | --------
 Nombre | Nombre de la canalización. Especifique un nombre que represente la acción que realizará la canalización. <br/><ul><li>Número máximo de caracteres: 260</li><li>Debe empezar en una letra, un número o un carácter de subrayado (_)</li><li>•   No se permiten los caracteres siguientes: “.”, “+”, “?”, “/”, “<”, “>”, “*”, “%”, “&”, “:”, “\”</li></ul> | string | Sí
 Descripción | Especifique el texto que describe para qué se usa la canalización. | string | Sin 

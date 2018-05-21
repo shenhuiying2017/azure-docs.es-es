@@ -2,35 +2,29 @@
 title: SSPR de Azure AD desde la pantalla de inicio de sesión de Windows 10 | Microsoft Docs
 description: Configuración del restablecimiento de contraseña de Azure AD de la pantalla de inicio de sesión de Windows 10 y olvido del PIN
 services: active-directory
-keywords: ''
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: ''
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: a85cb6aea1027d657d38007a397321de10e16d07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
 Ya ha implementado el restablecimiento de contraseña de autoservicio de Azure AD (SSPR), pero los usuarios siguen llamando al departamento de soporte técnico cuando olvidan la contraseña. Llaman porque no llegan a un explorador web para acceder a SSPR.
 
-Con la nueva actualización Windows 10 Fall Creators Update, los usuarios con dispositivos unidos a Azure AD verán un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
+Con la nueva actualización de Windows 10 de abril de 2018, los usuarios con dispositivos **unidos a Azure AD** o **unidos a Azure AD híbrido** pueden ver un vínculo "Restablecer contraseña" en la pantalla de inicio de sesión. Al hacer clic en este vínculo, se incorporan a la misma experiencia de autoservicio de restablecimiento de contraseña (SSPR) con la que están familiarizados.
 
 Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pantalla de inicio de sesión de Windows 10, deben cumplirse los siguientes requisitos:
 
-* Windows 10, versión 1709 o un cliente posterior que se ha [unido a Azure AD](../device-management-azure-portal.md).
+* Actualización de Windows 10 de abril de 2018 o cliente más reciente que está [unido a Azure AD](../device-management-azure-portal.md) o [unido a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md).
 * El autoservicio de restablecimiento de contraseña de Azure AD debe estar habilitado.
 * Configure e implemente los valores para habilitar el vínculo de restablecimiento de contraseña a través de uno de los métodos siguientes:
    * [Perfil de configuración de dispositivo de Intune](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
@@ -66,7 +60,7 @@ Para permitir a los usuarios restablecer su contraseña de Azure AD desde la pan
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Azure Active Directory**.
 2. Vaya a **Usuarios y grupos** > **Todos los grupos** > **Nuevo grupo**
-3. Proporcione un nombre para el grupo y, en **Tipo de pertenencia** elija **Asignado** 
+3. Proporcione un nombre para el grupo y, en **Tipo de pertenencia** elija **Asignado**
    * En **Miembros**, elija los dispositivos con Windows 10 unidos a Azure AD a los que desea aplicar la directiva.
    * Haga clic en **Seleccionar**
 4. Haga clic en **Crear**
@@ -117,6 +111,7 @@ Al probar esta funcionalidad con Escritorio remoto, el vínculo "Restablecer con
 * El restablecimiento de contraseña no se admite actualmente desde Escritorio remoto.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Los vínculos siguientes proporcionan información adicional sobre el restablecimiento de contraseñas con Azure AD:
 
 * [¿Cómo se implementa SSPR?](howto-sspr-deployment.md)

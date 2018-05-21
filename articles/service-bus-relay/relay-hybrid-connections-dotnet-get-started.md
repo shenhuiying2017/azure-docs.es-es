@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las conexiones híbridas de Azure Relay en .NET | Microsoft Docs"
-description: "Escriba una aplicación de consola en C# para Conexiones híbridas de Azure Relay."
+title: Introducción a los Websockets de Conexiones híbridas de Azure Relay en .NET | Microsoft Docs
+description: Escriba una aplicación de consola en C# para Websockets de Conexiones híbridas de Azure Relay.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 3667d7f4a74ac7c43f8f443aed2beacafd909dbd
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5b900f70721f8642e27daf242295fbda77d7df6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Introducción a Conexiones híbridas de Relay
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introducción a los Websockets de Conexiones híbridas de Relay en .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 Este tutorial proporciona una introducción a [Conexiones híbridas de Azure Relay](relay-what-is-it.md#hybrid-connections). Obtenga información acerca de cómo usar Microsoft .NET para crear una aplicación cliente que envíe mensajes a una aplicación de escucha correspondiente. 

@@ -1,22 +1,22 @@
 ---
-title: "Servicio Azure Batch Rendering: representación a escala de nube | Microsoft Docs"
-description: "Represente trabajos en máquinas virtuales de Azure directamente desde Maya y según la modalidad de pago por uso."
+title: 'Servicio Azure Batch Rendering: representación a escala de nube | Microsoft Docs'
+description: Represente trabajos en máquinas virtuales de Azure directamente desde Maya y según la modalidad de pago por uso.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: hero-article
-ms.date: 09/14/2017
+ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: f1aa8de26afd8b54746c706047a6b6b21cbf311c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introducción al servicio Batch Rendering
 
-El servicio Azure Batch Rendering ofrece funcionalidades de representación para la nube según una modalidad de pago por uso. Este servicio controla la programación y la puesta en cola de los trabajos, la administración de errores y reintentos, y el escalado automático de los trabajos de representación. Admite [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) y [V-Ray](https://www.chaosgroup.com/vray/maya). El complemento de Batch para Maya 2017 facilita el inicio de un trabajo de representación en Azure justo desde el escritorio.
+El servicio Azure Batch Rendering ofrece funcionalidades de representación para la nube según una modalidad de pago por uso. Este servicio controla la programación y la puesta en cola de los trabajos, la administración de errores y reintentos, y el escalado automático de los trabajos de representación. Admite aplicaciones de representación entre las que se incluyen [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview) y [V-Ray](https://www.chaosgroup.com/vray/maya). El complemento de Batch para Maya 2017 facilita el inicio de un trabajo de representación en Azure justo desde el escritorio.
 
 Con Maya y 3ds Max se pueden ejecutar trabajos mediante la aplicación de escritorio [BatchLabs](https://github.com/Azure/BatchLabs) o las [plantillas de la CLI de Batch](batch-cli-templates.md). Con la CLI de Azure Batch puede ejecutar trabajos de Batch sin escribir código. En su lugar, puede usar archivos de plantilla para crear grupos, trabajos y tareas de Batch. Para más información, consulte [Uso de plantillas y transferencia de archivos de la CLI de Azure Batch](batch-cli-templates.md).
 
@@ -25,16 +25,35 @@ Con Maya y 3ds Max se pueden ejecutar trabajos mediante la aplicación de escrit
 
 El servicio Batch Rendering admite actualmente las siguientes aplicaciones:
 
-•   Autodesk Maya I/O 2017 Actualización 4 (versión 17.4.5459) •   Autodesk 3ds Max I/O 2018 Actualización 1 (versión 20.1.0.238) •   Autodesk Arnold para Maya (versión 5.0.1.1) •   Autodesk Arnold para 3ds Max (versión 1.0.836) •   Chaos Group V-Ray para Maya (versión 3.52.03) •   Chaos Group V-Ray para 3ds Max (versión 3.60.02)
+En nodos de representación de CentOS 7:
+- Autodesk Maya I/O 2017 Actualización 5 (versión 201708032230)
+- Autodesk Maya I/O 2018 Actualización 2 (versión 201711281015)
+- Autodesk Arnold para Maya 2017 (Arnold versión 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold para Maya 2018 (Arnold versión 5.0.1.4) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray para Maya 2017 (versión 3.60.04) 
+- Chaos Group V-Ray para Maya 2018 (versión 3.60.04) 
+- Blender (2.68)
+
+En nodos de representación de Windows Server 2016:
+- Autodesk Maya I/O 2017 Actualización 5 (versión 17.4.5459) 
+- Autodesk Maya I/O 2018 Actualización 2 (versión 18.2.0.6476) 
+- Autodesk 3ds Max I/O 2018 Actualización 4 (versión 20.4.0.4254) 
+- Autodesk Arnold para Maya (Arnold versión 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold para Maya (Arnold versión 5.0.1.4) MtoA-2.0.2.3-2018
+- Autodesk Arnold para 3ds Max (Arnold versión 5.0.2.4 )(versión 1.2.926) 
+- Chaos Group V-Ray para Maya (versión 3.52.03) 
+- Chaos Group V-Ray para 3ds Max (versión 3.60.02)
+- Blender (2.79)
 
 
 ## <a name="prerequisites"></a>requisitos previos
 
 Para usar el servicio Batch Rendering, necesita:
 
-- Una [cuenta de Azure](https://azure.microsoft.com/free/).
-- **Una cuenta de Azure Batch** Para obtener instrucciones sobre cómo crear una cuenta de Batch en Azure Portal, consulte [Creación de una cuenta de Batch con Azure Portal](batch-account-create-portal.md).
-- **Una cuenta de Azure Storage.** Los recursos usados para el trabajo de representación se almacenan en Azure Storage. Puede crear una cuenta de almacenamiento automáticamente al configurar su cuenta de Batch. También puede usar una cuenta de almacenamiento existente. Para aprender más sobre las cuentas de Storage, consulte [Creación, administración o eliminación de una cuenta de almacenamiento en Azure Portal](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+- [Cuenta de Azure](https://azure.microsoft.com/free/).
+- **Cuenta de Azure Batch**. Para obtener instrucciones sobre cómo crear una cuenta de Batch en Azure Portal, consulte [Creación de una cuenta de Batch con Azure Portal](batch-account-create-portal.md).
+- **Cuenta de Azure Storage**. Los recursos usados para el trabajo de representación se suelen almacenar en Azure Storage. Puede crear una cuenta de almacenamiento automáticamente al configurar su cuenta de Batch. También puede usar una cuenta de almacenamiento existente. Para conocer las opciones de cuenta de almacenamiento de Batch, consulte la [introducción a la característica de Batch](batch-api-basics.md#azure-storage-account).
+- **Variables de entorno**. Si la solución modifica las variables de entorno, asegúrese de que los valores de `AZ_BATCH_ACCOUNT_URL` y `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` se mantienen intactos y están presentes cuando se llama a cualquiera de las aplicaciones con licencia anteriores. En caso contrario, es probable que tenga problemas de activación de software.
 - **BatchLabs** (opcional). [BatchLabs](https://azure.github.io/BatchLabs) es una herramienta de cliente independiente, completa y gratuita que puede ayudarle a crear, depurar y supervisar aplicaciones de Azure Batch. Aunque no es necesario utilizar el servicio Rendering, es una opción útil para desarrollar y depurar las soluciones de Batch.
 
 Para usar el complemento de Batch para Maya, necesita:
@@ -72,18 +91,11 @@ En Azure Portal y BatchLabs puede instalar una de las imágenes de máquina virt
 
 ![Selección del tipo de imagen para la cuenta de Batch](./media/batch-rendering-service/add-pool.png)
 
-Desplácese hacia abajo y haga clic en **Licencias de gráficos y representación** para abrir la hoja **elegir licencias** y seleccione una licencia de software o varias:
+Desplácese hacia abajo y, en **Licencias de gráficos y representación**, haga clic en **Seleccione el software y el precio**. Elija una o varias licencias de software:
 
 ![Selección de la licencia de gráficos y representación para el grupo](./media/batch-rendering-service/graphics-licensing.png)
 
-Las versiones de licencia específicas que se proporcionan son las siguientes:
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold for Maya 5.0.1.1
-- Arnold for 3ds Max 1.0.836
-- V-Ray for Maya 3.52.03
-- V-Ray for 3ds Max 3.60.01
+Las versiones de licencia específicas proporcionadas coinciden con las versiones de la sección "Aplicaciones admitidas" anterior.
 
 ### <a name="custom-images"></a>Imágenes personalizadas
 
@@ -175,12 +187,12 @@ Puede especificar el tipo de imagen del SO que se usará para aprovisionar los n
 
 |Sistema operativo  |Imagen  |
 |---------|---------|
-|Linux     |Versión preliminar de CentOS para Batch |
-|Windows     |Versión preliminar de Windows para Batch |
+|Linux     |CentOS para Batch |
+|Windows     |Windows para Batch |
 
 #### <a name="choose-a-vm-size"></a>Selección del tamaño de la máquina virtual
 
-Puede especificar el tamaño de la máquina virtual en la pestaña **Env** (Ent). Para más información sobre los tamaños de máquina virtual disponibles, consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) y [Tamaños de las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes). 
+Puede especificar el tamaño de la máquina virtual en la pestaña **Env** (Ent). Para más información sobre los tamaños de máquina virtual disponibles, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/linux/sizes.md) y [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md). 
 
 ![Especificación de la imagen del SO y el tamaño de máquina virtual en la pestaña Env (Ent)](./media/batch-rendering-service/environment.png)
 
