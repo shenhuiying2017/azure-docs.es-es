@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/07/2018
+ms.date: 05/04/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión del servicio de redes virtuales
 
@@ -27,14 +27,12 @@ Los puntos de conexión del servicio Virtual Network (red virtual) extienden el 
 
 Esta característica está disponible en los siguientes servicios y regiones de Azure:
 
-- **Azure Storage**: disponible con carácter general. Todas las regiones de la nube pública de Azure y Azure Government.
-- **Azure SQL Database**: disponible con carácter general en todas las regiones de Azure. 
-- **Azure SQL Data Warehouse**: versión preliminar. Todas las regiones de la nube pública de Azure.
+- **Azure Storage**: disponible con carácter general en todas las regiones de Azure
+- **Azure SQL Database**: disponible con carácter general en todas las regiones de Azure
+- **Azure Cosmos DB**: disponible con carácter general en todas las regiones de nube pública de Azure 
+- **Azure SQL Data Warehouse**: versión preliminar en todas las regiones de nube pública de Azure
 
-Para las notificaciones más actualizadas sobre la versión preliminar, revise la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
-
->[!NOTE]
-> Durante la versión preliminar, la característica podría no tener el mismo nivel de disponibilidad y confiabilidad que las características que se encuentran en las versiones de disponibilidad general. Para obtener más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Para conocer las notificaciones más actualizadas sobre, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="key-benefits"></a>Ventajas principales
 
@@ -50,7 +48,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Esta característica solo está disponible en las redes virtuales implementadas con el modelo de implementación de Azure Resource Manager.
 - Los puntos de conexión están habilitados en subredes configuradas en redes virtuales de Azure. No se pueden usar los puntos de conexión para el tráfico desde las instalaciones a los servicios de Azure. Para más información, consulte [Protección del acceso del servicio de Azure desde el entorno local](#securing-azure-services-to-virtual-networks)
-- Un punto de conexión de servicio se aplica solo al tráfico de servicio de Azure dentro de la región de la red virtual. Para admitir tráfico RA-GRS y GRS para Azure Storage, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- Para Azure SQL, un punto de conexión de servicio se aplica solo al tráfico de servicio de Azure dentro de la región de una red virtual. En el caso de Azure Storage, para admitir tráfico RA-GRS y GRS, los puntos de conexión también se extienden para incluir regiones emparejadas donde está implementada la red virtual. Obtenga más información acerca de las [regiones emparejadas de Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>Protección de servicios de Azure para las redes virtuales
 
@@ -68,7 +66,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 
 - Los puntos de conexión de servicio se configuran en una subred de una red virtual. Los puntos de conexión funcionan con cualquier tipo de instancias de proceso que se ejecute en esa subred.
 - Puede configurar varios puntos de conexión de servicio para todos los servicios de Azure admitidos (por ejemplo, Azure Storage o Azure SQL Database) en una subred.
-- Las redes virtuales deben estar en la misma región que el recurso de servicio de Azure. Si se usan cuentas de Azure Storage para GRS y RA-GRS, la cuenta principal debe encontrarse en la misma región que la red virtual.
+- Para Azure SQL, las redes virtuales deben estar en la misma región que el recurso de servicio de Azure. Si se usan cuentas de Azure Storage para GRS y RA-GRS, la cuenta principal debe encontrarse en la misma región que la red virtual. Para todos los demás servicios, los recursos de servicio de Azure se pueden proteger para las redes virtuales de cualquier región. 
 - La red virtual donde se ha configurado el punto de conexión puede estar en la misma suscripción o en otra distinta del recurso de servicio de Azure. Para más información sobre los permisos necesarios para configurar los puntos de conexión y proteger los servicios de Azure, consulte [Aprovisionamiento](#Provisioning).
 - Para los servicios compatibles, puede proteger los nuevos recursos o los recursos existentes a las redes virtuales con puntos de conexión de servicio.
 
@@ -87,6 +85,7 @@ Los puntos de conexión de servicio proporcionan las siguientes ventajas:
 - **Emparejado, conectado o varias redes virtuales**: para proteger los servicios de Azure a varias subredes dentro de una red virtual o entre varias redes virtuales, puede habilitar los puntos de conexión de servicio en cada una de las subredes de manera independiente y proteger los recursos del servicio de Azure a todas las subredes.
 - **Filtrado de tráfico saliente desde una red virtual a los servicios de Azure**: si desea inspeccionar o filtrar el tráfico destinado a un servicio de Azure desde una red virtual, puede implementar una aplicación virtual de red dentro de la red virtual. Después, puede aplicar los puntos de conexión de servicio a la subred donde se implementa la aplicación virtual de red y se protegen los recursos de servicio de Azure solo para esta subred. Este escenario puede resultar útil si desea restringir el acceso de servicio de Azure desde la red virtual solo a recursos específicos de Azure, mediante el filtrado de la aplicación virtual de red. Para más información, consulte el artículo sobre la [salida con las aplicaciones de redes virtuales](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Protección de los recursos de Azure para servicios implementados directamente en redes virtuales**: se pueden implementar directamente varios servicios de Azure en subredes específicas en sus redes virtuales. Puede proteger los recursos de servicio de Azure para subredes de [servicio administrado](virtual-network-for-azure-services.md) mediante la configuración de un punto de conexión de servicio en la subred de servicio administrada.
+- **Tráfico de disco procedente de una máquina virtual de Azure**: el tráfico de disco de máquina virtual (lo que incluye, montaje, desmontaje y E/S de disco), en discos administrados y no administrados, no resulta afectado por los puntos de conexión de servicio que enrutan los cambios en Azure Storage. Puede limitar el acceso de REST a los blobs en páginas para determinadas redes, mediante puntos de conexión de servicio y [reglas de red de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ### <a name="logging-and-troubleshooting"></a>Registro y solución de problemas
 
@@ -105,13 +104,13 @@ Después de configurar los puntos de conexión de servicio para un servicio espe
 
 Los puntos de conexión de servicio pueden configurarse en redes virtuales de forma independiente por un usuario con acceso de escritura a una red virtual. Para proteger los recursos de servicio de Azure a una red virtual, el usuario debe tener permiso *Microsoft.Network/JoinServicetoaSubnet* para las subredes que se van a agregar. De forma predeterminada, este permiso se incluye en los roles de administrador de servicios integrado y puede modificarse mediante la creación de roles personalizados.
 
-Obtenga más información sobre los [roles integrados](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la asignación de permisos específicos a [roles personalizados](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Obtenga más información sobre los [roles integrados](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y la asignación de permisos específicos a [roles personalizados](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si los recursos de servicio de Azure y de red virtual están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD). 
 
 ## <a name="pricing-and-limits"></a>Precios y límites
 
-No hay ningún cargo adicional para el uso de puntos de conexión de servicio. El modelo de precios vigente para los servicios de Azure (Azure Storage, Azure SQL Database) se aplica tal cual.
+No hay ningún cargo adicional para el uso de puntos de conexión de servicio. El modelo de precios vigente para los servicios de Azure (Azure Storage, Azure SQL Database, etc.) se aplica tal cual.
 
 No hay límite en el número total de puntos de conexión de servicio en una red virtual.
 
@@ -123,5 +122,5 @@ Para un recurso de servicio de Azure (por ejemplo, una cuenta de Azure Storage),
 - Obtenga información sobre cómo [proteger una cuenta de Azure Storage para una red virtual](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre cómo [proteger una instancia de Azure SQL Database para una red virtual](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Obtenga información sobre la [integración del servicio de Azure en redes virtuales](virtual-network-for-azure-services.md)
--  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
+-  Guía de inicio rápido: [plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) para establecer el punto de conexión de servicio en una subred de la red virtual y una cuenta segura de Azure Storage para esa subred.
 

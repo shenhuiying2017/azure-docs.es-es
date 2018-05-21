@@ -1,24 +1,24 @@
 ---
-title: "Cambio de la configuración de KVSActorStateProvider en microservicios de Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric de tipo KVSActorStateProvider."
+title: Cambio de la configuración de KVSActorStateProvider en microservicios de Azure | Microsoft Docs
+description: Obtenga información sobre cómo configurar los actores con estado de Azure Service Fabric de tipo KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuración de Reliable Actors: KVSActorStateProvider
 Puede modificar la configuración predeterminada de KVSActorStateProvider cambiando el archivo settings.xml que se genera en la raíz del paquete de Microsoft Visual Studio en la carpeta Config del actor especificado.
@@ -37,7 +37,7 @@ De forma predeterminada, una sección de configuración de seguridad vacía impi
 ### <a name="section-name"></a>Nombre de sección
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>Configuración de replicador
+## <a name="replicator-configuration"></a>Configuración del replicador
 Las configuraciones de replicador configuran el replicador que es responsable de hacer que el proveedor de estado del actor resulte altamente confiable.
 La configuración predeterminada es generada por la plantilla de Visual Studio y debe ser suficiente. En esta sección se habla sobre las configuraciones adicionales que están disponibles para optimizar el replicador.
 
@@ -45,7 +45,7 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nombres de configuración
-| Nombre | Unidad | Valor predeterminado | Comentarios |
+| NOMBRE | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tiempo durante el que el replicador del secundario espera después de recibir una operación antes de enviar una confirmación al principal. El resto de confirmaciones que se enviarán para las operaciones que se procesan dentro de este intervalo se envían como una respuesta. |
 | ReplicatorEndpoint |N/D |Ningún valor predeterminado: parámetro obligatorio |Dirección IP y puerto que usará el replicador principal y secundario para comunicarse con otros replicadores del conjunto de réplicas. Esto debe hacer referencia a un punto de conexión de recursos de TCP en el manifiesto de servicio. Consulte [Service Manifest Resources](service-fabric-service-manifest-resources.md) (Recursos del manifiesto de servicio) para obtener más información sobre cómo definir recursos de punto de conexión en el manifiesto de servicio. |
@@ -62,7 +62,7 @@ La configuración predeterminada es generada por la plantilla de Visual Studio y
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nombres de configuración
-| Nombre | Unidad | Valor predeterminado | Comentarios |
+| NOMBRE | Unidad | Valor predeterminado | Comentarios |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milisegundos |200 |Establece el intervalo máximo de procesamiento por lotes de las confirmaciones del almacén local duradero. |
 | MaxVerPages |Número de páginas |16384 |El número máximo de páginas de versión en la base de datos del almacén local. Determina el número máximo de transacciones pendientes. |
