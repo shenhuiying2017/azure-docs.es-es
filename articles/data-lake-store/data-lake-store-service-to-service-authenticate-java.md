@@ -1,23 +1,21 @@
 ---
-title: "Autenticación entre servicios: Java con Data Lake Store mediante Azure Active Directory | Microsoft Docs"
-description: "Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory con Java"
+title: 'Autenticación entre servicios: Java con Data Lake Store mediante Azure Active Directory | Microsoft Docs'
+description: Aprenda a realizar la autenticación entre servicios con Data Lake Store mediante Azure Active Directory con Java
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: e537d8a6ea53bf4366168727de8ef95b96281d5b
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5dccdf7cc7598381bae0de2eb24f3761cbef7612
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Autenticación entre servicios con Data Lake Store mediante Java
 > [!div class="op_single_selector"]
@@ -30,7 +28,7 @@ ms.lasthandoff: 01/10/2018
 
 En este artículo, aprenderá a usar el SDK de Java para realizar la autenticación entre servicios con Azure Data Lake Store. No se admite la autenticación de usuario final con Data Lake Store mediante el SDK de Java.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Cree una aplicación "web" de Azure Active Directory**. Debe haber completado los pasos descritos en [Service-to-service authentication with Data Lake Store using Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticación entre servicios con Data Lake Store mediante Azure Active Directory).

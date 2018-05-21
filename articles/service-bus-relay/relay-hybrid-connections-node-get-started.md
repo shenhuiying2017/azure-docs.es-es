@@ -1,30 +1,30 @@
 ---
-title: "Introducción a las conexiones híbridas de Azure Relay en un nodo | Microsoft Docs"
-description: "Escriba una aplicación de consola en Node.js para Conexiones híbridas de Azure Relay."
+title: Introducción a los Websockets de Conexiones híbridas de Azure Relay en Node | Microsoft Docs
+description: Escritura de una aplicación de consola en Node.js para Websockets de Conexiones híbridas de Azure Relay
 services: service-bus-relay
 documentationcenter: node
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
 ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
-ms.date: 12/20/2017
+ms.date: 05/02/2018
 ms.author: sethm
-ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 1e0b76b96029e1a7ed84f1c8cd895090e8acbc6f
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 05/08/2018
 ---
-# <a name="get-started-with-relay-hybrid-connections"></a>Introducción a Conexiones híbridas de Relay
+# <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Introducción a los Websockets de Conexiones híbridas de Relay en Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Este tutorial proporciona una introducción a [Conexiones híbridas de Azure Relay](relay-what-is-it.md#hybrid-connections) y muestra la forma cómo usar Node.js para crear una aplicación de escucha correspondiente envía mensajes a una aplicación de escucha correspondiente. 
+Este tutorial proporciona una introducción a la característica Websockets de [Conexiones híbridas de Azure Relay](relay-what-is-it.md#hybrid-connections) y muestra cómo usar Node.js para crear una aplicación cliente que envíe mensajes de Websockets a una aplicación de escucha correspondiente.
 
 ## <a name="what-will-be-accomplished"></a>Lo que se logrará
 
