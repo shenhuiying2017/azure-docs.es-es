@@ -1,38 +1,40 @@
 ---
-title: "Implementación de una máquina virtual con un certificado almacenado de forma segura en Azure Stack | Microsoft Docs"
-description: "Aprenda a implementar una máquina virtual e inserte en ella un certificado utilizando un almacén de claves en Azure Stack"
+title: Implementación de una máquina virtual con un certificado almacenado de forma segura en Azure Stack | Microsoft Docs
+description: Aprenda a implementar una máquina virtual e inserte en ella un certificado utilizando un almacén de claves en Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/03/2017
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: e319f5c6d27d3a223764b0a5593480f02864ddbe
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Creación de una máquina virtual e inclusión de un certificado recuperado de un almacén de claves
+# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Creación de una máquina virtual e instalación de un certificado recuperado de un almacén de claves de Azure Stack
 
-En este artículo le ayuda a crear una máquina virtual en Azure Stack y a insertar certificados en ella. 
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-## <a name="prerequisites"></a>Requisitos previos
+Aprenda a crear una máquina virtual (VM) de Azure Stack con un certificado de almacén de claves instalado.
 
-* Debe suscribirse a una oferta que incluya el servicio Key Vault. 
-* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)  
-* [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md)
+## <a name="overview"></a>Información general
 
-Un almacén de claves en Azure Stack se utiliza para almacenar certificados. Los certificados son útiles en varios escenarios diferentes. Por ejemplo, considere un escenario en el que haya una máquina virtual en Azure Stack que está ejecutando una aplicación que necesita un certificado. Este certificado se puede utilizar para cifrar, para la autenticación en Active Directory, o para SSL en un sitio web. Tener el certificado guardado en un almacén de claves, le ayuda a cerciorarse de que está seguro.
+Los certificados se usan en muchos escenarios, como la autenticación en Active Directory o el cifrado del tráfico web. Puede almacenar certificados como secretos de forma segura en un almacén de claves de Azure Stack. Las ventajas de usar Key Vault de Azure Stack son:
 
-En este artículo, se le guiará por los pasos necesarios para insertar un certificado en una máquina virtual Windows en Azure Stack. Puede seguir los pasos descritos aquí ya sea desde el kit de desarrollo de Azure Stack o desde un cliente externo basado en Windows, si se conecta a través de VPN.
+* Los certificados no se exponen en un script, un historial de línea de comandos o una plantilla.
+* El proceso de administración de certificados es más sencillo.
+* Tiene el control de las claves de acceso a los certificados.
+
+### <a name="process-description"></a>Descripción del proceso
 
 Los pasos siguientes describen el proceso necesario para insertar un certificado en la máquina virtual:
 
@@ -40,9 +42,21 @@ Los pasos siguientes describen el proceso necesario para insertar un certificado
 2. Actualice el archivo azuredeploy.parameters.json.
 3. Implementación de la plantilla
 
+>[!NOTE]
+>Puede seguir estos pasos desde el Kit de desarrollo de Azure Stack o desde un cliente externo, si se conecta a través de VPN.
+
+## <a name="prerequisites"></a>requisitos previos
+
+* Debe suscribirse a una oferta que incluya el servicio Key Vault.
+* [Instale PowerShell para Azure Stack.](azure-stack-powershell-install.md)
+* [Configuración del entorno de PowerShell del usuario de Azure Stack](azure-stack-powershell-configure-user.md)
+
 ## <a name="create-a-key-vault-secret"></a>Creación de un secreto de almacén de claves
 
-El script siguiente crea un certificado con el formato .pfx, crea un almacén de claves y almacena el certificado en el almacén de claves como un secreto. Use el parámetro `-EnabledForDeployment` al crear el almacén de claves. Este parámetro se asegura de que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
+El script siguiente crea un certificado con el formato .pfx, crea un almacén de claves y almacena el certificado en el almacén de claves como un secreto.
+
+>[!IMPORTANT]
+>Debe usar el parámetro `-EnabledForDeployment` al crear el almacén de claves. Este parámetro garantiza que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
 
 ```powershell
 
@@ -111,7 +125,7 @@ Modificar el archivo `azuredeploy.parameters.json` según los valores del entorn
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Actualice el archivo azuredeploy.parameters.json
 
-Actualice el archivo azuredeploy.parameters.json con los valores de vaultName (nombre del almacén), URI del secreto, VmName (nombre de la máquina virtual) y otros valores según el entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla: 
+Actualice el archivo azuredeploy.parameters.json con los valores de vaultName (nombre del almacén), URI del secreto, VmName (nombre de la máquina virtual) y otros valores según el entorno. El siguiente archivo JSON muestra un ejemplo del archivo de parámetros de plantilla:
 
 ```json
 {
@@ -148,7 +162,7 @@ Actualice el archivo azuredeploy.parameters.json con los valores de vaultName (n
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Ahora implemente la plantilla con el siguiente script de PowerShell:
+Implemente la plantilla con el siguiente script de PowerShell:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -161,13 +175,18 @@ New-AzureRmResourceGroupDeployment `
 
 Cuando la plantilla se ha implementado correctamente, se producen en la siguiente salida:
 
-![Salida de la implementación](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![Resultados de la implementación de plantilla](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Cuando se implementa esta máquina virtual, Azure Stack inserta el certificado en la máquina virtual. En Windows, el certificado se agrega a la ubicación de certificados LocalMachine, con el almacén de certificados que el usuario proporcionó. En Linux, el certificado se coloca en el directorio /var/lib/waagent, con el nombre de archivo &lt;UppercaseThumbprint&gt;.crt para el archivo de certificado X509 y &lt;UppercaseThumbprint&gt;.prv para la clave privada.
+Azure Stack inserta el certificado en la máquina virtual durante la implementación. La ubicación del certificado depende del sistema operativo de la máquina virtual:
+
+* En Windows, el certificado se agrega a la ubicación de certificados LocalMachine, con el almacén de certificados que el usuario proporcionó.
+* En Linux, el certificado se coloca en el directorio /var/lib/waagent, con el nombre de archivo &lt;UppercaseThumbprint&gt;.crt para el archivo de certificado X509 y &lt;UppercaseThumbprint&gt;.prv para la clave privada.
 
 ## <a name="retire-certificates"></a>Retirada de certificados
 
-En la sección anterior, se muestra cómo insertar un nuevo certificado en una máquina virtual. El certificado antiguo todavía está en la máquina virtual y no se puede quitar. Sin embargo, puede deshabilitar la versión anterior del secreto mediante el cmdlet `Set-AzureKeyVaultSecretAttribute`. A continuación, verá un ejemplo de cómo usar este cmdlet. Asegúrese de reemplazar el nombre del almacén, nombre de secreto y valores de versión de acuerdo con su entorno:
+La retirada de certificados forma parte del proceso de administración de certificados. No se puede eliminar la versión anterior de un certificado, pero se puede deshabilitar mediante el cmdlet `Set-AzureKeyVaultSecretAttribute`.
+
+En el ejemplo siguiente se muestra cómo deshabilitar un certificado. Use sus propios valores para los parámetros **VaultName**, **Name** y **Version**.
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
@@ -177,5 +196,3 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 * [Implementación de una máquina virtual con una contraseña de Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 * [Permitir el acceso de una aplicación a Key Vault](azure-stack-kv-sample-app.md)
-
-

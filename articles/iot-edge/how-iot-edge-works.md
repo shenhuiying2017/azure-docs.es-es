@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: ''
-ms.openlocfilehash: 9071caedd9ab3b63527c2c0bdab38db2efadb17c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Introducción a Azure IoT Edge (versión preliminar)
 
 Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Habilite el escalado real de la solución al configurar el software de IoT, implementarlo en dispositivos a través de contenedores estándares y supervisar todo desde la nube.
 
 >[!NOTE]
->Azure IoT Edge solo está disponible en el nivel estándar de IoT Hub. Para más información acerca de los niveles básico y estándar, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../iot-hub/iot-hub-scaling.md).
+>Azure IoT Edge está disponible en el nivel gratuito y estándar de IoT Hub. El nivel gratuito está pensado únicamente para pruebas y evaluación. Para más información acerca de los niveles básico y estándar, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../iot-hub/iot-hub-scaling.md).
 
 Los análisis son un valor añadido empresarial para las soluciones de IoT, pero no es necesario que todos los análisis estén en la nube. Si desea que un dispositivo responda a emergencias lo antes posible, puede realizar la detección de anomalías en el propio dispositivo. Análogamente, si desea reducir los costos de ancho de banda y evitar la transferencia de terabytes de datos sin procesar, puede realizar la limpieza y la agregación de datos localmente. A continuación, envíe la información a la nube. 
 
