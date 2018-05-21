@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: a76701e23771efa79ef39ebd6deb29cec8acaa8a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ee1c45f963482adfc29713928b7cbbc873ca1100
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integración de Azure Active Directory con People
 
@@ -29,7 +29,7 @@ Integrar People con Azure AD le proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en People (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -219,7 +219,7 @@ Al hacer clic en el icono de People en el Panel de acceso, debería iniciar sesi
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

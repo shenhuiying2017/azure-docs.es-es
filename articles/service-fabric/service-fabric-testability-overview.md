@@ -1,6 +1,6 @@
 ---
-title: "Información general del servicio de análisis de errores | Microsoft Docs"
-description: "Este artículo describe el servicio de análisis de errores en Service Fabric para inducir errores y ejecutar escenarios de prueba en los servicios."
+title: Información general del servicio de análisis de errores | Microsoft Docs
+description: Este artículo describe el servicio de análisis de errores en Service Fabric para inducir errores y ejecutar escenarios de prueba en los servicios.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -9,21 +9,21 @@ editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 807e4588e23ea01c5ce435282d7af59bb108e6c6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introducción al servicio de análisis de errores
 El servicio de análisis de errores se ha diseñado para probar los servicios incorporados en Microsoft Azure Service Fabric. Con el servicio de análisis de errores puede provocar errores significativos y ejecutar escenarios de prueba completos con sus aplicaciones. Estos errores y escenarios ejercen y validan los numerosos estados y transiciones que experimentará un servicio durante su vigencia, y todo ello de forma segura, controlada y uniforme.
 
-Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo:
+Las acciones son los errores individuales que se dirigen a un servicio para probarlo. Un programador del servicio puede utilizar como bloques de creación para escribir escenarios complicados. Por ejemplo: 
 
 * Reiniciar un nodo para simular cualquier número de situaciones en que un equipo o máquina virtual se reinicia.
 * Mover una réplica de un servicio con estado para simular el equilibrio de carga, la conmutación por error o la actualización de la aplicación.

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Bime | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bime."
+title: 'Tutorial: Integración de Azure Active Directory con Bime | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Bime.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: f48c784fe2c1fa30a034147571fac218919fe574
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 53272126310b8c1ba38f5c81518073fded18b6bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integración de Azure Active Directory con Bime
 
@@ -29,9 +29,9 @@ La integración de Bime con Azure AD proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Bime (inicio de sesión único) con sus cuentas de Azure AD
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Bime, se necesitan los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, aquí puede obtener una versión de evaluación de un mes: [Oferta de prueba](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Bime desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de Bime en Azure AD, es preciso agregarlo desde 
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Bime**.
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c.  Pegue el valor de **Huella digital** de Azure Portal en el cuadro de texto **Certificate fingerprint** (Huella digital de certificado).       
    
-    d. Haga clic en **Guardar**.
+    d. Haga clic en **Save**(Guardar).
 
 > [!TIP]
 > Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-bime-test-user"></a>Creación de usuario de prueba de Bime
 
@@ -208,7 +208,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Bime, tienen que a
  
     c. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario con el siguiente formato **brittasimon@contoso.com**.
 
-    d. Haga clic en **Guardar**.
+    d. Haga clic en **Save**(Guardar).
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Bime que proporcione Bime para aprovisionar cuentas de usuario de AAD.
@@ -222,7 +222,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar Britta Simon a Bime, siga estos pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -253,7 +253,7 @@ Al hacer clic en el icono de Bime en el Panel de acceso, debería iniciar sesió
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

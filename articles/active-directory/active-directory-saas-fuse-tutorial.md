@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con Fuse | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Fuse."
+title: 'Tutorial: integración de Azure Active Directory con Fuse | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Fuse.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: jeedes
-ms.openlocfilehash: d228ebff245cf5e94bb17c8fb3a506824ff7f4c0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26aa6646ce4e57f7138c79bebaaff4efc7596fa2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutorial: Integración de Azure Active Directory con Fuse
 
@@ -30,7 +30,7 @@ Integrar Fuse con Azure AD le proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Fuse (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -213,7 +213,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

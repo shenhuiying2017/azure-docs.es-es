@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Novatus."
+title: 'Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Novatus.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.openlocfilehash: bfbcac046ba9be1c046dad9b0acf647b436b74ed
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5b6bed591230c370aa63693a826ce107870bbe9e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
 
@@ -29,9 +29,9 @@ La integración de Novatus con Azure AD le proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Novatus (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Novatus, necesita los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Novatus desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de Novatus en Azure AD, será preciso que agregu
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **Novatus**.
 
@@ -164,7 +164,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-novatus-test-user"></a>Creación de un usuario de prueba de Novatus
 
@@ -184,7 +184,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar Britta Simon a Novatus, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -215,7 +215,7 @@ Al hacer clic en el icono de Novatus en el panel de acceso, debería iniciar ses
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

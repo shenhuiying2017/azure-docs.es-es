@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configuración de ThousandEyes para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de ThousandEyes."
+title: 'Tutorial: Configuración de ThousandEyes para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar Azure Active Directory para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de ThousandEyes.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: 4b9d8fa17cf7d376d11ab692e41a65f0dc6b0fae
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 055355be0de1c3f589bde468da3558963e8e1383
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configuración de ThousandEyes para el aprovisionamiento automático de usuarios
 
@@ -98,7 +98,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-enterprise-apps-manage-provisioning.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
