@@ -9,11 +9,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 64d16182ce1992ec312ad1620d9d5cf11e0ddea8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs JSON con el indexador de blobs de Azure Search
 En este artículo se muestra cómo configurar un indexador de blobs de Azure Search para extraer contenido estructurado de los blobs JSON en Azure Blob Storage.
@@ -23,7 +23,7 @@ Los blobs JSON de Azure Blobs Storage suelen ser un documento JSON único o una 
 | Documento JSON | parsingMode | DESCRIPCIÓN | Disponibilidad |
 |--------------|-------------|--------------|--------------|
 | Uno por blob | `json` | Analiza los blobs JSON como un único fragmento de texto. Cada blob JSON se convierte en un único documento de Azure Search. | Por lo general, está disponible en API de [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer). |
-| Varios por blob | `jsonArray` | Analiza una matriz JSON en el blob, donde cada elemento de la matriz se convierte en un documento de Azure Search independiente.  | En versión preliminar, en [REST api-version=`2016-09-01-Preview`](search-api-2016-09-01-preview.md) y [versión preliminar de SDK de .NET](https://aka.ms/search-sdk-preview). |
+| Varios por blob | `jsonArray` | Analiza una matriz JSON en el blob, donde cada elemento de la matriz se convierte en un documento de Azure Search independiente.  | En versión preliminar, en [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) y [versión preliminar de SDK de .NET](https://aka.ms/search-sdk-preview). |
 
 > [!Note]
 > Las versiones preliminares de las API están pensadas para realizar pruebas y evaluaciones, y no deben usarse en entornos de producción.
@@ -116,7 +116,7 @@ Como alternativa, puede optar por la característica de versión preliminar de l
 
 Para una matriz JSON, la solicitud del indexador utiliza la API de versión preliminar y el analizador `jsonArray`. Se trata de los únicos dos requisitos específicos de la matriz para la indexación de blobs JSON.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -129,6 +129,8 @@ Para una matriz JSON, la solicitud del indexador utiliza la API de versión prel
     }
 
 Nuevamente, tenga en cuenta que las asignaciones de campos no son necesarias. Dado un índice con los campos "id" y "text", el indexador de blobs puede inferir la asignación correcta sin una lista de asignación de campos.
+
+<a name="nested-json-arrays"></a>
 
 ### <a name="nested-json-arrays"></a>Matrices JSON anidadas
 ¿Qué sucede si quiere indexar una matriz de objetos JSON, pero está anidada en alguna parte del documento? Puede elegir la propiedad que contiene la matriz mediante la propiedad de configuración `documentRoot` . Por ejemplo, si los blobs tienen el siguiente aspecto:

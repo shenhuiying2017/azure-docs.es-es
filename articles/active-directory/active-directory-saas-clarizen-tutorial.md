@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clarizen."
+title: 'Tutorial: integración de Azure Active Directory con Clarizen | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Clarizen.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 2925f0a9f582d0dfeca9832ca032b0d847f23f6b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: integración de Azure Active Directory con Clarizen
 
@@ -32,9 +32,9 @@ El escenario de este tutorial consta de dos tareas principales:
 1. Incorporación de Clarizen desde la galería.
 2. Configuración y prueba del inicio de sesión único en Azure AD.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Para configurar la integración de Azure AD con Clarizen, necesita los siguientes elementos:
 
 - Una suscripción de Azure AD
@@ -103,7 +103,7 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
     > [!NOTE]
     > Estos valores no son reales. Tiene que usar el identificador y la dirección URL de respuesta reales. Aquí se recomienda que utilice el valor de cadena único en el identificador. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico de Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. En la sección **Certificado de firma de SAML**, haga clic en **Crear nuevo certificado**.
+4. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
 
     ![Clic en "Crear un nuevo certificado"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
@@ -153,7 +153,7 @@ Habilite el inicio de sesión único de Azure AD en Azure Portal y configure el 
 
     e. Seleccione **Usar POST**.
 
-    f. Haga clic en **Guardar**.
+    f. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 En Azure Portal, cree un usuario de prueba denominado Britta Simon.
@@ -225,7 +225,7 @@ Habilite a Britta Simon para que use el inicio de sesión único de Azure conced
 
     ![Clic en "Usuarios y grupos"][202]
 
-4. Haga clic en el botón **Add** (Agregar). Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
 
     ![Botón "Agregar" y cuadro de diálogo "Agregar asignación"][203]
 
@@ -243,7 +243,7 @@ Al hacer clic en el icono de Clarizen en el panel de acceso, debería iniciar se
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
