@@ -1,24 +1,24 @@
 ---
-title: "Funciones de la plantilla de Azure Resource Manager: numéricas | Microsoft Docs"
-description: "Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números."
+title: 'Funciones de la plantilla de Azure Resource Manager: numéricas | Microsoft Docs'
+description: Describe las funciones para usar en una plantilla de Azure Resource Manager para trabajar con números.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2b7ec44b820e510d1e8bd99ef195546a519c365c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 4fc17b997c44560199e65edb01d20c6a24e49877
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funciones numéricas para las plantillas de Azure Resource Manager
 
@@ -42,9 +42,9 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con n
 
 Devuelve la suma de los dos enteros especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- | 
 |operand1 |Sí |int |Primer número que se agregará. |
 |operand2 |Sí |int |Segundo número que se agregará. |
@@ -90,7 +90,7 @@ La [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -113,12 +113,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el índice actual de un bucle de iteración. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| loopName | No | cadena | El nombre del bucle para obtener la iteración. |
-| Offset |No |int |El número que se agregará al valor de iteración basado en cero. |
+| loopName | Sin  | string | El nombre del bucle para obtener la iteración. |
+| Offset |Sin  |int |El número que se agregará al valor de iteración basado en cero. |
 
 ### <a name="remarks"></a>Comentarios
 
@@ -159,9 +159,9 @@ Un entero que representa el índice actual de la iteración.
 
 Devuelve la división de enteros de los dos enteros especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir. No puede ser 0. |
@@ -207,7 +207,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -230,9 +230,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Convierte el valor en un número de punto flotante. Solo use esta función al pasar parámetros personalizados a una aplicación, como una aplicación lógica.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |cadena o entero |El valor para convertir en número de punto flotante. |
 
@@ -264,9 +264,9 @@ En el ejemplo siguiente se muestra cómo usar float para pasar parámetros a una
 
 Convierte el valor especificado en un entero.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |Sí |cadena o entero |Valor que se convierte en entero. |
 
@@ -301,7 +301,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -324,9 +324,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el valor máximo de una matriz de enteros o una lista separada por comas de enteros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor máximo. |
 
@@ -364,7 +364,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -388,9 +388,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el valor mínimo de una matriz de enteros o una lista separada por comas de enteros.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sí |matriz de enteros, o lista separada por comas de enteros |La colección para obtener el valor mínimo. |
 
@@ -428,7 +428,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -452,9 +452,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve el resto de la división de enteros de los dos enteros especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número que se va a dividir. |
 | operand2 |Sí |int |Número que se usa para dividir; no puede ser 0. |
@@ -499,7 +499,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -522,9 +522,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve la multiplicación de los dos enteros especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Primer número que se va a multiplicar. |
 | operand2 |Sí |int |Segundo número que se va a multiplicar. |
@@ -570,7 +570,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -593,9 +593,9 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Devuelve la resta de los dos enteros especificados.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parámetros
 
-| Parámetro | Obligatorio | Tipo | Descripción |
+| . | Obligatorio | Escriba | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | operand1 |Sí |int |Número del que se resta. |
 | operand2 |Sí |int |Número que se resta. |
@@ -640,7 +640,7 @@ En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/bl
 
 La salida del ejemplo anterior con el valor predeterminado es:
 
-| Nombre | Tipo | Valor |
+| NOMBRE | type | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

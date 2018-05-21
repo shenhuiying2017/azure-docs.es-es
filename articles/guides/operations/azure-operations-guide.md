@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.openlocfilehash: 231e8110dc6e1844108502e5c2277edc3ba77132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introducción a la informática en la nube y Microsoft Azure
 
@@ -509,7 +509,7 @@ Del mismo modo, puede utilizar la CLI de Azure para implementar una plantilla de
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acceso y seguridad para redes virtuales
 
-Puede ayudar a proteger las redes virtuales Azure mediante el uso de un grupo de seguridad de red. Los NSG contienen reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a las instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con subredes o con instancias de una máquina virtual individual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de máquinas virtuales de esa subred. Además, puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa maquina virtual. Para más información, consulte [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/virtual-networks-nsg.md).
+Puede ayudar a proteger las redes virtuales Azure mediante el uso de un grupo de seguridad de red. Los NSG contienen reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a las instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con subredes o con instancias de una máquina virtual individual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de la ACL se aplican a todas las instancias de máquinas virtuales de esa subred. Además, puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa maquina virtual. Para más información, consulte [Filtrado del tráfico de red con grupos de seguridad de red](../../virtual-network/security-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

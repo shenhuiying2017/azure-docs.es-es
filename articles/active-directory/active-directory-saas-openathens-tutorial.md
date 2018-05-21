@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con OpenAthens | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OpenAthens."
+title: 'Tutorial: Integración de Azure Active Directory con OpenAthens | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y OpenAthens.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jeedes
-ms.openlocfilehash: af26e007c953c4157f5ee7a4251a52e9c45a6eac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3b19f3c7ed84a63f48320a2c7af8d06a9cc5deb4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integración de Azure Active Directory con OpenAthens
 
@@ -30,9 +30,9 @@ La integración de OpenAthens con Azure AD proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en OpenAthens (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con OpenAthens, necesita los siguientes elementos:
 
@@ -45,7 +45,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba gratuita durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de OpenAthens desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -188,7 +188,7 @@ OpenAthens admite el aprovisionamiento Just-In-Time y los usuarios se crean auto
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a OpenAthens.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar a Britta Simon a OpenAthens**
 
@@ -224,7 +224,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * Para obtener una lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory, consulte [Tutoriales de integración de aplicaciones SaaS para su uso con Azure AD](active-directory-saas-tutorial-list.md).
-* Para más información sobre el acceso de aplicaciones y el inicio de sesión único con Azure Active Directory, consulte [¿Qué es el acceso de aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+* Para más información sobre el acceso de aplicaciones y el inicio de sesión único con Azure Active Directory, consulte [¿Qué es el acceso de aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 <!--Image references-->
 
