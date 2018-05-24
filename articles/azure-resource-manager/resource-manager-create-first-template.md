@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/30/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 38ed7040c4f1497192c8c37887dc6281aa7935ea
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 32ff8621eb446f9bcc45398173f47b761b929ac5
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>Creación e implementación de la primera plantilla de Azure Resource Manager
 Este tema lo guiará por los pasos para crear la primera plantilla de Azure Resource Manager. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md). Si tiene recursos existentes y desea obtener una plantilla para ellos, consulte [Exportación de plantillas de Azure Resource Manager desde recursos existentes](resource-manager-export-template.md).

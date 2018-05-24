@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -91,7 +91,7 @@ Para el acceso de salida, un ASE depende de varios sistemas externos. Esas depen
 | Comprobación de certificado SSL |  Subred de ASE            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
 | Azure Active Directory        | Subred de ASE            |  Internet: 443
 | Administración de App Service        | Subred de ASE            |  Internet: 443
-| DNS de Azure                     | Subred de ASE            |  Internet: 53
+| Azure DNS                     | Subred de ASE            |  Internet: 53
 | Comunicación interna ASE    | Subred de ASE: todos los puertos |  Subred de ASE: todos los puertos
 
 Si el ASE pierde el acceso a estas dependencias, deja de funcionar. Cuando esto ocurre durante un tiempo suficientemente prolongado, el ASE se suspende.
@@ -163,7 +163,7 @@ Los dos primeros requisitos de entrada para que el ASE funcione están en la par
 
 ![Reglas de seguridad de entrada][4]
 
-Una regla predeterminada permite que las direcciones IP en la red virtual se comuniquen con la subred de ASE. Otra regla predeterminada permite que el equilibrador de carga, también conocido como VIP pública, se comunique con el ASE. Para ver las reglas predeterminadas, seleccione **Reglas predeterminadas** junto al icono **Agregar**. Si coloca una regla para denegar todo lo demás después de las reglas de NSG que se muestran, evita el tráfico entre la IP virtual y el ASE. Para impedir el tráfico procedente de dentro de la red virtual, agregue su propia regla para permitir la entrada. Use un origen igual que AzureLoadBalancer con **cualquier** destino y un intervalo de puertos **\*\**. Puesto que la regla NSG se aplica a la subred de ASE, no es necesario que sea específico en el destino.
+Una regla predeterminada permite que las direcciones IP en la red virtual se comuniquen con la subred de ASE. Otra regla predeterminada permite que el equilibrador de carga, también conocido como VIP pública, se comunique con el ASE. Para ver las reglas predeterminadas, seleccione **Reglas predeterminadas** junto al icono **Agregar**. Si coloca una regla para denegar todo lo demás después de las reglas de NSG que se muestran, evita el tráfico entre la IP virtual y el ASE. Para impedir el tráfico procedente de dentro de la red virtual, agregue su propia regla para permitir la entrada. Use un origen igual que AzureLoadBalancer con **cualquier** destino y un intervalo de puertos **\***. Puesto que la regla NSG se aplica a la subred de ASE, no es necesario que sea específico en el destino.
 
 Si ha asignado una dirección IP a la aplicación, asegúrese de mantener los puertos abiertos. Para ver los puertos, seleccione **App Service Environment** > **Direcciones IP**.  
 
@@ -224,7 +224,7 @@ Cuando los puntos de conexión de servicio se habilitan en una subred con una in
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/virtual-networks-nsg.md
+[NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md

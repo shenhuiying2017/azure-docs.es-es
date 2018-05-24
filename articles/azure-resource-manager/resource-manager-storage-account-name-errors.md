@@ -1,23 +1,23 @@
 ---
 title: Errores en el nombre de la cuenta de Azure Storage | Microsoft Docs
 description: Describe los errores que pueden producirse al especificas un nombre de cuenta de almacenamiento.
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: c266e1073722733ec8b7353c6fdddc3ae341ab20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: da7147439bba668c6c614c19d91a22ee78275c69
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-storage-account-names"></a>Resolución de errores de nombres de cuenta de almacenamiento
 

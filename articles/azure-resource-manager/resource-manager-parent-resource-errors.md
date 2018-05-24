@@ -1,23 +1,23 @@
 ---
 title: Errores de recurso primario de Azure | Microsoft Docs
-description: "Describe cómo resolver errores cuando se trabaja con un recurso primario."
-services: azure-resource-manager,azure-portal
-documentationcenter: 
+description: Describe cómo resolver errores cuando se trabaja con un recurso primario.
+services: azure-resource-manager
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
-editor: 
+editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: tomfitz
-ms.openlocfilehash: e59147c4ac18f730f27b9d4aa9c008f219881065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolución de errores para recursos primarios
 
@@ -34,7 +34,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Cuando un recurso es un elemento secundario de otro recurso, el primario tiene que existir antes de crear el secundario. El nombre del recurso secundario incluye el nombre primario. Por ejemplo, se podría definir una base de datos SQL como:
+Cuando un recurso es un elemento secundario de otro recurso, el primario tiene que existir antes de crear el secundario. El nombre del recurso secundario incluye el nombre primario. Por ejemplo, se podría definir una instancia de SQL Database como:
 
 ```json
 {

@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de la extensión del panel de acceso de Azure para Internet Explorer | Microsoft Docs"
-description: "Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones."
+title: Solución de problemas de la extensión del panel de acceso de Azure para Internet Explorer | Microsoft Docs
+description: Cómo usar la directiva de grupo para implementar el complemento de Internet Explorer para el portal de Mis aplicaciones.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479
 ms.service: active-directory
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6d0b299c45d89ee8d3a79fa98ce4a542174a5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a4f1538cf598da8b5b9aa19def2d5f86ceaca0a0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Solución de problemas de la extensión del Panel de acceso para Internet Explorer
 Este artículo le ayudará a solucionar los siguientes problemas:
@@ -92,6 +92,6 @@ Si encuentra problemas al desinstalar la extensión, también puede quitarla usa
 
 ## <a name="related-articles"></a>Artículos relacionados
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Implementación de la extensión del Panel de acceso para Internet Explorer mediante la directiva de grupo](active-directory-saas-ie-group-policy.md)
 
