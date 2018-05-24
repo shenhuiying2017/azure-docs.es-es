@@ -11,15 +11,16 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0d38a41a33632e2c6427b75e365db468940d025d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300975"
 ---
 # <a name="compare-azure-iot-options"></a>Comparación de las opciones de IoT de Azure
 
-El artículo [Azure e Internet de las cosas](iot-suite-what-is-azure-iot.md) describe la arquitectura de una solución de IoT típica con los niveles siguientes:
+El artículo [Azure e Internet de las cosas](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) describe la arquitectura de una solución de IoT típica con los niveles siguientes:
 
 * La administración y la conectividad de los dispositivos
 * Procesamiento de datos y análisis
@@ -27,7 +28,7 @@ El artículo [Azure e Internet de las cosas](iot-suite-what-is-azure-iot.md) des
 
 Para implementar esta arquitectura, IoT de Azure ofrece varias opciones, cada una adecuada para distintos conjuntos de requisitos del cliente:
 
-* Los [aceleradores de soluciones de IoT de Azure](index.md) son una colección de nivel empresarial de [aceleradores de soluciones](iot-suite-what-are-solution-accelerators.md) integrados en la plataforma como servicio de Azure (PaaS) que permiten acelerar el desarrollo de soluciones de IoT personalizadas.
+* Los [aceleradores de soluciones de IoT de Azure](index.md) son una colección de nivel empresarial de [aceleradores de soluciones](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) integrados en la plataforma como servicio de Azure (PaaS) que permiten acelerar el desarrollo de soluciones de IoT personalizadas.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) es una solución de software como servicio (SaaS) que usa un enfoque basado en un modelo para que pueda crear soluciones de IoT de nivel empresarial sin necesidad de contar con experiencia en el desarrollo de soluciones en la nube.
 
@@ -63,6 +64,6 @@ La decisión de qué producto desea usar para crear su solución de IoT se deter
 
 En función del producto y el enfoque elegidos, los pasos siguientes sugeridos son:
 
-* **Aceleradores de soluciones de IoT de Azure**: [¿qué son los aceleradores de soluciones de IoT de Azure?](iot-suite-what-are-solution-accelerators.md)
+* **Aceleradores de soluciones de IoT de Azure**: [¿qué son los aceleradores de soluciones de IoT de Azure?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Introducción al servicio Azure IoT Hub](../iot-hub/iot-hub-what-is-iot-hub.md).

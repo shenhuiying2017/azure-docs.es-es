@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350872"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory 
 
@@ -34,7 +35,7 @@ Las siguientes son algunas de las mejoras de Azure AD en el [portal de Azure](ht
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Mejoras en la Galería de aplicaciones de Azure Active Directory
 
-Agregue sus aplicaciones favoritas tanto si son de la [galería de aplicaciones](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), aplicaciones personalizadas que se extienden a la nube o nuevas aplicaciones en proceso de desarrollo.  Para empezar a trabajar con esta nueva experiencia, puede hacer clic en **Agregar** situado en **Aplicaciones empresariales** o **Todas las aplicaciones**.
+Agregue sus aplicaciones favoritas tanto si son de la [galería de aplicaciones](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), aplicaciones personalizadas que se extienden a la nube o nuevas aplicaciones en proceso de desarrollo.  Para empezar a trabajar con esta nueva experiencia, puede hacer clic en **Agregar** situado en **Aplicaciones empresariales** o **Todas las aplicaciones**.
  
   ![Agregar una aplicación](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

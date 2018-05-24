@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: c58e731f6b8c86a0b7d6f2500d81077904b2f5ef
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367280"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -38,6 +39,8 @@ No puede desactivar la normalización de imágenes. Las habilidades que iteran l
 
 > [!NOTE]
 > Si establece la propiedad *imageAction* en algo distinto de "none", no podrá establecer la propiedad *parsingMode* en algo distinto de "default".  Solo puede establecer una de estas dos propiedades en un valor no predeterminado en la configuración del indexador.
+
+Establezca el parámetro **parsingMode** en `json` (para indexar cada blob como un documento individual) o en `jsonArray` (si los blobs contienen matrices JSON y necesita que cada elemento de una matriz se trate como un documento independiente).
 
 El valor predeterminado es de 2000 píxeles para el ancho máximo de las imágenes normalizadas, y la altura se basa en los tamaños máximos admitidos por la [habilidad de OCR](cognitive-search-skill-ocr.md) y la [habilidad de análisis de imágenes](cognitive-search-skill-image-analysis.md). Si aumenta los límites máximos, podría producirse un error de procesamiento en las imágenes más grandes.
 

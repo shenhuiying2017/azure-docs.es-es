@@ -16,11 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f0f577e2ff18645cfa93763f2345ef4230907e09
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6f3c0e93b20bbc570f4715318a49b502549ff295
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257556"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desarrolladores
 
@@ -55,7 +56,6 @@ Estas guías le conducen por algunas de las tareas más comunes de Azure AD.
 |[Registro de la aplicación](active-directory-integrating-applications.md)           | Cómo registrar una aplicación en Azure AD. |
 |[Aplicaciones multiinquilino](active-directory-devhowto-multi-tenant-overview.md)    | Cómo iniciar la sesión de cualquier cuenta profesional de Microsoft. |
 |[Protocolos OAuth y OpenID Connect](active-directory-protocols-openid-connect-code.md)| Cómo iniciar la sesión de los usuarios y llamar a las API web mediante los protocolos de autenticación de Microsoft. |
-|[Guías adicionales](active-directory-developers-guide-index.md#guides)        |  Una lista de las guías que están disponibles para Azure AD. |
 |  |  |
 
 ## <a name="reference-topics"></a>Temas de referencia
@@ -66,7 +66,6 @@ En los siguientes artículos se proporciona información detallada sobre las API
 | [Bibliotecas de autenticación (ADAL)](active-directory-authentication-libraries.md)   | Una introducción a las bibliotecas y los SDK que se proporcionan en Azure AD. |
 | [Ejemplos de código](active-directory-code-samples.md)                                  | Una lista de todos los ejemplos de código de Azure AD. |
 | [Glosario](active-directory-dev-glossary.md)                                      | Terminología y definiciones de palabras que se usan en esta documentación. |
-| [Temas de referencia adicionales](active-directory-developers-guide-index.md#reference)| Una lista de temas de referencia que están disponibles para Azure AD. |
 |  |  |
 
 
