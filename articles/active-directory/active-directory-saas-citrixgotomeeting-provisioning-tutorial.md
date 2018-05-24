@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GoToMeeting."
+title: 'Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y GoToMeeting.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 48b8072b5ebe61f5a9dccd9d8ea31e5a6945f265
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cbf53904c5fbf4ddfeb8c9d72efcf4549b1d7a7a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configuración de GoToMeeting para el aprovisionamiento automático de usuarios
 
@@ -91,7 +91,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configuración del inicio de sesión único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 
 

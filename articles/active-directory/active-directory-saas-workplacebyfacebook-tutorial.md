@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: a1f4243eafc6a2d5c632220ec80b28b29f8ae985
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 897ee084e0b36f1729260fabb33114652b82a05d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: integración de Azure Active Directory con Workplace by Facebook
 
@@ -29,7 +29,7 @@ Integrar Workplace by Facebook con Azure AD le proporciona las siguientes ventaj
 - Puede permitir que los usuarios inicien sesión automáticamente en Workplace by Facebook (inicio de sesión único) con sus cuentas de Azure AD
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -252,7 +252,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 * [Configuración del aprovisionamiento de usuarios](active-directory-saas-workplacebyfacebook-provisioning-tutorial.md)
 
 

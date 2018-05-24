@@ -1,11 +1,11 @@
 ---
-title: "Problemas en la configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD | Microsoft Docs"
-description: "Comprender los problemas más comunes a los que se enfrentan los usuarios al configurar un inicio de sesión único con contraseña para las aplicaciones que ya se muestran en la galería de aplicaciones de Azure AD"
+title: Problemas en la configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD | Microsoft Docs
+description: Comprender los problemas más comunes a los que se enfrentan los usuarios al configurar un inicio de sesión único con contraseña para las aplicaciones que ya se muestran en la galería de aplicaciones de Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 9550b28b373a59a6d41cee487aed9afc6c464479
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f19b684a6c7426134844a2657b886280af2f061c
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problemas en la configuración del inicio de sesión único con contraseña para una aplicación de la galería de Azure AD
 
@@ -25,19 +25,19 @@ Este artículo le ayuda a conocer los problemas habituales a los que se enfrenta
 
 ## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Se rellenan las credenciales, pero la extensión no las envía
 
-Esto sucede generalmente si el proveedor de la aplicación ha cambiado recientemente la página de inicio de sesión para agregar un campo, cambiar un identificador subyacente que se utiliza para detectar los campos nombre de usuario y contraseña, o modificar cómo funciona la experiencia de inicio de sesión para su aplicación. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
+En general, este problema sucede si el proveedor de la aplicación ha cambiado recientemente la página de inicio de sesión para agregar un campo, cambiar un identificador que se utiliza para detectar los campos de nombre de usuario y contraseña, o modificar cómo funciona la experiencia de inicio de sesión para su aplicación. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
 
-Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, a veces no es posible encontrar estos problemas de forma inmediata o se tardar algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcione correctamente, le agradeceríamos que abriera un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
+Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcione correctamente, abra un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+**Si está en contacto con el proveedor de la aplicación,** pídale que se comunique con Microsoft para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Las credenciales se rellenan y se envían, pero la página indica que son incorrectas
 
-Para resolver este problema, en primer lugar, compruebe lo siguiente:
+Para resolver este problema, intente primero estas cosas:
 
 -   Pídale al usuario que intente primero **iniciar sesión en el sitio web de la aplicación directamente** con las credenciales almacenadas para dicho sitio.
 
-  * Si eso funciona, a continuación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** del [panel de acceso a las aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
+  * Si el inicio de sesión funciona, a continuación, indíquele al usuario que haga clic en el botón **Actualizar credenciales** situado en el **icono de la aplicación** en la sección de **aplicaciones** del [panel de acceso a las aplicaciones](https://myapps.microsoft.com/) para actualizarlas con el nombre de usuario y la contraseña más recientes.
 
    * Si usted u otro administrador ha asignado las credenciales para este usuario, busque la asignación de aplicación del usuario o del grupo yendo a la pestaña **Usuarios y grupos** de la aplicación, seleccione la asignación y haga clic en el botón **Actualizar credenciales**.
 
@@ -53,11 +53,11 @@ Para resolver este problema, en primer lugar, compruebe lo siguiente:
 
 -   Asegúrese de que los usuarios no intentan iniciar sesión en la aplicación desde el Panel de acceso en **los modos incógnito, inPrivate o privado**. La extensión del Panel de acceso no es compatible con estos modos.
 
-Si esto no funciona, podría ser que se haya producido un cambio en el lado de la aplicación que ha interrumpido provisionalmente la integración de la aplicación con Azure AD. Por ejemplo, esto puede ocurrir cuando el proveedor de la aplicación introduce un script en su página que tiene un comportamiento diferentes con las entradas manuales y con las automatizadas, lo que hace que una integración automatizada, como la nuestra, se interrumpa. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
+Si las sugerencias anteriores no funcionan, puede que se haya producido un cambio en el lado de la aplicación que haya interrumpido provisionalmente la integración de la aplicación con Azure AD. Por ejemplo, esto puede ocurrir cuando el proveedor de la aplicación introduce un script en su página que tiene un comportamiento diferentes con las entradas manuales y con las automatizadas, lo que hace que una integración automatizada, como la nuestra, se interrumpa. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
 
-Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, a veces no es posible encontrar estos problemas de forma inmediata o se tardar algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcione correctamente, le agradeceríamos que abriera un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
+Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>La extensión funciona en Chrome y Firefox, pero no en Internet Explorer
 
@@ -71,15 +71,15 @@ Hay dos principales causas de este problema:
 
    * Desgraciadamente esta situación puede variar dependiendo de la versión del explorador, la velocidad del equipo o el sitio visitado. En este caso, se recomienda ponerse en contacto con soporte técnico para que podamos solucionar la integración para esta aplicación específica.
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Compruebe si la página de inicio de sesión de la aplicación ha cambiado recientemente, o si requiere un campo adicional
 
 Si la página de inicio de sesión de la aplicación ha cambiado de forma considerable, esto hace que a veces nuestras integraciones se interrumpan. Un ejemplo de esto es cuando un proveedor de aplicación agrega un campo de inicio de sesión, un captcha o una autenticación multifactor a sus experiencias. Afortunadamente, en muchos casos, Microsoft puede trabajar con los proveedores de aplicaciones para resolver rápidamente estos problemas.
 
-Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen estas integraciones, a veces no es posible encontrar estos problemas de forma inmediata. En otros casos se tardar algún tiempo en corregirlos. En el caso de que una de estas integraciones no funcionen correctamente, le agradeceríamos que abriera un caso de soporte técnico para que podamos solucionar el problema lo más rápido posible.
+Aunque Microsoft tiene tecnologías para detectar automáticamente cuándo se interrumpen las integraciones de aplicaciones, puede que no sea posible encontrar estos problemas de forma inmediata o que se tarde algún tiempo en corregirlos. Cuando una integración no funciona correctamente, puede abrir un caso de soporte técnico para que podamos corregirlo lo antes posible. 
 
-Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+Además, **si está en contacto con el proveedor de la aplicación,** **pídale que cuente con nosotros** para que podamos trabajar juntos con el fin de integrar de forma nativa su aplicación con Azure Active Directory. Para empezar puede enviar al proveedor a [Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory](./develop/active-directory-app-gallery-listing.md).
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Cómo instalar la extensión de explorador del Panel de acceso
 
@@ -103,8 +103,8 @@ También puede descargar la extensión para Chrome y Firefox desde los siguiente
 
 -   [Extensión del Panel de acceso para Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Extensión del Panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Extensión del panel de acceso para Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

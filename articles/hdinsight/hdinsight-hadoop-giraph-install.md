@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: df7c5e175ecfd2eca2b1db7eb4ab056bb1588dda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c4cd643d4bdd95493f63bb5b1c1f855bc95bf226
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Instalación y uso de Giraph en clústeres de HDInsight basados en Linux
 
@@ -169,7 +169,6 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 * [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize]: información general sobre la personalización de clústeres de HDInsight mediante la acción de script.
 * [Desarrollo de acciones de script con HDInsight](hdinsight-hadoop-script-actions.md).
 * [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]: ejemplo de acción de script sobre la instalación de Spark.
-* [Instalación de R en clústeres de HDInsight][hdinsight-install-r]: ejemplo de acción de script sobre la instalación de R.
 * [Instalación de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md): ejemplo de acción de script sobre la instalación de Solr.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
@@ -177,6 +176,5 @@ Consulte [Personalización de clústeres de HDInsight mediante la acción de scr
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

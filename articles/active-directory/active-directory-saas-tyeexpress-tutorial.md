@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con T&E Express | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y T&E Express."
+title: 'Tutorial: Integración de Azure Active Directory con T&E Express | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y T&E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 09ce6851013e05859572bd00215a9f751db4ca53
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 8d3980b6169c8a9fc60c04e527814159082a46e4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integración de Azure Active Directory con T&E Express
 
@@ -27,11 +27,11 @@ La integración de T&E Express con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a T&E Express.
 - Puede permitir que los usuarios inicien sesión automáticamente en T&E Express (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure.
+- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con T&E Express se necesitan los siguientes elementos:
 
@@ -47,7 +47,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar T & E Express desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +63,11 @@ Para configurar la integración de T&E Express en Azure AD, será preciso que ag
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **T&E Express**.
 
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de admin
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-te-express-test-user"></a>Crear un usuario de prueba T & E Express
 
@@ -182,7 +182,7 @@ En el caso de T&E Express, el aprovisionamiento es una tarea manual.
 
     ![Agregar empleado](./media/active-directory-saas-tyeexpress-tutorial/tye-adminusers.png)
 
-3. En la página principal, haga clic en  **+**  para agregar los usuarios.
+3. En la página principal, haga clic en **+** para agregar los usuarios.
 
     ![Agregar empleado](./media/active-directory-saas-tyeexpress-tutorial/tye-usershome.png)
 
@@ -232,7 +232,7 @@ Al hacer clic en el icono de T&E Express en el panel de acceso, debería iniciar
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

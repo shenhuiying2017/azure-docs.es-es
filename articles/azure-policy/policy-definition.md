@@ -1,64 +1,66 @@
 ---
-title: Estructura de definición de Azure Policy | Microsoft Docs
-description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué acción realizar.
+title: Estructura de definición de Azure Policy
+description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene.
 services: azure-policy
 keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/18/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 8b89e1c8ccfcfd7b53ecdd9172590424d1c7ae4c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
-La definición de directiva de recursos que Azure Policy usa le permite establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué acción realizar. La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
+La definición de directiva de recursos que Azure Policy usa le permite establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene. La definición de convenciones permite controlar los costes y administrar los recursos más fácilmente. Por ejemplo, puede especificar que se permitan solo determinados tipos de máquinas virtuales. O puede obligar a que todos los recursos tengan una etiqueta concreta. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
+
+El esquema utilizado por Azure Policy puede encontrarse aquí: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 Para crear una definición de directiva se utiliza JSON. La definición de directiva contiene elementos para:
 
-* modo
-* parameters
-* nombre para mostrar
-* Descripción
-* regla de directiva
-  * evaluación lógica
-  * efecto
+- modo
+- parameters
+- nombre para mostrar
+- Descripción
+- regla de directiva
+  - evaluación lógica
+  - efecto
 
 Por ejemplo, el siguiente JSON muestra una directiva que limita las ubicaciones donde se implementan los recursos:
 
 ```json
 {
-  "properties": {
-    "mode": "all",
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -67,10 +69,11 @@ Todos los ejemplos de plantillas de Azure Policy están en [Plantillas para Azur
 ## <a name="mode"></a>Mode
 
 El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
-* `all`: evalúe los grupos de recursos y todos los tipos de recurso
-* `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
-Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, tiene que especificar el parámetro **mode** de forma manual. Si la definición de directiva no contiene un valor **mode**, utiliza `indexed` como valor predeterminado para compatibilidad con versiones anteriores.
+- `all`: evalúe los grupos de recursos y todos los tipos de recurso
+- `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
+
+Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no contiene un valor **mode**, utiliza `all` en Azure PowerShell y `null` en la CLI de Azure, como valor predeterminado, lo que es equivalente a `indexed`, para compatibilidad con versiones anteriores.
 
 `indexed` debe usarse al crear directivas que apliquen etiquetas o ubicaciones. Esto no es obligatorio, pero impedirá que los recursos que no son compatibles con etiquetas y ubicaciones aparezcan como no conformes en los resultados de cumplimiento. La única excepción a esto es **grupos de recursos**. Las directivas que intentan aplicar la ubicación o etiquetas en un grupo de recursos deben establecer **mode** en `all` y tener como destino específico el tipo `Microsoft.Resources/subscriptions/resourceGroup`. Para obtener un ejemplo, consulte [Aplicar etiqueta y su valor en grupos de recursos](scripts/enforce-tag-rg.md).
 
@@ -80,30 +83,29 @@ Los parámetros ayudan a simplificar la administración de directivas mediante l
 
 Por ejemplo, podría definir una directiva de una propiedad de recurso para limitar las ubicaciones en las que se pueden implementar los recursos. En este caso, podría declarar los parámetros siguientes en el momento de crear la directiva:
 
-
 ```json
 "parameters": {
-  "allowedLocations": {
-    "type": "array",
-    "metadata": {
-      "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations",
-      "strongType": "location"
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+            "description": "The list of allowed locations for resources.",
+            "displayName": "Allowed locations",
+            "strongType": "location"
+        }
     }
-  }
 }
 ```
 
 El tipo de un parámetro puede ser cadena o matriz. La propiedad de metadatos se usa para herramientas como Azure Portal para mostrar información intuitiva.
 
-Dentro de la propiedad de metadatos puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal.  Los valores permitidos para **strongType** actualmente incluyen:
+Dentro de la propiedad de metadatos, puede usar **strongType** para proporcionar una lista de opciones de selección múltiple en Azure Portal.  Los valores permitidos para **strongType** actualmente incluyen:
 
-* `"location"`
-* `"resourceTypes"`
-* `"storageSkus"`
-* `"vmSKUs"`
-* `"existingResourceGroups"`
-* `"omsWorkspace"`
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 En la regla de directiva, se hace referencia a los parámetros con la sintaxis siguiente:
 
@@ -113,6 +115,15 @@ En la regla de directiva, se hace referencia a los parámetros con la sintaxis s
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+## <a name="definition-location"></a>Ubicación de definición
+
+Al crear una definición de directiva o iniciativa, es importante especificar la ubicación de la definición.
+
+La ubicación de la definición determina el ámbito al que pueden asignarse la definición de directiva o la iniciativa. La ubicación puede especificarse como un grupo de administración o una suscripción.
+
+> [!NOTE]
+> Si planea aplicar esta definición de directiva a varias suscripciones, la ubicación debe ser un grupo de administración que contenga las suscripciones a las que asignará la iniciativa o directiva.
 
 ## <a name="display-name-and-description"></a>Nombre para mostrar y descripción
 
@@ -126,12 +137,12 @@ En el bloque **Then**, defina el efecto que se produce cuando se cumplen las con
 
 ```json
 {
-  "if": {
-    <condition> | <logical operator>
-  },
-  "then": {
-    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
-  }
+    "if": {
+        <condition> | <logical operator>
+    },
+    "then": {
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+    }
 }
 ```
 
@@ -139,9 +150,9 @@ En el bloque **Then**, defina el efecto que se produce cuando se cumplen las con
 
 Los operadores lógicos admitidos son:
 
-* `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]`
-* `"anyOf": [{condition or operator},{condition or operator}]`
+- `"not": {condition  or operator}`
+- `"allOf": [{condition or operator},{condition or operator}]`
+- `"anyOf": [{condition or operator},{condition or operator}]`
 
 La sintaxis **not** invierte el resultado de la condición. La sintaxis **allOf** (similar a la operación lógica **And**) requiere que se cumplan todas las condiciones. La sintaxis **anyOf** (similar a la operación lógica **Or**) requiere que se cumplan una o varias condiciones.
 
@@ -149,18 +160,17 @@ Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operació
 
 ```json
 "if": {
-  "allOf": [
-    {
-      "not": {
-        "field": "tags",
-        "containsKey": "application"
-      }
-    },
-    {
-      "field": "type",
-      "equals": "Microsoft.Storage/storageAccounts"
-    }
-  ]
+    "allOf": [{
+            "not": {
+                "field": "tags",
+                "containsKey": "application"
+            }
+        },
+        {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+        }
+    ]
 },
 ```
 
@@ -168,42 +178,44 @@ Puede anidar los operadores lógicos. El ejemplo siguiente muestra una operació
 
 Una condición evalúa si un **campo** cumple determinados criterios. Estas son las condiciones que se admiten:
 
-* `"equals": "value"`
-* `"notEquals": "value"`
-* `"like": "value"`
-* `"notLike": "value"`
-* `"match": "value"`
-* `"notMatch": "value"`
-* `"contains": "value"`
-* `"notContains": "value"`
-* `"in": ["value1","value2"]`
-* `"notIn": ["value1","value2"]`
-* `"containsKey": "keyName"`
-* `"notContainsKey": "keyName"`
-* `"exists": "bool"`
+- `"equals": "value"`
+- `"notEquals": "value"`
+- `"like": "value"`
+- `"notLike": "value"`
+- `"match": "value"`
+- `"notMatch": "value"`
+- `"contains": "value"`
+- `"notContains": "value"`
+- `"in": ["value1","value2"]`
+- `"notIn": ["value1","value2"]`
+- `"containsKey": "keyName"`
+- `"notContainsKey": "keyName"`
+- `"exists": "bool"`
 
 Cuando se usan las condiciones **like** y **notLike**, puede incluir un carácter comodín (*) en el valor.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte las [imágenes de máquina virtual aprobadas](scripts/allowed-custom-images.md).
+Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para representar un dígito, `?` para una letra, y cualquier otro carácter para representar ese carácter en sí. Por ejemplo, consulte [Permitir varios patrones de nombre](scripts/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields
+
 Para crear condiciones se usan campos. Un campo representa las propiedades de la carga de solicitud de recursos que se usa para describir el estado del recurso.  
 
 Se admiten los siguientes campos:
 
-* `name`
-* `fullName`
-  * Devuelve el nombre completo del recurso, incluidos a los elementos primarios (por ejemplo, "miServidor/miBaseDeDatos").
-* `kind`
-* `type`
-* `location`
-* `tags`
-* `tags.tagName`
-* `tags[tagName]`
-  * Esta sintaxis con corchetes admite nombres de etiqueta que contengan puntos.
-* alias de propiedad: para obtener una lista, vea [Alias](#aliases).
+- `name`
+- `fullName`
+  - Devuelve el nombre completo del recurso, incluidos a los elementos primarios (por ejemplo, "miServidor/miBaseDeDatos").
+- `kind`
+- `type`
+- `location`
+- `tags`
+- `tags.tagName`
+- `tags[tagName]`
+  - Esta sintaxis con corchetes admite nombres de etiqueta que contengan puntos.
+- alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 ### <a name="alternative-accessors"></a>Descriptores de acceso alternativos
+
 **Field** es el descriptor de acceso principal usado en reglas de directiva. Inspecciona directamente el recurso que se va a evaluar. Sin embargo, la directiva es compatible con otro descriptor de acceso, **source**.
 
 ```json
@@ -216,24 +228,23 @@ Se admiten los siguientes campos:
 Cuando la directiva está evaluando los recursos existentes en segundo plano, establece **action** en una acción de autorización `/write` en el tipo de recurso.
 
 ### <a name="effect"></a>Efecto
+
 La directiva admite tres tipos de efectos:
 
-* **Deny**: genera un evento en el registro de auditoría y se produce un error en la solicitud.
-* **Audit**: genera un evento de advertencia en el registro de auditoría pero no producirá un error en la solicitud.
-* **Append**: agrega el conjunto de campos definido a la solicitud.
-* **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
-* **DeployIfNotExists**: implementa un recurso si todavía no existe. Actualmente, este efecto solo se admite a través de directivas integradas.
+- **Deny**: genera un evento en el registro de auditoría y se produce un error en la solicitud.
+- **Audit**: genera un evento de advertencia en el registro de auditoría pero no producirá un error en la solicitud.
+- **Append**: agrega el conjunto de campos definido a la solicitud.
+- **AuditIfNotExists**: habilita la auditoría si un recurso no existe.
+- **DeployIfNotExists**: implementa un recurso si todavía no existe. Actualmente, este efecto solo se admite a través de directivas integradas.
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
 ```json
 "effect": "append",
-"details": [
-  {
+"details": [{
     "field": "field name",
     "value": "value of the field"
-  }
-]
+}]
 ```
 
 El valor puede ser una cadena o un objeto con formato JSON.
@@ -241,132 +252,71 @@ El valor puede ser una cadena o un objeto con formato JSON.
 Con **AuditIfNotExists** y **DeployIfNotExists**, puede evaluar la existencia de un recurso relacionado y aplicar una regla y un efecto correspondiente si no existe ese recurso. Por ejemplo, puede requerir que un monitor de red se implemente para todas las redes virtuales.
 Para un ejemplo de auditoría cuando no se implementa una extensión de máquina virtual, consulte el artículo sobre la [auditoría si la extensión no existe](scripts/audit-ext-not-exist.md).
 
-
 ## <a name="aliases"></a>Alias
 
 Los alias de propiedad se usan para tener acceso a propiedades específicas de un tipo de recurso. Los alias le permiten restringir los valores o condiciones que se permiten para una propiedad en un recurso. Cada alias se asigna a las rutas de acceso en las diferentes versiones de la API para un tipo de recurso determinado. Durante la evaluación de directivas, el motor de directiva obtiene la ruta de acceso de propiedad para esa versión de la API.
 
-**Microsoft.Cache/Redis**
+La lista de alias siempre está en aumento. Para descubrir qué alias son compatibles actualmente con Azure Policy, use uno de los métodos siguientes:
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Cache/Redis/enableNonSslPort | Establece si el puerto de servidor Redis que no es SSL (6379) está habilitado. |
-| Microsoft.Cache/Redis/shardCount | Establezca el número de particiones que se va a crear en una caché de clúster premium.  |
-| Microsoft.Cache/Redis/sku.capacity | Establezca el tamaño de la caché de Redis que implementar.  |
-| Microsoft.Cache/Redis/sku.family | Establezca la familia de SKU que utilizar. |
-| Microsoft.Cache/Redis/sku.name | Establezca el tipo de Redis Cache que implementar. |
+- Azure PowerShell
 
-**Microsoft.Cdn/profiles**
+  ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.CDN/profiles/sku.name | Establezca el nombre del plan de tarifa. |
+  $azContext = Get-AzureRmContext
+  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
+  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
+  $authHeader = @{
+      'Content-Type'='application/json'
+      'Authorization'='Bearer ' + $token.AccessToken
+  }
 
-**Microsoft.Compute/disks**
+  # Invoke the REST API
+  $response = Invoke-RestMethod -Uri 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases' -Method Get -Headers $authHeader
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
+  # Create an Array List to hold discovered aliases
+  $aliases = New-Object System.Collections.ArrayList
 
+  foreach ($ns in $response.value) {
+      foreach ($rT in $ns.resourceTypes) {
+          if ($rT.aliases) {
+              foreach ($obj in $rT.aliases) {
+                  $alias = [PSCustomObject]@{
+                      Namespace       = $ns.namespace
+                      resourceType    = $rT.resourceType
+                      alias           = $obj.name
+                  }
+                  $aliases.Add($alias) | Out-Null
+              }
+          }
+      }
+  }
 
-**Microsoft.Compute/virtualMachines**
+  # Output the list, sort, and format. You can customize with Where-Object to limit as desired.
+  $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
+  ```
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Establezca el identificador de la imagen utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/licenseType | Establezca que la imagen o el disco cuenten con una licencia local. Este valor solo se usa para imágenes que contienen el sistema operativo Windows Server.  |
-| Microsoft.Compute/virtualMachines/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/virtualMachines/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/virtualMachines/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/virtualMachines/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/virtualMachines/osDisk.Uri | Establezca el URI de VHD. |
-| Microsoft.Compute/virtualMachines/sku.name | Establezca el tamaño de la máquina virtual. |
-| Microsoft.Compute/virtualMachines/availabilitySet.id | Establece el identificador de conjunto de disponibilidad para la máquina virtual. |
+- Azure CLI
 
-**Microsoft.Compute/virtualMachines/extensions**
+  ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Compute/virtualMachines/extensions/publisher | Establezca el nombre del publicador de la extensión. |
-| Microsoft.Compute/virtualMachines/extensions/type | Establezca el tipo de extensión. |
-| Microsoft.Compute/virtualMachines/extensions/typeHandlerVersion | Establezca la versión de la extensión. |
+  # Get Azure Policy aliases for a specific Namespace
+  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  ```
 
-**Microsoft.Compute/virtualMachineScaleSets**
+- API de REST/ARMClient
 
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Compute/imageId | Establezca el identificador de la imagen utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageOffer | Establezca la oferta de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imagePublisher | Establezca el publicador de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageSku | Establezca la SKU de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/imageVersion | Establezca la versión de la imagen de plataforma o la imagen de marketplace utilizada para crear la máquina virtual. |
-| Microsoft.Compute/licenseType | Establezca que la imagen o el disco cuenten con una licencia local. Este valor solo se usa para imágenes que contienen el sistema operativo Windows Server. |
-| Microsoft.Compute/VirtualMachineScaleSets/computerNamePrefix | Establezca el prefijo del nombre de equipo para todas las máquinas virtuales en el conjunto de escalado. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.imageUrl | Establece el URI del blob para la imagen de usuario. |
-| Microsoft.Compute/VirtualMachineScaleSets/osdisk.vhdContainers | Establezca las direcciones URL de contenedor que se utilizan para almacenar los discos del sistema operativo para el conjunto de escalado. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.name | Establezca el tamaño de las máquinas virtuales en un conjunto de escalado. |
-| Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Establezca el nivel las máquinas virtuales en un conjunto de escalado. |
-
-**Microsoft.Network/applicationGateways**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Network/applicationGateways/sku.name | Establezca el tamaño de la puerta de enlace. |
-
-**Microsoft.Network/virtualNetworkGateways**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Network/virtualNetworkGateways/gatewayType | Establezca el tipo de esta puerta de enlace de red virtual. |
-| Microsoft.Network/virtualNetworkGateways/sku.name | Establezca el nombre de SKU de puerta de enlace. |
-
-**Microsoft.Sql/servers**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Sql/servers/version | Establezca la versión del servidor. |
-
-**Microsoft.Sql/databases**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Sql/servers/databases/edition | Establezca la edición de la base de datos. |
-| Microsoft.Sql/servers/databases/elasticPoolName | Establezca el nombre del grupo elástico en el que está la base de datos. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveId | Establezca el Id. de objetivo de nivel de servicio configurado de la base de datos. |
-| Microsoft.Sql/servers/databases/requestedServiceObjectiveName | Establezca el nombre del objetivo de nivel de servicio configurado de la base de datos.  |
-
-**Microsoft.Sql/elasticpools**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Establezca la DTU compartida total para el grupo elástico de base de datos. |
-| servers/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Establezca la edición del grupo elástico. |
-
-**Microsoft.Storage/storageAccounts**
-
-| Alias | DESCRIPCIÓN |
-| ----- | ----------- |
-| Microsoft.Storage/storageAccounts/accessTier | Establezca el nivel de acceso usado para la facturación. |
-| Microsoft.Storage/storageAccounts/accountType | Establezca el nombre de SKU. |
-| Microsoft.Storage/storageAccounts/enableBlobEncryption | Establezca si el servicio cifra los datos como si estuvieran almacenados en el servicio Blob Storage. |
-| Microsoft.Storage/storageAccounts/enableFileEncryption | Establezca si el servicio cifra los datos como si estuvieran almacenados en el servicio File Storage. |
-| Microsoft.Storage/storageAccounts/sku.name | Establezca el nombre de SKU. |
-| Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | Establezca permitir solo el tráfico https en el servicio de almacenamiento. |
-| Microsoft.Storage/storageAccounts/networkAcls.virtualNetworkRules[*].id | Compruebe si el punto de conexión de servicio de red virtual está habilitado. |
+  ```http
+  GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
+  ```
 
 ## <a name="initiatives"></a>Iniciativas
 
 Las iniciativas le permiten agrupan muchas definiciones de directivas relacionadas para simplificar las asignaciones y la administración, porque se trabaja con un grupo como un elemento único. Por ejemplo, puede agrupar todas las definiciones de directivas de etiquetado relacionadas en una sola iniciativa. En lugar de asignar individualmente cada directiva, la aplica.
 
 En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos etiquetas: `costCenter` y `productName`. Usa dos directivas integradas para aplicar el valor de etiqueta predeterminado.
-
 
 ```json
 {
@@ -388,8 +338,7 @@ En el ejemplo siguiente se muestra cómo crear una iniciativa para controlar dos
                 }
             }
         },
-        "policyDefinitions": [
-            {
+        "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "parameters": {
                     "tagName": {

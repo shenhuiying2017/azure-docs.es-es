@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.author: billmath
-ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalación de Azure AD Connect mediante permisos de administrador delegados de SQL
 Antes de la última compilación de Azure AD Connect, no se admitía la delegación administrativa al implementar configuraciones que requerían SQL.  Los usuarios que deseaban instalar Azure AD Connect necesitaban tener permisos de administrador del servidor (SA) en el servidor SQL.
@@ -42,7 +42,7 @@ Para aprovisionar la base de datos de forma externa e instalar Azure AD Connect 
 
 
 1.  Solicite al administrador de SQL que cree la base de datos ADSync con una secuencia de intercalación sin distinción entre mayúsculas y minúsculas **(Latin1_General_CI_AS)**.  La base de datos debe llamarse **ADSync**.  El modelo de recuperación, el nivel de compatibilidad y el tipo de contención se actualizan con los valores correctos cuando se instala Azure AD Connect.  Sin embargo, el administrador de SQL debe establecer correctamente la secuencia de intercalación o, de lo contrario, Azure AD Connect bloqueará la instalación.  Para recuperar el permiso SA, debe eliminar y volver a crear la base de datos.</br>
-![Intercalación](media/active-directory-aadconnect-sql-delegation/sql1.png)
+![Intercalación](media/active-directory-aadconnect-sql-delegation/sql4.png)
 2.  Conceda los siguientes permisos al administrador de Azure AD Connect y a la cuenta de servicio de dominio:
     - Inicio de sesión SQL 
     - Derechos de **database owner(dbo)** (propietario de la base de datos).  </br>

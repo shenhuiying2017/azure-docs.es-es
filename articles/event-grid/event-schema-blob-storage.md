@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d0a8a3726ac3c33668d8ad91c97c35937c299b46
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Esquema de eventos de Azure Event Grid para Blob Storage
 
@@ -86,30 +86,30 @@ El esquema para un evento de eliminación de un blob es similar:
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | cadena | Ruta al asunto del evento definida por el anunciante. |
-| eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | cadena | Identificador único para el evento |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Identificador único para el evento |
 | data | objeto | Datos de eventos de Blob Storage. |
-| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| api | cadena | Operación que desencadenó el evento. |
-| clientRequestId | cadena | Valor opaco generado por el cliente con un límite de caracteres de 1 KB. Si se habilitó el registro de análisis de almacenamiento, se graba en los registros de análisis. |
-| requestId | cadena | Identificador único de la solicitud. Úselo para solucionar problemas de la solicitud. |
-| eTag | cadena | Valor que puede usar para realizar operaciones de manera condicional. |
-| contentType | cadena | Tipo de contenido especificado para el blob. |
+| api | string | Operación que desencadenó el evento. |
+| clientRequestId | string | Valor opaco generado por el cliente con un límite de caracteres de 1 KB. Si se habilitó el registro de análisis de almacenamiento, se graba en los registros de análisis. |
+| requestId | string | Identificador único de la solicitud. Úselo para solucionar problemas de la solicitud. |
+| eTag | string | Valor que puede usar para realizar operaciones de manera condicional. |
+| contentType | string | Tipo de contenido especificado para el blob. |
 | contentLength | integer | Tamaño del blob en bytes. |
-| blobType | cadena | El tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob". |
-| URL | cadena | Ruta de acceso al blob. |
-| sequencer | cadena | Valor controlado por el usuario que puede usar para realizar un seguimiento de las solicitudes. |
+| blobType | string | El tipo de blob. Los valores válidos son "BlockBlob" o "PageBlob". |
+| URL | string | Ruta de acceso al blob. |
+| sequencer | string | Valor controlado por el usuario que puede usar para realizar un seguimiento de las solicitudes. |
 | storageDiagnostics | objeto | Información sobre los diagnósticos de almacenamiento. |
  
 ## <a name="next-steps"></a>Pasos siguientes

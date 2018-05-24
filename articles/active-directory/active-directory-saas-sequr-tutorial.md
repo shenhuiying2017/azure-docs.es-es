@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Sequr | Microsoft Docs"
-description: "Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Sequr."
+title: 'Tutorial: Integración de Azure Active Directory con Sequr | Microsoft Docs'
+description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y Sequr.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2017
 ms.author: jeedes
-ms.openlocfilehash: 8a2984bc2c77e9d92d4236b01c21912c27e167f9
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f3e245f609d96cc247f10ef3c184b7fe1de53756
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integración de Azure Active Directory con Sequr
 
@@ -30,9 +30,9 @@ La integración de Sequr con Azure AD le proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Sequr (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Sequr, se necesitan los siguientes elementos:
 
@@ -231,7 +231,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
