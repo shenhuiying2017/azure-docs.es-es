@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3eaaa1ec09e9bd593a2d14e4a3bc751c431869d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b0405975d88e69d3ecea6090983bc3c779395d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Arquitectura del acelerador de la solución de supervisión remota
 
-El [acelerador de la solución](iot-suite-what-are-solution-accelerators.md) de supervisión remota implementa una solución de supervisión integral para varias máquinas en ubicaciones remotas. La solución combina servicios clave de Azure para proporcionar una implementación genérica del escenario de negocio. Puede usar la solución como punto de partida para su propia implementación, así como [personalizarla](iot-suite-remote-monitoring-customize.md) para cumplir sus requisitos empresariales específicos.
+El [acelerador de la solución](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) de supervisión remota implementa una solución de supervisión integral para varias máquinas en ubicaciones remotas. La solución combina servicios clave de Azure para proporcionar una implementación genérica del escenario de negocio. Puede usar la solución como punto de partida para su propia implementación, así como [personalizarla](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) para cumplir sus requisitos empresariales específicos.
 
 Este artículo le guiará a través de algunos de los elementos clave de la solución de supervisión remota para que pueda entender cómo funciona. Esta información le ayuda a:
 
@@ -33,7 +33,7 @@ Este artículo le guiará a través de algunos de los elementos clave de la solu
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 
-El siguiente diagrama muestra los componentes lógicos del acelerador de la solución de supervisión remota superpuesta en la [arquitectura de IoT](iot-suite-what-is-azure-iot.md):
+El siguiente diagrama muestra los componentes lógicos del acelerador de la solución de supervisión remota superpuesta en la [arquitectura de IoT](../iot-accelerators/iot-accelerators-what-is-azure-iot.md):
 
 ![Arquitectura lógica](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -143,4 +143,4 @@ Si desea examinar el código fuente y la documentación para desarrolladores, co
 * [Acelerador de la solución de supervisión remota con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 * [Acelerador de la solución de supervisión remota (arquitectura)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Para obtener información conceptual sobre el acelerador de la solución de supervisión remota, consulte [Personalizar el acelerador de la solución](iot-suite-remote-monitoring-customize.md).
+Para obtener información conceptual sobre el acelerador de la solución de supervisión remota, consulte [Personalizar el acelerador de la solución](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

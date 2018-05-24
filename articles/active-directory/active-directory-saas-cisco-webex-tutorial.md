@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Cisco Webex | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cisco Webex."
+title: 'Tutorial: Integración de Azure Active Directory con Cisco Webex | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 42632dcf8997ec5e987ac8a6615aae24e903399a
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 527d74910244058506e8435d431e239968896cd9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Tutorial: Integración de Azure Active Directory con Cisco Webex
 
@@ -30,7 +30,7 @@ Integrar Cisco Webex con Azure AD proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en Cisco Webex con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para obtener más detalles sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para obtener más detalles sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -278,7 +278,7 @@ Para más información sobre el panel de acceso, consulte [Introducción al pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

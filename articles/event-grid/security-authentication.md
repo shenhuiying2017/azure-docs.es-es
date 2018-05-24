@@ -5,14 +5,14 @@ services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 8c601d13f0f4d7c44db5735c2f89f570faa4f0c9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -27,6 +27,8 @@ Azure Event Grid tiene tres tipos de autenticación:
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el webhook de Event Grid envía una solicitud HTTP al punto de conexión HTTP configurado con el evento en el cuerpo.
 
 Al registrar su propio punto de conexión de webhook con Event Grid, se le envía una solicitud POST con un código de validación simple con el fin de comprobar la propiedad del punto de conexión. La aplicación necesita responder devolviendo el código de validación. Event Grid no entrega eventos a los puntos de conexión de webhook que no hayan superado la validación. Si usa un servicio de API de terceros (como [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/)), puede que no sea capaz de reflejar el código de validación mediante programación. Con esos servicios, puede validar manualmente la suscripción mediante una dirección URL de validación que se envía en el evento de validación de la suscripción. Copie esa dirección URL y envíe una solicitud GET mediante un cliente de REST o el explorador web.
+
+La validación manual se encuentra disponible en versión preliminar. Para usarla, debe instalar la [extensión de Event Grid](/cli/azure/azure-cli-extensions-list) para [AZ CLI 2.0](/cli/azure/install-azure-cli). Puede instalarla con `az extension add --name eventgrid`. Si usa la API de REST, asegúrese de utilizar `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Detalles de la validación
 

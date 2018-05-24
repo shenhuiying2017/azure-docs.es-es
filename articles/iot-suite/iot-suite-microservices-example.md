@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: dc18437d554889655963270cdc051fb52325f09e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b9be74b4ef5a1239f6ce753ebf41af6b5dbacb5e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalización y reimplementación de un microservicio
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 Para utilizar este tutorial, necesitará:
 
 >[!div class="checklist"]
-> * [Implementación local de la solución preconfigurada de supervisión remota](iot-suite-remote-monitoring-deploy-local.md)
+> * [Implementación local de la solución preconfigurada de supervisión remota](../iot-accelerators/iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Una cuenta de Docker](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/): necesario para ver la respuesta de la API
 
