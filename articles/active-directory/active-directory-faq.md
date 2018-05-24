@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: e12487c519a927b18574310b7af04a1811befd38
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 285961279a35d2770f05eb66b961f64e6781d9df
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34336558"
 ---
 # <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
 Azure Active Directory (Azure AD) es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
@@ -175,7 +176,7 @@ Para más información, consulte:
 * Inicio de sesión directo en aplicaciones federadas
 * Vínculos profundos a aplicaciones federadas, con contraseña o existentes
 
-Para más información, consulte [Implementación de aplicaciones integradas en Azure AD a los usuarios](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+Para más información, consulte [Implementación de aplicaciones integradas en Azure AD a los usuarios](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
 
 - - -
 **P: ¿Cuáles son las distintas formas en que Azure AD permite la autenticación y el inicio de sesión único en aplicaciones?**
@@ -186,7 +187,7 @@ Para más información, consulte:
 
 * [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md)
 * [Protocolos de autenticación de Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 - - -
 **P: ¿Puedo agregar aplicaciones que ejecuto de manera local?**

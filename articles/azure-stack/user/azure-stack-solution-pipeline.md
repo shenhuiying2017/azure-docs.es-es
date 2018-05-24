@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258355"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementación de aplicaciones en Azure y Azure Stack
 

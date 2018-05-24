@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bb981bcfb391362bad80aabf5808fd085e937232
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193461"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps
 
@@ -303,6 +304,6 @@ En este tutorial aprendió lo siguiente:
 Para aprender a usar Azure Content Delivery Network, avance al siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Incorporación de una red Content Delivery Network a Azure App Service](../cdn/app-service-web-tutorial-content-delivery-network.md)
+> [Incorporación de una red Content Delivery Network a Azure App Service](../cdn/cdn-add-to-web-app.md)
 
 Para más información, consulte [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md).

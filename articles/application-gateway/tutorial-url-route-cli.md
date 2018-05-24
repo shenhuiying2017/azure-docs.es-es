@@ -10,23 +10,24 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8c87206f75114cb3947d57180f570f8defaf41ea
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 411baa24cc796a40f83e8530ab797f3e377ee5f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356246"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: redirigir el tráfico web basado en la dirección URL mediante la CLI de Azure
 
 Puede usar la CLI de Azure para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos basados en la dirección URL que se usa para acceder a la aplicación. En este tutorial, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
 
-Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos, para asegurarse así de que el tráfico web llega a los servidores adecuados en los grupos.
+Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
-> * Crear agentes de escucha, asignaciones de rutas de direcciones URL y reglas.
+> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
 > * Crear grupos de back-end escalables.
 
 
@@ -227,7 +228,7 @@ for i in `seq 1 3`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 

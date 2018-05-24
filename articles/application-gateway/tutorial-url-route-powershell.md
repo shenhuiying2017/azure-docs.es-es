@@ -10,15 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 3/20/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 63533319d555e79c86d4fe3cdae0b168115e7ec5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9aa0eec9036e32d6f3462886dfc7a796ed1844b8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356297"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
 
-Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este tutorial, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtienen la información que necesitan cuando la necesitan.
+Se puede usar Azure PowerShell para configurar el enrutamiento de tráfico web a grupos de servidores escalables específicos según la dirección URL que se usa para acceder a la aplicación. En este tutorial, creará una instancia de [Azure Application Gateway](application-gateway-introduction.md) con tres grupos de back-end mediante [Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Cada uno de los grupos de back-end sirve para un propósito específico como vídeo, imágenes y datos comunes.  El enrutamiento de tráfico para separar grupos garantiza que los clientes obtengan la información que necesiten en el momento adecuado.
 
 Para habilitar el enrutamiento de tráfico, se crean [reglas de enrutamiento](application-gateway-url-route-overview.md) asignadas a los agentes de escucha que escuchan en puertos específicos para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos.
 
@@ -26,8 +27,8 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Configuración de la red
-> * Crear agentes de escucha, asignación de ruta de acceso a la dirección URL y reglas
-> * Crear grupos de back-end escalables
+> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
+> * Crear grupos de back-end escalables.
 
 ![Ejemplo de enrutamiento de direcciones URL](./media/tutorial-url-route-powershell/scenario.png)
 
@@ -79,7 +80,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-En esta sección, se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará. Los recursos creados incluyen:
+En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará esta última. Los recursos que cree incluirán lo siguiente:
 
 - *Configuraciones IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y se asigna un puerto que se usará para tener acceso a esta.
 - *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
@@ -385,7 +386,7 @@ for ($i=1; $i -le 3; $i++)
 Cada conjunto de escalado contiene dos instancias de máquina virtual en las que se instala IIS, que ejecuta una página de ejemplo para probar si la puerta de enlace de aplicaciones funciona.
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)
@@ -425,7 +426,7 @@ Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.htm, s
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no se necesiten, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
+Cuando ya no los necesite, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
@@ -437,7 +438,7 @@ En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Configuración de la red
-> * Crear agentes de escucha, asignación de ruta de acceso a la dirección URL y reglas
+> * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
 > * Crear grupos de back-end escalables
 
 > [!div class="nextstepaction"]

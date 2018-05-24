@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a563d31cdde781cb17eb738a6ce153adecaee672
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2ca90677f7aff0b6664a67e73128a987c8f3f36c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355923"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Administrar el tráfico web con una puerta de enlace de aplicaciones mediante Azure PowerShell
 
@@ -72,9 +73,9 @@ $pip = New-AzureRmPublicIpAddress `
 
 En esta sección se crearán recursos que admitan la puerta de enlace de aplicaciones y, por último, se creará esta última. Los recursos que cree incluirán lo siguiente:
 
-- *Configuraciones IP y un puerto de front-end*: asocia la subred que se creó anteriormente con la puerta de enlace de aplicaciones y asigna un puerto que se usará para obtener acceso a ella.
+- *Configuraciones IP y puerto front-end*: asocia la subred que se creó anteriormente a la puerta de enlace de aplicaciones y se asigna un puerto que se usará para tener acceso a esta.
 - *Grupo predeterminado*: todas las puertas de enlace de aplicaciones deben tener al menos un grupo de servidores back-end.
-- *Agente de escucha y regla predeterminados*: el agente de escucha predeterminado escucha el tráfico en el puerto que se asignó y la regla predeterminada envía tráfico al grupo predeterminado.
+- *Agente de escucha y regla predeterminados*: el agente de escucha predeterminado escucha el tráfico en el puerto asignado y la regla predeterminada envía tráfico al grupo predeterminado.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
@@ -215,7 +216,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>Instalación de IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/vhorne/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss

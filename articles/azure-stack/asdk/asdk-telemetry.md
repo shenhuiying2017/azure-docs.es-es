@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d48b6a02666348f2ef7c1b2a73982d219c79bf54
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bfd16901c5ce036719a1ed19e9a5b5c6ef52be93
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257431"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetría de Azure Stack
 
@@ -28,7 +29,7 @@ Los datos del sistema, o telemetría, de Azure Stack se cargan automáticamente 
 Como operador de Azure Stack, la telemetría puede proporcionar información valiosa sobre las implementaciones empresariales y le ofrece una opción que ayuda a modelar las versiones futuras de Azure Stack.
 
 > [!NOTE]
-> Azure Stack se puede configurar también para reenviar la información de uso a Azure con fines de facturación. Esta información es necesaria para los clientes de Azure Stack de varios nodos que eligen la facturación de pago por uso. Los informes de uso se controlan de forma independiente de la telemetría y no son necesarios para los clientes de varios nodos que eligen el modelo de capacidad o para los usuarios del Kit de desarrollo de Azure Stack. En estos escenarios, los informes de uso se pueden desactivar [mediante el script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). 
+> Azure Stack se puede configurar también para reenviar la información de uso a Azure con fines de facturación. Esta información es necesaria para los clientes de Azure Stack de varios nodos que eligen la facturación de pago por uso. Los informes de uso se controlan de forma independiente de la telemetría y no son necesarios para los clientes de varios nodos que eligen el modelo de capacidad o para los usuarios del Kit de desarrollo de Azure Stack. En estos escenarios, los informes de uso se pueden desactivar [mediante el script de registro](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting).
 
 La telemetría de Azure Stack se basa en el componente Experiencia del usuario y telemetría asociadas de Windows Server 2016, que usa la tecnología de registro de seguimientos [ETW (Seguimiento de eventos para Windows)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) para recopilar y almacenar eventos y datos de telemetría. Los componentes de Azure Stack usan la misma tecnología de registro para publicar eventos y datos que se recopilan mediante las API de seguimiento y registro de eventos del sistema operativo. Algunos ejemplos de componentes de Azure Stack son Proveedor de recursos de red, Proveedor de recursos de almacenamiento, Proveedor de recursos de supervisión y Proveedor de recursos de actualización. El componente Experiencia del usuario y telemetría asociadas cifra los datos mediante SSL y usa la asignación de certificados para transmitir datos de telemetría al servicio Microsoft Data Management a través de HTTPS.
 
@@ -36,7 +37,7 @@ La telemetría de Azure Stack se basa en el componente Experiencia del usuario y
 > Para admitir el flujo de datos de telemetría, el puerto 443 (HTTPS) debe estar abierto en la red. El componente Experiencia del usuario y telemetría asociadas se conecta al servicio Microsoft Data Management en https://v10.vortex-win.data.microsoft.com. El componente Experiencia del usuario y telemetría asociadas también se conecta a https://settings-win.data.microsoft.com para descargar la información de la configuración.
 
 ## <a name="privacy-considerations"></a>Consideraciones sobre privacidad
-El servicio ETW enruta los datos de telemetría de vuelta al almacenamiento de nube protegido. El acceso a los datos de telemetría se rige por el principio de menores privilegios. Solo el personal de Microsoft con una necesidad empresarial válida tiene permiso de acceso a los datos de telemetría. Microsoft no comparte los datos personales de nuestros clientes con terceros, excepto si así lo decide el cliente o con las finalidades limitadas que se describe en la [declaración de privacidad de Azure Stack](http://windows.microsoft.com/windows/preview-privacy-statement). Se comparten informes empresariales con OEM y asociados que incluyen información de telemetría acumulada y anónima. Las decisiones de compartir los datos las realiza un equipo interno de Microsoft entre los que se cuentan las partes interesadas de privacidad, aspectos legales y administración de datos.
+El servicio ETW enruta los datos de telemetría de vuelta al almacenamiento de nube protegido. El acceso a los datos de telemetría se rige por el principio de menores privilegios. Solo el personal de Microsoft con una necesidad empresarial válida tiene permiso de acceso a los datos de telemetría. Microsoft no comparte los datos personales de nuestros clientes con terceros, excepto si así lo decide el cliente o con las finalidades limitadas que se describe en la [declaración de privacidad de Azure Stack](https://privacy.microsoft.com/PrivacyStatement). Se comparten informes empresariales con OEM y asociados que incluyen información de telemetría acumulada y anónima. Las decisiones de compartir los datos las realiza un equipo interno de Microsoft entre los que se cuentan las partes interesadas de privacidad, aspectos legales y administración de datos.
 
 Microsoft cree en la minimización de la información, y la practica. Nos esforzamos por recopilar solo la información necesaria y la almacenamos solo mientras la necesitamos para proporcionar un servicio o realizar un análisis. Gran parte de la información sobre cómo funcionan el sistema de Azure Stack y los servicios de Azure se elimina al cabo de seis meses. Los datos acumulados o resumidos se conservan más tiempo.
 
@@ -50,19 +51,19 @@ Sabemos que la privacidad y la seguridad de la información de nuestros clientes
 La intención de Microsoft no es recopilar información confidencial, como números de tarjeta de crédito, nombres de usuario y contraseñas, direcciones de correo electrónico u otra información igualmente confidencial. Si determinamos que, por accidente, se ha recibido información confidencial, la eliminamos.
 
 ## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Ejemplos de cómo Microsoft usa los datos de telemetría
-La telemetría desempeña un importante papel a la hora de ayudarnos a identificar y corregir rápidamente problemas críticos de confiabilidad en las implementaciones y configuraciones de nuestros clientes. La información que extraemos de los datos de telemetría que recopilamos nos ayuda a identificar rápidamente problemas con servicios o configuraciones de hardware. La posibilidad que tiene Microsoft de obtener estos datos de los clientes y de impulsar las mejoras en el ecosistema ayuda a elevar el estándar de calidad de nuestras soluciones integradas de Azure Stack. 
+La telemetría desempeña un importante papel a la hora de ayudarnos a identificar y corregir rápidamente problemas críticos de confiabilidad en las implementaciones y configuraciones de nuestros clientes. La información que extraemos de los datos de telemetría que recopilamos nos ayuda a identificar rápidamente problemas con servicios o configuraciones de hardware. La posibilidad que tiene Microsoft de obtener estos datos de los clientes y de impulsar las mejoras en el ecosistema ayuda a elevar el estándar de calidad de nuestras soluciones integradas de Azure Stack.
 
 La telemetría también ayuda a Microsoft a entender mejor cómo los clientes implementan componentes y usan características y servicios para lograr sus objetivos empresariales. La obtención de información de dichos ayuda a asignar prioridad a las inversiones en ingeniería en áreas que pueden tener una repercusión directa sobre las experiencias y las cargas de trabajo de nuestros clientes.
 
 Algunos ejemplos incluyen el uso de contenedores por parte del cliente, el almacenamiento y las configuraciones de redes que están asociadas con roles de Azure Stack. También usamos la información para impulsar mejoras e inteligencia en algunas de nuestras soluciones de administración y supervisión. De esta forma, los clientes pueden diagnosticar problemas de calidad y ahorrar dinero, ya que realizan menos llamadas de soporte técnico a Microsoft.
 
 ## <a name="manage-telemetry-collection"></a>Administración de la recopilación de telemetría
-No se recomienda desactivar la telemetría en su organización, ya que proporciona datos que controlan la funcionalidad y la estabilidad mejorada del producto. Sin embargo, reconocemos que en algunos casos puede ser necesario. 
+No se recomienda desactivar la telemetría en su organización, ya que proporciona datos que controlan la funcionalidad y la estabilidad mejorada del producto. Sin embargo, reconocemos que en algunos casos puede ser necesario.
 
 En estos casos, puede configurar el nivel de telemetría que se envía a Microsoft mediante la implementación previa de la configuración del Registro o mediante la implementación posterior de los puntos de conexión de telemetría.
 
 ### <a name="set-telemetry-level-in-the-windows-registry"></a>Establecimiento del nivel de telemetría en el Registro de Windows
-El Editor del Registro de Windows se usa para establecer manualmente el nivel de telemetría en el equipo host físico antes de implementar Azure Stack. Si ya existe una directiva de administración, como la directiva de grupo, reemplaza este valor del registro. 
+El Editor del Registro de Windows se usa para establecer manualmente el nivel de telemetría en el equipo host físico antes de implementar Azure Stack. Si ya existe una directiva de administración, como la directiva de grupo, reemplaza este valor del registro.
 
 Antes de implementar Azure Stack en el host del kit de desarrollo, inicie CloudBuilder.vhdx y ejecute el siguiente script en una ventana de PowerShell con privilegios elevados:
 
@@ -70,7 +71,7 @@ Antes de implementar Azure Stack en el host del kit de desarrollo, inicie CloudB
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
+### Set & Get updated AllowTelemetry value for ASDK-Host
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name "AllowTelemetry" -Value '0' # Set this value to 0,1,2,or3.  
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -84,25 +85,25 @@ Los niveles de telemetría son acumulativos y se clasifican en cuatro niveles (0
 **1 (Básico)**. Datos de seguridad y datos básicos de mantenimiento y calidad. Información básica del dispositivo, lo que incluye datos relacionados con la calidad, compatibilidad con aplicaciones, datos de uso de aplicaciones y datos del nivel Seguridad. Al establecer el nivel de telemetría en Básico se habilita la telemetría de Azure Stack. Los datos recopilados en este nivel incluyen:
 
 - **Información básica del dispositivo** que ayuda a comprender los tipos y las configuraciones de instancias de Windows Server 2016 nativas y virtualizadas del ecosistema, como por ejemplo:
- - Atributos de la máquina, como OEM, modelo 
+ - Atributos de la máquina, como OEM, modelo
  - Atributos de red, como número y velocidad de los adaptadores de red
- - Atributos de procesador y memoria, como número de núcleos, tamaño de memoria 
+ - Atributos de procesador y memoria, como número de núcleos, tamaño de memoria
  - Atributos de almacenamiento, como número de unidades, tipo y tamaño
 - **Funcionalidad de telemetría**, que incluye el porcentaje de eventos cargados, eventos descartados y hora de última carga.
 - **Información relacionada con la calidad** que ayuda a Microsoft a desarrollar un conocimiento básico del funcionamiento Azure Stack. Un ejemplo es el número de alertas críticas en una configuración de hardware determinada.
 - **Datos de compatibilidad, que ayudan a saber qué proveedores de recursos están instalados en un sistema y en una máquina virtual, e identifican posibles problemas de compatibilidad.
 
-**2 (Mejorado)**. Información adicional, que incluye cómo se usan el sistema operativo y otros servicios de Azure Stack, cuál es su rendimiento, datos avanzados de confiabilidad y datos de los niveles Básico y Seguridad. 
+**2 (Mejorado)**. Información adicional, que incluye cómo se usan el sistema operativo y otros servicios de Azure Stack, cuál es su rendimiento, datos avanzados de confiabilidad y datos de los niveles Básico y Seguridad.
 
 **3 (Completo)**. Todos los datos necesarios para identificar problemas y ayudar a su solución, además de los datos de los niveles **Seguridad**, **Básico** y **Mejorado**.
 
 > [!NOTE]
 > El valor de nivel de telemetría predeterminado es 2 (mejorado).
 
-La desactivación de la telemetría de Windows y de Azure Stack deshabilita la de SQL. Para más información acerca de las implicaciones de la configuración de telemetría de Windows Server, consulte las [notas del producto de la telemetría de Windows](https://aka.ms/winservtelemetry). 
+La desactivación de la telemetría de Windows y de Azure Stack deshabilita la de SQL. Para más información acerca de las implicaciones de la configuración de telemetría de Windows Server, consulte las [notas del producto de la telemetría de Windows](https://aka.ms/winservtelemetry).
 
 > [!IMPORTANT]
-> Estos niveles de telemetría solo se aplican a los componentes de Microsoft Azure Stack. Los componentes y servicios de software que no sean de Microsoft que se ejecutan en el host de ciclo de vida de hardware de los asociados de hardware de Azure Stack se pueden comunicar con sus servicios en la nube fuera de estos niveles de telemetría. Acuda a su proveedor de soluciones de hardware de Azure Stack para que le informe de su directiva de telemetría y cómo puede usarla o no. 
+> Estos niveles de telemetría solo se aplican a los componentes de Microsoft Azure Stack. Los componentes y servicios de software que no sean de Microsoft que se ejecutan en el host de ciclo de vida de hardware de los asociados de hardware de Azure Stack se pueden comunicar con sus servicios en la nube fuera de estos niveles de telemetría. Acuda a su proveedor de soluciones de hardware de Azure Stack para que le informe de su directiva de telemetría y cómo puede usarla o no.
 
 ### <a name="enable-or-disable-telemetry-after-deployment"></a>Habilitación o deshabilitación de la telemetría después de la implementación
 
@@ -110,8 +111,8 @@ Para habilitar o deshabilitar la telemetría después de la implementación, deb
 1.  Para habilitarla: `Set-Telemetry -Enable`
 2.  Para deshabilitar: `Set-Telemetry -Disable`
 
-Detalle del PARÁMETRO: 
-> .PARÁMETRO Enable: activa la carga de telemetría 
+Detalle del PARÁMETRO:
+> .PARÁMETRO Enable: activa la carga de telemetría
 
 > .PARÁMETRO Disable: desactiva la carga de datos de telemetría  
 
@@ -143,4 +144,3 @@ if($psSession)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Incorporación de un elemento de Marketplace](asdk-marketplace-item.md)
-

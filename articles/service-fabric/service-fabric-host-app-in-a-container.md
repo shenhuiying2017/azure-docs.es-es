@@ -13,12 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/07/2018
-ms.author: ryanwi,mikhegn
-ms.openlocfilehash: 20600eda935d15b0554f6184b41caa45ee42fd14
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: ryanwi
+ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207492"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementación de una aplicación .NET de un contenedor de Windows en Azure Service Fabric
 
@@ -157,7 +158,7 @@ Al crear el clúster, elija una SKU que admita la ejecución de contenedores (co
     3. Seleccione la pestaña **Certificado**. En ella, escriba la contraseña que se utilizará para proteger el certificado del clúster. Este certificado le ayuda a proteger el clúster. También puede modificar la ruta de acceso a la ubicación en que desea guardar el certificado. Visual Studio también puede importar el certificado automáticamente, ya que este es un paso necesario para publicar la aplicación en el clúster.
     4. Seleccione la pestaña **Detalle de máquina virtual**. Especifique la contraseña que desea usar para las máquinas virtuales (VM) que componen el clúster. El nombre de usuario y la contraseña se pueden utilizar para conectarse a las máquinas virtuales de forma remota. También debe seleccionar el tamaño de la máquina virtual y puede cambiar la imagen de la misma si fuera necesario.
     5. En la pestaña **Opciones avanzadas**, aparece el puerto de la aplicación que se abrirá en el equilibrador de carga cuando se implemente el clúster. En el Explorador de soluciones, abra FabrikamFiber.Web->PackageRoot->ServiceManifest.xml.  Aparece el puerto para el front-end web en **Punto de conexión**.  También puede agregar una clave de Application Insights existente que se va a utilizar para enrutar los archivos de registro de aplicaciones.
-    6. Cuando haya acabado de modificar la configuración, seleccione el botón **Crear**. 
+    6. Cuando haya acabado de modificar la configuración, haga clic en el botón **Crear**. 
 5. La creación tarda varios minutos en completarse; la ventana de salida indicará el momento en que el clúster está totalmente creado.
     
 
