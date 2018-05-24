@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358666"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Uso de la extensión Visual Studio Code para crear plantillas de Azure Resource Manager
 En este artículo se muestran las ventajas de instalar y usar la extensión de herramientas de Azure Resource Manager en Visual Studio Code. Puede crear plantillas de Resource Manager en VS Code sin la extensión, pero la extensión proporciona opciones de autocompletar que simplifican el desarrollo de la plantilla. Sugiere funciones de plantilla, parámetros y variables que están disponibles en la plantilla.

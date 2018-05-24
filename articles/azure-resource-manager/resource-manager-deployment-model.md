@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359747"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>La implementación de Azure Resource Manager frente a la implementación clásica: los modelos de implementación y el estado de los recursos
 En este artículo aprenderá sobre Azure Resource Manager y los modelos de implementación clásicos. El modelo de implementación de Resource Manager y el modelo de implementación clásica representan dos formas diferentes de implementar y administrar las soluciones de Azure. Usted trabaja con ellos a través de dos conjuntos de API distintos y los recursos implementados pueden contener diferencias importantes. Los dos modelos no son compatibles entre sí. En este artículo se describen esas diferencias.

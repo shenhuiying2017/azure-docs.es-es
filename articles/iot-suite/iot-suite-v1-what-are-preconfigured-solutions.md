@@ -1,12 +1,12 @@
 ---
 title: Soluciones preconfiguradas de IoT de Azure | Microsoft Docs
-description: "Descripción de las soluciones preconfiguradas de IoT de Azure y de sus arquitecturas con vínculos a recursos adicionales."
-services: 
+description: Descripción de las soluciones preconfiguradas de IoT de Azure y de sus arquitecturas con vínculos a recursos adicionales.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 76df013e8e5868fcc9f5d95aa523a6a56dea7163
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d860c768a73737e6c8c52a8652d6b43434a3a07d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361995"
 ---
-# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>¿Qué son las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure?
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>¿Qué son las soluciones preconfiguradas de Azure IoT Suite?
 
-Las soluciones preconfiguradas del Conjunto de aplicaciones de IoT de Azure son implementaciones de patrones de soluciones de IoT comunes que se pueden implementar en Azure con su suscripción. Puede usar las soluciones preconfiguradas:
+Las soluciones preconfiguradas de Azure IoT Suite son implementaciones de patrones de soluciones de IoT comunes que se pueden implementar en Azure con su suscripción. Puede usar las soluciones preconfiguradas:
 
 * Como punto de partida para sus propias soluciones IoT.
 * Para más información sobre los patrones comunes en el desarrollo y diseño de la solución de IoT.
@@ -174,4 +175,4 @@ Ahora que ya sabe qué es una solución preconfigurada, puede comenzar por imple
 [lnk-c2d-guidance]: ../iot-hub/iot-hub-devguide-c2d-guidance.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-getstarted-factory]: iot-suite-connected-factory-overview.md
+[lnk-getstarted-factory]:../iot-accelerators/iot-accelerators-connected-factory-overview.md

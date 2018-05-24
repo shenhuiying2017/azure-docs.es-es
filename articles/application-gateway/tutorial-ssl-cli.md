@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c52eb99d76253298af858ed8748929874896523
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c548bd4e9373e7871ddcd8e04c5992b303e0e6bb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355940"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutorial: crear una puerta de enlace de aplicaciones con terminación SSL mediante la CLI de Azure
 
@@ -28,7 +29,7 @@ En este tutorial, aprenderá a:
 > * Crear una puerta de enlace de aplicaciones con el certificado
 > * Crear un conjunto de escalado de máquinas virtuales con el grupo de servidores back-end predeterminado
 
-Si lo prefiere, puede realizar los pasos de este tutorial mediante [Azure PowerShell](tutorial-ssl-powershell.md).
+Si lo prefiere, puede seguir los pasos de este tutorial mediante [Azure PowerShell](tutorial-ssl-powershell.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -148,7 +149,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 

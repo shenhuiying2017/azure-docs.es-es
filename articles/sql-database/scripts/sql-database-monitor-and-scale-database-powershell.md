@@ -3,8 +3,8 @@ title: Ejemplo de PowerShell para supervisar y escalar una instancia de Azure SQ
 description: Script de ejemplo de Azure PowerShell para supervisar y escalar una instancia de Azure SQL Database
 services: sql-database
 documentationcenter: sql-database
-author: janeng
-manager: jstrauss
+author: CarlRabeler
+manager: craigg
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: adb2da80ecf0b0c8feb7ebd242b1e98a871aef77
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.author: carlrab
+ms.openlocfilehash: 981c9bc56abbfc1feeff5b010d0eee7c52ed48cc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362812"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Uso de PowerShell para supervisar y escalar una sola base de datos SQL
 

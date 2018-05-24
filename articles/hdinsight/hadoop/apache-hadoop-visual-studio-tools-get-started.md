@@ -1,9 +1,9 @@
 ---
-title: "Conexión a Azure HDInsight mediante Herramientas de Data Lake para Visual Studio | Microsoft Docs"
-description: "Aprenda a instalar y utilizar Data Lake Tools para Visual Studio para conectarse a clústeres de Hadoop en Azure HDInsight y luego a ejecutar consultas de Hive."
+title: Conexión a Azure HDInsight mediante Herramientas de Data Lake para Visual Studio | Microsoft Docs
+description: Aprenda a instalar y utilizar Data Lake Tools para Visual Studio para conectarse a clústeres de Hadoop en Azure HDInsight y luego a ejecutar consultas de Hive.
 keywords: herramientas hadoop, consulta hive, visual studio, visual studio hadoop
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: afd40d75bb9c5fd3170a4da215925244994d7749
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1707a681315fbb53f21df95664188463968bb855
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202482"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Conectarse a Azure HDInsight y ejecutar consultas de Hive con Herramientas de Data Lake para Visual Studio
 
@@ -47,7 +48,7 @@ Para completar este tutorial y usar Data Lake Tools para Visual Studio, se neces
 
 ## <a name="install-or-update-data-lake-tools-for-visual-studio"></a>Instalación o actualización de Data Lake Tools para Visual Studio
 
-### <a name="install-data-lake-tools"></a>Instalación de Data Lake Tools
+### <a name="install-data-lake-tools"></a>Instalación de Herramientas de Data Lake
 
 Data Lake Tools está instalado de forma predeterminada para Visual Studio de 2017. Para las versiones anteriores de Visual Studio, Data Lake Tools se puede instalar mediante el [Instalador de plataforma web](https://www.microsoft.com/web/downloads/platform.aspx). Elija la versión de Data Lake Tools que coincida con su versión de Visual Studio. 
 

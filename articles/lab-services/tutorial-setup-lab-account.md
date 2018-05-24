@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5af348bfdccb9392948af962cf582e33ebd40872
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a9e90404475e8ff1f1ea72c233b1abfed938f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361393"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services-formerly-azure-devtest-labs"></a>Tutorial: Configuración de una cuenta de laboratorio con Azure Lab Services (anteriormente Azure DevTest Labs)
 En este tutorial, va a actuar como administrador de laboratorio para crear una cuenta de laboratorio con Azure Lab Services. Después, va a proporcionar a los educadores el permiso para crear laboratorios para sus clases en esta cuenta de laboratorio. El educador puede configurar un laboratorio para una clase mediante el [sitio web de Azure Lab Services](https://labs.azure.com).   
@@ -27,18 +28,17 @@ En este tutorial realizará lo siguiente:
 
 > [!div class="checklist"]
 > * Creación de una cuenta de laboratorio
-> * Adición de un usuario al rol Creador de laboratorio
+> * Incorporación de un usuario al rol Creador de laboratorio
 
-## <a name="prerequisites"></a>requisitos previos
-
-- Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
-- Azure Lab Services actualmente se encuentra en versión preliminar controlada. Para crear una cuenta de laboratorio, [regístrese para obtener la versión preliminar](https://aka.ms/azlabspreviewsignup).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-a-lab-account"></a>Creación de una cuenta de laboratorio
 Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de laboratorio con Azure Lab Services. 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. En el menú principal de la izquierda, seleccione **Crear un recurso**  (en la parte superior de la lista), seleccione **Herramientas de desarrollo** y haga clic en **Lab Services (versión preliminar)**.
+2. En el menú principal del lado izquierdo, seleccione **Crear un recurso**.
+3. Busque **Lab Services** en Azure Marketplace y seleccione **Lab Services** en la lista desplegable. 
+4. Seleccione **Lab Services (versión preliminar)** en la lista filtrada de servicios. 
 1. En la ventana **Create a lab account** (Crear una cuenta de laboratorio), seleccione **Crear**.
 2. En la ventana **Lab account** (Cuenta de laboratorio), realice las acciones siguientes: 
     1. En **Lab account name** (Nombre de la cuenta de laboratorio), escriba un nombre. 
@@ -55,7 +55,7 @@ Los pasos siguientes muestran cómo usar Azure Portal para crear una cuenta de l
 
     ![Página de la cuenta de laboratorio](./media/tutorial-setup-lab-account/lab-account-page.png)
 
-## <a name="add-a-user-to-the-lab-creator-role"></a>Adición de un usuario al rol Creador de laboratorio
+## <a name="add-a-user-to-the-lab-creator-role"></a>Incorporación de un usuario al rol Creador de laboratorio
 Para proporcionar a los educadores el permiso para crear laboratorios para sus clases agréguelos al rol Creador de laboratorios:
 
 1. En la página de la **cuenta de laboratorio**, seleccione **Control de acceso (IAM)** y haga clic en **+ Agregar** en la barra de herramientas. 
@@ -63,7 +63,7 @@ Para proporcionar a los educadores el permiso para crear laboratorios para sus c
     ![Página de la cuenta de laboratorio](./media/tutorial-setup-lab-account/access-control.png)
 2. En la página **Agregar permisos**, seleccione **Creador de laboratorio** en **Rol**, seleccione el usuario que desea agregar al rol Creador de laboratorio y seleccione **Guardar**. 
 
-    ![Adición del usuario al rol Creador de laboratorio](./media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+    ![Incorporación del usuario al rol Creador de laboratorio](./media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
