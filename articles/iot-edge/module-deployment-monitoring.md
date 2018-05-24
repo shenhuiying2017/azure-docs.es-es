@@ -1,19 +1,20 @@
 ---
-title: "Implementación de módulos para Azure IoT Edge | Microsoft Docs"
-description: "Aprenda cómo se implementan los módulos en los dispositivos perimetrales."
+title: Implementación de módulos para Azure IoT Edge | Microsoft Docs
+description: Aprenda cómo se implementan los módulos en los dispositivos perimetrales.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166342"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Descripción de las implementaciones de IoT Edge en un único dispositivo o a escala (versión preliminar)
 
@@ -49,7 +50,7 @@ Un manifiesto de implementación es un documento JSON que describe los módulos 
 
 Los metadatos de configuración de cada módulo incluyen: 
 * Versión 
-* type 
+* Escriba 
 * Estado (p. ej., en funcionamiento o detenido) 
 * Directiva de reinicio 
 * Repositorio de imágenes y contenedores 
@@ -59,7 +60,7 @@ Los metadatos de configuración de cada módulo incluyen:
 
 La condición de destino se evalúa continuamente para incluir todos los nuevos dispositivos que cumplen los requisitos o para desconectar los dispositivos que ya no lo hacen durante la vigencia de la implementación. La implementación se volverá a activar si el servicio detecta cualquier cambio en la condición de destino. Por ejemplo, tiene una implementación A que tiene una condición de destino tags.environment = 'prod'. Al comenzar la implementación, hay 10 dispositivos prod. Los módulos se instalarán correctamente en estos 10 dispositivos. El estado del agente de IoT Edge se muestra con 10 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 0 respuestas pendientes. Ahora agregue 5 dispositivos más con tags.environment = 'prod'. El servicio detectará el cambio y el estado del agente de IoT Edge pasará a incluir 15 dispositivos en total, 10 respuestas correctas, 0 respuestas erróneas y 5 respuestas pendientes al intentar implementar los cinco nuevos dispositivos.
 
-Use cualquier condición booleana en las etiquetas de los dispositivos gemelos o deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Use cualquier condición booleana en las etiquetas de los dispositivos gemelos o deviceId para seleccionar los dispositivos de destino. Si desea usar una condición con etiquetas, debe agregar la sección "etiquetas":{} en el dispositivo gemelo en el mismo nivel que las propiedades. [Más información acerca de las etiquetas en dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Ejemplos de condiciones de destino:
 * deviceId ='linuxprod1'

@@ -1,5 +1,5 @@
 ---
-title: 'Privileged Identity Management para Azure Resources: activación de roles| Microsoft Docs'
+title: Activar roles para recursos de Azure mediante Privileged Identity Management | Microsoft Docs
 description: Se describe cómo activar roles en PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,38 +13,40 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 3e5456e7a632639cb82d7ba2b2e073938b1798ef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a985e67cc566cc45b3ee6b8dc98e91a8f34abd1b
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151117"
 ---
-# <a name="privileged-identity-management---resource-roles---activate"></a>Privileged Identity Management: activación de roles de recursos
-La activación de roles para los recursos de Azure presenta una nueva experiencia que permite a los miembros del rol aptos programar la activación de fechas y horas futuras, y seleccionar una duración de activación específica dentro de los límites (que configuren los administradores). Aprenda a [activar roles de Azure AD aquí](../active-directory-privileged-identity-management-how-to-activate-role.md).
+# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Activar roles para recursos de Azure mediante Privileged Identity Management
+Privileged Identity Management (PIM) presenta una nueva experiencia de activación de roles para los recursos de Azure. Los miembros del rol que sean aptos pueden programar la activación para una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores). Para obtener más información, consulte [How to activate or deactivate roles in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-how-to-activate-role.md) (Cómo activar o desactivar roles en Privileged Identity Management para Azure AD).
 
 ## <a name="activate-roles"></a>Activación de roles
-Vaya a la sección Mis roles en la barra de navegación izquierda. Haga clic en "Activar" para el rol que se va a activar.
-![](media/azure-pim-resource-rbac/rbac-roles.png)
+Vaya a la sección **Mis roles** en el panel izquierdo. Seleccione **Activar** para el rol que quiera activar.
 
-En el menú Activaciones, escriba la fecha de inicio y la hora deseadas para activar el rol. Si lo desea, reduzca la duración de la activación (el período de tiempo que el rol permanece activo) y escriba una justificación (si procede); haga clic en Activar.
+![Pestaña "Roles aptos" del panel "Mis roles".](media/azure-pim-resource-rbac/rbac-roles.png)
 
-Si no se modifica la fecha de inicio y la hora, el rol se activa en unos segundos. Verá un rol en cola para el mensaje del banner de activación en la página Mis roles. Haga clic en el botón Actualizar para borrar este mensaje.
+En el menú **Activaciones**, escriba la fecha de inicio y la hora para activar el rol. Si lo desea, reduzca la duración de la activación (el período de tiempo durante el cual el rol permanece activo) y escriba una justificación si procede. A continuación seleccione **Activar**.
 
-![](media/azure-pim-resource-rbac/rbac-activate-notification.png)
+Si no se modifican la fecha de inicio y la hora, el rol se activa en unos segundos. En el panel **Mis roles**, se muestra un mensaje emergente que indica que el rol se puso en la cola para su activación. Seleccione el botón Actualizar para borrar este mensaje.
 
-Si la activación está programada para una fecha y hora futuras, la solicitud pendiente aparecerá en la pestaña Solicitudes pendientes del menú de navegación izquierdo. En caso de que la activación del rol ya no sea necesaria, el usuario puede cancelar la solicitud; para ello, debe hacer clic en el botón Cancelar del lado derecho de la página.
+![Panel "Mis roles" con un mensaje emergente y una notificación acerca de un elemento pendiente de aprobar](media/azure-pim-resource-rbac/rbac-activate-notification.png)
 
-![](media/azure-pim-resource-rbac/rbac-activate-pending.png)
+Si la activación está programada para una fecha y hora futuras, la solicitud pendiente aparecerá en la pestaña **Solicitudes pendientes** del panel izquierdo. Si la activación del rol ya no es necesaria, puede cancelar la solicitud si selecciona el botón **Cancelar** .
+
+![Lista de solicitudes pendientes con botones "Cancelar"](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
 
-## <a name="just-enough-administration"></a>Just Enough Administration
+## <a name="apply-just-enough-administration-practices"></a>Aplicar prácticas de Just Enough Administration.
 
-PIM para recursos de Azure facilita la aplicación de los procedimientos recomendados de JEA (Just Enough Administration) en las asignaciones de roles para recursos. Los usuarios y los miembros del grupo con asignaciones a suscripciones o grupos de recursos de Azure pueden activar su asignación de rol existente en un ámbito menor. 
+PIM para recursos de Azure facilita la aplicación de los procedimientos recomendados de JEA (Just Enough Administration) en las asignaciones de roles para recursos. Los usuarios y los miembros del grupo con asignaciones a suscripciones o grupos de recursos de Azure pueden activar su asignación de roles existente en un ámbito menor. 
 
-En la página de búsqueda, encuentre el recurso subordinado que necesite administrar.
+En la página de búsqueda, busque el recurso subordinado que necesite administrar.
 
-![](media/azure-pim-resource-rbac/azure-resources-02.png)
+![Seleccionar un recurso](media/azure-pim-resource-rbac/azure-resources-02.png)
 
-Seleccione Mis roles en el menú de navegación izquierdo y elija el rol que desee activar. Observe que el tipo de asignación es Heredado, puesto que el rol se asignó a la suscripción, en lugar de al grupo de recursos, tal y como se muestra a continuación.
+Seleccione **Mis roles** del panel izquierdo y elija el rol que desee activar. El tipo de asignación es **Heredado**, puesto que el rol se asignó a la suscripción, en lugar de al grupo de recursos.
 
-![](media/azure-pim-resource-rbac/my-roles-02.png)
+![Lista de asignaciones de roles aptos, con el tipo de asignación resaltado](media/azure-pim-resource-rbac/my-roles-02.png)

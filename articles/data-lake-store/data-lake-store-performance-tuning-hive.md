@@ -1,8 +1,8 @@
 ---
-title: "Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store | Microsoft Docs"
-description: "Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store"
+title: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store | Microsoft Docs
+description: Directrices para la optimización del rendimiento de Hive en Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -14,25 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168918"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Guía para la optimización del rendimiento de Hive en HDInsight y Azure Data Lake Store
 
 La configuración predeterminada se ha establecido para proporcionar un buen rendimiento en muchos casos de uso diferentes.  Para las consultas de uso intensivo de E/S, Hive se puede optimizar para obtener un mejor rendimiento con ADLS.  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
-* **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 * **Clúster de HDInsight de Azure** con acceso a una cuenta de Almacén de Data Lake. Consulte [Creación de un clúster de HDInsight con Data Lake Store mediante el Portal de Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Asegúrese de habilitar el Escritorio remoto para el clúster.
-* **Ejecución de Hive en HDInsight**.  Para más información sobre cómo ejecutar trabajos de Hive en HDInsight, consulte [Uso de Hive en HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Ejecución de Hive en HDInsight**.  Para obtener información acerca de cómo ejecutar trabajos de Hive en HDInsight, consulte [Uso de Hive en HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Directrices para la optimización del rendimiento en ADLS**.  Para conocer los conceptos generales de rendimiento, consulte [Guía para la optimización del rendimiento de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Parámetros
 
 Estos son los parámetros de configuración más importantes que se deben ajustar para mejorar el rendimiento de ADLS:
 
@@ -88,6 +89,6 @@ Para comprobar si le están aplicando limitaciones, debe habilitar el registro d
 ## <a name="further-information-on-hive-tuning"></a>Información adicional sobre la optimización de Hive
 
 Estos son algunos blogs que le ayudará a optimizar las consultas de Hive:
-* [Optimizar consultas de Hive para Hadoop en HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Optimizar consultas de Hive para Hadoop en HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Troubleshooting Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) (Solución de problemas de rendimiento de consultas de Hive)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25) (Acalorada charla sobre la optimización de Hive en HDInsight)

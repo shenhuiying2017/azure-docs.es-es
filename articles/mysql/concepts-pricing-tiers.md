@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 24f352d8743ba8ef72e141498589e1c6c14ff85e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312243"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Planes de tarifa de Azure Database for MySQL
 
@@ -44,7 +45,7 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 
 | **Región de Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central EE. UU: |  | X |
+| Central EE. UU: | X |  |
 | Este de EE. UU | X | X |
 | Este de EE. UU. 2 | X | X |
 | Centro-Norte de EE. UU | X |  |
@@ -55,14 +56,16 @@ Los recursos de proceso se proporcionan como núcleos virtuales, que representan
 | Este de Canadá | X | X |
 | Sur de Brasil | X | X |
 | Europa del Norte | X | X |
-| Europa occidental | X | X |
+| Europa occidental |  | X |
 | Oeste de Reino Unido |  | X |
 | Sur del Reino Unido 2 |  | X |
 | Asia oriental | X |  |
 | Sudeste asiático | X | X |
 | Australia Oriental |  | X |
+| Sudeste de Australia |  | X |
 | India Central | X |  |
 | Oeste de la India | X |  |
+| Sur de la India |  | X |
 | Este de Japón | X | X |
 | Oeste de Japón | X | X |
 | Corea del Sur |  | X |

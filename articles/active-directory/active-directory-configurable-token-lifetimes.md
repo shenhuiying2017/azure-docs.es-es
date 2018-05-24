@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 480c1984219a5e2fb79e8eb81ed87710c79611e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140089"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)
 Puede especificar la vigencia de un token emitido por Azure Active Directory (Azure AD). La vigencia de los tokens se puede configurar para todas las aplicaciones de una organización, para una aplicación multiinquilino (multiorganización) o para una entidad de servicio específica de una organización.
 
 > [!IMPORTANT]
-> Este método de control de la vigencia de los tokens estará en desuso.  Aunque estará disponible hasta que la característica de reemplazo esté lista, una vez que esté en desuso, las políticas de la vigencia de los tokens creadas mediante este método dejarán de funcionar. 
+> Después de los comentarios de los clientes durante la versión preliminar, tenemos intención de reemplazar esta funcionalidad por una nueva característica de acceso condicional de Azure Active Directory.  Una vez finalizada la nueva característica, esta funcionalidad entrará en desuso tras un período de notificación.  Si usa la directiva de duración del token configurable, debe estar preparado para cambiar a la nueva característica de acceso condicional cuando esté disponible. 
 >
 >
 
@@ -108,6 +109,8 @@ Puede crear y, a continuación, asignar una directiva de vigencia del token a un
 Para más información sobre la relación entre objetos de aplicación y objetos de entidad de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](active-directory-application-objects.md).
 
 La validez de un token se evalúa en el momento en el que se usa. La directiva con la prioridad más alta en la aplicación a la que se accede es la que se aplica.
+
+Todos los intervalos de tiempo usados aquí tienen formato según el objeto [TimeSpan](https://msdn.microsoft.com/library/system.timespan) de C#: D.HH:MM:SS.  Por lo tanto, 80 días y 30 minutos sería `80.00:30:00`.  La D inicial puede eliminarse si es cero, por lo que 90 minutos sería `00:90:00`.  
 
 > [!NOTE]
 > Este es un escenario de ejemplo.

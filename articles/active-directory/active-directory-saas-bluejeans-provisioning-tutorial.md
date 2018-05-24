@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
-ms.openlocfilehash: 55a907bdab57ce73533361782a3890466e3076ea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9b071d166f741df523d6343ba771b7a29cd4a303
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32139668"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configuración de BlueJeans para el aprovisionamiento automático de usuarios
 
@@ -104,7 +105,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba el **nombre de usuario** y la **contraseña de administrador** de la cuenta de BlueJeans. Algunos ejemplos de estos valores son:
 
-    *   En el campo **Nombre de usuario de administrador**, rellene el nombre de usuario de la cuenta de administrador de su inquilino de BlueJeans. Ejemplo: admin@contoso.com.
+    *   En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de BlueJeans. Ejemplo: admin@contoso.com.
 
     *   En el campo **Contraseña de administrador**, rellene la contraseña correspondiente al nombre de usuario de administrador.
 
@@ -112,7 +113,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de BlueJeans](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
-7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+7. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o un grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Aprovisionamiento de BlueJeans](./media/active-directory-saas-bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
@@ -143,6 +144,10 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en BlueJeans.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](./active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Limitaciones del conector
+
+* Bluejeans no permite nombres de usuario que superen los 30 caracteres.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Salesforce."
+title: 'Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Salesforce.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 3d300eb397b58b4e1f8c8a6516e0a279980d8d09
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b5a85dd7d4ac6bdabcbab49f654ebfe4adae73cd
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140468"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -27,9 +28,13 @@ El objetivo de este tutorial es mostrar los pasos que debe realizar en Salesforc
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure Active Directory.
-*   Debe tener un inquilino válido para Salesforce for Work o Salesforce for Education. Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
-*   Una cuenta de usuario de Salesforce con permisos de administrador de equipo
+*   Un inquilino de Azure Active Directory
+*   Un inquilino de Salesforce.com
+
+>[!IMPORTANT] 
+>Si utiliza una cuenta de prueba de Salesforce.com, no podrá configurar el aprovisionamiento automático de usuarios. Las cuentas de prueba no disponen del acceso necesario a la API habilitado hasta que se adquieren. Puede evitar esta limitación utilizando una [cuenta gratuita de desarrollador](https://developer.salesforce.com/signup) para completar este tutorial.
+
+Si está utilizando un entorno de espacio aislado de Salesforce, consulte el [Tutorial de integración de espacio aislado de Salesforce](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Asignación de usuarios a Salesforce
 
@@ -89,7 +94,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 10. Copie el token, vaya a la ventana de Azure AD y péguelo en el campo **Token secreto**.
 
-11. Si la instancia de Salesforce está en la nube de administración pública de Salesforce, es obligatorio especificar un valor en **URL de inquilino**. De lo contrario, este valor es opcional. Escriba la dirección URL de inquilino con el formato https://your-instance.my.salesforce.com, donde "your-instance" debe reemplazarse por el nombre de la instancia de Salesforce.
+11. Si la instancia de Salesforce está en la nube de administración pública de Salesforce, es obligatorio especificar un valor en **URL de inquilino**. De lo contrario, este valor es opcional. Escriba la dirección URL del inquilino con el formato https://your-instance.my.salesforce.com, donde "your-instance" debe reemplazarse por el nombre de la instancia de Salesforce.
 
 12. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Salesforce.
 

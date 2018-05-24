@@ -1,19 +1,20 @@
 ---
-title: "Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon"
-description: "Implemente contenedores en un clúster del servicio Contenedor de Azure mediante la interfaz de usuario web de Marathon."
+title: Administración de un clúster DC/OS de Azure con la interfaz de usuario de Marathon
+description: Implemente contenedores en un clúster del servicio Contenedor de Azure mediante la interfaz de usuario web de Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b1c5fc223105b1dae0ce07f242a6b42b34fd2ab3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32166990"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Administrar un clúster DC/OS de Azure Container Service a través de la interfaz de usuario web de Marathon
 
@@ -22,7 +23,7 @@ DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupa
 Si bien hay plataformas disponibles para muchas cargas de trabajo populares, este documento presenta una introducción a la implementación de contenedores con Marathon. 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
 
 * [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md)
@@ -33,7 +34,7 @@ Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado 
 >
 
 ## <a name="explore-the-dcos-ui"></a>Exploración de la interfaz de usuario de DC/OS
-Acceda a http://localhost/ con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md). Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
+Con un túnel de Secure Shell (SSH) [establecido](../container-service-connect.md), vaya a http://localhost/. Con ello, se cargará la interfaz de usuario web de DC/OS y aparecerá información acerca del clúster, como los recursos usados, los agentes activos y los servicios en ejecución.
 
 ![Interfaz de usuario de DC/OS](./media/container-service-mesos-marathon-ui/dcos2.png)
 
@@ -52,7 +53,7 @@ Para implementar un nuevo contenedor mediante Marathon, haga clic en el botón *
 | Imagen |nginx |
 | Red |Bridged |
 | Puerto de host |80 |
-| Protocol |TCP |
+| Protocolo |TCP |
 
 ![Nueva interfaz de usuario de la aplicación: General](./media/container-service-mesos-marathon-ui/dcos4.png)
 
@@ -82,7 +83,7 @@ De nuevo en la página principal de Marathon, puede ver el estado de implementac
 
 ![Página principal de la interfaz de usuario de Marathon: Estado de la implementación del contenedor](./media/container-service-mesos-marathon-ui/dcos7.png)
 
-Al volver a la interfaz de usuario web de DC/OS (http://localhost/), puede ver que hay una tarea en ejecución (en este caso, un contenedor con formato Docker) en el clúster de DC/OS.
+Al volver a la interfaz de usuario web de DC/OS (http://localhost/)), puede ver que hay una tarea en ejecución (en este caso, un contenedor con formato Docker) en el clúster de DC/OS.
 
 ![Interfaz de usuario web de DC/OS: Tarea que se ejecuta en el clúster](./media/container-service-mesos-marathon-ui/dcos8.png)
 

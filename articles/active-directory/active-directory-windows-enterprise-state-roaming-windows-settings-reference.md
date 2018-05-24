@@ -1,9 +1,9 @@
 ---
-title: "Referencia de la configuración de itinerancia de Windows 10 | Microsoft Docs"
+title: Referencia de la configuración de itinerancia de Windows 10 | Microsoft Docs
 description: Una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10.
 services: active-directory
 keywords: enterprise state roaming, nube de windows
-documentationcenter: 
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 21d21c945b622c1695d8856c4baff02c098218cf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159084"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -29,10 +30,10 @@ Consulte la tabla siguiente para ver un resumen de los dispositivos y tipos de c
 
 | Tipo de cuenta y operación | Escritorio | Móvil |
 | --- | --- | --- |
-| Azure Active Directory: sincronización |Sí |No |
-| Azure Active Directory: copia de seguridad/restauración |No |No |
+| Azure Active Directory: sincronización |Sí |Sin  |
+| Azure Active Directory: copia de seguridad/restauración |Sin  |Sin  |
 | Cuenta de Microsoft: sincronización |Sí |Sí |
-| Cuenta de Microsoft: copia de seguridad/restauración |No |Sí |
+| Cuenta de Microsoft: copia de seguridad/restauración |Sin  |Sí |
 
 ## <a name="what-is-backup"></a>¿Qué es una copia de seguridad?
 La configuración de Windows se sincroniza normalmente de forma predeterminada pero de algunas configuraciones solo se realiza una copia de seguridad, como la lista de aplicaciones instaladas en un dispositivo. La característica Backup está destinada solo para dispositivos móviles y no está disponible actualmente para los usuarios de Enterprise State Roaming. Backup utiliza una cuenta Microsoft y almacena la configuración y los datos de aplicación en OneDrive. Si un usuario deshabilita la sincronización en el dispositivo mediante la aplicación Configuración, los datos de la aplicación que se suelen sincronizar se convierten en datos de copia de seguridad solamente. Solo se puede tener acceso a los datos de copia de seguridad mediante la operación de restauración durante la primera experiencia de ejecución de un nuevo dispositivo. Las copias de seguridad se pueden deshabilitar mediante la configuración del dispositivo, y se pueden administrar y eliminar mediante la cuenta OneDrive del usuario.
@@ -47,11 +48,15 @@ Los grupos de configuración siguientes están disponibles para que los usuarios
 * Facilidad de acceso: narrador, teclado en pantalla, lupa 
 * Otras configuraciones de Windows: consultar Detalles de configuración de Windows
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-individual-sync-settings.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Es posible habilitar o deshabilitar la sincronización de un grupo de configuración del explorador Microsoft Edge a través de la opción de menú Configuración del explorador Microsoft Edge.
 
-![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-edge.png)
+
+Para Windows 10 versión 1803 o posterior, la sincronización del grupo de configuración de Internet Explorer (favoritos, direcciones URL escritas) puede ser habilitada o deshabilitada por los usuarios finales mediante la opción del menú de configuración de Internet Explorer. 
+
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Detalles de configuración de Windows
 En la tabla siguiente, las entradas Otros en la columna Grupo de la configuración se refieren a configuraciones que se pueden deshabilitar en Configuración > Cuentas > Sincronizar la configuración > Otras configuraciones de Windows. 
@@ -69,25 +74,25 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
 | **Símbolo del sistema**: configuración predeterminada del símbolo del sistema. |sync |X | |
 | **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
-| **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
-| **Fecha, hora y región**: formato de 24 horas |sync |X |language |
-| **Fecha, hora y región**: fecha y hora |sync |X |language |
-| **Fecha, hora y región**: zona horaria | |X |language |
-| **Fecha, hora y región**: horario de verano |sync |X |language |
-| **Fecha, hora y región**: país o región |sync |X |language |
-| **Fecha, hora y región**: primer día de la semana |sync |X |language |
-| **Fecha, hora y región**: formato de región (configuración regional) |sync |X |language |
-| **Fecha, hora y región**: fecha corta |sync |X |language |
-| **Fecha, hora y región**: fecha larga |sync |X |language |
+| **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |Idioma |
+| **Fecha, hora y región**: formato de 24 horas |sync |X |Idioma |
+| **Fecha, hora y región**: fecha y hora |sync |X |Idioma |
+| **Fecha, hora y región**: zona horaria | |X |Idioma |
+| **Fecha, hora y región**: horario de verano |sync |X |Idioma |
+| **Fecha, hora y región**: país o región |sync |X |Idioma |
+| **Fecha, hora y región**: primer día de la semana |sync |X |Idioma |
+| **Fecha, hora y región**: formato de región (configuración regional) |sync |X |Idioma |
+| **Fecha, hora y región**: fecha corta |sync |X |Idioma |
+| **Fecha, hora y región**: fecha larga |sync |X |Idioma |
 | **Fecha, hora y región**: hora corta |sync |X |language |
-| **Fecha, hora y región**: hora larga |sync |X |language |
+| **Fecha, hora y región**: hora larga |sync |X |Idioma |
 | **Personalización del escritorio**: tema de escritorio (fondo, color del sistema, sonidos del sistema predeterminados, protector de pantalla) |sync |X |Tema |
 | **Personalización del escritorio**: papel tapiz de presentación |sync |X |Tema |
 | **Personalización del escritorio**: configuración de la barra de tareas (posición, ocultar automáticamente, etc.) |sync |X |Tema |
 | **Personalización del escritorio**: diseño de pantalla de inicio |X |backup | |
 | **Dispositivos**: impresoras compartidas a las que se conecta |X |X |Otros |
-| **Explorador de Microsoft Edge**: lista de lectura |sync |sync |interno |
-| **Explorador Microsoft Edge**: favoritos |sync |sync |interno |
+| **Explorador de Edge**: lista de lectura |sync |sync |interno |
+| **Explorador Edge**: favoritos |sync |sync |interno |
 | **Explorador Edge**: sitios principales <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Edge**: direcciones URL escritas <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
 | **Explorador Edge**: configuración de la barra de favoritos <sup>[[1]](#footnote-1)</sup> |sync |sync |interno |
@@ -115,27 +120,27 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Teclado**: activar sí temporal (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Teclado**: activar teclas de filtro (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Teclado**: activar teclas de alternancia (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
-| **Internet Explorer**: idioma de dominio: QWERTY chino simplificado - habilitar autoaprendizaje |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - habilitar clasificación dinámica del candidato |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - juego de caracteres de chino simplificado |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - juego de caracteres de chino tradicional |sync |X |language |
+| **Internet Explorer**: idioma de dominio: QWERTY chino simplificado - habilitar autoaprendizaje |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - habilitar clasificación dinámica del candidato |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - juego de caracteres de chino simplificado |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - juego de caracteres de chino tradicional |sync |X |Idioma |
 | **Idioma**: QWERTY chino simplificado - pinyin aproximado |sync |backup |Idioma |
 | **Idioma**: QWERTY chino simplificado - pares aproximados |sync |backup |Idioma |
-| **Idioma**: QWERTY chino simplificado - pinyin completo |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - pinyin doble |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - corrección automática de lectura |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, MAYÚS |sync |X |language |
-| **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, Ctrl |sync |X |language |
-| **Idioma**: chino simplificado WUBI - modo de entrada de carácter único |sync |X |language |
+| **Idioma**: QWERTY chino simplificado - pinyin completo |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - pinyin doble |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - corrección automática de lectura |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, MAYÚS |sync |X |Idioma |
+| **Idioma**: QWERTY chino simplificado - tecla de modificador C/E, Ctrl |sync |X |Idioma |
+| **Idioma**: chino simplificado WUBI - modo de entrada de carácter único |sync |X |Idioma |
 | **Idioma**: WUBI chino simplificado - mostrar la codificación restante del candidato |sync |X |language |
 | **Idioma**: WUBI chino simplificado - pitido cuando la codificación 4 no sea válida |sync |X |Idioma |
-| **Idioma**: Bopomofo chino simplificado, incluir CJK Ext-A |sync |X |language |
-| **Idioma**: IME japonés - escritura predictiva y palabras personalizadas |sync |sync |language |
-| **Idioma**: IME coreano (KOR) |X |X |language |
-| **Idioma**: reconocimiento de escritura a mano |X |X |language |
-| **Idioma**: perfil de lenguaje |sync |backup |language |
-| **Idioma**: corrector ortográfico - autocorrección y resaltar errores ortográficos |sync |backup |language |
-| **Idioma**: lista de teclados |sync |backup |language |
+| **Idioma**: Bopomofo chino simplificado, incluir CJK Ext-A |sync |X |Idioma |
+| **Idioma**: IME japonés - escritura predictiva y palabras personalizadas |sync |sync |Idioma |
+| **Idioma**: IME coreano (KOR) |X |X |Idioma |
+| **Idioma**: reconocimiento de escritura a mano |X |X |Idioma |
+| **Idioma**: perfil de lenguaje |sync |backup |Idioma |
+| **Idioma**: corrector ortográfico - autocorrección y resaltar errores ortográficos |sync |backup |Idioma |
+| **Idioma**: lista de teclados |sync |backup |Idioma |
 | **Pantalla de bloqueo**: toda la configuración de pantalla de bloqueo |X |X | |
 | **Lupa**: activar o desactivar (alternancia de maestro) |X |X |Facilidad de acceso |
 | **Lupa**: activar o desactivar inversión del color (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
@@ -158,16 +163,16 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Facilidad de acceso**: quitar imágenes de fondo (desactivado de forma predeterminada) |sync |X |Facilidad de acceso |
 | **Encendido y suspensión**: todas las configuraciones |X |X | |
 | **Personalización de la pantalla de inicio**: color de acento (solo teléfono). |X |sync |Tema |
-| **Escritura**: diccionario ortográfico |sync |backup |language |
-| **Escritura**: autocorrección de palabra escrita incorrectamente |sync |backup |language |
-| **Escritura**: resaltar palabras incorrectas |sync |backup |language |
-| **Escritura**: mostrar sugerencias de texto al escribir |sync |backup |language |
-| **Escritura**: agregar un espacio después de seleccionar una sugerencia de texto |sync |backup |language |
-| **Escritura**: agregar un punto al pulsar dos veces la barra espaciadora |sync |backup |language |
-| **Escritura**: en mayúsculas la primera letra de cada frase |sync |backup |language |
-| **Escritura**: escribir todo en mayúsculas al pulsar dos veces la tecla MAYÚS |sync |backup |language |
-| **Escritura**: reproducir sonidos de teclas al escribir |sync |backup |language |
-| **Escritura**: datos de personalización para teclado táctil |sync |backup |language |
+| **Escritura**: diccionario ortográfico |sync |backup |Idioma |
+| **Escritura**: autocorrección de palabra escrita incorrectamente |sync |backup |Idioma |
+| **Escritura**: resaltar palabras incorrectas |sync |backup |Idioma |
+| **Escritura**: mostrar sugerencias de texto al escribir |sync |backup |Idioma |
+| **Escritura**: agregar un espacio después de seleccionar una sugerencia de texto |sync |backup |Idioma |
+| **Escritura**: agregar un punto al pulsar dos veces la barra espaciadora |sync |backup |Idioma |
+| **Escritura**: en mayúsculas la primera letra de cada frase |sync |backup |Idioma |
+| **Escritura**: escribir todo en mayúsculas al pulsar dos veces la tecla MAYÚS |sync |backup |Idioma |
+| **Escritura**: reproducir sonidos de teclas al escribir |sync |backup |Idioma |
+| **Escritura**: datos de personalización para teclado táctil |sync |backup |Idioma |
 | **Wi-Fi**: perfiles Wi-Fi (solo WPA) |sync |sync |Contraseñas |
 
 ###### <a name="footnote-1"></a>Nota al pie 1

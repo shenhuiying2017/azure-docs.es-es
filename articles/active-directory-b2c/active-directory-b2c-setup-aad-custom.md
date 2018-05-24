@@ -1,8 +1,8 @@
 ---
 title: 'Azure Active Directory B2C: agregar un proveedor de Azure AD mediante directivas personalizadas | Microsoft Docs'
-description: "Obtenga información sobre las directivas personalizadas de Azure Active Directory B2C."
+description: Obtenga información sobre las directivas personalizadas de Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: 
+documentationcenter: ''
 author: parakhj
 manager: mtillman
 editor: parakhj
@@ -14,11 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
-ms.openlocfilehash: f34326bcb8a7cbf5b5cf75e8f18f2843abc0b3ab
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140230"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: inicio de sesión con cuentas de Azure AD
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 12/11/2017
 
 En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios de una organización de Azure Active Directory (Azure AD) concreta mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Complete los pasos del artículo [Introducción a las directivas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -45,13 +46,13 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
 >[!NOTE]
 > En las instrucciones siguientes, usamos "contoso.com" para el inquilino de Azure AD de la organización y "fabrikamb2c.onmicrosoft.com" como inquilino de Azure AD B2C.
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
-1. En la barra superior, seleccione su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD de la organización donde quiere registrar la aplicación (contoso.com).
-1. Seleccione **Más servicios** en el panel izquierdo y busque "Registros de aplicaciones".
-1. Seleccione **Nuevo registro de aplicaciones**.
-1. Escriba el nombre de la aplicación (por ejemplo, `Azure AD B2C App`).
-1. En Tipo de aplicación, seleccione **Aplicación web o API**.
-1. En **Dirección URL de inicio de sesión**, escriba la dirección URL siguiente, donde `yourtenant` se sustituye por el nombre del inquilino de Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+2. En la barra superior, seleccione su cuenta. En la lista **Directorio**, elija el inquilino de Azure AD de la organización donde quiere registrar la aplicación (contoso.com).
+3. Seleccione **Más servicios** en el panel izquierdo y busque "Registros de aplicaciones".
+4. Seleccione **Nuevo registro de aplicaciones**.
+5. Escriba el nombre de la aplicación (por ejemplo, `Azure AD B2C App`).
+6. En Tipo de aplicación, seleccione **Aplicación web o API**.
+7. En **Dirección URL de inicio de sesión**, escriba la dirección URL siguiente, donde `yourtenant` se sustituye por el nombre del inquilino de Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >El valor de "yourtenant" debe estar en minúsculas en **URL de inicio de sesión**.
@@ -60,10 +61,10 @@ Para habilitar el inicio de sesión para los usuarios de una organización espec
     https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
-1. Guarde el identificador de la aplicación.
-1. Seleccione la aplicación recién creada.
-1. En la hoja **Configuración**, seleccione **Claves**.
-1. Cree una clave y guárdela. La usará en los pasos de la sección siguiente.
+8. Guarde el identificador de la aplicación.
+9. Seleccione la aplicación recién creada.
+10. En la hoja **Configuración**, seleccione **Claves**.
+11. Escriba la descripción de la clave, seleccione una duración y, a continuación, haga clic en **Guardar**. Se muestra el valor de la clave. Cópielo porque se usará en los pasos descritos en la sección siguiente.
 
 ## <a name="add-the-azure-ad-key-to-azure-ad-b2c"></a>Adición de la clave de Azure AD a Azure AD B2C
 
@@ -215,7 +216,7 @@ Ahora es preciso actualizar el archivo del usuario de confianza (RP) que iniciar
 1. Modifique el atributo `ReferenceId` de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado (SignUpOrSignUsingContoso).
 1. Guarde los cambios y cargue el archivo.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Pruebe la directiva personalizada que acaba de cargar. Para ello, abra su hoja y haga clic en **Ejecutar ahora**. Para diagnosticar problemas, obtenga información sobre la [solución de problemas](active-directory-b2c-troubleshoot-custom.md).
 

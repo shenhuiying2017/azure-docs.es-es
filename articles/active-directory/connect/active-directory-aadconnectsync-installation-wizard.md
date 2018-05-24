@@ -1,12 +1,12 @@
 ---
-title: "Volver a ejecutar el Asistente para instalación de Azure AD Connect | Microsoft Docs"
-description: "Explica cómo funciona el Asistente para la instalación la segunda vez que lo ejecute."
-keywords: "El Asistente para instalación de Azure AD Connect le permite configurar opciones de mantenimiento la segunda vez que se ejecuta"
+title: Volver a ejecutar el Asistente para instalación de Azure AD Connect | Microsoft Docs
+description: Explica cómo funciona el Asistente para la instalación la segunda vez que lo ejecute.
+keywords: El Asistente para instalación de Azure AD Connect le permite configurar opciones de mantenimiento la segunda vez que se ejecuta
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: a5a55b15bbffbcfa18e07e251180820e3d9cb6d8
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 56cc38275a23eb4529558b876db619768a885a25
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150522"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronización de Azure AD Connect: ejecución por segunda vez del Asistente para la instalación
 La primera vez que ejecute el Asistente para la instalación de Azure AD Connect, este lo guiará a través de la configuración de la instalación. Si vuelve a ejecutarlo, le ofrecerá opciones para el mantenimiento.
@@ -79,7 +80,7 @@ Para cambiar el estado, seleccione esta opción y seleccione o anule la selecci�
 ![Opción que también muestra el estado actual del modo de almacenamiento provisional](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>Cambiar inicio de sesión de usuario
-Esta opción permite cambiar de sincronización de contraseñas a la federación o al revés. No se puede cambiar a **No configurar**.
+Esta opción permite cambiar el método de inicio de sesión del usuario a y desde la sincronización de hash de contraseña, la autenticación de paso a través o la federación. No se puede cambiar a **No configurar**.
 
 Para más información sobre esta opción, consulte [Opciones para el inicio de sesión de los usuarios en Azure AD Connect](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method).
 

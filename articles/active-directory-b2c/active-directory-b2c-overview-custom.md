@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 4c09fa5c454cee6ca9a0ed0d3fd4582b222c0c1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32138924"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: directivas personalizadas
 
@@ -64,7 +65,7 @@ Azure AD B2C interactúa con proveedores de identidades, usuarios, otros sistema
 
 ### <a name="identity-experience-framework"></a>Marco de experiencia de identidad
 
-Una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades (en general, proveedores de confianza) en formatos de protocolo estándar como OpenIDConnect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). I2E crea experiencias propias fáciles de usar que admiten HTML, CSS y javascript.  Actualmente, Identity Experience Framework solo está disponible dentro del contexto del servicio de Azure AD B2C y se destina preferentemente a las tareas relacionadas con CIAM.
+Una plataforma de Azure basada en la nube, controlada por directivas y completamente configurable que orquesta la confianza entre entidades (en general, proveedores de confianza) en formatos de protocolo estándar como OpenIDConnect, OAuth, SAML, WSFed y algunos no estándar (como intercambios de notificaciones sistema a sistema basados en API de REST, por ejemplo). I2E crea experiencias propias fáciles de usar que admiten HTML, CSS y JavaScript.  Actualmente, Identity Experience Framework solo está disponible dentro del contexto del servicio de Azure AD B2C y se destina preferentemente a las tareas relacionadas con CIAM.
 
 ### <a name="built-in-policies"></a>Directivas integradas
 

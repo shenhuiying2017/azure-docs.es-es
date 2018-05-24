@@ -1,11 +1,11 @@
 ---
-title: "Administración de capturas de paquetes con Azure Network Watcher (PowerShell) | Microsoft Docs"
-description: "En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante PowerShell."
+title: Administración de capturas de paquetes con Azure Network Watcher (PowerShell) | Microsoft Docs
+description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante PowerShell.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: b27e0684b0914764f22b59e050e75c7be3a82cc6
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6ffb1aec91899b54a153e264e346910caee84cc0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186790"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Administración de capturas de paquetes con Azure Network Watcher mediante PowerShell
 
@@ -278,7 +279,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
-Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar IP Flow Verify](network-watcher-check-ip-flow-verify-portal.md).
+Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar IP Flow Verify](diagnose-vm-network-traffic-filtering-problem.md).
 
 <!-- Image references -->
 

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Citrix ShareFile | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Citrix ShareFile."
+title: 'Tutorial: Integración de Azure Active Directory con Citrix ShareFile | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Citrix ShareFile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2017
+ms.date: 05/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 8473c262f98e77708f01d17419e935979a533307
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0e860c1f1db77026e775191c76350333aa66dc7f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integración de Azure Active Directory con Citrix ShareFile
 
@@ -30,9 +31,9 @@ La integración de Citrix ShareFile con Azure AD le proporciona las siguientes v
 - Puede permitir que los usuarios inicien sesión automáticamente en Citrix ShareFile (Inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Citrix ShareFile, necesita los siguientes elementos:
 
@@ -48,7 +49,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de Citrix ShareFile desde la galería
 2. Configuración y prueba del inicio de sesión único en Azure AD
@@ -84,10 +85,10 @@ Para establecer la relación de vínculo, en Citrix ShareFile, asigne el valor d
 
 Para configurar y probar el inicio de sesión único de Azure AD con Citrix ShareFile, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba de Citrix ShareFile ](#create-a-citrix-sharefile-test-user)**: para tener un homólogo de Britta Simon en Citrix ShareFile que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -108,22 +109,41 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_url.png)
     
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.sharefile.com/saml/login`.
+    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<tenant-name>.sharefile.com/saml/login`.
 
-    > [!NOTE] 
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) para obtener este valor. 
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón:
+
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com`|
+    | `https://<tenant-name>.sharefile.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.com/saml/info`|
+    | `https://<tenant-name>.sharefile1.eu/saml/info`|
+    | `https://<tenant-name>.sharefile.eu/saml/info`|
+    | |
+    
+    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón:
+    | |
+    |---|
+    | `https://<tenant-name>.sharefile.com/saml/acs`|
+    | `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
+    | `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+    | |
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Citrix ShareFile](https://www.citrix.co.in/products/sharefile/support.html) para obtener estos valores.
 
 4. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
 
-    ![Vínculo de descarga del certificado](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png) 
+    ![Vínculo de descarga del certificado](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_certificate.png)
 
 5. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-sharefile-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-sharefile-tutorial/tutorial_general_400.png)
 
 6. En la sección **Configuración de Citrix ShareFile**, haga clic en **Configurar Citrix ShareFile** para abrir la ventana **Configurar inicio de sesión**. Copie la **URL del servicio de inicio de sesión único de SAML, el identificador de entidad de SAML y la dirección URL de cierre de sesión** de la sección **Referencia rápida**.
 
-    ![Configuración de Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png) 
+    ![Configuración de Citrix ShareFile](./media/active-directory-saas-sharefile-tutorial/tutorial_sharefile_configure.png)
 
 7. En otra ventana del explorador web, inicie sesión como administrador en el sitio de la compañía de **Citrix ShareFile** .
 
@@ -148,10 +168,6 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     e. En el cuadro de texto **Dirección URL de cierre de sesión**, pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
 
 11. Haga clic en **Guardar** en el portal de administración de Citrix ShareFile.
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -183,7 +199,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-a-citrix-sharefile-test-user"></a>Creación de un usuario de prueba de Citrix ShareFile
 
@@ -216,11 +232,11 @@ Para permitir que los usuarios de Azure AD inicien sesión en Citrix ShareFile, 
 
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure, para lo cual le concederá acceso a Citrix ShareFile.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar Britta Simon a Citrix ShareFile, lleve a cabo los siguientes pasos:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -252,9 +268,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -269,4 +283,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sharefile-tutorial/tutorial_general_203.png
-

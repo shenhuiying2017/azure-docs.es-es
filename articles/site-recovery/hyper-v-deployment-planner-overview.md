@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Deployment Planner en el escenario de Hyper-V a Azure | Microsoft Docs
-description: "Esta es la guía del usuario de Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure."
+description: Esta es la guía del usuario de Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -9,11 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187321"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner en el escenario de Hyper-V en Azure
 
@@ -116,9 +117,9 @@ Configuración recomendada de la máquina virtual: 8 vCPU, 16 GB de RAM, disco d
 3.  Extraiga la carpeta .zip.
 La carpeta contiene varios archivos y subcarpetas. El archivo ejecutable es ASRDeploymentPlanner.exe y está en la carpeta primaria.
 
-Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.1.zip
+Ejemplo: copie el archivo .zip en la unidad E:\ y extráigalo. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Actualización a la versión más reciente de Deployment Planner
 Si tiene una versión anterior de la herramienta, realice una de las siguientes acciones:
@@ -133,7 +134,7 @@ Si tiene una versión anterior de la herramienta, realice una de las siguientes 
   >Cada nueva instancia de Deployment Planner es una actualización acumulativa del archivo zip. No es preciso copiar los archivos más recientes en la carpeta anterior. Se puede crear y usar una carpeta nueva.
 
 ## <a name="version-history"></a>Historial de versiones
-La versión más reciente de la herramienta ASR Deployment Planner es la 2.1.
+La versión más reciente de la herramienta ASR Deployment Planner es la 2.2.
 Para saber qué correcciones se agregan en cada actualización, consulte [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Historial de versiones de ASR Deployment Planner).
 
 

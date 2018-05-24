@@ -1,11 +1,11 @@
 ---
 title: Patrones de aplicaciones de SQL Server en VM | Microsoft Docs
-description: "En este artículo se tratan los patrones de aplicaciones para SQL Server en máquinas virtuales de Azure. Proporciona a los desarrolladores y arquitectos de soluciones una base para lograr un diseño y arquitectura adecuados de las aplicaciones."
+description: En este artículo se tratan los patrones de aplicaciones para SQL Server en máquinas virtuales de Azure. Proporciona a los desarrolladores y arquitectos de soluciones una base para lograr un diseño y arquitectura adecuados de las aplicaciones.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9a306dc5676bb98baf0c9aa000c4c518279bd932
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eaeff1e57042b2e6a98559c19dc1dabebbf92ed4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195114"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +58,7 @@ Este artículo describe varios patrones de aplicación que pueden ser apropiados
 * Necesite compatibilidad total con SQL Server local y desee mover las aplicaciones existentes a Azure tal cual.
 * Desee aprovechar las funcionalidades del entorno de Azure, pero Azure SQL Database no admite todas las características que requiere la aplicación. Esto puede incluir las siguientes áreas:
   
-  * **Tamaño de base de datos**: en el momento en que se actualizó este artículo, SQL Database admite bases de datos de hasta 1 TB de datos. Si la aplicación requiere más de 1 TB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para obtener la información más reciente, consulte [Ampliar bases de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) y [Niveles de servicio y niveles de rendimiento de Azure SQL Database](../../../sql-database/sql-database-service-tiers.md).
+  * **Tamaño de base de datos**: en el momento en que se actualizó este artículo, SQL Database admite bases de datos de hasta 1 TB de datos. Si la aplicación requiere más de 1 TB de datos y no desea implementar soluciones de particionamiento personalizadas, se recomienda usar SQL Server en una máquina virtual de Azure. Para ver la información más reciente, consulte [Scaling Out Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn495641.aspx) (Escalado horizontales de bases de datos de Azure SQL Database), este artículo sobre el [modelo de compra basado en DTU](../../../sql-database/sql-database-service-tiers-dtu.md) y este artículo sobre el [modelo de compra basado en núcleos virtuales](../../../sql-database/sql-database-service-tiers-vcore.md) (versión preliminar).
   * **Cumplimiento de normas HIPAA**: Los clientes de atención de la salud y fabricantes de software independientes (ISV) pueden elegir [SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md), en lugar de [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md), porque el contrato de asociación comercial (BAA) según las normas HIPAA cubre SQL Server en una máquina virtual de Azure. Para obtener información sobre el cumplimiento, consulte [Centro de confianza de Microsoft Azure: conformidad](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Características de nivel de instancia**: actualmente, SQL Database no admite las características que se encuentran fuera de la base de datos (por ejemplo, servidores vinculados, trabajos de agente, FileStream, Service Broker, etc.). Para obtener más información, consulte [Instrucciones y limitaciones de Azure SQL Database](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

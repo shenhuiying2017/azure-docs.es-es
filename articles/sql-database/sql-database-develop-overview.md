@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 37f143ce9dabdc2d0eaf6c60dd551c682a141c17
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187681"
 ---
 # <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Azure SQL Database.
@@ -34,7 +35,7 @@ Puede aprovechar herramientas de código abierto como [cheetah](https://github.c
 ## <a name="resource-limitations"></a>Limitaciones de recursos
 Azure SQL Database administra los recursos disponibles para una base de datos mediante dos mecanismos diferentes: Regulación de recursos y Aplicación de límites.
 
-* Más información: [Límites de recursos de SQL Database](sql-database-service-tiers.md).
+* Más información: [Límites del modelo de recursos basado en DTU de Azure SQL Database](sql-database-dtu-resource-limits.md) y [Límites del modelo de recursos basado en núcleos virtuales de Azure SQL Database (versión preliminar)](sql-database-vcore-resource-limits.md).
 
 ## <a name="security"></a>Seguridad
 Azure SQL Database proporciona recursos para limitar el acceso, proteger los datos y supervisar las actividades en SQL Database.

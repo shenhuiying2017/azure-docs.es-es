@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: troubleshooting
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 8920ff082fa1b442aa147068080085c40760e290
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302746"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Preguntas más frecuentes sobre Azure Cost Management
 
@@ -89,7 +90,7 @@ Si cambia la dirección de correo electrónico en Cloudyn de la dirección prede
 
 Se recomienda crear al menos dos de cuentas de administrador de Cloudyn por si una de ellas se bloquea.
 
-Si no puede iniciar sesión en el portal de Cloudyn, asegúrese de que está utilizando la dirección URL de Azure Cost Management correcta para iniciar sesión en Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
+Si no puede iniciar sesión en el portal de Cloudyn, asegúrese de que está utilizando la dirección URL de Azure Cost Management correcta para iniciar sesión en Cloudyn. Utilice [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
 Evite usar la dirección URL directa de Cloudyn https://app.cloudyn.com.
 
@@ -148,4 +149,4 @@ Nº No se utilizan agentes. Los datos de métricas de la máquina virtual de Azu
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>¿Los informes de Cloudyn muestran más de un inquilino de AD por informe?
 
-Sí. Puede [crear una entidad de la cuenta en la nube correspondiente](tutorial-user-access.md#create-entities) para cada inquilino de AD que tenga. A continuación, puede ver todos los datos del inquilino de Azure AD y otros proveedores de plataformas en la nube, como Amazon Web Services y Google Cloud Platform.
+Sí. Puede [crear una entidad de la cuenta en la nube correspondiente](tutorial-user-access.md#create-and-manage-entities) para cada inquilino de AD que tenga. A continuación, puede ver todos los datos del inquilino de Azure AD y otros proveedores de plataformas en la nube, como Amazon Web Services y Google Cloud Platform.

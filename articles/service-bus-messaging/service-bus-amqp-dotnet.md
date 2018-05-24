@@ -1,11 +1,11 @@
 ---
-title: Uso de Service Bus desde .NET con AMQP 1.0 | Microsoft Docs
+title: Azure Service Bus con .NET y AMQP 1.0 | Microsoft Docs
 description: Uso de Azure Service Bus desde .NET con AMQP
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 0eb68c97ca26a862a79de9ffb83b1fc630ba2af4
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188504"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Uso de Service Bus desde .NET con AMQP 1.0
 
@@ -78,7 +79,7 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | Datetime |timestamp |Valor de AMQP |
 | Guid |uuid |Valor de AMQP |
 | byte[] |binary |Valor de AMQP |
-| cadena |cadena |Valor de AMQP |
+| string |string |Valor de AMQP |
 | System.Collections.IList |list |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Array |array |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. |
 | System.Collections.IDictionary |map |Valor de AMQP: los elementos contenidos en la colección solo pueden ser los definidos en esta tabla. Nota: solo se admiten claves de cadena. |
@@ -94,14 +95,9 @@ Para facilitar la interoperabilidad con clientes que no sean de .NET, use solo l
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
 | timespan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> ` |TimeSpan.Ticks |
 
-## <a name="unsupported-features-restrictions-and-behavioral-differences"></a>Características no admitidas, restricciones y diferencias de comportamiento
+## <a name="behavioral-differences"></a>Diferencias de comportamiento
 
-Actualmente no se admiten las siguientes características de la API de .NET de Service Bus al usar AMQP:
-
-* Transacciones
-* Envío a través de un destino de transferencia
-
-También hay algunas pequeñas diferencias en el comportamiento de la API de .NET de Service Bus al usar AMQP, en comparación con el protocolo predeterminado:
+Hay algunas pequeñas diferencias en el comportamiento de la API de .NET de Service Bus al usar AMQP, en comparación con el protocolo predeterminado:
 
 * La propiedad [OperationTimeout][OperationTimeout] se omite.
 * `MessageReceiver.Receive(TimeSpan.Zero)` se implementa como `MessageReceiver.Receive(TimeSpan.FromSeconds(10))`.

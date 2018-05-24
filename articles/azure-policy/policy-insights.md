@@ -1,45 +1,42 @@
 ---
-title: Creación de directivas mediante programación y visualización de datos de cumplimiento con Azure Policy | Microsoft Docs
+title: Creación de directivas mediante programación y visualización de datos de cumplimiento con Azure Policy
 description: Este artículo le guiará a través de la creación y administración de directivas para Azure Policy mediante programación.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2018
-ms.topic: article
+ms.date: 05/07/2018
+ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: ''
-ms.openlocfilehash: bd0dbb1b6b44b34fc86b8c73fa586b1b4cf880f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5405566b5254c553eac584acc1653449b51ddffc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195886"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
 
-Este artículo le guiará a través de la creación y administración de directivas mediante programación. También describe cómo consultar los estados y las directivas de cumplimiento de recursos. Las definiciones de directivas aplican reglas y acciones diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
+Este artículo le guiará a través de la creación y administración de directivas mediante programación. También describe cómo consultar los estados y las directivas de cumplimiento de recursos. Las definiciones de directivas aplican reglas y efectos diferentes sobre los recursos. Su aplicación garantiza que los recursos cumplan los estándares corporativos y los acuerdos de nivel de servicio.
 
 ## <a name="prerequisites"></a>requisitos previos
 
 Asegúrese de que se cumplen los siguientes requisitos previos antes de empezar:
 
 1. Si aún no lo ha hecho, instale [ARMClient](https://github.com/projectkudu/ARMClient). Esta es una herramienta que envía solicitudes HTTP a las API basadas en Azure Resource Manager.
-2. Actualice el módulo AzureRM de PowerShell a la versión más reciente. Para más información acerca de la versión más reciente, consulte Azure PowerShell https://github.com/Azure/azure-powershell/releases.
+2. Actualice el módulo AzureRM de PowerShell a la versión más reciente. Para más información acerca de la versión más reciente, consulte [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 3. Registre el proveedor de recursos de Policy Insights con Azure PowerShell para asegurarse de que la suscripción funciona con el proveedor de recursos. Para registrar un proveedor de recursos, debe tener permiso para realizar la operación de registro para este. Esta operación está incluida en los roles Colaborador y Propietario. Para registrar el proveedor de recursos, ejecute el siguiente comando:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.PolicyInsights
+  Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
   Para más información acerca del registro y la visualización de los proveedores de recursos, consulte [Tipos y proveedores de recursos](../azure-resource-manager/resource-manager-supported-services.md).
-4. Si aún no lo ha hecho, instale la CLI de Azure. Puede obtener la versión más reciente en [Instalación de la CLI de Azure 2.0 en Windows](/azure/install-azure-cli-windows?view=azure-cli-latest).
+4. Si aún no lo ha hecho, instale la CLI de Azure. Puede obtener la versión más reciente en [Instalación de la CLI de Azure 2.0 en Windows](/cli/azure/install-azure-cli-windows).
 
 ## <a name="create-and-assign-a-policy-definition"></a>Creación y asignación de una definición de directiva
 
 El primer paso hacia una mejor visibilidad de los recursos es crear y asignar directivas sobre los recursos. El siguiente paso es aprender a crear y asignar una directiva mediante programación. La directiva de ejemplo audita cuentas de almacenamiento abiertas a todas las redes públicas con PowerShell, la CLI de Azure y solicitudes HTTP.
-
-Los siguientes comandos crean definiciones de directivas para el nivel estándar. El nivel estándar permite lograr la administración a escala, la evaluación del cumplimiento y la corrección. Para más información sobre los planes de tarifa, consulte [Precios de Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy).
 
 ### <a name="create-and-assign-a-policy-definition-with-powershell"></a>Creación y asignación de una definición de directiva con PowerShell
 
@@ -68,7 +65,7 @@ Los siguientes comandos crean definiciones de directivas para el nivel estándar
 2. Ejecute el siguiente comando para crear una definición de directiva mediante el archivo AuditStorageAccounts.json.
 
   ```azurepowershell-interactive
-  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy AuditStorageAccounts.json
+  New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
   ```
 
   El comando crea una definición de directiva denominada _Audit Storage Accounts Open to Public Networks_ (Auditoría de cuentas de almacenamiento abiertas a las redes públicas). Para más información acerca de otros parámetros que puede utilizar, consulte [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
@@ -76,10 +73,8 @@ Los siguientes comandos crean definiciones de directivas para el nivel estándar
 
   ```azurepowershell-interactive
   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-
   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-
-  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId –Sku @{Name='A1';Tier='Standard'}
+  New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
   ```
 
   Reemplace _ContosoRG_ por el nombre del grupo de recursos que desee.
@@ -140,10 +135,6 @@ Utilice el procedimiento siguiente para crear una asignación de directiva y asi
           "parameters": {},
           "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks",
           "scope": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>"
-      },
-      "sku": {
-          "name": "A1",
-          "tier": "Standard"
       }
   }
   ```
@@ -192,7 +183,7 @@ az policy definition create --name 'audit-storage-accounts-open-to-public-networ
 3. Use el siguiente comando para crear una asignación de directiva. Reemplace la información de ejemplo de los símbolos &lt;&gt; por sus propios valores.
 
   ```azurecli-interactive
-  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>' --sku 'standard'
+  az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
   ```
 
 Puede obtener el identificador de definición de directiva si usa PowerShell con el comando siguiente:
@@ -211,38 +202,37 @@ Para más información acerca de cómo administrar las directivas de recursos co
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
 
-En una asignación, un recurso no es compatible si no cumple las reglas de iniciativa o directiva. En la tabla siguiente se muestra cómo funcionan las diferentes acciones de la directiva con la evaluación de la condición para el estado de cumplimiento resultante:
+En una asignación, un recurso no es compatible si no cumple las reglas de iniciativa o directiva. En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
 
-| **Estado del recurso** | **Acción** | **Evaluación de directiva** | **Estado de cumplimiento** |
+| Estado del recurso | Efecto | Evaluación de directiva | Estado de cumplimiento |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | No compatible |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compatible |
 | Nuevo | Audit, AuditIfNotExist\* | True | No compatible |
 | Nuevo | Audit, AuditIfNotExist\* | False | Compatible |
 
-\* Las acciones Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE. Las acciones también requieren que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
+\* Los efectos Append, DeployIfNotExist y AuditIfNotExist requieren que la instrucción IF sea TRUE. Los efectos requieren también que la condición de existencia sea FALSE para ser no compatibles. Si es TRUE, la condición IF desencadena la evaluación de la condición de existencia de los recursos relacionados.
 
 Para entender mejor cómo se marcan los recursos como no compatibles, se usará el ejemplo de asignación de directiva creado anteriormente.
 
 Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuentas de almacenamiento (resaltadas en rojo) expuestas a redes públicas.
 
-![Cuentas de almacenamiento expuestas a redes públicas](./media/policy-insights/resource-group01.png)
+![Cuentas de almacenamiento expuestas a redes públicas](media/policy-insights/resource-group01.png)
 
 En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa para todas las cuentas de almacenamiento en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **no compatible**.
 
-![Cuentas de almacenamiento auditadas no compatibles](./media/policy-insights/resource-group03.png)
+![Cuentas de almacenamiento auditadas no compatibles](media/policy-insights/resource-group03.png)
 
 Utilice el siguiente procedimiento para identificar los recursos de un grupo de recursos que no son compatibles con la asignación de directiva. En el ejemplo, los recursos son cuentas de almacenamiento del grupo de recursos ContosoRG.
 
 1. Ejecute los comandos siguientes para obtener el identificador de asignación de directiva:
 
   ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object {$_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks'}
-
+  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
   $policyAssignment.PolicyAssignmentId
   ```
 
-  Para más información acerca de la obtención de un identificador de asignación de directiva, consulte [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
+  Para más información acerca de la obtención de un identificador de asignación de directiva, consulte [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
 
 2. Ejecute el siguiente comando para copiar los identificadores de los recursos no compatibles en un archivo JSON:
 
@@ -302,16 +292,6 @@ Los resultados deben tener una apariencia similar al ejemplo siguiente:
 ```
 
 Al igual que con los estados de directiva, solo puede ver los eventos de directiva con solicitudes HTTP. Para más información sobre cómo consultar los eventos de directiva, consulte el artículo de referencia de [estados de directiva](/rest/api/policy-insights/policyevents).
-
-## <a name="change-a-policy-assignments-pricing-tier"></a>Cambio del plan de tarifa de una asignación de directiva
-
-Puede usar el cmdlet *Set-AzureRmPolicyAssignment* de PowerShell para actualizar el plan de tarifa a Estándar o Gratis para una asignación de directiva existente. Por ejemplo: 
-
-```azurepowershell-interactive
-Set-AzureRmPolicyAssignment -Id '/subscriptions/<subscriptionId/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/<policyAssignmentID>' -Sku @{Name='A1';Tier='Standard'}
-```
-
-Para más información acerca del cmdlet, consulte [Set-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Set-AzureRmPolicyAssignment).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

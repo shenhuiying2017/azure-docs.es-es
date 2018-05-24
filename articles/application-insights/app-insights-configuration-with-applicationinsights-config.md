@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 94b6864bec157694e0192597c0fecfa0d3e407ec
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158568"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -30,7 +31,7 @@ No hay un archivo equivalente para controlar el [SDK en una página web][client]
 En este documento se describen las secciones que verá en el archivo de configuración, cómo controlan los componentes del SDK y qué paquetes NuGet cargan esos componentes.
 
 > [!NOTE]
-> Las instrucciones de ApplicationInsights.config y .xml no se aplican al SDK de .NET Core. Para los cambios en una aplicación de .NET Core, normalmente se usa el archivo appsettings.json. Se puede encontrar un ejemplo en la [documentación de Snapshot Debugger](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications).
+> Las instrucciones de ApplicationInsights.config y .xml no se aplican al SDK de .NET Core. Para los cambios en una aplicación de .NET Core, normalmente se usa el archivo appsettings.json. Se puede encontrar un ejemplo en la [documentación de Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications).
 
 ## <a name="telemetry-modules-aspnet"></a>Módulos de telemetría (ASP.NET)
 Cada módulo de telemetría recopila un tipo específico de datos y usa la API principal para enviar dichos datos. Los módulos los instalan diferentes paquetes NuGet, que también agregan las líneas necesarias al archivo .config.
@@ -294,7 +295,7 @@ Este proveedor se agrega al archivo de configuración cuando se instala [Microso
 
 Esta clase tiene una propiedad `ProfileQueryEndpoint` opcional.
 De manera predeterminada, se establece en `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
-Si tiene que configurar un proxy para esta configuración, se recomienda un proxy en la dirección base y la inclusión de "/api/profiles/{0}/appId". Tenga en cuenta que "{0}" se sustituye en tiempo de ejecución por la solicitud con la clave de instrumentación.
+Si tiene que configurar un proxy para esta configuración, se recomienda un proxy en la dirección base y la inclusión de "/api/profiles/{0}/appId". Tenga en cuenta que "{0}" se sustituye en tiempo de ejecución por cada solicitud con la clave de instrumentación.
 
 #### <a name="example-configuration-via-applicationinsightsconfig"></a>Ejemplo de configuración con ApplicationInsights.config:
 ```xml

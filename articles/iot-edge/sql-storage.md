@@ -10,11 +10,12 @@ ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4585e563d59d29ba0a026c992d277e5b0607e681
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de75a7ab907655d84873949460692a921c8d3186
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166104"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Almacenamiento de datos en el perímetro con bases de datos de SQL Server
 
@@ -95,7 +96,7 @@ En el paso 3, se agregan opciones de creación al contenedor de SQL Server, esta
         }
    ```
 
-3. Reemplace `<docker registry address>` por la dirección especificada en el tutorial completado [Implementación de Azure Functions como módulo de IoT Edge (versión preliminar)](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function).
+3. Reemplace `<docker registry address>` por la dirección especificada en el tutorial completado [Implementación de Azure Functions como módulo de IoT Edge](tutorial-deploy-function.md).
 
    >[!NOTE]
    >La dirección del registro de contenedor es la misma del servidor de inicio de sesión que ha copiado en el registro. Debe tener este formato: `<your container registry name>.azurecr.io`.

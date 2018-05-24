@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: f166d2e533dc49ca7779b45f3dec57a53c22fc40
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 6fb8be96c9793e96f1f7d2ad8e212d056d7e9ba5
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152593"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -92,7 +93,7 @@ Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle in
 
 Siga estas instrucciones para agregar los ajustes locales a la configuración:
 
-1. Inicie sesión en el [Portal de Azure]
+1. Inicie sesión en el [Azure Portal]
 2. Seleccione **Todos los recursos** o **App Services** y haga clic en el nombre de la aplicación móvil.
 3. Haga clic en **Herramientas**
 4. Haga clic en la opción **Explorador de recursos** del menú OBSERVAR y, después, en **Ir**.  Se abrirá una nueva ventana o pestaña.
@@ -105,14 +106,14 @@ Siga estas instrucciones para agregar los ajustes locales a la configuración:
              "https://localhost:3000"
          ],
 
-    Sustituya las URL por las de su servicio.  Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
+    Sustituya las URL por las de su servicio.  Algunos ejemplos son "http://localhost:3000" (para el servicio de ejemplo de Node.js) o "http://localhost:4400" (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
 8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
 9. Haga clic en el botón verde **PUT** .
 
 La configuración se guardará en este momento.  No cierre la ventana del explorador hasta que la configuración haya terminado de guardarse.
 Agregue también estas URL de bucle invertido a la configuración de CORS:
 
-1. Inicie sesión en el [Portal de Azure]
+1. Inicie sesión en el [Azure Portal]
 2. Seleccione **Todos los recursos** o **App Services** y haga clic en el nombre de la aplicación móvil.
 3. Se abrirá automáticamente la hoja Configuración.  En caso contrario, haga clic en **Toda la configuración**.
 4. Haga clic en la opción **CORS** del menú API.
@@ -169,7 +170,7 @@ Use el SDK de Notification Hubs para enviar notificaciones push desde el servido
 Puede encontrar información detallada sobre las API en nuestra [documentación de la API](http://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Guía de inicio rápido de Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
 [Introducción a la autenticación]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
@@ -180,4 +181,4 @@ Puede encontrar información detallada sobre las API en nuestra [documentación 
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
-[Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
+[Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

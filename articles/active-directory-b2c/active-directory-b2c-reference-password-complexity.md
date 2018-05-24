@@ -11,16 +11,17 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b89a404d583e9d495b65180e145295e6a106b3ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200389"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: configuración de los requisitos de complejidad para las contraseñas
 
 > [!NOTE]
-> **Esta característica se encuentra en versión preliminar.**  Póngase en contacto con [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) para que su inquilino de prueba tenga esta característica habilitada.  No pruebe esto en inquilinos de producción.
+> **Esta característica está en versión preliminar pública.**
 
 Azure Active Directory B2C (Azure AD B2C) admite el cambio de los requisitos de complejidad de las contraseñas proporcionadas por un usuario final al crear una cuenta.  De forma predeterminada, Azure AD B2C utiliza contraseñas `Strong`.  Azure AD B2C también admite opciones de configuración para controlar la complejidad de las contraseñas que los clientes pueden usar.
 

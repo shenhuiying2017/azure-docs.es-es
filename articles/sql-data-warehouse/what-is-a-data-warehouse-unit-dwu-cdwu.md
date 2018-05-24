@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a83a9f9332d81e02a83efc019ad56027316301ab
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 94791e4dc3d3c841dde4685d34d4e3fdaf7d9af7
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185967"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades de almacenamiento de datos (DWU) y Unidades de almacenamiento de datos de proceso (cDWU)
 Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWUs, cDWUs) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades. 
@@ -36,19 +37,19 @@ Aumentar las DWU:
 - Aumenta el número máximo de consultas simultáneas y ranuras de simultaneidad.
 
 ## <a name="service-level-objective"></a>Objetivo de nivel de servicio
-El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio para la escala del nivel de rendimiento Optimizado para Compute se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio del nivel Optimizado para Elasticity se miden en DWU; por ejemplo, DW2000. 
+El objetivo de nivel de servicio (SLO) es la opción de escalabilidad que determina el nivel de costo y el rendimiento del almacenamiento de datos. Los niveles de servicio de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU); por ejemplo, DW2000c. Los niveles de servicio de Gen1 se miden en DWU; por ejemplo, DW2000. 
 
 En T-SQL, el valor de SERVICE_OBJECTIVE determina el nivel de servicio y el nivel de rendimiento del almacenamiento de datos.
 
 ```sql
---Optimized for Elasticity
+--Gen1
 CREATE DATABASE myElasticSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000'
 )
 ;
 
---Optimized for Compute
+--Gen2
 CREATE DATABASE myComputeSQLDW
 WITH
 (    SERVICE_OBJECTIVE = 'DW1000c'
@@ -60,12 +61,12 @@ WITH
 
 Cada nivel de rendimiento usa una unidad de medida ligeramente diferente para sus unidades de almacenamiento de datos. Esta diferencia se refleja en la factura, ya que la unidad de escala se traduce directamente en la facturación.
 
-- El nivel de rendimiento optimizado para elasticidad se mide en Unidades de almacenamiento de datos (DWU).
-- El nivel de rendimiento optimizado para procesos se mide en Unidades de almacenamiento de datos de proceso (cDWU). 
+- Los almacenamientos de datos de Gen1 se miden en unidades de almacenamiento de datos (DWU).
+- Los almacenamientos de datos de Gen2 se miden en unidades de almacenamiento de datos de proceso (cDWU). 
 
-Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel de rendimiento optimizado para procesos también usa una caché basada en un disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
+Tanto las DWU como las cDWU admiten el escalado vertical y la reducción vertical del proceso, así como pausar el proceso cuando no es necesario usar el almacén de datos. Estas operaciones son a petición. El nivel Gen2 usa una memoria caché basada en disco local en los nodos de proceso para mejorar el rendimiento. Al escalar o pausar el sistema, se invalida la memoria caché y es necesario un período de calentamiento de la memoria caché para conseguir un rendimiento óptimo.  
 
-A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. El nivel de rendimiento optimizado para procesos proporciona el mejor rendimiento de consultas y mayor escalabilidad, pero tiene un precio de entrada superior. Está diseñado para empresas que demandan constantemente rendimiento. Estos sistemas hacen el mayor uso de la memoria caché. 
+A medida que aumente unidades de almacenamiento de datos, también se aumentan linealmente los recursos informáticos. El nivel Gen2 proporciona el mejor rendimiento de consultas y la mayor escalabilidad, pero tiene un precio de entrada superior. Está diseñado para empresas que demandan constantemente rendimiento. Estos sistemas hacen el mayor uso de la memoria caché. 
 
 ### <a name="capacity-limits"></a>Límites de capacidad
 Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../sql-database/sql-database-what-is-a-dtu.md) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](sql-data-warehouse-service-capacity-limits.md#workload-management).
@@ -76,10 +77,9 @@ El número ideal de unidades de almacenamiento de datos depende en gran medida d
 
 Pasos para encontrar la mejor DWU para la carga de trabajo:
 
-1. Durante el desarrollo, empiece por seleccionar una DWU menor mediante el uso del nivel de rendimiento optimizado para elasticidad.  Puesto que el problema en esta fase es la validación funcional, el nivel de rendimiento optimizado para elasticidad es una opción razonable. Un buen punto de partida es DW200. 
+1. Comience por seleccionar una DWU más pequeña. 
 2. Supervise el rendimiento de su aplicación a medida que prueba cargas de datos en el sistema, observando el número de DWU seleccionadas en comparación con el rendimiento que observe.
-3. Identifique los requisitos adicionales para períodos de máxima actividad periódicos. Si la carga de trabajo muestra importantes altibajos en la actividad y hay una buena razón para escalar con frecuencia, entonces debería favorecer el nivel de rendimiento optimizado para elasticidad.
-4. Si necesita más de 1000 DWU, favorezca el nivel de rendimiento optimizado para procesos, ya que proporciona el mejor rendimiento.
+3. Identifique los requisitos adicionales para períodos de máxima actividad periódicos. Si la carga de trabajo muestra importantes altibajos en la actividad y hay una buena razón para escalar con frecuencia.
 
 SQL Data Warehouse es un sistema de escalado horizontal que puede aprovisionar grandes cantidades de procesos y consultar cantidades considerables de datos. Para ver sus verdaderas capacidades de escalado, especialmente en DWU más grandes, se recomienda escalar el conjunto de datos para asegurar que tiene suficientes datos como para alimentar las CPU. Para probar la escala, se recomienda usar al menos 1 TB.
 

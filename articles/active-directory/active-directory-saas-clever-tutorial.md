@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 6531e6c8c97bfadac898c4aa4943855dcd32bdfe
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b7529b0942cd86b0d9e657d8d0f61313aa7f0a66
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32140502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: integración de Azure Active Directory con Clever
 
@@ -110,12 +111,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://clever.com/in/<companyname>`.
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://clever.com/<companyname>`
+    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para obtener estos valores.
+    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para obtener este valor.
 
-4. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
+4. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **Dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas.
     
     ![Configurar inicio de sesión único](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
@@ -129,7 +130,8 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     | Nombre del atributo  | Valor de atributo |
     | --------------- | -------------------- |
-    | clever.student.credentials.district\_username  | user.userprincipalname |
+    | clever.teacher.credentials.district_username|user.userprincipalname|
+    | clever.student.credentials.district_username| user.userprincipalname |
     | Firstname  | user.givenname |
     | Lastname  | user.surname |
 
@@ -157,19 +159,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Inicio de sesión instantáneo](./media/active-directory-saas-clever-tutorial/ic798984.png "Inicio de sesión instantáneo")
 
+    > [!NOTE]
+    > Para poder probar el inicio de sesión único, tendrá que ponerse en contacto con el [equipo de soporte técnico de Clever](https://clever.com/about/contact/) para habilitar el SSO de Office 365 en el back-end.
+
 10. En la página **Instant Login** (Inicio de sesión instantáneo), realice los pasos siguientes:
-      
+    
       ![Inicio de sesión instantáneo](./media/active-directory-saas-clever-tutorial/ic798985.png "Inicio de sesión instantáneo")
-      
+    
       a. Escriba la **Dirección URL de inicio de sesión**.
-      
+    
       >[!NOTE]
       >La **URL de inicio de sesión** es un valor personalizado. Póngase en contacto con el [equipo de soporte técnico al cliente de Clever](https://clever.com/about/contact/) para obtener este valor.
-      
+    
       b. En **Identity System** (Sistema de identidades), seleccione **ADFS**.
 
       c. En el cuadro de texto **URL de metadatos**, pegue la **dirección URL de metadatos de federación de aplicación** que copió en Azure Portal.
-      
+    
       d. Haga clic en **Save**(Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD

@@ -9,11 +9,12 @@ ms.custom: business continuity
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 09672c9f8ba725e46f2cdbb1a13de101137cb718
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 89839d18e90a75f81e78edcb7f54e77a31ea4886
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187198"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configuración de replicación geográfica activa para Azure SQL Database en Azure Portal e inicio de la conmutación por error
 
@@ -33,7 +34,7 @@ Los pasos siguientes crean otra base de datos secundaria en una asociación de r
 
 Para agregar una base de datos secundaria, debe ser el propietario o copropietario de la suscripción.
 
-La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos única o una de un grupo elástico. Para obtener más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md).
+La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos única o una de un grupo elástico. Para más información, consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 Después de crear e inicializar la base de datos secundaria, los datos comienzan a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
 > [!NOTE]

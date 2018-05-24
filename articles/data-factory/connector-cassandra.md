@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 72d2eb9e6cf235a90c5b1cf1c125fb6719c65317
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770968"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copia de datos desde Cassandra mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +92,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Cassandr
 
 Si desea ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte el artículo sobre conjuntos de datos. En esta sección se proporciona una lista de las propiedades que admite el conjunto de datos de Cassandra.
 
-Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de datos en **RelationalTable**. Se admiten las siguientes propiedades:
+Para copiar datos desde Cassandra, establezca la propiedad type del conjunto de datos en **CassandraTable**. Se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |

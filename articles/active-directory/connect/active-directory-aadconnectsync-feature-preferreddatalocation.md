@@ -1,32 +1,28 @@
 ---
-title: "Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las funcionalidades multigeográficas de Office 365 | Microsoft Docs"
-description: "Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect."
+title: 'Sincronización de Azure Active Directory Connect: Configuración de la ubicación de datos preferida para las funcionalidades multigeográficas de Office 365 | Microsoft Docs'
+description: Describe cómo poner los recursos de usuario de Office 365 cerca del usuario con la sincronización de Azure Active Directory Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
-ms.openlocfilehash: a5ebd61539af7116b8f92cdf9404cd2b5cdea193
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157414"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronización de Azure Active Directory Connect: Configuración de la ubicación preferida para los recursos de Office 365
 El objetivo de este tema es guiarle por la configuración del atributo de la ubicación de datos preferida en la sincronización de Azure Active Directory (Azure AD) Connect. Cuando alguien usa las funcionalidades multigeográficas de Office 365, este atributo se usa para designar la ubicación geográfica de los datos de Office 365 del usuario. (Los términos *región* y *geoárea* se usan indistintamente).
-
-> [!IMPORTANT]
-> Actualmente, las capacidades multigeográficas se encuentran en versión preliminar. Si desea participar en el programa de versión preliminar, póngase en contacto con su representante de Microsoft.
->
->
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>Habilitación de la sincronización de la ubicación de datos preferida
 De forma predeterminada, los recursos de Office 365 para los usuarios se encuentran en la misma zona geográfica que el inquilino de Azure AD. Por ejemplo, si el inquilino se encuentra en Estados Unidos, los buzones de Exchange de los usuarios también se encontrarán allí. Esto podría no ser adecuado para una organización multinacional.
@@ -34,7 +30,7 @@ De forma predeterminada, los recursos de Office 365 para los usuarios se encuent
 Es posible definir la geoárea de un usuario si se establece el atributo **preferredDataLocation**. Puede tener los recursos de Office 365 del usuario, como el buzón de correo y OneDrive, en la misma geoárea que el usuario y, aún así, tener un inquilino para toda la organización.
 
 > [!IMPORTANT]
-> Para poder optar a las funcionalidades multigeográficas, debe disponer de al menos 5,000 puestos en la suscripción de Office 365.
+> La replicación geográfica múltiple está disponible actualmente para los clientes con un mínimo de 5 000 suscripciones a los servicios de Office 365. Póngase en contacto con su representante de Microsoft para más información.
 >
 >
 
@@ -50,12 +46,12 @@ Las zonas geográficas de Office 365 disponibles para la funcionalidad multigeog
 | Unión Europea | EUR |
 | India | IND |
 | Japón | JPN |
-| Corea del Sur | KOR |
+| Corea | KOR |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 
 * Si una geoárea no aparece en esta tabla, por ejemplo, Sudamérica, no se puede usar con la funcionalidad multigeográfica.
-* India y Corea del sur solo están disponibles para los clientes con direcciones de facturación y licencias adquiridas en esas zonas geográficas.
+* La zona geográfica India solo está disponible para clientes con direcciones de facturación y licencias adquiridas en esa zona geográfica.
 * No todas las cargas de trabajo de Office 365 admiten la configuración de la geoárea de un usuario.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Compatibilidad de Azure AD Connect con la sincronización

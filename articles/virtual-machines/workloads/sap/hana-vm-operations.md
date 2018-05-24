@@ -13,14 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2017
+ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb715960a516c6b2ca16376c12cb6f796e0b395
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 959a483d293caa45180c946e92ac824fc56db084
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195046"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Guía de operaciones de SAP HANA en Azure
 En este documento se proporcionan instrucciones para el funcionamiento de los sistemas SAP HANA que se implementaron en Azure Virtual Machines (VM) nativas. Este documento no pretende reemplazar ninguna documentación estándar de SAP, incluido el contenido siguiente:
@@ -177,7 +178,7 @@ Hay límites en los discos duros virtuales de Azure Premium Storage por máquina
 - 16 VHD para una máquina virtual M128xx
 - 8 VHD para una máquina virtual M64xx
 
-Puede encontrar instrucciones más detalladas sobre cómo habilitar el Acelerador de escritura de Azure en el artículo [Acelerador de escritura de Azure para implementaciones de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator).
+Puede encontrar instrucciones más detalladas sobre cómo habilitar el Acelerador de escritura de Azure en el artículo [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) (Acelerador de escritura).
 
 En la misma documentación puede encontrar información más detallada y las restricciones para el Acelerador de escritura de Azure.
 

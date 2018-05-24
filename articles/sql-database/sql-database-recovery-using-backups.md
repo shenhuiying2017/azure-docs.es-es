@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f40bd7954bbf079c87f8312bff731b68d1acb7dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192771"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperación de una Base de datos SQL de Azure mediante copias de seguridad automatizadas
 SQL Database proporciona estas opciones para la recuperación de bases de datos mediante [copias de seguridad automatizadas de la base de datos](sql-database-automated-backups.md) y [copias de seguridad en retención a largo plazo](sql-database-long-term-retention.md). Puede restaurar de una copia de seguridad de base de datos a:
@@ -50,7 +51,7 @@ El tiempo de recuperación para restaurar una base de datos mediante copias de s
   
   En bases de datos muy grandes o activas, la restauración puede tardar varias horas. Si hay una interrupción prolongada en una región, es posible que haya un gran número de solicitudes de restauración geográfica que se procesan en otras regiones. Si hay muchas solicitudes, puede aumentar el tiempo de recuperación de las bases de datos en esa región. La mayoría de las restauraciones de bases de datos dura unas 12 horas.
 
-Para una única suscripción, existen algunas limitaciones en el número de solicitudes simultáneas de restauración (incluida la restauración a un momento dado, la georestauración y la restauración desde una copia de seguridad de retención a largo plazo) que se envían y realizan:
+Para una única suscripción, existen algunas limitaciones en el número de solicitudes simultáneas de restauración (incluida la restauración a un momento dado, la restauración geográfica y la restauración desde una copia de seguridad de retención a largo plazo) que se envían y realizan:
 |  | **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
 | :--- | --: | --: |
 |Base de datos única (por suscripción)|10|60|
@@ -97,7 +98,7 @@ Puede restaurar una base de datos eliminada a la hora de eliminación de una bas
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Para recuperar una base de datos eliminada durante su [período de retención](sql-database-service-tiers.md) mediante Azure Portal, abra la página del servidor y, en el área de operaciones, haga clic en **Bases de datos eliminadas**.
+Para recuperar una base de datos eliminada durante su [período de retención en el modelo basado en DTU](sql-database-service-tiers-dtu.md) o su [período de retención en el modelo basado en núcleos virtuales](sql-database-service-tiers-vcore.md) mediante Azure Portal, abra la página del servidor y, en el área de operaciones, haga clic en **Bases de datos eliminadas**.
 
 ![restauración-base de datos-eliminada-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -123,7 +124,7 @@ Actualmente no se admite la restauración a un momento dad en una base de datos 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Para realizar una restauración geográfica de una base de datos durante su [período de retención](sql-database-service-tiers.md) mediante Azure Portal, abra la página de instancias de SQL Database y, luego, haga clic en **Agregar**. En el cuadro de texto **Seleccionar origen** cuadro de texto, seleccione **Copia de seguridad**. Especifique la copia de seguridad desde la que se va a recuperar en la región y en el servidor de su elección. 
+Para realizar una restauración geográfica de una base de datos durante su [período de retención en el modelo basado en DTU](sql-database-service-tiers-dtu.md) o su [período de retención en el modelo basado en núcleos virtuales](sql-database-service-tiers-vcore.md) mediante Azure Portal, abra la página Bases de datos SQL y haga clic en **Agregar**. En el cuadro de texto **Seleccionar origen** cuadro de texto, seleccione **Copia de seguridad**. Especifique la copia de seguridad desde la que se va a recuperar en la región y en el servidor de su elección. 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>Recuperación mediante programación con copias de seguridad automatizadas
 Como se dijo anteriormente, además de Azure Portal, la recuperación de una base de datos se puede realizar mediante programación con Azure PowerShell o la API de REST. En las tablas siguientes se describe el conjunto de comandos disponibles.

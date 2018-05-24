@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353881"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalación de la extensión del explorador del panel de acceso
 
@@ -83,6 +84,12 @@ También puede descargar la extensión para Chrome y Edge directamente desde los
    3. Busque una aplicación que esté disponible en el portal Mis aplicaciones.
    4. En la lista de resultados de la búsqueda, seleccione la aplicación.  
        Las tres últimas aplicaciones que ha utilizado se muestran en la lista de accesos directos **Usados recientemente**.
+       
+* Para usar direcciones URL internas de la empresa de forma remota, haga lo siguiente:
+    1. [Configure el proxy de aplicación](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) en el inquilino
+    2. [Publique la aplicación](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) y la dirección URL a través del proxy de aplicación
+    3. Instale la extensión y seleccione Iniciar sesión para comenzar para iniciar sesión
+    4. Ahora podrá examinar la dirección URL interna de la empresa de manera remota
 
 > [!NOTE]
 > Las opciones anteriores están disponibles solo para Edge, Chrome y Firefox.
@@ -118,4 +125,4 @@ Abra una incidencia de soporte técnico con la información siguiente si está d
 -   Seguimientos de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes
-[¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+[¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)

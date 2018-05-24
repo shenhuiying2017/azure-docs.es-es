@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3f553b9ea3629a38ab9dea0e93b16c62aebe301f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1cf57d76e87fcc0b6628ac194f4d5c389bf684d4
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352589"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -30,7 +31,7 @@ La integración de Amazon Web Services (AWS) con Azure AD proporciona las siguie
 - Puede permitir que los usuarios inicien sesión automáticamente en Amazon Web Services (AWS) (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -190,7 +191,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
   
     d. Haga clic en **Next: Permissions** (Siguiente: permisos).
 
-16. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), haga clic en **Next: Review** (Siguiente: revisión).  
+16. En el cuadro de diálogo **Attach Permissions Policies** (Adjuntar directivas de permisos), no es necesario adjuntar ninguna directiva. Haga clic en **Siguiente: revisión**.  
     
     ![Configurar directiva de inicio de sesión único][33]
 
@@ -414,7 +415,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

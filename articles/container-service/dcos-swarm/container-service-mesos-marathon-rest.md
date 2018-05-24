@@ -1,25 +1,26 @@
 ---
-title: "Administración de un clúster DC/OS de Azure con la API de REST de Marathon"
-description: "Implemente contenedores en un clúster de DC/OS de Azure Container Service mediante la API de REST de Marathon."
+title: Administración de un clúster DC/OS de Azure con la API de REST de Marathon
+description: Implemente contenedores en un clúster de DC/OS de Azure Container Service mediante la API de REST de Marathon.
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: c9322756c30011305ebe6f4f2fd38554f275a1b3
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: edd66be25bf2571a7315372898300476fec101ca
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32165612"
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>Administración de contenedores de DC/OS a través de la API de REST de Marathon
 
 DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupadas, al tiempo que reduce el hardware subyacente. Por encima de DC/OS hay un marco que administra la programación y ejecución de cargas de trabajo de proceso. Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas, este documento es una introducción a la creación y el escalado de implementaciones de contenedor con la API de REST de Marathon. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
 
@@ -27,7 +28,7 @@ Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado 
 * [Conexión a un clúster del servicio Contenedor de Azure](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Acceso a las API de DC/OS
-Una vez conectado al clúster de Azure Container Service, podrá acceder a DC/OS y a las API de REST relacionadas a través de http://localhost:local-port. Los ejemplos de este documento suponen que está realizando la tunelización en el puerto 80. Por ejemplo, a los puntos de conexión de Marathon se puede acceder en los identificadores URI que comienzan por `http://localhost/marathon/v2/`. 
+Una vez conectado al clúster de Azure Container Service, podrá acceder a DC/OS y a las API REST relacionadas a través de http://localhost:local-port. Los ejemplos de este documento suponen que está realizando la tunelización en el puerto 80. Por ejemplo, a los puntos de conexión de Marathon se puede acceder en los identificadores URI que comienzan por `http://localhost/marathon/v2/`. 
 
 Para más información sobre las diferentes API, consulte la documentación de Mesosphere sobre [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) y [Chronos API](https://mesos.github.io/chronos/docs/api.html), así como la documentación de Apache sobre [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 

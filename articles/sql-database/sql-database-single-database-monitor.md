@@ -10,14 +10,15 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c9fa74304e8672bc18f403aae138a3c1dbea3d4e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192628"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Supervisión de rendimiento de bases de datos con Azure SQL Database
-La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. La supervisión le ayudará a determinar si la base de datos tiene un exceso de capacidad o si tiene problemas porque se ha alcanzado el número máximo de recursos y, después, a decidir si es el momento de ajustar el nivel de rendimiento y el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. Puede supervisar la base de datos mediante herramientas gráficas en el [Azure Portal](https://portal.azure.com) o mediante las [vistas de administración dinámicas](https://msdn.microsoft.com/library/ms188754.aspx) de SQL.
+La supervisión del rendimiento de una base de datos SQL en Azure comienza con la supervisión del uso de recursos, en relación con el nivel de rendimiento elegido para la base de datos. La supervisión le ayudará a determinar si la base de datos tiene un exceso de capacidad o si tiene problemas porque se ha alcanzado el número máximo de recursos y, después, a decidir si es el momento de ajustar el nivel de rendimiento y el nivel de servicio de la base de datos en el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales](sql-database-service-tiers-vcore.md). Puede supervisar la base de datos mediante herramientas gráficas en el [Azure Portal](https://portal.azure.com) o mediante las [vistas de administración dinámicas](https://msdn.microsoft.com/library/ms188754.aspx) de SQL.
 
 > [!TIP]
 > Use [Intelligent Insights de Azure SQL](sql-database-intelligent-insights.md) para supervisar automáticamente el rendimiento de su base de datos. Una vez que se detecta un problema de rendimiento, se genera un registro de diagnóstico con los detalles y el análisis de la causa principal (RCA) del problema. Cuando es posible, se proporciona una recomendación para la mejora del rendimiento.
@@ -31,7 +32,7 @@ En el [Portal de Azure](https://portal.azure.com/), puede supervisar la utilizac
 * Porcentaje de E/S de datos
 * Porcentaje de tamaño de base de datos
 
-Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión** con más información en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte el artículo de [niveles de servicio](sql-database-service-tiers.md) para más información sobre las unidades de transmisión estándar (DTU).
+Una vez agregadas estas métricas, podrá verlas en el gráfico **Supervisión** con más información en la ventana **Métrica**. Las cuatro métricas muestran el porcentaje de uso medio, en relación con la **DTU** de la base de datos. Consulte los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md) para más información sobre los niveles de servicio.  
 
 ![Supervisión del nivel de servicio del rendimiento de la base de datos.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 

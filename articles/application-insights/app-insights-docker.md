@@ -1,8 +1,8 @@
 ---
-title: "Supervisión de aplicaciones de Docker en Azure Application Insights | Microsoft Docs"
-description: "En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor."
+title: Supervisión de aplicaciones de Docker en Azure Application Insights | Microsoft Docs
+description: En Application Insights, se pueden mostrar los contadores de rendimiento, los eventos y las excepciones de Docker, además de la telemetría de las aplicaciones en contenedor.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 68f408f18b767ed9c5aba8fed8c97f021cdeb123
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a0476e2f0bf08f76b45e1342ec38137e46008cb1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153700"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Supervisar aplicaciones Docker en Application Insights
-Los eventos de ciclo de vida y los contadores de rendimiento de los contenedores [Docker](https://www.docker.com/) pueden mostrarse en gráficos en Application Insights. Instale la imagen de [Application Insights](app-insights-overview.md) en un contenedor del host y se mostrarán los contadores de rendimiento del host, así como de las demás imágenes.
+Los eventos de ciclo de vida y los contadores de rendimiento de los contenedores [Docker](https://www.docker.com/) pueden mostrarse en gráficos en Application Insights. Instale la imagen de [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) en un contenedor del host y se mostrarán los contadores de rendimiento del host, así como de las demás imágenes.
 
 Con Docker, distribuye sus aplicaciones en contenedores ligeros junto con todas las dependencias. Estos contenedores se ejecutan en cualquier equipo host que ejecute un motor Docker.
 
@@ -43,6 +44,10 @@ Al ejecutar la [imagen de Application Insights](https://hub.docker.com/r/microso
 2. Agregue el icono de Docker; para ello, elija **Agregar icono**, arrastre el icono de Docker desde la galería y luego haga clic en **Listo**. 
    
     ![ejemplo](./media/app-insights-docker/03.png)
+
+> [!NOTE]
+> El panel de información general de Application Insights ahora está bloqueado y no permite agregar iconos de la galería. Aún puede agregar el icono de Docker, como se describió anteriormente, a través de la interfaz del Panel de Azure.
+
 3. Haga clic en la lista desplegable **Essentials** y copie la clave de instrumentación. Se usará para indicar al SDK dónde puede enviar sus datos de telemetría.
 
     ![ejemplo](./media/app-insights-docker/02-props.png)

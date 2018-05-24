@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 60df540d847a1e7422e87bc375220819dac4b25c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a628374841126a750ebf6881f8adec66340c1d29
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178352"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -161,7 +162,7 @@ Tenga en cuenta las siguientes propiedades:
 
 - La propiedad **type** se establece en **SqlServerStoredProcedure**. 
 - El valor de **storedProcedureName** de las propiedades de tipo se establece en **sp_sample** (nombre del procedimiento almacenado).
-- La sección **storedProcedureParameters** contiene un parámetro denominado **DataTime**. El nombre y el uso de mayúsculas y minúsculas en el parámetro JSON deben coincidir con los del parámetro de la definición del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: `"param1": null` null (todo en minúsculas).
+- La sección **storedProcedureParameters** contiene un parámetro llamado **DateTime**. El nombre y el uso de mayúsculas y minúsculas en el parámetro JSON deben coincidir con los del parámetro de la definición del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: `"param1": null` null (todo en minúsculas).
  
 1. Haga clic en **... Más** en la barra de comandos y en **Nueva canalización**.
 2. Copie y pegue el siguiente fragmento de código JSON:   

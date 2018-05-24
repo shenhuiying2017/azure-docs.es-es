@@ -1,25 +1,26 @@
 ---
-title: "Consideraciones de integración del centro de datos general para sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de lo que puede hacer para planear y preparar la integración del centro de datos con Azure Stack de varios nodos."
+title: Consideraciones de integración del centro de datos general para sistemas integrados de Azure Stack | Microsoft Docs
+description: Obtenga información acerca de lo que puede hacer para planear y preparar la integración del centro de datos con Azure Stack de varios nodos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 25ef6ba9ff105486f39cee8b6181a8c63e64ec13
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769699"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Consideraciones de integración del centro de datos para sistemas integrados de Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, debería comprender algunas de las principales consideraciones de planeamiento acerca de la implementación y el modo en que el sistema se adapta a su centro de datos. En este artículo se proporciona información general de alto nivel de estas consideraciones para ayudarle a tomar importantes decisiones de infraestructura para el sistema de varios nodos de Azure Stack. Entender estas consideraciones ayuda a trabajar con su proveedor de hardware OEM cuando se implementa Azure Stack en el centro de datos.  
@@ -50,7 +51,9 @@ Cuando se necesita un mayor nivel de acceso para la solución de problemas que n
 ## <a name="identity-considerations"></a>Consideraciones de identidad
 
 ### <a name="choose-identity-provider"></a>Elegir el proveedor de identidades
-Debe tener en cuenta qué proveedor de identidades desea usar para la implementación de Azure Stack, Azure AD o AD FS. No puede cambiar los proveedores de identidades tras la implementación sin volver a implementar todo el sistema.
+Debe tener en cuenta qué proveedor de identidades desea usar para la implementación de Azure Stack, Azure AD o AD FS. No puede cambiar los proveedores de identidades tras la implementación sin volver a implementar todo el sistema. Si no dispone de su propia cuenta de Azure AD, está utilizando una que le suministró su proveedor de servicios en la nube y decide cambiar de proveedor y usar una cuenta de Azure AD diferente, deberá ponerse en contacto con el proveedor de soluciones para que vuelva a implementar la solución, aunque tendrá que asumir los costos.
+
+
 
 Su elección del proveedor de identidades no repercute en máquinas virtuales de inquilinos, en el sistema de identidades ni en las cuentas que utilizan, en si puede unirse a un dominio de Active Directory, etc. Esto es independiente.
 

@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 33f4430baacbe50f3d4c7da857ee4345d4f74928
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195471"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Los grupos elásticos pueden ayudarle a administrar y escalar varias instancias de Azure SQL Database
 
@@ -32,7 +33,7 @@ Los grupos elásticos solucionan este problema y se aseguran de que las bases de
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Los grupos elásticos permiten al desarrollador adquirir recursos para un grupo compartido entre varias bases de datos con el fin de hacer frente a periodos impredecibles de uso por bases de datos individuales. Puede configurar los recursos para el grupo según el [modelo de compra basado en DTU (versión preliminar)](sql-database-service-tiers.md#dtu-based-purchasing-model) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). El requisito de recursos para un grupo viene determinado por el uso agregado de sus bases de datos. La cantidad de recursos disponibles para el grupo se determina mediante el presupuesto del desarrollador. El desarrollador simplemente agrega bases de datos al grupo, establece los recursos mínimos y máximos para las bases de datos (DTU mínimas o máximas o núcleos virtuales mínimos y máximos, según la elección del modelo de recursos) y, a continuación, establece los recursos del grupo en función de su presupuesto. Un desarrollador puede usar grupos para aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
+Los grupos elásticos permiten al desarrollador adquirir recursos para un grupo compartido entre varias bases de datos con el fin de hacer frente a periodos impredecibles de uso por bases de datos individuales. Puede configurar los recursos para el grupo según el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). El requisito de recursos para un grupo viene determinado por el uso agregado de sus bases de datos. La cantidad de recursos disponibles para el grupo se determina mediante el presupuesto del desarrollador. El desarrollador simplemente agrega bases de datos al grupo, establece los recursos mínimos y máximos para las bases de datos (DTU mínimas o máximas o núcleos virtuales mínimos y máximos, según la elección del modelo de recursos) y, a continuación, establece los recursos del grupo en función de su presupuesto. Un desarrollador puede usar grupos para aumentar de forma eficiente su servicio a partir de un método Lean Startup hasta un negocio con madurez a una escala cada vez mayor.
 
 Dentro del grupo, a las bases de datos individuales se les proporciona la flexibilidad de escalarse automáticamente dentro de unos parámetros establecidos. Con cargas elevadas, una base de datos puede consumir más recursos para satisfacer la demanda. Las bases de datos con cargas ligeras consumen menos y las bases de datos sin carga no consumen ningún recurso. El aprovisionamiento de recursos para el grupo entero en lugar de para bases de datos únicas simplifica las tareas de administración. Además, cuenta con un presupuesto predecible para el grupo. Se pueden agregar recursos adicionales a un grupo existente sin que haya un tiempo de inactividad de la base de datos, excepto en los casos en los que las bases de datos se deben mover para proporcionar los recursos de proceso adicionales para la reserva de nuevas eDTU. De manera similar, si ya no se necesitan recursos adicionales, se pueden quitar de un grupo existente en cualquier momento dado. Y puede agregar bases de datos al grupo o quitar bases de datos del grupo. Si una base de datos infrautiliza recursos de forma predecible, sáquela del grupo.
 
@@ -101,7 +102,7 @@ El mejor tamaño para un grupo depende de los recursos agregados necesarios para
 * Los recursos máximos que usan todas las bases de datos del grupo (DTU máximas o núcleos virtuales máximos, según la elección del modelo de recursos).
 * Número máximo de bytes de almacenamiento utilizado por todas las bases de datos en el grupo.
 
-Para información sobre los niveles de servicio disponibles para cada modelo de recursos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
+Para información sobre los niveles de servicio disponibles para cada modelo de recursos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) o el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 
 SQL Database evalúa automáticamente el historial de uso de recursos de bases de datos en un servidor de SQL Database existente y recomienda la configuración de grupo apropiada en Azure Portal. Además de las recomendaciones, una experiencia integrada calcula el uso de eDTU para un grupo personalizado de bases de datos en el servidor. Esto le permite realizar un análisis de hipótesis agregando bases de datos interactivamente al grupo y quitándolas para obtener análisis de uso de recursos y consejos de cambio de tamaño antes de confirmar los cambios. Para ver un procedimiento, consulte [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md).
 
@@ -112,11 +113,11 @@ En casos donde no se pueden usar herramientas, las siguientes instrucciones paso
    Para el modelo de compra basado en DTU: MAX(<*número total de bases de datos* X *promedio de uso de DTU por base de datos*>.<br>
    <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*)
 
-   Para el modelo de compra basado en núcleos virtuales: MAX (<*número total de bases de datos* X *promedio de utilización de núcleos virtuales por base de datos*>.<br>
+   En el caso del modelo de compra basado en núcleos virtuales (versión preliminar): MAX (<*número total de bases de datos* X *promedio de utilización de núcleos virtuales por base de datos*>,<br>
    <*número de bases de datos con picos simultáneos* X *uso máximo de núcleos virtuales por base de datos*)
 
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
-3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleos virtuales toma la estimación de núcleos virtuales del paso 1.
+3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleos virtuales (versión preliminar) toma la estimación de núcleos virtuales del paso 1.
 4. Consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/) y busque el tamaño de grupo más pequeño que sea mayor que la estimación del paso 3.
 5. Compare el precio del grupo del paso 5 con el precio de uso de los niveles de rendimiento adecuados para bases de datos únicas.
 

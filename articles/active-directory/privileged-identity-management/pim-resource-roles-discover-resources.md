@@ -1,6 +1,6 @@
 ---
-title: 'Privileged Identity Management para Azure Resources: detección y administración de recursos de Azure| Microsoft Docs'
-description: Se describe cómo proteger los recursos de Azure.
+title: Detectar y administrar recursos de Azure mediante Privileged Identity Management | Microsoft Docs
+description: En este artículo se explica cómo proteger recursos de Azure mediante PIM.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,57 +12,56 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 78650e47ec92aa144e4ccc8c57f309240bf31ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151287"
 ---
-# <a name="discover-and-manage-azure-resources"></a>Búsqueda y administración de recursos de Azure
+# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detectar y administrar recursos de Azure mediante Privileged Identity Management
 
-Si su organización ya usa PIM de Azure AD para proteger a los administradores del directorio o es el propietario de una suscripción que busca proteger los recursos de producción, está en el lugar adecuado.
+Obtenga información sobre cómo detectar y administrar recursos de Azure al usar Privileged Identity Management (PIM) en Azure Active Directory (Azure AD). Esta información puede ser útil para las organizaciones que ya usan PIM para proteger los recursos de administrador y para los propietarios de suscripciones que buscan proteger los recursos de producción.
 
-La primera vez que habilita PIM para Azure Resources, debe detectar y seleccionar los recursos que quiere proteger con PIM. No hay ningún límite en cuanto al número de recursos que se pueden administrar con PIM, pero se recomienda empezar primero por los recursos más críticos (producción).
+La primera vez que se configura PIM para recursos de Azure, hay que detectar y seleccionar los recursos que se van a proteger con PIM. No hay ningún límite en cuanto al número de recursos que se pueden administrar con PIM. Pero se recomienda empezar por los recursos más críticos (producción).
 
-> [!Note]
-> Solo los recursos de suscripción se pueden buscar y seleccionar para administración. Decidir administrar una suscripción en PIM también permitirá la administración de todos los recursos secundarios.
+> [!NOTE]
+> Solo se pueden buscar y seleccionar recursos de la suscripción para su administración mediante PIM. Al administrar una suscripción en PIM, también se pueden administrar los recursos secundarios de la suscripción.
 
 ## <a name="discover-resources"></a>Detección de recursos
 
-Vaya a PIM de Azure AD y seleccione los recursos de Azure en la sección Administrar del menú de navegación izquierdo.
+En Azure Portal, vaya al panel **Privileged Identity Management**. En el menú de la izquierda, en la sección **ADMINISTRAR**, seleccione **Recursos de Azure**.
 
-![](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+![Panel "Privileged Identity Management - Recursos de Azure"](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
 
-Si es la primera vez que usa PIM para Azure Resources, deberá ejecutar la detección para encontrar recursos para administrar.
-Haga clic en el botón "Discover resources" (Detectar recursos) en el centro de la pantalla para iniciar la experiencia de detección.
+Si es la primera vez que usa PIM para recursos de Azure, primero debe ejecutar la detección para encontrar los recursos que se van a administrar. En el panel **Detectar recursos**, seleccione el botón **Detectar recursos** para iniciar la experiencia de detección.
 
-![](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+![Panel "Detectar recursos"](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
 
-Si otro administrador de directorio o de recursos de su organización ya administra un recurso de Azure con PIM, o tiene una asignación de roles válida para un recurso, la vista de lista contendrá el mensaje: "Discover resources or activate an eligible role assignment to continue" (Detectar recursos o activar una asignación de roles válida para continuar). 
+Si otro administrador de directorios o recursos de la organización ya administra un recurso de Azure con PIM, o si tiene una asignación de roles apta para un recurso, la vista de lista muestra el mensaje **Discover resources or activate an eligible role assignment to continue** (Detectar recursos o activar una asignación de roles apta para continuar). 
 
-![](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+![Botón "Detectar recursos" del panel "Privileged Identity Manager - Recursos de Azure"](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
 
-Cuando se seleccione el botón, en la barra de acciones, o en el medio de la pantalla para detectar recursos, verá una lista de las suscripciones disponibles para administración. En este momento, si ve suscripciones resaltadas significa que están protegidas por PIM.
+Cuando se selecciona el botón **Detectar recursos**, aparece una lista de suscripciones que se pueden administrar en el menú superior o en medio del panel. Las suscripciones que están resaltadas ya están protegidas mediante PIM.
 
-> [!Note]
-> Para evitar que otro administrador de recursos quite la configuración de PIM, una vez que se administra una suscripción no se puede dejar de administrar.
+> [!NOTE]
+> Para evitar que otro administrador de recursos quite la configuración de PIM, una vez que se establece una suscripción como administrada, no se puede dejar de administrar.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+![Panel "Recursos de Azure - Detectar"](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
 
-Mantenga el mouse sobre una suscripción que le gustaría proteger con PIM y active la casilla del extremo izquierdo de la fila. Puede seleccionar varias suscripciones a la vez.
+En la columna **RECURSO**, coloque el mouse sobre una suscripción que quiera proteger con PIM. Luego active la casilla situada a la izquierda del nombre del recurso. Puede seleccionar varias suscripciones a la vez.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+![Lista de recursos del panel "Recursos de Azure - Detectar"](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
 
-Para iniciar el proceso de incorporación, seleccione el botón "Administrar recurso" en la barra de la parte superior de la pantalla.
+Para iniciar el proceso de incorporación, en el menú superior, seleccione **Administrar recurso**.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+![Botón "Administrar recurso" del panel "Recursos de Azure - Detectar"](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
 
-Los recursos seleccionados se administran ahora con PIM. Cierre la pantalla de detección mediante la "X" de la esquina superior derecha de la página y haga clic en Actualizar en la barra de la parte superior de la pantalla de administración de recursos de Azure para empezar a administrar la configuración de PIM y asignar miembros.
+Los recursos seleccionados se administran ahora con PIM. Para cerrar la pantalla de detección, en la esquina superior derecha, seleccione **X**. Para empezar a administrar la configuración de PIM y a asignar miembros, en el menú de la parte superior del panel **Privileged Identity Management - Recursos de Azure**, seleccione el botón **Actualizar**.
 
-![](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+![Botón "Actualizar" del menú superior del panel "Privileged Identity Management - Recursos de Azure"](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configurar los roles](pim-resource-roles-configure-role-settings.md)
-
-[Asignar roles en PIM](pim-resource-roles-assign-roles.md)
+- [Configurar los roles](pim-resource-roles-configure-role-settings.md)
+- [Asignar roles en PIM](pim-resource-roles-assign-roles.md)

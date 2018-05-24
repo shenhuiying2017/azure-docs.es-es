@@ -5,25 +5,26 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/23/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 30a7f78e7bf13e6e6197e95b266dfd0d6b8f83c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4b1d4cffc3571297f2b74674156cb7f3bad7c2c8
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149901"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creación de un modelo en Azure Portal
 
 La característica Azure Analysis Services Web Designer (versión preliminar) de Azure Portal proporciona una manera rápida y sencilla de crear y editar los modelos tabulares y consultar datos del modelo directamente en el explorador. 
 
-Tenga en cuenta que Web Designer está en **versión preliminar**. Mientras se agrega toda la nueva funcionalidad, en la versión preliminar, la funcionalidad es limitada. Para llevar a cabo el desarrollo y las pruebas de modelos más avanzados, es mejor usar Visual Studio (SSDT) y SQL Server Management Studio (SSMS).
+Tenga en cuenta que Web Designer está en **versión preliminar**. La funcionalidad es limitada. Para llevar a cabo el desarrollo y las pruebas de modelos más avanzados, es mejor usar Visual Studio (SSDT) y SQL Server Management Studio (SSMS).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
 - Un servidor de Azure Analysis Services en el nivel Standard o Developer. Los modelos nuevos creados con Web Designer son DirectQuery, y solo son compatibles con estos niveles.
-- Un archivo Power BI Desktop (.pbix), Azure SQL Database o Azure SQL Data Warehouse como origen de datos. Los nuevos modelos creados a partir de archivos Power BI Desktop admiten orígenes de datos de Azure SQL Database, Azure SQL Data Warehouse, Oracle y Teradata.
+- Un archivo Power BI Desktop (.pbix), Azure SQL Database o Azure SQL Data Warehouse como origen de datos. Los nuevos modelos creados a partir de archivos de Power BI Desktop admiten Azure SQL Database y Azure SQL Data Warehouse.
 - Una cuenta de SQL Server y la contraseña para conectarse a orígenes de datos de Azure SQL Database o Azure SQL Data Warehouse.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicie sesión en el Portal de Azure.

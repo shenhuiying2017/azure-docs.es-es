@@ -2,29 +2,39 @@
 title: Uso de Azure Managed Service Identity en Azure API Management | Microsoft Docs
 description: Aprenda a usar Azure Managed Service Identity en API Management
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: miaojiang
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 55fac34a5eae169a3a4fd8c64c90c552fdb5df5a
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 98aa70935a3efbbe2edb07aade85fa3ea17ce786
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150437"
 ---
 # <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Uso de Azure Managed Service Identity en Azure API Management
 
-> [!Note]
-> Azure Managed Service Identity Azure API Management se encuentran actualmente en versión preliminar.
-
 En este artículo se muestra cómo crear una identidad de servicio administrada para una instancia de servicio de API Management y cómo acceder a otros recursos. Una identidad de servicio administrada generada por Azure Active Directory (Azure AD) permite a la instancia de API Management acceder de forma fácil y segura a otros recursos protegidos de Azure AD, como Azure Key Vault. Esta identidad de servicio administrada está administrada por Azure y no requiere que aprovisione o rote los secretos. Para más información sobre Azure Managed Service Identity, vea [Managed Service Identity (MSI) para recursos de Azure](../active-directory/msi-overview.md).
 
-## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Creación de una instancia de API Management con una identidad mediante una plantilla de Resource Manager
+## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Creación de una identidad de servicio administrada para una instancia de API Management
+
+### <a name="using-the-azure-portal"></a>Uso de Azure Portal
+
+Para configurar una identidad de servicio administrada en el portal, primero tendrá que crear una instancia de API Management como lo hace normalmente y, a continuación, habilitar la característica.
+
+1. Cree una instancia de API Management en el portal como lo haría normalmente. Navegue hasta el portal.
+2. Seleccione **Identidad de servicio administrada**.
+3. Cambie Registrar en Azure Active Directory a Activado. Haga clic en Guardar.
+
+![Habilitación de MSI](./media/api-management-msi/enable-msi.png)
+
+### <a name="using-the-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
 
 Puede crear una instancia de API Management con una identidad mediante la inclusión de la siguiente propiedad en la definición de recursos: 
 
@@ -34,72 +44,29 @@ Puede crear una instancia de API Management con una identidad mediante la inclus
 }
 ```
 
-Esta propiedad indica a Azure que debe crear y administrar la identidad para la instancia de API Management. 
+Esto indica a Azure que debe crear y administrar la identidad para la instancia de API Management. 
 
 Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el aspecto siguiente:
 
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "0.9.0.0",
-    "parameters": {
-        "serviceName": {
-            "type": "string",
-            "minLength": 1,
-            "metadata": {
-                "description": "The name of the api management service"
-            }
-        },
-        "publisherEmail": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "admin@contoso.com",
-            "metadata": {
-                "description": "The email address of the owner of the service"
-            }
-        },
-        "publisherName": {
-            "type": "string",
-            "minLength": 1,
-            "defaultValue": "Contoso",
-            "metadata": {
-                "description": "The name of the owner of the service"
-            }
-        },
-        "sku": {
-            "type": "string",
-            "allowedValues": [
-                "Developer",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Developer",
-            "metadata": {
-                "description": "The pricing tier of this API Management service"
-            }
-        },
-        "skuCount": {
-            "type": "int",
-            "defaultValue": 1,
-            "metadata": {
-                "description": "The instance size of this API Management service."
-            }
-        }
+    "contentVersion": "0.9.0.0"
     },
     "resources": [
         {
             "apiVersion": "2017-03-01",
-            "name": "[parameters('serviceName')]",
+            "name": "contoso",
             "type": "Microsoft.ApiManagement/service",
             "location": "[resourceGroup().location]",
             "tags": {},
             "sku": {
-                "name": "[parameters('sku')]",
-                "capacity": "[parameters('skuCount')]"
+                "name": "Developer",
+                "capacity": "1"
             },
             "properties": {
-                "publisherEmail": "[parameters('publisherEmail')]",
-                "publisherName": "[parameters('publisherName')]"
+                "publisherEmail": "admin@contoso.com",
+                "publisherName": "Contoso"
             },
             "identity": { 
                 "type": "systemAssigned" 
@@ -108,16 +75,17 @@ Por ejemplo, una plantilla de Azure Resource Manager completa podría tener el a
     ]
 }
 ```
+## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Uso de la identidad de servicio administrada para acceder a otros recursos
 
-## <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtención de un certificado en Azure Key Vault
+> [!NOTE]
+> Actualmente, la identidad de servicio administrada se puede utilizar para obtener certificados de Azure Key Vault para los nombres de dominio personalizados de API Management. Pronto se admitirán más escenarios.
+> 
+>
 
-En el ejemplo siguiente se muestra cómo obtener un certificado en Azure Key Vault. Contiene los pasos siguientes:
 
-1. Creación de una instancia de API Management con una identidad.
-2. Actualización de las directivas de acceso de una instancia de Azure Key Vault y permiso para que la instancia de API Management obtenga secretos de ella.
-3. Actualización de la instancia de API Management estableciendo un nombre de dominio personalizado mediante un certificado de la instancia de Key Vault.
+### <a name="obtain-a-certificate-from-azure-key-vault"></a>Obtención de un certificado en Azure Key Vault
 
-### <a name="prerequisites"></a>Requisitos previos
+#### <a name="prerequisites"></a>requisitos previos
 1. El almacén de claves que contiene los certificados pfx debe estar en la misma suscripción de Azure y el mismo grupo de recursos que el servicio API Management. Se trata de un requisito de la plantilla de Azure Resource Manager. 
 2. El tipo de contenido del secreto debe ser *application/x-pkcs12*. Puede usar el siguiente script para cargar el certificado:
 
@@ -137,6 +105,12 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 > [!Important]
 > Si no se proporciona la versión del objeto del certificado, API Management obtiene automáticamente la versión más reciente del certificado una vez cargado a Key Vault. 
+
+En el ejemplo siguiente se muestra una plantilla de Azure Resource Manager que contiene los siguientes pasos:
+
+1. Creación de una instancia de API Management con una identidad de servicio administrada.
+2. Actualización de las directivas de acceso de una instancia de Azure Key Vault y permiso para que la instancia de API Management obtenga secretos de ella.
+3. Actualización de la instancia de API Management estableciendo un nombre de dominio personalizado mediante un certificado de la instancia de Key Vault.
 
 ```json
 {

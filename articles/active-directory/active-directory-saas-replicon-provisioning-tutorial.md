@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: 8d612012505ea43a3635650c6a38fe993b8e57f6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32139981"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Tutorial: Configuración de Replicon para el aprovisionamiento automático de usuarios
 
@@ -105,7 +106,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 5. En la sección **Credenciales de administrador**, escriba el **nombre de usuario de administrador**, la **contraseña de administrador**, el **identificador de la compañía** y el **dominio** de la cuenta de Replicon. Algunos ejemplos de estos valores son:
 
-    *   En el campo **Nombre de usuario de administrador**, rellene el nombre de usuario de la cuenta de administrador de su inquilino de Replicon. Ejemplo: contosoadmin.
+    *   En el campo **Nombre de usuario administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Replicon. Ejemplo: contosoadmin.
 
     *   En el campo **Contraseña de administrador**, rellene la contraseña correspondiente al nombre de usuario de administrador.
 
@@ -115,7 +116,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     *   En el campo **Dominio**, rellene el dominio tal y como se describe en el paso 6.
     
-6. Obtenga el valor de **serviceEndpointRootURL** (dirección URL raíz del punto de conexión del servicio) de la cuenta de su inquilino de Replicon según los pasos mencionados en la [ayuda del servicio de Replicon](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Al obtener la dirección URL, el **dominio** sería el subdominio de **serviceEndpointRootURL** resaltado. 
+6. Obtenga el valor de **serviceEndpointRootURL** (dirección URL raíz del punto de conexión del servicio) de la cuenta del inquilino de Replicon según los pasos mencionados en la [ayuda del servicio de Replicon](https://www.replicon.com/help/determining-the-url-for-your-service-calls). Al obtener la dirección URL, el **dominio** sería el subdominio de **serviceEndpointRootURL** resaltado. 
 
     ![Aprovisionamiento de Replicon](./media/active-directory-saas-replicon-provisioning-tutorial/RepliconEndpoint.png)
 

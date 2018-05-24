@@ -1,5 +1,5 @@
 ---
-title: 'Privileged Identity Management para Azure Resources: alertas de seguridad| Microsoft Docs'
+title: Administración de alertas de seguridad para los recursos de Azure mediante Privileged Identity Management | Microsoft Docs
 description: Se describen las alertas de seguridad de PIM.
 services: active-directory
 documentationcenter: ''
@@ -13,20 +13,22 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 86c9a0f12b2598ffbd02810a11622b13b0363a1f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149192"
 ---
-# <a name="privileged-identity-management---resource-roles---alerts"></a>Privileged Identity Management: alertas de roles de recursos
-PIM para Azure Resources genera alertas cuando se producen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en la página de alertas. 
+# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Administración de alertas de seguridad para los recursos de Azure mediante Privileged Identity Management
+Privileged Identity Management (PIM) para los recursos de Azure genera alertas cuando existen actividades sospechosas o no seguras en su entorno. Cuando se desencadena una alerta, se muestra en la página de alertas. 
 
-![](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Página de alertas](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
 ## <a name="review-alerts"></a>Revisar alertas
-Seleccione una alerta para ver un informe que muestre los usuarios o roles que desencadenaron la alerta, así como consejos de solución.
-![](media/azure-pim-resource-rbac/rbac-alert-info.png)
+Seleccione una alerta para ver un informe que enumera los usuarios o roles que desencadenaron la alerta, así como consejos de solución.
+
+![Informe de alertas](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertas
 | Alerta | Severity | Desencadenador | Recomendación |
@@ -39,11 +41,11 @@ Seleccione una alerta para ver un informe que muestre los usuarios o roles que d
 ### <a name="severity"></a>Severity
 * **Alta**: requiere acción inmediata debido a la infracción de una directiva. 
 * **Media**: no requiere acción inmediata, pero indica una posible infracción de una directiva.
-* **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferible.
+* **Baja**: no requiere acción inmediata pero sugiere un cambio de directiva preferida.
 
 ## <a name="configure-security-alert-settings"></a>Configuración de alertas de seguridad
-En la página de alertas, vaya a Configuración.
-![](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+En la página de alertas, vaya a **Configuración**.
+![Configuración](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
 
 Personalice la configuración de las diferentes alertas para que encajen con su entorno y con sus objetivos de seguridad.
-![](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Personalizar la configuración](media/azure-pim-resource-rbac/rbac-alert-settings.png)

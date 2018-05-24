@@ -5,14 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 04/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5d327f016237890b506f45c4c494bd08ad2f71bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abd2d2c8e220a946d08774f8e55ea968008c1757
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156280"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local de Azure
 La puerta de enlace de datos local actúa como un puente, ya que proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma región con una sola puerta de enlace. 
@@ -82,6 +83,11 @@ Puede hacer que la puerta de enlace se comunique con Azure Service Bus mediante 
     <value>Https</value>
 </setting>
 ```
+
+## <a name="tenant-level-administration"></a>Administración en el nivel de inquilino 
+
+No hay actualmente un único lugar donde los administradores de inquilinos puedan administrar todas las puertas de enlace que otros usuarios han instalado y configurado.  Si es un administrador de inquilinos, se recomienda que solicite a los usuarios de la organización que le agreguen como administrador para cada puerta de enlace que instalen. Esto le permite administrar todas las puertas de enlace de la organización a través de la página de configuración de la puerta de enlace o mediante [comandos de PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="faq"></a>Preguntas más frecuentes
 

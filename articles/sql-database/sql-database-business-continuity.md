@@ -12,11 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192397"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -37,7 +38,7 @@ En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de serv
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Uso de la restauración a un momento dado para recuperar una base de datos
 
-SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Estas copias de seguridad se almacenan en almacenamiento RA-GRS durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium, y durante 7 días en el nivel Básico. En los niveles de servicio De uso general y Crítico para la empresa (versión preliminar), la retención de las copias de seguridad es configurable en hasta 35 días. Para más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md). Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-service-tiers.md). Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md).
+SQL Database realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 o 10 minutos con el fin de proteger su empresa contra la pérdida de datos. Si usa el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md), estas copias de seguridad se almacenan en almacenamiento RA-GRS durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium y durante 7 días en el nivel Básico. Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Si usa el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md), la retención de las copias de seguridad es configurable en hasta 35 días en los niveles de uso general y crítico para la empresa. Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Para más información, consulte [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md).
 
 Si el período de retención de PITR máximo admitido no es suficiente para su aplicación, puede ampliarlo mediante la configuración de una directiva de retención a largo plazo (LTR) para las bases de datos. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
@@ -97,8 +98,7 @@ Para más información y ver los pasos detallados de cómo restaurar una base de
 
 > [!IMPORTANT]
 > Si se elimina el servidor lógico, no se podrá recuperar una base de datos eliminada.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restauración de copias de seguridad de la retención a largo plazo
 

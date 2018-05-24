@@ -1,26 +1,20 @@
 ---
-title: Ejemplos de plantillas de directivas | Microsoft Docs
+title: Ejemplos de plantilla de directiva
 description: Ejemplos de JSON para Azure Policy
 services: azure-policy
-documentationcenter: ''
 author: DCtheGeek
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: na
-ms.topic: samples
-ms.tgt_pltfrm: ''
-ms.workload: ''
+ms.topic: sample
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0956f42812307f88e37ef12078a86eb85f407ce6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4b9096c1fb0d9ee74849e259a6e0af2486c5d29b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195131"
 ---
 # <a name="templates-for-azure-policy"></a>Plantillas para Azure Policy
 
@@ -79,6 +73,9 @@ En la tabla siguiente se incluyen vínculos a las plantillas de JSON para Azure 
 | [Tipos de recursos permitidos](scripts/allowed-res-types.md) | Garantiza que solo se implementen los tipos de recursos aprobados. Se especifica una matriz de los tipos de recursos permitidos.  |
 | [SKU permitidas de cuentas de almacenamiento](scripts/allowed-stor-acct-skus.md) | Requiere que las cuentas de almacenamiento usen una SKU aprobada. Se especifica una matriz de las SKU aprobadas. |
 | [Aplicar etiqueta y su valor predeterminado](scripts/apply-tag-def-val.md) | Anexa un nombre y valor de etiqueta especificado, si no se proporciona esa etiqueta. Se especifica el valor y el nombre de la etiqueta que se va a aplicar.  |
+| [Auditar cifrado de base de datos SQL](scripts/sql-database-encryption-audit.md) | Audita si la base de datos SQL no tiene un cifrado de datos transparente habilitado. |
+| [Auditar la configuración de auditoría de SQL Server](scripts/sql-server-audit.md) | Audita SQL Server en función de si la configuración de auditoría está habilitada. |
+| [Aplicar cifrado de Data Lake Store](scripts/enforce-datalakestore-encryption.md) | Deniega todas las cuentas de Data Lake Store que no tengan el cifrado habilitado. |
 | [Aplicar una etiqueta y su valor](scripts/enforce-tag-val.md) | Requiere un valor y nombre de etiqueta especificada. Se especifica el valor y el nombre de la etiqueta que se va a aplicar.  |
 | [Tipos de recursos no permitidos](scripts/not-allowed-res-type.md) | Prohíbe la implementación de tipos de recursos especificados. Se especifica una matriz de los tipos de recurso que se bloquearán.  |
 | [Requerir SQL Server 12.0](scripts/req-sql-12.md) | Requiere que los servidores de SQL Server usen la versión 12.0.  |

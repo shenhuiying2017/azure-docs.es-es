@@ -1,11 +1,11 @@
 ---
-title: "Administración de capturas de paquetes con Azure Network Watcher: CLI de Azure 1.0 | Microsoft Docs"
-description: "En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la CLI de Azure 1.0"
+title: 'Administración de capturas de paquetes con Azure Network Watcher: CLI de Azure 1.0 | Microsoft Docs'
+description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la CLI de Azure 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 2124dadd1fc6b5d57250c09d31155a4b421fac26
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c74d1a94971495f7cd5f5bed42b33869fa9710d9
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185392"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-10"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la CLI de Azure 1.0
 
 > [!div class="op_single_selector"]
-> - [Portal de Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -218,8 +219,8 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a automatizar capturas de paquetes con las alertas de máquina virtual en el artículo sobre cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md)
+Para más información acerca de cómo automatizar capturas de paquetes con las alertas de máquina virtual, consulte cómo [crear una captura de paquetes desencadenada por alertas](network-watcher-alert-triggered-packet-capture.md).
 
-Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
+Para comprobar si se permite cierto tráfico hacia o desde la máquina virtual, vea cómo [consultar la Comprobación del flujo de IP](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->

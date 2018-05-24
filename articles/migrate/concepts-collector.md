@@ -4,14 +4,15 @@ description: Proporciona información general sobre la aplicación del recopilad
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/23/2017
+ms.date: 05/15/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203689"
 ---
 # <a name="collector-appliance"></a>Aplicación del recopilador
 
@@ -89,7 +90,7 @@ El recopilador debe estar sincronizado con el servidor horario de Internet para 
 
 El servicio Azure Migrate Collector debe estar ejecutándose en la máquina. Este servicio se inicia automáticamente cuando se inicia la máquina. Si el servicio no se está ejecutando, puede iniciar el servicio *Azure Migrate Collector* mediante el panel de control. El servicio de recopilador es responsable de conectarse al servidor vCenter, recopilar los metadatos y los datos de rendimiento de la máquina, y enviarlos al servicio.
 
-### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5 
+### <a name="vmware-powercli-65"></a>VMware PowerCLI 6.5
 
 El módulo de Powershell VMware PowerCLI debe estar instalado para que el recopilador pueda comunicarse con el servidor vCenter, y consultar los detalles de la máquina y sus datos de rendimiento. El módulo de Powershell se descarga y se instala automáticamente como parte de la comprobación de requisitos previos. La descarga automática requiere que algunas direcciones URL estén en la lista de permitidos; si no lo están, debe proporcionar acceso incluyéndolas en la lista de permitidos o instalando manualmente el módulo.
 
@@ -103,7 +104,7 @@ Instale el módulo manualmente siguiendo estos pasos:
 
 El recopilador debe conectarse a vCenter Server y poder consultar sobre las máquinas virtuales, sus metadados y contadores de rendimiento. El proyecto utiliza estos datos para calcular una valoración.
 
-1. Para conectarse a vCenter Server, se puede usar una cuenta de solo lectura con permisos tal como se indica en la tabla siguiente para ejecutar la detección. 
+1. Para conectarse a vCenter Server, se puede usar una cuenta de solo lectura con permisos tal como se indica en la tabla siguiente para ejecutar la detección.
 
     |Task  |Rol/cuenta necesarios  |Permisos  |
     |---------|---------|---------|
@@ -118,13 +119,13 @@ El recopilador debe conectarse a vCenter Server y poder consultar sobre las máq
 > Solo se admiten oficialmente las versiones 5.5, 6.0 y 6.5 de vCenter Server.
 
 > [!IMPORTANT]
-> Se recomienda establecer el nivel común más alto (3) para el nivel de estadísticas, para que todos los contadores se recopilen correctamente. Si tiene vCenter establecido en un nivel inferior, solo algunos contadores pueden recopilarse por completo y los demás estarán establecidos en 0. Por lo tanto, puede que la evaluación muestre datos incompletos. 
+> Se recomienda establecer el nivel común más alto (3) para el nivel de estadísticas, para que todos los contadores se recopilen correctamente. Si tiene vCenter establecido en un nivel inferior, solo algunos contadores pueden recopilarse por completo y los demás estarán establecidos en 0. Por lo tanto, puede que la evaluación muestre datos incompletos.
 
 ### <a name="selecting-the-scope-for-discovery"></a>Selección del ámbito de detección
 
 Una vez conectado a vCenter, puede seleccionar un ámbito de detección. Al seleccionar un ámbito, se detectan todas las máquinas virtuales de la ruta de acceso de inventario de vCenter especificada.
 
-1. El ámbito puede ser un centro de datos, una carpeta o un host ESXi. 
+1. El ámbito puede ser un centro de datos, una carpeta o un host ESXi.
 2. Solo se puede seleccionar un ámbito a la vez. Para seleccionar más máquinas virtuales, puede completar una detección y reiniciar el proceso de detección con un nuevo ámbito.
 3. Solo puede seleccionar un ámbito que tenga *menos de 1500 máquinas virtuales*.
 
@@ -141,15 +142,16 @@ Una vez iniciada la detección, se detectan las máquinas virtuales de vCenter, 
 
 ### <a name="what-data-is-collected"></a>¿Qué datos se recopilan?
 
-El trabajo de recopilación detecta los siguientes metadatos estáticos sobre las máquinas virtuales seleccionadas. 
+El trabajo de recopilación detecta los siguientes metadatos estáticos sobre las máquinas virtuales seleccionadas.
 
 1. Nombre para mostrar de la máquina virtual (en vCenter)
 2. Ruta de acceso de inventario de la máquina virtual (host o carpeta en vCenter)
 3. Dirección IP
 4. Dirección MAC
+5. Sistema operativo
 5. Número de núcleos, discos, NIC
-6. Tamaños de RAM, de disco
-7. Y los contadores de rendimiento de la máquina virtual, disco y red se muestran en la tabla siguiente.
+6. Tamaño de memoria, tamaños de disco
+7. Y los contadores de rendimiento de la máquina virtual, el disco y la red se muestran en la tabla siguiente.
 
 En la tabla siguiente se enumeran los contadores de rendimiento que se recopilan y también se muestran los resultados de la valoración que se ven afectados si no se recopila un contador determinado.
 
@@ -190,7 +192,7 @@ Puede actualizar el recopilador con la versión más reciente sin tener que desc
 2. Para asegurarse de que la revisión descargada es segura, abra la ventana de comandos del administrador y ejecute el siguiente comando para generar el valor hash para el archivo ZIP. El código hash generado debe coincidir con el hash que se ha mencionado en la versión específica:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
+
     (ejemplo de uso C:\>CertUtil - HashFile C\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
 3. Copie el archivo zip en la máquina virtual del recopilador de Azure Migrate (aplicación del recopilador).
 4. Haga clic con el botón derecho en el archivo ZIP y seleccione Extraer todo.

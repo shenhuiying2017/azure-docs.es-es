@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309477"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -53,7 +54,7 @@ Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas
 
 **P. ¿En qué regiones está disponible el servicio?**
 
-Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Application Gateway está disponible en todas las regiones de Azure global. También está disponible en [Azure China](https://www.azure.cn/) y [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **P. ¿Se trata de una implementación dedicada para mi suscripción o compartida entre los clientes?**
 
@@ -178,6 +179,11 @@ No, pero Application Gateway tiene una métrica de rendimiento que se puede util
 **P. ¿Provoca el escalado o reducción vertical algún tiempo de inactividad?**
 
 No hay ningún tiempo de inactividad, las instancias se distribuyen entre varios dominios de actualización y dominios de error.
+
+**P. ¿Application Gateway es compatible con la funcionalidad de drenaje?**
+
+Sí. Puede configurar el drenaje de conexiones para cambiar los miembros de un grupo de servidores back-end sin interrupciones. De este modo, las conexiones existentes podrán seguir enviándose a su destino anterior hasta que se cierren o hasta que el tiempo de espera configurado se agote. Tenga en cuenta que el drenaje de conexiones solo espera a que se completen las conexiones que están en tránsito actualmente. Application Gateway no conoce el estado de sesión de las aplicaciones.
+
 
 **P. ¿Puedo cambiar el tamaño de la instancia de mediano a grande sin que haya una interrupción?**
 
@@ -329,4 +335,4 @@ La razón más común es que el acceso al servidor está bloqueado por un NSG o 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Application Gateway, visite [Introducción a Application Gateway](application-gateway-introduction.md).
+Para más información sobre Application Gateway, visite [¿Qué es Azure Application Gateway?](overview.md)

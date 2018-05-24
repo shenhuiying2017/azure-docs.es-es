@@ -1,13 +1,13 @@
 ---
-title: "Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure | Microsoft Docs"
+title: Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure | Microsoft Docs
 description: Aprenda a realizar una copia de seguridad y recuperar una base de datos de Oracle Database 12c en el entorno de Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e804fd17c3dbe9df9e9dc258e67b8f9192c1f8ad
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193114"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Copia de seguridad y recuperación de una base de datos de Oracle Database 12c en una máquina virtual Linux de Azure
 
@@ -169,7 +170,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
 
 4. Edite el archivo JSON.
 
-    Edite el archivo VMSnapshotScriptPluginConfig.json para incluir los parámetros `PreScriptLocation` y `PostScriptlocation`. Por ejemplo:
+    Edite el archivo VMSnapshotScriptPluginConfig.json para incluir los parámetros `PreScriptLocation` y `PostScriptlocation`. Por ejemplo: 
 
     ```azurecli
     {
@@ -262,7 +263,7 @@ Las copias de seguridad coherentes con la aplicación es una nueva característi
     # /etc/azure/post_script.sh
     ```
 
-Para más información, vea [Copia de seguridad coherente con la aplicación para máquinas virtuales Linux](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+Para más información, vea [Copia de seguridad coherente con la aplicación para máquinas virtuales Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Paso 5: Uso de los almacenes de Azure Recovery Services para las copias de seguridad de máquina virtual
@@ -283,11 +284,11 @@ Para más información, vea [Copia de seguridad coherente con la aplicación par
 
     ![Página de la copia de seguridad de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  En la hoja **Backup goal** (Objetivo de la copia de seguridad), use los valores predeterminados de **Azure** y **Máquina virtual**. Haga clic en **Aceptar**.
+5.  En la hoja **Backup goal** (Objetivo de la copia de seguridad), use los valores predeterminados de **Azure** y **Máquina virtual**. Haga clic en **OK**.
 
     ![Página de detalles de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_05.png)
 
-6.  Para **Directiva de copia de seguridad**, use **DefaultPolicy** (Directiva predeterminada) o haga clic en **Crear nueva directiva**. Haga clic en **Aceptar**.
+6.  Para **Directiva de copia de seguridad**, use **DefaultPolicy** (Directiva predeterminada) o haga clic en **Crear nueva directiva**. Haga clic en **OK**.
 
     ![Página de detalles de la directiva de copia de seguridad de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_06.png)
 
@@ -302,7 +303,7 @@ Para más información, vea [Copia de seguridad coherente con la aplicación par
 
     ![Página de detalles del almacén myVault de Recovery Services](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  En la hoja **Elementos de copia de seguridad (Máquina virtual de Azure)**, en el lado derecho de la página, haga clic en el botón de puntos suspensivos (**...**) y después en **Realizar copia de seguridad ahora**.
+9.  En la hoja **Elementos de copia de seguridad (Azure Virtual Machine)**, en el lado derecho de la página, haga clic en el botón de puntos suspensivos (**...**) y después en **Realizar copia de seguridad ahora**.
 
     ![Comando Realizar copia de seguridad ahora de los almacenes de Recovery Services](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -553,7 +554,7 @@ Una vez restaurada la máquina virtual, configure la dirección IP pública.
 
 La copia de seguridad y la recuperación de la base de datos de Oracle 12c en una máquina virtual Linux de Azure han terminado.
 
-## <a name="delete-the-vm"></a>Eliminar la máquina virtual
+## <a name="delete-the-vm"></a>Eliminación de la máquina virtual
 
 Cuando ya no necesite la máquina virtual, puede usar el comando siguiente para quitar el grupo de recursos, la máquina virtual y todos los recursos relacionados:
 

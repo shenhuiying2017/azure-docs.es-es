@@ -6,14 +6,15 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193359"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -21,7 +22,7 @@ Azure Automation proporciona soluciones para administrar las actualizaciones de 
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure en https://portal.azure.com.
+Inicie sesión en Azure en https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Habilitar soluciones
 
@@ -45,7 +46,13 @@ Seleccione **Update management** en **UPDATE MANAGEMENT**. El área de trabajo d
 
 Cada solución utiliza una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se utiliza para limitar el ámbito de la solución a equipos específicos. Para tener acceso a las configuraciones de ámbito, en la cuenta de Automation, en **Recursos relacionados**, seleccione **Área de trabajo**. A continuación, en el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
 
-Las dos configuraciones de ámbito creadas de forma predeterminada son **MicrosoftDefaultScopeConfig-ChangeTracking** y **MicrosoftDefaultScopeConfig-Updates**.
+Si el área de trabajo seleccionada no dispone aún de las soluciones Update Management ni Change Tracking, se crearán las siguientes configuraciones de ámbito:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Si el área de trabajo seleccionada ya tiene la solución. La solución no se vuelve a implementar y la configuración de ámbito no se agrega a ella.
 
 ## <a name="saved-searches"></a>Búsquedas guardadas
 

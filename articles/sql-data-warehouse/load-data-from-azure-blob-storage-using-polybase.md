@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: fb918cc70a3a3d21e86c9d530e264199794886f1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193240"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -77,9 +78,9 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 5. Haga clic en **Seleccionar**.
 
-6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos está optimizado para elasticidad o proceso y el número de unidades de almacenamiento de datos. 
+6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos es Gen1 o Gen2 y especificar el número de unidades de almacenamiento de datos. 
 
-7. Para este tutorial, seleccione el nivel de servicio **Optimizado para Elasticity**. De forma predeterminada, el control deslizante se establece en **DW400**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
+7. En este tutorial, seleccione el nivel **Gen1** de SQL Data Warehouse. De forma predeterminada, el control deslizante está establecido en **DW1000c**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -102,7 +103,7 @@ El servicio SQL Data Warehouse crea un firewall en el nivel de servidor, lo que 
 > SQL Data Warehouse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 >
 
-1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20171113.database.windows.net**) y proporciona opciones para otras configuraciones. 
+1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net**) y proporciona opciones para otras configuraciones. 
 
 2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. A continuación, haga clic en el nombre del servidor para abrir la configuración del servidor.
 
@@ -132,8 +133,8 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
-3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20171113.database.windows.net. 
+2. Seleccione **Almacenes de SQL Data Warehouse** en el menú izquierdo y haga clic en la página **Almacenes de SQL Data Warehouse** de la base de datos. 
+3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20180430.database.windows.net. 
 
     ![información sobre la conexión](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -148,7 +149,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | Configuración      | Valor sugerido | DESCRIPCIÓN | 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
-    | Nombre de servidor | Nombre completo del servidor | Dicho nombre debe parecerse al siguiente: **mynewserver-20171113.database.windows.net**. |
+    | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
     | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
     | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
     | Password | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
@@ -163,7 +164,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
 
 ## <a name="create-a-user-for-loading-data"></a>Creación de un usuario para cargar datos
 
-La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. La carga de datos es una operación que utiliza mucha memoria. Los valores máximos de memoria se definen por [nivel de rendimiento](memory-and-concurrency-limits.md#performance-tiers), [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) y [clase de recurso](resource-classes-for-workload-management.md). 
+La cuenta de administrador del servidor está pensada para realizar operaciones de administración y no es adecuada para ejecutar consultas en datos de usuario. La carga de datos es una operación que utiliza mucha memoria. Los valores máximos de memoria se definen en función de la generación de SQL Data Warehouse aprovisionada, las [unidades de almacenamiento de datos](what-is-a-data-warehouse-unit-dwu-cdwu.md) y la [clase de recurso](resource-classes-for-workload-management.md). 
 
 Es mejor crear un inicio de sesión y un usuario que esté dedicado para cargar datos. A continuación, agregue el usuario de carga a una [clase de recurso](resource-classes-for-workload-management.md) que permita una asignación de memoria máxima apropiada.
 
@@ -588,7 +589,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 3. Para quitar el almacenamiento de datos para que no se le cobre por proceso o almacenamiento, haga clic en **Eliminar**.
 
-4. Para quitar el servidor SQL que creó, haga clic en **mynewserver-20171113.database.windows.net** en la imagen anterior y luego haga clic en **Eliminar**.  Debe tener cuidado con esto, ya que la eliminación del servidor eliminará todas las bases de datos asignadas al servidor.
+4. Para eliminar el servidor SQL que creó, haga clic en **mynewserver-20180430.database.windows.net** en la imagen anterior y luego haga clic en **Eliminar**.  Debe tener cuidado con esto, ya que la eliminación del servidor eliminará todas las bases de datos asignadas al servidor.
 
 5. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 

@@ -3,27 +3,31 @@ title: Creación gráfica en Azure Automation
 description: Creación gráfica le permite crear runbooks para Azure Automation sin trabajar con el código. Este artículo brinda una introducción a la creación gráfica y todos los detalles necesarios para comenzar a crear un runbook gráfico.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42187def32ea0f0605b50e0e25b7f78ebf0c10ac
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195495"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
-## <a name="introduction"></a>Introducción
+
 Creación gráfica permite crear runbooks para Azure Automation sin las complejidades del código subyacente de Windows PowerShell o del flujo de trabajo de esta herramienta. Puede agregar actividades a los lienzos de una biblioteca de cmdlets y runbooks, vincularlas y configurarlas para conformar un flujo de trabajo. Si alguna vez ha utilizado System Center Orchestrator o Service Management Automation (SMA), el proceso le debería resultar familiar
 
 Este artículo proporciona una introducción a la creación gráfica y los conceptos que necesita para comenzar a crear un runbook gráfico.
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
+
 Todos los runbooks de Azure Automation son flujos de trabajo de Windows PowerShell. Los runbooks gráficos y los runbooks gráficos de flujo de trabajo PowerShell generan código de PowerShell que ejecutan los trabajos de Azure Automation, pero no se pueden ver ni modificar directamente. Un runbook gráfico se puede convertir en un runbook gráfico de flujo de trabajo de PowerShell y viceversa, pero no se pueden convertir en un runbook textual. Los runbooks de texto existentes no se pueden importar en el editor de gráficos.
 
 ## <a name="overview-of-graphical-editor"></a>Información general del editor de gráficos
+
 Puede abrir el editor de gráficos en el Portal de Azure a través de la creación o la edición de un Runbook gráfico.
 
 ![Área de trabajo gráfica](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
@@ -31,11 +35,13 @@ Puede abrir el editor de gráficos en el Portal de Azure a través de la creaci�
 Las secciones siguientes describen los controles del editor de gráficos.
 
 ### <a name="canvas"></a>Lienzo
+
 El lienzo es donde se diseña su runbook. Puede agregar actividades desde los nodos del control de Biblioteca al runbook y conectarlas con vínculos para definir la lógica del runbook.
 
 Puede utilizar los controles en la parte inferior del lienzo para acercar y alejar.
 
 ### <a name="library-control"></a>Control de Biblioteca
+
 El control de Biblioteca es donde selecciona las [actividades](#activities) para agregar a su runbook. Puede agregarlas al lienzo donde las conecta a otras actividades. Incluye cuatro secciones que se describen en la tabla siguiente:
 
 | Sección | DESCRIPCIÓN |
@@ -46,13 +52,17 @@ El control de Biblioteca es donde selecciona las [actividades](#activities) para
 | Control de Runbook |Incluye las actividades de control de runbook que se pueden usar en el runbook actual. Una *unión* toma varias entradas y espera hasta que todas se completen antes de continuar con el flujo de trabajo. Una actividad de *código* ejecuta una o varias líneas de código de PowerShell o de flujo de trabajo de esta herramienta, en función del tipo de runbook gráfico. Puede usar esta actividad para ejecutar código personalizado o utilizar funcionalidades que sean difíciles de obtener con otras actividades. |
 
 ### <a name="configuration-control"></a>Control de Configuración
+
 En Control de configuración se proporcionan los detalles de un objeto seleccionado del lienzo. Las propiedades disponibles en este control dependen del tipo de objeto seleccionado. Cuando selecciona una opción en el control Configuración, se abren hojas adicionales que proporcionan más información.
 
 ### <a name="test-control"></a>Control de Prueba
+
 El control de Prueba no aparece cuando se inicia por primera vez el editor de gráficos. Se abre cuando [prueba un runbook gráfico](#graphical-runbook-procedures)de manera interactiva.
 
 ## <a name="graphical-runbook-procedures"></a>Procedimientos de runbook gráficos
+
 ### <a name="exporting-and-importing-a-graphical-runbook"></a>Exportación e importación de un runbook gráfico
+
 Solo puede exportar la versión publicada de un runbook gráfico. Si el runbook no se ha publicado aún, se deshabilita el botón **Exportar**. Al hacer clic en el botón **Exportar**, el runbook se descarga en el equipo local. El nombre del archivo coincide con el nombre del runbook con una extensión *graphrunbook* .
 
 Para importar un archivo de runbook gráfico o de runbook gráfico de flujo de trabajo de PowerShell, seleccione la opción **Importar** al agregar un runbook. Al seleccionar el archivo para importar, puede mantener el mismo **Nombre** o proporcionar otro nuevo. El campo Tipo de Runbook mostrará el tipo de runbook después de que evalúe el archivo seleccionado. Además, si trata de elegir otro tipo que no es correcto, se presentará un mensaje donde se indica que hay posibles conflictos y que pueden producirse errores de sintaxis durante la conversión.
@@ -60,6 +70,7 @@ Para importar un archivo de runbook gráfico o de runbook gráfico de flujo de t
 ![Importar runbook](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
 ### <a name="testing-a-graphical-runbook"></a>Prueba de un runbook gráfico
+
 Puede probar la versión de borrador de un Runbook en el Portal de Azure mientras deja sin modificación la versión publicada del Runbook, o bien puede probar un Runbook nuevo antes de su publicación. Esto permite comprobar que el runbook se ejecute correctamente antes de reemplazar la versión publicada. Cuando se prueba un runbook, se ejecuta el runbook de borrador y se completan todas las acciones que realiza. No se crea ningún historial de trabajos, pero sí se muestran los resultados en el Panel de resultados de prueba.
 
 Para abrir el control de Prueba de un runbook, abra el runbook para editarlo y, a continuación, haga clic en el botón **Panel de prueba** .
@@ -67,6 +78,7 @@ Para abrir el control de Prueba de un runbook, abra el runbook para editarlo y, 
 El control Prueba solicita cualquier parámetro de entrada y puede iniciar el runbook si hace clic en el botón **Comenzar**.
 
 ### <a name="publishing-a-graphical-runbook"></a>Publicación de un runbook gráfico
+
 Cada runbook de Azure Automation tiene una versión de borrador y una versión publicada. Solo es posible ejecutar la versión publicada y solo es posible editar la versión de borrador. Los cambios realizados en la versión de borrador no afectan la versión publicada. Cuando la versión borrador esté lista para ponerla a disposición de los usuarios, se puede publicar, con lo que se sobrescribe la versión publicada.
 
 Para publicar un runbook gráfico, abra el runbook para editarlo y, a continuación, haga clic en el botón **Publicar** .
@@ -78,6 +90,7 @@ Cuando todavía no se ha publicado un runbook, tiene un estado de **Nuevo**. Cua
 También tiene la opción de revertir a la versión publicada de un runbook. Esto descarta los cambios realizados desde la última publicación del runbook y reemplaza la versión de borrador del runbook por la versión publicada.
 
 ## <a name="activities"></a>Actividades
+
 Las actividades son los bloques de creación de un runbook. Una actividad puede ser un cmdlet de PowerShell, un runbook secundario o una actividad de flujo de trabajo. Para agregar una actividad al runbook, haga clic en ella con el botón derecho en el control Biblioteca y seleccione **Agregar a lienzo**. Luego puede hacer clic en la actividad y arrastrarla para colocarla en cualquier lugar del lienzo que desee. La ubicación de la actividad en el lienzo no afecta de ningún modo a la operación del runbook. Puede distribuir el runbook de la forma que considere más adecuada para visualizar su operación.
 
 ![Agregar a lienzo](media/automation-graphical-authoring-intro/add-to-canvas-revised20165.png)
@@ -85,6 +98,7 @@ Las actividades son los bloques de creación de un runbook. Una actividad puede 
 Seleccione la actividad en el lienzo para configurar sus propiedades y parámetros en la hoja Configuración. Puede cambiar la **Etiqueta** de la actividad a algo que sea descriptivo. El cmdlet original sigue en ejecución; simplemente se cambia el nombre para mostrar que se usa en el editor gráfico. La etiqueta debe ser única dentro del runbook.
 
 ### <a name="parameter-sets"></a>Conjuntos de parámetros
+
 Un conjunto de parámetros define los parámetros obligatorios y opcionales que aceptan los valores de un cmdlet determinado. Todos los cmdlets tienen, al menos, un conjunto de parámetros y algunos tienen varios. Si un cmdlet tiene varios conjuntos de parámetros, debe seleccionar cuál va a usar para poder configurar los parámetros. Los parámetros que puede configurar dependen del conjunto de parámetros que elija. Puede cambiar el conjunto de parámetros que una actividad usa mediante la selección de **Conjunto de parámetros** y luego de otro conjunto. En este caso, se pierden todos los valores de parámetro que configuró.
 
 En el ejemplo siguiente, el cmdlet Get-AzureRmVM tiene tres conjuntos de parámetros. No es posible configurar valores de parámetro hasta que seleccione uno de los conjuntos de parámetros. El conjunto de parámetros ListVirtualMachineInResourceGroupParamSet se utiliza para devolver todas las máquinas virtuales de un grupo de recursos. Solo tiene un parámetro opcional. **GetVirtualMachineInResourceGroupParamSet** se utiliza para especificar la máquina virtual que desea que se devuelva y tiene dos parámetros obligatorios y uno opcional.
@@ -92,6 +106,7 @@ En el ejemplo siguiente, el cmdlet Get-AzureRmVM tiene tres conjuntos de paráme
 ![Conjunto de parámetros](media/automation-graphical-authoring-intro/get-azurermvm-parameter-sets.png)
 
 #### <a name="parameter-values"></a>Valores de parámetro
+
 Cuando se especifica un valor para un parámetro, se selecciona un origen de datos para determinar cómo se especifica el valor. Los orígenes de datos disponibles para un parámetro concreto dependen de los valores válidos para dicho parámetro. Por ejemplo, Null no es una opción disponible para un parámetro que no permita valores nulos.
 
 | Origen de datos | DESCRIPCIÓN |
@@ -107,9 +122,11 @@ Cuando se especifica un valor para un parámetro, se selecciona un origen de dat
 | Sin configurar |Borrar cualquier valor configurado anteriormente. |
 
 #### <a name="optional-additional-parameters"></a>Parámetros adicionales opcionales
+
 Todos los cmdlets tienen la opción de proporcionar parámetros adicionales. Se trata de parámetros comunes de PowerShell u otros parámetros personalizados. Aparecerá un cuadro de texto en el que podrá proporcionar parámetros con la sintaxis de PowerShell. Por ejemplo, para usar el parámetro común **Verbose**, debiera especificar **"-Verbose:$True"**.
 
 ### <a name="retry-activity"></a>Vuelva a intentar la actividad
+
 **Comportamiento de reintento** permite que una actividad se ejecute varias veces hasta que se cumpla una condición determinada. Esta característica se puede utilizar en las actividades que deben ejecutarse varias veces, que son propensas a errores y que pueden necesitar más de un intento para realizarse correctamente, o bien para probar que los datos de la información de salida son válidos.
 
 Cuando se habilita el reintento de una actividad, puede establecer un retraso y una condición. El retraso es el tiempo (medido en segundos o minutos) que el runbook espera antes de volver a ejecutar la actividad. Si no se especifica ningún retraso, la actividad se ejecutará de nuevo inmediatamente después de que se complete.
@@ -131,33 +148,43 @@ La condición de reintento puede utilizar una variable denominada $RetryData que
 
 A continuación se muestran ejemplos de las condiciones de reintento de actividades.
 
-    # Run the activity exactly 10 times.
-    $RetryData.NumberOfAttempts -ge 10
+```powershell-interactive
+# Run the activity exactly 10 times.
+$RetryData.NumberOfAttempts -ge 10
+```
 
-    # Run the activity repeatedly until it produces any output.
-    $RetryData.Output.Count -ge 1
+```powershell-interactive
+# Run the activity repeatedly until it produces any output.
+$RetryData.Output.Count -ge 1
+```
 
-    # Run the activity repeatedly until 2 minutes has elapsed.
-    $RetryData.TotalDuration.TotalMinutes -ge 2
+```powershell-interactive
+# Run the activity repeatedly until 2 minutes has elapsed.
+$RetryData.TotalDuration.TotalMinutes -ge 2
+```
 
 Después de configurar una condición de reintento en una actividad, esta incluirá dos indicaciones visuales que sirven de recordatorio. Una se muestra en la actividad y la otra, cuando revise la configuración de la actividad.
 
 ![Indicadores visuales de reintento de actividades](media/automation-graphical-authoring-intro/runbook-activity-retry-visual-cue.png)
 
 ### <a name="workflow-script-control"></a>Control de Script de flujo de trabajo
+
 Un control de código es una actividad especial que acepta scripts de PowerShell o de flujo de trabajo de esta herramienta en función del tipo de runbook gráfico que vaya a crearse. El objetivo es proporcionar una funcionalidad que, de otro modo, podría no estar disponible. No puede aceptar parámetros, pero puede usar variables para los parámetros de entrada de runbook y de salida de actividad. Cualquier salida de la actividad se agrega al bus de datos, a menos que no tenga un vínculo de salida, en cuyo caso se agrega a la salida del runbook.
 
 Por ejemplo, el siguiente código realiza cálculos de fecha mediante una variable de entrada del runbook llamada $NumberOfDays. Luego envía una fecha y hora calculadas como salida para su uso por parte de actividades subsiguientes en el runbook.
 
-    $DateTimeNow = (Get-Date).ToUniversalTime()
-    $DateTimeStart = ($DateTimeNow).AddDays(-$NumberOfDays)}
-    $DateTimeStart
-
+```powershell-interactive
+$DateTimeNow = (Get-Date).ToUniversalTime()
+$DateTimeStart = ($DateTimeNow).AddDays(-$NumberOfDays)}
+$DateTimeStart
+```
 
 ## <a name="links-and-workflow"></a>Vínculos y flujo de trabajo
+
 Un **vínculo** en un runbook gráfico conecta dos actividades. Se muestra en el lienzo como una flecha que apunta desde la actividad de origen hasta la actividad de destino. Las actividades se ejecutan en la dirección de la flecha y la actividad de destino se inicia una vez que se completa la actividad de origen.
 
 ### <a name="create-a-link"></a>Creación de un vínculo
+
 Para crear un vínculo entre dos actividades, seleccione la actividad de origen y haga clic en el círculo que aparece en la parte inferior de la forma. Arrastre la flecha a la actividad de destino y suéltela.
 
 ![Creación de un vínculo](media/automation-graphical-authoring-intro/create-link-revised20165.png)
@@ -170,26 +197,35 @@ Seleccione el vínculo para configurar sus propiedades en la hoja Configuración
 | Secuencia |La actividad de destino se ejecuta solo una vez. Recibe una matriz de objetos desde la actividad de origen. La salida de la actividad de origen está disponible como una matriz de objetos. |
 
 ### <a name="starting-activity"></a>Actividad de inicio
+
 Un runbook gráfico se inicia con cualquier actividad que no tenga un vínculo entrante. A menudo es solo una actividad, que actuaría como actividad inicial del runbook. Si varias actividades no tienen un vínculo entrante, el runbook se inicia mediante su ejecución en paralelo. Sigue los vínculos para ejecutar otras actividades a medida que finaliza cada una de ellas.
 
 ### <a name="conditions"></a>Condiciones
+
 Cuando especifica una condición en un vínculo, la actividad de destino solo se ejecuta si la condición se resuelve como verdadera. Normalmente usa una variable $ActivityOutput en una condición para recuperar la salida desde la actividad de origen.
 
 Para un vínculo de canalización, especifique una condición para un solo objeto y la actividad de origen evaluará la condición para cada salida de objeto. A continuación, se ejecuta la actividad de destino para cada objeto que cumple con la condición. Por ejemplo, con una actividad de origen de Get-AzureRmVm, podría usarse la siguiente sintaxis para que un vínculo de canalización condicional recupere solo las máquinas virtuales del grupo de recursos denominado " *Group1*".
 
-    $ActivityOutput['Get Azure VMs'].Name -match "Group1"
+```powershell-interactive
+$ActivityOutput['Get Azure VMs'].Name -match "Group1"
+```
 
-En el caso de un vínculo de secuencia, la condición solo se evalúa una vez, debido que se devuelve una sola matriz que contiene la salida de todos los objetos desde la actividad de origen. Debido a esto, no es posible usar un vínculo de secuencia para filtrar como un vínculo de canalización, sino que simplemente se determinará si la actividad siguiente se ejecuta o no. Tomemos como ejemplo el siguiente conjunto de actividades de nuestro runbook para iniciar máquinas virtuales.<br> ![Vínculo condicional con secuencias](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)<br>
+En el caso de un vínculo de secuencia, la condición solo se evalúa una vez, debido que se devuelve una sola matriz que contiene la salida de todos los objetos desde la actividad de origen. Debido a esto, no es posible usar un vínculo de secuencia para filtrar como un vínculo de canalización, sino que simplemente se determinará si la actividad siguiente se ejecuta o no. Tomemos como ejemplo el siguiente conjunto de actividades de nuestro runbook para iniciar máquinas virtuales.
+
+![Vínculo condicional con secuencias](media/automation-graphical-authoring-intro/runbook-conditional-links-sequence.png)
+
 Hay tres vínculos con secuencias distintas que comprueban los valores que se proporcionaron a dos parámetros de entrada de runbook que representan el nombre de la máquina virtual y el del grupo de recursos con el fin de determinar cuál es la mejor acción que se puede realizar: iniciar una sola máquina virtual, todas las del grupo de recursos del sistema o todas las de una suscripción. A continuación, se muestra la lógica de condición del vínculo de secuencia entre la actividad de conexión a Azure y la de obtención de una sola máquina virtual:
 
-    <#
-    Both VMName and ResourceGroupName runbook input parameters have values
-    #>
-    (
-    (($VMName -ne $null) -and ($VMName.Length -gt 0))
-    ) -and (
-    (($ResourceGroupName -ne $null) -and ($ResourceGroupName.Length -gt 0))
-    )
+```powershell-interactive
+<#
+Both VMName and ResourceGroupName runbook input parameters have values
+#>
+(
+(($VMName -ne $null) -and ($VMName.Length -gt 0))
+) -and (
+(($ResourceGroupName -ne $null) -and ($ResourceGroupName.Length -gt 0))
+)
+```
 
 Cuando usa un vínculo condicional, los datos disponibles desde la actividad de origen a otras actividades de dicha rama se filtran por la condición. Si una actividad es el origen de varios vínculos, los datos disponibles para las actividades en cada rama dependen de la condición del vínculo que se conecta a dicha rama.
 
@@ -200,6 +236,7 @@ Por ejemplo, la actividad **Start-AzureRmVm** del siguiente runbook inicia todas
 Una actividad que sigue el primer vínculo y usa la salida de la actividad desde Get-AzureVM solo obtendrá las máquinas virtuales iniciadas en el momento en que se ejecutó Get-AzureVM. Toda actividad que siga el segundo vínculo solo obtiene las máquinas virtuales que se detuvieron en el momento en que se ejecutó Get-AzureVM. Toda actividad que siga el tercer vínculo obtiene todas las máquinas virtuales, independientemente de cuál sea su estado de ejecución.
 
 ### <a name="junctions"></a>Uniones
+
 Una unión es una actividad especial que espera hasta que se hayan completado todas las ramas entrantes. Esto le permite ejecutar varias actividades en paralelo y garantizar que todas se hayan completado antes de continuar.
 
 A pesar de que una unión puede tener una cantidad ilimitada de vínculos entrantes, solo uno de esos vínculos puede ser una canalización. No se limita la cantidad de vínculos entrantes de secuencia. Puede crear la unión con varios vínculos de canalización entrantes y guardar el runbook, pero se produce un error cuando se ejecuta.
@@ -209,11 +246,13 @@ El ejemplo siguiente forma parte de un runbook que inicia un conjunto de máquin
 ![unión](media/automation-graphical-authoring-intro/runbook-junction.png)
 
 ### <a name="cycles"></a>Ciclos
+
 Un ciclo es cuando una actividad de destino se vincula de vuelta a su actividad de origen o a otra actividad que, al final, se vincule a su origen. La creación gráfica no permite actualmente los ciclos. Si el runbook tiene un ciclo, lo guarda como corresponde, pero recibe un error cuando se ejecuta.
 
 ![Ciclo](media/automation-graphical-authoring-intro/runbook-cycle.png)
 
 ### <a name="sharing-data-between-activities"></a>Uso compartido de datos entre actividades
+
 Todo dato generado por una actividad con un vínculo saliente se escribe en el *bus de datos* del runbook. Toda actividad del runbook puede usar datos del bus de datos para rellenar los valores de parámetros o para incluirlos en el código de script. Una actividad puede tener acceso a la salida de cualquier actividad anterior en el flujo de trabajo.
 
 La manera en que los datos se escriben en el bus de datos depende del tipo de vínculo en la actividad. En el caso de una **canalización**, los datos se generan como varios objetos. En el caso de un vínculo de **secuencia** , los datos se generan como una matriz. Si solo hay un valor, se genera como una matriz de un solo elemento.
@@ -224,10 +263,13 @@ Puede tener acceso al bus de datos si usa uno de estos dos métodos. El primer m
 
 También puede recuperar la salida de una actividad en un origen de datos **Expresión de PowerShell** o desde una actividad de **script de flujo de trabajo** con una variable ActivityOutput. Si la salida es un objeto, puede especificar una propiedad. Las variables ActivityOutput usan la siguiente sintaxis.
 
-    $ActivityOutput['Activity Label']
-    $ActivityOutput['Activity Label'].PropertyName
+```powershell-interactive
+$ActivityOutput['Activity Label']
+$ActivityOutput['Activity Label'].PropertyName
+```
 
 ### <a name="checkpoints"></a>Puntos de control
+
 Puede establecer [puntos de control](automation-powershell-workflow.md#checkpoints) en un runbook gráfico de flujo de trabajo de PowerShell; para ello, seleccione *Runbook de punto de control* en cualquier actividad. Esto permite establecer un punto de control después de que se ejecuta la actividad.
 
 ![Punto de control](media/automation-graphical-authoring-intro/set-checkpoint.png)
@@ -235,10 +277,19 @@ Puede establecer [puntos de control](automation-powershell-workflow.md#checkpoin
 Los puntos de control solo se habilitan en los runbooks gráficos de flujo de trabajo de PowerShell; no están disponibles en los runbooks gráficos. Si el runbook usa cmdlets de Azure, debe seguir cualquier actividad establecida con puntos de control con un Connect-AzureRmAccount en caso de suspender el runbook y de reiniciarlo a partir de dicho punto de control en un trabajo diferente.
 
 ## <a name="authenticating-to-azure-resources"></a>Autenticación a los recursos de Azure
-Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La característica de [cuenta de ejecución](automation-offering-get-started.md#creating-an-automation-account) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation. Puede agregar esta funcionalidad a un runbook gráfico agregando el recurso de conexión **AzureRunAsConnection**, que usan los cmdlets [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) y [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) de PowerShell en el lienzo. Esto se ilustra en el ejemplo siguiente:<br>![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
-La actividad Get Run As Connection (es decir, Get-AutomationConnection) se configura con un origen de datos de valor constante denominado AzureRunAsConnection.<br>![Configuración de la conexión de ejecución](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
-La siguiente actividad, Connect-AzureRmAccount, agrega la cuenta de ejecución autenticada para su uso en el runbook.<br>
-![Conjunto de parámetros de Connect-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
+
+Los runbooks de Azure Automation que administran recursos de Azure tienen que autenticarse en Azure. La característica de [cuenta de ejecución](automation-create-runas-account.md) (también denominada entidad de servicio) es el método predeterminado para acceder a los recursos de Azure Resource Manager de la suscripción con los runbooks de Automation. Puede agregar esta funcionalidad a un runbook gráfico agregando el recurso de conexión **AzureRunAsConnection**, que usan los cmdlets [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) y [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) de PowerShell en el lienzo. Esto se ilustra en el ejemplo siguiente:
+
+![Actividades de autenticación de ejecución](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
+
+La actividad Get Run As Connection (es decir, Get-AutomationConnection) se configura con un origen de datos de valor constante denominado AzureRunAsConnection.
+
+![Configuración de la conexión de ejecución](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)
+
+La siguiente actividad, Connect-AzureRmAccount, agrega la cuenta de ejecución autenticada para su uso en el runbook.
+
+![Conjunto de parámetros de Connect-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+
 Para los parámetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** y **TENANTID**, es preciso especificar el nombre de la propiedad de la ruta de acceso de Field, ya que la actividad genera un objeto con varias propiedades. De lo contrario, al ejecutar el runbook, el intento de autenticación no se realiza correctamente. Estos son los requisitos mínimos para autenticar el runbook con la cuenta de ejecución.
 
 Para que la compatibilidad con versiones anteriores siga estando disponible para los suscriptores que hayan creado una cuenta de Automation con una [cuenta de usuario de Azure AD](automation-create-aduser-account.md) con el objetivo de administrar recursos de implementación clásica de Azure o de Azure Resource Manager, el método de autenticación será el cmdlet Add-AzureAccount con un [activo de credencial](automation-credentials.md) que representa un usuario de Active Directory con acceso a la cuenta de Azure.
@@ -252,7 +303,9 @@ Tiene que realizar la autenticación al comienzo del runbook y después de cada 
 ![Salida de la actividad](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
 ## <a name="runbook-input-and-output"></a>Entrada y salida de runbook
+
 ### <a name="runbook-input"></a>Entrada de Runbook
+
 Un Runbook puede requerir una entrada, ya sea de un usuario (cuando el Runbook se inicia mediante el Portal de Azure) o de otro Runbook (si el actual se usa como secundario).
 Por ejemplo, si tiene un runbook que crea una máquina virtual, es posible que deba proporcionar información, como el nombre de la máquina virtual y otras propiedades cada vez que inicie el runbook.
 
@@ -275,9 +328,11 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |
 
 ### <a name="runbook-output"></a>Salida de runbook
-Los datos que crea cualquier actividad que no tiene un vínculo saliente se agregan a la [salida del runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
+
+Los datos que crea cualquier actividad que no tiene un vínculo saliente se guardan en la [salida del runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). La salida se guarda con el trabajo del runbook y queda a disposición de un runbook principal cuando el runbook se usa como secundario.
 
 ## <a name="powershell-expressions"></a>Expresiones de PowerShell
+
 Una de las ventajas de la creación gráfica es que proporciona la capacidad de crear un runbook teniendo mínimos conocimientos de PowerShell. No obstante, actualmente es necesario conocer un poco PowerShell para rellenar determinados [valores de parámetro](#activities) y para configurar [condiciones de vínculo](#links-and-workflow). En esta sección se proporciona una introducción rápida a las expresiones de PowerShell para aquellos usuarios que quizás no estén familiarizados con esta interfaz. En [Scripting con Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx)están disponibles todos los detalles sobre PowerShell.
 
 ### <a name="powershell-expression-data-source"></a>Origen de datos de expresiones de PowerShell
@@ -285,80 +340,106 @@ Puede usar una expresión de PowerShell como origen de datos para rellenar el va
 
 Por ejemplo, el siguiente comando generaría la fecha actual.
 
-    Get-Date
+Por ejemplo, el siguiente comando generaría la fecha actual.
+
+```powershell-interactive
+Get-Date
+```
 
 Los siguientes comandos crean una cadena a partir de la fecha actual y la asignan a una variable. Después, el contenido de la variable se envía a la salida.
 
-    $string = "The current date is " + (Get-Date)
-    $string
+```powershell-interactive
+$string = "The current date is " + (Get-Date)
+$string
+```
 
 Los siguientes comandos evalúan la fecha actual y devuelven una cadena que indica si el día actual cae en fin de semana o es un día entre semana.
 
-    $date = Get-Date
-    if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
-    else { "Weekday" }
-
+```powershell-interactive
+$date = Get-Date
+if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+else { "Weekday" }
+```
 
 ### <a name="activity-output"></a>Salida de la actividad
+
 Para usar la salida de una actividad anterior en el runbook, use la variable $ActivityOutput con la siguiente sintaxis.
 
-    $ActivityOutput['Activity Label'].PropertyName
+```powershell-interactive
+$ActivityOutput['Activity Label'].PropertyName
+```
 
 Por ejemplo, puede tener una actividad con una propiedad que requiere el nombre de una máquina virtual, en cuyo caso puede usar la siguiente expresión:
 
-    $ActivityOutput['Get-AzureVm'].Name
+```powershell-interactive
+$ActivityOutput['Get-AzureVm'].Name
+```
 
 Si la propiedad necesitaba el objeto de máquina virtual en lugar de solo una propiedad, se devolvería el objeto completo mediante la siguiente sintaxis.
 
-    $ActivityOutput['Get-AzureVm']
+```powershell-interactive
+$ActivityOutput['Get-AzureVm']
+```
 
 También puede usar la salida de una actividad en una expresión más compleja, como la siguiente, que concatena texto al nombre de la máquina virtual.
 
-    "The computer name is " + $ActivityOutput['Get-AzureVm'].Name
-
+```powershell-interactive
+"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+```
 
 ### <a name="conditions"></a>Condiciones
+
 Utilice [operadores de comparación](https://technet.microsoft.com/library/hh847759.aspx) para comparar valores o determinar si un valor coincide con un patrón especificado. Una comparación devuelve un valor de $true o $false.
 
 Por ejemplo, la siguiente condición determina si la máquina virtual de una actividad denominada *Get-AzureVM* está actualmente *detenida*.
 
-    $ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+```powershell-interactive
+$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+```
 
 La siguiente condición comprueba si la misma máquina virtual está en cualquier estado distinto de *detenida*.
 
-    $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+```powershell-interactive
+$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+```
 
 Puede combinar varias condiciones, mediante un [operador lógico](https://technet.microsoft.com/library/hh847789.aspx) como **-and** u **-or**. Por ejemplo, la siguiente condición comprueba si la misma máquina virtual del ejemplo anterior se encuentra en un estado de *detenida* o *deteniéndose*.
 
-    ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
-
+```powershell-interactive
+($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
+```
 
 ### <a name="hashtables"></a>Tablas hash
+
 [Tablas hash](http://technet.microsoft.com/library/hh847780.aspx) son pares de nombre-valor que son útiles para devolver un conjunto de valores. Las propiedades de ciertas actividades pueden esperar una tabla hash en lugar de un valor simple. También puede ver cómo se hace referencia a una tabla hash como un diccionario.
 
 Una tabla hash se crea con la siguiente sintaxis. Una tabla hash puede contener cualquier número de entradas, pero cada una se define mediante un nombre y valor.
 
-    @{ <name> = <value>; [<name> = <value> ] ...}
+```powershell-interactive
+@{ <name> = <value>; [<name> = <value> ] ...}
+```
 
 Por ejemplo, la siguiente expresión crea una tabla hash que se usará en el origen de datos para un parámetro de actividad que espera una tabla hash con valores para una búsqueda en Internet.
 
-    $query = "Azure Automation"
-    $count = 10
-    $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
-    $h
+```powershell-interactive
+$query = "Azure Automation"
+$count = 10
+$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+$h
+```
 
 En el ejemplo siguiente se usa la salida de una actividad llamada *Get Twitter Connection* para rellenar una tabla hash.
 
-    @{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
-      'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
-      'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
-      'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
-
-
+```powershell-interactive
+@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+    'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+    'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+    'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para empezar a trabajar con runbooks de flujo de trabajo de PowerShell, consulte [Mi primer runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md)
 * Para empezar a trabajar con runbooks gráficos, consulte [Mi primer runbook gráfico](automation-first-runbook-graphical.md)
 * Para obtener más información sobre los tipos de runbook, sus ventajas y sus limitaciones, consulte [Tipos de runbooks de Azure Automation](automation-runbook-types.md)
 * Para comprender cómo autenticarse con la cuenta de ejecución de Azure Automation, consulte [Autenticación de Runbooks con una cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md)
-

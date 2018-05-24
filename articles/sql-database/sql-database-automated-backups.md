@@ -11,11 +11,12 @@ ms.workload: Active
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 37bbbf8ea5a5d8439b300d0740e4f1a048e98e91
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189075"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Más información sobre copias de seguridad automáticas de SQL Database
 
@@ -44,8 +45,11 @@ Las copias de seguridad de bases de datos completas se producen con una frecuenc
 La replicación geográfica del almacenamiento de copias de seguridad se produce según la programación de replicación de Azure Storage.
 
 ## <a name="how-long-do-you-keep-my-backups"></a>¿Cuánto tiempo se mantienen las copias de seguridad?
-Cada copia de seguridad de SQL Database tiene un período de retención que se basa en el [nivel de servicio](sql-database-service-tiers.md) de la base de datos. El período de retención de una base de datos es el siguiente:
+Cada copia de seguridad de SQL Database tiene un período de retención que se basa en el nivel de servicio de la base de datos y es diferente al [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y al [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md). 
 
+
+### <a name="database-retention-for-dtu-based-purchasing-model"></a>Retención de la base de datos en el modelo de compra basado en DTU
+El período de retención para una base de datos en el modelo de compra basado en DTU depende del nivel de servicio. El período de retención de una base de datos es el siguiente:
 
 * Nivel de servicio Básico: 7 días.
 * Nivel de servicio Estándar: 35 días
@@ -63,7 +67,13 @@ Si elimina una base de datos, SQL Database mantiene las copias de seguridad de l
 
 > [!IMPORTANT]
 > Si elimina el servidor de Azure SQL que hospeda las instancias de SQL Database, todas las bases de datos que pertenecen al servidor también se eliminan y no se pueden recuperar. No puede restaurar un servidor eliminado.
-> 
+
+### <a name="database-retention-for-the-vcore-based-purchasing-model-preview"></a>Retención de la base de datos para el modelo compra basado en núcleos virtuales (versión preliminar)
+
+Para admitir las funcionalidades Restauración a un momento dado (PITR) y Retención a largo plazo (LTR) de SQL Database, se asigna almacenamiento a las copias de seguridad de base de datos. Este almacenamiento se asigna por separado para cada base de datos y se factura como dos cargos independientes por base de datos. 
+
+- **PITR**: las copias de seguridad de base de datos individuales se copian en el almacenamiento de RA-GRS automáticamente. El tamaño de almacenamiento aumenta dinámicamente a medida que se crean las nuevas copias de seguridad.  El almacenamiento se usa para realizar cada cinco minutos copias de seguridad completas semanales, copias de seguridad diferenciales diarias y copias de seguridad de registros de transacciones. El consumo de almacenamiento depende de la tasa de cambio de la base de datos y del período de retención. Puede configurar un período de retención diferente para cada base de datos de entre 7 y 35 días. Se ofrece una cantidad de almacenamiento mínimo igual al tamaño de los datos sin costo adicional. En la mayoría de las bases de datos, esta cantidad es suficiente para almacenar copias de seguridad durante 7 días. Para más información, consulte [Restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore).
+- **LTR**: SQL Database ofrece la opción de configurar la retención a largo plazo de copias de seguridad completas durante un período máximo de 10 años. Si la directiva de LTR está habilitada, estas copias de seguridad se almacenan en almacenamiento RA-GRS automáticamente, pero puede controlar la frecuencia con que se realizan las copias de seguridad. Para satisfacer los distintos requisitos de cumplimiento, puede seleccionar distintos períodos de retención para copias de seguridad semanales, mensuales o anuales. Esta configuración definirá la cantidad de almacenamiento que se usará para las copias de seguridad de LTR. Para estimar el costo del almacenamiento de LTR, se puede usar la calculadora de precios de LTR. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md).
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>¿Cómo se puede ampliar el periodo de retención de las copias de seguridad?
 

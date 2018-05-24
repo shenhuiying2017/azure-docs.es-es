@@ -1,19 +1,20 @@
 ---
-title: "Lanzamiento controlado con Vamp en un clúster de DC/OS en Azure"
-description: "Cómo usar Vamp para lanzar servicios de forma controlada y aplicar el filtrado inteligente de tráfico en un clúster de DC/OS de Azure Container Service"
+title: Lanzamiento controlado con Vamp en un clúster de DC/OS en Azure
+description: Cómo usar Vamp para lanzar servicios de forma controlada y aplicar el filtrado inteligente de tráfico en un clúster de DC/OS de Azure Container Service
 services: container-service
 author: gggina
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: e23b316311ff88d1587da8d5ef777b91bfe0a2e9
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177808"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Lanzamiento controlado de microservicios con Vamp en un clúster de DC/OS de Azure Container Service
 
@@ -41,7 +42,7 @@ El [lanzamiento controlado](https://martinfowler.com/bliki/CanaryRelease.html) e
 
 ## <a name="set-up-vamp"></a>Configuración de Vamp
 
-Ahora que tiene un clúster de DC/OS en ejecución, puede instalar Vamp desde la interfaz de usuario de DC/OS (http://localhost:80). 
+Ahora que tiene un clúster de DC/OS en ejecución, puede instalar Vamp desde la interfaz de usuario de DC/OS (http://localhost:80)). 
 
 ![Interfaz de usuario de DC/OS](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 
@@ -151,7 +152,7 @@ Este escenario usa una aplicación monolítica de ejemplo denominada [**sava**](
               webport: 8080/http # cluster endpoint, used for canary releasing
   ```
 
-4. Haga clic en **Guardar**. Vamp inicia la implementación.
+4. Haga clic en **Save**(Guardar). Vamp inicia la implementación.
 
 La implementación se muestra en la página **Deployments** (Implementaciones). Haga clic en la implementación para supervisar su estado.
 
@@ -212,7 +213,7 @@ Para combinar el nuevo servicio sava 1.1 con la implementación en ejecución:
               webport: 8080/http # cluster endpoint to update
   ```
   
-3. Haga clic en **Guardar**. El plano se almacena y se muestra en la página **Blueprints** (Planos).
+3. Haga clic en **Save**(Guardar). El plano se almacena y se muestra en la página **Blueprints** (Planos).
 
 4. Abra el menú de acción en el plano de sava:1.1 y haga clic en **Merge to** (Combinar con).
 

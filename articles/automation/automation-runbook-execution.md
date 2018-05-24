@@ -3,20 +3,24 @@ title: Ejecución de un runbook en Azure Automation
 description: Describe los detalles de cómo se procesa un runbook en Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
-ms.topic: article
+ms.date: 05/08/2018
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 74ee26b961a765276aaa1f0bf17603f22bc8dd20
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195427"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
 Cuando se inicia un runbook en Azure Automation, se crea un trabajo. Un trabajo es una instancia única de ejecución de un runbook. Un trabajador de Azure Automation está asignado para ejecutar cada trabajo. Aunque los trabajadores se comparten por varias cuentas de Azure, los trabajos de diferentes cuentas de Automation están aislados entre sí. No tiene el control sobre qué trabajador presta servicio a la solicitud para el trabajo. Un único runbook puede tener varios trabajos que se ejecutan al mismo tiempo. Se puede reutilizar el entorno de ejecución para los trabajos de la misma cuenta de Automation. Al ver la lista de runbooks en Azure Portal, se muesta el estado de todos los trabajos iniciados por cada runbook. Puede ver la lista de trabajos para cada runbook para hacer un seguimiento del estado de cada uno. Para obtener una descripción de los distintos estados de trabajo, consulte [Estados del trabajo](#job-statuses).
+
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
 En el siguiente diagrama se muestra el ciclo de vida de un trabajo de runbook para [Runbooks gráficos](automation-runbook-types.md#graphical-runbooks) y [Runbooks del flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks).
 
@@ -88,13 +92,31 @@ Puede usar [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt61944
 
 Los comandos de ejemplo siguientes recuperan el último trabajo para un runbook de ejemplo y muestran su estado, los valores proporcionados para los parámetros de runbook y la salida del trabajo.
 
-```powershell-interactive
+```azurepowershell-interactive
 $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
 –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
 $job.Status
 $job.JobParameters
 Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
+```
+
+El ejemplo siguiente recupera la salida de un trabajo específico y devuelve cada registro. En el caso de que se produjera una excepción para uno de los registros, se escribiría la excepción en lugar del valor. Esto resulta útil ya que las excepciones pueden proporcionar información adicional que no se puede registrar normalmente durante la salida.
+
+```azurepowershell-interactive
+$output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
+foreach($item in $output)
+{
+    $fullRecord = Get-AzureRmAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
+    if ($fullRecord.Type -eq "Error")
+    {
+        $fullRecord.Value.Exception
+    }
+    else
+    {
+    $fullRecord.Value
+    }
+}
 ```
 
 ## <a name="get-details-from-activity-log"></a>Obtención de detalles del registro de actividad
