@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con O.C. Tanner - AppreciateHub | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y O. C. Tanner - AppreciateHub."
+title: 'Tutorial: Integración de Azure Active Directory con O.C. Tanner - AppreciateHub | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y O. C. Tanner - AppreciateHub.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: ae98e6fce3507e023a72cab35894c7c2f7a87656
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 57cdd0d8a58fd88ab1dda63d32397e726c7a2eb2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integración de Azure Active Directory con O.C. C. Tanner - AppreciateHub
 
@@ -29,9 +30,9 @@ Integración de O.C. Tanner - AppreciateHub con Azure AD proporciona las siguien
 - Puede permitir a los usuarios iniciar sesión automáticamente en O.C. Tanner - AppreciateHub (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con O.C. Tanner - AppreciateHub, necesita los siguientes elementos:
 
@@ -47,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar O.C. Tanner - AppreciateHub desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +64,11 @@ Para configurar la integración de O.C. Tanner - AppreciateHub en Azure AD, debe
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **O.C. Tanner - AppreciateHub**.
 
@@ -110,12 +111,12 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`.
+    a. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.octanner.net/sp/ACS.saml2`.
 
     > [!NOTE] 
     > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Póngase en contacto con el [equipo de soporte técnico de O.C. Tanner - AppreciateHub](mailto:sso@octanner.com) para obtener este valor.
 
-    b. Abra el archivo de metadatos mediante el siguiente vínculo: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
+    b. Abra el archivo de metadatos con el siguiente vínculo: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
    
     c. Busque el nodo **md:AssertionConsumerService** . 
    
@@ -168,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Creación de un usuario de prueba de O.C. C. Tanner - AppreciateHub
 
@@ -186,7 +187,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar a Simon Britta a O.C. Tanner - AppreciateHub, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -216,7 +217,7 @@ Cuando hace clic en el icono de O.C. Tanner - AppreciateHub en el panel de acces
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

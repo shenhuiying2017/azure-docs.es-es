@@ -6,26 +6,26 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 editor: ''
-ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
-ms.reviewer: wfayed
-ms.openlocfilehash: 4188d114aa86086821b2c640d7f2d98a78bcbf4e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: thoroet
+ms.openlocfilehash: d7c8520602132722fd0c7138de4a276b9ac2208a
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076460"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
 Para la supervisión externa de la infraestructura de Azure Stack, deberá supervisar el software Azure Stack, los equipos físicos y los modificadores de red físicos. Cada una de estas áreas ofrece un método para recuperar la información sobre el estado de mantenimiento y las alertas:
 
-- El software Azure Stack ofrece una API basada en REST para recuperar el estado de mantenimiento y las alertas. (Con el uso de tecnologías definidas por software, como Espacios de almacenamiento directo, las alertas y el estado de mantenimiento del almacenamiento forman parte de la supervisión de software).
+- El software Azure Stack ofrece una API basada en REST para recuperar el estado de mantenimiento y las alertas. El uso de tecnologías definidas por software, como Espacios de almacenamiento directo, las alertas y el estado de mantenimiento del almacenamiento forma parte de la supervisión de software.
 - Los equipos físicos pueden hacer que la información acerca del estado de mantenimiento y las alertas esté disponible a través de los controladores de administración de placa base (BMC).
 - Los dispositivos de red físicos pueden hacer que la información acerca del estado de mantenimiento y las alertas esté disponible a través del protocolo SNMP.
 
@@ -91,433 +91,41 @@ Configure el archivo de complemento "Azurestack_plugin.py" con los siguientes pa
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>Usar PowerShell para supervisar el estado de mantenimiento y las alertas
 
 Si no está utilizando una solución basada en Nagios, Nagios o Operations Manager, puede usar PowerShell para habilitar una amplia gama de soluciones de supervisión que pueden integrarse con Azure Stack.
- 
+
 1. Para usar PowerShell, asegúrese de tener [PowerShell instalado y configurado](azure-stack-powershell-configure-quickstart.md) para un entorno de operador de Azure Stack. Instale PowerShell en un equipo local que alcance el punto de conexión de Resource Manager (administrador) (https://adminmanagement.[region].[External_FQDN]).
 
 2. Ejecute los comandos siguientes para conectarse con el entorno de Azure Stack como un operador de Azure Stack:
 
-   ```PowerShell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+   ```PowerShell  
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
-3. Cambie al directorio donde instaló las [herramientas de Azure Stack](https://github.com/Azure/AzureStack-Tools) como parte de la instalación de PowerShell, por ejemplo, c:\azurestack-tools-master. A continuación, cambie al directorio de la infraestructura y ejecute el siguiente comando para importar el módulo de la infraestructura:
 
+3. Utilice comandos como los que se indican en los ejemplos siguientes para trabajar con alertas:
    ```PowerShell
-   Import-Module .\AzureStack.Infra.psm1
+    #Retrieve all alerts
+    Get-AzsAlert
+
+    #Filter for active alerts
+    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active
+
+    #Close alert
+    Close-AzsAlert -AlertID "ID"
+
+    #Retrieve resource provider health
+    Get-AzsRPHealth
+
+    #Retrieve infrastructure role instance health
+    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+
     ```
-4. Utilice comandos como los que se indican en los ejemplos siguientes para trabajar con alertas:
-   ```PowerShell
-   #Retrieve all alerts
-   Get-AzsAlert -location [Region]
-
-   #Filter for active alerts
-   $Active=Get-AzsAlert -location [Region] | Where {$_.State -eq "active"}
-   $Active
-
-   #Close alert
-   Close-AzsAlert -location [Region] -AlertID "ID"
-
-   #Retrieve resource provider health
-   Get-AzsResourceProviderHealths -location [Region]
-
-   #Retrieve infrastructure role instance health
-   Get-AzsInfrastructureRoleHealths -location [Region]
-   ```
-
-## <a name="use-the-rest-api-to-monitor-health-and-alerts"></a>Usar la API de REST para supervisar el estado de mantenimiento y las alertas
-
-Puede utilizar llamadas a la API de REST para obtener y cerrar alertas, y obtener el estado de mantenimiento de los proveedores de recursos.
-
-### <a name="get-alert"></a>Obtener alertas
-
-**Solicitud**
-
-La solicitud obtiene todas las alertas activas y cerradas de la suscripción de proveedor predeterminada. No hay ningún cuerpo de solicitud.
-
-
-|Método  |URI de solicitud  |
-|---------|---------|
-|GET     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts?api-version=2016-05-01"      |
-|     |         |
-
-**Argumentos**
-
-|Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|armendpoint     |  Punto de conexión de Azure Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.       |
-|subid     |   Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.      |
-|RegionName     |    Nombre de la región de la implementación de Azure Stack.     |
-|api-version     |  Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.      |
-|     |         |
-
-**Respuesta**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/Alerts?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Active",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-
-…
-```
-
-**Detalles de la respuesta**
-
-
-|  Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|*id*     |      Identificador exclusivo de la alerta.   |
-|*name*     |     Nombre interno de la alerta.   |
-|*type*     |     Definición de recursos.    |
-|*ubicación*     |       Nombre de la región.     |
-|*etiquetas*     |   Etiquetas del recurso.     |
-|*closedtimestamp*    |  Hora UTC a la que se cerró la alerta.    |
-|*createdtimestamp*     |     Hora UTC a la que se creó la alerta.   |
-|*descripción*     |    Descripción de la alerta     |
-|*faultid*     | Componente afectado.        |
-|*alertid*     |  Identificador exclusivo de la alerta.       |
-|*faulttypeid*     |  Tipo exclusivo del componente defectuoso.       |
-|*lastupdatedtimestamp*     |   Hora UTC a la que se actualizó por última vez la información sobre la alerta.    |
-|*healthstate*     | Estado general de mantenimiento.        |
-|*name*     |   Nombre de la alerta específica.      |
-|*fabricname*     |    Nombre del tejido registrado del componente defectuoso.   |
-|*descripción*     |  Descripción del componente de tejido registrado.   |
-|*servicetype*     |   Tipo del servicio de tejido registrado.   |
-|*remediation*     |   Pasos de corrección recomendados.    |
-|*type*     |   Tipo de alerta.    |
-|*resourceRegistrationid*    |     Identificador del recurso registrado afectado.    |
-|*resourceProviderRegistrationID*   |    Identificador del proveedor de recursos registrado del componente afectado.  |
-|*serviceregistrationid*     |    Identificador del servicio registrado.   |
-|*severity*     |     Gravedad de la alerta.  |
-|*state*     |    Estado de la alerta.   |
-|*title*     |    Título de la alerta.   |
-|*impactedresourceid*     |     Identificador del recurso afectado.    |
-|*ImpactedresourceDisplayName*     |     Nombre del recurso afectado.  |
-|*closedByUserAlias*     |   Usuario que cerró la alerta.      |
-
-### <a name="close-alert"></a>Cerrar alerta
-
-**Solicitud**
-
-La solicitud cierra una alerta por su identificador único.
-
-|Método    |URI de solicitud  |
-|---------|---------|
-|PUT     |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/Alerts/alertid?api-version=2016-05-01"    |
-
-**Argumentos**
-
-
-|Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|*armendpoint*     |   Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es *azurestack.external* y el nombre de la región es *local*, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.      |
-|*subid*     |    Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.     |
-|*RegionName*     |   Nombre de la región de la implementación de Azure Stack.      |
-|*api-version*     |    Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.     |
-|*alertid*     |    Identificador exclusivo de la alerta.     |
-
-**Cuerpo**
-
-```json
-
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Closed",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-```
-**Respuesta**
-
-```http
-PUT https://adminmanagement.local.azurestack.external//subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/alerts/71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"name":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/alerts",
-"location":"local",
-"tags":{},
-"properties":
-{
-"closedTimestamp":"",
-"createdTimestamp":"2017-08-10T20:13:57.4398842Z",
-"description":[{"text":"The infrastructure role (Updates) is experiencing issues.",
-"type":"Text"}],
-"faultId":"ServiceFabric:/UpdateResourceProvider/fabric:/AzurestackUpdateResourceProvider",
-"alertId":"71dbd379-1d1d-42e2-8439-6190cc7aa80b",
-"faultTypeId":"ServiceFabricApplicationUnhealthy",
-"lastUpdatedTimestamp":"2017-08-10T20:18:58.1584868Z",
-"alertProperties":
-{
-"healthState":"Warning",
-"name":"Updates",
-"fabricName":"fabric:/AzurestackUpdateResourceProvider",
-"description":null,
-"serviceType":"UpdateResourceProvider"},
-"remediation":[{"text":"1. Navigate to the (Updates) and restart the role. 2. If after closing the alert the issue persists, please contact support.",
-"type":"Text"}],
-"resourceRegistrationId":null,
-"resourceProviderRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"serviceRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"severity":"Warning",
-"state":"Closed",
-"title":"Infrastructure role is unhealthy",
-"impactedResourceId":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/UpdateResourceProvider",
-"impactedResourceDisplayName":"UpdateResourceProvider",
-"closedByUserAlias":null
-}
-},
-```
-
-**Detalles de la respuesta**
-
-
-|  Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|*id*     |      Identificador exclusivo de la alerta.   |
-|*name*     |     Nombre interno de la alerta.   |
-|*type*     |     Definición de recursos.    |
-|*ubicación*     |       Nombre de la región.     |
-|*etiquetas*     |   Etiquetas del recurso.     |
-|*closedtimestamp*    |  Hora UTC a la que se cerró la alerta.    |
-|*createdtimestamp*     |     Hora UTC a la que se creó la alerta.   |
-|*Descripción*     |    Descripción de la alerta     |
-|*faultid*     | Componente afectado.        |
-|*alertid*     |  Identificador exclusivo de la alerta.       |
-|*faulttypeid*     |  Tipo exclusivo del componente defectuoso.       |
-|*lastupdatedtimestamp*     |   Hora UTC a la que se actualizó por última vez la información sobre la alerta.    |
-|*healthstate*     | Estado general de mantenimiento.        |
-|*name*     |   Nombre de la alerta específica.      |
-|*fabricname*     |    Nombre del tejido registrado del componente defectuoso.   |
-|*descripción*     |  Descripción del componente de tejido registrado.   |
-|*servicetype*     |   Tipo del servicio de tejido registrado.   |
-|*remediation*     |   Pasos de corrección recomendados.    |
-|*type*     |   Tipo de alerta.    |
-|*resourceRegistrationid*    |     Identificador del recurso registrado afectado.    |
-|*resourceProviderRegistrationID*   |    Identificador del proveedor de recursos registrado del componente afectado.  |
-|*serviceregistrationid*     |    Identificador del servicio registrado.   |
-|*severity*     |     Gravedad de la alerta.  |
-|*state*     |    Estado de la alerta.   |
-|*title*     |    Título de la alerta.   |
-|*impactedresourceid*     |     Identificador del recurso afectado.    |
-|*ImpactedresourceDisplayName*     |     Nombre del recurso afectado.  |
-|*closedByUserAlias*     |   Usuario que cerró la alerta.      |
-
-### <a name="get-resource-provider-health"></a>Obtener el estado de mantenimiento del proveedor de recursos
-
-**Solicitud**
-
-La solicitud obtiene el estado de mantenimiento de todos los proveedores de recursos registrados.
-
-
-|Método  |URI de solicitud  |
-|---------|---------|
-|GET    |   https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths?api-version=2016-05-01"   |
-
-
-**Argumentos**
-
-
-|Argumentos  |DESCRIPCIÓN  |
-|---------|---------|
-|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
-|*subid*     |     Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.    |
-|*RegionName*     |     Nombre de la región de la implementación de Azure Stack.    |
-|*api-version*     |   Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.      |
-
-
-**Respuesta**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths?api-version=2016-05-01
-```
-
-```json
-{
-"value":[
-{
-"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
-"name":"03ccf38f-f6b1-4540-9dc8ec7b6389ecca",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths",
-"location":"local",
-"tags":{},
-"properties":{
-"registrationId":"03ccf38f-f6b1-4540-9dc8-ec7b6389ecca",
-"displayName":"Key Vault",
-"namespace":"Microsoft.KeyVault.Admin",
-"routePrefix":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local",
-"serviceLocation":"local",
-"infraURI":"/subscriptions/4aa97de3-6b83-4582-86e1-65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.KeyVault.Admin/locations/local/infraRoles/Key Vault",
-"alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},
-"healthState":"Healthy"
-}
-}
-
-…
-```
-**Detalles de la respuesta**
-
-
-|Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|*Id*     |   Identificador exclusivo de la alerta.      |
-|*name*     |  Nombre interno de la alerta.       |
-|*type*     |  Definición de recursos.       |
-|*ubicación*     |  Nombre de la región.       |
-|*etiquetas*     |     Etiquetas del recurso.    |
-|*registrationId*     |   Registro único para el proveedor de recursos.      |
-|*displayName*     |Nombre para mostrar del proveedor de recursos.        |
-|*namespace*     |   Espacio de nombres de API que implementa el proveedor de recursos.       |
-|*routePrefix*     |    URI que interactúa con el proveedor de recursos.     |
-|*serviceLocation*     |   Región con la que se registra este proveedor de recursos.      |
-|*infraURI*     |   URI del proveedor de recursos que aparece como un rol de infraestructura.      |
-|*alertSummary*     |   Resumen de alerta crítica y de advertencia que se asocia con el proveedor de recursos.      |
-|*healthState*     |    Estado de mantenimiento del proveedor de recursos.     |
-
-
-### <a name="get-resource-health"></a>Obtener estado de mantenimiento del recurso
-
-La solicitud obtiene el estado de mantenimiento de todos los proveedores de recursos registrados.
-
-**Solicitud**
-
-|Método  |URI de solicitud  |
-|---------|---------|
-|GET     |     https://{armendpoint}/subscriptions/{subId}/resourceGroups/system.{RegionName}/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/{RegionName}/serviceHealths/{RegistrationID}/resourceHealths?api-version=2016-05-01"    |
-
-**Argumentos**
-
-|Argumentos  |DESCRIPCIÓN  |
-|---------|---------|
-|*armendpoint*     |    Punto de conexión de Resource Manager del entorno de Azure Stack con formato https://adminmanagement.{RegionName}.{External FQDN}. Por ejemplo, si el FQDN externo es azurestack.external y el nombre de la región es local, el punto de conexión de Resource Manager es https://adminmanagement.local.azurestack.external.     |
-|*subid*     |Identificador de suscripción del usuario que realiza la llamada. Puede utilizar esta API para hacer consultas únicamente con un usuario que tenga permiso para la suscripción de proveedor predeterminada.         |
-|*RegionName*     |  Nombre de la región de la implementación de Azure Stack.       |
-|*api-version*     |  Versión del protocolo que se usa para realizar esta solicitud. Debe usar 2016-05-01.       |
-|*RegistrationID* |Identificador del registro para un proveedor de recursos específico. |
-
-**Respuesta**
-
-```http
-GET https://adminmanagement.local.azurestack.external/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/03ccf38f-f6b1-4540-9dc8-ec7b6389ecca /resourceHealths?api-version=2016-05-01 HTTP/1.1
-```
-
-```json
-{
-"value":
-[
-{"id":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.InfrastructureInsights.Admin/regionHealths/local/serviceHealths/472aaaa6-3f63-43fa-a489-4fd9094e235f/resourceHealths/028c3916-ab86-4e7f-b5c2-0468e607915c",
-"name":"028c3916-ab86-4e7f-b5c2-0468e607915c",
-"type":"Microsoft.InfrastructureInsights.Admin/regionHealths/serviceHealths/resourceHealths",
-"location":"local",
-"tags":{},
-"properties":
-{"registrationId":"028c3916-ab86-4e7f-b5c2 0468e607915c","namespace":"Microsoft.Fabric.Admin","routePrefix":"/subscriptions/4aa97de3-6b83-4582-86e1 65a5e4d1295b/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local",
-"resourceType":"infraRoles",
-"resourceName":"Privileged endpoint",
-"usageMetrics":[],
-"resourceLocation":"local",
-"resourceURI":"/subscriptions/<Subscription_ID>/resourceGroups/system.local/providers/Microsoft.Fabric.Admin/fabricLocations/local/infraRoles/Privileged endpoint",
-"rpRegistrationId":"472aaaa6-3f63-43fa-a489-4fd9094e235f",
-"alertSummary":{"criticalAlertCount":0,"warningAlertCount":0},"healthState":"Unknown"
-}
-}
-…
-```
-
-**Detalles de la respuesta**
-
-|Argumento  |DESCRIPCIÓN  |
-|---------|---------|
-|*Id*     |   Identificador exclusivo de la alerta.      |
-|*name*     |  Nombre interno de la alerta.       |
-|*type*     |  Definición de recursos.       |
-|*ubicación*     |  Nombre de la región.       |
-|*etiquetas*     |     Etiquetas del recurso.    |
-|*registrationId*     |   Registro único para el proveedor de recursos.      |
-|*resourceType*     |Tipo de recurso.        |
-|*resourceName*     |   Nombre del recurso.   |
-|*usageMetrics*     |    Métrica de uso del recurso.     |
-|*resourceLocation*     |   Nombre de la región donde se implementa.      |
-|*resourceURI*     |   URI del recurso.   |
-|*alertSummary*     |   Resumen de alertas críticas y de advertencia, estado de mantenimiento.     |
 
 ## <a name="learn-more"></a>Más información
 
 Para obtener información acerca de la supervisión de estado de mantenimiento integrada, consulte [Supervisar el estado y las alertas en Azure Stack](azure-stack-monitor-health.md).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

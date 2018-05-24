@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: inicio de sesión único de conexión directa: cumplimiento del RGPD | Microsoft Docs'
+title: Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD | Microsoft Docs
 description: Este artículo trata sobre el SSO de conexión directa de Azure Active Directory (Azure AD) y el cumplimiento del RGPD.
 services: active-directory
 keywords: qué es Azure AD Connect, RGPD, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -12,27 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: 0c7ed376accb1eed01106358491e925d3b8126c5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149534"
 ---
-# <a name="azure-ad-seamless-single-sign-on-gdpr-compliance"></a>Inicio de sesión único de conexión directa de Azure AD: cumplimiento del RGPD
+# <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidad del usuario e inicio de sesión único de conexión directa de Azure AD
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Información general
 
-En mayo de 2018, entrará en vigor una ley de privacidad europea, el [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). El RGPD impone nuevas reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la Unión Europea (UE) o que recopilan y analizan datos vinculados a residentes en la UE. El GDPR se aplica con independencia de la ubicación. 
-
-En la actualidad, hay productos y servicios de Microsoft para ayudarle a cumplir los requisitos de GDPR. Puede encontrar más información sobre la directiva de privacidad de Microsoft en [Trust Center](https://www.microsoft.com/trustcenter).
 
 SSO de conexión directa de Azure AD crea el tipo de registro siguiente, que puede contener EUII:
 
 - Archivos de registro de seguimiento de Azure AD Connect.
 
-El cumplimiento del RGPD para el SSO de conexión directa se puede conseguir de dos maneras:
+El cumplimiento en materia de privacidad del usuario para el SSO de conexión directa se puede conseguir de dos maneras:
 
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.
@@ -65,6 +65,6 @@ Para más información sobre los requisitos relacionados del RGPD de Azure AD Co
 Si el registro de auditoría está habilitado, este producto puede generar registros de seguridad para los controladores de dominio. Para más información sobre cómo configurar las directivas de auditoría, lea este [artículo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-
+* [Revisar la directiva de privacidad de Microsoft en Trust Center](https://www.microsoft.com/trustcenter)
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-sso.md): información para resolver problemas habituales de esta característica.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): para la tramitación de solicitudes de nuevas características.

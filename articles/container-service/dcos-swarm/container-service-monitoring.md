@@ -1,25 +1,26 @@
 ---
-title: "Supervisión de un clúster de Azure DC/OS: Datadog"
-description: "Supervise un clúster del servicio de contenedores de Azure con Datadog. Utilice la interfaz de usuario web de DC/OS para implementar agentes de Datadog en el clúster."
+title: 'Supervisión de un clúster de Azure DC/OS: Datadog'
+description: Supervise un clúster del servicio de contenedores de Azure con Datadog. Utilice la interfaz de usuario web de DC/OS para implementar agentes de Datadog en el clúster.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b895ef906a8c8f3f8cc21267d80f8b59b64837f4
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162762"
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>Supervisión de un clúster de DC/OS de Azure Container Service con Datadog
 
 En este artículo, implementaremos agentes Datadog en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Datadog para esta configuración. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://datadoghq.com](http://datadoghq.com) para configurar una cuenta de Datadog. 
 
 ## <a name="datadog"></a>Datadog

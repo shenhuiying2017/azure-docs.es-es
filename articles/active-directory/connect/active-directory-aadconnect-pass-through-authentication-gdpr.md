@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: autenticación de paso a través: cumplimiento del RGPD | Microsoft Docs'
+title: Privacidad del usuario y autenticación de paso a través de Azure Active Directory | Microsoft Docs
 description: Este artículo trata sobre la autenticación de paso a través de Azure Active Directory (Azure AD) y el cumplimiento del RGPD.
 services: active-directory
 keywords: Autenticación de paso a través de Azure AD Connect, RGPD, componentes necesarios para Azure AD, SSO, inicio de sesión único
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 21874c961163e3efba45c2ee8557c03135987f95
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32150630"
 ---
-# <a name="azure-active-directory-pass-through-authentication-gdpr-compliance"></a>Autenticación de paso a través de Azure Active Directory: cumplimiento del RGPD
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacidad del usuario y autenticación de paso a través de Azure Active Directory
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Información general
-
-En mayo de 2018, entrará en vigor una ley de privacidad europea, el [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm). El RGPD impone nuevas reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la Unión Europea (UE) o que recopilan y analizan datos vinculados a residentes en la UE. El GDPR se aplica con independencia de la ubicación. 
-
-En la actualidad, hay productos y servicios de Microsoft para ayudarle a cumplir los requisitos de GDPR. Puede encontrar más información sobre la directiva de privacidad de Microsoft en [Trust Center](https://www.microsoft.com/trustcenter).
 
 La autenticación paso a través de Azure AD crea los tipos de registro siguientes, que pueden contener EUII:
 
@@ -35,7 +35,7 @@ La autenticación paso a través de Azure AD crea los tipos de registro siguient
 - Archivos de registro de seguimiento del agente de autenticación.
 - Archivos de registro de eventos de Windows.
 
-El cumplimiento del RGPD para la autenticación de paso a través se puede conseguir de dos maneras:
+La privacidad del usuario para la autenticación de paso a través se puede conseguir de dos maneras:
 
 1.  Previa solicitud, extraer los datos de una persona y quitarlos de las instalaciones.
 2.  Asegurarse de que ningún dato se conserva más de 48 horas.
@@ -104,4 +104,5 @@ Para programar que este script se ejecute cada 48 horas, siga estos pasos:
 Si el registro de auditoría está habilitado, este producto puede generar registros de seguridad para los controladores de dominio. Para más información sobre cómo configurar las directivas de auditoría, lea este [artículo](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
+* [Revisar la directiva de privacidad de Microsoft en Trust Center](https://www.microsoft.com/trustcenter)
 - [**Solución de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): información para resolver problemas habituales de esta característica.

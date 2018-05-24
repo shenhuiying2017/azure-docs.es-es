@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: c5237f8e97f76e5dc348322abeb16682aee62f3b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196226"
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -85,6 +86,8 @@ Esta actualización incluye las siguientes correcciones y mejoras para Azure Sta
 
 - **Se agregó compatibilidad con varios dominios de error**.  Para más información, consulte [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack) (Alta disponibilidad para Azure Stack).
 
+- **Compatibilidad con las actualizaciones de la memoria física**: ahora puede ampliar la capacidad de memoria del sistema integrado de Azure Stack después de la implementación inicial. Para más información, consulte [Administración de la capacidad de memoria física para Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
+
 - **Varias revisiones** de rendimiento, estabilidad, seguridad y el sistema operativo que se usa en Azure Stack.
 
 <!--
@@ -113,8 +116,6 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 - No es posible ver los recursos de proceso o almacenamiento en el portal de administración. La causa de este problema es un error durante la instalación de la actualización que hace que se notifique como correcta erróneamente. Si se produce este problema, póngase en contacto con los servicios de soporte técnico de Microsoft para obtener ayuda.
 
 - Puede que vea un panel en blanco en el portal. Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y, a continuación, seleccione **Restaurar configuración predeterminada**.
-
-- Al ver las propiedades de un recurso o grupo de recursos, el botón **Mover** está deshabilitado. Este comportamiento es normal. Actualmente no se admite mover recursos o grupos de recursos entre grupos de recursos o suscripciones.
 
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 
@@ -161,7 +162,7 @@ No hay ningún problema conocido después de actualizar a 1802.
 
   Como alternativa, cree una nueva imagen de máquina virtual con un disco duro virtual ficticio que se pueda crear mediante Hyper-V (nuevo VHD, ruta de acceso C:\dummy.vhd, fijo, bytes de tamaño 1 GB). Este proceso debería corregir el problema que impide que se elimine el elemento con error. A continuación, 15 minutos después de crear la imagen ficticia, puede eliminarlo correctamente.
 
-  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo error.
+  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo un error.
 
 -  Si aprovisionar una extensión en una implementación de máquina virtual tarda demasiado tiempo, los usuarios deberían dejar que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
 
@@ -179,9 +180,9 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 - El equilibrio de carga interno (ILB) administra incorrectamente las direcciones MAC de máquinas virtuales de back-end, lo que hace que se interrumpa cuando se usan instancias de Linux en la red de back-end.  ILB funciona bien con instancias de Windows en la red de back-end.
 
--   La característica de reenvío IP está visible en el portal, sin embargo, no ocurre nada al habilitar esta característica. El motivo es que aún no se admite.
+-   La característica de reenvío IP está visible en el portal; sin embargo, no ocurre nada al habilitar esta característica. El motivo es que aún no se admite.
 
-- Azure Stack admite una única *puerta de enlace de red* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
+- Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
 - En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
 
@@ -260,6 +261,7 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 - Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Después de actualizar a Azure Stack 1802, puede seguir usando los proveedores de recursos SQL y MySQL que implementó anteriormente.  Le recomendamos que actualice SQL y MySQL cuando haya disponible una nueva versión. Al igual que Azure Stack, aplique las actualizaciones a los proveedores de recursos SQL y MySQL de manera secuencial.  Por ejemplo, si usa la versión 1710, aplique primero la versión 1711, luego la versión 1712 y luego actualice a la 1802.      

@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a7e0455d92635b7767227685b622bdae303f9621
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160648"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matriz de compatibilidad para la replicación de VMware y servidores físicos en Azure
 
@@ -22,14 +23,14 @@ En este artículo se resumen los ajustes y los componentes admitidos para la rec
 
 **Escenario** | **Detalles**
 --- | ---
-Máquinas virtuales de VMware | Replicación de máquinas virtuales de VMware locales en Azure. Puede implementar este escenario en Azure Portal o mediante PowerShell.
+Máquinas virtuales de VMware | Replicación de máquinas virtuales de VMware locales en Azure. Puede implementar este escenario en Azure Portal o mediante [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Servidores físicos | Replicación de servidores Windows/Linux físicos locales en Azure. Puede implementar este escenario en Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualización locales
 
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.<br/><br/> Se recomienda que los hosts de vSphere y los servidores vCenter se encuentren en la misma red que el servidor de procesos. De forma predeterminada, los componentes del servidor de procesos se ejecutan en el servidor de configuración, por lo esta será la red en la que se configurará el servidor de configuración, a menos que elija un servidor de procesos especializado. 
+VMware | vCenter Server 6.5, 6.0 o 5.5, o vSphere 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.<br/><br/> Se recomienda que los hosts de vSphere y los servidores vCenter se encuentren en la misma red que el servidor de procesos. De forma predeterminada, los componentes del servidor de procesos se ejecutan en el servidor de configuración, por lo esta será la red en la que se configurará el servidor de configuración, a menos que elija un servidor de procesos especializado.
 Física | N/D
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuración de Site Recovery
@@ -38,19 +39,19 @@ El servidor de configuración es una máquina local que ejecuta componentes de S
 
 **Componente** | **Requisitos**
 --- |---
-Núcleos de CPU | 8 
+Núcleos de CPU | 8
 RAM | 12 GB
 Número de discos | 3 discos<br/><br/> Los discos incluyen el disco del sistema operativo, el disco de memoria caché del servidor de procesos y la unidad de retención para la conmutación por recuperación.
 Espacio libre en el disco | 600 GB de espacio necesarios para la memoria caché del servidor de procesos.
 Espacio libre en el disco | 600 GB de espacio necesarios para la unidad de retención.
-Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 | 
-Configuración regional del sistema operativo | Español (es-es) 
+Sistema operativo  | Windows Server 2012 R2 o Windows Server 2016 |
+Configuración regional del sistema operativo | Español (es-es)
 PowerCLI | Se debe instalar [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0").
 Roles de Windows Server | No habilite: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 Directivas de grupo| No habilite: <br> - Impedir el acceso al símbolo del sistema. <br> - Impedir el acceso a herramientas de edición del Registro. <br> - Confiar en la lógica de datos adjuntos de archivos. <br> - Activar la ejecución de scripts. <br> [Más información](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Asegúrese de lo siguiente:<br/><br/> - No hay ningún sitio web preexistente predeterminado <br> - Habilitar la [autenticación anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Habilitar la configuración de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - No hay ningún sitio web o aplicación preexistente que escuche en el puerto 443<br>
-Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware) 
-Tipo de dirección IP | estática 
+Tipo de NIC | VMXNET3 (cuando se implementa como una máquina virtual VMware)
+Tipo de dirección IP | estática
 Puertos | 443 se usa para la orquestación del canal de control<br>9443 se usa para el transporte de datos
 
 ## <a name="replicated-machines"></a>Máquinas replicadas
@@ -75,14 +76,15 @@ Sistema operativo Linux | Red Hat Enterprise Linux 5.2 a 5.11, 6.1 a 6.9 y 7.0 a
 
 **Versión compatible** | **Versión de Azure Site Recovery Mobility Service** | **Versión de kernel** |
 --- | --- | --- |
-14.04 LTS | 9.11 | 3.13.0-24-generic a 3.13.0-128-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-91-generic |
 14.04 LTS | 9.12 | 3.13.0-24-generic a 3.13.0-132-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-96-generic |
 14.04 LTS | 9.13 | 3.13.0-24-generic a 3.13.0-137-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-104-generic |
 14.04 LTS | 9.14 | 3.13.0-24-generic a 3.13.0-142-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-116-generic |
-16.04 LTS | 9.11 | 4.4.0-21-generic a 4.4.0-91-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-32-generic |
+14.04 LTS | 9.15 | 3.13.0-24-generic a 3.13.0-144-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-119-generic |
 16.04 LTS | 9.12 | 4.4.0-21-generic a 4.4.0-96-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-35-generic |
 16.04 LTS | 9.13 | 4.4.0-21-generic a 4.4.0-104-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic |
 16.04 LTS | 9.14 | 4.4.0-21-generic a 4.4.0-116-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-36-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1011-azure |
+16.04 LTS | 9.15 | 4.4.0-21-generic a 4.4.0-119-generic<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-38-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1012-azure |
+
 
 
 ### <a name="debian-kernel-versions"></a>Versiones de kernel de Debian
@@ -90,8 +92,8 @@ Sistema operativo Linux | Red Hat Enterprise Linux 5.2 a 5.11, 6.1 a 6.9 y 7.0 a
 
 **Versión compatible** | **Versión de Azure Site Recovery Mobility Service** | **Versión de kernel** |
 --- | --- | --- |
-Debian 7 | 9.14 | 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
+Debian 7 | 9.14, 9.15 | 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Sistemas de archivos Linux/almacenamiento de invitados
@@ -100,7 +102,6 @@ Debian 8 | 9.14 | 3.16.0-4-amd64 a 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0
 --- | ---
 Sistemas de archivos | ext3, ext4, XFS.
 Administrador de volúmenes | LVM2.
-Software de múltiples rutas | Mapeador de dispositivo.
 Dispositivos de almacenamiento paravirtualizados | No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
 Dispositivos de E/S de bloque multicola | No compatible.
 Servidores físicos con controlador de almacenamiento HP CCISS | No compatible.
@@ -138,14 +139,17 @@ Varias NIC | Sí
 Dirección IP reservada | Sí
 IPv4 | Sí
 Conservar la dirección IP de origen | Sí
-Puntos de conexión del servicio Azure Virtual Network<br/><br/> (Redes virtuales y firewalls de Azure Storage) | Sin 
+Puntos de conexión del servicio Azure Virtual Network<br/> (sin firewalls de Azure Storage) | Sí
+Redes aceleradas | Sin 
 
 ## <a name="storage"></a>Storage
 **Componente** | **Compatible**
 --- | ---
 NFS de host | Sí para VMware<br/><br/> No para servidores físicos
-SAN de host (ISCSI) | Sí
+SAN de host (ISCSI/FC) | Sí
+vSAN de host | Sí para VMware<br/><br/> N/D para servidores físicos
 Varias rutas de host (MPIO) | Sí, probado con DSM de Microsoft, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON.
+Hospedaje de volúmenes virtuales (VVols) | Sí para VMware<br/><br/> N/D para servidores físicos
 VMDK de invitado/servidor | Sí
 EFI/UEFI de invitado/servidor| Parcial (migración a Azure solo para Windows Server 2012 y, posteriormente, máquinas virtuales de VMware). </br></br> Consulte la nota al final de la tabla.
 Disco de clúster compartido de invitado/servidor | Sin 
@@ -160,7 +164,7 @@ Volumen de invitado/servidor con disco seccionado > 4 TB <br><br/>Administració
 Invitado/servidor: espacios de almacenamiento | Sin 
 Invitado/servidor: adición/eliminación de disco en caliente | Sin 
 Invitado/servidor: disco de exclusión | Sí
-Varias rutas (MPIO) de invitado/servidor | N/D
+Varias rutas (MPIO) de invitado/servidor | Sin 
 
 > [!NOTE]
 > Es posible migrar a Azure las máquinas virtuales de VMware con arranque UEFI que ejecuten Windows Server 2012 o versiones posteriores. Se aplican las restricciones que se indican a continuación:
@@ -183,7 +187,7 @@ Blobs en bloques | Sin
 Cifrado en reposo (Cifrado del servicio Storage)| Sí
 Premium Storage | Sí
 Servicio Import/Export | Sin 
-Puntos de conexión del servicio Virtual Network<br/><br/> Redes virtuales y firewalls de Azure Storage configurados en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar datos de replicación) | Sin 
+Los firewalls de Azure Storage para redes virtuales se configuran en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar datos de replicación) | Sin 
 Cuentas de almacenamiento de uso general v2 (niveles de acceso frecuente y esporádico) | Sin 
 
 ## <a name="azure-compute"></a>Azure Compute
@@ -200,16 +204,16 @@ Las máquinas virtuales locales que se replican en Azure deben cumplir con los r
 
 **Componente** | **Requisitos** | **Detalles**
 --- | --- | ---
-Sistema operativo invitado | Comprobar los [sistemas operativos compatibles](#replicated machines). | Se produce un error en la comprobación si no es compatible. 
-Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en la comprobación si no es compatible. 
-Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible. 
+Sistema operativo invitado | Comprobar los [sistemas operativos compatibles](#replicated machines). | Se produce un error en la comprobación si no es compatible.
+Arquitectura del sistema operativo invitado | 64 bits | Se produce un error en la comprobación si no es compatible.
+Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en la comprobación si no es compatible.
 Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.  
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.  
-Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible. 
-Adaptadores de red | Se admiten varios adaptadores. | 
-VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible. 
-Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible. 
-BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. | 
+Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible.
+Adaptadores de red | Se admiten varios adaptadores. |
+VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.
+Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.
+BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. |
 Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
 
 

@@ -7,6 +7,7 @@ author: rmcmurray
 manager: mbaldwin
 ms.assetid: 6cd216f9-eb43-46b4-b30d-f194d0ae2d48
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: Java
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: 28c43b27d58d78036dd832fb4f95f2bc9958441c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f6cdb2877541bd584f881b9dfeff38500d19ab82
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155565"
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Visualización del SAML que devuelve Azure Access Control Service
 En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante Azure Access Control Service (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con Azure Access Control Service mediante Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md) y proporciona código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.

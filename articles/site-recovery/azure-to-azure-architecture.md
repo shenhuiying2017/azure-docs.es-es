@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209508"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitectura de replicación de Azure en Azure
 
@@ -46,11 +47,11 @@ Cuando se habilita la replicación de maquinas virtuales de Azure, los siguiente
 
 **Recurso** | **Detalles**
 --- | ---
-**Grupo de recursos de destino** | El grupo de recursos a los que pertenecen las máquinas virtuales replicadas después de la conmutación por error.
+**Grupo de recursos de destino** | El grupo de recursos a los que pertenecen las máquinas virtuales replicadas después de la conmutación por error. La ubicación de este grupo de recursos puede ser cualquier región de Azure excepto la región de Azure en la que se hospedan las máquinas virtuales de origen.
 **Red virtual de destino** | La red virtual en el que se encuentran las máquinas virtuales replicadas después de la conmutación por error. Se crea una asignación de red entre las redes virtuales de origen y de destino y viceversa.
 **Cuentas de almacenamiento en caché** | Antes de que los cambios en las máquinas virtuales de origen se repliquen en la cuenta de almacenamiento de destino, se realiza un seguimiento de ellos y se envían a la cuenta de almacenamiento en caché de la ubicación de origen. Este paso garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.
 **Cuentas de almacenamiento de destino (si la VM de origen no utiliza discos administrados)**  | Las cuentas de almacenamiento de la ubicación de destino en la que se replican los datos.
-** Discos administrados de réplica (si la VM de origen está en discos administrados)**  | Los discos administrados en la ubicación de destino en la que se replican los datos.
+** Discos administrados de réplica (si la VM de origen está en discos administrados)\*\*  | Los discos administrados en la ubicación de destino en la que se replican los datos.
 **Conjuntos de disponibilidad de destino**  | Los conjuntos de disponibilidad en los que se encuentran las máquinas virtuales replicadas tras la conmutación por error.
 
 ### <a name="step-2"></a>Paso 2

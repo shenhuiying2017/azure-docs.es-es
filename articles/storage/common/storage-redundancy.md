@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 2b105cd05ace9be6ad24d092f2b12c7ad092188e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076221"
 ---
 # <a name="azure-storage-replication"></a>Replicación de Azure Storage
 
@@ -31,14 +32,14 @@ Cuando cree una cuenta de almacenamiento, puede seleccionar una de las siguiente
 
 En la tabla siguiente se ofrece una rápida información general del ámbito de durabilidad y disponibilidad que cada estrategia de replicación le proporcionará para un tipo determinado de evento (o evento de impacto similar).
 
-| Escenario | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| Falta de disponibilidad del nodo en un centro de datos |Sí |Sí |Sí |Sí
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible |Sin  |Sí |Sí |Sí |
-| Una interrupción en toda la región |Sin  |Sin  |Sí |Sí |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. |Sin  |Sin  |Sin  |Sí |
-| Diseñado para proporcionar una durabilidad de objetos ___ a lo largo de un año determinado. |Como mínimo 99.999999999 % (once nueves)|Como mínimo 99.9999999999 % (doce nueves)|Como mínimo 99.99999999999999 % (dieciséis nueves)|Como mínimo 99.99999999999999 % (dieciséis nueves)|
-| Disponible en ___ tipos de cuenta de almacenamiento |GPv1, GPv2, Blob |GPv2 |GPv1, GPv2, Blob |GPv1, GPv2, Blob
+| Escenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | Sí                              | Sí                                  | Sí                                  |
+| Una interrupción en toda la región                                                                                     | Sin                               | Sin                                | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | Sin                                | Sin                                    | Sí                                  |
+| Diseñado para proporcionar una durabilidad de objetos ___ a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
+| Tipos de cuenta de almacenamiento admitidos                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/) para más información sobre las diferentes opciones de redundancia.
 
@@ -49,7 +50,7 @@ Consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/
 Podrá cambiar la estrategia de replicación de la cuenta de almacenamiento mediante [Azure Portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o una de las muchas [ bibliotecas de cliente de Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
 
    > [!NOTE]
-   > Actualmente, no se puede usar el Portal o la API para convertir la cuenta a ZRS. Sin embargo, tenemos previsto admitir la migración de LRS, GRS y RA-GRS a ZRS una vez que ZRS esté generalmente disponible. Consulte [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) para más información.
+   > Actualmente, no se puede usar el Portal o la API para convertir la cuenta a ZRS. Si desea convertir la replicación de la cuenta en ZRS, consulte [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) para más información.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>¿Hay algún costo al cambiar la estrategia de replicación de mi cuenta?
 Depende de la ruta de acceso de la conversión. Si se solicita la oferta de redundancia de más económica a la más cara, tenemos LRS, ZRS, GRS, y RA-GRS. Por ejemplo, si se pasa *de* LRS a cualquier otra opción, se incurrirá en cargos adicionales porque se pasará a un nivel de redundancia más sofisticado. Si se pasa *a* GRS o RA-GRS se incurrirá en un cargo por ancho de banda de salida porque los datos (en la región primaria) se están replicando en la región secundaria remota. Se trata de un cargo único en la instalación inicial. Después de copiar los datos, ya no hay ningún cargo adicional de conversión. Solo se le cobrará por replicar cualquier dato nuevo o actualizado en los datos existentes. Para obtener más información sobre los cargos de ancho de banda, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).

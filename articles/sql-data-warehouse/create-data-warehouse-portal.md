@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 284cfd3562a951da928697c91aa8234719056fa4
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e9501d023ad1e0bfdf692f31ec61ae59959c0f23
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191526"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia de Azure SQL Data Warehouse en Azure Portal, y realización de consultas en ella
 
@@ -74,13 +75,13 @@ Siga estos pasos para crear una instancia de SQL Data Warehouse que contiene los
 
 6. Haga clic en **Nivel de rendimiento** para especificar la configuración de rendimiento para el almacenamiento de datos.
 
-7. Para este tutorial, seleccione el nivel de rendimiento **Optimizado para Elasticity**. De forma predeterminada, el control deslizante se establece en **DW400**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
+7. Para este tutorial, seleccione **Gen2**. De forma predeterminada, el control deslizante está establecido en **DW1000c**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. Haga clic en **Aplicar**.
 
-9. Una vez completado el formulario de SQL Database, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
+9. Una vez completado el formulario de SQL Data Warehouse, haga clic en **Crear** para aprovisionar la base de datos. El aprovisionamiento tarda unos minutos. 
 
     ![clic en crear](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -96,7 +97,7 @@ El servicio SQL Data Warehouse crea un firewall en el nivel de servidor, lo que 
 > SQL Data Warehouse se comunica a través del puerto 1433. Si intenta conectarse desde una red corporativa, es posible que el firewall de la red no permita el tráfico saliente a través del puerto 1433. En ese caso, no puede conectarse al servidor de Azure SQL Database, salvo que el departamento de TI abra el puerto 1433.
 >
 
-1. Cuando se haya finalizado la implementación, haga clic en **Bases de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20171113.database.windows.net**) y proporciona opciones para otras configuraciones. 
+1. Cuando haya finalizado la implementación, haga clic en **Almacenamientos de datos SQL** en el menú de la izquierda y, después, haga clic en **mySampleDatabase** en la página **Almacenamientos de datos SQL**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **mynewserver-20180430.database.windows.net**) y proporciona opciones para otras configuraciones. 
 
 2. Copie este nombre para conectarse a su servidor y a sus bases de datos en los inicios rápidos posteriores. Para abrir la configuración del servidor, haga clic en su nombre.
 
@@ -127,8 +128,8 @@ Ahora puede conectarse a SQL server y sus almacenamientos de datos mediante esta
 En Azure Portal encontrará el nombre completo del servidor SQL. Más adelante usará el nombre completo cuando se conecte al servidor.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Seleccione **SQL Database** en el menú de la izquierda y haga clic en la base de datos en la página **SQL Database**. 
-3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20171113.database.windows.net. 
+2. Seleccione **Almacenamientos de datos SQL** en el menú izquierdo y haga clic en el almacenamiento de datos en la página **Almacenamientos de datos SQL**. 
+3. En el panel **Essentials** de la página de Azure Portal de la base de datos, busque y copie el **nombre del servidor**. En este ejemplo, el nombre completo es mynewserver-20180430.database.windows.net. 
 
     ![información sobre la conexión](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -143,7 +144,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
    | Configuración       | Valor sugerido | DESCRIPCIÓN | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
-   | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mynewserver 20171113.database.windows.net**. |
+   | Nombre de servidor | Nombre completo del servidor | Este es un ejemplo: **mynewserver-20180430.database.windows.net**. |
    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que se ha configurado en este tutorial. |
    | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
    | Password | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
@@ -197,7 +198,7 @@ Siga estos pasos para limpiar los recursos según estime oportuno.
 
 2. Para quitar el almacenamiento de datos para que no se le cobre por proceso o almacenamiento, haga clic en **Eliminar**.
 
-3. Para quitar el servidor SQL que creó, haga clic en **mynewserver-20171113.database.windows.net** en la imagen anterior y luego haga clic en **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
+3. Para eliminar el servidor SQL que creó, haga clic en **mynewserver-20180430.database.windows.net** en la imagen anterior y luego haga clic en **Eliminar**.  Debe tener cuidado con este procedimiento, ya que la eliminación del servidor elimina también todas las bases de datos asignadas al servidor.
 
 4. Para quitar el grupo de recursos, haga clic en **myResourceGroup** y luego haga clic en **Eliminar grupo de recursos**.
 

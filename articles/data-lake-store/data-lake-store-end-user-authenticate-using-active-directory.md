@@ -1,23 +1,22 @@
 ---
-title: "Autenticación de usuario final: Data Lake Store con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a lograr la autenticación del usuario final con Data Lake Store mediante Azure Active Directory"
+title: 'Autenticación de usuario final: Data Lake Store con Azure Active Directory | Microsoft Docs'
+description: Aprenda a lograr la autenticación del usuario final con Data Lake Store mediante Azure Active Directory
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: dca040fba78d6501bc835fdac402e69149d493b5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 11aed2ee2af239b02375a2d90e2544b4b45b2d41
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197144"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticación de usuario final con Data Lake Store mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +34,7 @@ Con ambas opciones, la aplicación recibe un token de OAuth 2.0 que se adjunta a
 
 En este artículo se habla de cómo crear una **aplicación nativa de Azure AD para la autenticación de usuario final**. Para obtener instrucciones sobre la configuración de aplicaciones de Azure AD para la autenticación entre servicios, vea [Autenticación entre servicios con Data Lake Store mediante Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/pricing/free-trial/).
 
 * El identificador de suscripción. Puede recuperarlo en Azure Portal. Por ejemplo, está disponible en la hoja de la cuenta de Data Lake Store.
@@ -83,7 +82,7 @@ Al seguir las instrucciones del vínculo, asegúrese de seleccionar **Nativa** c
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Paso 2: Obtener el identificador de aplicación y el URI de redirección
 
-Vea [Get the application ID (Obtener el identificador de la aplicación)](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para recuperar el identificador de aplicación (también denominado identificador de cliente en el Portal de Azure clásico) de la aplicación nativa de Azure AD.
+Si necesita recuperar el identificador de la aplicación, consulte [Obtener el identificador de la aplicación](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 Para recuperar el URI de redireccionamiento, siga estos pasos.
 

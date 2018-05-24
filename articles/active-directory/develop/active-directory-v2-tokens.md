@@ -3,23 +3,26 @@ title: Referencia de tokens de Azure Active Directory v2.0 | Microsoft Docs
 description: Los tipos de tokens y notificaciones emitidos por el punto de conexión de Azure AD v2.0
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: hirsin
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164465"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referencia de tokens de Azure Active Directory v2.0
 El punto de conexión de Azure Active Directory (Azure AD) v2.0 emite varios tipos de tokens de seguridad en cada [flujo de autenticación](active-directory-v2-flows.md). Esta referencia describe el formato, las características de seguridad y el contenido de cada tipo de token.
@@ -49,7 +52,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> Como práctica, para inspeccionar las notificaciones en el token de identificador de ejemplo, pegue el token de identificador de ejemplo en [calebb.net](http://calebb.net/).
+> Como práctica, para inspeccionar las notificaciones en el token de identificador de ejemplo, pegue el token de identificador de ejemplo en [jwt.ms](http://jwt.ms/).
 >
 >
 
@@ -69,8 +72,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Nombre |`name` |`Babe Ruth` |La notificación de nombre proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |La dirección de correo electrónico principal asociada con la cuenta de usuario, si existe. Su valor es mutable y podría cambiar en el tiempo. El ámbito `email` es necesario para recibir esta notificación. |
 | preferred username |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |El nombre de usuario principal que representa al usuario en el punto de conexión de la versión 2.0. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El ámbito `profile` es necesario para recibir esta notificación. |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado).  Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto.  Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
-| object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario.  También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`.  Esto significa que puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph.  Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada.  Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
+| object ID |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Esto significa que puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 
 ### <a name="access-tokens"></a>Tokens de acceso
 
@@ -83,7 +86,7 @@ Los tokens de actualización son tokens de seguridad que la aplicación puede us
 
 Los tokens de actualización tienen varios recursos. Un token de actualización recibido durante una solicitud de token para un recurso se puede canjear para los tokens de acceso a un recurso completamente diferente.
 
-Para recibir una actualización en la respuesta de un token, la aplicación debe solicitar el ámbito `offline_acesss` y obtener su concesión. Para más información sobre el ámbito `offline_access`, consulte el artículo sobre [consentimiento y ámbitos](active-directory-v2-scopes.md).
+Para recibir una actualización en la respuesta de un token, la aplicación debe solicitar el ámbito `offline_access` y obtener su concesión. Para más información sobre el ámbito `offline_access`, consulte el artículo sobre [consentimiento y ámbitos](active-directory-v2-scopes.md).
 
 Los tokens de actualización son, y siempre serán, totalmente opacos para la aplicación. Los emite el punto de conexión de Azure AD v2.0 y solo los puede inspeccionar e interpretar el punto de conexión v2.0. También son de larga duración, pero no se debe componer la aplicación esperando que un token de actualización dure por cualquier período de tiempo. Los tokens de actualización pueden invalidarse en cualquier momento por diversos motivos; para obtener más información, consulte [Revocación de tokens](active-directory-token-and-claims.md#token-revocation). La única forma para que la aplicación sepa si un token de actualización es válido es intentar canjearlo realizando una solicitud de token al extremo de la versión 2.0.
 
@@ -123,7 +126,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Este documento de metadatos es un objeto JSON que tiene varias piezas útiles de información, como la ubicación de los diferentes puntos de conexión que se necesitan para la autenticación de OpenID Connect.  El documento también incluye un *jwks_uri*, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. El documento JSON que se encuentra en el jwks_uri tiene toda la información de la clave pública que actualmente está en uso. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se usó en este documento para firmar un token. Luego realiza la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+Este documento de metadatos es un objeto JSON que tiene varias piezas útiles de información, como la ubicación de los diferentes puntos de conexión que se necesitan para la autenticación de OpenID Connect. El documento también incluye un *jwks_uri*, que ofrece la ubicación del conjunto de claves públicas que se usan para firmar los tokens. El documento JSON que se encuentra en el jwks_uri tiene toda la información de la clave pública que actualmente está en uso. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se usó en este documento para firmar un token. Luego realiza la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
 
 Cómo se realiza la validación de la firma queda fuera del ámbito de este documento. Hay muchas bibliotecas de código abierto disponibles para ayudarle con esto.
 

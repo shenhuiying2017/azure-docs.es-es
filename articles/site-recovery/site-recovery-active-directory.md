@@ -1,19 +1,20 @@
 ---
-title: "Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se describe cómo implementar una solución de recuperación ante desastres para Active Directory con Azure Site Recovery."
+title: Protección de Active Directory y DNS con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo implementar una solución de recuperación ante desastres para Active Directory con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: df5f40a49aa7359c082b0feb9e047818a642a871
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 97923af5ed4191f66434166c4743e398f8ac635a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072613"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Uso de Azure Site Recovery para proteger Active Directory y DNS
 
@@ -57,16 +58,16 @@ Para la máquina virtual que hospeda al controlador de dominio o DNS, en Site Re
 Cree un controlador de dominio en el sitio secundario. Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre del dominio del sitio principal. Puede usar el complemento **Servicios y sitios de Active Directory** para configurar los valores en el objeto de vínculo del sitio al que se agregan los sitios. Al configurar los valores en un vínculo de sitio, puede controlar cuándo se produce la replicación entre dos o más sitios y con qué frecuencia se produce. Para obtener más información, consulte [Programación de la replicación entre sitios](https://technet.microsoft.com/library/cc731862.aspx).
 
 ### <a name="site-to-azure-protection"></a>Protección del sitio en Azure
-En primer lugar, [cree un controlador de dominio en una red virtual de Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md) Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre de dominio del sitio principal.
+En primer lugar, cree un controlador de dominio en una red virtual de Azure. Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre de dominio del sitio principal.
 
-A continuación, [vuelva a configurar el servidor DNS para la red virtual](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) para usar el servidor DNS en Azure.
+A continuación, vuelva a configurar el servidor DNS para la red virtual para usar el servidor DNS en Azure.
 
 ![Red de Azure](./media/site-recovery-active-directory/azure-network.png)
 
 ### <a name="azure-to-azure-protection"></a>Protección de Azure en Azure
-En primer lugar, [cree un controlador de dominio en una red virtual de Azure](../active-directory/active-directory-install-replica-active-directory-domain-controller.md) Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre de dominio del sitio principal.
+En primer lugar, cree un controlador de dominio en una red virtual de Azure. Al promocionar el servidor a un rol de controlador de dominio, especifique el mismo nombre de dominio del sitio principal.
 
-A continuación, [vuelva a configurar el servidor DNS para la red virtual](../active-directory/active-directory-install-replica-active-directory-domain-controller.md#reconfigure-dns-server-for-the-virtual-network) para usar el servidor DNS en Azure.
+A continuación, vuelva a configurar el servidor DNS para la red virtual para usar el servidor DNS en Azure.
 
 ## <a name="test-failover-considerations"></a>Consideraciones sobre la conmutación por error de prueba
 Para evitar afectar a las cargas de trabajo de producción, la conmutación por error de prueba se produce en una red que está aislada de la red de producción.

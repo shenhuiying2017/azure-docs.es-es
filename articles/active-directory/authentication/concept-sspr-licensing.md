@@ -16,15 +16,16 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: cebfc1dcaca562d26eb9e85d9b8bf0fa14e5edc9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 699d621856e9febf7a5d4093d7fdc86c39d5f242
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149243"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensing requirements for Azure AD self-service password reset (Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD)
 
-Para que el restablecimiento de contraseña de Azure Active Directory (Azure AD) funcione, *debe tener al menos una licencia asignada en su organización*. No aplicamos la concesión de licencias por usuario en la experiencia de restablecimiento de contraseña. A fin de que se siga cumpliendo el contrato de licencia de Microsoft, debe asignar licencias a los usuarios que usen características premium.
+Para que el restablecimiento de contraseña de Azure Active Directory (Azure AD) funcione, *debe tener al menos una licencia asignada en su organización*. No aplicamos la concesión de licencias por usuario en la experiencia de restablecimiento de contraseña. Se requiere una licencia apropiada si un usuario se beneficia directa o indirectamente de cualquier característica cubierta por esa licencia.
 
 * **Solo usuarios en la nube**: Office 365, cualquier SKU de pago o Azure AD Basic
 * **Usuarios en la nube** o **locales**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
@@ -37,8 +38,9 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Microsoft 365 (Plan E3)
-* Microsoft 365 (Plan E5)
+* Microsoft 365 E3
+* Microsoft 365 E5
+* Microsoft 365 F1
 
 > [!WARNING]
 > Los planes de licencias de Office 365 independientes *no admiten la escritura diferida de contraseñas* y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.

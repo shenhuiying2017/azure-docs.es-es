@@ -1,11 +1,11 @@
 ---
-title: "Creación de una instancia de Azure Application Gateway (CLI de Azure 1.0) | Microsoft Docs"
+title: Creación de una instancia de Azure Application Gateway (CLI de Azure 1.0) | Microsoft Docs
 description: Aprenda a crear una puerta de enlace de aplicaciones mediante la CLI de Azure 1.0 en Resource Manager.
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
@@ -14,26 +14,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
-ms.openlocfilehash: fe50fb3a7434702101dc5ae7a9dd176a33423119
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201878"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-gateway-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-gateway-arm.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
+> * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure 1.0](application-gateway-create-gateway-cli.md)
 > * [CLI de Azure 2.0](application-gateway-create-gateway-cli.md)
 > 
 > 
 
-Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
 
@@ -59,7 +60,7 @@ En este escenario:
 
 Azure Application Gateway requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
-## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
 Abra el **símbolo del sistema de Microsoft Azure**e inicie sesión. 
 

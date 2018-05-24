@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ce65b9b532ca6f594334f3eb0194d700aca1c735
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200355"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: directivas integradas
 
@@ -81,6 +82,10 @@ Esta directiva controla las experiencias de registro y de inicio de sesión del 
 ## <a name="create-a-password-reset-policy"></a>Crear una directiva de restablecimiento de contraseña
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
+
+## <a name="preview-policies"></a>Directivas de versión preliminar
+
+Según se publican nuevas características, puede que algunas no estén disponibles en las directivas existentes.  Tenemos previsto reemplazar las versiones anteriores con la versión más reciente del mismo tipo una vez que estas directivas tengan disponibilidad general.  Las directivas existentes no cambiarán y para sacar provecho de estas nuevas características tendrá que crear nuevas directivas.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

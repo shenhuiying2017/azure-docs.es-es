@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939042"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -25,31 +26,30 @@ Cada región de Azure se empareja con otra región de la misma zona geográfica,
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Ilustración 1: Diagrama de pareja regional de Azure
+Figura 1: Parejas regionales de Azure
 
 | Geography | Regiones emparejadas |  |
 |:--- |:--- |:--- |
 | Asia |Asia oriental |Sudeste asiático |
 | Australia |Australia Oriental |Sudeste de Australia |
+| Brasil |Sur de Brasil (2) |Centro-Sur de EE. UU |
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
+| Europa |Europa del Norte |Europa occidental |
+| Alemania |Centro de Alemania |Noreste de Alemania |
 | India |India Central |Sur de la India |
 | India |Oeste de la India (1) |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
 | Corea |Corea Central |Corea del Sur |
-| Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 | Norteamérica |Este de EE. UU |Oeste de EE. UU |
 | Norteamérica |Este de EE. UU. 2 |Central EE. UU: |
-| Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. |
-| Europa |Europa del Norte |Europa occidental |
-| Japón |Este de Japón |Oeste de Japón |
-| Brasil |Sur de Brasil (2) |Centro-Sur de EE. UU |
+| Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
+| Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
+| Reino Unido |Oeste de Reino Unido |Sur del Reino Unido 2 |
+| Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
+| Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
 | Gobierno de Estados Unidos |Iowa Gob. EE. UU. (3) |Gobierno de EE. UU. - Virginia |
 | Gobierno de Estados Unidos |Virginia Gob. EE. UU. (4) |Gobierno de EE. UU.: Texas |
-| Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
-| Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
-| Reino Unido |Oeste de Reino Unido |Sur del Reino Unido 2 |
-| Alemania |Centro de Alemania |Noreste de Alemania |
 
 Tabla 1: Asignación de las parejas regionales de Azure
 

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8271c4c88245e98fd3709c7279904d36ad009682
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770730"
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controles de acceso en el acceso condicional de Azure Active Directory 
 
@@ -75,13 +76,13 @@ La autenticación multifactor ayuda a proteger los recursos del acceso por parte
 
 ### <a name="compliant-device"></a>Dispositivos compatible
 
-Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basado en el dispositivo es conceder acceso a los recursos configurados solo desde dispositivos de confianza. Requerir un dispositivo compatible es una opción para definir qué es un dispositivo de confianza. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a Azure Active Directory y marcados como compatibles por la solución de MDM.
+Puede configurar directivas de acceso condicional basadas en dispositivos. El objetivo de una directiva de acceso condicional basada en dispositivos es conceder acceso a los recursos configurados solo desde [dispositivos administrados](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requerir el uso de un dispositivo compatible es una de las opciones que tiene para definir qué es un dispositivo administrado. Si esta opción está seleccionada, la directiva de acceso condicional concede acceso a los intentos que se realizan con dispositivos [registrados](device-management-introduction.md) en Azure Active Directory y marcados como compatibles por la solución de MDM.
 
 Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-### <a name="domain-joined-device"></a>Dispositivo unido al dominio
+### <a name="hybrid-azure-ad-joined-device"></a>Dispositivo unido a Azure AD híbrido
 
-Requerir un dispositivo unido a un dominio es otra opción para configurar directivas de acceso condicional basadas en dispositivos. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a su Active Directory local y su Azure Active Directory.  
+Requerir un dispositivo que esté unido a un dominio de Azure AD híbrido es otra opción que puede usar para configurar directivas de acceso condicional basadas en dispositivos. Este requisito hace referencia a equipos de escritorio, equipos portátiles y tabletas de empresa con Windows que están unidos a una instancia local de Active Directory. Si se selecciona esta opción, la directiva de acceso condicional concede acceso a los intentos de acceso realizados con dispositivos unidos a su Active Directory local y su Azure Active Directory.  
 
 Para más información, consulte [Configuración de directivas de acceso condicional basadas en dispositivos de Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 

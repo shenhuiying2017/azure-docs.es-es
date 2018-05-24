@@ -10,11 +10,12 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: b6ecedac8e5d040c2e75d28e1dc8e8309f359a1c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365770"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database 
 Azure SQL Database puede emitir métricas y registros de diagnóstico para facilitar la supervisión. SQL Database se puede configurar para que almacene el uso de recursos, los trabajadores y sesiones, y la conectividad en uno de estos recursos de Azure:
@@ -51,6 +52,7 @@ Puede aprovisionar un nuevo recurso de Azure o seleccionar uno existente. Despu�
 - [Tiempos de espera](sql-database-metrics-diag-logging.md#time-outs-dataset): contiene información sobre los tiempos de espera que se produjeron en una base de datos.
 - [Bloqueos](sql-database-metrics-diag-logging.md#blockings-dataset): contiene la información acerca de los eventos de bloqueo que se produjeron en una base de datos.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): contiene Intelligent Insights. [Más información sobre Intelligent Insights](sql-database-intelligent-insights.md).
+- **Auditoría** / **SQLSecurityAuditEvents**: no está disponible actualmente.
 
 Si selecciona Event Hubs o una cuenta de almacenamiento, puede especificar una directiva de retención. Esta directiva elimina los datos anteriores a un período de tiempo seleccionado. Si especifica Log Analytics, la directiva de retención depende del plan de tarifa seleccionado. Para obtener más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
@@ -154,7 +156,7 @@ Puede combinar estos parámetros para habilitar varias opciones de salida.
 
 ### <a name="rest-api"></a>API DE REST
 
-Lea sobre cómo [cambiar la configuración de diagnóstico con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx). 
+Lea sobre cómo [cambiar la configuración de diagnóstico con la API de REST de Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 

@@ -2,25 +2,20 @@
 title: Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory | Microsoft Docs
 description: Vea las respuestas a las preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 2f039361bce9615e8b8b9aa62dc152db504a6dc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dc239385261c9544b00cf2cf2e450136dce0ae
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076580"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -37,9 +32,6 @@ Sí. Para más información acerca de cómo utilizar la característica de carga
 
 ### <a name="how-can-i-customize-my-invitation-emails"></a>¿Cómo puedo personalizar mis correos electrónicos de invitación?
 Mediante las [API de invitación de B2B](active-directory-b2b-api.md) puede personalizar casi todos los elementos del proceso del invitador.
-
-### <a name="can-an-invited-external-user-leave-the-organization-after-being-invited"></a>¿Puede un usuario externo invitado dejar la organización después de que se le haya invitado?
-El administrador de la organización que invita puede eliminar un usuario invitado de colaboración B2B de su directorio, pero el usuario invitado no puede abandonar el directorio de la organización que invita por sí mismo. 
 
 ### <a name="can-guest-users-reset-their-multi-factor-authentication-method"></a>¿Pueden restablecer los usuarios invitados su método de Multi-Factor Authentication?
 Sí. Los usuarios invitados pueden restablecer su método de Multi-Factor Authentication de la misma manera que los usuarios normales.
@@ -105,9 +97,7 @@ Escuchamos constantemente sus comentarios para mejorar la colaboración B2B. Le 
 También le invitamos a enviar sus ideas y a votar las características futuras en el sitio de [ideas para la colaboración B2B](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>¿Podemos enviarle una invitación que se canjee automáticamente para que el usuario pueda empezar en cualquier momento? ¿O bien, el usuario siempre tiene que hacer clic para desplazarse a la dirección URL de canje?
-Las invitaciones que envía un usuario de la organización que invita, que también es miembro de la organización asociada, no precisan que el usuario de B2B realice el canje.
-
-Se recomienda invitar a un usuario de la organización asociada a unirse a la organización que invita. [Agregue este usuario al rol de invitador de usuarios en la organización de recursos](active-directory-b2b-add-guest-to-role.md). Este usuario puede invitar a otros usuarios de la organización asociada mediante la interfaz de usuario de inicio de sesión, los scripts de PowerShell o las API. De este modo, los usuarios de colaboración B2B de esa organización no necesitan volver a canjear sus invitaciones.
+Un invitador puede invitar a otros usuarios de la organización asociada mediante la interfaz de usuario, los scripts de PowerShell o las API. Posteriormente, el invitador puede enviar al usuario invitado un vínculo directo a una aplicación compartida. En la mayoría de los casos, ya no es necesario abrir la invitación de correo electrónico y hacer clic en una dirección URL de canje. Para más información, consulte [Experiencia de invitación de colaboración B2B de Azure Active Directory](active-directory-b2b-redemption-experience.md).
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>¿Cómo funciona la colaboración B2B cuando el asociado invitado utiliza la federación para agregar su propia autenticación local?
 Si el asociado tiene un inquilino de Azure AD que está federado en la infraestructura de autenticación local, se consigue automáticamente el inicio de sesión único (SSO) local. Si el asociado no tiene ningún inquilino de Azure AD, se crea una cuenta de Azure AD para los usuarios nuevos. 
@@ -129,16 +119,5 @@ Para obtener información acerca de las licencias que necesita tener una organiz
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
+- [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](active-directory-b2b-admin-add-users.md)
-* [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B?](active-directory-b2b-iw-add-users.md)
-* [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md)
-* [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md)
-* [Concesión de licencias de colaboración B2B de Azure AD](active-directory-b2b-licensing.md)
-* [Solución de problemas de colaboración B2B de Azure Active Directory](active-directory-b2b-troubleshooting.md)
-* [Personalización y API de colaboración B2B de Active Directory Azure](active-directory-b2b-api.md)
-* [Autenticación multifactor para usuarios de colaboración B2B](active-directory-b2b-mfa-instructions.md)
-* [Incorporación de usuarios de colaboración B2B sin invitación](active-directory-b2b-add-user-without-invite.md)
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)

@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 81425c6ac4e463bd4242328206bd43ce78a1105a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 979897e3cb703b36a46e96848a9176d6d4c6cc6a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072273"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
 
 Este artículo ofrece un resumen de las opciones y los requisitos específicos disponibles para conectar el servidor a Azure File Sync de forma correcta y segura.
+
+> [!Important]
+> Azure File Sync aún no admite firewalls ni redes virtuales para una cuenta de almacenamiento. 
 
 ## <a name="overview"></a>Información general
 Azure File Sync funciona como un servicio de orquestación entre el servidor Windows, el recurso compartido de archivos de Azure y otros servicios de Azure con el objetivo de sincronizar los datos tal y como se describe en el grupo de sincronización. Para que Azure File Sync funcione correctamente, debe configurar los servidores para que se comuniquen con los siguientes servicios de Azure:

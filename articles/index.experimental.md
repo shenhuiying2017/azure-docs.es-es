@@ -1,13 +1,14 @@
 ---
 layout: HubPage
-hide_bc: ''
+hide_bc: true
 title: Documentación de Microsoft Azure
 description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
-ms.openlocfilehash: 5084e6f9ab8d73e2c8ffefc95a376bc85222320c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070067"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,13 +137,14 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="ico48Link">
                                                     <a href="/go/azure/">
+                                                        <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
                                                 </div>
                                                 <div>
                                                     <h4>Modelos de aplicaciones</h4>
                                                     <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/azure/app-service-web/">Aplicaciones web</a></li>
                                                         <li><a class="barLink" href="/azure/azure-functions/">Funciones sin servidor</a></li>
                                                     </ul>
                                                 </div>
@@ -186,7 +188,7 @@ ms.lasthandoff: 03/09/2018
                                                 <div class="ico48Link">
                                                     <a href="/cli/azure">
                                                         <img src="media/index/azure_dev-7.svg" alt="">
-                                                        <span>CLI de<br />Azure</span>
+                                                        <span>Azure<br />Azure</span>
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
@@ -239,7 +241,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/virtual-machine-scale-sets/">
                                                 <img src="media/index/AvailabilitySetOld.svg" alt="" />
-                                                <p>Conjuntos de escalado de máquina virtual</p>
+                                                <p>Virtual Machine Scale Sets</p>
                                             </a>
                                         </li>
                                         <li>
@@ -321,7 +323,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/redis-cache/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Caché en Redis</p>
+                                                <p>Redis Cache</p>
                                             </a>
                                         </li>
                                         <li>
@@ -364,7 +366,7 @@ ms.lasthandoff: 03/09/2018
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>Enterprise Integration</h3>
+                                    <h3>Integración empresarial</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/logic-apps/">
@@ -414,7 +416,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/azure-government/">
                                                 <img src="media/index/azure-government.svg" alt="" />
-                                                <p>US Government de Azure</p>
+                                                <p>Azure US Government</p>
                                             </a>
                                         </li>
                                         <li>
@@ -467,7 +469,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/dns/">
                                                 <img src="media/index/DNS.svg" alt="" />
-                                                <p>DNS de Azure</p>
+                                                <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
@@ -584,25 +586,25 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/cs-decision-maker.svg" alt="" />
-                                                <p>Servicio de decisión personalizado</p>
+                                                <p>Custom Decision Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
                                                 <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                <p>Servicio de voz personalizado</p>
+                                                <p>Custom Speech Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Servicio de visión personalizada</p>
+                                                <p>Custom Vision Service</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/entitylinking/home">
                                                 <img src="media/index/API_Know_EntityLink.svg" alt="" />
-                                                <p>Vinculación de entidades</p>
+                                                <p>Entity Linking</p>
                                             </a>
                                         </li>
                                         <li>
@@ -668,7 +670,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_Lang_WebLM.svg" alt="" />
-                                                <p>Modelo de lenguaje web</p>
+                                                <p>Web Language Model</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -687,7 +689,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Almacén de Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -744,7 +746,7 @@ ms.lasthandoff: 03/09/2018
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>Almacén de Data Lake</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1048,7 +1050,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Máquinas virtuales Linux</h3>
-                                                    <p>Aprovisione máquinas virtuales de Ubuntu, Red Hat, etc.</p>
+                                                    <p>Aprovisione máquinas virtuales Ubuntu, Red Hat, etc.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1085,7 +1087,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Conjuntos de escalado de máquina virtual</h3>
+                                                    <h3>Virtual Machine Scale Sets</h3>
                                                     <p>Administre y escale de decenas a millares de máquinas virtuales Linux y Windows</p>
                                                 </div>
                                             </div>
@@ -1181,7 +1183,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <p>Desarrolle microservicios y organice contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1317,7 +1319,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DNS de Azure</h3>
+                                                    <h3>Azure DNS</h3>
                                                     <p>Hospede su dominio DNS en Azure</p>
                                                 </div>
                                             </div>
@@ -1436,7 +1438,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacén de Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -1613,7 +1615,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Media Services</h3>
-                                                    <p>Codifique, almacene y transmita por streaming vídeo y audio a escala</p>
+                                                    <p>Codifique, almacene y transmita por streaming de vídeo y audio a escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1732,7 +1734,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Service Fabric</h3>
-                                                    <p>Desarrollo de microservicios y orquestación de contenedores en Windows o Linux</p>
+                                                    <p>Desarrolle microservicios y organice contenedores en Windows o Linux</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1907,7 +1909,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Caché en Redis</h3>
+                                                    <h3>Redis Cache</h3>
                                                     <p>Acceso a datos de baja latencia y alto rendimiento para compilar aplicaciones rápidas y escalables</p>
                                                 </div>
                                             </div>
@@ -2007,7 +2009,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servicio de voz personalizado</h3>
+                                                    <h3>Custom Speech Service</h3>
                                                     <p>Superación de las barreras de reconocimiento de voz</p>
                                                 </div>
                                             </div>
@@ -2026,7 +2028,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Servicio de visión personalizada</h3>
+                                                    <h3>Custom Vision Service</h3>
                                                     <p>Un servicio web personalizable que aprende a reconocer contenido específico de imágenes</p>
                                                 </div>
                                             </div>
@@ -2045,7 +2047,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Indexador de vídeo</h3>
+                                                    <h3>Video Indexer</h3>
                                                     <p>Busque, edite, analice y obtenga información acerca de los vídeos</p>
                                                 </div>
                                             </div>
@@ -2146,7 +2148,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Procesamiento de flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
+                                                    <p>Procese flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2202,7 +2204,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Almacén de Data Lake</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>Repositorio a hiperescala para cargas de trabajo de análisis de macrodatos</p>
                                                 </div>
                                             </div>
@@ -2379,7 +2381,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Procesamiento de flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
+                                                    <p>Procese flujo de datos en tiempo real procedente de millones de dispositivos IoT</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3049,7 +3051,7 @@ ms.lasthandoff: 03/09/2018
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>US Government de Microsoft Azure</h3>
+                                                    <h3>Microsoft Azure US Government</h3>
                                                     <p>Compile y hospede aplicaciones para misiones del gobierno de EE.UU. en una instancia dedicada de Azure</p>
                                                 </div>
                                             </div>
@@ -3124,7 +3126,7 @@ ms.lasthandoff: 03/09/2018
                                                     <a href="/dotnet/azure/dotnet-sdk-azure-install">Obtenga las bibliotecas de Azure para .NET</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Primeros pasos</a>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/azure/?view=azure-dotnet">Referencia de API</a>
@@ -3208,7 +3210,7 @@ ms.lasthandoff: 03/09/2018
                                                     <a href="/java/azure/java-sdk-azure-install">Obtenga las bibliotecas de Azure para Java</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Primeros pasos</a>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">Referencia de API</a>
@@ -3254,6 +3256,7 @@ ms.lasthandoff: 03/09/2018
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -3360,7 +3363,7 @@ ms.lasthandoff: 03/09/2018
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>CLI de Azure </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Introducción</a>
                                                 </p>
@@ -3448,7 +3451,7 @@ ms.lasthandoff: 03/09/2018
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Herramientas de PowerShell para Visual Studio</a>
+                                                    <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">PowerShell Tools for Visual Studio</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Descargar</a>

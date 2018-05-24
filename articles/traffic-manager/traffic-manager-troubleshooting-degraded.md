@@ -1,10 +1,10 @@
 ---
-title: "Solución de problemas de estado degradado en Administrador de tráfico de Azure"
-description: "Cómo solucionar problemas de perfiles de Administrador de tráfico cuando se muestra como muestra un estado degradado."
+title: Solución de problemas de estado degradado en Administrador de tráfico de Azure
+description: Cómo solucionar problemas de perfiles de Administrador de tráfico cuando se muestra como muestra un estado degradado.
 services: traffic-manager
-documentationcenter: 
-author: kumudd
-manager: timlt
+documentationcenter: ''
+author: chadmath
+manager: cshepard
 ms.assetid: 8af0433d-e61b-4761-adcc-7bc9b8142fc6
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,12 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: kumud
-ms.openlocfilehash: b1d00fb84695d2289f37647f55a7c56cf28c8c96
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: f5b2f471b13db67411f15f32abad5afc644c04ba
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777737"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
@@ -38,7 +39,7 @@ Si el estado de su instancia de Traffic Manager muestra **Inactivo**, ambos punt
 * Un procedimiento recomendado consiste en establecer la ruta de acceso del sondeo en algo que tenga una lógica suficiente para determinar si el sitio está activo o inactivo. En el ejemplo anterior, al establecer la ruta de acceso en "/favicon.ico", solo prueba que w3wp.exe está respondiendo. Puede que este sondeo no indique que la aplicación web está funcionando correctamente. Sería una mejor opción establecer una ruta de acceso a algo como "/Probe.aspx" que tiene lógica para determinar el estado del sitio. Por ejemplo, podría usar contadores de rendimiento para medir el uso de la CPU o el número de solicitudes con error. O bien, podría intentar acceder a los recursos de la base de datos o al estado de la sesión para asegurarse de que la aplicación web funciona.
 * Si se degradan todos los puntos de conexión de un perfil, Traffic Manager los tratará a todos como correctos y enrutará el tráfico a todos ellos. Este comportamiento garantiza que los problemas con el mecanismo de sondeo no darán lugar a una interrupción completa del servicio.
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Para solucionar un error de sondeo, necesita una herramienta que muestre el código de estado HTTP devuelto desde la dirección URL de sondeo. Hay muchas herramientas disponibles que le muestran la respuesta HTTP sin formato.
 
@@ -85,7 +86,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
 
-[Servicios en la nube](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Azure Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/)
 

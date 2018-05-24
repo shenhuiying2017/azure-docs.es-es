@@ -2,24 +2,20 @@
 title: Información general sobre el autoservicio de restablecimiento de contraseña | Microsoft Docs
 description: ¿Para qué puede servir el autoservicio de restablecimiento de contraseña de Azure AD en una organización?
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: e084db41cd199a9609e3edaf8b427a85ab2366b4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866675"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Autoservicio de restablecimiento de contraseña de Azure AD para profesionales de TI
 
@@ -32,6 +28,8 @@ Con el autoservicio de restablecimiento de contraseña de Azure Active Directory
    * Enviar un mensaje de correo electrónico a una cuenta de correo electrónico secundaria validada.
    * Responder a sus preguntas de seguridad.
 * **Autoservicio de desbloqueo de cuentas**: el usuario no puede iniciar sesión con su contraseña y se ha bloqueado. El usuario quiere desbloquear su cuenta sin intervención del administrador mediante el uso de los métodos de autenticación.
+
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
 
 ## <a name="why-choose-azure-ad-sspr"></a>¿Por qué elegir el autoservicio de restablecimiento de contraseña de Azure AD?
 
@@ -50,7 +48,7 @@ El autoservicio de restablecimiento de contraseña de Azure AD está disponible 
 
 * **Azure AD Free** : los administradores que están solo en la nube pueden restablecer sus propias contraseñas.
 * **Azure AD Basic** o cualquier **suscripción de pago de Office 365**: los usuarios que están solo en la nube pueden restablecer sus propias contraseñas.
-* **Azure AD Premium**: cualquier usuario o administrador, incluidos los que están solo en la nube, los federados o los usuarios sincronizados con contraseña, pueden restablecer sus propias contraseñas. Algunas contraseñas locales requieren que la escritura diferida de contraseñas esté habilitada.
+* **Azure AD Premium**: cualquier usuario o administrador, incluidos los que están solo en la nube, los federados, los que tienen autenticación de paso a través o los usuarios sincronizados con contraseña, pueden restablecer sus propias contraseñas. Algunas contraseñas locales requieren que la escritura diferida de contraseñas esté habilitada.
 
 ## <a name="azure-ad-pricing-sla-updates-and-roadmap"></a>Precios, SLA, actualizaciones y hoja de ruta de Azure AD
 

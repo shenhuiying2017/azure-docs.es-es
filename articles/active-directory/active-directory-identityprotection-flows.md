@@ -1,9 +1,9 @@
 ---
-title: "Experiencias de inicio de sesión con Azure AD Identity Protection | Microsoft Docs"
-description: "Proporciona información general sobre la experiencia de usuario cuando Identity Protection ha mitigado o corregido los problemas relacionados con un usuario, o cuando una directiva exige la autenticación multifactor."
+title: Experiencias de inicio de sesión con Azure AD Identity Protection | Microsoft Docs
+description: Proporciona información general sobre la experiencia de usuario cuando Identity Protection ha mitigado o corregido los problemas relacionados con un usuario, o cuando una directiva exige la autenticación multifactor.
 services: active-directory
-keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
-documentationcenter: 
+keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164210"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiencias de inicio de sesión con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection, puede:
@@ -49,10 +50,7 @@ En este tema se ofrece información general sobre la experiencia de inicio de se
 ## <a name="multi-factor-authentication-registration"></a>Registro de la autenticación multifactor
 La mejor experiencia de usuario en ambos casos: el flujo de recuperación de la cuenta en peligro y el flujo de inicio de sesión peligroso, es cuando el usuario puede realizar su recuperación. Si los usuarios están registrados para la autenticación multifactor, ya tienen un número de teléfono asociado a sus cuentas que pueden usar para pasar comprobaciones de seguridad. No es necesaria ninguna participación del administrador o el departamento de soporte técnico para recuperar la cuenta puesta en peligro. Por lo tanto, se recomienda encarecidamente a los usuarios que se registren en la autenticación multifactor. 
 
-Los administradores pueden:
-
-* Establecer una directiva que requiere que los usuarios configuren sus cuentas para una verificación de seguridad adicional. 
-* Permitir que se omita el registro de la autenticación multifactor durante 30 días, en caso de que deseen dar a los usuarios un período de gracia antes de registrarse.
+Los administradores pueden establecer una directiva que requiere que los usuarios configuren sus cuentas para una verificación de seguridad adicional. Esta directiva permite a los usuarios omitir el registro de autenticación multifactor durante un máximo de 14 días. El período de gracia de 14 días no es configurable.
 
 **El registro de la autenticación multifactor consta de tres pasos:**
 

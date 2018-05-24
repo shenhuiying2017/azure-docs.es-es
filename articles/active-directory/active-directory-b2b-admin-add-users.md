@@ -2,29 +2,29 @@
 title: Incorporación de usuarios de colaboración B2B en Azure Portal | Microsoft Docs
 description: Muestra cómo un administrador puede agregar usuarios invitados a su directorio desde una organización asociada con la colaboración B2B de Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/11/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.assetid: ''
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/02/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 34bd5b51089045c4cd20f29d179bb230e5e3fac2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9d0565468d953c83ca5fee864b3079fbfee9bbf1
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076772"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal
 
 Como administrador global, o como un usuario al que se le asignan cualquiera de los roles limitados de directorio de administradores, puede usar Azure Portal para invitar a los usuarios de colaboración B2B. Puede invitar a usuarios invitados al directorio, a un grupo o a una aplicación. Después de invitar a un usuario mediante cualquiera de estos métodos, la cuenta del usuario invitado se agrega a Azure Active Directory (Azure AD), con *invitado* como tipo de usuario. El usuario invitado deberá canjear después su invitación para acceder a los recursos.
+
+Después de agregar un usuario invitado al directorio, puede enviarle un vínculo directo a una aplicación compartida o bien, el propio usuario invitado puede hacer clic en la dirección URL de canje del correo electrónico de invitación. Para más información sobre el proceso de canje, consulte [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md).
+
+> [!IMPORTANT]
+> Debe seguir los pasos descritos en [Instrucciones: Agregar información de privacidad de su organización en Azure Active Directory](https://aka.ms/adprivacystatement) para agregar la dirección URL de la declaración de privacidad de su organización. Como parte del proceso de canje de invitación por primera vez, el usuario invitado debe indicar su consentimiento con los términos de privacidad para poder continuar. 
 
 ## <a name="add-guest-users-to-the-directory"></a>Adición de usuarios invitados al directorio
 
@@ -92,7 +92,7 @@ Para agregar usuarios de colaboración B2B a una aplicación como administradore
  
 ## <a name="resend-invitations-to-guest-users"></a>Reenvío de invitaciones a usuarios invitados
 
-Si un usuario invitado todavía no ha canjeado su invitación, puede volver a enviarle la invitación.
+Si un usuario invitado todavía no ha canjeado su invitación, puede volver a enviarle el correo electrónico de invitación.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
@@ -111,6 +111,4 @@ Si un usuario invitado todavía no ha canjeado su invitación, puede volver a en
 
 - Para aprender cómo los administradores que no son de Azure AD pueden agregar usuarios invitados B2B, consulte [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?](active-directory-b2b-iw-add-users.md)
 - Para más información sobre el correo electrónico de invitación, consulte [Los elementos del correo electrónico de invitación de colaboración B2B](active-directory-b2b-invitation-email.md).
-- Para más información sobre el proceso de canje de la invitación, consulte [Canje de invitación de colaboración B2B](active-directory-b2b-redemption-experience.md).
-
 

@@ -3,7 +3,7 @@ title: Live Metrics Stream con métricas y diagnósticos personalizados en Azure
 description: Supervise la aplicación web en tiempo real con métricas personalizadas y diagnostique problemas con una fuente directa de errores, seguimientos y eventos.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: mbullwin; Soubhagya.Dash
+ms.openlocfilehash: 0c3662984c63195d8fc903c66b27aa253ce419cb
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165373"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo 
 
@@ -116,7 +117,7 @@ Los criterios de filtros personalizados que especifique se envían hacia el comp
 
 ### <a name="add-api-key-to-configuration"></a>Incorporación de la clave de API a la configuración
 
-# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+### <a name="classic-aspnet"></a>ASP.NET clásico
 
 En el archivo applicationinsights.config, agregue AuthenticationApiKey a QuickPulseTelemetryModule:
 ``` XML
@@ -133,7 +134,8 @@ O bien, en el código, establezca esto en QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
-# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (Requiere Application Insights ASP.NET Core SDK 2.3.0-beta o superior)
 
 Modifique el archivo startup.cs como sigue:
 
@@ -141,26 +143,14 @@ Primero agregue
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-A continuación, en el método Configurar, agregue:
+Después, en el método ConfigureServices, agregue:
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 Sin embargo, si reconoce y confía en todos los servidores conectados, puede probar los filtros personalizados sin el canal autenticado. Esta opción está disponible durante seis meses. Esta invalidación se requiere una vez cada nueva sesión, o cuando se pone en línea un nuevo servidor.
 

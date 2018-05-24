@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales | Microsoft Docs"
-description: "Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales. Descripción de los problemas habituales y cómo resolverlos."
+title: Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales | Microsoft Docs
+description: Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales. Descripción de los problemas habituales y cómo resolverlos.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
 ms.service: virtual-machine-scale-sets
@@ -15,14 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: negat
-ms.openlocfilehash: 02a3acf818bfca31a56b364f7abab97551e0d3f0
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: ea634ea8bcb4fed1ed63dc8d1e17d215a00758c6
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161029"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales
-**Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales; por ejemplo, al implementar una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale, tiene sus reglas de escalado definidas y funcionan bien, excepto que, sin importar cuánta carga se coloque en las máquinas virtuales, no se escalará automáticamente.
+**Problema**: ha creado una infraestructura de escalado automático en Azure Resource Manager mediante conjuntos de escalado de máquinas virtuales (por ejemplo, mediante la implementación de una plantilla como esta: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), tiene sus reglas de escalado definidas y funciona perfectamente, salvo que sin importar la cantidad de carga que coloque en las máquinas virtuales, no se escala automáticamente.
 
 ## <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 Entre los aspectos que debe considerar se incluyen:
@@ -45,13 +46,13 @@ Entre los aspectos que debe considerar se incluyen:
     Es fácil cometer errores, así que comience con una plantilla como la anterior que ya sabemos que funciona y haga pequeños cambios incrementales. 
 * ¿Puede escalar o reducir horizontalmente de forma manual?
   
-    Intente volver a implementar el recurso del conjunto de escalado de máquinas virtuales con una configuración diferente de "capacidad" para cambiar el número de máquinas virtuales manualmente. Una plantilla de ejemplo es: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing. Puede que deba editar la plantilla para asegurarse de que tiene el mismo tamaño de máquina que el que usa el conjunto de escalado. Si puede cambiar correctamente el número de máquinas virtuales de forma manual, sabrá que ha aislado el problema al escalado automático.
+    Intente volver a implementar el recurso del conjunto de escalado de máquinas virtuales con una configuración diferente de "capacidad" para cambiar el número de máquinas virtuales manualmente. Este es un ejemplo de plantilla : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing (es posible que tenga que editar la plantilla para asegurarse de que tiene el mismo tamaño de máquina que usa el conjunto de escalado. Si puede cambiar correctamente el número de máquinas virtuales de forma manual, sabrá que ha aislado el problema al escalado automático.
 * Compruebe los recursos Microsoft.Compute/virtualMachineScaleSet y Microsoft.Insights en el [Explorador de recursos de Azure](https://resources.azure.com/)
   
     Azure Resource Explorer es una herramienta indispensable de solución de problemas que muestra el estado de los recursos de Azure Resource Manager. Haga clic en la suscripción y examine el grupo de recursos que se están diagnosticando. En el proveedor de recursos de Compute, mire el conjunto de escalado de máquinas virtuales que ha creado y compruebe la vista de instancias, en la que se muestra el estado de una implementación. Compruebe también la vista de instancias del conjunto de escalado de máquinas virtuales. Después, entre en el proveedor de recursos de Microsoft.Insights y compruebe que las reglas de escalado automático están bien.
 * ¿Funciona la extensión Diagnóstico y emite los datos de rendimiento?
   
-    **Actualización:** El escalado automático de Azure se ha mejorado para usar una canalización de métricas basada en host que ya no requiere la instalación de una extensión de diagnóstico. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. En https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale encontrará un ejemplo de plantillas de Azure que se han convertido para usar la canalización de host. 
+    **Actualización:** El escalado automático de Azure se ha mejorado para usar una canalización de métricas basada en host que ya no requiere la instalación de una extensión de diagnóstico. Los siguientes párrafos ya no se aplican si crea una aplicación de escalado automático con la nueva canalización. Un ejemplo de plantillas de Azure que se han convertido para usar la canalización del host está disponible aquí: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     El uso de métricas basadas en host para el escalado automático es mejor por las razones siguientes:
   
@@ -78,7 +79,7 @@ Entre los aspectos que debe considerar se incluyen:
     Si los datos no están allí, significa que el problema está relacionado con la extensión de diagnóstico que se ejecuta en las máquinas virtuales. Si los datos están allí, significa que hay un problema con las reglas de escalado o con el servicio Insights. Compruebe el [estado de Azure](https://azure.microsoft.com/status/).
     
     Una vez que haya realizado estos pasos, si sigue teniendo problemas con el escalado automático, puede probar los siguientes recursos: 
-    * Lea los foros de [MSDN](https://social.msdn.microsoft.com/forums/azure/home?category=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp) o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure). 
+    * Lea los foros de [MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=WAVirtualMachinesforWindows) o [Stack Overflow](http://stackoverflow.com/questions/tagged/azure). 
     * Realice una llamada de soporte técnico. Esté preparado para compartir la plantilla y una vista de los datos de rendimiento.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: fa6a994f30c301fd6c7b431467aebc9d3489c6bc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159007"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
@@ -58,7 +59,7 @@ Cuando se cree la [cuenta](#active-directory-account) para leer y escribir en AD
 
 | Permiso | Usado para |
 | --- | --- |
-| <li>Replicación de cambios de directorio</li><li>Replicación de todos los cambios de directorio |Sincronización de contraseñas |
+| <li>Replicación de cambios de directorio</li><li>Replicación de todos los cambios de directorio |Sincronización de hash de contraseñas |
 | Lectura y escritura de todas las propiedades Usuario |Importación y Exchange híbrido |
 | Lectura y escritura de todas las propiedades iNetOrgPerson |Importación y Exchange híbrido |
 | Lectura y escritura de todas las propiedades Grupo |Importación y Exchange híbrido |
@@ -87,7 +88,7 @@ Los permisos que requiera dependen de las características opcionales que habili
 | Característica | Permisos |
 | --- | --- |
 | característica msDS-ConsistencyGuid |Permisos de escritura para el atributo msDS-ConsistencyGuid documentado en [Conceptos de diseño: Using msDS-ConsistencyGuid as sourceAnchor (Uso de msDS-ConsistencyGuid como sourceAnchor)](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
-| Sincronización de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
+| Sincronización de hash de contraseñas |<li>Replicación de cambios de directorio</li>  <li>Replicación de todos los cambios de directorio |
 | Implementación híbrida de Exchange |Permisos de escritura en los atributos que se documentan en [Escritura diferida híbrida de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) para usuarios, grupos y contactos. |
 | Carpeta pública de correo de Exchange |Permisos de lectura para los atributos que se documentan en [carpetas públicas de correo electrónico de Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) para las carpetas públicas. | 
 | escritura diferida de contraseñas |Permisos de escritura en los atributos que se documentan en [Introducción a la administración de contraseñas](../authentication/howto-sspr-writeback.md) para los usuarios. |

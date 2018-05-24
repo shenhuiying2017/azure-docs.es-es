@@ -10,11 +10,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: eeb6b74fb7dfbf25e27963dd7a2f7f431feebcc8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 85a0157751a1c26fb7f37152d7c12f56b1c423d1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193291"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>¿Qué es Instancia administrada de SQL Database (versión preliminar)?
 
@@ -67,9 +68,9 @@ En la tabla siguiente se muestran varias propiedades, accesibles mediante Transa
 
 ![Inicio de sesión único](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
+## <a name="vcore-based-purchasing-model-preview"></a>Modelo de compra basado en núcleos virtuales (versión preliminar)
 
-El modelo de compra basado en núcleos virtuales le ofrece flexibilidad, control, transparencia y facilidad para trasladar sus necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 por ciento de ahorro con la [Ventaja de uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+El modelo de compra basado en núcleos virtuales (versión preliminar) le ofrece flexibilidad, control, transparencia y facilidad para trasladar las necesidades de carga de trabajo del entorno local a la nube. Este modelo le permite escalar los recursos de proceso, memoria y almacenamiento en función de las necesidades de carga de trabajo. El modelo de núcleos virtuales también permite disfrutar de hasta un 30 por ciento de ahorro con la [Ventaja de uso híbrido de Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Un núcleo virtual representa una CPU lógica que cuenta con una opción para elegir entre varias generaciones de hardware.
 - Las CPU lógicas Gen 4 se basan en procesadores Intel E5-2673 v3 (Haswell) de 2.4 GHz.
@@ -186,7 +187,7 @@ Azure Database Migration Service es un servicio totalmente administrado diseñad
 El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en Azure Blob Storage se pueden restaurar directamente en Instancia administrada. Para restaurar una base de datos SQL existente a una instancia administrada, haga lo siguiente:
 
 - Use [Data Migration Service (DMS)](/sql/dma/dma-overview). Para ver un tutorial, consulte [Migración de SQL Server a Instancia administrada de Azure SQL Database](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar desde un archivo de copia de seguridad de base de datos.
-- Use el [comando RESTORE de T-SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+- Use el [comando RESTORE de T-SQL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Para ver un tutorial que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, consulte [Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database](sql-database-managed-instance-restore-from-backup-tutorial.md). Este tutorial muestra que tiene que cargar un archivo de copia de seguridad en el almacenamiento de blobs de Azure y protegerlo utilizando una clave de firma de acceso compartido (SAS).
   - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
 - [Importación desde un archivo BACPAC](sql-database-import.md)

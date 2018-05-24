@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157707"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guía de prueba de concepto de Azure Active Directory: bloques de creación
 
@@ -162,7 +163,7 @@ Tiempo aproximado para completarlo: 60 minutos
 
 ### <a name="considerations"></a>Consideraciones
 
-1. El anterior [tutorial](active-directory-saas-servicenow-tutorial.md) hace referencia a una experiencia de administración de Azure AD antigua. Pero la prueba de concepto se basa en la experiencia [Inicio rápido](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away).
+1. El anterior [tutorial](active-directory-saas-servicenow-tutorial.md) hace referencia a una experiencia de administración de Azure AD antigua. Pero la prueba de concepto se basa en la experiencia [Inicio rápido](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Si la aplicación de destino no está en la galería, puede usar "Traiga su propia aplicación". Más información: [Novedades sobre la administración de aplicaciones empresariales en Azure Active Directory: Incorporación de aplicaciones personalizadas desde un solo lugar](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>Configuración de SSO con contraseña en SaaS
@@ -241,27 +242,27 @@ Tiempo aproximado para completarlo: 20 minutos
 
 | Requisito previo | Recursos |
 | --- | --- |
-| Una suscripción Basic o Premium a Microsoft Azure AD y un directorio de Azure AD del que sea administrador global. | [Ediciones de Azure Active Directory](active-directory-editions.md) |
+| Una suscripción Basic o Premium a Microsoft Azure AD y un directorio de Azure AD del que sea administrador global. | [Ediciones de Azure Active Directory](active-directory-whatis.md) |
 | Una aplicación web hospedada localmente que desea configurar para el acceso remoto. |  |
-| Un servidor en el que se ejecute Windows Server 2012 R2 o Windows 8.1 o superior, y en el que se pueda instalar el conector del proxy de la aplicación. | [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-understand-connectors.md) |
-| Si hay un firewall en la ruta de acceso, es preciso asegurarse de que está abierto con el fin de que el conector pueda realizar solicitudes HTTPS (TCP) al proxy de la aplicación. | [Habilitación del proxy de aplicación en Azure Portal: requisitos previos del proxy de aplicación](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| Si su organización usa servidores proxy para conectarse a Internet, eche un vistazo a la entrada de blog Working with existing on-premises proxy servers (Trabajo con servidores proxy locales existentes) para más información sobre cómo configurarlos. | [Trabajo con servidores proxy locales existentes](application-proxy-working-with-proxy-servers.md) |
+| Un servidor en el que se ejecute Windows Server 2012 R2 o Windows 8.1 o superior, y en el que se pueda instalar el conector del proxy de la aplicación. | [Descripción de los conectores del Proxy de aplicación de Azure AD](manage-apps/application-proxy-connectors.md) |
+| Si hay un firewall en la ruta de acceso, es preciso asegurarse de que está abierto con el fin de que el conector pueda realizar solicitudes HTTPS (TCP) al proxy de la aplicación. | [Habilitación del proxy de aplicación en Azure Portal: requisitos previos del proxy de aplicación](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| Si su organización usa servidores proxy para conectarse a Internet, eche un vistazo a la entrada de blog Working with existing on-premises proxy servers (Trabajo con servidores proxy locales existentes) para más información sobre cómo configurarlos. | [Trabajo con servidores proxy locales existentes](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Pasos
 
 | Paso | Recursos |
 | --- | --- |
-| Instale un conector en el servidor. | [Habilitación del Proxy de aplicación en Azure Portal: Instalación y registro de un conector](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Publique la aplicación local en Azure AD como una aplicación de proxy de aplicación | [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](application-proxy-publish-azure-portal.md) |
-| Asigne usuarios de prueba. | [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD: Adición de un usuario de prueba](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Si lo desea, configure una experiencia de inicio de sesión único para los usuarios. | [Provisión de inicio de sesión único mediante el proxy de aplicación de Azure AD](application-proxy-sso-azure-portal.md) |
+| Instale un conector en el servidor. | [Habilitación del Proxy de aplicación en Azure Portal: Instalación y registro de un conector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Publique la aplicación local en Azure AD como una aplicación de proxy de aplicación | [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-publish-azure-portal.md) |
+| Asigne usuarios de prueba. | [Publicación de aplicaciones mediante el proxy de aplicación de Azure AD: Adición de un usuario de prueba](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Si lo desea, configure una experiencia de inicio de sesión único para los usuarios. | [Provisión de inicio de sesión único mediante el proxy de aplicación de Azure AD](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Pruebe la aplicación al iniciar sesión en el portal de MyApps como usuario asignado. | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Consideraciones
 
-1. Aunque se recomienda colocar el conector en su red corporativa, hay casos en los que verá un mejor rendimiento colocándolo en la nube. Más información: [Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory](application-proxy-network-topology-considerations.md)
-2. Para más detalles de seguridad y cómo esto proporciona una solución de acceso remoto especialmente seguro manteniendo únicamente las conexiones salientes, consulte [Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD](application-proxy-security-considerations.md).
+1. Aunque se recomienda colocar el conector en su red corporativa, hay casos en los que verá un mejor rendimiento colocándolo en la nube. Más información: [Consideraciones sobre la topología de red al utilizar el Proxy de aplicación de Azure Active Directory](manage-apps/application-proxy-network-topology.md)
+2. Para más detalles de seguridad y cómo esto proporciona una solución de acceso remoto especialmente seguro manteniendo únicamente las conexiones salientes, consulte [Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el Proxy de aplicación de Azure AD](manage-apps/application-proxy-security.md).
 
 ## <a name="generic-ldap-connector-configuration"></a>Configuración genérica del conector LDAP
 

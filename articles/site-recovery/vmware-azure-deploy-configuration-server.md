@@ -1,6 +1,6 @@
 ---
-title: "Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery"
+title: Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 99b368ca364bd7c5bebfc00c2df0f04333293388
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188487"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -108,6 +109,11 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 8. En **Configure virtual machine credentials** (Configurar las credenciales de la máquina virtual), especifique el nombre de usuario y la contraseña que se usarán para instalar automáticamente el servicio Azure Site Recovery Mobility en las máquinas, cuando la replicación esté habilitada. Para las máquinas Windows, la cuenta necesita privilegios de administrador local en las máquinas que se vayan a replicar. Para Linux, proporcione los detalles de la cuenta raíz.
 9. Seleccione **Finalize configuration** (Terminar configuración) para completar el registro. 
 10. Cuando finalice el registro, en Azure Portal, verifique que el servidor de configuración y el servidor de VMware aparecen en la página **Origen** del almacén. Haga clic en **Aceptar** para configurar el destino.
+
+
+## <a name="upgrade-the-configuration-server"></a>Actualización del servidor de configuración
+
+Para actualizar el servidor de configuración a la versión más reciente, consulte los pasos indicados [aquí](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
 
 
 ## <a name="troubleshoot-deployment-issues"></a>Solución de problemas de implementación

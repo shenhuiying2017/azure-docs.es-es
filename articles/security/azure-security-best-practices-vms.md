@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 409ed4618b8ddf022cfc3457851cf434ba810b94
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160553"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -55,7 +56,7 @@ Al habilitar las directivas de Resource Manager y RBAC para controlar el acceso 
 
 - [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): puede administrar máquinas virtuales, pero no la red virtual ni la cuenta de almacenamiento a la que están conectadas.
 - [Colaborador de la máquina virtual clásica](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): puede administrar máquinas virtuales creadas con el modelo de implementación clásico, pero no la cuenta de almacenamiento ni la red virtual a la que están conectadas.
-- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-manager): puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales.
+- [Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin): puede administrar los componentes y las directivas de seguridad.
 - [Usuario de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user): puede ver todo el contenido, así como conectar, iniciar, reiniciar y apagar las máquinas virtuales.
 
 No comparta cuentas ni contraseñas entre los administradores ni reutilice contraseñas en diferentes cuentas de usuario o servicios, especialmente las de las redes sociales u otras actividades no administrativas. Lo ideal es usar las plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar las máquinas virtuales de forma segura. Con este enfoque puede reforzar las opciones de implementación y aplicar la configuración de seguridad a lo largo de la implementación.

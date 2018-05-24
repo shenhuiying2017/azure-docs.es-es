@@ -12,20 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 05/11/2018
 ms.author: brenduns
-ms.openlocfilehash: fd352d6d073c5eff0ddf17588df022ffa3caef8c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1c22eb17ffcd070c1c5529033eeaa73dc7bd3859
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077248"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tamaños de máquinas virtuales admitidos en Azure Stack
 
-En este artículo se incluyen los tamaños de máquinas virtuales que son compatibles con Azure Stack. 
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
+En este artículo se incluyen los tamaños de máquinas virtuales que están disponibles en Azure Stack.
 
 ## <a name="general-purpose"></a>Uso general
+
+Los tamaños de máquina virtual de uso general proporcionan una relación equilibrada entre CPU y memoria. Estas máquinas se usan para desarrollo y pruebas, bases de datos pequeñas o medianas, y servidores web de tráfico bajo o medio.
 
 ### <a name="basic-a"></a>A básico
 |Tamaño - Tamaño\nombre |vCPU     |Memoria | Tamaño máximo del disco temporal | Rendimiento de discos del SO máx.: (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Rendimiento de discos de datos máx. (IOPS) | Nº máx. NIC |    
@@ -39,7 +43,7 @@ En este artículo se incluyen los tamaños de máquinas virtuales que son compat
 ### <a name="standard-a"></a>Estándar A 
 |Tamaño     |vCPU     |Memoria (GiB) | Almacenamiento temporal (GiB)  | Rendimiento de discos del SO máx. (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Discos de datos máx. / rendimiento (IOPS) | Nº máx. de NIC / ancho de banda de red esperado (Mbps) |    
 |----------------|--|------|----|----|----|-------|---------|
-|**Standard_A0** |1 |0,768 |20   |500 |500 |1x500  |1 / 100  |
+|**Standard_A0** |1 |0,768 |20  |500 |500 |1x500  |1 / 100  |
 |**Standard_A1** |1 |1,75  |70  |500 |500 |2 x 500  |1 / 500  |
 |**Standard_A2** |2 |3,5   |135 |500 |500 |4x500  |1 / 500  |
 |**Standard_A3** |4 |7     |285 |500 |500 |8x500  |2 / 1000 |
@@ -84,8 +88,9 @@ En este artículo se incluyen los tamaños de máquinas virtuales que son compat
 |**Standard_DS4_v2** |8   |28  |56  |1000 |32000 |32 / 32x2300 |8 / 6000 |
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64 / 64x2300 |8 / 10 000 |
 
-
 ## <a name="memory-optimized"></a>Memoria optimizada
+
+Los tamaños de las máquinas virtuales optimizadas para memoria ofrecen una relación alta entre memoria y CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria.
 
 ### <a name="mo-d"></a>Serie D
 |Tamaño     |vCPU     |Memoria (GiB) | Almacenamiento temporal (GiB)  | Rendimiento de discos del SO máx. (IOPS) | Rendimiento máximo de almacenamiento temporal (IOPS) | Discos de datos máx. / rendimiento (IOPS) | Nº máx. de NIC / ancho de banda de red esperado (Mbps) |
@@ -119,7 +124,6 @@ En este artículo se incluyen los tamaños de máquinas virtuales que son compat
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |16 / 16x2300  |4 / 3000 |
 |**Standard_DS13_v2** |8   |56  |112  |1000 |32000  |32 / 32x2300  |8 / 6000 |
 |**Standard_DS14_v2** |16  |112 |224  |1000 |64000  |64 / 64x2300  |8 / 10 000 |
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

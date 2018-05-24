@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 07d720db85a152f08cfeb278b91cce3b10d73800
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c1db81594f44f805cf50523b449af62d76099a08
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33771055"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -276,30 +277,30 @@ Se puede habilitar o deshabilitar la función de actualización automática real
 
 [Para puerta de enlace de nodo único]
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Cambie a la carpeta C:\Archivos de programa\Microsoft Integration Runtime\3.0\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off
     ```
 4. Para volver a activarla:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on  
+    .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
 [Para puerta de enlace escalable y altamente disponible de varios nodos (versión preliminar)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie Windows PowerShell en el equipo de la puerta de enlace.
-2. Cambie a la carpeta C:\Archivos de programa\Microsoft Data Management Gateway\2.0\PowerShellScript.
+2. Cambie a la carpeta C:\Archivos de programa\Microsoft Integration Runtime\3.0\PowerShellScript.
 3. Ejecute el siguiente comando para desactivar (deshabilitar) la característica de actualización automática.   
 
     Se requiere un parámetro AuthKey adicional para la característica de puerta de enlace con alta disponibilidad (versión preliminar).
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
 4. Para volver a activarla:
 
     ```PowerShell
-    .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    .\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
     ```
 
 ## <a name="configuration-manager"></a>Administrador de configuración

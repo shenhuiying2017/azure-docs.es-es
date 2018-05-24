@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: v-ant
-ms.openlocfilehash: c7ec58b0da3a918729733809d326e6f2e5916c9d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b6f536ba1711076eab0eb9dcbea7d357e9cebf3d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32139981"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34345602"
 ---
 # <a name="tutorial-configure-replicon-for-automatic-user-provisioning"></a>Tutorial: Configuración de Replicon para el aprovisionamiento automático de usuarios
 
@@ -159,7 +159,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-enterprise-apps-manage-provisioning.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

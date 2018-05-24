@@ -8,17 +8,18 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 61c4463060016ecbd319b027d48c87f3a6a8ad48
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7e792114c61c6257f4f5be5bfa65474d595f0d36
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32149585"
 ---
-# <a name="use-gateway-for-datasources-on-an-azure-virtual-network-vnet"></a>Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure (VNET)
+# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Uso de la puerta de enlace para orígenes de datos en una red virtual de Azure (VNet)
 
 En este artículo se describe la propiedad **AlwaysUseGateway** del servidor que se usa cuando los orígenes de datos se encuentran en una [red virtual de Azure (VNET)](../virtual-network/virtual-networks-overview.md).
 
-## <a name="server-access-to-vnet-datasources"></a>Acceso del servidor a los orígenes de datos de una red virtual
+## <a name="server-access-to-vnet-data-sources"></a>Acceso del servidor a los orígenes de datos de una red virtual
 
 Si el acceso a sus orígenes de datos se realiza a través de una red virtual, el servidor de Azure Analysis Services debe conectarse, en su propio entorno, a esos orígenes de datos como si estuvieran en el entorno local. Puede configurar la propiedad de servidor **AlwaysUseGateway** para especificar el servidor para acceder a todos los datos de orígenes de datos mediante una [puerta de enlace local](analysis-services-gateway.md). 
 

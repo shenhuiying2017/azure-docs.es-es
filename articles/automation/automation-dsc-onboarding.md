@@ -3,16 +3,18 @@ title: Incorporación de máquinas para administrarlas con DSC de Azure Automati
 description: Cómo configurar las máquinas para administrarlas con DSC de Azure Automation
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12d3d2d4b0c35dc7d21cb78465225e3c029ca33e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195563"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Incorporación de máquinas para administrarlas con DSC de Azure Automation
 
@@ -62,6 +64,7 @@ $AutomationAccountName = ""
 $AutomationAccountResourceGroup = ""
 
 # fill in the name of a Node Configuration in Azure Automation DSC, for this VM to conform to
+# NOTE: DSC Node Configuration names are case sensitive in the portal.
 $NodeConfigName = ""
 
 # get Azure Automation DSC registration info
@@ -111,6 +114,9 @@ $VM = Set-AzureVMExtension `
 
 $VM | Update-AzureVM
 ```
+
+> [!NOTE]
+> Los nombres de configuración del nodo DSC distinguen mayúsculas de minúsculas en el portal. Si estas no coinciden, el nodo no se mostrará en el listado de nodos de DSC.
 
 ## <a name="azure-virtual-machines"></a>Máquinas virtuales de Azure
 
@@ -205,6 +211,9 @@ Para incorporar genéricamente cualquier máquina a DSC de Azure Automation, se 
 1. Abra PowerShell ISE como administrador en una máquina de su entorno local. La máquina debe tener instalada la versión más reciente de [WMF 5](http://aka.ms/wmf5latest) .
 2. Copie el siguiente script localmente. Este script contiene una configuración de DSC de PowerShell para crear metaconfiguraciones y un comando para iniciar la creación de la metaconfiguración.
 
+> [!NOTE]
+> Los nombres de configuración del nodo DSC distinguen mayúsculas de minúsculas en el portal. Si estas no coinciden, el nodo no se mostrará en el listado de nodos de DSC.
+
     ```powershell
     # The DSC configuration that will generate metaconfigurations
     [DscLocalConfigurationManager()]
@@ -296,6 +305,7 @@ Para incorporar genéricamente cualquier máquina a DSC de Azure Automation, se 
     }
 
     # Create the metaconfigurations
+    # NOTE: DSC Node Configuration names are case sensitive in the portal.
     # TODO: edit the below as needed for your use case
     $Params = @{
         RegistrationUrl = '<fill me in>';

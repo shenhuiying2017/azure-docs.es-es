@@ -1,11 +1,11 @@
 ---
-title: "Problema al iniciar sesión en el sitio web del Panel de acceso | Microsoft Docs"
-description: "Instrucciones para solucionar problemas que pueden surgir al intentar iniciar sesión para usar el Panel de acceso."
+title: Problema al iniciar sesión en el sitio web del Panel de acceso | Microsoft Docs
+description: Instrucciones para solucionar problemas que pueden surgir al intentar iniciar sesión para usar el Panel de acceso.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.openlocfilehash: 83c3a893fe18f2de2acc4fdbc9b048c92cc71d15
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1820ab1e2295e6e0c7795c9d014d001d294bb337
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069619"
 ---
 # <a name="problem-signing-in-to-the-access-panel-website"></a>Problema al iniciar sesión en el sitio web del Panel de acceso
 
@@ -289,4 +290,4 @@ abra una incidencia de soporte técnico con la información siguiente si está d
 -   Seguimientos de Fiddler
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](active-directory-application-proxy-sso-using-kcd.md)
+[Proporcionar un inicio de sesión único a las aplicaciones con el proxy de aplicación](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

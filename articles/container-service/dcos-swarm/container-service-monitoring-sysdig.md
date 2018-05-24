@@ -1,26 +1,27 @@
 ---
-title: "Supervisión de un clúster del servicio de contenedores de Azure con Sysdig"
-description: "Supervise un clúster del servicio de contenedores de Azure con Sysdig."
+title: Supervisión de un clúster del servicio de contenedores de Azure con Sysdig
+description: Supervise un clúster del servicio de contenedores de Azure con Sysdig.
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d694744665ef6399560fc12c6976c2d88d232148
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162143"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Supervisión de un clúster del servicio de contenedores de Azure con Sysdig
 
 En este artículo, implementaremos agentes Sysdig en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Sysdig para esta configuración. 
 
-## <a name="prerequisites"></a>Requisitos previos
-[Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar una cuenta en la nube de Sysdig. 
+## <a name="prerequisites"></a>requisitos previos
+[Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster configurado por Azure Container Service. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar una cuenta de Sysdig en la nube. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig es un servicio de supervisión que le permite supervisar sus contenedores dentro del clúster. Sysdig es conocido por servir para solucionar problemas, pero además incluye métricas de supervisión básicas para la CPU, la red, la memoria y la E/S. Con Sysdig resulta más fácil ver qué contenedores hacen más trabajo o esencialmente cuáles utilizan más memoria y CPU. Esta vista se encuentra en la sección "Overview" (Información general), actualmente en versión beta. 

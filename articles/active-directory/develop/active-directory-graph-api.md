@@ -8,6 +8,7 @@ manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,11 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: c0f5110fe73fb48cf6cf5307de08045bd843cb5a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4b4f698042f6688e3db484f7d96ccfb06c5cdd4f
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158020"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API de Azure Active Directory
 > [!IMPORTANT]
@@ -58,7 +60,7 @@ Graph API de Azure AD ofrece las siguientes características:
 Graph API de Azure AD admite muchos escenarios de aplicación. Los siguientes escenarios son los más comunes:
 
 * **Aplicación de línea de negocio (un solo inquilino)**: en este escenario, un desarrollador empresarial trabaja para una organización que tiene una suscripción a Office 365. El desarrollador compila una aplicación web que interactúa con Azure AD para hacer tareas tales como la asignación de una licencia a un usuario. Esta tarea requiere acceso a Graph API de Azure AD, por eso el desarrollador registra la aplicación de inquilino único en Azure AD y configura los permisos de lectura y escritura para Graph API de Azure AD. Luego, la aplicación se configura para que use sus propias credenciales o las del usuario que tenga iniciada la sesión para conseguir un token con el que llamar a Graph API de Azure AD.
-* **Software como aplicación de servicio (multiempresa)**: en este escenario, un fabricante de software independiente (ISV) desarrolla una aplicación web multiempresa hospedada que ofrece características de administración de usuarios para otras organizaciones que usan Azure AD. Estas características requieren acceso a objetos de directorio, por lo que la aplicación necesita llamar a Graph API de Azure AD. El desarrollador registra la aplicación en Azure AD, la configura para requerir permisos de lectura y escritura para Graph API de Azure AD, y habilita el acceso externo para que las demás organizaciones puedan permitir usar la aplicación en su directorio. Cuando se autentica un usuario de otra organización en la aplicación por primera vez, se le muestra un cuadro de diálogo de consentimiento con los permisos que solicita la aplicación.  La concesión de consentimiento proporciona a la aplicación los permisos solicitados para Graph API de Azure AD en el directorio del usuario. Para obtener más información acerca del marco de consentimiento, consulte [Información general sobre el marco de consentimiento](active-directory-integrating-applications.md).
+* **Software como aplicación de servicio (multiempresa)**: en este escenario, un fabricante de software independiente (ISV) desarrolla una aplicación web multiempresa hospedada que ofrece características de administración de usuarios para otras organizaciones que usan Azure AD. Estas características requieren acceso a objetos de directorio, por lo que la aplicación necesita llamar a Graph API de Azure AD. El desarrollador registra la aplicación en Azure AD, la configura para requerir permisos de lectura y escritura para Graph API de Azure AD, y habilita el acceso externo para que las demás organizaciones puedan permitir usar la aplicación en su directorio. Cuando se autentica un usuario de otra organización en la aplicación por primera vez, se le muestra un cuadro de diálogo de consentimiento con los permisos que solicita la aplicación. La concesión de consentimiento proporciona a la aplicación los permisos solicitados para Graph API de Azure AD en el directorio del usuario. Para obtener más información acerca del marco de consentimiento, consulte [Información general sobre el marco de consentimiento](active-directory-integrating-applications.md).
 
 ## <a name="see-also"></a>Otras referencias
 [Inicio rápido para Graph API de Azure AD](active-directory-graph-api-quickstart.md)

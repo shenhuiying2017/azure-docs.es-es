@@ -1,45 +1,41 @@
 ---
 title: Copia de seguridad de Azure Stack | Microsoft Docs
-description: "Realice una copia de seguridad a petición en Azure Stack con la copia de seguridad vigente."
+description: Realice una copia de seguridad a petición en Azure Stack con la copia de seguridad vigente.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 5/08/2017
 ms.author: mabrigg
-ms.openlocfilehash: 955b286967ca2bc8450e8988ec16c6a5c352aa8a
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.reviewer: hectorl
+ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075194"
 ---
 # <a name="back-up-azure-stack"></a>Copia de seguridad de Azure Stack
 
-*Se aplica a: sistemas integrados de Azure Stack y kit de desarrollo de Azure Stack*
+*Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Realice una copia de seguridad a petición en Azure Stack con la copia de seguridad vigente. Si necesita habilitar el servicio Infrastructure Backup Service, consulte [Habilitación de la copia de seguridad de Azure Stack desde el portal de administración](azure-stack-backup-enable-backup-console.md).
 
 > [!Note]  
->  Las herramientas de Azure Stack contienen el cmdlet **Start-AzSBackup**. Para obtener instrucciones sobre cómo instalar las herramientas, consulte [Póngase a trabajar con PowerShell en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+>  Para obtener instrucciones acerca de cómo configurar el entorno de PowerShell, consulte [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md).
 
 ## <a name="start-azure-stack-backup"></a>Inicio de la copia de seguridad de Azure Stack
 
 Abra una sesión de Windows PowerShell con privilegios elevados en el entorno de administración de operador y ejecute los siguientes comandos:
 
 ```powershell
-    cd C:\tools\AzureStack-Tools-master\Connect
-    Import-Module .\AzureStack.Connect.psm1
-
-    cd C:\tools\AzureStack-Tools-master\Infrastructure
-    Import-Module .\AzureStack.Infra.psm1 
-    
     Start-AzSBackup -Location $location.Name
 ```
 
@@ -50,7 +46,11 @@ Abra una sesión de Windows PowerShell con privilegios elevados en el entorno de
 3. Busque el **Nombre** y la **Fecha de finalización** de la copia de seguridad en la lista **Copias de seguridad disponibles**.
 4. Compruebe que el **Estado** es **Correcto**.
 
-También puede confirmar la copia de seguridad completada desde el portal de administración. Vaya a `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`.
+<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
+
+In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
+\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

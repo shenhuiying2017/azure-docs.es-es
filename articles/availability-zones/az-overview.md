@@ -1,6 +1,6 @@
 ---
-title: Introducción a las zonas de disponibilidad de Azure | Microsoft Docs
-description: En este artículo se proporciona información general sobre cómo usar las zonas de disponibilidad para crear aplicaciones resistentes y de alta disponibilidad en Azure
+title: ¿Qué son las zonas de disponibilidad de Azure? | Microsoft Docs
+description: Para crear aplicaciones altamente disponibles y resistentes en Azure, las zonas de disponibilidad proporcionan ubicaciones físicamente separadas que puede utilizar para ejecutar sus recursos.
 services: ''
 documentationcenter: ''
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: na
 ms.date: 03/21/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a4133779538e412a19a11de678b1527fb8023a87
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164728"
 ---
-# <a name="overview-of-availability-zones-in-azure"></a>Introducción a las zonas de disponibilidad en Azure
+# <a name="what-are-availability-zones-in-azure"></a>¿Qué son las zonas de disponibilidad en Azure?
 Las zonas de disponibilidad son una oferta que protege las aplicaciones y datos de los errores del centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. La separación física de las zonas de disponibilidad dentro de una región protege las aplicaciones y los datos frente a los errores del centro de datos. Los servicios de redundancia de zona replican las aplicaciones y los datos entre zonas de disponibilidad para protegerlos frente a puntos de error únicos. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
 Coloque sus recursos de proceso, almacenamiento, red y datos dentro de una zona y replíquelos en otras para conseguir una alta disponibilidad en la arquitectura de sus aplicaciones. Los servicios de Azure que admiten zonas de disponibilidad se dividen en dos categorías:
@@ -36,7 +37,7 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 ## <a name="regions-that-support-availability-zones"></a>Regiones que admiten zonas de disponibilidad
 
-- Centro de EE. UU.
+- Central EE. UU:
 - Centro de Francia
 - Este de EE. UU. 2 (versión preliminar)
 - Europa Occidental (versión preliminar)
@@ -48,7 +49,7 @@ Los servicios de Azure que admiten zonas de disponibilidad son:
 
 - Máquinas virtuales Linux
 - Máquinas virtuales Windows
-- Conjuntos de escalado de máquina virtual
+- Virtual Machine Scale Sets
 - Managed Disks
 - Load Balancer
 - Dirección IP pública

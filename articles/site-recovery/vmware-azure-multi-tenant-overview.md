@@ -7,19 +7,20 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/11/2018
 ms.author: manayar
-ms.openlocfilehash: 9b4fbb34686a12f992b344ac61420c9ba99ee405
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0168849c01add3f714b139c7984e3def74f40a5b
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071770"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Introducción a la compatibilidad multiinquilino para la replicación de VMware en Azure con CSP
 
-[Azure Site Recovery](site-recovery-overview.md) admite entornos multiinquilino para las suscripciones de inquilino. También admite la arquitectura multiinquilino para suscripciones de inquilino que se crean y administran mediante el programa del Proveedor de soluciones en la nube (CSP) de Microsoft. 
+[Azure Site Recovery](site-recovery-overview.md) admite entornos multiinquilino para las suscripciones de inquilino. También admite la arquitectura multiinquilino para suscripciones de inquilino que se crean y administran mediante el programa del Proveedor de soluciones en la nube (CSP) de Microsoft.
 
-Este artículo es una introducción a la implementación y la administración de la replicación de VMware multiinquilino en Azure. 
+Este artículo es una introducción a la implementación y la administración de la replicación de VMware multiinquilino en Azure.
 
 ## <a name="multi-tenant-environments"></a>Entornos multiinquilino
 
@@ -33,7 +34,7 @@ Existen tres modelos principales multiinquilino:
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Proveedor de servicios de hospedaje compartido (HSP)
 
- Los otros dos escenarios son subconjuntos del escenario de hospedaje compartido y usan los mismos principios. Al final de la guía de hospedaje compartido se describen las diferencias.
+Los otros dos escenarios son subconjuntos del escenario de hospedaje compartido y usan los mismos principios. Al final de la guía de hospedaje compartido se describen las diferencias.
 
 El requisito básico en un escenario multiinquilino es que los inquilinos estén aislados. Un inquilino no podrá observar lo que tenga hospedado otro inquilino. En un entorno administrado por un asociado, este requisito no es tan importante como en el entorno de autoservicio, donde puede ser crítico. En este artículo se da por supuesto que se requiere el aislamiento de inquilinos.
 
@@ -63,7 +64,7 @@ Cada servidor de configuración del escenario multiinquilino emplea dos cuentas:
 
 ## <a name="vcenter-account-requirements"></a>Requisitos de la cuenta de vCenter
 
-Debe configurar el servidor de configuración con una cuenta que tenga asignado un rol especial. 
+Configure el servidor de configuración con una cuenta que tenga asignado un rol especial.
 
 - La asignación de roles se debe aplicar a la cuenta de acceso a vCenter a cada objeto de vCenter y no se propaga a los objetos secundarios. Esta configuración garantiza el aislamiento de los inquilinos, puesto que la propagación de acceso puede dar lugar al acceso accidental a otros objetos.
 
@@ -108,22 +109,36 @@ Para restringir las operaciones de recuperación ante desastres hasta solo conmu
 - En lugar de asignar el rol *Azure_Site_Recovery* a la cuenta de acceso a vCenter, asígnele solo uno de*solo lectura*. Este conjunto de permisos permite la replicación de máquinas virtuales y la conmutación por error, y no permite la conmutación por recuperación.
 - Todo lo demás del proceso anterior permanece igual. Los permisos se asignan solamente en el nivel de objeto y no se propagan a los objetos secundarios para garantizar el aislamiento de inquilinos y restringir la detección de máquinas virtuales.
 
+### <a name="deploy-resources-to-the-tenant-subscription"></a>Implementación de recursos en la suscripción de inquilino
+
+1. En Azure Portal, cree un grupo de recursos e implemente un almacén de Recovery Services por el proceso habitual.
+2. Descargue la clave de registro del almacén.
+3. Registre el CS en el inquilino con la clave de registro del almacén.
+4. Escriba las credenciales de las dos cuentas de acceso, la de acceso al servidor vCenter y la de acceso a la máquina virtual.
+
+    ![Cuentas de servidor de Configuration Manager](./media/vmware-azure-multi-tenant-overview/config-server-account-display.png)
+
+### <a name="register-servers-in-the-vault"></a>Registro de servidores en el almacén
+
+1. En Azure Portal, en el almacén que creó anteriormente, registre el servidor vCenter como servidor de configuración, con la cuenta de vCenter que creó.
+2. Finalice el proceso de preparación de la infraestructura de Site Recovery del modo habitual.
+3. Las máquinas virtuales ahora están listas para replicarse. Verifique que solo se muestran las máquinas virtuales del inquilino en **Replicar** > **Seleccionar máquinas virtuales**.
 
 ## <a name="dedicated-hosting-solution"></a>Solución de hospedaje dedicado
 
-Tal como se muestra en el diagrama siguiente, la diferencia de arquitectura en una solución de hospedaje dedicado es que la infraestructura de cada inquilino está configurada para ese inquilino únicamente. Como los inquilinos están aislados en vCenters independientes, el proveedor de hospedaje puede seguir los pasos del CSP proporcionados para el hospedaje compartido, pero no tiene que preocuparse por el aislamiento de los inquilinos. La configuración del CSP permanece sin cambios.
+Tal como se muestra en el diagrama siguiente, la diferencia de arquitectura en una solución de hospedaje dedicado es que la infraestructura de cada inquilino está configurada para ese inquilino únicamente.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **Escenario de hospedaje dedicado con varios vCenters**
 
 ## <a name="managed-service-solution"></a>Solución de servicios administrados
 
-Tal como se muestra en el diagrama siguiente, la diferencia de arquitectura en una solución de servicio administrado es que la infraestructura de cada inquilino también está físicamente separada de la infraestructura de los otros inquilinos. Este escenario existe normalmente cuando el inquilino es propietario de la infraestructura y desea un proveedor de soluciones para administrar la recuperación ante desastres. De nuevo, como los inquilinos están aislados físicamente en diferentes infraestructuras, el asociado debe seguir los pasos del CSP proporcionados para el hospedaje compartido, pero no necesita preocuparse por el aislamiento de los inquilinos. El aprovisionamiento del CSP permanece sin cambios.
+Tal como se muestra en el diagrama siguiente, la diferencia de arquitectura en una solución de servicio administrado es que la infraestructura de cada inquilino también está físicamente separada de la infraestructura de los otros inquilinos. Este escenario existe normalmente cuando el inquilino es propietario de la infraestructura y desea un proveedor de soluciones para administrar la recuperación ante desastres.
 
 ![architecture-shared-hsp](./media/vmware-azure-multi-tenant-overview/managed-service-scenario.png)  
 **Escenario de servicios administrados con varios vCenters**
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información](site-recovery-role-based-linked-access-control.md) sobre control de acceso basado en rol en Site Recovery.
-Aprenda a [configurar la recuperación ante desastres en las máquinas virtuales de VMware que se replican en Azure](vmware-azure-tutorial.md)
- y a [configurar la recuperación ante desastres para las máquinas virtuales de VMWare con arquitectura multiinquilino con CSP](vmware-azure-multi-tenant-csp-disaster-recovery.md)
+- [Más información](site-recovery-role-based-linked-access-control.md) sobre control de acceso basado en rol en Site Recovery.
+- Aprenda a [configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure](vmware-azure-tutorial.md).
+- Más información acerca de los [servicios multiinquilino con CSP para máquinas virtuales de VMWare](vmware-azure-multi-tenant-csp-disaster-recovery.md).
