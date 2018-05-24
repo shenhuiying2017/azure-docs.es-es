@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notas de la versión
       items:
-        - name: Actualización 1804
-          href: azure-stack-update-1804.md
         - name: Actualización 1803
           href: azure-stack-update-1803.md
         - name: Actualización 1802
           href: azure-stack-update-1802.md
         - name: Actualización 1712
           href: azure-stack-update-1712.md
+        - name: Actualización 1711
+          href: azure-stack-update-1711.md
 - name: Guías de inicio rápido
   expanded: true
   items:

@@ -1,20 +1,20 @@
 ---
 title: Esquema de Azure Event Grid para IoT Hub | Microsoft Docs
-description: "Página de referencia sobre el formato y las propiedades del esquema de eventos para IoT Hub"
+description: Página de referencia sobre el formato y las propiedades del esquema de eventos para IoT Hub
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 29ad1233a344c3085286c27cb925b2dc9fb41f7e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos de Azure Event Grid para IoT Hub
 
@@ -84,41 +84,41 @@ Los esquemas de los eventos DeviceCreated y DeviceDeleted tienen la misma estruc
 
 Todos los eventos contienen los mismos datos de nivel superior: 
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| id | cadena | Identificador único para el evento |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | cadena | Ruta al asunto del evento definida por el anunciante. |
-| eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Identificador único para el evento |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
 | data | objeto | Datos del evento de IoT Hub.  |
-| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El contenido del objeto de datos es diferente para cada publicador de eventos. Para los eventos de IoT Hub, el objeto de datos contiene las siguientes propiedades:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| hubName | cadena | Nombre de la instancia de IoT Hub en que se creó o eliminó el dispositivo. |
-| deviceId | cadena | Identificador único del dispositivo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | cadena | La marca de tiempo ISO8601 de la operación. |
-| opType | cadena | El tipo de evento especificado para esta operación en IoT Hub: ya sea `DeviceCreated` o `DeviceDeleted`.
+| hubName | string | Nombre de la instancia de IoT Hub en que se creó o eliminó el dispositivo. |
+| deviceId | string | Identificador único del dispositivo. Una cadena que distingue mayúsculas de minúsculas puede tener una longitud de hasta 128 caracteres alfanuméricos ASCII de 7 bits más los siguientes caracteres especiales: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| operationTimestamp | string | La marca de tiempo ISO8601 de la operación. |
+| opType | string | El tipo de evento especificado para esta operación en IoT Hub: ya sea `DeviceCreated` o `DeviceDeleted`.
 | twin | objeto | Información sobre el dispositivo gemelo, que es la representación en la nube de los metadatos del dispositivo de la aplicación. | 
-| deviceID | cadena | Identificador único del dispositivo gemelo. | 
-| ETag | cadena | Un fragmento de información que describe el contenido del dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. | 
-| status | cadena | Si el dispositivo gemelo está habilitado o deshabilitado. | 
-| statusUpdateTime | cadena | La marca de tiempo ISO8601 de la última actualización de estado del dispositivo gemelo. |
-| connectionState | cadena | Si el dispositivo está conectado o desconectado. | 
-| lastActivityTime | cadena | La marca de tiempo ISO8601 de la última actividad. | 
+| deviceID | string | Identificador único del dispositivo gemelo. | 
+| ETag | string | Un fragmento de información que describe el contenido del dispositivo gemelo. Se garantiza que cada etiqueta de entidad sea exclusiva de cada dispositivo gemelo. | 
+| status | string | Si el dispositivo gemelo está habilitado o deshabilitado. | 
+| statusUpdateTime | string | La marca de tiempo ISO8601 de la última actualización de estado del dispositivo gemelo. |
+| connectionState | string | Si el dispositivo está conectado o desconectado. | 
+| lastActivityTime | string | La marca de tiempo ISO8601 de la última actividad. | 
 | cloudToDeviceMessageCount | integer | Número de mensajes de la nube al dispositivo enviados a este dispositivo. | 
-| authenticationType | cadena | Tipo de autenticación usado para este dispositivo: `SAS`, `SelfSigned`o `CertificateAuthority`. |
-| x509Thumbprint | cadena | La huella digital es un valor exclusivo del certificado x509, que suele usarse para buscar un certificado concreto en un almacén de certificados. La huella digital se genera de forma dinámica con el algoritmo SHA1 y no existe físicamente en el certificado. | 
-| primaryThumbprint | cadena | Huella digital principal del certificado x509. |
-| secondaryThumbprint | cadena | Huella digital secundaria del certificado x509. | 
+| authenticationType | string | Tipo de autenticación usado para este dispositivo: `SAS`, `SelfSigned`o `CertificateAuthority`. |
+| x509Thumbprint | string | La huella digital es un valor exclusivo del certificado x509, que suele usarse para buscar un certificado concreto en un almacén de certificados. La huella digital se genera de forma dinámica con el algoritmo SHA1 y no existe físicamente en el certificado. | 
+| primaryThumbprint | string | Huella digital principal del certificado x509. |
+| secondaryThumbprint | string | Huella digital secundaria del certificado x509. | 
 | version | integer | Un entero que se incrementa en uno cada vez que se actualiza el dispositivo gemelo. |
 | desired | objeto | Una parte de las propiedades que solo el back-end de la aplicación puede escribir y que el dispositivo puede leer. | 
 | reported | objeto | Una parte de las propiedades que solo el dispositivo puede escribir y que el back-end de la aplicación puede leer. |
-| lastUpdated | cadena | La marca de tiempo ISO8601 de la última actualización de propiedades del dispositivo gemelo. | 
+| lastUpdated | string | La marca de tiempo ISO8601 de la última actualización de propiedades del dispositivo gemelo. | 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

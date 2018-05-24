@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
+ms.topic: reference
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 109f5af5cc1647cebee805c3141f4bc83c73bcfc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 163c32bdb8a3fdc278404b9e26fdc3097797d16c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos de Azure Event Grid para grupos de recursos
 
@@ -93,31 +93,31 @@ El esquema para un evento de eliminación de un recurso es similar:
 
 Un evento tiene los siguientes datos de nivel superior:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| topic | cadena | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
-| subject | cadena | Ruta al asunto del evento definida por el anunciante. |
-| eventType | cadena | Uno de los tipos de eventos registrados para este origen de eventos. |
-| eventTime | cadena | La hora de generación del evento en función de la hora UTC del proveedor. |
-| id | cadena | Identificador único para el evento |
+| topic | string | Ruta de acceso completa a los recursos del origen del evento. En este campo no se puede escribir. Event Grid proporciona este valor. |
+| subject | string | Ruta al asunto del evento definida por el anunciante. |
+| eventType | string | Uno de los tipos de eventos registrados para este origen de eventos. |
+| eventTime | string | La hora de generación del evento en función de la hora UTC del proveedor. |
+| id | string | Identificador único para el evento |
 | data | objeto | Datos de eventos de grupo de recursos. |
-| dataVersion | cadena | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
-| metadataVersion | cadena | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
+| dataVersion | string | Versión del esquema del objeto de datos. El publicador define la versión del esquema. |
+| metadataVersion | string | Versión del esquema de los metadatos del evento. Event Grid define el esquema de las propiedades de nivel superior. Event Grid proporciona este valor. |
 
 El objeto data tiene las siguientes propiedades:
 
-| Propiedad | type | DESCRIPCIÓN |
+| Propiedad | Escriba | DESCRIPCIÓN |
 | -------- | ---- | ----------- |
-| authorization | cadena | Autorización solicitada para la operación. |
-| claims | cadena | Propiedades de las notificaciones. |
-| correlationId | cadena | Identificador de operación para solucionar el problema. |
-| httpRequest | cadena | Detalles de la operación. |
-| resourceProvider | cadena | Proveedor de recursos que se realiza la operación. |
-| resourceUri | cadena | URI del recurso en la operación. |
-| operationName | cadena | Operación que se realizó. |
-| status | cadena | Estado de la operación. |
-| subscriptionId | cadena | Identificador de suscripción del recurso. |
-| tenantId | cadena | Identificador de inquilino del recurso. |
+| authorization | string | Autorización solicitada para la operación. |
+| claims | string | Propiedades de las notificaciones. |
+| correlationId | string | Identificador de operación para solucionar el problema. |
+| httpRequest | string | Detalles de la operación. |
+| resourceProvider | string | Proveedor de recursos que se realiza la operación. |
+| resourceUri | string | URI del recurso en la operación. |
+| operationName | string | Operación que se realizó. |
+| status | string | Estado de la operación. |
+| subscriptionId | string | Identificador de suscripción del recurso. |
+| tenantId | string | Identificador de inquilino del recurso. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

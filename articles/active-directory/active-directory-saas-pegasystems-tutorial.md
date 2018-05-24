@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con Pega Systems | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Pega Systems."
+title: 'Tutorial: Integración de Azure Active Directory con Pega Systems | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Pega Systems.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 924abe287b5e39bb77a418b56b5c33195095e07a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 539de49f24b2ca0c9b70be5a339625c1e14edc44
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: integración de Azure Active Directory con Pega Systems
 
@@ -30,9 +30,9 @@ La integración de Pega Systems con Azure AD proporciona las siguientes ventajas
 - Puede permitir que los usuarios inicien sesión automáticamente en Pega Systems (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con Pega Systems, se necesitan los siguientes elementos:
 
@@ -48,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Adición de Pega Systems desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -84,10 +84,10 @@ Para establecer la relación de vínculo en Pega Systems, asigne el valor de **n
 
 Para configurar y probar el inicio de sesión único de Azure AD con Pega Systems, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para permitir que los usuarios utilicen esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**: para probar el inicio de sesión único de Azure AD con Britta Simon.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 3. **[Creación de un usuario de prueba en Pega Systems](#create-a-pega-systems-test-user)**: para tener un homólogo de Britta Simon en Pega Systems que esté vinculado a la representación del usuario en Azure AD.
-4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**: para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -159,17 +159,17 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     ![Vínculo de descarga del certificado](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_certificate.png) 
 8. Haga clic en el botón **Guardar** .
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_general_400.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_general_400.png)
     
 9. Para configurar el inicio de sesión único en **Pega Systems**, abra el **portal de Pega** con cuenta de administrador en otra ventana del explorador.
 
 10. Seleccione **Create** -> **SysAdmin** -> **Authentication Service** (Crear > SysAdmin > Servicio de autenticación).
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
 11. Realice las acciones siguientes en la pantalla **Create Authentication Service** (Crear servicio de autenticación):
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin1.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 
     a. Seleccione **SAML 2.0** en Tipo.
 
@@ -181,15 +181,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
 12. En la sección **Identity Provider (IdP) information** (Información de proveedor de identidades [IdP]), haga clic en **Import IdP metadata** (Importar metadatos de IdP) y busque el archivo de metadatos que ha descargado desde Azure Portal. Haga clic en **Enviar** para cargar los metadatos.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin2.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin2.png)
     
 13. Esto rellenará los datos del proveedor de identidades tal como se muestra a continuación.
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin3.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin3.png)
     
 14. Realice las siguientes acciones en la sección **Service Provider (SP) settings** (Configuración de proveedor de servicio [SP]):
 
-    ![Botón Guardar de Configuración de inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin4.png)
+    ![Botón Configurar inicio de sesión único](./media/active-directory-saas-pegasystems-tutorial/tutorial_pegasystems_admin4.png)
 
     a. Copie el valor de **Entity Identification** (Identificación de la entidad) y péguelo de nuevo en el cuadro de texto **Identificador** de Azure Portal.
 
@@ -200,7 +200,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 15. Haga clic en **Guardar**
     
 > [!TIP]
-> Ahora puede leer una versión concisa de estas instrucciones en [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -232,7 +232,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="create-a-pega-systems-test-user"></a>Creación de un usuario de prueba de Pega Systems
 
@@ -243,11 +243,11 @@ El objetivo de esta sección es crear un usuario llamado Britta Simon en Pega Sy
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Pega Systems.
 
-![Asignación del rol de usuario][200] 
+![Asignación de rol de usuario][200] 
 
 **Para asignar a Britta Simon a Pega Systems, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -279,7 +279,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

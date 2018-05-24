@@ -1,40 +1,40 @@
 ---
 title: Funciones para crear definiciones de interfaz de usuario para aplicaciones administradas de Azure | Microsoft Docs
-description: "Describe las funciones que se usarán al crear definiciones de interfaz de usuario para aplicaciones administradas de Azure"
-services: azure-resource-manager
+description: Describe las funciones que se usarán al crear definiciones de interfaz de usuario para aplicaciones administradas de Azure
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: dcf570ca4bdc8eacb7e4d7a8ff0011c8e07b7a40
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: a01a59a7e8c9757cb41d328cd26a34fa219f9152
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="createuidefinition-functions"></a>Funciones CreateUiDefinition
 Esta sección contiene las firmas de todas las funciones compatibles de una CreateUiDefinition.
 
-Para utilizar una función, encierre la declaración entre corchetes. Por ejemplo:
+Para utilizar una función, encierre la declaración entre corchetes. Por ejemplo: 
 
 ```json
 "[function()]"
 ```
 
-Puede hacerse referencia a cadenas y otras funciones como parámetros para una función, pero las cadenas deben encerrarse entre comillas simples. Por ejemplo:
+Puede hacerse referencia a cadenas y otras funciones como parámetros para una función, pero las cadenas deben encerrarse entre comillas simples. Por ejemplo: 
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Si corresponde, puede hacer referencia a propiedades de la salida de una función mediante el operador de punto. Por ejemplo:
+Si corresponde, puede hacer referencia a propiedades de la salida de una función mediante el operador de punto. Por ejemplo: 
 
 ```json
 "[func().prop1]"
@@ -525,7 +525,7 @@ El siguiente ejemplo devuelve `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>cadena
+### <a name="string"></a>string
 Convierte el parámetro en una cadena. Esta función admite parámetros de todos los tipos de datos JSON.
 
 El siguiente ejemplo devuelve `"1"`:

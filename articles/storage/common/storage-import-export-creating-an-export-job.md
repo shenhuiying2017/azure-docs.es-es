@@ -1,11 +1,11 @@
 ---
-title: "Creación de un trabajo de exportación para Azure Import/Export | Microsoft Docs"
-description: "Obtenga información sobre cómo crear un trabajo de exportación para el servicio Microsoft Azure Import/Export."
+title: Creación de un trabajo de exportación para Azure Import/Export | Microsoft Docs
+description: Obtenga información sobre cómo crear un trabajo de exportación para el servicio Microsoft Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 613d480b-a8ef-4b28-8f54-54174d59b3f4
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 3fb3f2af5e5cebcac21f4372bc9d9dc9ee837202
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creación de un trabajo de exportación para el servicio Azure Import/Export
 Para crear un trabajo de exportación para el servicio Microsoft Azure Import/Export con la API de REST, debe seguir estos pasos:
@@ -91,6 +91,8 @@ Siga los pasos siguientes para obtener la ubicación de envío:
 
 ## <a name="receiving-the-package"></a>Recepción del paquete
  Una vez procesado el trabajo de exportación, las unidades de disco se le devolverán con los datos cifrados. Puede recuperar la clave de BitLocker de cada una de las unidades de disco mediante una llamada a la operación [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get). A continuación, puede desbloquear la unidad con la clave. El archivo de manifiesto de cada unidad contiene la lista de archivos de la unidad, así como la dirección del blob original de cada archivo.
+
+[!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

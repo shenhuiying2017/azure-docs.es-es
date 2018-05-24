@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: f060f79ee7676909943bb0dbc4369d1cbff60b46
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3a1c83a6b68eb9b43087c6d536ac7be9e0764a3a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -29,7 +29,7 @@ Para obtener más información sobre cómo proteger la solución de IoT, consult
 * [Arquitectura de seguridad de IoT][lnk-security-architecture]
 * [Protección de su implementación de IoT][lnk-security-deployment]
 
-También puede explorar algunas de las demás características y funcionalidades de los aceleradores de la solución de IoT:
+También puede explorar algunas de las demás características y funcionalidades de los aceleradores de soluciones de IoT:
 
 * [Introducción al acelerador de la solución de mantenimiento predictivo][lnk-predictive-overview]
 * [Preguntas más frecuentes acerca de los aceleradores de la solución de Azure IoT][lnk-faq]
@@ -37,7 +37,7 @@ También puede explorar algunas de las demás características y funcionalidades
 Puede informarse sobre la seguridad en IoT Hub en [Control del acceso a IoT Hub][lnk-devguide-security], en la Guía del desarrollador de IoT Hub.
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-faq]: iot-suite-faq.md
+[lnk-faq]:../iot-accelerators/iot-accelerators-faq.md
 
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md

@@ -106,7 +106,7 @@ Los registros NS y SOA creados automáticamente se administran de forma diferent
 
 ### <a name="modify-soa-records"></a>Modificación de registros SOA
 
-No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "@"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
+No puede agregar ni eliminar registros del conjunto de registros SOA creado automáticamente en el vértice de zona (nombre = "\@\"). Sin embargo, puede modificar cualquiera de los parámetros del registro SOA (excepto "Host") y del conjunto de registros TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificación de los registros NS en el vértice de zona
 
@@ -118,7 +118,7 @@ Tenga en cuenta que esto solo se aplica al conjunto de registros NS en el vérti
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminación de conjuntos de registros SOA o NS
 
-No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = @) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
+No puede eliminar conjuntos de registros SOA ni NS en el vértice de zona (nombre = \@\) que se crean automáticamente cuando se crea la zona. Se eliminan automáticamente al eliminar la zona.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
