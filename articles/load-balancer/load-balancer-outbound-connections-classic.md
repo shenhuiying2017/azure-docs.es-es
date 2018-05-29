@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 7679fd253370d8ca9ca9ac57dc080806050f5c3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939828"
 ---
 # <a name="outbound-connections-classic"></a>Conexiones salientes (clásico)
 
@@ -37,11 +38,11 @@ Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenari
 
 Azure ofrece tres métodos diferentes para lograr la conectividad saliente en las implementaciones clásicas.  No todas las implementaciones clásicas tienen los tres escenarios a su disposición:
 
-| Escenario | Método | DESCRIPCIÓN | Rol de trabajo web | IaaS | 
-| --- | --- | --- | --- | --- |
-| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos |Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin  | Sí |
-| [2. Punto de conexión con equilibrio de carga público](#publiclbendpoint) | SNAT con enmascaramiento de puertos (PAT) al punto de conexión público |Azure comparte el punto de conexión público de dirección IP pública con varios puntos de conexión privados. Azure usa puertos efímeros del punto de conexión público para PAT. | Sí | Sí |
-| [3. Máquina virtual independiente](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con toda la implementación y usa puertos efímeros de la dirección IP del punto de conexión público para PAT. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. | Sí | Sí|
+| Escenario | Método | Protocolos IP | DESCRIPCIÓN | Rol de trabajo web | IaaS | 
+| --- | --- | --- | --- | --- | --- |
+| [1. Máquina virtual con una dirección IP pública de nivel de instancia](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure utiliza la dirección IP pública asignada a la máquina virtual. La instancia tiene disponibles todos los puertos efímeros. | Sin  | Sí |
+| [2. Punto de conexión con equilibrio de carga público](#publiclbendpoint) | SNAT con enmascaramiento de puertos (PAT) al punto de conexión público | TCP, UDP | Azure comparte el punto de conexión público de dirección IP pública con varios puntos de conexión privados. Azure usa puertos efímeros del punto de conexión público para PAT. | Sí | Sí |
+| [3. Máquina virtual independiente](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con toda la implementación y usa puertos efímeros de la dirección IP del punto de conexión público para PAT. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. | Sí | Sí |
 
 Se trata de un subconjunto de las funcionalidades de conexiones de salida disponibles para las implementaciones de Resource Manager en Azure.  
 

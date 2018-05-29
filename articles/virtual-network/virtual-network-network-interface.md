@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 72c3968b59fda10d81af553cbf2324a2683c596b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895437"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
 Aprenda a crear, cambiar la configuración y eliminar una interfaz de red. Una interfaz de red permite que una máquina virtual de Azure se comunique con los recursos de Internet, Azure y locales. Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red con la configuración predeterminada. En su lugar, puede crear interfaces de red con una configuración personalizada y agregar una o varias interfaces de red a una máquina virtual al crearla. También puede cambiar la configuración predeterminada de la interfaz de red en una interfaz de red existente. En este artículo se explica cómo crear una interfaz de red con opciones personalizadas, cambiar la configuración existente, como la asignación de filtros de red (grupo de seguridad de red), la asignación de subredes, la configuración del servidor DNS y el reenvío IP, y, finalmente, cómo eliminar una interfaz de red.
 
 Si tiene que agregar, cambiar o quitar direcciones IP de una interfaz de red, consulte [Administración de direcciones IP](virtual-network-network-interface-addresses.md). Si necesita agregar o quitar interfaces de red en máquinas virtuales, consulte [Adición o eliminación de interfaces de red](virtual-network-network-interface-vm.md).
-
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -37,7 +37,7 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 - Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.4.1 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 - Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.28 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
 
-La cuenta con la que inicia sesión en Azure debe tener, como mínimo, permisos para el rol de colaborador de red de la suscripción. Para obtener más información sobre la asignación de roles y permisos a las cuentas, consulte [Roles integrados para el control de acceso basado en roles de Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
+La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
 ## <a name="create-a-network-interface"></a>Crear una interfaz de red
 
@@ -88,7 +88,7 @@ Puede ver y cambiar la mayoría de las opciones de una interfaz de red después 
     - **Propiedades:** muestra las opciones de configuración clave de la interfaz de red, incluida la dirección MAC (en blanco si la interfaz de red no está asociada a una máquina virtual) y la suscripción donde se encuentra.
     - **Reglas de seguridad eficaces:** las reglas de seguridad se muestran si la interfaz de red está asociada a una máquina virtual en ejecución, y hay un grupo de seguridad de red asociado a la interfaz de red, a la subred a la que está asignada, o ambas. Para obtener más información sobre lo que se muestra, consulte [Visualización de las reglas de seguridad vigentes](#view-effective-security-rules). Para más información sobre los grupos de seguridad de red, consulte [Grupos de seguridad de red](security-overview.md).
     - **Rutas eficaces:** las rutas se muestran si la interfaz de red está asociada a una máquina virtual en ejecución. Las rutas son una combinación de las rutas predeterminadas de Azure, las rutas definidas por el usuario y las rutas BGP que pueda haber en la subred a la cual está asignada la interfaz de red. Para obtener más información sobre lo que se muestra, consulte [View effective routes](#view-effective-routes) (Visualización de rutas vigentes). Para obtener más información sobre las rutas predeterminadas de Azure y las rutas definidas por el usuario, consulte [Routing overview](virtual-networks-udr-overview.md) (Información general sobre enrutamiento).
-    - **Opciones comunes de Azure Resource Manager:** para más información acerca de las opciones de configuración comunes de Azure Resource Manager, consulte [Registro de actividad](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Etiquetas](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+    - **Opciones comunes de Azure Resource Manager:** para más información acerca de las opciones de configuración comunes de Azure Resource Manager, consulte [Registro de actividad](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
 <a name="view-settings-commands"></a>**Comandos**
 
@@ -240,11 +240,30 @@ La característica de próximo salto de Azure Network Watcher también puede ayu
 - CLI de Azure: [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable)
 
-## <a name="next-steps"></a>Pasos siguientes
-Para crear una máquina virtual con varias interfaces de red o direcciones IP, consulte los siguientes artículos:
+## <a name="permissions"></a>Permisos
 
-|Task|Herramienta|
-|---|---|
-|Creación de una máquina virtual con varias NIC|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Creación de una máquina virtual con una sola interfaz de red y varias direcciones IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
-|Creación de una máquina virtual con una sola interfaz de red y una dirección IPv6 privada (detrás de Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+Para realizar tareas en interfaces virtuales, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignados los permisos adecuados que se muestran en la tabla siguiente:
+
+| .                                                                     | NOMBRE                                                      |
+| ---------                                                                  | -------------                                             |
+| Microsoft.Network/networkInterfaces/read                                   | Obtener interfaz de red                                     |
+| Microsoft.Network/networkInterfaces/write                                  | Crear o actualizar una interfaz de red                        |
+| Microsoft.Network/networkInterfaces/join/action                            | Adjuntar una interfaz de red a una máquina virtual           |
+| Microsoft.Network/networkInterfaces/delete                                 | Eliminar la interfaz de red                                  |
+| Microsoft.Network/networkInterfaces/joinViaPrivateIp/action                | Unir un recurso a una interfaz de red a través de una asociación de servicio     |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action             | Obtener una tabla de rutas eficaces de interfaz de red               |
+| Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action  | Obtener grupos de seguridad eficaces de interfaz de red           |
+| Microsoft.Network/networkInterfaces/loadBalancers/read                     | Obtener equilibradores de carga de interfaz de red                      |
+| Microsoft.Network/networkInterfaces/serviceAssociations/read               | Obtener una asociación de servicio                                   |
+| Microsoft.Network/networkInterfaces/serviceAssociations/write              | Crear o actualizar una asociación de servicio                    |
+| Microsoft.Network/networkInterfaces/serviceAssociations/delete             | Eliminar una asociación de servicio                                |
+| Microsoft.Network/networkInterfaces/serviceAssociations/validate/action    | Validar una asociación de servicio                              |
+| Microsoft.Network/networkInterfaces/ipconfigurations/read                  | Obtener una configuración de dirección IP de interfaz de red                    |
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Crear una máquina virtual con varias NIC mediante la [CLI de Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- Crear una sola máquina virtual NIC con varias direcciones IPv4 mediante la [CLI de Azure](virtual-network-multiple-ip-addresses-cli.md) o [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+- Crear una sola máquina virtual NIC con una dirección IPv6 privada (detrás de una instancia de Azure Load Balancer) mediante la [CLI de Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o una [plantilla de Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Crear una interfaz de red con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
+- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales

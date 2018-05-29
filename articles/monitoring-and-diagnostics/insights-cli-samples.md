@@ -2,7 +2,7 @@
 title: Ejemplos de inicio rápido de CLI de Azure Monitor 2.0. | Microsoft Docs
 description: Comandos de ejemplo de la CLI 2.0 para las características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps.
 author: kamathashwin
-manager: orenr
+manager: ''
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/09/2018
 ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009765"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Ejemplos de inicio rápido de CLI de Azure Monitor 2.0
 En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
@@ -89,18 +90,17 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Uso de alertas
+## <a name="work-with-alerts"></a>Uso de alertas 
+[!NOTE] Solo las alertas (clásicas) se admiten en la CLI en este momento. 
 
-Puede usar la información de la sección sobre cómo usar las alertas.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>Obtención de reglas de alerta en un grupo de recursos
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obtención de reglas de alerta (clásicas) en un grupo de recursos
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Creación de una regla de alerta de métrica
+### <a name="create-a-metric-alert-classic-rule"></a>Creación de una regla de alerta (clásica) de métrica
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +110,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>Creación una regla de alerta
+### <a name="delete-an-alert-classic-rule"></a>Eliminación de una regla de alerta (clásica)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -206,7 +206,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Establecimiento de la configuración de escalado automático
+### <a name="set-autoscale-settings"></a>Configuración del escalado automático
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

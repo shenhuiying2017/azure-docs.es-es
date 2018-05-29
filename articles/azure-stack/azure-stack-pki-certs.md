@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935665"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -35,7 +36,7 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 ## <a name="certificate-requirements"></a>Requisitos de certificados
 En la lista siguiente se describen los requisitos de certificados que son necesarios para implementar Azure Stack: 
 - Los certificados deben ser emitidos desde una entidad de certificación interna o pública. Si se usa una entidad de certificación pública, se debe incluir en la imagen del sistema operativo base como parte del programa de entidades de certificación raíz de confianza de Microsoft (Microsoft Trusted Root Certificate Program). Podrá encontrar la lista completa aquí: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- La infraestructura Azure Stack debe tener acceso de red a la entidad de certificación utilizada para firmar los certificados.
+- La infraestructura de Azure Stack debe tener acceso de red a la ubicación de la lista de revocación de certificados (CRL) de la entidad de certificación publicada en el certificado. Esta lista de revocación de certificados debe ser un punto de conexión http
 - Al cambiar los certificados, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior.
 - No se admite el uso de certificados autofirmados.
 - El certificado puede ser uno único comodín que abarque todos los espacios de nombres en el campo del nombre alternativo del firmante (SAN). También puede usar certificados individuales con caracteres comodín para los puntos de conexión como **acs** y Key Vault donde sean necesarios. 
@@ -45,6 +46,7 @@ En la lista siguiente se describen los requisitos de certificados que son necesa
 - Los archivos pfx de certificado deben tener los valores "Autenticación de servidor (1.3.6.1.5.5.7.3.1)" y "Autenticación de cliente (1.3.6.1.5.5.7.3.2)" en el campo de "Uso mejorado de clave".
 - El campo "Issued to:" (Emitido para:) del certificado no debe ser el mismo que su campo "Issued by:" (Emitido por:).
 - Las contraseñas para todos los archivos PFX de certificado deben ser las mismas en el momento de la implementación.
+- La contraseña para el archivo pfx de certificado tiene que ser una contraseña compleja.
 - Asegúrese de que los nombres de asunto y nombres alternativos del firmante de todos los certificados coinciden con las especificaciones descritas en este artículo para evitar errores en las implementaciones.
 
 > [!NOTE]

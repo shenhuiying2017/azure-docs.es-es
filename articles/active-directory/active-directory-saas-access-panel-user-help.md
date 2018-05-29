@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 285ee0c4e7f963c372c4f95face73864ba2a4f68
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931271"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Solución de problemas de acceso y uso en el portal Mis aplicaciones
 
@@ -29,7 +30,7 @@ Si tiene problemas de inicio de sesión o de uso en el portal Mis aplicaciones, 
 
 Pruebe estas sugerencias generales:
 
-- Primero, asegúrese de que la dirección URL es la correcta: [https://myapps.microsoft.com](https://myapps.microsoft.com).
+- Primero, compruebe para ver si usa la dirección URL correcta, [https://myapps.microsoft.com](https://myapps.microsoft.com).
 - Intente agregar la dirección URL a los sitios de confianza de su explorador.
 - Asegúrese de que la contraseña es correcta y de que no ha expirado. Para más información, consulte [Restablecimiento de la contraseña profesional o educativa](active-directory-passwords-update-your-own-password.md).
 - Compruebe si la información de contacto de autenticación está actualizada y no impide el acceso. Para más información, consulte [¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user)
@@ -54,8 +55,8 @@ El portal Mis aplicaciones requiere un explorador compatible con JavaScript y co
 Asegúrese de que cumple los siguientes requisitos de explorador:
 - **Edge**: en Windows 10 Anniversary Edition, o cualquier versión posterior.
 - **Chrome**: en Windows 7 o posterior y en Mac OS X o posterior.
-- **Firefox 26.0 o posterior**: en Windows XP SP2 o posterior y en Mac OS X 10.6 o posterior.
-- **Internet Explorer 8, 9, 10, 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
+- **Firefox 26.0 o versiones posteriores**: en Windows XP SP2 o versiones posteriores y en Mac OS X 10.6 o versiones posteriores.
+- **Internet Explorer 11**: en Windows 7, o cualquier versión posterior (compatibilidad limitada).
 
 También puede descargar la extensión para Chrome y Edge directamente desde los siguientes sitios:
 

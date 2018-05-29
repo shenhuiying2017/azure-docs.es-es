@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: fcd9ff8b726b5dc3e0d447bc384dbcc7cc1a4e88
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940194"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
 
@@ -120,7 +121,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direccio
 
 4. Seleccione el equilibrador de carga (**mylb**) al que desea agregar el grupo de direcciones IP de servidor front-end.
 
-5. En **Configuración**, seleccione **Frontend Pools** (Grupos de servidores front-end). En el siguiente panel, cerca de la parte superior, seleccione **Agregar**.
+5. En **Configuración**, seleccione **Configuración de direcciones IP de front-end**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**.
 
 6. Escriba un nombre para la dirección IP de servidor front-end (por ejemplo, **contosofe** o **fabrikamfe**).
 
@@ -128,7 +129,7 @@ Para cada sitio web (contoso.com y fabrikam.com), configure el grupo de direccio
 
 8. Cree la segunda dirección IP de servidor front-end repitiendo desde el <a href="#step3-3">paso 3</a> hasta el <a href="#step3-7">paso 7</a> en esta sección.
 
-Después de configurar el grupo de servidores front-end, las direcciones IP se muestran en la configuración **Frontend IP Pool** (Grupo IP front-end) del equilibrador de carga. 
+Después de configurar el grupo de servidores front-end, las direcciones IP se muestran en la configuración **Configuración de direcciones IP de front-end** del equilibrador de carga. 
     
 ### <a name="step-4-configure-the-back-end-pool"></a>Paso 4: Configuración del grupo de servidores back-end
 
