@@ -10,19 +10,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 6ad0f554161937a4fdb10179e2b310facbb91945
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 16eec117514d040dc91b5d18b73d4cc6025c901e
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310985"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integración e implementación continuas en Azure Data Factory
 
 La integración continua es la práctica de probar cada cambio realizado en el código base automáticamente y tan pronto como sea posible. La implementación continua sigue a las pruebas realizadas durante la integración continua y envía los cambios a un sistema de ensayo o de producción.
 
 Para Azure Data Factory, la integración y la implementación continuas implican el traslado de canalizaciones de Data Factory de un entorno (desarrollo, prueba o producción) a otro. Para realizar la implementación y la integración continuas, puede usar la integración de la interfaz de usuario de Data Factory con plantillas de Azure Resource Manager. La interfaz de usuario de Data Factory puede generar una plantilla de Resource Manager al seleccionar las opciones de la **plantilla de ARM**. Al seleccionar **Export ARM template** (Exportar plantilla de ARM), el portal genera la plantilla de Resource Manager de la factoría de datos y un archivo de configuración que incluye todas las cadenas de conexión y otros parámetros. A continuación, debe crear un archivo de configuración para cada entorno (desarrollo, prueba o producción). El archivo de plantilla de Resource Manager principal sigue siendo el mismo para todos los entornos.
+
+Si desea ver una introducción y una demostración de esta característica, vea el siguiente vídeo de nueve minutos de duración:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Creación de una plantilla de Resource Manager para cada entorno
 Seleccione **Export ARM template** (Exportar plantilla de ARM) para exportar la plantilla de Resource Manager de la factoría de datos en el entorno de desarrollo.

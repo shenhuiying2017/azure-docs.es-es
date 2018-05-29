@@ -1,11 +1,11 @@
 ---
-title: "Introducción al próximo salto en Azure Network Watcher | Microsoft Docs"
-description: "En esta página se proporciona una introducción a la funcionalidad de próximo salto de Network Watcher."
+title: Introducción al próximo salto en Azure Network Watcher | Microsoft Docs
+description: En este artículo se proporciona una introducción a la funcionalidad de próximo salto de Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
 ms.devlang: na
@@ -14,44 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: bb2ca0486b3b3d27a77b70927cb3cbfbeac12c7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbb782e700781dcfedbbd340c7d10db53767b035
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32180392"
 ---
-# <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Introducción al próximo salto en Azure Network Watcher
+# <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Uso del Próximo salto para diagnosticar problemas de enrutamiento de máquina virtual
 
-El tráfico de una máquina virtual se envía a un destino en función de las rutas efectivas asociadas con una NIC. La funcionalidad Próximo salto obtiene el tipo de próximo salto y la dirección IP de un paquete de una máquina virtual y una NIC específicas. Esto sirve para determinar si el paquete se dirige hacia el destino o si el tráfico se está enviando a un agujero negro. Una configuración incorrecta de las rutas por parte del usuario, en la que un determinado tráfico se dirige a una ubicación local o a un dispositivo virtual, puede causar problemas de conectividad. La funcionalidad Próximo salto también devuelve la tabla de ruta asociada con el próximo salto. Al consultar un próximo salto, si la ruta se define como una ruta definida por el usuario, se devolverá esa ruta. De lo contrario, la funcionalidad devolverá "Ruta de sistema".
+El tráfico de una máquina virtual se envía a un destino en función de las rutas efectivas asociadas con una interfaz de red (NIC). La funcionalidad Próximo salto obtiene el tipo de próximo salto y la dirección IP de un paquete de una máquina virtual y una NIC específicas. Conocer el próximo salto le ayuda a determinar si se está dirigiendo tráfico hacia el destino deseado o si el tráfico no se está enviando a ningún sitio. Una configuración incorrecta de las rutas, en la que un determinado tráfico se dirige a una ubicación local o a un dispositivo virtual, puede causar problemas de conectividad. La funcionalidad Próximo salto también devuelve la tabla de ruta asociada con el próximo salto. Si la ruta se define como una ruta definida por el usuario, se devolverá esa ruta. De lo contrario, la funcionalidad devolverá **Ruta de sistema**.
 
-![información general sobre próximo salto][1]
+![información general sobre próximo salto](./media/network-watcher-next-hop-overview/figure1.png)
 
-La siguiente es una lista de los tipos de próximo salto que se pueden devolver al consultar la funcionalidad Próximo salto.
+Los próximos saltos que pueden obtenerse por la función de próximo salto son los siguientes:
 
 * Internet
 * VirtualAppliance
 * VirtualNetworkGateway
 * VnetLocal
-* HyperNetGateway
 * VnetPeering
 * None
 
-### <a name="next-steps"></a>Pasos siguientes
+Para obtener más información sobre cada tipo de próximo salto, consulte [Enrutamiento del tráfico de redes virtuales](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-Aprenda a usar el próximo salto para detectar problemas de conectividad de red visitando [Comprobación del próximo salto en una máquina virtual](network-watcher-check-next-hop-portal.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-<!--Image references-->
-[1]: ./media/network-watcher-next-hop-overview/figure1.png
-
-
-
-
-
-
-
-
-
-
-
-
-
+Para obtener información sobre cómo utilizar el próximo salto para diagnosticar problemas de enrutamiento de red de VM, consulte [ Diagnosticar un problema de enrutamiento de red de máquina virtual con Azure Portal](diagnose-vm-network-routing-problem.md).

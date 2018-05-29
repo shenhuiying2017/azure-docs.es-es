@@ -9,11 +9,12 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1fe162beca258fe8ec3d03ce2844c1abe3176dc
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188980"
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Administración de recursos para una sola base de datos en Azure SQL Database
 
@@ -109,6 +110,6 @@ Para establecer o cambiar los niveles de servicio, los niveles de rendimiento y 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información acerca de los niveles de servicio, los niveles de rendimiento y la cantidad de almacenamiento, en [Niveles de servicio](sql-database-service-tiers.md).
+- Para obtener información acerca de niveles de servicio, niveles de rendimiento y cantidades de almacenamiento, consulte [[Modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y [Modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 - Más información sobre grupos elásticos en [este artículo](sql-database-elastic-pool.md).
 - Información sobre [límites, cuotas y restricciones de suscripción y servicios de Azure](../azure-subscription-service-limits.md).

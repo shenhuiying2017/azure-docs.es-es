@@ -1,25 +1,26 @@
 ---
-title: "Supervisión de un clúster de Azure DC/OS: pila ELK"
-description: "Supervisión de un clúster de DC/OS en un clúster de Azure Container Service con ELK (Elasticsearch, Logstash y Kibana)."
+title: 'Supervisión de un clúster de Azure DC/OS: pila ELK'
+description: Supervisión de un clúster de DC/OS en un clúster de Azure Container Service con ELK (Elasticsearch, Logstash y Kibana).
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: b378fc38233534df74582388e6e832d40f431d11
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32163187"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>Supervisión de un clúster de Azure Container Service con ELK
 
 En este artículo se muestra cómo implementar la pila ELK (Elasticsearch, Logstash, Kibana) en un clúster de DC/OS de Azure Container Service. 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 [Implemente](container-service-deployment.md) y [conecte](../container-service-connect.md) un clúster de DC/OS configurado por Azure Container Service. Explore el panel de DC/OS y los servicios de Marathon [aquí](container-service-mesos-marathon-ui.md). Instale también el [equilibrador de carga de Marathon](container-service-load-balancing.md).
 
 
@@ -27,7 +28,7 @@ En este artículo se muestra cómo implementar la pila ELK (Elasticsearch, Logst
 La pila ELK es una combinación de Elasticsearch, Logstash y Kibana que proporciona una pila de un extremo a otro que se puede usar para supervisar y analizar los registros de un clúster.
 
 ## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Configuración de la pila ELK en un clúster de DC/OS
-Acceda a su interfaz de usuario de DC/OS a través de [http://localhost: 80 /](http://localhost:80/). Una vez que esté en ella, navegue a **Universe**. Busque e instale Elasticsearch, Logstash y Kibana desde DC/OS, y en ese orden específico. Para más información acerca de la configuración, siga el vínculo **Advanced Installation** (Instalación avanzada).
+Acceda a la interfaz de usuario de DC/OS a través de [http://localhost:80/](http://localhost:80/). Una vez que esté en ella, vaya a **Universe**. Busque e instale Elasticsearch, Logstash y Kibana desde DC/OS, y en ese orden específico. Para más información acerca de la configuración, siga el vínculo **Advanced Installation** (Instalación avanzada).
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 

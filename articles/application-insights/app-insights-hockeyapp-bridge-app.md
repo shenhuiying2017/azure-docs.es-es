@@ -1,6 +1,6 @@
 ---
-title: "Exploración de datos de HockeyApp en Azure Application Insights | Microsoft Docs"
-description: "Analice el uso y el rendimiento de la aplicación de Azure con Application Insights."
+title: Exploración de datos de HockeyApp en Azure Application Insights | Microsoft Docs
+description: Analice el uso y el rendimiento de la aplicación de Azure con Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: bec2b2dc8a29e5c94e3d3c7f2f0333e07bfe3a4f
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: cd185d799be5051340c2bfea44a1d1e69a1eb002
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309851"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploración de datos de HockeyApp en Application Insights
 
 > [!NOTE]
-> Visual Studio App Center ahora es el servicio recomendado de Microsoft para la supervisión de aplicaciones móviles nuevas. [Aprenda a configurar las aplicaciones con App Center y Application Insights](app-insights-mobile-center-quickstart.md).
-> 
-> 
+> HockeyApp ya no está disponible para las aplicaciones nuevas. Las implementaciones de HockeyApp existentes seguirán funcionando. Visual Studio App Center ahora es el servicio recomendado de Microsoft para la supervisión de aplicaciones móviles nuevas. [Aprenda a configurar las aplicaciones con App Center y Application Insights](app-insights-mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) es un servicio para supervisar aplicaciones de escritorio y móviles activas. En HockeyApp, puede enviar datos de telemetría de seguimiento y personalizados para supervisar el uso y ayudar en el diagnóstico (además de obtener datos de bloqueo). Esta secuencia de datos de telemetría se puede consultar mediante la eficaz característica [Analytics](app-insights-analytics.md) de [Azure Application Insights](app-insights-overview.md). Además, puede [exportar los datos de telemetría de seguimiento y personalizados](app-insights-export-telemetry.md). Para habilitar estas características, configure un puente que transmita los datos personalizados de HockeyApp a Application Insights.
 

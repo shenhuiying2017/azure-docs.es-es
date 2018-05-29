@@ -9,11 +9,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194978"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Uso del procesamiento por lotes para mejorar el rendimiento de las aplicaciones de SQL Database
 El procesamiento de operaciones por lotes para Azure SQL Database mejora notablemente el rendimiento y la escalabilidad de las aplicaciones. Para comprender las ventajas, la primera parte de este artículo trata algunos resultados de pruebas de ejemplo que comparan solicitudes por lotes y secuenciales a una instancia de SQL Database. El resto del artículo muestra las técnicas, los escenarios y las consideraciones para ayudarlo a usar el procesamiento por lotes correctamente en las aplicaciones de Azure.
@@ -32,9 +33,9 @@ Una de las ventajas del uso de SQL Database es que no es necesario administrar l
 En la primera parte del artículo, se examinan diversas técnicas de procesamiento por lotes para aplicaciones .NET que usan SQL Database. En las dos últimas secciones, se explican las instrucciones y los escenarios de procesamiento por lotes.
 
 ## <a name="batching-strategies"></a>Estrategias de procesamiento por lotes
-### <a name="note-about-timing-results-in-this-topic"></a>Nota sobre los tiempos resultantes en este tema
+### <a name="note-about-timing-results-in-this-article"></a>Nota sobre los tiempos resultantes en este artículo
 > [!NOTE]
-> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observar en una base de datos V12 con los nuevos [niveles de servicio](sql-database-service-tiers.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
+> Los resultados no sirven para pruebas comparativas, sino que están diseñados para mostrar el **rendimiento relativo**. Los tiempos se basan en un promedio de un mínimo de 10 series de pruebas. Las operaciones son inserciones en una tabla vacía. Estas pruebas se midieron antes de V12 y no se corresponden necesariamente con el rendimiento que podría observarse en una base de datos V12 con los nuevos [niveles de servicio de DTU](sql-database-service-tiers-dtu.md) o los [niveles de servicio de núcleos virtuales](sql-database-service-tiers-vcore.md). La ventaja relativa de la técnica de procesamiento por lotes debería ser semejante.
 > 
 > 
 
@@ -209,7 +210,7 @@ La copia masiva de SQL es otra forma de insertar grandes cantidades de datos en 
         }
     }
 
-Hay algunos casos en que la copia masiva es preferible a los parámetros con valores de tabla. Consulte la tabla de comparación de parámetros con valores de tabla frente a las operaciones BULK INSERT en el tema [Usar parámetros con valores de tabla (motor de base de datos)](https://msdn.microsoft.com/library/bb510489.aspx).
+Hay algunos casos en que la copia masiva es preferible a los parámetros con valores de tabla. Consulte la comparativa de los parámetros con valores de tabla frente a las operaciones BULK INSERT que encontrará en este artículo sobre [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb510489.aspx).
 
 Los resultados de pruebas ad hoc siguientes muestran el rendimiento del procesamiento por lotes con **SqlBulkCopy** en milisegundos.
 
@@ -309,7 +310,7 @@ En nuestras pruebas, normalmente dividir los lotes grandes en fragmentos menores
 > 
 > 
 
-Es obvio que el mejor rendimiento para 1000 filas es enviarlas todas a la vez. En otras pruebas (no mostradas aquí) hubo una pequeña mejora de rendimiento al dividir un lote de 10.000 filas en dos lotes de 5000. Pero el esquema de tabla para estas pruebas es relativamente simple, por lo que debería realizar pruebas con sus datos y tamaños de lote específicos para verificar estos hallazgos.
+Es obvio que el mejor rendimiento para 1000 filas es enviarlas todas a la vez. En otras pruebas (no mostradas aquí), hubo una pequeña mejora de rendimiento al dividir un lote de 10 000 filas en dos lotes de 5000. Pero el esquema de tabla para estas pruebas es relativamente simple, por lo que debería realizar pruebas con sus datos y tamaños de lote específicos para verificar estos hallazgos.
 
 Otro factor que se debe considerar es que, si el lote total es demasiado grande, es posible que SQL Database imponga limitaciones y no confirme el lote. Para obtener resultados óptimos, pruebe su escenario concreto para determinar si existe un tamaño de lote ideal. Haga que el tamaño de lote sea configurable en tiempo de ejecución para permitir ajustes rápidos en función del rendimiento o la presencia de errores.
 
@@ -592,7 +593,7 @@ Después, cree un procedimiento almacenado o escriba código que use la instrucc
 Para obtener más información, consulte la documentación y los ejemplos de la instrucción MERGE. Aunque se podría realizar el mismo trabajo en una llamada a procedimiento almacenado de varios pasos con operaciones INSERT y UPDATE separadas, la instrucción MERGE es más eficaz. Además, el código de la base de datos puede construir llamadas Transact-SQL que usen la instrucción MERGE directamente sin necesidad de realizar dos llamadas de base de datos para INSERT y UPDATE.
 
 ## <a name="recommendation-summary"></a>Resumen de recomendaciones
-En la lista siguiente, se proporciona un resumen de las recomendaciones de procesamiento por lotes tratadas en este tema:
+En la lista siguiente, se resumen las recomendaciones sobre el procesamiento por lotes tratadas en este artículo:
 
 * Use el almacenamiento en búfer y el procesamiento por lotes para aumentar el rendimiento y la escalabilidad de las aplicaciones de SQL Database.
 * Comprenda los compromisos entre el procesamiento por lotes o el almacenamiento en búfer y la resistencia. Durante un error de rol, el riesgo de perder un lote sin procesar de datos esenciales para la empresa podría sobrepasar las ventajas de rendimiento del procesamiento por lotes.

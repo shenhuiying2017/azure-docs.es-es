@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33775237"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Introducción a Azure Load Balancer Estándar
 
@@ -218,11 +219,12 @@ Load Balancer Estándar es un producto que se carga según el número de reglas 
 
 ## <a name="limitations"></a>Limitaciones
 
-- Por el momento, las instancias de back-end de Load Balancer no se pueden encontrar en redes virtuales emparejadas. Todas las instancias de servidor back-end deben estar en la misma región.
 - Las SKU no son mutables. No se puede cambiar la SKU de un recurso existente.
 - Un recurso de máquina virtual independiente, un recurso de conjunto de disponibilidad o un recurso de conjunto de escalado de máquinas virtuales puede hacer referencia únicamente a una SKU, nunca a ambas.
-- [Las alertas de Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md) no son compatibles en estos momentos.
+- Una regla de equilibrador de carga no puede abarcar dos redes virtuales.  Los front-ends y sus instancias de back-end relacionadas deben estar ubicados en la misma red virtual.  
+- Los front-ends de equilibrador de carga no son accesibles a través del emparejamiento global de redes virtuales.
 - [Mover las operaciones de suscripción](../azure-resource-manager/resource-group-move-resources.md) no se admite para los recursos estándar PIP y LB de SKU.
+- Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No debe depender de esto, porque el servicio mismo o la plataforma subyacente puede cambiar sin previo aviso. Siempre debe pensar que necesita crear [conectividad de salida](load-balancer-outbound-connections.md) de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

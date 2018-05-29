@@ -9,11 +9,12 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b4f8388fdf104253aad07de77e89c30df4e4b128
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195175"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimización del rendimiento mediante las tecnologías en memoria de SQL Database
 
@@ -22,7 +23,7 @@ Mediante el uso de tecnologías en memoria en Azure SQL Database, puede lograr m
 A continuación se muestran dos ejemplos de cómo OLTP en memoria ayudó significativamente a mejorar el rendimiento:
 
 - Gracias al uso de OLTP en memoria, [Quorum Business Solutions pudo duplicar la carga de trabajo al mismo tiempo que mejoró las DTU en un 70 %](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU significa *unidad de transacción de datos*, e incluye una medida del consumo de recursos.
+    - DTU significa *unidad de transmisión de datos* e incluye una medida del consumo de recursos.
 - El vídeo siguiente muestra la mejora significativa del consumo de recursos con una carga de trabajo de ejemplo: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (Vídeo sobre OLTP en memoria en Azure SQL Database).
     - Para más información, consulte la entrada de blog: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/) (OLTP en memoria en la entrada de Blog de base de datos de SQL de Azure).
 
@@ -43,7 +44,7 @@ Azure SQL Database cuenta con las siguientes tecnologías en memoria:
 
 Las opciones de índices de almacén de columnas y OLTP en memoria forman parte de SQL Server desde 2012 y 2014, respectivamente. Azure SQL Database y SQL Server comparten la misma implementación de tecnologías en memoria. A partir de ahora, las nuevas funciones para estas tecnologías se publican primero en Azure SQL Database y después, en SQL Server.
 
-En este tema se describen aspectos de OLTP en memoria y los índices de almacén de columnas específicos de Azure SQL Database; además, se incluyen ejemplos:
+En este artículo, se describen aspectos de OLTP en memoria y los índices de almacén de columnas específicos de Azure SQL Database junto con algunos ejemplos:
 - Veremos la repercusión de estas tecnologías en el almacenamiento, así como en los límites de tamaño de los datos.
 - Después trataremos cómo administrar el movimiento de bases de datos que usan estas tecnologías entre los distintos planes de tarifa.
 - Y también eremos dos ejemplos que ilustran el uso de OLTP en memoria y de los índices del almacén de columnas en Azure SQL Database.
@@ -71,7 +72,7 @@ Vídeos detallados sobre las tecnologías:
 
 OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en el servicio de SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
 
-Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. Consulte los [límites de recursos basados en DTU](sql-database-dtu-resource-limits.md) y los [límites de recursos basados en núcleos virtuales](sql-database-vcore-resource-limits.md).
+Cada plan de tarifa de grupo elástico y de base de datos independiente admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria. Consulte [DTU-based resource limits](sql-database-dtu-resource-limits.md) (Límites de recursos basados en DTU) y [vCore-based resource limits](sql-database-vcore-resource-limits.md) (Límites de recursos basados en núcleo virtual).
 
 Los siguientes elementos cuentan para su límite de almacenamiento de OLTP en memoria:
 
@@ -92,7 +93,7 @@ Con grupos elásticos, el almacenamiento de OLTP en memoria se comparte entre to
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
-No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en el artículo sobre los [niveles de servicio de SQL Database](sql-database-service-tiers.md).
+No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en los artículos sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 
 Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esta compresión puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este compresión aún más con la [compresión de archivo de columnas](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
 
@@ -223,8 +224,8 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 La única diferencia entre los dos *procedimientos almacenados* siguientes es que el primer procedimiento usa las versiones de las tablas optimizadas para memoria, mientras que el segundo procedimiento usa las tablas en disco habituales:
 
-- SalesLT**.**usp_InsertSalesOrder**_inmem**
-- SalesLT**.**usp_InsertSalesOrder**_ondisk**
+- SalesLT **.** usp_InsertSalesOrder **_inmem**
+- SalesLT **.** usp_InsertSalesOrder **_ondisk**
 
 
 En esta sección verá cómo usar la práctica utilidad **ostress.exe** para ejecutar los dos procedimientos almacenados a niveles de esfuerzo. Puede comparar el tiempo que tardan en completarse las dos ejecuciones de esfuerzo.

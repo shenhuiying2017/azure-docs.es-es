@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 4/6/2018
+ms.date: 5/4/2018
 ms.author: raiye
-ms.openlocfilehash: b4206d90ddd65f58bcdb92661f64d005a5e40563
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765780"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidad del SDK y versiones del SO invitado de Azure
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Cloud Services. Esta información le ayuda a planear la ruta de actualización antes de que se deshabilite un SO invitado. Si configura los roles para utilizar actualizaciones *automáticas* del SO invitado como se describe en la documentación sobre la [configuración de actualización del SO invitado de Azure][Azure Guest OS Update Settings], no es fundamental que lea esta página.
@@ -42,6 +43,9 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 ¿No sabe en qué consiste exactamente el SO invitado o cómo funcionan las versiones de este? Lea [esta](#how-it-works) sección.
 
 ## <a name="news-updates"></a>Actualizaciones de noticias
+###### <a name="may-4-2018"></a>**4 de mayo de 2018**
+Se ha publicado el sistema operativo invitado de abril.
+
 ###### <a name="april-6-2018"></a>**6 de abril de 2018**
 Se ha publicado el sistema operativo invitado de marzo.
 
@@ -69,14 +73,6 @@ Se ha publicado el SO invitado de septiembre. Para la versión de septiembre de 
 ###### <a name="september-14-2017"></a>**14 de septiembre de 2017**
 La implementación del SO invitado de septiembre comienza el 14 de septiembre y está previsto que se lance el 9 de octubre.
 
-###### <a name="august-24-2017"></a>**24 de agosto de 2017**
-Se ha publicado el SO invitado de agosto.
-
-###### <a name="august-3-2017"></a>**3 de agosto de 2017**
-Se ha publicado el SO invitado de julio.
-
-###### <a name="july-19-2017"></a>**19 de julio de 2017**
-La implementación del SO invitado del mes de julio comienza el 19 de julio y está previsto que se lance el 8 de agosto.
 
 
 ## <a name="releases"></a>Lanzamientos
@@ -93,8 +89,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.18_201804-01 |4 de mayo de 2018 |Post 5.20 |TBD |
 | WA-GUEST-OS-5.17_201803-01 |6 de abril de 2018 |Post 5.19 |TBD |
-| WA-GUEST-OS-5.16_201802-01 |12 de marzo de 2018 |Post 5.18 |TBD |
+|~~WA-GUEST-OS-5.16_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 de enero de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018|TBD |
@@ -105,8 +102,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 |~~WA-GUEST-OS-5.8_201706-01~~ |7 de julio de 2017 |6 de octubre de 2017 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |5 de junio de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |9 de mayo de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-5.5_201703-01~~ |10 de abril de 2017 |7 de julio de 2017 |TBD |
-|~~WA-GUEST-OS-5.4_201612-01~~ |10 de enero de 2017 |5 de junio de 2017|TBD |
+
 
 ## <a name="family-4-releases"></a>Lanzamientos de la familia 4
 **Windows Server 2012 R2**
@@ -120,8 +116,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.53_201804-01 |4 de mayo de 2018 |Post 4.55 |TBD |
 | WA-GUEST-OS-4.52_201803-01 |6 de abril de 2018 |Post 4.54 |TBD |
-| WA-GUEST-OS-4.51_201802-01 |12 de marzo de 2018 |Post 4.53 |TBD |
+|~~WA-GUEST-OS-4.51_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 de enero de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 de diciembre de 2017 |4 de enero de 2018 |TBD |
@@ -132,8 +129,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-4.43_201706-01~~ |7 de julio de 2017 |6 de octubre de 2017 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |5 de junio de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |9 de mayo de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-4.40_201703-01~~ |10 de abril de 2017 |7 de julio de 2017 |TBD |
-|~~WA-GUEST-OS-4.39_201612-01~~ |10 de enero de 2017 |5 de junio de 2017 |TBD |
+
 
 ## <a name="family-3-releases"></a>Lanzamientos de la familia 3
 **Windows Server 2012**
@@ -147,8 +143,9 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.60_201804-01 |4 de mayo de 2018 |Post 3.62 |TBD |
 | WA-GUEST-OS-3.59_201803-01 |6 de abril de 2018 |Post 3.61 |TBD |
-| WA-GUEST-OS-3.58_201802-01 |19 de marzo de 2018 |POST 3.60 |TBD |
+|~~WA-GUEST-OS-3.58_201802-01~~ |19 de marzo de 2018 |4 de mayo de 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 de enero de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 de enero de 2018 |19 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
@@ -159,8 +156,7 @@ Versión de .NET Framework instalada: 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-3.50_201706-01~~ |7 de julio de 2017 |6 de octubre de 2017 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |5 de junio de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |9 de mayo de 2017 |3 de agosto de 2017 |TBD |
-|~~WA-GUEST-OS-3.47_201703-01~~ |10 de abril de 2017 |7 de julio de 2017 |TBD |
-|~~WA-GUEST-OS-3.46_201612-01~~ |10 de enero de 2017 |5 de junio de 2017 |TBD |
+
 
 ## <a name="family-2-releases"></a>Lanzamientos de la familia 2
 **Windows Server 2008 R2 SP1**
@@ -174,8 +170,9 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.73_201804-01 |4 de mayo de 2018 |Post 2.75 |TBD |
 | WA-GUEST-OS-2.72_201803-01 |6 de abril de 2018 |Post 2.74 |TBD |
-| WA-GUEST-OS-2.71_201802-01 |12 de marzo de 2018 |Post 2.73 |TBD |
+|~~WA-GUEST-OS-2.71_201802-01~~ |12 de marzo de 2018 |4 de mayo de 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 de enero de 2018 |6 de abril de 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 de enero de 2018 |12 de marzo de 2018 |TBD |
 |~~WA-GUEST-OS-2.68_201711-01~~ |14 de diciembre de 2017 |29 de enero de 2018 |TBD |
@@ -187,8 +184,6 @@ Versión de .NET Framework instalada: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 |~~WA-GUEST-OS-2.62_201705-01~~ |5 de junio de 2017 |24 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |9 de mayo de 2017 |3 de agosto de 2017 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |10 de abril de 2017 |7 de julio de 2017 |TBD |
-|~~WA-GUEST-OS-2.59_201701-01~~ |10 de enero de 2017 |5 de junio de 2017 |TBD |
-|~~WA-GUEST-OS-2.58_201612-01~~ |10 de enero de 2017 |9 de mayo de 2017|TBD |
 
 
 ## <a name="msrc-patch-updates"></a>Actualizaciones de revisiones de MSRC

@@ -1,8 +1,8 @@
 ---
-title: "Configuración de redes virtuales y firewalls de Azure Storage | Microsoft Docs"
+title: Configuración de redes virtuales y firewalls de Azure Storage | Microsoft Docs
 description: Configure la seguridad de red por niveles para la cuenta de almacenamiento.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192883"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 Azure Storage proporciona un modelo de seguridad por niveles que le permite proteger las cuentas de almacenamiento en un conjunto específico de redes permitidas.  Cuando se configuran las reglas de red, solo las aplicaciones de redes permitidas pueden acceder a una cuenta de almacenamiento.  Al llamar a desde una red permitida, las aplicaciones seguirán requiriendo la autorización adecuada (clave de acceso válida o token de SAS) para acceder a la cuenta de almacenamiento.
@@ -37,11 +38,9 @@ Una vez que se apliquen las reglas de red, se aplicarán a todas las solicitudes
 
 El tráfico de disco de máquina virtual (incluidas las operaciones de montaje y desmontaje y las operaciones de E/S de disco) **no** se ve afectado por las reglas de red.  El acceso de REST a los blobs en páginas está protegido por las reglas de red.
 
-> [!NOTE]
-> La copia de seguridad y restauración de las máquinas virtuales con discos no administrados en las cuentas de almacenamiento con reglas de red aplicadas no se admite actualmente.  Para obtener más información, consulte [Limitaciones al realizar copias de seguridad y restaurar una máquina virtual](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
->
-
 Las cuentas de almacenamiento clásicas **no** admite Firewalls and Virtual Networks (Firewalls y redes virtuales).
+
+La copia de seguridad y restauración de máquinas virtuales con discos no administrados en cuentas de almacenamiento con reglas de red aplicadas se admite mediante la creación de una excepción, como se documenta en la sección [Excepciones](/storage/common/storage-network-security#exceptions) de este artículo.  Las excepciones del firewall no son aplicables a los discos administrados, puesto que ya son administrados por Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Modificación de la regla de acceso de red predeterminada
 De forma predeterminada, las cuentas de almacenamiento aceptan conexiones de clientes en cualquier red.  Para limitar el acceso a redes seleccionadas, primero debe cambiar la acción predeterminada.
@@ -291,6 +290,7 @@ Cuando la excepción "Servicios de Microsoft de confianza" está habilitada, se 
 
 |Servicio|Nombre del proveedor de recursos|Propósito|
 |:------|:---------------------|:------|
+|Azure Backup|Microsoft.Backup|Realizar copias de seguridad y restauraciones de discos no administrados en máquinas virtuales de IAAS. (no se necesita para discos administrados). [Más información](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creación de imagen personalizada e instalación de artefactos.  [Más información](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Habilitación de publicación de eventos de Blob Storage.  [Más información](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archivo de datos con Event Hubs Capture.  [Más información](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

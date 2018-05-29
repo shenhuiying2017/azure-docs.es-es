@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
-ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 04/27/2018
+ms.author: barclayn
+ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187698"
 ---
 # <a name="azure-disk-encryption-faq"></a>Preguntas más frecuentes de Azure Disk Encryption
 
@@ -34,7 +35,7 @@ La disponibilidad general de Azure Disk Encryption admite plantillas de Azure Re
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>¿Cuánto cuesta Azure Disk Encryption?
 
-El cifrado de discos de máquinas virtuales con Azure Disk Encryption no tiene cargo.
+No hay ningún cargo por cifrar discos de máquina virtual con Azure Disk Encryption, pero hay cargos asociados al uso de Azure Key Vault. Para más información sobre los costos de Azure Key Vault, consulte la página [precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>¿Qué niveles de máquina virtual admite Azure Disk Encryption?
 
@@ -68,7 +69,7 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | SLES | Priority:11-SP4 | Disco de datos |
 | SLES | 11 SP4 | Disco de datos |
 
-*__ADE es admite RHEL en los discos de datos. La implementación actual de ADE funciona con discos del sistema operativo, pero no se admite por ahora de manera conjunta. Tanto Microsoft como Red Hat están trabajando en una solución conjunta compatible. Mientras tanto, puede consultar las notas del producto de ADE sobre el cifrado de discos del sistema operativo Linux [aquí](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE es admite RHEL en los discos de datos. La implementación actual de ADE funciona con discos del sistema operativo, pero no se admite por ahora de manera conjunta. Tanto Microsoft como Red Hat están trabajando en una solución conjunta compatible. Mientras tanto, puede consultar las notas del producto de ADE sobre el cifrado de discos del sistema operativo Linux [aquí](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>¿Cómo puedo empezar a usar Azure Disk Encryption?
 
