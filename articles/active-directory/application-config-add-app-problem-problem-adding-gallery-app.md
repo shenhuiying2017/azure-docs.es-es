@@ -1,11 +1,11 @@
 ---
-title: "Problemas al agregar una aplicación de la galería de Azure AD | Microsoft Docs"
-description: "Conozca los problemas habituales a los que se enfrentan los usuarios al agregar aplicaciones de la galería de Azure AD y los pasos que se deben dar para resolverlos"
+title: Problemas al agregar una aplicación de la galería de Azure AD | Microsoft Docs
+description: Conozca los problemas habituales a los que se enfrentan los usuarios al agregar aplicaciones de la galería de Azure AD y los pasos que se deben dar para resolverlos
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 79713cd343e1b876cd7a1b6653bbe00b43272a55
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5cb43976c17bfd46d1f16f0bdaff1c164bdc0fb6
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053766"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
 
@@ -25,7 +26,7 @@ Este artículo le ayuda a conocer los problemas habituales a los que se enfrenta
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Hice clic en el botón "Agregar" y mi aplicación tardó mucho tiempo en aparecer
 
-En algunas circunstancias, una aplicación puede tardar entre 1 y 2 minutos (a veces, más) en aparecer después de agregarla a su directorio. Aunque este no es el rendimiento normal esperable, puede ver si la incorporación de la aplicación está en curso haciendo clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de [Azure Portal](https://portal.azure.com/) y buscando una notificación **En curso** o **Completado** con la etiqueta **Crear aplicación**.
+En algunas circunstancias, una aplicación puede tardar entre 1 y 2 minutos (a veces, más) en aparecer después de agregarla a su directorio. Aunque este no es el rendimiento normal esperable, puede ver si la incorporación de la aplicación está en curso haciendo clic en el icono de **notificaciones** (la campana) de la esquina superior derecha de [Azure Portal](https://portal.azure.com/) y buscando una notificación **En curso** o **Completado** con la etiqueta **Crear aplicación.**
 
 Si la aplicación nunca se agrega o se produce un error al hacer clic en el botón **Agregar**, verá una **notificación** con un estado de **Error**. Si desea obtener más detalles sobre el error para conocer más información o compartirlo con un ingeniero de soporte técnico, puede ver más información sobre el error siguiendo los pasos descritos en [Visualización de los detalles de una notificación del portal](#how-to-see-the-details-of-a-portal-notification).
 
@@ -54,9 +55,7 @@ Puede ver los detalles de cualquier notificación del portal si sigue los pasos 
     >
     >
 
-3.  Esto hace que se abra la hoja **Detalles de la notificación**.
-
-4.  Utilice esta información para conocer más detalles acerca del problema.
+4.  Utilice la información que se encuentra en **Detalles de notificación** para conocer más detalles acerca del problema.
 
 5.  Si aún necesita ayuda, también puede compartir esta información con un ingeniero de soporte técnico o el grupo de producto para obtener ayuda.
 
@@ -68,7 +67,7 @@ Es muy importante que comparta **todos los detalles que se muestran a continuaci
 
 ## <a name="notification-details-explained"></a>Explicación de los detalles de la notificación
 
-A continuación se explica más en profundidad lo que significa cada uno de los elementos de notificación y se dan ejemplos de cada uno de ellos.
+Consulte las descripciones siguientes para más información acerca de las notificaciones.
 
 ### <a name="essential-notification-items"></a>Elementos esenciales de notificación
 
@@ -124,11 +123,12 @@ A continuación se explica más en profundidad lo que significa cada uno de los 
 
 -   **Detalles**: la descripción detallada de lo que se produjo como resultado de la operación
 
-    -   Por ejemplo: **la dirección url interna 'http://bing.com/' no es válida puesto que ya está en uso**
+    -   Por ejemplo: **la dirección url interna "**" no es válida puesto que ya está en usohttp://bing.com/
 
--   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o un grupo de producto
+-   **Copiar error**: haga clic en el **icono de copia** situado a la derecha del cuadro de texto **Copiar error** para copiar todos los detalles de la notificación para compartirlos con un ingeniero de soporte técnico o grupo de  
+-   producto
 
     -   Por ejemplo, ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Administración de aplicaciones con Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Administración de aplicaciones con Azure Active Directory](manage-apps/what-is-application-management.md)

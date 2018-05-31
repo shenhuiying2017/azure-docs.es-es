@@ -1,9 +1,9 @@
 ---
-title: "Exportación a Power BI desde Azure Application Insights | Microsoft Docs"
+title: Exportación a Power BI desde Azure Application Insights | Microsoft Docs
 description: Las consultas de Analytics se pueden mostrar en Power BI.
 services: application-insights
-documentationcenter: 
-author: noamben
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: 19595983ba49a88d9139c85afbf38d3106d4a81d
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c9b53c26eea0a5eced32acf196204aef3c3bb125
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869060"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentación de Power BI desde Application Insights
 [Power BI](http://www.powerbi.com/) es un conjunto de herramientas de negocios que pueden ayudar a analizar datos y compartir conocimientos. Cada dispositivo cuenta con paneles que incluyen gran cantidad de datos. Puede combinar datos de varios orígenes, incluidas las consultas de Analytics en [Azure Application Insights](app-insights-overview.md).
@@ -102,7 +103,7 @@ Instale [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    ![Captura de pantalla de Power BI Desktop, con el cambio de título resaltado](./media/app-insights-export-power-bi/changetitle.png)
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Pueden producirse errores relacionados con las credenciales o el tamaño del conjunto de datos. Aquí se ofrece cierta información sobre qué hacer cuando se producen estos errores.
 

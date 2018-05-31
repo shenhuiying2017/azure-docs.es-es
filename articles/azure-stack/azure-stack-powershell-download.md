@@ -1,24 +1,25 @@
 ---
 title: Descarga de herramientas de Azure Stack desde GitHub | Microsoft Docs
-description: "Obtenga información sobre cómo descargar las herramientas necesarias para trabajar con Azure Stack."
+description: Obtenga información sobre cómo descargar las herramientas necesarias para trabajar con Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
-ms.assetid: E4DF77FA-F468-42B5-B44F-F10ED8049171
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 219fd8e4e164df8c3002044719a90a7be56a9edf
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: thoroet
+ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075296"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Descarga de herramientas de Azure Stack desde GitHub
 
@@ -53,13 +54,10 @@ El repositorio **AzureStack-Tools** contiene los módulos de PowerShell que admi
 | Funcionalidad | DESCRIPCIÓN | ¿Quién puede usar este módulo? |
 | --- | --- | --- |
 | [Funcionalidades en la nube](user/azure-stack-validate-templates.md) | Utilice este módulo para obtener las funcionalidades en la nube de una nube. Por ejemplo, con este módulo puede obtener las funcionalidades en la nube como la versión de API y los recursos de Azure Resource Manager. También puede obtener las extensiones de VM para Azure Stack y las nubes de Azure con este módulo. | Operadores de nube y usuarios |
-| [Administración de procesos de Azure Stack](azure-stack-add-vm-image.md) | Utilice este módulo para agregar o quitar una imagen de máquina virtual desde el marketplace de Azure Stack. | Operadores de nube |
-| [Administración de la infraestructura de Azure Stack](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use este módulo para administrar las actualizaciones, las alertas, las máquinas virtuales y mucho más de la infraestructura de Azure Stack. |  Operadores de nube|
 | [Directiva de Resource Manager para Azure Stack](user/azure-stack-policy-module.md) | Utilice este módulo para configurar una suscripción de Azure o un grupo de recursos de Azure con la misma disponibilidad de servicios y control de versiones que Azure Stack. | Operadores de nube y usuarios |
 | [Registro con Azure](azure-stack-register.md) | Utilice este módulo para registrar la instancia de Azure Stack Development Kit. Después del registro, puede descargar los elementos de marketplace de Azure y usarlos en Azure Stack. | Operadores de nube |
 | [Implementación de Azure Stack](azure-stack-run-powershell-script.md) | Use este módulo para preparar el equipo host de Azure Stack para implementar y volver a implementar con la imagen de disco duro virtual (VHD) de Azure Stack. | Operadores de nube|
-| [Conexión a Azure Stack](azure-stack-connect-powershell.md) | Utilice este módulo para conectarse a una instancia de Azure Stack a través de PowerShell y configurar la conectividad VPN a Azure Stack. | Operadores de nube y usuarios |
-| [Administración de servicios de Azure Stack](azure-stack-create-offer.md) | Use este módulo para crear una oferta de inquilino predeterminada con una cuota ilimitada a través de los servicios de Key Vault, red, Azure Storage y proceso.   | Operadores de nube|
+| [Conexión a Azure Stack](azure-stack-connect-powershell.md) | Utilice este módulo para configurar la conectividad VPN a Azure Stack. | Operadores de nube y usuarios |
 | [Validador de plantilla](user/azure-stack-validate-templates.md) | Utilice este módulo para comprobar si una plantilla nueva o existente puede implementarse en Azure Stack. | Operadores de nube y usuarios|
 
 

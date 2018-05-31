@@ -1,9 +1,9 @@
 ---
-title: "Uso de Analytics: la eficaz herramienta de búsqueda de Azure Application Insights | Microsoft Docs"
-description: "Uso de Analytics, la eficaz herramienta de búsqueda de Application Insights. "
+title: 'Uso de Analytics: la eficaz herramienta de búsqueda de Azure Application Insights | Microsoft Docs'
+description: 'Uso de Analytics, la eficaz herramienta de búsqueda de Application Insights. '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869893"
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso de Analytics en Application Insights
 [Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Log Analytics.
@@ -143,7 +144,7 @@ Esto significa que, cuando elabora un panel que le ayude a supervisar el rendimi
 Puede anclar una tabla al panel, si tiene cuatro o menos columnas. Se muestran solo las siete filas superiores.
 
 ### <a name="dashboard-refresh"></a>Actualización del panel
-El gráfico anclado al panel se actualiza automáticamente al volver a ejecutar la consulta aproximadamente cada dos horas. También puede hacer clic en el botón Actualizar.
+El gráfico anclado al panel se actualiza automáticamente al volver a ejecutar la consulta aproximadamente cada hora. También puede hacer clic en el botón Actualizar.
 
 ### <a name="automatic-simplifications"></a>Simplificaciones automáticas
 
@@ -205,7 +206,7 @@ Por ejemplo, si los usuarios autenticados se identifican en la telemetría media
 ### <a name="define-your-data-schema"></a>Definición de un esquema de datos
 
 1. Haga clic en **Configuración** (en la parte superior izquierda) y, luego, en **Orígenes de datos**. 
-2. Agregue un origen de datos siguiendo las instrucciones. Se le solicita que proporcione una muestra de los datos, que se deben incluir al menos diez filas. A continuación, corrija el esquema.
+2. Agregue un origen de datos siguiendo las instrucciones. Se le solicita que proporcione una muestra de los datos, que se deben incluir al menos 10 filas. A continuación, corrija el esquema.
 
 Así se define un origen de datos, que, posteriormente, se puede usar para importar tablas individuales.
 
