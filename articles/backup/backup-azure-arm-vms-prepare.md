@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: caf2c54c986f8c4dd951628fd6908d42e7ddd281
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940577"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager
 
@@ -55,8 +56,8 @@ Antes de preparar el entorno, asegúrese de que conoce estas limitaciones:
 * Los datos de la copia de seguridad no incluyen unidades montadas de red conectadas a una máquina virtual.
 * No se admite el reemplazo de una máquina virtual existente durante la restauración. Si intenta restaurar la máquina virtual cuando ya existe, la operación de restauración dará error.
 * No se admiten la restauración y la copia de seguridad entre regiones.
-* La copia de seguridad y restauración de máquinas virtuales con discos no administrados en las cuentas de almacenamiento con reglas de red aplicadas no se admiten para los clientes de la pila de copia de seguridad de la VM antigua. 
 * Al configurar la copia de seguridad, asegúrese de que la configuración de la cuenta de almacenamiento **Firewalls y redes virtuales** de la cuenta de almacenamiento permite el acceso desde Todas las redes.
+* Para las redes seleccionadas, después de configurar los valores del firewall y de la red virtual para la cuenta de almacenamiento, seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** como una excepción para permitir al servicio Azure Backup acceder a la cuenta de almacenamiento restringida. No se admite la recuperación en el nivel de elemento para cuentas de almacenamiento con la red restringida.
 * Puede realizar copias de seguridad de máquinas virtuales en todas las regiones públicas de Azure (consulte la [lista de comprobación](https://azure.microsoft.com/regions/#services) de las regiones admitidas). Si la región que busca no se admite, no aparecerá en la lista desplegable durante la creación del almacén.
 * La restauración de una máquina virtual de controlador de dominio que forma parte de una configuración de varios controladores de dominio solo se admite a través de PowerShell. Para más información, consulte [Restauración de máquinas virtuales de controlador de dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Solo se admite la restauración de las máquinas virtuales que tienen las siguientes configuraciones especiales de red a través de PowerShell. Las máquinas virtuales que se crean a través del flujo de trabajo de restauración en la interfaz de usuario no tendrán estas configuraciones de red cuando se complete la operación de restauración. Si desea obtener más información, consulte [Restauración de máquinas virtuales con configuraciones de red especiales](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -172,7 +173,7 @@ Después de habilitar correctamente la copia de seguridad, la directiva de copia
 Si surgen problemas al registrar la máquina virtual, consulte la siguiente información acerca de cómo instalar el agente de máquina virtual y de la conectividad de red. Probablemente no necesite la siguiente información si va a proteger máquinas virtuales creadas en Azure. Sin embargo, si ha migrado las máquinas virtuales a Azure, asegúrese de que ha instalado correctamente el agente de máquina virtual y que la máquina virtual se puede comunicar con la red virtual.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>Instalación del agente de máquina virtual en la máquina virtual
-Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/windows/agent-user-guide.md) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual. 
+Para que la extensión de Backup funcione, el [agente de máquina virtual](../virtual-machines/extensions/agent-windows.md) de Azure se debe instalar en la máquina virtual de Azure. Si la máquina virtual se ha creado en Microsoft Azure Marketplace, el agente de máquina virtual ya estará presente en la máquina virtual. 
 
 La siguiente información se proporciona para aquellas situaciones en las que *no* se usa una máquina virtual creada en Microsoft Azure Marketplace. Por ejemplo, ha migrado una máquina virtual desde un centro de datos local. En ese caso, debe instalarse el agente de máquina virtual con el fin de proteger la máquina virtual.
 
@@ -180,9 +181,9 @@ Si tiene problemas para realizar una copia de seguridad de la máquina virtual d
 
 | **operación** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalar el agente de máquina virtual |Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para completar la instalación, necesita privilegios de administrador. |Instale el [agente de Linux](../virtual-machines/linux/agent-user-guide.md) más reciente. Para completar la instalación, necesita privilegios de administrador. Se recomienda instalar el agente desde el repositorio de distribución. *No se recomienda* instalar el agente de máquina virtual Linux directamente desde GitHub.  |
-| Actualizar el agente de máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. *No es aconsejable* actualizar el agente de máquina virtual Linux directamente desde GitHub.<br><br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
-| Validar la instalación del agente de máquina virtual |1. Vaya a la carpeta C:\WindowsAzure\Packages de la máquina virtual de Azure. <br><br>2. Busque el archivo WaAppAgent.exe. <br><br>3. Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo **Versión del producto**, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
+| Instalación del agente de la máquina virtual |Descargue e instale el [MSI del agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necesitará privilegios de administrador para efectuar la instalación. |<li> Instale el [agente de Linux](../virtual-machines/extensions/agent-linux.md) más reciente. Necesitará privilegios de administrador para efectuar la instalación. Se recomienda instalar el agente desde el repositorio de distribución. **No se recomienda** instalar el agente de máquina virtual Linux directamente desde github.  |
+| Actualización del agente de la máquina virtual |Actualizar el agente de la máquina virtual es tan sencillo como volver a instalar los [archivos binarios del agente de la máquina virtual](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |Siga las instrucciones para [actualizar el agente de máquina virtual Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Se recomienda actualizar el agente desde el repositorio de distribución. **No se recomienda** actualizar el agente de máquina virtual Linux directamente desde github.<br>Asegúrese de que no se está ejecutando ninguna operación de copia de seguridad mientras se actualiza el agente de la máquina virtual. |
+| Validación de la instalación del agente de máquina virtual |<li>Acceda a la carpeta *C:\WindowsAzure\Packages* de la máquina virtual de Azure. <li>El archivo WaAppAgent.exe debe estar ahí.<li> Haga clic con el botón derecho en el archivo, desplácese hasta **Propiedades** y seleccione la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior. |N/D |
 
 ### <a name="backup-extension"></a>Extensión de Backup
 Después de que el agente de máquina virtual se instale en la máquina virtual, el servicio Azure Backup instala la extensión de copia de seguridad en el agente de máquina virtual. El servicio Backup actualiza la extensión de copia de seguridad y le aplica revisiones en un proceso que transcurre de forma fluida.

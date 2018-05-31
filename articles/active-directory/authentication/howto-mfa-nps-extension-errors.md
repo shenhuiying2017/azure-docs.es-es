@@ -1,25 +1,21 @@
 ---
 title: Solución de problemas de códigos de error para la extensión de NPS de Azure MFA | Microsoft Docs
-description: Obtenga ayuda para solucionar problemas con la extensión de NPS para Azure Multi-Factor Authentication con resoluciones específicas para los mensajes de error comunes
+description: Ayuda para solucionar problemas con la extensión de NPS para Azure Multi-Factor Authentication
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867672"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolución de mensajes de error de la extensión de NPS para Azure Multi-Factor Authentication
 
@@ -86,7 +82,7 @@ Si encuentra uno de estos errores, se recomienda [ponerse en contacto con el ser
 | ---------- | ------------- |
 | **InvalidParameter** | La solicitud no debe ser nula |
 | **InvalidParameter** | El valor ObjectId no debe estar vacío ni ser un valor nulo para ReplicationScope:{0} |
-| **InvalidParameter** | La longitud de NombreEmpresa \{0}\ es mayor que la longitud máxima permitida {1} |
+| **InvalidParameter** | La longitud de CompanyName \{0}\ es mayor que la longitud máxima permitida {1} |
 | **InvalidParameter** | El valor UserPrincipalName no debe estar vacío ni ser un valor nulo |
 | **InvalidParameter** | El valor TenantId proporcionado no tiene el formato correcto |
 | **InvalidParameter** | El valor SessionId no debe estar vacío ni ser un valor nulo |

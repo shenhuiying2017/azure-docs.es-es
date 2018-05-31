@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0476865b19cd078b05e5def4a51c2df17315daa
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155388"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorización de las cuentas de desarrollador mediante Azure Active Directory en Azure API Management
 
@@ -100,6 +101,11 @@ En este artículo se muestra cómo habilitar el acceso al portal para desarrolla
 31. Vuelva a cambiar a la aplicación de API Management. 
 
     En la ventana **Add identity provider** (Agregar proveedor de identidades), pegue la clave en el cuadro de texto **Client secret** (Secreto de cliente).
+
+    > [!IMPORTANT]
+    > Asegúrese de actualizar el **secreto de cliente** antes de que expire la clave. 
+    >  
+    >
 32. La ventana **Add identity provider** (Agregar proveedor de identidades) también contiene el cuadro de texto **Allowed Tenants** (Inquilinos permitidos). Ahí, especifique los dominios de las instancias de Azure AD a las que quiere conceder acceso a las API de la instancia de servicio API Management. Puede separar varios dominios mediante nuevas líneas, espacios o comas.
 
     Puede especificar varios dominios en la sección **Allowed Tenants** (Inquilinos permitidos). Para que un usuario pueda iniciar sesión desde otro dominio distinto al dominio original donde se registró la aplicación, un administrador global de ese otro dominio debe conceder antes a la aplicación permiso de acceso a los datos del directorio. Para conceder permiso, el administrador global debe:

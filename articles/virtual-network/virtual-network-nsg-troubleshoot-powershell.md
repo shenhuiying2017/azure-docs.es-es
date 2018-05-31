@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365447"
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Solución de problemas de los grupos de seguridad de red utilizando Azure PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 Si ha configurado grupos de seguridad de red (NSG) en la máquina virtual (VM) y está experimentando problemas de conectividad en la misma, este artículo proporciona información general sobre las funcionalidades de diagnóstico para los NSG que puede ayudarle solucionar el problema.
 
-Los NSG le permiten controlar los tipos de tráfico de flujo de entrada y salida de las máquinas virtuales. Los NSG pueden aplicarse a subredes en Azure Virtual Network (VNet), interfaces de red (NIC) o a ambas. Las reglas vigentes aplicadas a una interfaz de red son una agregación de las reglas que existen en los NSG que se aplican a una NIC y a la subred a la que está conectada. Las reglas en estos NSG a veces pueden entrar en conflicto entre sí y afectar la conectividad de red de la máquina virtual.  
+Los NSG le permiten controlar los tipos de tráfico de flujo de entrada y salida de las máquinas virtuales. Los NSG pueden aplicarse a subredes en Azure Virtual Network (VNet), interfaces de red (NIC) o a ambas. Las reglas vigentes aplicadas a una interfaz de red son una agregación de las reglas que existen en los NSG que se aplican a una NIC y a la subred a la que está conectada. Las reglas en estos NSG a veces pueden entrar en conflicto entre sí y afectar la conectividad de red de la máquina virtual.
 
-Puede ver todas las reglas de seguridad vigentes de sus NSG, tal y como se aplican a las NIC de la máquina virtual. Este artículo muestra cómo solucionar problemas de conectividad de máquina virtual utilizando estas reglas en el modelo de implementación de Azure Resource Manager. Si no está familiarizado con conceptos de VNet y NSG, lea los artículos de información general sobre [redes virtuales](virtual-networks-overview.md) y [grupos de seguridad de red](virtual-networks-nsg.md).
+Puede ver todas las reglas de seguridad vigentes de sus NSG, tal y como se aplican a las NIC de la máquina virtual. Este artículo muestra cómo solucionar problemas de conectividad de máquina virtual utilizando estas reglas en el modelo de implementación de Azure Resource Manager. Si no está familiarizado con los conceptos VNet y NSG, lea los artículos de información general sobre [Virtual Network](virtual-networks-overview.md) y [grupos de seguridad de red](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Uso de las reglas de seguridad vigentes para solucionar problemas de flujo de tráfico de máquinas virtuales
 El siguiente escenario es un ejemplo de un problema de conexión común:
@@ -159,8 +160,7 @@ Complete los pasos siguientes para solucionar problemas de los NSG para una máq
    
    * Hay dos secciones **NetworkSecurityGroup**: una está asociada a una subred (*Subnet1*) y otra está asociada a una NIC (*VM1- NIC1*). En este ejemplo, se ha aplicado un NSG a cada una.
    * **Asociación** muestra el recurso (subred o NIC) con el que está asociado un NSG determinado. Si el recurso GSN se mueve o disocia inmediatamente antes de ejecutar este comando, puede que tenga que esperar unos segundos para que los cambios se vean reflejados en los resultados del comando. 
-   * Los nombres de regla que vienen precedidos por *defaultSecurityRules*: cuando se crea un NSG, se crean varias reglas de seguridad predeterminadas dentro de él. Las reglas predeterminadas no se pueden quitar, pero pueden reemplazarse con reglas de prioridad más alta.
-     Para más información acerca de las reglas de seguridad predeterminadas de NSG, consulte el artículo de [información general sobre los grupos de seguridad de red](virtual-networks-nsg.md#default-rules) .
+   * Los nombres de regla que vienen precedidos por *defaultSecurityRules*: cuando se crea un NSG, se crean varias reglas de seguridad predeterminadas dentro de él. Las reglas predeterminadas no se pueden quitar, pero pueden reemplazarse con reglas de prioridad más alta. Obtenga más información acerca de las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules).
    * **ExpandedAddressPrefix** expande los prefijos de dirección para las etiquetas predeterminadas de NSG. Las etiquetas representan varios prefijos de direcciones. La expansión de las etiquetas puede ser útil al solucionar problemas de conectividad de máquinas virtuales con de prefijos de dirección específicos. Por ejemplo, con el emparejamiento de red virtual, la etiqueta VIRTUAL_NETWORK se expande para mostrar prefijos emparejados de red virtual en los resultados anteriores.
      
      > [!NOTE]

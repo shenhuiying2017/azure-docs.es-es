@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366467"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configuración de una conexión desde un indexador de Azure Search a SQL Server en una máquina virtual de Azure
 Como se indicó en [Conexión de Azure SQL Database a Azure Search con indexadores](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creación de indexadores en **SQL Server en VM de Azure** (o **VM de SQL Azure** para abreviar) es compatible con Azure Search, pero hay varios requisitos previos relacionados con la seguridad de los que hay que ocuparse en primer lugar. 
@@ -55,11 +56,11 @@ No es extraño configurar el NSG y el correspondiente punto de conexión o lista
 Los vínculos siguientes proporcionan instrucciones para la configuración de NSG en las implementaciones de VM. Siga estas instrucciones para incluir en la ACL un punto de conexión de Azure Search por su dirección IP.
 
 > [!NOTE]
-> Para más información, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
+> Para más información, consulte [¿Qué es un grupo de seguridad de red?](../virtual-network/security-overview.md)
 > 
 > 
 
-* En el caso de una máquina virtual de **Resource Manager** , consulte [Administración de grupos de seguridad de red con Azure Portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* En el caso de una máquina virtual de **Resource Manager** , consulte [Administración de grupos de seguridad de red con Azure Portal](../virtual-network/tutorial-filter-network-traffic.md). 
 * En el caso de una máquina virtual **clásica** , consulte [Creación de grupos de seguridad de red (clásicos) en PowerShell](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 La dirección IP puede plantear ciertos problemas, que se solucionan fácilmente si se conoce el problema y las posibles soluciones. En las restantes secciones encontrará recomendaciones para el control de los problemas relacionados con las direcciones IP de la ACL.

@@ -8,27 +8,25 @@ manager: mtillman
 editor: ''
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a50854b2e12db9a202d769f9e5feebee8e5f9395
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930993"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Preguntas más frecuentes y problemas conocidos de Managed Service Identity (MSI) para Azure Active Directory
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
-
-### <a name="is-there-a-private-preview-program-available-for-upcoming-msi-features-and-integrations"></a>¿Hay un programa de versión preliminar privada disponible para próximas características e integraciones de MSI?
-
-Sí. Si desea que se le tenga en cuenta para la inscripción en el programa de versión preliminar privada, [visite nuestra página de registro](https://aka.ms/azuremsiprivatepreview).
 
 ### <a name="does-msi-work-with-azure-cloud-services"></a>¿Funciona MSI con Azure Cloud Services?
 
@@ -53,7 +51,7 @@ Cuando se usa MSI con máquinas virtuales, es recomendable que use el punto de c
 
 La extensión de la máquina virtual de MSI todavía se puede usar actualmente. Sin embargo, de aquí en adelante, solo podrá usar el punto de conexión de IMDS como predeterminado. La extensión de la máquina virtual de MSI pronto iniciará un plan para abandonar su uso. 
 
-Para más información sobre Azure Instance Metada Service, consulte la [documentación de IMDS](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+Para más información sobre Azure Instance Metada Service, consulte la [documentación de IMDS](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="what-are-the-supported-linux-distributions"></a>¿Qué distribuciones de Linux son compatibles?
 
@@ -91,7 +89,7 @@ Cuando se habilita Managed Service Identity en una máquina virtual, se muestra 
 
 La extensión Managed Service Identity de la máquina virtual no admite actualmente la posibilidad de exportar su esquema a una plantilla de grupo de recursos. Como resultado, la plantilla generada no muestra los parámetros de configuración para habilitar Managed Service Identity en el recurso. Estas secciones pueden agregarse manualmente siguiendo los ejemplos de [Configuración de Managed Service Identity de una máquina virtual mediante una plantilla](qs-configure-template-windows-vm.md).
 
-Cuando la funcionalidad de exportación de esquema está disponible para la extensión MSI de la máquina virtual, se enumerará en [Exportación de grupos de recursos que contienen extensiones de máquina virtual](../../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions).
+Cuando la funcionalidad de exportación de esquema está disponible para la extensión MSI de la máquina virtual, se enumerará en [Exportación de grupos de recursos que contienen extensiones de máquina virtual](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>La hoja de configuración no aparece en Azure Portal
 
@@ -122,3 +120,16 @@ Una vez que se inicia la máquina virtual, la etiqueta puede quitarse con el com
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## <a name="known-issues-with-user-assigned-identities"></a>Problemas conocidos con identidades asignadas por el usuario
+
+- Las asignaciones de identidades asignadas por el usuario solo están disponibles para la máquina virtual y VMSS. IMPORTANTE: Las asignaciones de identidades asignadas por el usuario cambiarán en los próximos meses.
+- Las identidades asignadas por el usuario duplicadas en la misma máquina virtual o VMSS provocarán un error en dicha máquina virtual o VMSS. Esto incluye las identidades que se agregan con diferente uso de mayúsculas y minúsculas. Por ejemplo, MyUserAssignedIdentity y myuserassignedidentity. 
+- Se puede producir un error con el aprovisionamiento de la extensión de máquina virtual en una máquina virtual debido a errores de búsqueda DNS. Reinicie la máquina virtual y vuelva a intentarlo. 
+- Al agregar una identidad asignada por el usuario "no existente", se producirá un error en la máquina virtual. 
+- No se admite la creación de una identidad asignada por el usuario con caracteres especiales (por ejemplo, guion bajo) en el nombre.
+- Los nombres de identidades asignadas por el usuario se restringen a 24 caracteres para el escenario completo. Las identidades asignadas por el usuario con nombres que tengan más de 24 caracteres no se podrán asignar.  
+- Al agregar una segunda identidad asignada por el usuario, el identificador de cliente puede no estar disponible para tokens de solicitudes para la extensión de máquina virtual. Como una mitigación, reinicie la extensión MSI para máquina virtual con los dos comandos de bash siguientes:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- Si una máquina virtual tiene una identidad asignada por el usuario pero ninguna identidad asignada por el sistema, MSI aparecerá como deshabilitada en la interfaz de usuario del portal. Para habilitar la identidad asignada por el sistema, use una plantilla de Azure Resource Manager, una CLI de Azure o un SDK.

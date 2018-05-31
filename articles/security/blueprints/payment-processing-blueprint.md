@@ -3,7 +3,7 @@ title: 'Azure Security and Compliance Blueprint: entornos de procesamiento de pa
 description: 'Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS'
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 2f1e00a8-0dd6-477f-9453-75424d06a1df
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895493"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint: entornos de procesamiento de pagos compatibles con PCI DSS
 
@@ -130,7 +131,7 @@ Esta solución utiliza los siguientes servicios de Azure. Los detalles de la arq
 >- Aplicación web de Azure
 >- Azure Automation
 >- Runbooks de Azure Automation
->- DNS de Azure
+>- Azure DNS
 >- Azure Virtual Network
 >- Máquina virtual de Azure
 >- Grupo de recursos y directivas de Azure
@@ -384,11 +385,3 @@ Coalfire systems, Inc. se encargó de revisar la solución (asesores de segurida
 - Todos los nombres de los clientes, los registros de transacciones y cualquier dato relacionado en esta página son ficticios, ya que se han creado específicamente para esta arquitectura fundamental y solo se proporcionan con fines ilustrativos. No se pretende crear ninguna asociación o conexión real y ninguna debe inferirse.  
 - Esta solución fue desarrollada conjuntamente por Microsoft y Avyan Consulting y está disponible en la [licencia MIT](https://opensource.org/licenses/MIT).
 - Coalfire, el auditor de PCI DSS de Microsoft, se encargó de revisar esta solución. La [revisión del cumplimiento de PCI](https://aka.ms/pciblueprintcrm32) proporciona una revisión independiente de terceros de la solución y los componentes que han de tenerse en cuenta. 
-
-### <a name="document-authors"></a>Autores de los documentos
-
-- *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
-
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositorio de código"

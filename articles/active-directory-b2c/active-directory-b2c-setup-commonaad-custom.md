@@ -14,17 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/14/2018
 ms.author: parakhj
-ms.openlocfilehash: cff5c1eed374683ad3e2c1f1a69f6f172f36c536
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d5e5ab1262a9d33fcf34cce91113f39c8c8936f4
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200525"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C permite a los usuarios iniciar sesión en un proveedor de identidades multiinquilino de Azure AD mediante directivas personalizadas
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión habitual de Azure Active Directory (Azure AD) mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md).
+En este artículo se muestra cómo habilitar el inicio de sesión de los usuarios usando el punto de conexión de multiinquilino de Azure Active Directory (Azure AD) mediante el uso de [directivas personalizadas](active-directory-b2c-overview-custom.md). Esto permite a los usuarios de varios inquilinos de Azure AD iniciar sesión en Azure AD B2C sin tener que configurar un proveedor técnico para cada inquilino. Sin embargo, los miembros invitados en cualquiera de estos inquilinos **no** podrán iniciar sesión. Para ello, tendrá que [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > En las instrucciones siguientes, usamos "contoso.com" para el inquilino de Azure AD de la organización y "fabrikamb2c.onmicrosoft.com" como inquilino de Azure AD B2C.
@@ -36,25 +37,22 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
 Estos pasos incluyen:
      
 1. Creación de un inquilino de Azure Active Directory B2C (Azure AD B2C).
-2. Creación de una aplicación de Azure AD B2C.    
-3. Registro de dos aplicaciones de motor de directivas.  
-4. Configuración de claves. 
-5. Configurar el paquete de inicio.
+1. Creación de una aplicación de Azure AD B2C.    
+1. Registro de dos aplicaciones de motor de directivas.  
+1. Configuración de claves. 
+1. Configurar el paquete de inicio.
 
 ## <a name="step-1-create-a-multi-tenant-azure-ad-app"></a>Paso 1. Creación de una aplicación multiinquilino de Azure AD
 
-Para habilitar el inicio de sesión de los usuarios mediante el punto de conexión multiinquilino de Azure AD, debe tener una aplicación multiinquilino registrada en cualquiera de los inquilinos de Azure AD. En este artículo, le mostraremos cómo crear una aplicación multiinquilino de Azure AD en el inquilino de Azure AD B2C. Posteriormente, podrá habilitar el inicio de sesión de los usuarios mediante esa aplicación multiinquilino de Azure AD.
-
->[!NOTE]
-> Si desea que los usuarios de Azure AD **y los usuarios con cuentas Microsoft** inicien sesión, omita esta sección y, en su lugar, registre una aplicación en el [portal para desarrolladores de Microsoft](https://apps.dev.microsoft.com).
+Para habilitar el inicio de sesión de los usuarios mediante el punto de conexión multiinquilino de Azure AD, debe tener una aplicación multiinquilino registrada en uno de los inquilinos de Azure AD. En este artículo, le mostraremos cómo crear una aplicación multiinquilino de Azure AD en el inquilino de Azure AD B2C. Posteriormente, podrá habilitar el inicio de sesión de los usuarios mediante esa aplicación multiinquilino de Azure AD.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. En la barra superior, seleccione su cuenta. En la lista **Directorios**, elija el inquilino de Azure AD B2C para registrar la aplicación de Azure AD (fabrikamb2c.onmicrosoft.com).
-2. Seleccione **Más servicios** en el panel izquierdo y busque "Registros de aplicaciones".
-3. Seleccione **Nuevo registro de aplicaciones**.
-4. Escriba el nombre de la aplicación (por ejemplo, `Azure AD B2C App`).
-5. En Tipo de aplicación, seleccione **Aplicación web o API**.
-6. En **Dirección URL de inicio de sesión**, escriba la dirección URL siguiente, donde `yourtenant` se sustituye por el nombre del inquilino de Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
+1. Seleccione **Más servicios** en el panel izquierdo y busque "Registros de aplicaciones".
+1. Seleccione **Nuevo registro de aplicaciones**.
+1. Escriba el nombre de la aplicación (por ejemplo, `Azure AD B2C App`).
+1. En Tipo de aplicación, seleccione **Aplicación web o API**.
+1. En **Dirección URL de inicio de sesión**, escriba la dirección URL siguiente, donde `yourtenant` se sustituye por el nombre del inquilino de Azure AD B2C (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >El valor de "yourtenant" debe estar en minúsculas en **URL de inicio de sesión**.
@@ -82,8 +80,8 @@ Deberá registrar la clave de aplicación en la configuración de Azure AD B2C. 
    * En **Nombre**, elija un nombre que coincida con el nombre del inquilino de Azure AD (por ejemplo, `AADAppSecret`).  Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
    * Pegue la clave de la aplicación en el cuadro **Secreto**.
    * Seleccione **Firma**.
-5. Seleccione **Crear**.
-6. Confirme que ha creado la clave `B2C_1A_AADAppSecret`.
+1. Seleccione **Crear**.
+1. Confirme que ha creado la clave `B2C_1A_AADAppSecret`.
 
 ## <a name="step-3-add-a-claims-provider-in-your-base-policy"></a>Paso 3. Adición de un proveedor de notificaciones a una directiva de base
 
@@ -114,11 +112,12 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue Azur
         <Item Key="HttpBinding">POST</Item>
         <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
         
-        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. If you would like only specific tenants to be able to sign in, uncomment the line below and update the GUIDs. -->
-        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item> -->
+        <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
+        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
-        <!-- The commented key below specifies that users from any tenant can sign-in. Comment or remove the line below if using the line above. -->
-        <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item>
+        <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
+        <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+
       </Metadata>
       <CryptographicKeys>
       <!-- Make sure to update the reference ID of the client secret below you just created (B2C_1A_AADAppSecret) -->
@@ -150,14 +149,15 @@ Puede definir Azure AD como proveedor de notificaciones. Para ello, agregue Azur
 1. Actualice el valor de `<Description>`.
 1. Establezca `<Item Key="client_id">` en el identificador de aplicación desde el registro de la aplicación multiinquilino de Azure AD.
 
-### <a name="step-31-optional-restrict-access-to-specific-list-of-azure-ad-tenants"></a>Paso 3.1 (Opcional) Restricción del acceso a la lista específica de inquilinos de Azure AD
-Puede que desee actualizar la lista de emisores de tokens válidos y restringir el acceso a la lista específica de inquilinos de Azure AD en los que los usuarios pueden iniciar sesión. Para obtener los valores, debe examinar los metadatos de cada uno de los inquilinos específicos de Azure AD desde los que le gustaría que los usuarios iniciaran sesión. El formato de los datos es similar al siguiente: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (contoso.com o cualquier otro inquilino de Azure AD).
+### <a name="step-31-restrict-access-to-a-specific-list-of-azure-ad-tenants"></a>Paso 3.1 Restricción del acceso a la lista específica de inquilinos de Azure AD
+
+> [!NOTE]
+> Si se usa `https://sts.windows.net` como el valor de **ValidTokenIssuerPrefixes**, se permitirá a todos los usuarios de Azure AD iniciar sesión en la aplicación.
+
+Tiene que actualizar la lista de emisores de tokens válidos y restringir el acceso a la lista específica de inquilinos de Azure AD en los que los usuarios pueden iniciar sesión. Para obtener los valores, debe examinar los metadatos de cada uno de los inquilinos específicos de Azure AD desde los que le gustaría que los usuarios iniciaran sesión. El formato de los datos es similar al siguiente: `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`, donde `yourAzureADtenant` es el nombre del inquilino de Azure AD (contoso.com o cualquier otro inquilino de Azure AD).
 1. Abra el explorador y vaya a la dirección URL de los metadatos.
 1. En el explorador, busque el objeto "issuer" y copie su valor. Debería ser similar a lo siguiente: `https://sts.windows.net/{tenantId}/`.
 1. Pegue el valor de la clave `ValidTokenIssuerPrefixes`. Puede agregar varios separándolos con una coma. Un ejemplo de esto se describe en el ejemplo de XML anterior.
-
-> [!NOTE]
-> Usar `https://sts.windows.net` como un valor de prefijo permitirá a TODOS los usuarios de Azure AD iniciar sesión en la aplicación.
 
 ## <a name="step-4-register-the-azure-ad-account-claims-provider"></a>Paso 4 Registro del proveedor de notificaciones de la cuenta de Azure AD
 
@@ -212,11 +212,11 @@ Ahora es preciso actualizar el archivo del usuario de confianza (RP) que iniciar
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Paso 6: Carga de la directiva en el inquilino
 
 1. En [Azure Portal](https://portal.azure.com), cambie al [contexto del inquilino de Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) y seleccione **Azure AD B2C**.
-2. Seleccione **Marco de experiencia de identidad**.
-3. Seleccione **Todas las directivas**.
-4. Seleccione **Cargar directiva**.
-5. Active la casilla **Sobrescribir la directiva si existe**.
-6. Cargue el archivo `TrustFrameworkExtensions.xml` y el archivo RP (por ejemplo, `SignUpOrSignInWithAAD.xml`) y asegúrese que pasan la validación.
+1. Seleccione **Marco de experiencia de identidad**.
+1. Seleccione **Todas las directivas**.
+1. Seleccione **Cargar directiva**.
+1. Active la casilla **Sobrescribir la directiva si existe**.
+1. Cargue el archivo `TrustFrameworkExtensions.xml` y el archivo RP (por ejemplo, `SignUpOrSignInWithAAD.xml`) y asegúrese que pasan la validación.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Paso 7: Prueba de la directiva personalizada con Ejecutar ahora
 

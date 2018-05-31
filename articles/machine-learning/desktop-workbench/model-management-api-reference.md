@@ -12,11 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: e518799fb4144093e5c3caf0524254a098e4b9cc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3efc351861a7d5b3c02c08b96494e83a3ccb99f6
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34362148"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Referencia sobre la API de la cuenta de Administración de modelos de Azure Machine Learning
 
@@ -483,7 +484,7 @@ Permite obtener las claves del servicio.
 ### <a name="request"></a>Solicitud
 | Método | URI de solicitud |
 |------------|------------|
-| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/keys | 
+| POST |  /api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/accounts/{accountName}/services/{id}/regenerateKeys | 
 
 ### <a name="description"></a>DESCRIPCIÓN
 Regenera las claves del servicio y las devuelve.

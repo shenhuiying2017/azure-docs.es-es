@@ -1,25 +1,26 @@
 ---
-title: "Implementación y supervisión de módulos para Azure IoT Edge | Microsoft Docs"
-description: "Administración de los módulos que se ejecutan en dispositivos perimetrales"
+title: Implementación y supervisión de módulos para Azure IoT Edge | Microsoft Docs
+description: Administración de los módulos que se ejecutan en dispositivos perimetrales
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 12/07/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: cc7d1e290465d9254cbd7fe9e8ba71cc740b0368
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: 6d024dfdd661d6bebe7d163b96659d6e169cc5cc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33770613"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implementación y supervisión de módulos de IoT Edge a escala (versión preliminar)
 
 Azure IoT Edge permite mover los análisis al perímetro y proporciona una interfaz en la nube para que pueda administrar y supervisar los dispositivos de IoT Edge sin tener que acceder físicamente a cada uno de ellos. La capacidad de administrar dispositivos de forma remota es cada vez más importante, ya que las soluciones de Internet de las cosas son cada vez más grandes y complejas. Azure IoT Edge está pensado para apoyar sus objetivos empresariales, sin importar cuántos dispositivos agregue.
 
-Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos a gran escala, puede crear una **implementación de IoT Edge**. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
+Puede administrar dispositivos individuales e implementarles módulos de uno en uno. Sin embargo, si desea realizar cambios en los dispositivos en a gran escala, puede crear una **implementación automática de IoT Edge**, que forma parte de la administración automática de dispositivos de IoT Hub. Las implementaciones son procesos dinámicos que permiten poner en marcha varios módulos en múltiples dispositivos a la vez, realizar un seguimiento del estado y del mantenimiento de los módulos y realizar cambios cuando sea necesario. 
 
 ## <a name="identify-devices-using-tags"></a>Identificación de dispositivos mediante etiquetas
 

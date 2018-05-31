@@ -1,11 +1,11 @@
 ---
-title: "Introducción a los registros de flujo de grupos de seguridad de red con Azure Network Watcher | Microsoft Docs"
-description: "Esta página explica cómo usar los registros de flujo de los grupos de seguridad de red, una característica de Azure Network Watcher."
+title: Introducción a los registros de flujo de grupos de seguridad de red con Azure Network Watcher | Microsoft Docs
+description: En esta página se explica cómo usar la característica de registros de flujo de los grupos de seguridad de red de Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,33 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182432"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción a los registros de flujo de grupos de seguridad de red
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
-Los registros de flujo de grupos de seguridad de red son una característica de Network Watcher que permite ver información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Estos registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la NIC a la que se aplica el flujo, información de 5-tupla sobre el flujo (IP de origen/destino, puerto de origen/destino, protocolo), y si se permitió o denegó el tráfico.
+Los registros de flujos de grupos de seguridad de red (NSG) son una característica de Network Watcher que permite consultar información acerca del tráfico IP de entrada y de salida en un grupo de seguridad de red. Los registros de flujo se escriben en formato JSON y muestran los flujos de entrada y salida en función de cada regla, la tarjeta de interfaz de red (NIC) a la que se aplica el flujo, información de 5-tupla sobre el flujo (dirección IP de origen o destino, puerto de origen o destino y protocolo), y si se permitió o denegó el tráfico.
 
-![información general de los registros de flujo][1]
+![información general de los registros de flujo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
-Aunque los registros de flujo tienen como objetivo los grupos de seguridad de red, no se muestran como los demás registros. Los registros de flujo se almacenan solo dentro de una cuenta de almacenamiento y siguen la ruta de acceso del registro que se muestra en el ejemplo siguiente:
+Aunque los registros de flujo tienen como destino los NSG, no se muestran como los demás registros. Los registros de flujo se almacenan solo dentro de una cuenta de almacenamiento y siguen la ruta de acceso del registro que se muestra en el ejemplo siguiente:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Los registros tienen una directiva de retención que se puede establecer entre 1 y 365 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
+Las mismas directivas de retención vistas en otros registros se aplican a los registros de flujo. Puede establecer la directiva de retención de registros de 1 a 365 días. Si no se establece una directiva de retención, los registros se mantendrán indefinidamente.
 
 ## <a name="log-file"></a>Archivo de registro
 
-Los registros de flujo tienen varias propiedades. En la lista siguiente puede ver una lista de las propiedades que se devuelven en el registro de flujo de un grupo de seguridad de red:
+Los registros de flujo incluyen las siguientes propiedades:
 
 * **time**: la hora en la que se registró el evento
 * **systemId**: el identificador de recurso del grupo de seguridad de red
-* **category**: la categoría del evento, esta siempre es NetworkSecurityGroupFlowEvent
+* **category**: la categoría del evento. La categoría es siempre **NetworkSecurityGroupFlowEvent**
 * **resourceid**: el identificador del recurso del grupo de seguridad de red
 * **operationName**: siempre es NetworkSecurityGroupFlowEvents
 * **properties**: una recopilación de las propiedades del flujo
@@ -59,15 +60,14 @@ Los registros de flujo tienen varias propiedades. En la lista siguiente puede ve
                     * **Traffic Flow**: la dirección del flujo de tráfico. Los valores válidos son **I** para el correo entrante y **O** para el saliente.
                     * **Traffic**: indica si el tráfico se permitió o se denegó. Los valores válidos son **A** para permitido y **D** para denegado.
 
-
-A continuación, se muestra un ejemplo de un registro de flujo. Como puede ver, hay varios registros que siguen la lista de propiedades que se describe en la sección anterior. 
+El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay varios registros que siguen la lista de propiedades que se describe en la sección anterior.
 
 > [!NOTE]
-> Los valores de la propiedad flowTuples son una lista separada por comas.
+> Los valores de la propiedad **flowTuples* son una lista separada por comas.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +102,6 @@ A continuación, se muestra un ejemplo de un registro de flujo. Como puede ver, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a habilitar los registros de flujo visitando [Habilitamiento del registro de flujos](network-watcher-nsg-flow-logging-portal.md).
-
-Obtenga información acerca del registro de NSG visitando [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Averigüe si se permite o no el tráfico en una máquina virtual visitando [Comprobación del tráfico con la comprobación de flujo de IP](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para saber más sobre el registro de NSG, consulte [Análisis del registro para grupos de seguridad de red (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Para determinar si el tráfico se permite o deniega en una máquina virtual, consulte [Diagnóstico de problemas al filtrar el tráfico de red de una máquina virtual](diagnose-vm-network-traffic-filtering-problem.md).

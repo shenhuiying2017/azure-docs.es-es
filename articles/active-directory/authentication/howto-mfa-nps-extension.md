@@ -1,25 +1,21 @@
 ---
 title: Uso de servidores NPS existentes para proporcionar funcionalidades de Azure MFA | Microsoft Docs
-description: La extensión Servidor de directivas de redes para Azure Multi-Factor Authentication es una solución sencilla para agregar funcionalidades de verificación de dos pasos basadas en la nube a la infraestructura de autenticación existente.
+description: Agregue funcionalidades de verificación de dos pasos basadas en la nube a su infraestructura de autenticación
 services: multi-factor-authentication
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 05/01/2018
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
-ms.author: joflore
 ms.reviewer: richagi
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 38556392624e87611d59e3b96ae63ce8ea30afbd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868337"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -117,9 +113,9 @@ Al implementar la extensión NPS, use estos factores para estudiar qué métodos
 
 Puede [deshabilitar los métodos de autenticación no compatibles](howto-mfa-mfasettings.md#selectable-verification-methods) en Azure.
 
-### <a name="enable-users-for-mfa"></a>Habilitar a los usuarios para MFA
+### <a name="register-users-for-mfa"></a>Registro de usuarios en MFA
 
-Antes de implementar la extensión de NPS completa, debe habilitar MFA para los usuarios que quieran realizar la verificación en dos pasos. De forma más inmediata, para probar la extensión mientras se implementa, necesita al menos una cuenta de prueba totalmente registrada para la autenticación multifactor.
+Antes de implementar y utilizar la extensión NPS, es necesario que los usuarios a los que se les va a pedir la verificación en dos pasos estén registrados en MFA. De forma más inmediata, para probar la extensión mientras se implementa, necesita al menos una cuenta de prueba totalmente registrada para la autenticación multifactor.
 
 Para iniciar una cuenta de prueba, use estos pasos:
 1. Inicie sesión en [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con una cuenta de prueba. 

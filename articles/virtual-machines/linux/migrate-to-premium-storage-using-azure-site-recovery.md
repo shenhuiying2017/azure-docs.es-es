@@ -1,12 +1,12 @@
 ---
-title: "Migración de máquinas virtuales Linux a Azure Premium Storage con Azure Site Recovery | Microsoft Docs"
-description: "Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines."
+title: Migración de máquinas virtuales Linux a Azure Premium Storage con Azure Site Recovery | Microsoft Docs
+description: Migre las máquinas virtuales existentes a Azure Premium Storage mediante Site Recovery. Premium Storage le ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un uso intensivo de E/S, que se ejecutan en Azure Virtual Machines.
 services: virtual-machines-linux
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 5d6eb958169b7bf04e206c861250ffd98670652b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ab8ce25e3be85061c3fc0417b30b63e04b764ab
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777992"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migración a Premium Storage mediante Azure Site Recovery
 
@@ -202,7 +203,7 @@ Site Recovery creará una instancia de máquina virtual cuyo tipo sea el mismo, 
    * En el caso de una máquina virtual creada mediante el modelo de implementación clásico: agregue la máquina virtual al conjunto de disponibilidad en Azure Portal. Para ver los pasos detallados, consulte [Adición de una máquina virtual existente a un conjunto de disponibilidad](../linux/classic/configure-availability-classic.md).
    * En el caso de una máquina virtual creada mediante el modelo de implementación de Resource Manager: guarde la configuración de la máquina virtual y, después, elimine las máquinas virtuales y vuelva a crearlas en el conjunto de disponibilidad. Para ello, use el script que encontrará en [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4) (Establecimiento del conjunto de disponibilidad de máquinas virtuales de Azure Resource Manager). Antes de ejecutar este script, compruebe sus limitaciones y planee el tiempo de inactividad.
 
-2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. Elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Solución de los errores que aparecen al eliminar cuentas de almacenamiento, contenedores o VHD de Azure](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Elimine las máquinas virtuales y los discos antiguos**. Asegúrese de que los discos Premium sean coherentes con los discos de origen y que las nuevas máquinas virtuales realizan la misma función que las máquinas virtuales de origen. Elimine la máquina virtual y los discos de las cuentas de almacenamiento de origen en Azure Portal. Si hay un problema en el que el disco no se elimina aunque haya eliminado la máquina virtual, consulte [Troubleshoot storage resource deletion errors](storage-resource-deletion-errors.md) (Solución de errores de eliminación de recursos de almacenamiento).
 
 3. **Limpie la infraestructura de Azure Site Recovery**. Si Site Recovery deja de necesitarse, puede limpiar su infraestructura. Elimine los elementos duplicados, el servidor de configuración y la directiva de recuperación y, después, elimine el almacén de Azure Site Recovery.
 
