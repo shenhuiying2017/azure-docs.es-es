@@ -16,6 +16,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31606524"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Clasificación de imágenes con Azure Machine Learning Workbench
 
@@ -277,7 +278,7 @@ Recopilar un número suficientemente grande de imágenes anotadas para el entren
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
 
-Para generar un conjunto de datos voluminoso y diverso, hay que realizar varias consultas. Por ejemplo, si tenemos 7 \* 3 = 21 consultas, se pueden sintetizar automáticamente usando todas las combinaciones de prendas de ropa {blusa, sudadera, sudadera con capucha, jersey, camisa, camiseta, chaleco} y atributos {rayas, lunares, leopardo}. Descargar las primeras 50 imágenes de cada consulta nos llevaría a tener un máximo de 21 x 50 = 1050 imágenes.
+Para generar un conjunto de datos voluminoso y diverso, hay que realizar varias consultas. Por ejemplo, si tenemos 7 \* 3 = 21 consultas, se pueden sintetizar automáticamente usando todas las combinaciones de prendas de ropa {blusa, sudadera, sudadera con capucha, jersey, camisa, camiseta, chaleco} y atributos {rayas, lunares, leopardo}. Descargar las primeras 50 imágenes de cada consulta nos llevaría a tener un máximo de 21 * 50 = 1050 imágenes.
 
 En lugar de descargarlas manualmente desde la búsqueda de imágenes de Bing, es mucho más fácil usar en su lugar la [Bing Image Search API de Cognitive Services](https://www.microsoft.com/cognitive-services/bing-image-search-api), que devuelve un conjunto de direcciones URL de imágenes correspondientes a una cadena de consulta determinada.
 

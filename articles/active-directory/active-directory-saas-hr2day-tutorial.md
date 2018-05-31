@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: integración de Azure Active Directory con HR2day by Merces | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HR2day by Merces."
+title: 'Tutorial: integración de Azure Active Directory con HR2day by Merces | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HR2day by Merces.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: fae6a376d4a53a23e22e585c63d97f22ca76c66d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b6f839ace5d80d41b242992feba8dea546b51c2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340879"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integración de Azure Active Directory con HR2day by Merces
 
@@ -29,9 +30,9 @@ La integración de HR2day by Merces con Azure AD proporciona las siguientes vent
 - Puede permitir que los usuarios inicien sesión automáticamente en HR2day by Merces con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con HR2day by Merces, necesita los siguientes elementos:
 
@@ -63,11 +64,11 @@ Para configurar la integración de HR2day by Merces en Azure AD, debe agregar HR
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, seleccione el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro Buscar, escriba **HR2day by Merces**.
 
@@ -250,7 +251,7 @@ Al seleccionar el icono de HR2day by Merces en el panel de acceso, iniciará ses
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre la integración de aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

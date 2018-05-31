@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32309613"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -38,7 +39,8 @@ El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitac
 ## <a name="types-of-sampling"></a>Tipos de muestreo
 Existen tres métodos de muestreo alternativos:
 
-* **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. A partir del SDK v 2.0.0-beta3, este es el método de muestreo predeterminado. Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET. 
+* **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. A partir del SDK v 2.0.0-beta3, este es el método de muestreo predeterminado. Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET. En el caso de aplicaciones ASP.NET Core que tienen como destino un marco de trabajo completo, el muestreo adaptable se puede encontrar partir de la versión 1.0.0 del SDK de Microsoft.ApplicationInsights.AspNetCore. Para las aplicaciones ASP.NET Core que tienen como destino NetCore, el muestreo adaptable se puede encontrar a partir de la versión 2.2.0-beta1 del SDK de Microsoft.ApplicationInsights.AspNetCore.
+
 * **Muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde el servidor ASP.NET o Java y desde los exploradores de los usuarios. El usuario establece la frecuencia. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 * El **muestreo de ingesta** funciona en el portal de Azure. Lo que hace es descartar algunos de los datos de telemetría que llegan desde su aplicación según la frecuencia de muestreo establecida. Aunque no reduce el tráfico de telemetría enviado desde su aplicación, le ayuda a mantenerse dentro de su cuota mensual. La ventaja principal del muestreo de ingesta es que puede establecer la frecuencia de muestreo sin volver a implementar la aplicación, y funciona de manera uniforme en todos los clientes y servidores. 
 
@@ -335,7 +337,7 @@ El muestreo de frecuencia fija es una característica del SDK de ASP.NET de la v
 
 El algoritmo de muestreo decide qué elementos de telemetría quitar y cuáles conservar (ya sea en el SDK o en el servicio de Application Insights). La decisión del muestreo se basa en varias reglas que tienen como objetivo conservar intactos todos los puntos de datos interrelacionados, manteniendo una experiencia de diagnóstico en Application Insights que sea práctica y confiable, incluso con un conjunto reducido de datos. Por ejemplo, si para una solicitud errónea su aplicación envía elementos de telemetría adicionales (como la excepción y los seguimientos registrados para dicha solicitud), el muestreo no dividirá esta solicitud y otra telemetría. Escogerá mantenerlos o descartarlos todos juntos Como resultado, al examinar los detalles de solicitud en Application Insights, siempre puede ver la solicitud junto con sus elementos de telemetría asociados. 
 
-Para las aplicaciones que definen "usuario" (es decir, las aplicaciones web más típicas), la decisión de muestreo se basa en el hash del identificador de usuario, lo que significa que toda la telemetría para cualquier usuario específico o se conservan o se descarta. Para los tipos de aplicaciones que no definen a los usuarios (como los servicios web) la decisión de muestreo se basa en el identificador de operación de la solicitud. Por último, para los elementos de telemetría que no tienen establecido ni identificador de usuario ni identificador de operación (por ejemplo elementos de telemetría notificados desde subprocesos asincrónicos sin contexto de http), el muestreo simplemente captura un porcentaje de elementos de telemetría de cada tipo. 
+La decisión de muestreo se basa en el identificador de operación de la solicitud, lo que significa que todos los elementos de telemetría que pertenecen a una operación determinada se conservan o se descartan. Para los elementos de telemetría que no tienen establecido un identificador de operación (por ejemplo, los elementos de telemetría notificados desde subprocesos asincrónicos sin contexto http), el muestreo simplemente captura un porcentaje de elementos de telemetría de cada tipo. Antes de la versión 2.5.0-beta2 del SDK de .NET y de la versión 2.2.0-beta3 del SDK de ASP.NET Core, la decisión de muestreo se basaba en el hash del identificador de usuario de las aplicaciones que definen al "usuario" (es decir, la mayoría de las aplicaciones web más habituales). Para los tipos de aplicaciones que no definen a los usuarios (como los servicios web), la decisión de muestreo se basaba en el identificador de operación de la solicitud.
 
 Al presentarle la telemetría, el servicio de Application Insights ajusta las métricas con el mismo porcentaje de muestreo que se usó en el momento de la recopilación, para compensar por los puntos de datos que faltan. Por lo tanto, al examinar la telemetría en Application Insights, los usuarios ven aproximaciones estadísticamente correctas que están muy próximas a los números reales.
 

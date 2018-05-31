@@ -1,9 +1,9 @@
 ---
-title: "Creación de una alerta de métrica con una plantilla de Resource Manager | Microsoft Docs"
-description: "Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una alerta de métrica con el fin de recibir notificaciones por correo electrónico o webhook."
+title: Creación de una alerta de métricas clásica en Azure con una plantilla de Resource Manager | Microsoft Docs
+description: Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una alerta de métricas clásica con el fin de recibir notificaciones por correo electrónico o webhook.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
@@ -12,16 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: ac12605636d21fd0b5c89512c454ef2d899ef6dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32177306"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
+# <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
+
+> [!NOTE]
+> 
+> En este artículo se describe cómo crear **alertas de métricas clásicas** mediante plantillas de Resource Manager. Si desea crear [alertas de métricas más recientes](monitoring-near-real-time-metric-alerts.md) con plantillas, [este artículo](monitoring-create-metric-alerts-with-templates.md) proporciona los detalles.
+>
+
 
 Los pasos básicos son los siguientes:
 
@@ -30,7 +37,7 @@ Los pasos básicos son los siguientes:
 
 A continuación se describe cómo crear una plantilla de Resource Manager primero para una alerta solamente y, después, para una alerta durante la creación de otro recurso.
 
-## <a name="resource-manager-template-for-a-metric-alert"></a>Plantilla de Resource Manager para una alerta de métrica
+## <a name="resource-manager-template-for-a-classic-metric-alert"></a>Plantilla de Resource Manager para una alerta de métricas clásica
 Para crear una alerta mediante una plantilla de Resource Manager, cree un recurso de tipo `Microsoft.Insights/alertRules` y rellene todas las propiedades relacionadas. A continuación se muestra una plantilla que crea una regla de alertas.
 
 ```json
@@ -180,7 +187,7 @@ Para crear una alerta mediante una plantilla de Resource Manager, cree un recurs
 
 La explicación del esquemas y las propiedades de una regla de alertas [está disponible aquí](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Plantilla de Resource Manager para un recurso con una alerta
+## <a name="resource-manager-template-for-a-resource-with-a-classic-metric-alert"></a>Plantilla de Resource Manager para un recurso con una alerta de métricas clásica
 Una alerta en una plantilla de Resource Manager suele ser más útil al crear una alerta mientras se crea un recurso. Por ejemplo, desea asegurarse de que se configura una regla "CPU % > 80" cada vez que implementa una máquina virtual. Para ello, agregue la regla de alerta como un recurso en la matriz de recursos para la plantilla de máquina virtual y agregue también una dependencia utilizando la propiedad `dependsOn` para el identificador de recurso de máquina virtual. A continuación se presenta un ejemplo completo que crea una máquina virtual Windows y agrega una alerta que notifica a los administradores de la suscripción cuando el uso de CPU supera el 80 %.
 
 ```json

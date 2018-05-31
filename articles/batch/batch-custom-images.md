@@ -1,18 +1,19 @@
 ---
-title: "Aprovisionamiento de grupos de Azure Batch desde imágenes personalizadas |Microsoft Docs"
-description: "Puede crear un grupo de Batch a partir de una imagen personalizada para aprovisionar los nodos de proceso que contienen el software y los datos que se necesitan para la aplicación. Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch."
+title: Aprovisionamiento de grupos de Azure Batch desde imágenes personalizadas |Microsoft Docs
+description: Puede crear un grupo de Batch a partir de una imagen personalizada para aprovisionar los nodos de proceso que contienen el software y los datos que se necesitan para la aplicación. Las imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158619"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Uso de una imagen personalizada administrada para crear un grupo de máquinas virtuales 
 
@@ -40,7 +41,7 @@ El uso de una imagen personalizada configurada para su escenario puede proporcio
 
     
 ## <a name="prepare-a-custom-image"></a>Preparación de una imagen personalizada
-Puede preparar una imagen administrada desde un disco duro virtual, desde una máquina virtual de Azure con discos administrados o desde una instantánea de máquina virtual. 
+Puede preparar una imagen administrada desde un disco duro virtual, desde una máquina virtual de Azure con discos administrados o desde una instantánea de máquina virtual. Para Batch, se recomienda crear una imagen administrada de una máquina virtual con discos administrados o una instantánea de máquina virtual. La imagen administrada y el recurso subyacente deben existir para que los grupos puedan escalar verticalmente y se puedan eliminar después de eliminar el grupo. 
 
 Al preparar la imagen, tenga en cuenta las cuestiones siguientes:
 

@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 05/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 326d6873ae78c5f712832c4cfce9c793f1dfbf37
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359448"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -148,7 +149,7 @@ En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear
 }
 ```
 
-También puede usar la función [deployment()](resource-group-template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla.
+También puede usar la función [deployment()](resource-group-template-functions-deployment.md#deployment) para obtener la dirección URL base de la plantilla actual y usar esta información para obtener la dirección URL de otras plantillas en la misma ubicación. Este enfoque resulta útil si cambia la ubicación de la plantilla (probablemente debido al control de versiones) o desea evitar la codificación de forma rígida de las direcciones URL en el archivo de plantilla. La propiedad templateLink solo se devuelve al vincular una plantilla remota a una URL. Si utiliza una plantilla local, dicha propiedad no está disponible.
 
 ```json
 "variables": {
@@ -209,7 +210,7 @@ La plantilla principal implementa la plantilla vinculada y obtiene el valor devu
 }
 ```
 
-Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Por lo tanto, cuando los otros recursos requieren un valor de salida de la plantilla vinculada, puede asegurarse de que la plantilla vinculada se implementa antes que ellos. O bien, cuando la plantilla vinculada se basa en otros recursos, puede asegurarse de que otros recursos se implementan antes que la plantilla vinculada.
+Al igual que otros tipos de recursos, puede establecer dependencias entre la plantilla vinculada y otros recursos. Por lo tanto, cuando otros recursos requieren un valor de salida de la plantilla vinculada, asegúrese de que la plantilla vinculada se implemente antes que ellos. O bien, si la plantilla vinculada se basa en otros recursos, asegúrese de que los otros recursos se implementen antes que la plantilla vinculada.
 
 En el ejemplo siguiente se muestra una plantilla que implementa una dirección IP pública y devuelve el identificador de recurso:
 

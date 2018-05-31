@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/18/2018
 ms.author: anwestg
-ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360179"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Incorporación de un proveedor de recursos de App Service a Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!IMPORTANT]
-> Aplique la actualización 1802 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service.
+> Aplique la actualización 1804 al sistema integrado de Azure Stack o implemente el kit de desarrollo de Azure Stack más reciente antes de implementar Azure App Service 1.2.
 >
 >
 
@@ -70,7 +71,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][3]
 
-4. Ahora tiene la opción de realizar la implementación en una instancia existente de Virtual Network, configurada mediante los pasos [aquí](azure-stack-app-service-before-you-get-started.md#virtual-network) descritos, o permitir que el instalador de App Service cree una red virtual y las subredes asociadas.
+7. Ahora tiene la opción de realizar la implementación en una instancia existente de Virtual Network, configurada mediante los pasos [aquí](azure-stack-app-service-before-you-get-started.md#virtual-network) descritos, o permitir que el instalador de App Service cree una red virtual y las subredes asociadas.
     1. Seleccione **Create VNet with default settings** (Crear red virtual con la configuración predeterminada), acepte los valores predeterminados y haga clic en **Next** (Siguiente).
     2. O, seleccione **Use existing VNet and Subnets** (Usar red virtual y subredes existentes).
         1. Seleccione el **grupo de recursos** que contiene la instancia de Virtual Network.
@@ -80,7 +81,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][4]
 
-7. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
+8. Escriba la información para el recurso compartido de archivos y, a continuación, haga clic en **Siguiente**. La dirección del recurso compartido de archivos debe usar el nombre de dominio completo o la dirección IP del servidor de archivos. Por ejemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
    > [!NOTE]
    > El instalador intenta comprobar la conectividad con el recurso compartido de archivos antes de continuar.  Sin embargo, si eligió realizar la implementación en una instancia existente de Virtual Network, puede que el instalador no pueda conectarse al recurso compartido de archivos y que se muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información del recurso compartido de archivos y continúe si es correcta.
@@ -89,7 +90,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
    ![Instalador de App Service][7]
 
-8. En la página siguiente:
+9. En la página siguiente:
     1. En el cuadro **Id. de la aplicación de identidad**, escriba el GUID de la aplicación que va a usar para la identidad (de Azure AD).
     2. En el cuadro **Identity Application certificate file** (Archivo del certificado de la aplicación de identidad) escriba (o vaya a) la ubicación del archivo del certificado.
     3. En el cuadro **Identity Application certificate password** (Contraseña del certificado de la aplicación de identidad), escriba la contraseña para el certificado. Esta contraseña es la que anotó cuando usó el script para crear los certificados.
@@ -98,7 +99,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][9]
 
-9. Para cada uno de los tres cuadros de archivo de certificado, haga clic en **Examinar** y navegue hasta el archivo de certificado adecuado. Debe proporcionar la contraseña de cada certificado. Estos certificados son los que creó en el [paso para crear los certificados necesarios](azure-stack-app-service-before-you-get-started.md#get-certificates). Haga clic en **Siguiente** después de escribir toda la información.
+10. Para cada uno de los tres cuadros de archivo de certificado, haga clic en **Examinar** y navegue hasta el archivo de certificado adecuado. Debe proporcionar la contraseña de cada certificado. Estos certificados son los que creó en el [paso para crear los certificados necesarios](azure-stack-app-service-before-you-get-started.md#get-certificates). Haga clic en **Siguiente** después de escribir toda la información.
 
     | Box | Ejemplo de nombre de archivo de certificado |
     | --- | --- |
@@ -110,7 +111,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][10]
 
-10. Escriba los detalles de SQL Server para la instancia de servidor que se usa para hospedar las bases de datos del proveedor de recursos de App Service y, después, haga clic en **Siguiente**. El instalador valida las propiedades de conexión de SQL.
+11. Escriba los detalles de SQL Server para la instancia de servidor que se usa para hospedar las bases de datos del proveedor de recursos de App Service y, después, haga clic en **Siguiente**. El instalador valida las propiedades de conexión de SQL.
 
     > [!NOTE]
     > El instalador intenta comprobar la conectividad con la instancia de SQL Server antes de continuar.  Sin embargo, si eligió realizar la implementación en una instancia existente de Virtual Network, puede que el instalador no pueda conectarse a SQL Server y que se muestre una advertencia, que le pregunta si desea continuar.  Compruebe la información de SQL Server y continúe si es correcta.
@@ -119,7 +120,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Instalador de App Service][11]
 
-11. Revise las opciones de SKU y la instancia de rol. Los valores predeterminados se rellenan con el número mínimo de instancias y la SKU mínima de cada rol en una implementación de ASDK. Se proporciona un resumen de los requisitos de memoria y vCPU para ayudar a planear la implementación. Después de realizar las selecciones, haga clic en **Siguiente**.
+12. Revise las opciones de SKU y la instancia de rol. Los valores predeterminados se rellenan con el número mínimo de instancias y la SKU mínima de cada rol en una implementación de ASDK. Se proporciona un resumen de los requisitos de memoria y vCPU para ayudar a planear la implementación. Después de realizar las selecciones, haga clic en **Siguiente**.
 
     > [!NOTE]
     > Para las implementaciones de producción, siga las instrucciones que encontrará en [Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -139,23 +140,23 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
     > [!NOTE]
     > **Windows Server 2016 Core no es una imagen de plataforma compatible para su uso con Azure App Service en Azure Stack.  No use imágenes de evaluación para las implementaciones de producción.**
 
-12. En el cuadro **Select Platform Image** (Seleccionar imagen de plataforma), elija su imagen de máquina virtual Windows Server 2016 de implementación entre las que están disponibles en el proveedor de recursos de procesos para la nube de App Service. Haga clic en **Next**.
+13. En el cuadro **Select Platform Image** (Seleccionar imagen de plataforma), elija su imagen de máquina virtual Windows Server 2016 de implementación entre las que están disponibles en el proveedor de recursos de procesos para la nube de App Service. Haga clic en **Next**.
 
-13. En la página siguiente:
+14. En la página siguiente:
      1. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual con el rol de trabajo.
      2. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual con otros roles.
      3. Haga clic en **Next**.
 
     ![Instalador de App Service][15]    
 
-14. En la página de resumen:
+15. En la página de resumen:
     1. Compruebe las selecciones realizadas. Para realizar cambios, use los botones **Anterior** para visitar las páginas anteriores.
     2. Si las configuraciones son correctas, active la casilla.
     3. Para iniciar la implementación, haga clic en **Siguiente**.
 
     ![Instalador de App Service][16]
 
-15. En la página siguiente:
+16. En la página siguiente:
     1. Realice un seguimiento del progreso de la instalación. App Service en Azure Stack tarda aproximadamente 60 minutos en realizar la implementación según las selecciones predeterminadas.
     2. Después de que el instalador finalice correctamente, haga clic en **Salir**.
 
