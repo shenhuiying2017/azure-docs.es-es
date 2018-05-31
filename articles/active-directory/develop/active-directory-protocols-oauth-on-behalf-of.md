@@ -1,25 +1,28 @@
 ---
-title: "Autenticación entre servicios de Azure AD mediante la especificación provisional On-Behalf-Of de OAuth 2.0 | Microsoft Docs"
-description: "En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0."
+title: Autenticación entre servicios de Azure AD mediante la especificación provisional On-Behalf-Of de OAuth 2.0 | Microsoft Docs
+description: En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
-ms.author: nacanuma
+ms.author: celested
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bb3e01b1b8741253a459a41cfff27da558573551
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157221"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios mediante la identidad de usuarios delegada en el flujo de On-Behalf-Of
 El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.
@@ -41,7 +44,7 @@ Los pasos siguientes constituyen el "flujo en nombre de" y se explican con la ay
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Registro de la aplicación y el servicio en Azure AD
 Registre la aplicación cliente y el servicio de nivel intermedio en Azure AD.
 ### <a name="register-the-middle-tier-service"></a>Registro del servicio de nivel intermedio
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y elija **Nuevo registro de aplicaciones**.
@@ -49,7 +52,7 @@ Registre la aplicación cliente y el servicio de nivel intermedio en Azure AD.
 6. Mientras sigue en Azure Portal, elija la aplicación y haga clic en **Configuración**. En el menú Configuración, elija **Claves** y agregue una clave: seleccione una duración de 1 o 2 años. Al guardar esta página, el valor de clave se mostrar; copie y guarde el valor en una ubicación segura. Necesitará esta clave más adelante para configurar las opciones de la aplicación en su implementación: este valor de clave no se volverá a mostrar ni recuperar por otro medio, así que regístrelo en cuanto esté visible en Azure Portal.
 
 ### <a name="register-the-client-application"></a>Registro del tipo de aplicación cliente
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. En la barra superior, haga clic en su cuenta y, en la lista **Directorio**, elija el inquilino de Active Directory en el que desee registrar la aplicación.
 3. Haga clic en **Más servicios** en el panel de navegación izquierdo y elija **Azure Active Directory**.
 4. Haga clic en **Registros de aplicaciones** y elija **Nuevo registro de aplicaciones**.
@@ -74,7 +77,7 @@ Se pueden dar dos casos en función de si la aplicación cliente elige un secret
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud mediante un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token usado en la solicitud. |
@@ -85,7 +88,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
 
 #### <a name="example"></a>Ejemplo
-El siguiente HTTP POST solicita un token de acceso para la API web https://graph.windows.net. El parámetro `client_id` permite identificar el servicio que solicita el token de acceso.
+El siguiente elemento HTTP POST solicita un token de acceso para la API web https://graph.windows.net. El parámetro `client_id` permite identificar el servicio que solicita el token de acceso.
 
 ```
 // line breaks for legibility only
@@ -106,13 +109,13 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud mediante un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | Aserción |requerido | Valor del token usado en la solicitud. |
 | client_id |requerido | El identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio y en el nombre de la aplicación. |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación.  Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre cómo registrar el certificado y el formato de la aserción.|
+| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre cómo registrar el certificado y el formato de la aserción.|
 | resource |requerido | El URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en el nombre de la aplicación, en **Toda la configuración** y, luego, en **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
@@ -120,7 +123,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 Tenga en cuenta que los parámetros son casi iguales que en el caso de la solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
 
 #### <a name="example"></a>Ejemplo
-El siguiente HTTP POST solicita un token de acceso para la API web https://graph.windows.net con un certificado. El parámetro `client_id` permite identificar el servicio que solicita el token de acceso.
+El siguiente elemento HTTP POST solicita un token de acceso para la API web https://graph.windows.net con un certificado. El parámetro `client_id` permite identificar el servicio que solicita el token de acceso.
 
 ```
 // line breaks for legibility only
@@ -142,7 +145,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ## <a name="service-to-service-access-token-response"></a>Respuesta de token de acceso entre servicios
 Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros siguientes.
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) [Marco de autorización de OAuth 2.0: uso del token de portador (RFC 6750)]. |
 | ámbito |Ámbito de acceso concedido en el token. |

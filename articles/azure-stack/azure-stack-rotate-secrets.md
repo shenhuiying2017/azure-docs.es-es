@@ -6,20 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 49071044-6767-4041-9EDD-6132295FA551
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a158da6fb397b864a439e067ca99d79814e2b8d2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258688"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -49,6 +49,24 @@ Certificados de servicio de infraestructura para servicios de uso externo que pr
 
 Para mantener la integridad de la infraestructura de Azure Stack, los operadores necesitan la capacidad de poder cambiar periódicamente los secretos de la infraestructura con una frecuencia que sea coherente con los requisitos de seguridad de su organización.
 
+### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Cambio de secretos con certificados externos desde una nueva entidad de certificación
+
+Azure Stack admite el cambio de secretos con certificados externos desde una nueva entidad de certificación (CA) en los contextos siguientes:
+
+|CA del certificado instalado|CA a la que cambiar|Compatible|Versiones compatibles de Azure Stack|
+|-----|-----|-----|-----|-----|
+|De autofirmado|A empresarial|No compatible||
+|De autofirmado|A autofirmado|No compatible||
+|De autofirmado|A pública<sup>*</sup>|Compatible|1803 y posterior|
+|De empresarial|A empresarial|Compatible siempre y cuando los clientes usen la MISMA entidad de certificación empresarial utilizada en la implementación|1803 y posterior|
+|De empresarial|A autofirmado|No compatible||
+|De empresarial|A pública<sup>*</sup>|Compatible|1803 y posterior|
+|De pública<sup>*</sup>|A empresarial|No compatible|1803 y posterior|
+|De pública<sup>*</sup>|A autofirmado|No compatible||
+|De pública<sup>*</sup>|A pública<sup>*</sup>|Compatible|1803 y posterior|
+
+<sup>*</sup> Aquí, las entidades de certificación públicas son aquellas que forman parte del programa de raíz de confianza de Windows. Puede encontrar la lista completa de [participantes del programa de certificados de raíz de confianza de Microsoft (al 27 de junio de 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+
 ## <a name="alert-remediation"></a>Corrección de alertas
 
 Cuando faltan menos de 30 días para la expiración de los secretos, se generan las siguientes alertas en el portal de administración: 
@@ -74,7 +92,7 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 
 ## <a name="rotating-external-and-internal-secrets"></a>Cambio de secretos externos e internos
 
-Para cambiar los secretos externos y los internos:
+Para cambiar los secretos externos e internos:
 
 1. En el directorio **/Certificates** recién creado en los pasos previos, coloque el nuevo conjunto de certificados externos de reemplazo en la estructura de directorios según el formato descrito en la sección Certificados obligatorios de [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 2. Cree una sesión de PowerShell con el [punto de conexión con privilegios](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) mediante la cuenta **CloudAdmin** y almacene las sesiones como una variable. Utilizará esta variable como parámetro en el paso siguiente.

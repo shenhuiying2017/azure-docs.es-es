@@ -7,18 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: f26f9b6f1b0ddef348c39df5aa4badc5df93b725
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942435"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services
 
 El almacén de Azure Recovery Services se puede configurar para almacenar copias de seguridad de Azure SQL Database y, después, recuperar una base de datos con las copias de seguridad que se conservan en el almacén mediante Azure Portal o PowerShell.
+
+> [!NOTE]
+> Como parte de la publicación inicial de la versión preliminar de esta característica de retención de copia de seguridad a largo plazo en octubre de 2016, las copias de seguridad se almacenaban en el almacén del servicio Azure Recovery Services. En esta actualización se elimina esta dependencia pero por motivos de compatibilidad con versiones anteriores, se admite la API original hasta el 31 de mayo de 2018. Si necesita interactuar con copias de seguridad del almacén de Azure Recovery Services, consulte [Configuración y restauración de retención de copias de seguridad a largo plazo de Azure SQL Database mediante el almacén de Azure Recovery Services](sql-database-long-term-backup-retention-configure-vault.md). 
+
 
 ## <a name="azure-portal"></a>Azure Portal
 

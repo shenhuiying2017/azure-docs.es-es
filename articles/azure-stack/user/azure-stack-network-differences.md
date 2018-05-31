@@ -2,28 +2,27 @@
 title: 'Redes de Azure Stack: diferencias y consideraciones'
 description: Aprenda sobre las diferencias y consideraciones al trabajar con redes en Azure Stack.
 services: azure-stack
-keywords: 
+keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 02/28/2018
+ms.date: 05/14/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 4c881a5f5e64ddc9fc67060208f3bef6ae0f5028
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196260"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Consideraciones para las redes de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Las redes en Azure Stack proporcionan muchas de las características que se encuentran en Azure, con algunas diferencias que debe comprender antes de empezar la implementación.
+Las redes de Azure Stack tienen muchas de las características proporcionadas por las redes de Azure. Sin embargo, hay algunas diferencias clave que debe conocer antes de implementar una red de Azure Stack.
 
-
-Este artículo proporciona información general sobre las consideraciones únicas para las redes y sus características en Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
-
+En este artículo se proporciona información general sobre las consideraciones únicas para las redes de Azure Stack y sus características. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
 
 ## <a name="cheat-sheet-networking-differences"></a>Hoja de referencia rápida: diferencias de servicios de red
 

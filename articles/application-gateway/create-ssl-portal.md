@@ -1,6 +1,6 @@
 ---
-title: Creación de una puerta de enlace de aplicaciones con terminación SSL- Azure Portal | Microsoft Docs
-description: Aprenda a crear una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal.
+title: Configuración de una puerta de enlace de aplicaciones con terminación SSL- Azure Portal | Microsoft Docs
+description: Aprenda a configurar una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -8,18 +8,18 @@ editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: a24cec5dfa8034cf43ce7cfe26308587cf20dc44
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195920"
 ---
-# <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
+# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
 
-Puede usar Azure Portal para crear una [puerta de enlace de aplicaciones](overview.md) con un certificado para terminación SSL que use máquinas virtuales para servidores back-end.
+Puede usar Azure Portal para configurar una [puerta de enlace de aplicaciones](overview.md) con un certificado para terminación SSL que use máquinas virtuales para servidores back-end.
 
 En este artículo, aprenderá a:
 

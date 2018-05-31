@@ -1,11 +1,11 @@
 ---
-title: "Compilación e implementación de una aplicación Node.js Express en Azure Cloud Services"
-description: "Creación e implementación de una aplicación Express.js de Node.js en Azure Cloud Services"
+title: Compilación e implementación de una aplicación Node.js Express en Azure Cloud Services
+description: Creación e implementación de una aplicación Express.js de Node.js en Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010115"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Compilación e implementación de una aplicación web Node.js mediante Express en un servicio de Azure Cloud Services
 
