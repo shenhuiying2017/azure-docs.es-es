@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/9/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 485f761e22871396dace71333868ba7712e41f67
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302160"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Creación de una aplicación de cadena de bloques en Azure Blockchain Workbench
 
@@ -33,6 +34,8 @@ Aprenderá a:
 * Una implementación de Blockchain Workbench. Para más información sobre la implementación, consulte [Implementación de Azure Blockchain Workbench](blockchain-workbench-deploy.md).
 * Usuarios de Azure Active Directory en el inquilino asociado a Blockchain Workbench. Para más información, consulte [Add Azure AD users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users) (Incorporación de usuarios de Azure AD en Azure Blockchain Workbench).
 * Una cuenta de administrador de Blockchain Workbench. Para más información, consulte [Blockchain Workbench administrators in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators) (Administradores de Azure Blockchain Workbench).
+
+## <a name="hello-blockchain"></a>Hola Blockchain
 
 Vamos a compilar una aplicación básica en la que un solicitante envía una solicitud y un respondedor envía una respuesta a esta. Por ejemplo, la solicitud puede ser "Hola, ¿cómo está?", y la respuesta puede ser "Muy bien". La solicitud y la respuesta se registran en la cadena de bloques subyacente. 
 

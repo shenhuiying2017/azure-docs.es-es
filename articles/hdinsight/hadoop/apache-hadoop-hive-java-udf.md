@@ -11,13 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 02/20/2018
+ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ef8b8630c60b209295b844f7e1b67f8631524aff
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34200765"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Utilización de una función definida por el usuario de Java con Hive en HDInsight
 
@@ -75,14 +76,14 @@ Aprenda cómo crear una función basada en Java y definida por el usuario (UDF) 
     </dependencies>
     ```
 
-    Estas entradas especifican la versión de Hadoop y Hive incluida con el clúster de HDInsight 3.5. Puede encontrar información sobre las versiones de Hadoop y Hive proporcionadas con HDInsight en el artículo [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md) .
+    Estas entradas especifican la versión de Hadoop y Hive incluida con el clúster de HDInsight 3.6. Puede encontrar información sobre las versiones de Hadoop y Hive proporcionadas con HDInsight en el artículo [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?](../hdinsight-component-versioning.md) .
 
     Agregue una sección `<build>` antes de la línea `</project>` al final del archivo. Esta sección debe contener el siguiente XML:
 
     ```xml
     <build>
         <plugins>
-            <!-- build for Java 1.8. This is required by HDInsight 3.5  -->
+            <!-- build for Java 1.8. This is required by HDInsight 3.6  -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

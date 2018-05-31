@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29dcfaad840b5498dd859082ce11655a4f1fe8af
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34273973"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Equilibrio de carga de máquinas virtuales en todas las zonas de disponibilidad con la CLI de Azure
 
@@ -218,17 +219,19 @@ runcmd:
 ### <a name="create-the-zonal-virtual-machines"></a>Creación de las máquinas virtuales zonales
 Cree las máquinas virtuales con [az vm create](/cli/azure/vm#az_vm_create) en la zona 1, la zona 2 y la zona 3. El siguiente ejemplo crea una máquina virtual en cada zona y genera claves SSH si aún no existen:
 
-Creación de máquinas virtuales en la zona 1
+Cree una máquina virtual en cada zona (zona 1, zona 2 y zona 3) de la ubicación *westeurope*.
 
 ```azurecli-interactive
- az vm create \
---resource-group myResourceGroupSLB \
---name myVM$i \
---nics myNic$i \
---image UbuntuLTS \
---generate-ssh-keys \
---zone $i \
---custom-data cloud-init.txt
+for i in `seq 1 3`; do
+  az vm create \
+    --resource-group myResourceGroupSLB \
+    --name myVM$i \
+    --nics myNic$i \
+    --image UbuntuLTS \
+    --generate-ssh-keys \
+    --zone $i \
+    --custom-data cloud-init.txt
+done
 ```
 ## <a name="test-the-load-balancer"></a>Prueba del equilibrador de carga
 

@@ -2,20 +2,21 @@
 title: Vídeo indexado, aplicación SQL SaaS de Azure | Microsoft Docs
 description: En este artículo se indexan diversos puntos en nuestro vídeo de 81 minutos sobre el diseño de aplicaciones de inquilinos de base de datos de SaaS, de la conferencia de Ignite celebrada el 11 de octubre de 2017. Puede avanzar directamente a la parte que le interese. Se describen al menos 3 patrones. Se describen las características de Azure que simplifican el desarrollo y la administración.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 05/14/2018
 ms.service: sql-database
 ms.reviewer: billgib
 ms.topic: article
 author: MightyPen
 ms.author: genemi
 manager: craigg
-ms.openlocfilehash: 7dcd4681833f227f32534ae3053b7b482bb813bc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4ea62855b61cb7439b19204564cbc2d7fcdbd0fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211300"
 ---
-# <a name="video-indexed-and-annotated-for-mulit-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
+# <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vídeo indexado y anotado para la aplicación SaaS multiinquilinos mediante Azure SQL Database
 
 Este artículo es un índice anotado en las ubicaciones de tiempo de un vídeo de 81 minutos sobre modelos o patrones de inquilinos de SaaS. Este artículo le permite avanzar o retroceder en el vídeo hasta la parte que le interese. El vídeo explica las opciones de diseño principales de una aplicación de base de datos multiinquilino en la base de datos de SQL Azure. El vídeo incluye demostraciones, tutoriales de código de administración y, a veces, una cantidad mayor de detalles fundamentados en la experiencia que los que pueden encontrarse en nuestra documentación escrita.
 

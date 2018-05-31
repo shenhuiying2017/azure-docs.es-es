@@ -1,24 +1,25 @@
 ---
-title: "Inicio y detención de nodos de clúster para probar los microservicios de Azure | Microsoft Docs"
-description: "Obtenga información acerca de cómo iniciar o detener nodos de clúster para usar la inserción de errores con el fin de probar una aplicación de Service Fabric."
+title: Inicio y detención de nodos de clúster para probar los microservicios de Azure | Microsoft Docs
+description: Obtenga información acerca de cómo iniciar o detener nodos de clúster para usar la inserción de errores con el fin de probar una aplicación de Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: LMWF
 manager: rsinha
-editor: 
+editor: ''
 ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212585"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sustitución de las API Start Node y Stop node con la API Node Transition
 
@@ -41,7 +42,7 @@ Se han solucionado estos problemas anteriores en un nuevo conjunto de API.  La n
 
 **Uso**
 
-Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es "Running", significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Vea https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad State y la sección "Ejemplo de uso" a continuación para obtener ejemplos de código.
+Si la API Node Transition no lanza una excepción al invocarla, significa que el sistema ha aceptado la operación asincrónica y que la ejecutará.  Una llamada correcta no implica que la operación haya finalizado aún.  Para obtener información sobre el estado actual de la operación, llame a la API Node Transition Progress (administrada: [GetNodeTransitionProgressAsync()][gntp]) con el GUID utilizado al invocar la API Node Transition para realizar esta operación.  La API Node Transition Progress devuelve un objeto NodeTransitionProgress.  La propiedad State de este objeto especifica el estado actual de la operación.  Si el estado es "Running", significa que la operación está en ejecución.  Si el estado es Completed, significa que la operación ha finalizado sin errores.  Si el estado es Faulted, significa que se ha producido un problema al ejecutar la operación.  La propiedad Exception de la propiedad Result indica de qué problema se trata.  Consulte https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate para obtener más información sobre la propiedad Estado y la sección "Ejemplo de uso" más adelante para ver los ejemplos de código.
 
 
 **Diferenciar entre un nodo detenido y un nodo inactivo** Si un nodo está *detenido* con la API Node Transition, el resultado de una consulta de nodo (administrada [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) mostrará que este nodo tiene un valor true para la propiedad *IsStopped*.  Tenga en cuenta que este valor es diferente del valor de la propiedad *NodeStatus*, que será *Down* (Apagado).  Si la propiedad *NodeStatus* tiene el valor *Down*, pero *IsStopped* es false, entonces significa que el nodo no se ha detenido con la API Node Transition y que está *apagado* por alguna otra razón.  Si la propiedad *IsStopped* es true y la propiedad *NodeStatus* es *Down*, entonces significa que se ha detenido con la API Node Transition.

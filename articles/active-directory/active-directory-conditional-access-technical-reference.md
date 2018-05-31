@@ -14,11 +14,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 341142222fb1440cf5118e6d10f5a254e73d53d9
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258114"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -140,6 +141,15 @@ Esta configuración funciona con todos los exploradores. Sin embargo, para satis
 #### <a name="chrome-support"></a>Compatibilidad con Chrome
 
 Para la compatibilidad con Chrome en **Windows 10 Creators Update (versión 1703)** o posterior, instale [esta extensión](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Para implementar automáticamente esta extensión en los exploradores de Chrome, cree la siguiente clave del Registro:
+
+|    |    |
+|--- | ---|
+|Ruta de acceso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+|NOMBRE | 1 |
+|Escriba | REG_SZ (String) |
+|Datos | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
 
 Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clave del Registro:
 
