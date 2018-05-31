@@ -17,6 +17,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31785169"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué le ha ocurrido a mi proyecto de WebAPI (servicio conectado de Visual Studio para Azure Active Directory)?
 
@@ -30,7 +31,7 @@ Para más información sobre cómo trabajar con el servicio conectado, consulte 
 
 ## <a name="added-references"></a>Referencias agregadas
 
-Afecta al archivo de proyecto (referencias de .NET) y `packages.config` (referencias de NuGet).
+Afecta al archivo de proyecto (referencias de \*.NET) y `packages.config` (referencias de NuGet).
 
 | Escriba | Referencia |
 | --- | --- |

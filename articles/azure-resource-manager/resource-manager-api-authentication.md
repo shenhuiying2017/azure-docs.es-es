@@ -1,6 +1,6 @@
 ---
-title: "Autenticación de Azure Active Directory y Resource Manager | Microsoft Docs"
-description: "Guía del desarrollador para la autenticación con la API de Azure Resource Manager y Azure Active Directory a fin de integrar una aplicación con otras suscripciones de Azure."
+title: Autenticación de Azure Active Directory y Resource Manager | Microsoft Docs
+description: Guía del desarrollador para la autenticación con la API de Azure Resource Manager y Azure Active Directory a fin de integrar una aplicación con otras suscripciones de Azure.
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
@@ -9,16 +9,17 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
-ms.author: dugill;tomfitz
-ms.openlocfilehash: 0b7ddaa7e8a98cdff0e92c87f8a1f7e24efbd67e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: dugill
+ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359869"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Uso de la API de autenticación de Resource Manager para acceder a suscripciones
 ## <a name="introduction"></a>Introducción
@@ -29,7 +30,7 @@ Una aplicación puede acceder a las API de Resource Manager de cualquiera de est
 1. **Acceso de usuario + aplicación**: para aplicaciones que acceden a los recursos en nombre de un usuario con una sesión iniciada. Este enfoque funciona con aplicaciones, como aplicaciones web y herramientas de línea de comandos, que se encargan solo de la "administración interactiva" de los recursos de Azure.
 2. **Acceso de solo aplicación**: para las aplicaciones que ejecutan servicios de demonio y trabajos programados. A la identidad de la aplicación se le concede acceso directo a los recursos. Este enfoque funciona para aplicaciones que necesitan acceso desatendido a largo plazo a Azure.
 
-En este artículo se proporciona instrucciones detalladas de cómo crear una aplicación que emplea ambos métodos de autorización. Muestra cómo realizar cada paso con la API de REST o C#. La aplicación ASP.NET MVC completa está disponible en [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
+En este artículo se proporciona instrucciones detalladas de cómo crear una aplicación que emplea ambos métodos de autorización. Muestra cómo realizar cada paso con la API de REST o C#. La aplicación completa ASP.NET MVC está disponible en [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
 ## <a name="what-the-web-app-does"></a>Lo que hace la aplicación web
 La aplicación web:
@@ -217,16 +218,16 @@ Examinemos más detenidamente el primer paso. Para asignar el rol RBAC adecuado 
 * El identificador de objeto de la identidad de la aplicación en el directorio de Azure Active Directory del usuario
 * El identificador del rol RBAC que requiere la aplicación en la suscripción
 
-Cuando la aplicación autentica a un usuario desde un directorio de Azure AD, crea un objeto de entidad de servicio para la aplicación en dicho directorio de Azure AD. Azure permite asignar roles RBAC a entidades de servicio, con el fin de conceder acceso directo a las aplicaciones correspondientes en los recursos de Azure. Esta acción es exactamente lo que desea hacer. Consulte la API de Azure AD Graph para determinar el identificador de la entidad de servicio de la aplicación en el directorio de Azure AD del usuario que inició sesión.
+Cuando la aplicación autentica a un usuario desde un directorio de Azure AD, crea un objeto de entidad de servicio para la aplicación en dicho directorio de Azure AD. Azure permite asignar roles RBAC a entidades de servicio, con el fin de conceder acceso directo a las aplicaciones correspondientes en los recursos de Azure. Esta acción es exactamente lo que desea hacer. Consulte Graph API de Azure AD para determinar el identificador de la entidad de servicio de la aplicación en el directorio de Azure AD del usuario que inició sesión.
 
-Solo tiene un token de acceso para Azure Resource Manager (se necesita un token de acceso nuevo para llamar a la API de Azure AD Graph). Todas las aplicaciones de Azure AD tienen permiso para consultar su propio objeto de entidad de servicio, por lo que bastará con un token de acceso de solo aplicación.
+Solo tiene un token de acceso para Azure Resource Manager (se necesita un token de acceso nuevo para llamar a Graph API de Azure AD). Todas las aplicaciones de Azure AD tienen permiso para consultar su propio objeto de entidad de servicio, por lo que bastará con un token de acceso de solo aplicación.
 
 <a id="app-azure-ad-graph" />
 
-### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtención de token de acceso de solo aplicación para la API de Azure AD Graph
-Para autenticar una aplicación y obtener un token para la API de Azure AD Graph, emita una solicitud de token de flujo de OAuth2.0 de concesión de credenciales de cliente al punto de conexión del token de Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
+### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>Obtención de token de acceso de solo aplicación para Graph API de Azure AD
+Para autenticar una aplicación y obtener un token para Graph API de Azure AD, emita una solicitud de token de flujo de OAuth2.0 de concesión de credenciales de cliente al punto de conexión del token de Azure AD (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
-El método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de la aplicación de ejemplo ASP.NET MVC obtiene un token de acceso de solo aplicación para la API Graph mediante la Biblioteca de autenticación de Active Directory para .NET.
+El método [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) de la aplicación de ejemplo ASP.NET MVC obtiene un token de acceso de solo aplicación para Graph API mediante la Biblioteca de autenticación de Active Directory para .NET.
 
 Los parámetros de la cadena de consulta disponibles para esta solicitud se describen en el artículo [Solicitar un token de acceso](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token).
 
@@ -323,7 +324,7 @@ Un ejemplo de solicitud para asignar el rol RBAC a una aplicación:
 
 En la solicitud, se utilizan los siguientes valores:
 
-| Guid | Description |
+| Guid | DESCRIPCIÓN |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |el identificador de la suscripción |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |el identificador de objeto de la entidad de servicio de la aplicación |
@@ -339,7 +340,7 @@ La respuesta está en el formato siguiente:
 ### <a name="get-app-only-access-token-for-azure-resource-manager"></a>Obtención de token de acceso de solo aplicación para Azure Resource Manager
 Para validar que la aplicación tenga el acceso deseado en la suscripción, realice una tarea de prueba en la suscripción mediante un token de aplicación.
 
-Para obtener un token de acceso de solo aplicación, siga las instrucciones de la sección [Obtención de token de acceso de solo aplicación para la API de Azure AD Graph](#app-azure-ad-graph), con un valor diferente para el parámetro del recurso:
+Para obtener un token de acceso de solo aplicación, siga las instrucciones de la sección [Obtención de token de acceso de solo aplicación para Graph API de Azure AD](#app-azure-ad-graph), con un valor diferente para el parámetro del recurso:
 
     https://management.core.windows.net/
 

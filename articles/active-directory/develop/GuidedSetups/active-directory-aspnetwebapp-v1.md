@@ -1,24 +1,25 @@
 ---
-title: "Introducción al servidor web ASP.NET de Azure AD v1 1 Microsoft Docs"
-description: "Implementación de inicio de sesión de Microsoft en una solución ASP.NET con una aplicación basada en un explorador web tradicional mediante el estándar OpenID Connect"
+title: Introducción al servidor web ASP.NET de Azure AD v1 1 Microsoft Docs
+description: Implementación de inicio de sesión de Microsoft en una solución ASP.NET con una aplicación basada en un explorador web tradicional mediante el estándar OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/08/2017
+ms.date: 04/09/2018
 ms.author: andret
-ms.openlocfilehash: b23afd26f7ac1828381a0410d2455206c8f43c88
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00fef27529dd1d69c13ceaf22e16d2b7cd47801f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156468"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
@@ -250,7 +251,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 <!--start-test-->
 ## <a name="test-your-code"></a>Prueba del código
 
-Presione `F5` para ejecutar el proyecto en Visual Studio. El explorador se abre y le dirige a *http://localhost:{port}*, donde ve el botón *Iniciar sesión en Microsoft*. Continúe y haga clic en él para iniciar sesión.
+Presione `F5` para ejecutar el proyecto en Visual Studio. El explorador se abre y le dirige a *http://localhost:{port}*, donde verá el botón *Iniciar sesión en Microsoft*. Continúe y haga clic en él para iniciar sesión.
 
 Cuando esté listo para realizar una prueba, use una cuenta profesional (Azure Active Directory) para iniciar sesión. 
 
