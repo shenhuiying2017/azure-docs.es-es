@@ -1,37 +1,38 @@
 ---
-title: "Solución Office 365 de Operations Management Suite (OMS) | Microsoft Docs"
-description: "Este artículo proporciona detalles sobre la configuración y el uso de la solución Office 365 en OMS.  Incluye una descripción detallada de los registros de Office 365 creados en Log Analytics."
+title: Solución de administración de Office 365 en Azure | Microsoft Docs
+description: Este artículo proporciona detalles sobre la configuración y el uso de la solución Office 365 en Azure.  Incluye una descripción detallada de los registros de Office 365 creados en Log Analytics.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 8797e08ad942687b7d2defd765f4fe3f9765812f
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777855"
 ---
-# <a name="office-365-solution-in-operations-management-suite-oms"></a>Solución Office 365 de Operations Management Suite (OMS)
+# <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
 ![Logotipo de Office 365](media/oms-solution-office-365/icon.png)
 
-La solución Office 365 para Operations Management Suite (OMS) permite supervisar el entorno de Office 365 en Log Analytics.  
+La solución de administración de Office 365 permite supervisar el entorno de Office 365 en Log Analytics.
 
 - Supervise las actividades de usuario en las cuentas de Office 365 para analizar patrones de uso e identificación de tendencias de comportamiento. Por ejemplo, puede extraer escenarios de uso específicos, como los archivos que se comparten fuera de la organización o los sitios de SharePoint más populares.
 - Supervise las actividades del administrador para realizar el seguimiento de cambios de configuración u operaciones de privilegios elevados.
 - Detecte e investigue comportamientos de usuario no deseados, que puede personalizar para las necesidades de la organización.
 - Demuestre el cumplimiento de las normas y las auditorías. Por ejemplo, puede supervisar las operaciones de acceso a archivos en los archivos confidenciales, lo que pueden ayudarle con el proceso de cumplimiento y auditoría.
-- Solucione problemas operativos mediante la búsqueda de OMS en los datos de actividad de Office 365 de su organización.
+- Solucione problemas operativos mediante [búsqueda de registros](../log-analytics/log-analytics-log-search.md) en los datos de actividad de Office 365 de su organización.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Se requiere lo siguiente antes de la instalación y configuración de esta solución.
 
 - Suscripción organizativa de Office 365.
@@ -47,7 +48,7 @@ Esta solución no instala ningún módulo de administración en grupos de admini
 ## <a name="configuration"></a>Configuración
 Una vez realizada la [agregación de la solución de Office 365 a su suscripción](../log-analytics/log-analytics-add-solutions.md), debe conectarla a su suscripción de Office 365.
 
-1. Agregue la solución Administración de alertas al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones](../log-analytics/log-analytics-add-solutions.md).
+1. Agregue la solución Alert Management al área de trabajo de Log Analytics mediante el proceso descrito en [Adición de soluciones](../log-analytics/log-analytics-add-solutions.md).
 2. En el portal de OMS, vaya a **Configuración**.
 3. En **Orígenes conectados**, seleccione **Office 365**.
 4. Haga clic en **Conectar Office 365**.<br>![Conexión de Office 365](media/oms-solution-office-365/configure.png)
@@ -63,7 +64,7 @@ La solución de Office 365 no recupera los datos desde ninguno de los [agentes d
 Office 365 envía una [notificación de webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con datos detallados a Log Analytics cada vez que se crea un registro.
 
 ## <a name="using-the-solution"></a>Uso de la solución
-Al agregar la solución Office 365 al área de trabajo de OMS, se agrega el icono **Office 365** al panel de OMS. Este icono muestra un recuento y una representación gráfica del número de equipos en el entorno y del cumplimiento de las actualizaciones.<br><br>
+Al agregar la solución Office 365 al área de trabajo de Log Analytics, se agrega el icono **Office 365** al panel. Este icono muestra un recuento y una representación gráfica del número de equipos en el entorno y del cumplimiento de las actualizaciones.<br><br>
 ![Icono de resumen de Office 365](media/oms-solution-office-365/tile.png)  
 
 Haga clic en el icono de **Office 365** para abrir el panel de **Office 365**.
@@ -72,7 +73,7 @@ Haga clic en el icono de **Office 365** para abrir el panel de **Office 365**.
 
 El panel incluye las columnas de la tabla siguiente. Cada columna muestra las diez principales alertas por recuento que coinciden con los criterios de esa columna para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que proporcione toda la lista haciendo clic en Ver todo en la parte inferior de la columna o haciendo clic en el encabezado de columna.
 
-| Columna | Descripción |
+| Columna | DESCRIPCIÓN |
 |:--|:--|
 | Operaciones | Proporciona información acerca de los usuarios activos de todas las suscripciones de Office 365 supervisadas. También podrá ver el número de actividades que se producen con el tiempo.
 | Exchange | Muestra el desglose de las actividades del servidor de Exchange, como Add-Mailbox Permission o Set-Mailbox. |
@@ -89,9 +90,9 @@ El valor de **Tipo** es **OfficeActivity** para todos los registros creados en e
 ### <a name="common-properties"></a>Propiedades comunes
 Las siguientes propiedades son comunes a todos los registros de Office 365.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Tipo | *OfficeActivity* |
+| Escriba | *OfficeActivity* |
 | ClientIP | La dirección IP del dispositivo que se usó cuando se registró la actividad. La dirección IP se muestra en formato de dirección IPv4 o IPv6. |
 | OfficeWorkload | Servicio de Office 365 al que hace referencia el registro.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operación | El nombre de la actividad de usuario o administrador.  |
@@ -100,13 +101,13 @@ Las siguientes propiedades son comunes a todos los registros de Office 365.
 | ResultStatus | Indica si la acción (especificada en la propiedad Operation) se realizó correctamente o no. Los valores posibles son Succeeded (correcta), PartiallySucceded (parcialmente correcta) o Failed (con errores). Para la actividad de administración de Exchange, el valor es True o False. |
 | UserId | El UPN (nombre principal de usuario) del usuario que realizó la acción que generó el registro, por ejemplo, my_name@my_domain_name. Tenga en cuenta que también se incluyen los registros de actividad realizada por cuentas del sistema (como SHAREPOINT\system o NTAUTHORITY\SYSTEM). | 
 | UserKey | Un identificador alternativo para el usuario identificado en la propiedad UserId.  Por ejemplo, esta propiedad se rellena con el identificador único de Passport (PUID) para los eventos producidos por los usuarios de SharePoint, OneDrive para la empresa y Exchange. Esta propiedad también puede especificar el mismo valor que la propiedad UserID para los eventos que se producen en otros servicios y los eventos producidos por las cuentas del sistema|
-| UserType | El tipo de usuario que realizó la operación.<br><br>Administrador<br>Application<br>DcAdmin<br>Regular <br>Reserved<br>ServicePrincipal<br>Sistema |
+| UserType | El tipo de usuario que realizó la operación.<br><br>Administración<br>Application<br>DcAdmin<br>Normal<br>Reserved<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory
 Las siguientes propiedades son comunes a todos los registros de Azure Active Directory.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -117,7 +118,7 @@ Las siguientes propiedades son comunes a todos los registros de Azure Active Dir
 ### <a name="azure-active-directory-account-logon"></a>Inicio de sesión de cuenta de Azure Active Directory
 Estos registros se crean cuando un usuario de Active Directory intenta iniciar sesión.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
@@ -130,7 +131,7 @@ Estos registros se crean cuando un usuario de Active Directory intenta iniciar s
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Estos registros se crean cuando se realizan cambios o adiciones en objetos de Active Directory de Azure.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
@@ -147,7 +148,7 @@ Estos registros se crean cuando se realizan cambios o adiciones en objetos de Ac
 ### <a name="data-center-security"></a>Data Center Security
 Estos registros se crean a partir de los datos de auditoría de Data Center Security.  
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | EffectiveOrganization | El nombre del inquilino al que estaba destinada la elevación o el cmdlet. |
 | ElevationApprovedTime | La marca de tiempo en el momento de la aprobación de la elevación. |
@@ -162,7 +163,7 @@ Estos registros se crean a partir de los datos de auditoría de Data Center Secu
 ### <a name="exchange-admin"></a>Administración de Exchange
 Estos registros se crean cuando se realizan cambios en la configuración de Exchange.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
@@ -170,13 +171,13 @@ Estos registros se crean cuando se realizan cambios en la configuración de Exch
 | ModifiedObjectResolvedName |  Este es el nombre descriptivo del objeto que ha sido modificado por el cmdlet. Esto se registra únicamente si el cmdlet modifica el objeto. |
 | OrganizationName | El nombre del inquilino. |
 | OriginatingServer | El nombre del servidor desde el que se ejecutó el cmdlet. |
-| parameters | El nombre y valor de todos los parámetros que se utilizaron con el cmdlet que se identifica en la propiedad Operations. |
+| Parámetros | El nombre y valor de todos los parámetros que se utilizaron con el cmdlet que se identifica en la propiedad Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Buzón de Exchange
 Estos registros se crean cuando se realizan cambios o agregaciones en los buzones de Exchange.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
@@ -198,11 +199,11 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los buzone
 ### <a name="exchange-mailbox-audit"></a>Auditoría de buzón de Exchange
 Estos registros se crean cuando se crea una entrada de auditoría de buzones de correo.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| Elemento | Representa el elemento en el que se realizó la operación | 
+| item | Representa el elemento en el que se realizó la operación | 
 | SendAsUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo. |
 | SendAsUserSmtp | Dirección SMTP del usuario que se está suplantando. |
 | SendonBehalfOfUserMailboxGuid | El identificador GUID de Exchange del buzón de correo al que se obtuvo acceso para enviar correo en su nombre. |
@@ -212,7 +213,7 @@ Estos registros se crean cuando se crea una entrada de auditoría de buzones de 
 ### <a name="exchange-mailbox-audit-group"></a>Auditoría de grupos buzones de Exchange
 Estos registros se crean cuando se realizan cambios o agregaciones en los grupos de Exchange.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
@@ -230,7 +231,7 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los grupos
 ### <a name="sharepoint-base"></a>SharePoint
 Estas propiedades son comunes a todos los registros de SharePoint.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -246,7 +247,7 @@ Estas propiedades son comunes a todos los registros de SharePoint.
 ### <a name="sharepoint-schema"></a>Esquema de SharePoint
 Estos registros se crean cuando se realizan cambios en la configuración de SharePoint.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
@@ -258,7 +259,7 @@ Estos registros se crean cuando se realizan cambios en la configuración de Shar
 ### <a name="sharepoint-file-operations"></a>Operaciones de archivos de SharePoint
 Estos registros se crean en respuesta a las operaciones de archivos en SharePoint.
 
-| Propiedad | Descripción |
+| Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePointFileOperation |
@@ -278,7 +279,7 @@ Estos registros se crean en respuesta a las operaciones de archivos en SharePoin
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
 En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución.
 
-| Consultar | Descripción |
+| Consultar | DESCRIPCIÓN |
 | --- | --- |
 |Recuento de todas las operaciones de la suscripción a Office 365 |Type = OfficeActivity &#124; measure count() by Operation |
 |Uso de sitios de SharePoint|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
@@ -288,15 +289,15 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 Si la solución de Office 365 no está recopilando datos según lo previsto, compruebe su estado en el portal de OMS en **Configuración** -> **Orígenes conectados** -> **Office 365**. En la tabla siguiente se describe cada estado.
 
-| Estado | Descripción |
+| Status | DESCRIPCIÓN |
 |:--|:--|
-| Active | La suscripción a Office 365 está activa y la carga de trabajo se ha conectado correctamente al área de trabajo de OMS. |
-| Pending | La suscripción a Office 365 está activa pero la carga de trabajo aún no se ha conectado correctamente al área de trabajo de OMS. La primera vez que se conecta a la suscripción de Office 365, todas las cargas de trabajo estarán en este estado hasta que estén conectadas correctamente. Espere 24 horas para que las cargas de trabajo cambien a Activo. |
-| Inactivo | La suscripción a Office 365 está en estado inactivo. Compruebe la página de administración de Office 365 para obtener los detalles. Después de activar la suscripción a Office 365, desvincúlela del área de trabajo de OMS y vincúlela de nuevo para empezar a recibir datos. |
+| Active | La suscripción a Office 365 está activa y la carga de trabajo se ha conectado correctamente al área de trabajo de Log Analytics. |
+| Pending | La suscripción a Office 365 está activa pero la carga de trabajo aún no se ha conectado correctamente al área de trabajo de Log Analytics. La primera vez que se conecta a la suscripción de Office 365, todas las cargas de trabajo estarán en este estado hasta que estén conectadas correctamente. Espere 24 horas para que las cargas de trabajo cambien a Activo. |
+| Inactivo | La suscripción a Office 365 está en estado inactivo. Compruebe la página de administración de Office 365 para obtener los detalles. Después de activar la suscripción a Office 365, desvincúlela del área de trabajo de Log Analytics y vincúlela de nuevo para empezar a recibir datos. |
 
 
 
