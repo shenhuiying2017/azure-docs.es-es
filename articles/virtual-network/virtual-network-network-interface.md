@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 65e461eaebaafab6f8a95bed333928d017c540d4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895437"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365753"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creación, cambio o eliminación de una interfaz de red
 
@@ -53,7 +53,7 @@ Al crear una máquina virtual desde Azure Portal, este crea una interfaz de red 
     |Red virtual|Sí|Seleccione la red virtual para la interfaz de red. Solo se puede asignar una interfaz de red a una red virtual que exista en la misma suscripción y ubicación que la interfaz de red. Una vez creada la interfaz de red, no se puede cambiar la red virtual a la que está asignada. La máquina virtual que se agrega a la interfaz de red también debe existir en la misma ubicación y suscripción que la interfaz de red.|
     |Subred|Sí|Seleccione una subred dentro de la red virtual que seleccionó. Puede cambiar la subred a la que está asignada la interfaz de red después de crearla.|
     |Asignación de la dirección IP privada|Sí| En esta configuración, va a elegir el método de asignación para la dirección IPv4. Elija entre los siguientes métodos de asignación: **Dinámico:** al seleccionar esta opción, Azure asigna automáticamente la siguiente dirección disponible del espacio de direcciones de la subred seleccionada. **Estático:** al seleccionar esta opción, debe asignar manualmente una dirección IP disponible del espacio de direcciones de la subred seleccionada. Las direcciones estática y dinámica no cambian hasta que usted realice algún cambio elimine la interfaz de red. Una vez creada la interfaz de red, puede cambiar el método de asignación. El servidor DHCP de Azure asigna esta dirección a la interfaz de red en el sistema operativo de la máquina virtual.|
-    |Grupo de seguridad de red|Sin | Déjelo establecido en **Ninguno**, seleccione un [grupo de seguridad de red](virtual-networks-nsg.md) existente o [cree uno](virtual-networks-create-nsg-arm-pportal.md). Los grupos de seguridad de red permiten filtrar el tráfico de red hacia y desde una interfaz de red. Puede aplicar un grupo de seguridad de red, o ninguno, a una interfaz de red. También puede aplicar un grupo de seguridad de red, o ninguno, a la subred a la que está asignada la interfaz de red. Cuando un grupo de seguridad de red se aplica a una interfaz de red y a la subred a la que está asignada la interfaz de red, en ocasiones se producen resultados inesperados. Para solucionar problemas de los grupos de seguridad de red aplicados a interfaces de red y subredes, consulte [Solución de problemas de grupos de seguridad de red](virtual-network-nsg-troubleshoot-portal.md#nsg).|
+    |Grupo de seguridad de red|Sin | Déjelo establecido en **Ninguno**, seleccione un [grupo de seguridad de red](security-overview.md) existente o [cree uno](tutorial-filter-network-traffic.md). Los grupos de seguridad de red permiten filtrar el tráfico de red hacia y desde una interfaz de red. Puede aplicar un grupo de seguridad de red, o ninguno, a una interfaz de red. También puede aplicar un grupo de seguridad de red, o ninguno, a la subred a la que está asignada la interfaz de red. Cuando un grupo de seguridad de red se aplica a una interfaz de red y a la subred a la que está asignada la interfaz de red, en ocasiones se producen resultados inesperados. Para solucionar problemas de los grupos de seguridad de red aplicados a interfaces de red y subredes, consulte [Solución de problemas de grupos de seguridad de red](virtual-network-nsg-troubleshoot-portal.md#nsg).|
     |La suscripción|Sí|Seleccione una de las [suscripciones](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) de Azure. La máquina virtual asociada a una interfaz de red y la red virtual a la que está conectada deben existir en la misma suscripción.|
     |Dirección IP privada (IPv6)|Sin | Si activa esta casilla, se asigna una dirección IPv6 a la interfaz de red, además de la dirección IPv4 ya asignada. Consulte la sección [IPv6](#IPv6) de este artículo para obtener información importante sobre el uso de IPv6 con interfaces de red. No se puede seleccionar un método de asignación a la dirección IPv6. Si desea asignar una dirección IPv6, hay que asignarla con el método dinámico.
     |Nombre de IPv6 (solo aparece cuando la casilla **Dirección IP privada (IPv6)** está activada) |Sí, si la casilla **Dirección IP privada (IPv6)** está activada.| Este nombre se asigna a una configuración IP secundaria de la interfaz de red. Para más información sobre las configuraciones de IP, consulte [Visualización de la configuración de la interfaz de red](#view-network-interface-settings).|

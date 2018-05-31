@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 16478d0223f59abb239d39fa27453e41b6980727
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777559"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Supervisión de aplicaciones y recursos de Azure
 
@@ -60,7 +61,7 @@ La supervisión básica proporciona el control fundamental requerido de los recu
 
 Se encuentran disponibles métricas que ofrecen estadísticas de rendimiento de diferentes recursos e incluso del sistema operativo de una máquina virtual. Puede ver estos datos con uno de los exploradores en Azure Portal y crear alertas basadas en estas métricas. Azure Monitor ofrece la canalización de métricas más rápida (de 5 hasta 1 minuto), por lo que debe usarla para las notificaciones y alertas críticas en el tiempo.
 
-También puede enviar estas métricas y estos registros a Azure Log Analytics para análisis de tendencias y detallados, o bien crear reglas de alertas adicionales para notificarle de forma proactiva de problemas críticos como resultado de dicho análisis.  
+También puede enviar estas métricas y estos registros a Azure Log Analytics para análisis de tendencias y detallados, o bien crear reglas de alertas adicionales para que se le notifique de forma proactiva los problemas críticos como resultado de dicho análisis.  
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a Log Analytics a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.

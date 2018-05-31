@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768020"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -294,7 +295,7 @@ Aunque puede usar el Cifrado de cliente para cifrar los datos en tránsito (que 
 
 SSE está habilitado para todas las cuentas de almacenamiento y no puede deshabilitarse. SSE cifra automáticamente los datos al escribirlos en Azure Storage. Al leer datos de Azure Storage, Azure Storage los descifra antes de devolverlos. SSE permite proteger los datos sin tener que modificar el código o agregar código a las aplicaciones.
 
-Microsoft administra las claves utilizadas para SSE. Microsoft genera las claves originalmente y administra su almacenamiento seguro, así como la rotación periódica, de acuerdo con la política interna de Microsoft. Las claves administradas por los clientes estarán disponibles en última instancia, junto con una ruta de migración desde las claves administradas por Microsoft hasta las claves administradas por los clientes.
+Puede usar claves administrada por Microsoft o sus propias claves personalizadas. Microsoft genera las claves administradas y se encarga de guardarlas en un lugar seguro y de cambiarlas de forma periódica de acuerdo con la directiva interna de Microsoft. Para más información sobre el uso de claves personalizadas, consulte [Uso de Storage Service Encryption con claves administradas por el cliente en Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 SSE cifra automáticamente los datos de todos los niveles de rendimiento (Estándar y Premium), todos los modelos de implementación (Azure Resource Manager y clásico) y todos los servicios de Azure Storage (Blob, Queue, Table y File). 
 

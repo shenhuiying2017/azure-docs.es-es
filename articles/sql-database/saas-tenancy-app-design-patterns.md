@@ -10,11 +10,12 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941901"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 
@@ -88,7 +89,7 @@ Azure SQL Database proporciona las herramientas necesarias para configurar, supe
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operaciones para una base de datos por inquilino
 
-La plataforma de Azure SQL Database tiene muchas características de administración diseñadas para la administración de grandes cantidades de bases de datos a escala, por encima de 100.000 bases de datos.  Estas características hacen que el patrón de una base de datos por inquilino sea plausible.
+La plataforma de Azure SQL Database tiene muchas características de administración diseñadas para administrar grandes cantidades de bases de datos a escala, por encima de 100.000 bases de datos.  Estas características hacen que el patrón de una base de datos por inquilino sea plausible.
 
 Por ejemplo, suponga que un sistema tiene una base de datos de 1000 inquilinos como única base de datos.  La base de datos podría tener 20 índices.  Si el sistema pasa a tener 1000 bases de datos de un único inquilino, el número de índices aumenta hasta 20 000.  En SQL Database, como parte del [ajuste automático][docu-sql-db-automatic-tuning-771a], las características de indexación automática están habilitadas de forma predeterminada.  La indexación automática administra automáticamente los 20.000 índices y sus optimizaciones de creación y eliminación.  Estas acciones automatizadas se producen dentro de una base de datos individual y no están coordinadas ni restringidas por acciones similares en otras bases de datos.  La indexación automática trata los índices de manera diferente en una base de datos ocupada que en una base de datos de menos actividad.  Este tipo de personalización de la administración de índices no sería práctico en la escala de una base de datos por inquilino si esta enorme tarea de administración tuviera que realizarse manualmente.
 

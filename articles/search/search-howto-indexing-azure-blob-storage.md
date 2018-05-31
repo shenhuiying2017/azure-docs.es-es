@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 77fac23286d536903e32140b554304e72c16097f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b2660a98139068a8472c018de5cfbd29d6867c5a
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778501"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexación de documentos en Azure Blob Storage con Azure Search
 En este artículo se explica cómo usar Azure Search para indexar documentos (como archivos PD, documentos de Microsoft Office y otros formatos comunes) almacenados en Azure Blob Storage. En primer lugar, se explican los conceptos básicos de cómo instalar y configurar un indizador de blobs. A continuación, se ofrecen más detalles sobre los comportamientos y escenarios que es probable que encuentre.
@@ -49,7 +50,7 @@ Para realizar la indexación de blobs, el origen de datos debe tener las siguien
 
 Pasos para crear un origen de datos:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +82,7 @@ El índice especifica los campos de un documento, los atributos y otras construc
 
 Aquí se muestra cómo crear un índice con un campo `content` utilizable en búsquedas para almacenar el texto extraído de los blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +101,7 @@ Un indizador conecta un origen de datos con un índice de búsqueda de destino y
 
 Una vez creados el origen de datos y los índices, ya podrá crear el indizador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -171,7 +172,7 @@ En este ejemplo, vamos a seleccionar el campo `metadata_storage_name` como clave
 
 Para conectar todo esto, aquí está la forma de agregar asignaciones de campo y habilitar la codificación de base 64 para las claves para un indexador ya existente:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -197,7 +198,7 @@ Puede controlar qué blobs se indizan y cuáles se pasan por alto.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexación solo de los blobs con determinadas extensiones de archivo
 Puede indexar solo los blobs con las extensiones de nombre de archivo que especifique mediante el parámetro de configuración de indexador `indexedFileNameExtensions`. El valor es una cadena que contiene una lista separada por comas de extensiones de archivo (con un punto inicial). Por ejemplo, para indexar solamente los blobs .PDF y .DOCX, realice el siguiente procedimiento:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -209,7 +210,7 @@ Puede indexar solo los blobs con las extensiones de nombre de archivo que especi
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Exclusión de blobs con extensiones de archivo específicas
 Puede excluir blobs con extensiones de nombre de archivo específicas de la indexación mediante el parámetro de configuración `excludedFileNameExtensions`. El valor es una cadena que contiene una lista separada por comas de extensiones de archivo (con un punto inicial). Por ejemplo, para indexar todos los blobs excepto aquellos con las extensiones .PNG y .JPEG, realice el siguiente procedimiento:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -231,7 +232,7 @@ Puede controlar qué partes de los blobs se indizan mediante el parámetro de co
 
 Por ejemplo, para indizar solo los metadatos de almacenamiento, use lo siguiente:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -254,7 +255,7 @@ Los parámetros de configuración que se han descrito anteriormente se aplican a
 
 De forma predeterminada, el indizador de blob se detiene cuando encuentra un blob con un tipo de contenido no admitido (por ejemplo, una imagen). Por supuesto, puede usar el parámetro `excludedFileNameExtensions` para omitir determinados tipos de contenido. Sin embargo, puede que necesite indizar blobs sin conocer de antemano todos los posibles tipos de contenido. Para reanudar la indización cuando se encuentra un tipo de contenido no admitido, establezca el `failOnUnsupportedContentType` parámetro de configuración en `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -279,7 +280,7 @@ También puede continuar con la indexación si se producen errores en cualquier 
     }
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Indexación incremental y detección de eliminación
-Al configurar un indexador de blob para ejecutarlo en una programación, se vuelven a indexar solamente los blobs modificados, que vienen determinados por marca de tiempo `LastModified` del blob.
+Al configurar un indexador de blob para ejecutarlo en una programación, se vuelven a indexar solamente los blobs modificados, que vienen determinados por la marca de tiempo `LastModified` del blob.
 
 > [!NOTE]
 > No tiene que especificar una directiva de detección de cambios, la indexación incremental ya está habilitada automáticamente.
@@ -292,7 +293,7 @@ Para admitir la eliminación de documentos, utilice un enfoque de "eliminación 
 
 Por ejemplo, la siguiente directiva considera que un blob se va a eliminar si tiene una propiedad de metadatos `IsDeleted` con el valor `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -339,7 +340,7 @@ Para que funcione, todos los indexadores y demás componentes deben coincidir co
 
 Si todos los blobs contienen texto sin formato con la misma codificación, puede mejorar notablemente el rendimiento de indexación mediante el **modo de análisis de texto**. Para usar el modo de análisis de texto, establezca la propiedad de configuración `parsingMode` en `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

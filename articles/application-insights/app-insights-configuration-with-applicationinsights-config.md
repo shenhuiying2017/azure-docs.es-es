@@ -3,8 +3,7 @@ title: 'Referencia de ApplicationInsights.config: Azure | Microsoft Docs'
 description: Habilitación o deshabilitación de los módulos de recopilación de datos e incorporación de contadores de rendimiento y otros parámetros.
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
-editor: mrbullwinkle
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: mbullwin
-ms.openlocfilehash: 62ecacb16c891905eb67a6bae08cf81ac2cdb173
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: mbullwin; olegan
+ms.openlocfilehash: 670600d4370be0b675c71d1c6cf09b17c7bd2597
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158568"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869077"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuración del SDK de Application Insights con ApplicationInsights.config o .xml
 El SDK de Application Insights para .NET consta de varios paquetes de NuGet. El [paquete principal](http://www.nuget.org/packages/Microsoft.ApplicationInsights) proporciona la API para enviar telemetría a Application Insights. Los [paquetes adicionales](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) proporcionan *módulos* e *inicializadores* de telemetría para hacer un seguimiento automático de la aplicación y su contexto. Si ajusta el archivo de configuración, puede habilitar o deshabilitar los módulos e inicializadores de telemetría, y establecer los parámetros para algunos de ellos.
@@ -289,7 +288,7 @@ Se proporcionan dos implementaciones en el SDK [Microsoft.ApplicationInsights](h
 
 ### <a name="applicationinsightsapplicationidprovider"></a>ApplicationInsightsApplicationIdProvider
 
-Se trata de un encapsulado alrededor de Profile API. Limita las solicitudes y los resultados en la memoria caché.
+Es un contenedor alrededor de nuestra API de Profile. Limita las solicitudes y los resultados en la memoria caché.
 
 Este proveedor se agrega al archivo de configuración cuando se instala [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) o [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
 

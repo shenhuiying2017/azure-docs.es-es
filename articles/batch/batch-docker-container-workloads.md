@@ -10,11 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: danlep
-ms.openlocfilehash: fc8af53b0e0cfbe19a6509e8d126646badd0abbb
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 128bf85fae71b44b0deebb3974d4a9b317e6a380
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310832"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Ejecución de aplicaciones de contenedor en Azure Batch
 
@@ -138,7 +139,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-for-container-configuration"></a>Captura previa de imágenes para la configuración de contenedor
 
-Para la captura previa de las imágenes de contenedor en el grupo, agregue la lista de imágenes de contenedor (`containerImageNames`) a la `ContainerConfiguration` y asigne un nombre a la imagen de la lista. En el siguiente ejemplo se asume que está utilizando una imagen personalizada de Ubuntu 16.04 LTS, que ha cargado previamente una imagen de TensorFlow de [Docker Hub](https://hub.docker.com) y que ha iniciado TensorFlow en una tarea de inicio.
+Para la captura previa de las imágenes de contenedor en el grupo, agregue la lista de imágenes de contenedor (`containerImageNames`) a la `ContainerConfiguration` y asigne un nombre a la imagen de la lista. En el siguiente ejemplo, se presupone que está utilizando una imagen personalizada de Ubuntu 16.04 LTS y que ha capturado previamente una imagen de TensorFlow desde [Docker Hub](https://hub.docker.com). Este ejemplo contiene una tarea de inicio que se ejecuta en el host de máquina virtual de los nodos de grupo. Podría realizar esta tarea, por ejemplo, para montar un servidor de archivos al que puedan acceder los contenedores.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -151,15 +152,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
     containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
 
-// Set a native command line start task
+// Set a native host command line start task
 StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
-
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
