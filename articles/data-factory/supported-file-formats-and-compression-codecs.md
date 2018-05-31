@@ -7,13 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: fdfee4e06994de1b9a63996203b1a1b9fed9b768
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940161"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -486,7 +487,7 @@ Si desea analizar los archivos Parquet o escribir los datos en formato Parquet, 
 Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de daros complejos (MAP, LIST).
-* El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
+* El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo Parquet en cualquiera de los formatos comprimidos. Utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Asignación de tipos de datos para archivos PARQUET
 
@@ -554,7 +555,7 @@ La sección **compression** tiene dos propiedades:
 * **Level**: la relación de compresión, que puede ser **Optimal** o **Fastest**.
 
   * **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.
-  * **Optimal:**la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
+  * **Optimal:** la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
 
     Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) .
 

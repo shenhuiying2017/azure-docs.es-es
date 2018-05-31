@@ -1,25 +1,28 @@
 ---
 title: Flujo en nombre de OAuth 2.0 de Azure AD v2.0 | Microsoft Docs
-description: "En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0."
+description: En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0.
 services: active-directory
-documentationcenter: 
-author: navyasric
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: nacanuma
+ms.date: 04/18/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7c03c6cb78fd020b7574a8cd9f924b513bacaf10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156830"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 y el flujo en nombre de OAuth 2.0
 El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.
@@ -30,14 +33,17 @@ El flujo en nombre de OAuth 2.0 se usa en los casos en que una aplicación invoc
 >
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
-Suponga que el usuario se ha autenticado en una aplicación mediante el [flujo de concesión del código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md). En este punto, la aplicación tiene un token de acceso (token A) con las notificaciones del usuario y su consentimiento para tener acceso a la API web de nivel intermedio (API A). Ahora, la API A debe realizar una solicitud autenticada a la API web de bajada (API B).
+Suponga que el usuario se ha autenticado en una aplicación mediante el [flujo de concesión del código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md). En este punto, la aplicación tiene un token de acceso *para la API A* (token A) con las notificaciones del usuario y su consentimiento para tener acceso a la API web de nivel intermedio (API A). Ahora, la API A debe realizar una solicitud autenticada a la API web de bajada (API B).
+
+> [!IMPORTANT]
+> Los tokens obtenidos mediante la [concesión implícita](active-directory-v2-protocols-implicit.md) no se puede usar para el "flujo en nombre de". El cliente en los flujos implícitos no se autentica (por ejemplo, a través de un secreto de cliente) y, por tanto, no debería estar permitido para arrancar en otro, posiblemente más eficaz, token.
 
 Los pasos siguientes constituyen el "flujo en nombre de" y se explican con la ayuda del diagrama siguiente.
 
 ![Flujo en nombre de OAuth 2.0](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. La aplicación cliente realiza una solicitud a la API A con el token A.
+1. La aplicación cliente realiza una solicitud a la API A con el token A (con una notificación `aud` de la API A).
 2. La API A se autentica en el punto de conexión de emisión de tokens de Azure AD y solicita un token para obtener acceso a la API B.
 3. El punto de conexión de emisión de tokens de Azure AD valida las credenciales de la API A con el token A y emite el token de acceso para la API B (token B).
 4. El token B se establece en el encabezado de autorización de la solicitud a la API B.
@@ -59,7 +65,7 @@ Se pueden dar dos casos en función de si la aplicación cliente elige un secret
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Primer caso: solicitud de token de acceso con un secreto compartido
 Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre servicios contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud mediante un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | client_id |requerido | El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
@@ -69,7 +75,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 
 #### <a name="example"></a>Ejemplo
-El siguiente HTTP POST solicita un token de acceso con el ámbito `user.read` para la API web https://graph.microsoft.com.
+El siguiente HTTP POST solicita un token de acceso y un token de actualización con el ámbito `user.read` para la API web https://graph.microsoft.com.
 
 ```
 //line breaks for legibility only
@@ -82,19 +88,19 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &client_id=2846f71b-a7a4-4987-bab3-760035b2f389
 &client_secret=BYyVnAt56JpLwUcyo47XODd
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3YyLjAiLCJpYXQiOjE0OTM5MjA5MTYsIm5iZiI6MTQ5MzkyMDkxNiwiZXhwIjoxNDkzOTI0ODE2LCJhaW8iOiJBU1FBMi84REFBQUFnZm8vNk9CR0NaaFV2NjJ6MFFYSEZKR0VVYUIwRUlIV3NhcGducndMMnVrPSIsIm5hbWUiOiJOYXZ5YSBDYW51bWFsbGEiLCJvaWQiOiJkNWU5NzljNy0zZDJkLTQyYWYtOGYzMC03MjdkZDRjMmQzODMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJuYWNhbnVtYUBtaWNyb3NvZnQuY29tIiwic3ViIjoiZ1Q5a1FMN2hXRUpUUGg1OWJlX1l5dVZNRDFOTEdiREJFWFRhbEQzU3FZYyIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInV0aSI6IjN5U3F4UHJweUVPd0ZsTWFFMU1PQUEiLCJ2ZXIiOiIyLjAifQ.TPPJSvpNCSCyUeIiKQoLMixN1-M-Y5U0QxtxVkpepjyoWNG0i49YFAJC6ADdCs5nJXr6f-ozIRuaiPzy29yRUOdSz_8KqG42luCyC1c951HyeDgqUJSz91Ku150D9kP5B9-2R-jgCerD_VVuxXUdkuPFEl3VEADC_1qkGBiIg0AyLLbz7DTMp5DvmbC09DhrQQiouHQGFSk2TPmksqHm3-b3RgeNM1rJmpLThis2ZWBEIPx662pjxL6NJDmV08cPVIcGX4KkFo54Z3rfwiYg4YssiUc4w-w3NJUBQhnzfTl4_Mtq2d7cVlul9uDzras091vFy32tWkrpa970UvdVfQ
-&scope=https://graph.microsoft.com/user.read
+&scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Segundo caso: solicitud de token de acceso con un certificado
 Una solicitud de token de acceso entre servicios con un certificado contiene los parámetros siguientes:
 
-| Parámetro |  | Descripción |
+| . |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | grant_type |requerido | Tipo de la solicitud de token. En el caso de una solicitud mediante un JWT, el valor debe ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | client_id |requerido | El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación.  Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
+| client_assertion |requerido | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md) para información sobre cómo registrar el certificado y el formato de la aserción.|
 | Aserción |requerido | Valor del token usado en la solicitud. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para obtener más información, vea [Ámbitos](active-directory-v2-scopes.md).|
@@ -102,7 +108,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 Tenga en cuenta que los parámetros son casi iguales que en el caso de solicitud con un secreto compartido, salvo que el parámetro client_secret se sustituye por dos parámetros: client_assertion_type y client_assertion.
 
 #### <a name="example"></a>Ejemplo
-El siguiente HTTP POST solicita un token de acceso con el ámbito `user.read` para la API web https://graph.microsoft.com con un certificado.
+El siguiente elemento HTTP POST solicita un token de acceso con el ámbito `user.read` para la API web https://graph.microsoft.com con un certificado.
 
 ```
 // line breaks for legibility only
@@ -117,19 +123,19 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &client_assertion=eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJ{a lot of characters here}M8U3bSUKKJDEg
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2Rkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tLzE5MjNmODYyLWU2ZGMtNDFhMy04MWRhLTgwMmJhZTAwYWY2ZCIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzI2MDM5Y2NlLTQ4OWQtNDAwMi04MjkzLTViMGM1MTM0ZWFjYi8iLCJpYXQiOjE0OTM0MjMxNTIsIm5iZiI6MTQ5MzQyMzE1MiwiZXhwIjoxNDkzNDY2NjUyLCJhY3IiOiIxIiwiYWlvIjoiWTJaZ1lCRFF2aTlVZEc0LzM0L3dpQndqbjhYeVp4YmR1TFhmVE1QeG8yYlN2elgreHBVQSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJiMzE1MDA3OS03YmViLTQxN2YtYTA2YS0zZmRjNzhjMzI1NDUiLCJhcHBpZGFjciI6IjAiLCJlX2V4cCI6MzAyNDAwLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJEVXpYbkdKMDJIUk0zRW5pbDFxdjZCakxTNUllQy0tQ2ZpbzRxS1MzNEc4IiwidGlkIjoiMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiIiwidW5pcXVlX25hbWUiOiJuYXZ5YUBkZG9iYWxpYW5vdXRsb29rLm9ubWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidmVyIjoiMS4wIn0.R-Ke-XO7lK0r5uLwxB8g5CrcPAwRln5SccJCfEjU6IUqpqcjWcDzeDdNOySiVPDU_ZU5knJmzRCF8fcjFtPsaA4R7vdIEbDuOur15FXSvE8FvVSjP_49OH6hBYqoSUAslN3FMfbO6Z8YfCIY4tSOB2I6ahQ_x4ZWFWglC3w5mK-_4iX81bqi95eV4RUKefUuHhQDXtWhrSgIEC0YiluMvA4TnaJdLq_tWXIc4_Tq_KfpkvI004ONKgU7EAMEr1wZ4aDcJV2yf22gQ1sCSig6EGSTmmzDuEPsYiyd4NhidRZJP4HiiQh-hePBQsgcSgYGvz9wC6n57ufYKh2wm_Ti3Q
 &requested_token_use=on_behalf_of
-&scope=https://graph.microsoft.com/user.read
+&scope=https://graph.microsoft.com/user.read+offline_access
 ```
 
 ## <a name="service-to-service-access-token-response"></a>Respuesta de token de acceso entre servicios
 Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros siguientes.
 
-| Parámetro | Descripción |
+| . | DESCRIPCIÓN |
 | --- | --- |
 | token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es el **portador**. Para obtener más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) [Marco de autorización de OAuth 2.0: uso del token de portador (RFC 6750)]. |
 | ámbito |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | access_token |El token de acceso solicitado. El servicio de llamada puede usar este token para autenticarse en el servicio de recepción. |
-| refresh_token |Token de actualización para el token de acceso solicitado. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire el token de acceso actual. |
+| refresh_token |Token de actualización para el token de acceso solicitado. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire el token de acceso actual. El token de actualización solo se proporciona si se solicitó el ámbito `offline_access`.|
 
 ### <a name="success-response-example"></a>Ejemplo de respuesta correcta
 En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un token de acceso para la API web https://graph.microsoft.com.
@@ -144,6 +150,10 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
   "refresh_token": "OAQABAAAAAABnfiG-mA6NTae7CdWW7QfdAALzDWjw6qSn4GUDfxWzJDZ6lk9qRw4AnqPnvFqnzS3GiikHr5wBM1bV1YyjH3nUeIhKhqJWGwqJFRqs2sE_rqUfz7__3J92JDpi6gDdCZNNaXgreQsH89kLCVNYZeN6kGuFGZrjwxp1wS2JYc97E_3reXBxkHrA09K5aR-WsSKCEjf6WI23FhZMTLhk_ZKOe_nWvcvLj13FyvSrTMZV2cmzyCZDqEHtPVLJgSoASuQlD2NXrfmtcmgWfc3uJSrWLIDSn4FEmVDA63X6EikNp9cllH3Gp7Vzapjlnws1NQ1_Ff5QrmBHp_LKEIwfzVKnLLrQXN0EzP8f6AX6fdVTaeKzm7iw6nH0vkPRpUeLc3q_aNsPzqcTOnFfgng7t2CXUsMAGH5wclAyFCAwL_Cds7KnyDLL7kzOS5AVZ3Mqk2tsPlqopAiHijZaJumdTILDudwKYCFAMpUeUwEf9JmyFjl2eIWPmlbwU7cHKWNvuRCOYVqbsTTpJthwh4PvsL5ov5CawH_TaV8omG_tV6RkziHG9urk9yp2PH9gl7Cv9ATa3Vt3PJWUS8LszjRIAJmyw_EhgHBfYCvEZ8U9PYarvgqrtweLcnlO7BfnnXYEC18z_u5wemAzNBFUje2ttpGtRmRic4AzZ708tBHva2ePJWGX6pgQbiWF8esOrvWjfrrlfOvEn1h6YiBW291M022undMdXzum6t1Y1huwxHPHjCAA"
 }
 ```
+
+> [!NOTE]
+> Tenga en cuenta que el token de acceso anterior es un token con formato V1. Esto es porque el token se proporciona en función del recurso al que se accede. Microsoft Graph solicita tokens V1, por lo que Azure AD genera tokens de acceso V1 cuando un cliente solicita tokens para Microsoft Graph. Solo las aplicaciones deben mirar a los tokens de acceso: los clientes no necesitan inspeccionarlos. 
+
 
 ### <a name="error-response-example"></a>Ejemplo de respuesta de error
 El punto de conexión del token de Azure AD devuelve una respuesta de error cuando intenta adquirir un token de acceso para la API de bajada si dicha API tiene establecida una directiva de acceso condicional, como la autenticación multifactor. El servicio de nivel intermedio debe exponer el error a la aplicación cliente para que esta pueda proporcionar la interacción del usuario necesaria para cumplir la directiva de acceso condicional.

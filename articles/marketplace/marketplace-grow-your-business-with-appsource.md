@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: f0d9739dda608b7c49ff9a8fbd93d08b301c0b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0af34a725849acf6fbb6523f03e90a85ce5ba719
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940373"
 ---
 # <a name="grow-your-business-with-appsource"></a>Haga crecer su negocio con AppSource
 Azure Marketplace y AppSource son las plataformas de lanzamiento para las actividades conjuntas de comercialización con Microsoft y un mecanismo de crecimiento del negocio. Con la promoción de lanzamientos, la generación de demanda y las ventas y el marketing conjuntos, la oferta de Marketplace puede ser la pieza central del motor de negocios en la nube. No hay ninguna cuota por participar. Los clientes de Microsoft visitan nuestros marketplaces en la nube cada día para buscar las aplicaciones y los servicios adecuados que los ayuden a mejorar su negocio. Nuestro objetivo consiste en conectar a las organizaciones con las soluciones y los servicios de Microsoft y nuestro ecosistema de partners. 
@@ -88,7 +89,7 @@ Las siguientes tablas detallan cada paso del proceso de creación de la publicac
 **Detalles del escaparate: artefactos de marketing**
 | Configuración del escaparate       | Procedimientos recomendados          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Logotipo de la oferta (formato .png, 58 x 48)**    | Su logotipo debe estar diseñado y optimizado para un medio digital.<br>Cargue el logotipo en formato PNG para la página de búsqueda de la oferta. |
+| **Logotipo de la oferta (formato .png, 48 x 48)**    | Su logotipo debe estar diseñado y optimizado para un medio digital.<br>Cargue el logotipo en formato PNG para la página de búsqueda de la oferta. |
 | **Logotipo de la oferta (.png; 216 x 216)**     | Su logotipo debe estar diseñado y optimizado para un medio digital. <br>Cargue el logotipo en formato PNG para la página de publicación de detalles de la oferta. |
 | **Más información**   | Incluye recursos de marketing y ventas complementarios en la sección "Más información", por ejemplo, notas del producto, folletos, listas de comprobación, archivos PowerPoint, etc. Todos los archivos deben estar en formato PDF. No venda; forme a los clientes potenciales. <br>Agregue el vínculo a la página de aterrizaje de la aplicación en todos los documentos e incluya parámetros de URL para ayudarlo a realizar un seguimiento de los visitantes y las evaluaciones. |
 | **Vídeos**       | Cargue al menos un vídeo; se admiten hasta cuatro. El vídeo debe comunicar el valor de la oferta. Asegúrese de que el cliente potencial es el héroe de la historia, no su negocio. El vídeo debe hablar de los objetos y retos más importantes de su rol de principal responsable de tomar decisiones. <br>Longitud recomendada: de 60 a 90 segundos. Incorpore palabras clave de búsqueda en el nombre de los vídeos.<br>Considere la posibilidad de agregar otros vídeos, por ejemplo, de instrucciones, de introducción o de testimonios de clientes. |
@@ -98,7 +99,7 @@ Las siguientes tablas detallan cada paso del proceso de creación de la publicac
 
 Cuando su oferta aparece en AppSource, podrá mostrar el distintivo "Disponible en AppSource" en su sitio web. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![Notificación de AppSource](./media/marketplace-appsource/appsourcebadge.png)
     
 Agregar este distintivo a su sitio web sirve para promocionar su oferta en AppSource y pueden llegar clientes potenciales directamente a la página de la publicación. El distintivo de AppSource está disponible en tres tamaños. Puede descargar el distintivo junto con instrucciones sobre cómo utilizarlo en [Promocione la disponibilidad de su oferta en Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 

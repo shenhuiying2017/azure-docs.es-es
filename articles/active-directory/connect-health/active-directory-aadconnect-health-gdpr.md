@@ -1,36 +1,33 @@
 ---
-title: "Azure AD Connect Health y el Reglamento general de protección de datos | Microsoft Docs"
-description: "En este documento se describe cómo obtener el cumplimiento con el GDPR en Azure AD Connect."
+title: Azure AD Connect Health y privacidad del usuario | Microsoft Docs
+description: En este documento, se describe la privacidad del usuario con Azure AD Connect Health.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/26/2018
 ms.author: billmath
-ms.openlocfilehash: d66f717f546271a5e5c3c49d6cbaef1c190d18d8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5fedbac439636b56da217e7babd30820bce7b342
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33931765"
 ---
-# <a name="gdpr-compliance-and-azure-ad-connect-health"></a>Cumplimiento con GDPR y Azure AD Connect Health 
+# <a name="user-privacy-and-azure-ad-connect-health"></a>Privacidad del usuario y Azure AD Connect Health 
 
-El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone nuevas reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE. 
-
-En la actualidad, hay productos y servicios de Microsoft para ayudarle a cumplir los requisitos de GDPR. Puede encontrar más información sobre la directiva de privacidad de Microsoft en [Trust Center](https://www.microsoft.com/trustcenter).
-
-Azure AD Connect Health supervisa la infraestructura de identidad local y el servicio de sincronización. También proporciona información detallada y alertas de superficie. Microsoft se compromete al cumplimiento del GDPR en los servicios en la nube a partir de mayo de 2018 y a proporcionar garantías relacionadas con GDPR en sus compromisos contractuales. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> En este artículo se describe el cumplimiento del GDPR en Azure AD Connect Health. Para más información sobre el cumplimiento del RGPD en Azure AD Connect, consulte [Cumplimiento de RGPD y Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>Este artículo trata sobre Azure AD Connect Health y la privacidad del usuario.  Para obtener información sobre Azure AD Connect y la privacidad del usuario, consulte el artículo que se indica [aquí](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## <a name="gdpr-classification"></a>Clasificación del RGPD
+## <a name="user-privacy-classification"></a>Clasificación de privacidad del usuario
 Azure AD Connect Health se incluye dentro de la categoría de **procesador de datos** de la clasificación del GDPR. Como canalización del procesador de datos, el servicio proporciona servicios de procesamiento de datos a asociados clave y consumidores finales. Azure AD Connect Health no genera datos de usuario y no tiene control independiente sobre qué datos personales se recopilan y cómo se usan. La recuperación de datos, la agregación, el análisis y los informes en Azure AD Connect Health se basan en los datos locales existentes. 
 
 ## <a name="data-retention-policy"></a>Directiva de retención de datos
@@ -54,18 +51,50 @@ Si detiene la recopilación de datos y la supervisión de un servidor supervisad
 - Si no ha desinstalado el agente de mantenimiento antes de realizar este paso, es posible que vea eventos de error en los servidores relacionados con el agente de mantenimiento.
 - Todos los datos que pertenecen a la instancia del servicio supervisado se eliminan según la directiva de retención de datos de Microsoft Azure.
 
-### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Deshabilitación de la recopilación de datos y la supervisión en un servidor supervisado
-Consulte [cómo eliminar un servidor de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
-
 ### <a name="disable-data-collection-and-monitoring-for-an-instance-of-a-monitored-service"></a>Deshabilitación de la recopilación de datos y la supervisión en una instancia de un servicio supervisado
 Consulte [cómo eliminar una instancia de servicio de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-service-instance-from-azure-ad-connect-health-service).
 
+### <a name="disable-data-collection-and-monitoring-for-a-monitored-server"></a>Deshabilitación de la recopilación de datos y la supervisión en un servidor supervisado
+Consulte [cómo eliminar un servidor de Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
+
+### <a name="disable-data-collection-and-monitoring-for-all-monitored-services-in-azure-ad-connect-health"></a>Deshabilitación de la recopilación de datos y la supervisión de todos los servicios supervisados en Azure AD Connect Health
+Azure AD Connect Health también proporciona la opción de detener la recopilación de datos de **todos** los servicios registrados en el inquilino. Recomendamos que se evalúe con cuidado y que lo admitan todos los administradores globales antes de realizar ninguna acción. Una vez iniciado el proceso, el servicio de Connect Health dejará de recibir, procesar e informar de los datos de todos los servicios. Se conservarán los datos existentes en el servicio de Connect Health durante no más de 30 días.
+Si quiere detener la recopilación de datos de un servidor específico, siga los pasos que se indican en la eliminación de servidores específicos. Para detener la recopilación de datos de todos los inquilinos, siga estos pasos para detener la recopilación de datos y eliminar todos los servicios del inquilino.
+
+1.  Haga clic en **Configuración general** en la configuración de la hoja principal. 
+2.  Haga clic en el botón **Detener recopilación de datos** en la parte superior de la hoja. Las demás opciones de configuración del inquilino se deshabilitarán una vez que se inicie el proceso.  
+ 
+ ![Detener recopilación de datos](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
+  
+3.  Compruebe la lista de servicios incorporados que se ven afectados al detener las recopilaciones de datos. 
+4.  Escriba el nombre exacto del inquilino para habilitar el botón de acción **Eliminar**.
+5.  Haga clic en **Eliminar** para desencadenar la eliminación de todos los servicios. Connect Health dejará de recibir, procesar e informar de todos los datos enviados desde los servicios incorporados. Todo el proceso puede tardar hasta 24 horas. Tenga en cuenta que este paso no es reversible. 
+6.  Una vez completado el proceso, ya no verá ningún servicio registrado en Connect Health. 
+
+ ![Después de detener la recopilación de datos](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Nueva habilitación de la recopilación de datos y la supervisión en Azure AD Connect Health
 Para volver a habilitar la supervisión en Azure AD Connect Health en un servicio supervisado previamente eliminado, debe desinstalar y [volver a instalar el Agente de mantenimiento](active-directory-aadconnect-health-agent-install.md) en todos los servidores.
 
+### <a name="re-enable-data-collection-and-monitoring-for-all-monitored-services"></a>Nueva habilitación de la recopilación de datos y la supervisión de todos los servidores supervisados
+
+La recopilación de datos de todo el inquilino se puede reanudar en Azure AD Connect Health. Recomendamos que se evalúe con cuidado y que lo admitan todos los administradores globales antes de realizar ninguna acción.
+
+>[!IMPORTANT]
+> Los pasos siguientes estarán disponibles una vez transcurridas 24 horas tras la acción de deshabilitación.
+> Después de habilitar la recopilación de datos, los datos de conclusión y supervisión presentados en Connect Health no mostrarán datos heredados recopilados antes. 
+
+1.  Haga clic en **Configuración general** en la configuración de la hoja principal. 
+2.  Haga clic en el botón **Habilitar recopilación de datos** en la parte superior de la hoja. 
+ 
+ ![Habilitación de recolección de datos](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
+ 
+3.  Escriba el nombre exacto del inquilino para activar el botón **Habilitar**.
+4.  Haga clic en el botón **Habilitar** para conceder el permiso de recopilación de datos en el servicio de Connect Health. El cambio se aplicará en breve. 
+5.  Siga el [proceso de instalación](active-directory-aadconnect-health-agent-install.md) para volver a instalar el agente en los servidores que quiera supervisar y los servicios estarán en el portal.  
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Revisar la directiva de privacidad de Microsoft en Trust Center](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect y GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect y privacidad del usuario](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+

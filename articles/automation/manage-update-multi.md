@@ -3,16 +3,18 @@ title: Administración de actualizaciones para varias máquinas virtuales de Azu
 description: En este tema se describe cómo administrar las actualizaciones de máquinas virtuales de Azure.
 services: automation
 ms.service: automation
+ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c227af1afa95243390152918a6b81015dbaceaeb
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ae5d2e38f11abfabda067e9affbf81159002cb99
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054813"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -27,9 +29,9 @@ Puede usar Update Management para administrar las actualizaciones y las revision
 
 Para usar Update Management, necesita:
 
-* Una cuenta de ejecución de Azure Automation Para obtener instrucciones sobre cómo crear una, consulte [introducción a Azure Automation](automation-offering-get-started.md).
+- Una cuenta de ejecución de Azure Automation Para obtener instrucciones sobre cómo crear una, consulte [introducción a Azure Automation](automation-offering-get-started.md).
 
-* Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
+- Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 
@@ -37,11 +39,11 @@ Update Management es compatible con los sistemas operativos siguientes.
 
 ### <a name="windows"></a>Windows
 
-* Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores. Nano Server no se admite.
+- Windows Server 2008 y versiones posterior, y las implementaciones de actualizaciones en Windows Server 2008 R2 SP1 y versiones posteriores. Nano Server no se admite.
 
   Para poder implementar las actualizaciones en Windows Server 2008 R2 SP1, se necesita .NET Framework 4.5 y Windows Management Framework 5.0 o versiones posteriores.
 
-* No se admiten los sistemas operativos cliente Windows.
+- No se admiten los sistemas operativos cliente Windows.
 
 Los agentes de Windows deben estar configurados para comunicarse con un servidor de Windows Server Update Services (WSUS) o tener acceso a Microsoft Update.
 
@@ -51,12 +53,15 @@ Los agentes de Windows deben estar configurados para comunicarse con un servidor
 
 ### <a name="linux"></a>Linux
 
-* CentOS 6 (x86/x64) y 7 (x64)  
-* Red Hat Enterprise (x86/x64) 6 y 7 (x64)  
-* SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)  
-* Ubuntu 12.04 LTS y versiones más recientes (x86/x64)   
+- CentOS 6 (x86/x64) y 7 (x64)
 
-> [!NOTE]  
+- Red Hat Enterprise (x86/x64) 6 y 7 (x64)
+
+- SUSE Linux Enterprise Server 11 (x86/x64) y 12 (x64)
+
+- Ubuntu 12.04 LTS y versiones más recientes (x86/x64)
+
+> [!NOTE]
 > Para evitar que las actualizaciones se apliquen fuera de una ventana de mantenimiento en Ubuntu, vuelva a configurar el paquete de actualizaciones desatendidas para deshabilitar las actualizaciones automáticas. Para más información, consulte el [tema sobre actualizaciones automáticas en la guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 Los agentes de Linux deben tener acceso a un repositorio de actualización.
@@ -65,16 +70,15 @@ La solución no admite un Agente de OMS para Linux configurado para informar a v
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Habilitación de la administración de actualizaciones de máquinas virtuales de Azure
 
-1. Abra la cuenta de Automation en Azure Portal.
-2. En el panel izquierdo, seleccione **Update Management**.
-3. En la parte superior de la ventana, seleccione **Agregar máquina virtual de Azure**.
-   ![Pestaña Agregar máquina virtual de Azure](./media/manage-update-multi/update-onboard-vm.png)
-4. Seleccione la máquina virtual que desea incorporar. Aparece el cuadro de diálogo **Habilitar la administración de actualizaciones**.
-5. Seleccione **Habilitar**.
+En Azure Portal, abra su cuenta de Automation y seleccione **Update Management**.
 
-   ![Cuadro de diálogo Habilitar la administración de actualizaciones](./media/manage-update-multi/update-enable.png)
+En la parte superior de la ventana, seleccione **Agregar máquina virtual de Azure**.
 
-Update Management está habilitado para su máquina virtual.
+![Pestaña Agregar máquina virtual de Azure](./media/manage-update-multi/update-onboard-vm.png)
+
+Seleccione la máquina virtual que desea incorporar. Aparece el cuadro de diálogo **Habilitar la administración de actualizaciones**. Seleccione **Habilitar** para incorporar la máquina virtual. Una vez que se completa la incorporación, Update Management está habilitado para su máquina virtual.
+
+![Cuadro de diálogo Habilitar la administración de actualizaciones](./media/manage-update-multi/update-enable.png)
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitación de Update Management en equipos y máquinas virtuales que no son de Azure
 
@@ -83,14 +87,22 @@ Para obtener instrucciones sobre cómo habilitar Update Management en equipos y 
 Para obtener instrucciones acerca de cómo habilitar Update Management en equipos y máquinas virtuales Linux que no sean de Azure, consulte [Conexión de equipos con Linux a Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visualización de equipos conectados a su cuenta de Automation
-Tras habilitar la administración de actualizaciones en las máquinas, para su información, haga clic en **Equipos**. Verá la información del equipo, como su *nombre*, *cumplimiento*, *entorno*, *tipo de SO*, *actualizaciones críticas y de seguridad*  y *otras actualizaciones*. 
+
+Tras habilitar la administración de actualizaciones en las máquinas, para su información, haga clic en **Equipos**. Verá la información del equipo, como su *nombre*, *cumplimiento*, *entorno*, *tipo de SO*, *actualizaciones críticas y de seguridad*, *otras actualizaciones* y *preparación de actualizaciones del agente*.
 
   ![Pestaña en la que se ven los equipos](./media/manage-update-multi/update-computers-tab.png)
 
 Los equipos en los que se haya habilitado recientemente la administración de actualizaciones puede que no se hayan evaluado aún. El estado de cumplimiento de esos equipos sería *No evaluado*.  Esta es una lista de valores del estado de cumplimiento:
-* Compatible: equipos que no tienen actualizaciones de seguridad o críticas pendientes.
-* No compatible: equipos que no tienen al menos una actualización de seguridad o crítica pendiente.
-* No evaluado: los datos de evaluación de las actualizaciones no se han recibido del equipo en el período esperado.  En los equipos con Linux, dicho periodo es las últimas tres horas, mientras que en los equipos con Windows, las últimas 12 horas.  
+
+- Compatible: equipos que no tienen actualizaciones de seguridad o críticas pendientes.
+
+- No compatible: equipos que no tienen al menos una actualización de seguridad o crítica pendiente.
+
+- No evaluado: los datos de evaluación de las actualizaciones no se han recibido del equipo en el período esperado.  En los equipos con Linux, dicho periodo es las últimas tres horas, mientras que en los equipos con Windows, las últimas 12 horas.
+
+Para ver el estado del agente, haga clic en el vínculo de la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Se abrirá la página Hybrid Worker donde se muestra el estado de Hybrid Worker. En la siguiente imagen se muestra un ejemplo de un agente que no se ha conectado a Update Management durante mucho tiempo.
+
+![Pestaña en la que se ven los equipos](./media/manage-update-multi/update-agent-broken.png)
 
 ## <a name="view-an-update-assessment"></a>Visualización de la evaluación de la actualización
 
@@ -122,29 +134,30 @@ Puede tardar entre 30 minutos y 6 horas mostrar en el panel los datos actualizad
 Para instalar actualizaciones, programe una implementación que se ajuste a su ventana de programación y servicio de versiones.
 Puede elegir los tipos de actualizaciones que quiere incluir en la implementación. Por ejemplo, puede incluir actualizaciones de seguridad o críticas y excluir paquetes acumulativos de actualizaciones.
 
-Programe una nueva implementación de actualizaciones para una o varias máquinas virtuales. Para ello, seleccione **Programar implementación de actualizaciones** en la parte superior del cuadro de diálogo **Administración de actualizaciones**. En el panel **Nueva implementación de actualización**, especifique lo siguiente:
+Programe una nueva implementación de actualizaciones para una o varias máquinas virtuales. Para ello, seleccione **Programar implementación de actualizaciones** en la parte superior del cuadro de diálogo **Administración de actualizaciones**.
+En el panel **Nueva implementación de actualización**, especifique lo siguiente:
 
-* **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
-* **Tipo de SO**: seleccione Windows o Linux.
-* **Equipos para actualizar**: seleccione las máquinas virtuales que desea actualizar.
+- **Nombre**: proporcione un nombre único para identificar la implementación de actualizaciones.
+- **Tipo de SO**: seleccione Windows o Linux.
+- **Equipos para actualizar**: seleccione las máquinas virtuales que desea actualizar. La preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**. Esto le permite ver el estado de mantenimiento de la máquina antes de programar la implementación de actualizaciones.
 
   ![Panel Nueva implementación de actualización](./media/manage-update-multi/update-select-computers.png)
 
-* **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones va a incluir. Los tipos de clasificación son:
-  * Actualizaciones críticas
-  * Actualizaciones de seguridad
-  * Paquetes acumulativos de actualizaciones
-  * Feature Packs
-  * Service Packs
-  * Actualizaciones de definiciones
-  * Herramientas
-  * Actualizaciones
-* **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. O bien, especificar una hora distinta.
+- **Clasificación de actualizaciones**: seleccione los tipos de software que la implementación de actualizaciones va a incluir. Para ver una descripción de los tipos de clasificación, consulte [Actualización de clasificaciones](automation-update-management.md#update-classifications). Los tipos de clasificación son:
+  - Actualizaciones críticas
+  - Actualizaciones de seguridad
+  - Paquetes acumulativos de actualizaciones
+  - Feature Packs
+  - Service Packs
+  - Actualizaciones de definiciones
+  - Herramientas
+  - Actualizaciones
+- **Configuración de la programación**: puede aceptar la fecha y hora predeterminadas, que son 30 minutos después de la hora actual. O bien, especificar una hora distinta.
    También puede especificar si la implementación se produce una vez o configurar una programación periódica. Para configurar una programación periódica, haga clic en la opción **Periódica** en **Periodicidad**.
 
    ![Cuadro de diálogo Configuración de programación](./media/manage-update-multi/update-set-schedule.png)
 
-* **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
+- **Ventana de mantenimiento (minutos)**: especifique el período de tiempo en el que desea que se produzca la implementación de actualizaciones. Esta configuración ayuda a garantizar que los cambios se realizan en las ventanas de servicio definidas.
 
 Después de finalizar la configuración de la programación, vuelva al panel de estado mediante la selección del botón **Crear**. La tabla **Programada** muestra la programación de implementación que ha creado.
 
@@ -164,9 +177,9 @@ Para establecer el panel para una implementación de actualizaciones, seleccione
 En el panel **Resultados de actualización** encontrará el número total de actualizaciones y los resultados de la implementación en la máquina virtual.
 En la tabla de la derecha se muestra un análisis detallado de cada actualización y los resultados de la instalación. Los resultados de la instalación puede ser uno de los siguientes valores:
 
-* No intentado: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la ventana de mantenimiento definida.
-* Correcto: la actualización se realizó correctamente.
-* Error: se produjo un error en la actualización.
+- No intentado: la actualización no se instaló porque no había tiempo disponible suficiente de acuerdo con la ventana de mantenimiento definida.
+- Correcto: la actualización se realizó correctamente.
+- Error: se produjo un error en la actualización.
 
 Seleccione **Todos los registros** para ver todas las entradas de registro que creó la implementación.
 
@@ -176,5 +189,4 @@ Seleccione **Errores** para ver información detallada sobre los errores de la i
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre la administración de actualizaciones, incluidos registros, salidas y errores, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
-
+- Para más información sobre la administración de actualizaciones, incluidos registros, salidas y errores, consulte [Solución Update Management en Azure](../operations-management-suite/oms-solution-update-management.md).
