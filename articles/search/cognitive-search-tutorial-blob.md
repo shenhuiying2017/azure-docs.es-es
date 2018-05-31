@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366756"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
 
@@ -23,7 +24,7 @@ En este tutorial, se realizan llamadas a la API de REST para llevar a cabo las s
 
 > [!div class="checklist"]
 > * Crear una canalización de indexación para enriquecer los datos de origen en la ruta a un índice.
-> * Usar el reconocimiento de entidades integradas, la detección de idioma, la manipulación de texto y las aptitudes de extracción de frases clave en un conjunto de datos de ejemplo.
+> * Usar las aptitudes integradas de los datos de ejemplo: reconocimiento de entidades, detección de idioma, manipulación de texto y extracción de frases clave.
 > * Aprender a encadenar aptitudes mediante la asignación de las entradas a las salidas en conjunto de aptitudes.
 > * Ejecutar solicitudes y revisar los resultados.
 > * Restablecer el índice y los indexadores para su posterior desarrollo.
@@ -54,12 +55,12 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. En Ubicación, elija **Centro y Sur de EE. UU.** o **Europa Occidental**. Actualmente, la versión preliminar solo está disponible en estas regiones.
 
-1. En Nivel de precios, puede crear un servicio **Gratis** para completar tutoriales e inicios rápidos. Para una investigación más profunda con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
+1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 
-  Un servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos niveles, consulte [Límites de servicio](search-limits-quotas-capacity.md).
+  El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
 
   > [!NOTE]
-  > Cognitive Search está disponible en la versión preliminar pública. La ejecución del conjunto de aptitudes está actualmente disponible en todos los niveles, incluido el gratuito. Más adelante, se anunciarán los precios de esta funcionalidad.
+  > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Más adelante, se anunciarán los precios de esta funcionalidad.
 
 1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
 
@@ -71,7 +72,7 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configuración del servicio Blob de Azure y carga de datos de ejemplo
 
-La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Para este ejercicio, se usa el almacenamiento de blobs para mostrar varios tipos de contenido.
+La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Los datos de ejemplo están formados por un pequeño conjunto de archivos de tipos diferentes. 
 
@@ -84,7 +85,7 @@ La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los 
   La cadena de conexión debe ser una URL similar a la del ejemplo siguiente:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Hay otras maneras de especificar la cadena de conexión, como proporcionar una firma de acceso compartido. Para obtener más información acerca de las credenciales del origen de datos, consulte [Indexación de Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
@@ -248,7 +249,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | id       | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | id       | contenido   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

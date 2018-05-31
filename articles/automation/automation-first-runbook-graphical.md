@@ -4,16 +4,18 @@ description: Tutorial que le guiará a través de la creación, prueba y publica
 keywords: runbook, plantilla de runbook, automatización de runbooks, runbook de azure
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6893d3c79a5f827f214b12ce1dc5f5af7bbc2891
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7804c67871de546d217d85a4215c817f9c08f6b8
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055751"
 ---
 # <a name="my-first-graphical-runbook"></a>Mi primer runbook gráfico
 
@@ -117,6 +119,10 @@ Ahora que tiene una variable que contiene el identificador de suscripción, pued
 1. Ya no necesita **Escribir Hola mundo para la salida**, así que haga clic en el botón de puntos suspensivos (...) y seleccione **Eliminar**.
 1. En el control Biblioteca, expanda **RECURSOS**, **Conexiones** y agregue **AzureRunAsConnection** al lienzo mediante la selección de **Agregar a lienzo**.
 1. En el control Biblioteca, escriba **Connect-AzureRmAccount** en el cuadro de texto de búsqueda.
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Add-AzureRmAccount** o actualizar los módulos en su cuenta de Automation.
+
 1. Agregue **Connect-AzureRmAccount** al lienzo.
 1. Mantenga el puntero sobre **Get Run As Connection** (Obtener conexión de ejecución) hasta que aparezca un círculo en la parte inferior de la forma. Haga clic en el círculo y arrastre la flecha hasta **Connect-AzureRmAccount**. La flecha que ha creado es un *vínculo*. Inicie el runbook con **Get Run As Connection** (Obtener conexión de ejecución) y luego ejecute **Connect-AzureRmAccount**.<br> ![Crear vínculo entre actividades](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. En el lienzo, seleccione **Connect-AzureRmAccount** y, en el panel Control de configuración, escriba **Login to Azure** (Iniciar sesión en Azure) en el cuadro de texto **Etiqueta**.
@@ -135,9 +141,6 @@ Ahora que tiene una variable que contiene el identificador de suscripción, pued
 1. Una vez seleccionado el conjunto de parámetros, estos se muestran en la página Configuración de parámetros de la actividad. Haga clic en **SubscriptionID**
 1. En la página Valor de parámetro, seleccione **Recurso de variable** en **Origen de datos** y seleccione **AzureSubscriptionId** en la lista y haga clic en **Aceptar** dos veces.
 1. Mantenga el puntero sobre **Login to Azure** (Iniciar sesión en Azure) hasta que aparezca un círculo en la parte inferior de la forma. Haga clic en el círculo y arrastre la flecha hasta **Specify Subscription Id** (Especificar id. de suscripción).
-
-> [!IMPORTANT]
-> **Connect-AzureRmAccount** es ahora un alias de **Connect-AzureRMAccount**. Al buscar elementos de biblioteca, si no ve **Connect-AzureRMAccount**, puede usar **Connect-AzureRmAccount** o actualizar los módulos en su cuenta de Automation.
 
 En este punto, el Runbook debe tener el siguiente aspecto:  <br>![Configuración de autenticación de Runbook](media/automation-first-runbook-graphical/runbook-auth-config.png)
 

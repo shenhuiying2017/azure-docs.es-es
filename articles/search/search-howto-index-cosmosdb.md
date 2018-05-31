@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 04/20/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 3e6c7c70acbfde9d82d40c884711db8e9eb6946a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777498"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Conexión de Cosmos DB con Azure Search mediante indexadores
 
@@ -73,7 +74,7 @@ En este artículo se muestra cómo usar la API de REST. Si opta por usar el port
 ## <a name="step-1-create-a-data-source"></a>Paso 1: Creación de un origen de datos
 Pasos para crear un origen de datos, realice un POST:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -146,7 +147,7 @@ Si aún no tiene un índice de Azure Search de destino, créelo. Puede crearlo m
 
 En el ejemplo siguiente se crea un índice con un campo de identificador y de descripción:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -192,7 +193,7 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 
 Una vez creados el origen de datos y los índices, ya podrá crear el indizador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -211,7 +212,7 @@ Para más información sobre la API Create Indexer, consulte [Crear indexador](h
 ### <a name="running-indexer-on-demand"></a>Ejecución del indexador a petición
 Además de ejecutarse periódicamente de forma programada, un indexador también puede invocarse a petición:
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
 
 > [!NOTE]
@@ -223,7 +224,7 @@ El estado del indexador se puede supervisar en el portal o mediante la API de Ge
 ### <a name="getting-indexer-status"></a>Obtención del estado del indexador
 Puede recuperar el estado y el historial de ejecución de un indexador:
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2016-09-01
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
 
 La respuesta contiene el estado general del indexador, la última vez que se invocó al indexador (o en curso) y el historial de las recientes invocaciones al indexador.
@@ -297,7 +298,7 @@ Si usa una consulta personalizada, asegúrese de que la consulta proyecta la pro
 
 En el ejemplo siguiente se crea un origen de datos con una directiva de eliminación temporal:
 
-    POST https://[Search service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [Search service admin key]
 

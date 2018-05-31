@@ -14,17 +14,113 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 8ec74f69d2de7b167fcc66d0e2499d052f0bf18e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779012"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de la versión de Explorador de Microsoft Azure Storage
 
-Este artículo contiene las notas de la versión del Explorador de Azure Storage 0.9.6 (versión preliminar), así como las de versiones anteriores.
+Este artículo contiene las notas de la versión del Explorador de Azure Storage 1.0.0, así como las de versiones anteriores.
 
 [Explorador de Microsoft Azure Storage](./vs-azure-tools-storage-manage-with-storage-explorer.md) es una aplicación independiente que permite trabajar fácilmente con los datos de Azure Storage en Windows, macOS y Linux.
+
+## <a name="version-100"></a>Versión 1.0.0
+16/04/2018
+
+### <a name="download-azure-storage-explorer-100"></a>Descargue el Explorador de Azure Storage 1.0.0
+- [Explorador de Azure Storage 1.0.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de Azure Storage 1.0.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de Azure Storage 1.0.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuevo
+* Autenticación mejorada que permite que el Explorador de Storage use el mismo almacén de cuentas que Visual Studio 2017. Para usar esta característica, debe volver a iniciar sesión en sus cuentas y volver a establecer las suscripciones filtradas.
+* En cuanto a las cuentas de Azure Stack que respalda AAD, el Explorador de Storage recuperará las suscripciones de Azure Stack cuando esté habilitada la opción "Target Azure Stack" ("Usar Azure Stack como destino"). Ya no es necesario crear un entorno de inicio de sesión personalizado.
+* Se agregaron varios accesos directos para que la exploración sea más larga. Entre ellos, se incluyen las opciones de alternar entre varios paneles y moverse entre los editores. Consulte el menú Vista para obtener más detalles.
+* Los comentarios del Explorador de Storage ahora se guardan en GitHub. Puede acceder a nuestra página de problemas haciendo clic en el botón Comentarios en la esquina inferior izquierda, o visitando [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). No dude en hacer sugerencias, informar sobre problemas, hacer preguntas o dejar cualquier otro comentario.
+* Si tiene problemas relacionados con certificados SSL y no puede encontrar el certificado en cuestión, puede iniciar el Explorador de Storage desde la línea de comandos con la marca `--ignore-certificate-errors`. Cuando se inicie con esta marca, el Explorador de Storage pasará por alto los errores del certificado SSL.
+* Hemos incluido la opción "Descargar" en el menú emergente para elementos de blobs y archivos.
+* Se ha mejorado la accesibilidad y la compatibilidad del lector de pantalla. Si confía en las características de accesibilidad, consulte nuestra [documentación de accesibilidad](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) para obtener más información.
+* El Explorador de Store ahora usa Electron 1.8.3.
+
+### <a name="breaking-changes"></a>Cambios importantes
+* El Explorador de Storage tiene una nueva biblioteca de autenticación. Como parte del cambio a esta biblioteca, debe volver a iniciar sesión en sus cuentas y volver a establecer las suscripciones filtradas.
+* Se ha cambiado el método que se usa para cifrar datos confidenciales. Esto puede ocasionar que algunos de los elementos de acceso rápido o recursos adjuntos deban volverse agregar de nuevo.
+
+### <a name="fixes"></a>Correcciones
+* Varias de las descargas o descargas de blobs de grupos de algunos usuarios con servidores proxy se veían interrumpidas debido al mensaje de error "No se puede resolver". Esto se ha solucionado.
+* Si se iniciaba sesión con un vínculo directo, al hacer clic en el indicador "Iniciar sesión" aparecía un cuadro de diálogo en blanco. Esto se ha solucionado.
+* En Linux, si el Explorador de Storage no se puede iniciar debido a un bloqueo del proceso de GPU, se le informará del bloqueo y se le indicará que use el modificador "--disable-gpu", y el Explorador de Storage se reiniciará automáticamente con el modificador ya habilitado.
+* Las directivas de acceso no válidas eran difíciles de identificar en el cuadro de diálogo Directivas de acceso. Los id. de las directivas de acceso no válidas ahora aparecen destacados en rojo para ofrecer más visibilidad.
+* El registro de actividad en ocasiones tenía grandes áreas en blanco entre las distintas partes de una actividad. Esto se ha solucionado.
+* En el editor de consultas de tabla, si dejaba una cláusula de marca de tiempo en un estado no válido y luego se intentaba modificar otra, el editor se bloqueaba. Ahora, el editor restaurará la cláusula de marca de tiempo a su último estado válido cuando se detecte un cambio en otra cláusula.
+* Si paraba de escribir la consulta de búsqueda en la vista de árbol, la búsqueda comenzaba y el foco se obtenía del cuadro de texto. Ahora, es preciso iniciar expresamente la búsqueda presionando la tecla "Entrar" o haciendo clic en el botón de inicio de la búsqueda.
+* El comando "Obtener firma de acceso compartido" se deshabilitaba a veces cuando se hacía clic con el botón derecho en un archivo del recurso compartido de archivos. Esto se ha solucionado.
+* Si el nodo del árbol de recursos enfocado se filtró durante la búsqueda, no es posible tabular al árbol de recursos y usar las teclas de dirección para moverse por el mismo. Ahora, si se oculta el nodo del árbol de recursos enfocado, el primer nodo del árbol de recursos se enfocará automáticamente.
+* A veces, se ve un separador adicional en la barra de herramientas del editor. Esto se ha solucionado.
+* El cuadro de texto de la ruta de navegación a veces se desborda. Esto se ha solucionado.
+* A veces, los editores de recursos compartidos de blobs y archivos se actualizan constantemente al cargar varios archivos a la vez. Esto se ha solucionado.
+* La característica "Estadísticas de carpetas" no tenía ningún propósito en la vista de Administración de instantáneas de archivos compartidos. Ahora está deshabilitada.
+* En Linux, el menú Archivo no aparecía. Esto se ha solucionado.
+* Al cargar una carpeta a un recurso compartido de archivos, solo se cargaba el contenido de la carpeta de forma predeterminada. Ahora, el comportamiento predeterminado se basa en cargar el contenido de la carpeta en una carpeta coincidente del recurso compartido de archivos.
+* El orden de los botones de varios cuadros de diálogo estaba invertido. Esto se ha solucionado.
+* Varias correcciones relacionadas con la seguridad.
+
+### <a name="known-issues"></a>Problemas conocidos
+* En raras ocasiones, el foco de árbol puede quedarse bloqueado en un acceso rápido. Para desbloquear el foco, puede seleccionar Actualizar todo.
+* Cuando el destino es Azure Stack, es posible que la carga de determinados archivos como blobs en anexos pueda producir errores.
+* Después de hacer clic en “Cancelar” en una tarea, puede que esta tarde un tiempo en cancelarse. Esto es porque se usa la solución de filtro de cancelación que se describe aquí. 
+* Si no elige el certificado de tarjeta inteligente o PIN adecuados, tendrá que reiniciar para que el Explorador de Storage olvide esa decisión.
+* Al cambiar de nombre los blobs (individualmente o dentro de un contenedor de blobs cuyo nombre ha cambiado), no se conservan las instantáneas. Todas las demás propiedades y metadatos de blobs, archivos y entidades se conservan al cambiar de nombre.
+* Aunque Azure Stack actualmente no admite recursos compartidos de archivos, todavía aparece un nodo de recurso compartido de archivos en la cuenta de almacenamiento de Azure Stack conectada.
+* El shell de Electron que usa el Explorador de Storage tiene problemas con la aceleración de hardware de GPU (unidad de procesamiento gráfico). Si el Explorador de Storage muestra una ventana principal en blanco (vacía), puede intentar iniciar el Explorador de Storage desde la línea de comandos y deshabilitar la aceleración de GPU al agregar el conmutador `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Para los usuarios de Linux, debe instalar [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Los usuarios de Ubuntu 14.04 tendrán que asegurarse de que GCC está actualizado. Para ello, se pueden ejecutar los siguientes comandos. Después, es necesario reiniciar la máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Los usuarios de Ubuntu 17.04 tendrán que instalar GConf. Esto se puede hacer mediante la ejecución de los siguientes comandos. Después de esto, es necesario reiniciar la máquina.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versiones anteriores
+
+* [Versión 0.9.6](#version-096)
+* [Versión 0.9.5](#version-095)
+* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
+* [Versión 0.9.2](#version-092)
+* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
+* [Versión 0.8.16](#version-0816)
+* [Versión 0.8.14](#version-0814)
+* [Versión 0.8.13](#version-0813)
+* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
+* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
+* [Versión 0.8.7](#version-087)
+* [Versión 0.8.6](#version-086)
+* [Versión 0.8.5](#version-085)
+* [Versión 0.8.4](#version-084)
+* [Versión 0.8.3](#version-083)
+* [Versión 0.8.2](#version-082)
+* [Versión 0.8.0](#version-080)
+* [Versión 0.7.20160509.0](#version-07201605090)
+* [Versión 0.7.20160325.0](#version-07201603250)
+* [Versión 0.7.20160129.1](#version-07201601291)
+* [Versión 0.7.20160105.0](#version-07201601050)
+* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versión 0.9.6
 28/02/2018
@@ -66,30 +162,6 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versiones anteriores
-
-* [Versión 0.9.5](#version-095)
-* [Versión 0.9.4 y 0.9.3](#version-094-and-093)
-* [Versión 0.9.2](#version-092)
-* [Versión 0.9.1 y 0.9.0](#version-091-and-090)
-* [Versión 0.8.16](#version-0816)
-* [Versión 0.8.14](#version-0814)
-* [Versión 0.8.13](#version-0813)
-* [Versión 0.8.12, 0.8.11 y 0.8.10](#version-0812-and-0811-and-0810)
-* [Versión 0.8.9 y 0.8.8](#version-089-and-088)
-* [Versión 0.8.7](#version-087)
-* [Versión 0.8.6](#version-086)
-* [Versión 0.8.5](#version-085)
-* [Versión 0.8.4](#version-084)
-* [Versión 0.8.3](#version-083)
-* [Versión 0.8.2](#version-082)
-* [Versión 0.8.0](#version-080)
-* [Versión 0.7.20160509.0](#version-07201605090)
-* [Versión 0.7.20160325.0](#version-07201603250)
-* [Versión 0.7.20160129.1](#version-07201601291)
-* [Versión 0.7.20160105.0](#version-07201601050)
-* [Versión 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-095"></a>Versión 0.9.5
 06/02/2018
@@ -227,7 +299,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 * Si intenta abrir o descargar un blob con un nombre de archivo no válido de Windows, se podría producir un error en la operación. El Explorador de Storage detectará si el nombre de un blob no es válido y le solicitará si quiere codificarlo u omitir el blob. El Explorador de Storage también detectará si un nombre de archivo parece estar codificado y le solicitará si quiere descodificarlo antes de cargarlo.
 * Durante la carga del blob, el editor del contenedor del blob de destino podría no actualizarse correctamente. Esto se ha solucionado.
 * La compatibilidad con varios formatos de cadenas de conexión y URI de SAS se ha revertido. Se han resuelto todos los problemas conocidos, pero agradecemos que nos envíe sus comentarios si encuentra algún otro.
-* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la última versión del Explorador de Storage [aquí](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la última versión del Explorador de Storage [aquí](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problemas conocidos
 * El Explorador de Storage no admite cuentas de AD FS.
@@ -281,7 +353,7 @@ Este artículo contiene las notas de la versión del Explorador de Azure Storage
 * Si intenta abrir o descargar un blob con un nombre de archivo no válido de Windows, se podría producir un error en la operación. El Explorador de Storage detectará si el nombre de un blob no es válido y le solicitará si quiere codificarlo u omitir el blob. El Explorador de Storage también detectará si un nombre de archivo parece estar codificado y le solicitará si quiere descodificarlo antes de cargarlo.
 * Durante la carga del blob, el editor del contenedor del blob de destino podría no actualizarse correctamente. Esto se ha solucionado.
 * La compatibilidad con varios formatos de cadenas de conexión y URI de SAS se ha revertido. Se han resuelto todos los problemas conocidos, pero agradecemos que nos envíe sus comentarios si encuentra algún otro.
-* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la versión más reciente del Explorador de Storage [aquí](https://azure.microsoft.com/en-us/features/storage-explorer/).
+* La notificación de actualización se interrumpió para algunos usuarios en 0.9.0. Este problema se ha corregido y, si este error le afectó, se puede descargar manualmente la versión más reciente del Explorador de Storage [aquí](https://azure.microsoft.com/features/storage-explorer/).
 
 ### <a name="known-issues"></a>Problemas conocidos
 * El Explorador de Storage no admite cuentas de AD FS.

@@ -1,8 +1,8 @@
 ---
-title: "Generación de perfiles de aplicaciones web activas en Azure con Application Insights Profiler | Microsoft Docs"
-description: "Identifique la ruta de acceso activa en el código del servidor web con un generador de perfiles de bajo impacto."
+title: Generación de perfiles de aplicaciones web activas en Azure con Application Insights Profiler | Microsoft Docs
+description: Identifique la ruta de acceso activa en el código del servidor web con un generador de perfiles de bajo impacto.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: c65ef9141898369b8fcadd4c52972b767aca7cfe
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 34824401ec8d21949c5c5036a11197a09e240bd7
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936732"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Generación de perfiles de aplicaciones web de Azure activas con Application Insights
 
-*Esta característica de Azure Application Insights está disponible generalmente para la función Web Apps de Azure App Service y se encuentra en versión preliminar para los recursos de proceso de Azure.*
+*Esta característica de Azure Application Insights está disponible generalmente para la función Web Apps de Azure App Service y se encuentra en versión preliminar para los recursos de proceso de Azure. Más información relacionada con el [uso local del generador de perfiles](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).*
 
 En este artículo se habla de la cantidad de tiempo que se emplea en cada método de su aplicación web activa al usar [Application Insights](app-insights-overview.md). La herramienta Application Insights Profiler muestra perfiles detallados de solicitudes dinámicas que atendió su aplicación. Profiler resalta la *ruta de acceso activa* que más tiempo emplea. El perfil de las solicitudes con diferentes tiempos de respuesta se genera por muestreo. Gracias al uso de diversas técnicas, puede minimizar la sobrecarga asociada a la aplicación.
 
@@ -63,7 +64,7 @@ Para obtener información acerca de la [versión preliminar de Profiler para los
 
 ## <a name="view-profiler-data"></a>Visualización de datos de Profiler
 
-Asegúrese de que la aplicación está recibiendo tráfico. Si está realizando un experimento, puede generar solicitudes dirigidas a la aplicación web mediante [Pruebas de rendimiento de Application Insights](https://docs.microsoft.com/en-us/vsts/load-test/app-service-web-app-performance-test). Si acaba de habilitar Profiler, puede ejecutar una breve prueba de carga de unos 15 minutos, lo que debería generar seguimientos del generador de perfiles. Si tiene Profiler habilitado desde hace tiempo, tenga en cuenta que se ejecuta de forma aleatoria dos veces cada hora, con una duración de dos minutos cada vez. Se recomienda ejecutar primero la prueba de carga durante una hora para garantizar que se obtienen los seguimientos de ejemplo del generador de perfiles.
+Asegúrese de que la aplicación está recibiendo tráfico. Si está realizando un experimento, puede generar solicitudes dirigidas a la aplicación web mediante [Pruebas de rendimiento de Application Insights](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Si acaba de habilitar Profiler, puede ejecutar una breve prueba de carga de unos 15 minutos, lo que debería generar seguimientos del generador de perfiles. Si tiene Profiler habilitado desde hace tiempo, tenga en cuenta que se ejecuta de forma aleatoria dos veces cada hora, con una duración de dos minutos cada vez. Se recomienda ejecutar primero la prueba de carga durante una hora para garantizar que se obtienen los seguimientos de ejemplo del generador de perfiles.
 
 Cuando llegue tráfico a la aplicación, vaya al panel **Rendimiento**, seleccione **Take Actions** (Tomar acciones) para ver los seguimientos del generador de perfiles y, a continuación, seleccione el botón **Seguimientos de Profiler**.
 
@@ -311,7 +312,7 @@ Aunque este método es relativamente sencillo, tenga en cuenta lo siguiente:
 
 * La característica Trabajos web de Web Apps es única. Al ejecutar el trabajo web, se garantiza que el proceso tenga las mismas variables de entorno y la configuración de aplicación que tendrá el sitio web. Esto significa que no es necesario pasar la clave de instrumentación a Profiler a través de la línea de comandos. Profiler debe elegir la clave de instrumentación en el entorno. Sin embargo, si quiere ejecutar Profiler en el cuadro de desarrollo o en una máquina fuera de Web Apps, deberá suministrar una clave de instrumentación. Para ello, pase un argumento `--ikey <instrumentation-key>`. Este valor debe coincidir con la clave de instrumentación que esté usando la aplicación. La salida del registro de Profiler indicará con qué ikey se inició Profiler y si se detectó actividad en esa clave de instrumentación mientras se generaban los perfiles.
 
-* Los trabajos web desencadenados manualmente se pueden desencadenar mediante Webhook. Para obtener esta dirección URL, en el panel, haga clic con el botón derecho en el trabajo web y consulte las propiedades. O bien, en la barra de herramientas, puede seleccionar **Propiedades** después de seleccionar el trabajo web en la tabla. Este enfoque le brinda posibilidades ilimitadas, como desencadenar Profiler desde la canalización de CI/CD (como VSTS) o algo parecido a Microsoft Flow (https://flow.microsoft.com/en-us/). En última instancia, su elección depende del nivel de complejidad que desee otorgar al archivo *run.cmd* (que también puede ser un archivo *run.ps1*), pero la flexibilidad está ahí.
+* Los trabajos web desencadenados manualmente se pueden desencadenar mediante Webhook. Para obtener esta dirección URL, en el panel, haga clic con el botón derecho en el trabajo web y consulte las propiedades. O bien, en la barra de herramientas, puede seleccionar **Propiedades** después de seleccionar el trabajo web en la tabla. Este enfoque le brinda posibilidades ilimitadas, como desencadenar Profiler desde la canalización de CI/CD (como VSTS) o algo parecido a Microsoft Flow (https://flow.microsoft.com/en-us/)). En última instancia, su elección depende del nivel de complejidad que desee otorgar al archivo *run.cmd* (que también puede ser un archivo *run.ps1*), pero la flexibilidad está ahí.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

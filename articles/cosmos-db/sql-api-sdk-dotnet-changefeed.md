@@ -13,11 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: maquaran
-ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885143"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -50,6 +51,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Mejoras de estabilidad.
+  * Corrección para administrar el problema de las tareas canceladas que puede detener a los observadores en algunas particiones.
 * Compatibilidad con puntos de control manuales.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21 y posteriores.
 
@@ -72,7 +74,14 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="pre-release-builds"></a>Compilaciones de versión preliminar
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Cambios menores en la API:
+  * Se quitó ChangeFeedProcessorOptions.IsAutoCheckpointEnabled, que estaba marcado como obsoleto.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Mejoras de estabilidad:
+  * Mejor administración de la inicialización del almacén de concesiones. Cuando el almacén de concesiones está vacío, solo lo puede iniciar una instancia de procesador. Las otras esperarán.
+  * Liberación o renovación de concesión más estable y eficaz. Renovar o liberar una concesión de una partición es independiente de la renovación de otras. En v1, se hacia de manera secuencial en todas las particiones.
 * Nueva API v2:
   * Patrón de generador para la construcción flexible del procesador: la clase ChangeFeedProcessorBuilder.
     * Puede tomar cualquier combinación de parámetros.
@@ -85,6 +94,7 @@ ms.lasthandoff: 05/07/2018
     * IPartitionProcessor: para cambios de procesamiento personalizados en una partición.
 * Logging: usa la biblioteca [LibLog](https://github.com/damianh/LibLog).
 * Compatible 100 % con la API v1.
+* Base de código nueva.
 * Compatible con el [SDK de .NET para SQL](sql-api-sdk-dotnet.md), versiones 1.21.1 y superior.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada

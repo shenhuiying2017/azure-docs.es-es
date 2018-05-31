@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797709"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Tutorial: Supervisión y diagnóstico de una aplicación ASP.NET Core en Service Fabric
 Este tutorial es la parte quinta de una serie. Describe los pasos necesarios para configurar la supervisión y el diagnóstico de una aplicación ASP.NET Core que se ejecuta en un clúster de Service Fabric con Application Insights. Recopilaremos datos de telemetría de la aplicación desarrollada en la primera parte del tutorial, [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md). 
@@ -237,7 +238,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a [localhost: 8080](localhost:8080), y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event" junto con la telemetría de respuesta. 
+Cuando haya finalizado de realizar estos cambios, **inicie** la aplicación para compilar e implementar su versión más reciente. Cuando finalice la implementación de la aplicación, vaya a [localhost: 8080](localhost:8080), y agregue y elimine algunas opciones de voto. A continuación, vuelva al recurso de Application Insights para ver los seguimientos de la última ejecución (como antes, los seguimientos pueden tardar de 1 a 2 minutos en aparecer en Application Insights). Para todos los votos que agregó y eliminó, ahora debería ver "Custom event"\* junto con la telemetría de respuesta. 
 
 ![eventos personalizados](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 

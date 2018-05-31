@@ -1,11 +1,11 @@
 ---
-title: "Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell clásico | Microsoft Docs"
-description: "Aprenda a crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica."
+title: Creación de un sondeo personalizado para Azure Application Gateway mediante PowerShell clásico | Microsoft Docs
+description: Aprenda a crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica.
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
+editor: ''
 tags: azure-service-management
 ms.assetid: 338a7be1-835c-48e9-a072-95662dc30f5e
 ms.service: application-gateway
@@ -14,24 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: davidmu
-ms.openlocfilehash: b167a0584740a4e583a35bd6d44ec5d616ba04f7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: victorh
+ms.openlocfilehash: 97d1376dc7908b72d8e8ec15145229cf3cf4acae
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201953"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal de Azure](application-gateway-create-probe-portal.md)
-> * [PowerShell de Azure Resource Manager](application-gateway-create-probe-ps.md)
+> * [Azure Portal](application-gateway-create-probe-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente con PowerShell. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
 
 > [!IMPORTANT]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo de Resource Manager. Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
@@ -39,7 +40,7 @@ En este artículo, agregará un sondeo personalizado a una puerta de enlace de a
 
 Para crear una Puerta de enlace de aplicaciones:
 
-1. Cree un recurso de Puerta de enlace de aplicaciones.
+1. Cree un recurso de Application Gateway.
 2. Cree un archivo de configuración XML o un objeto de configuración.
 3. Confirme la configuración para el recurso de la Puerta de enlace de aplicaciones recién creado.
 
@@ -147,7 +148,7 @@ Se agrega un nuevo elemento de configuración \<Probe\> para configurar sondeos 
 
 Los parámetros de configuración son:
 
-|Parámetro|Descripción|
+|.|DESCRIPCIÓN|
 |---|---|
 |**Name** |Nombre de referencia del sondeo personalizado. |
 * **Protocol** | Protocolo usado (los valores posibles son HTTP o HTTPS).|

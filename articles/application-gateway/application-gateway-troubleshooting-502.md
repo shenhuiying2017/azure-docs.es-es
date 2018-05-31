@@ -1,11 +1,11 @@
 ---
-title: "Solución de errores de puerta de enlace incorrecta (502) en el servicio Azure Application Gateway | Microsoft Docs"
-description: "Obtenga información sobre cómo solucionar errores 502 en el servicio Application Gateway."
+title: Solución de errores de puerta de enlace incorrecta (502) en el servicio Azure Application Gateway | Microsoft Docs
+description: Obtenga información sobre cómo solucionar errores 502 en el servicio Application Gateway.
 services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356042"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solución de errores de puerta de enlace incorrecta en el servicio Puerta de enlace de aplicaciones
 
@@ -89,10 +90,10 @@ Los errores 502 también pueden ser indicativos frecuentes de que la sonda de es
 
 * Asegúrese de que se ha configurado un sitio predeterminado y de que está escuchando en 127.0.0.1.
 * Si BackendHttpSetting especifica un puerto distinto de 80, se debe configurar que el sitio predeterminado escuche en ese puerto.
-* La llamada a http://127.0.0.1:puerto debe devolver el código de resultado HTTP 200. dentro del periodo de espera de 30 segundos.
+* La llamada a http://127.0.0.1:port debe devolver el código de resultado HTTP 200. dentro del periodo de espera de 30 segundos.
 * Asegúrese de que el puerto configurado está abierto y de que no hay ninguna regla de firewall ni grupos de seguridad de red de Azure que bloqueen el tráfico entrante o saliente en dicho puerto.
 * Si usa el servicio en la nube o las máquinas virtuales clásicas de Azure con una IP pública o un FQDN, asegúrese de que esté abierto el [punto de conexión](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondiente.
-* Si la máquina virtual se configura mediante Azure Resource Manager y la instancia de Puerta de enlace de aplicaciones se implementó fuera de la red virtual, debe establecerse el [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) para permitir el acceso en el puerto deseado.
+* Si la máquina virtual se configura mediante Azure Resource Manager y la instancia de Puerta de enlace de aplicaciones se implementó fuera de la red virtual, debe establecerse el [grupo de seguridad de red](../virtual-network/security-overview.md) para permitir el acceso en el puerto deseado.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas con la sonda de estado personalizada
 

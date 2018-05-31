@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053431"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
@@ -42,7 +43,13 @@ Vaya a las otras soluciones y haga clic en **Habilitar**; los cuadros de lista d
 
 Cada solución utiliza una configuración de ámbito en el área de trabajo para definir los equipos de destino que obtendrán la solución. La configuración de ámbito es un grupo de una o más búsquedas guardadas que se utiliza para limitar el ámbito de la solución a equipos específicos. Para tener acceso a las configuraciones de ámbito, en la cuenta de Automation, en **RECURSOS RELACIONADOS**, seleccione **Área de trabajo** y, a continuación, en el área de trabajo, en **Orígenes de datos del área de trabajo**, seleccione **Configuraciones de ámbito**.
 
-Las dos configuraciones de ámbito creadas de forma predeterminada son **MicrosoftDefaultScopeConfig-ChangeTracking** y **MicrosoftDefaultScopeConfig-Updates**.
+Si el área de trabajo seleccionada no dispone aún de las soluciones Update Management ni Change Tracking, se crearán las siguientes configuraciones de ámbito:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Si el área de trabajo seleccionada ya tiene la solución. La solución no se vuelve a implementar y la configuración de ámbito no se agrega a ella.
 
 Haga clic en los puntos suspensivos (...) en cualquiera de las configuraciones y seleccione **Editar**. En la página **Configuración del ámbito de edición**, seleccione **Seleccionar grupos de equipos** para abrir la página **Grupos de equipos**. Esta página muestra las búsquedas guardadas que se utilizan para crear la configuración de ámbito.
 
