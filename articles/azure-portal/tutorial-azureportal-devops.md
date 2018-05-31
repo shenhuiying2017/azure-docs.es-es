@@ -2,7 +2,7 @@
 title: 'Tutorial: DevOps con Azure Portal | Microsoft Docs'
 description: Aprenda acerca de los distintos flujos de trabajo de DevOps en Azure Portal.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
 editor: mlearned
@@ -11,17 +11,18 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: d2c059fe415b743e4b2265d6dda492878307be93
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7fb3de72e28b19f9ca30968b267bf985ae384275
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164846"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Tutorial: DevOps con Azure Portal
-La plataforma Azure está llena de flujos de trabajo de DevOps flexibles. En este tutorial, aprenderá a aprovechar las funcionalidades de Azure Portal para desarrollar, probar, implementar, solucionar problemas, supervisar y administrar las aplicaciones que se están ejecutando. Este tutorial se centra en lo siguiente:
+La plataforma Azure está llena de flujos de trabajo de DevOps flexibles. En este tutorial, aprenderá a aprovechar las funcionalidades de Azure Portal para desarrollar, probar, implementar, supervisar y administrar las aplicaciones que se están ejecutando, así como solucionar sus posibles problemas. Este tutorial se centra en lo siguiente:
 
 1. Creación de una aplicación web y habilitación de la implementación continua
 2. Desarrollo y prueba de una aplicación
@@ -34,7 +35,7 @@ Con el [Azure App Service](https://azure.microsoft.com/services/app-service/), c
 1. Inicie sesión en Azure Portal.
 2. Elija **App Services** &gt; **icono Agregar** y escriba un nombre, elija su suscripción y cree un grupo de recursos para que actúe como contenedor del servicio.
    
-   Los grupos de recursos permiten administrar diversos aspectos de la solución, como la facturación, las implementaciones y la supervisión, como un solo grupo mediante [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Los grupos de recursos permiten administrar diversos aspectos de la solución, como la facturación, las implementaciones y la supervisión, todo como un solo grupo mediante [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
    
    ![imagen1][image1]
 3. Transcurridos unos segundos,el Servicio de aplicaciones se ha creado. Dedique unos minutos a explorar las diversas opciones de menú para el servicio en el portal.
@@ -43,7 +44,7 @@ Con el [Azure App Service](https://azure.microsoft.com/services/app-service/), c
 4. Haga clic en la dirección URL. Observe la variedad de opciones disponibles para herramientas y repositorios. También puede usar los lenguajes y plataformas que prefiera, incluidos .NET, Java y Ruby.
    
    ![imagen3][image3]    
-5. El Portal de Azure hace que la implementación continua sea un proceso fácil con solo unos pocos pasos sencillos. En el Portal de Azure, elija Configuración en el icono para el Servicio de aplicaciones que acaba de crear.
+5. El Portal de Azure hace que la implementación continua sea un proceso fácil con solo unos pocos pasos sencillos. En Azure Portal, elija Configuración en el icono del servicio de aplicaciones que acaba de crear.
    
    ![imagen4][image4]
    
@@ -62,7 +63,7 @@ Con el [Azure App Service](https://azure.microsoft.com/services/app-service/), c
 9. Una vez elegido el proyecto y la rama, haga clic en Aceptar. Debería empezar a ver las notificaciones de una implementación.
    
    ![imagen9][image9]
-10. Vuelva a GitHub para ver el webhook que se creó para integrar el repositorio de control de origen con Azure. Azure Portal permite la integración con GitHub con unos pocos pasos sencillos.
+10. Vuelva a GitHub para ver el webhook que se creó para integrar el repositorio de control de origen con Azure. Azure Portal permite la integración con Github con unos cuantos sencillos pasos.
     
     ![imagen10][image10]
 11. Para demostrar la implementación continua, puede agregar rápidamente algún contenido al repositorio. Para ver un ejemplo simple, agregue un archivo de texto de ejemplo a un repositorio de GitHub. Puede usar .NET, Ruby, Python o algún otro tipo de aplicación con App Service. Puede agregar un archivo de texto o una aplicación de ASP.NET MVC, Java o Ruby en el repositorio que elija.
@@ -71,7 +72,7 @@ Con el [Azure App Service](https://azure.microsoft.com/services/app-service/), c
 12. Después de confirmar los cambios en el repositorio, verá que una nueva implementación se inicia en el área de notificaciones del Portal. Si no ve los cambios rápidamente después de confirmar en el repositorio, haga clic en Sincronizar.
     
     ![imagen12][image12]
-13. En este momento, si intenta cargar la página para el Servicio de aplicaciones, puede recibir un error 403. En este ejemplo, se debe a que no hay ninguna configuración de documentos predeterminada típica para la página, como por ejemplo, un archivo como index.htm o default.html. Puede resolverlo rápidamente con las herramientas de Azure Portal.  En Azure Portal, elija Configuración &gt; Configuración de la aplicación.
+13. En este momento, si intenta cargar la página para el Servicio de aplicaciones, puede recibir un error 403. En este ejemplo, se debe a que no hay ninguna configuración de documentos predeterminada típica para la página, como por ejemplo, un archivo como index.htm o default.html. Puede resolver este problema rápidamente con las herramientas de Azure Portal.  En Azure Portal, elija Configuración &gt; Configuración de la aplicación.
     
      ![imagen13][image13]
 14. Se abre una hoja de configuración de la aplicación. Escriba el nombre de la página ,"SamplePage.html", y haga clic en Guardar. Dedique unos minutos a explorar los demás valores.
@@ -86,7 +87,7 @@ Con el [Azure App Service](https://azure.microsoft.com/services/app-service/), c
 ## <a name="develop-and-test-an-app"></a>Desarrollo y prueba de una aplicación
 A continuación, realice algunos cambios en el código base e implemente rápidamente los cambios. También configurará algunas pruebas de rendimiento para la aplicación web.
 
-1. En el panel de navegación de Azure Portal, elija Servicios de aplicaciones y busque App Service.
+1. En el panel de navegación de Azure Portal, elija App Services y busque App Service.
    
    ![imagen16][image16]
 2. Haga clic en Herramientas.
@@ -152,7 +153,7 @@ A continuación, realice algunos cambios en el código base e implemente rápida
 ## <a name="monitoring-and-troubleshooting-an-app"></a>Supervisión y solución de problemas de una aplicación
 Azure proporciona muchas funcionalidades de supervisión y solución de problemas de las aplicaciones que se ejecutan.
 
-1. En Azure Portal para nuestra aplicación web, elija Herramientas.
+1. En Azure Portal para la aplicación web, elija Herramientas.
    
    ![imagen37][image37]
 2. En la categoría Solucionar problemas, observe las diversas opciones para utilizar las herramientas con el fin de solucionar posibles problemas con una aplicación en ejecución. Puede hacer cosas como supervisar el tráfico HTTP dinámico, habilitar la recuperación automática, ver registros, etc.
@@ -193,7 +194,7 @@ Azure proporciona muchas funcionalidades de supervisión y solución de problema
 11. Al hacer clic en el registro de archivos HTML se genera un completo informe basado en explorador para una investigación más detallada.
     
     ![imagen49][image49]
-12. Vuelva a la sección de herramientas en Azure Portal para la aplicación. Desplácese a la sección Herramientas y elija Explorador de procesos.
+12. Vuelva a la sección de herramientas en Azure Portal de la aplicación. Desplácese a la sección Herramientas y elija Explorador de procesos.
     
     ![imagen50][image50]
 13. Al elegir Explorador de procesos, puede ver detalles sobre los procesos en ejecución. Observe a continuación que puede profundizar en los procesos e incluso terminarlos todos desde Azure Portal.
@@ -210,7 +211,7 @@ Azure proporciona muchas funcionalidades de supervisión y solución de problema
     
     ![imagen55][image55]
     
-    Azure Portal ayuda a proporcionar experiencias de herramientas eficaces y familiares para ayudarle a supervisar y solucionar problemas de nuestras aplicaciones en ejecución. También es posible tomar medidas rápidamente mediante la realización de tareas como reciclar procesos, habilitar y deshabilitar diversas colecciones de datos e incluso realizar la integración con el soporte técnico profesional de Microsoft.
+    Azure Portal ayuda a proporcionar experiencias eficaces y familiares con las herramientas para ayudarle a supervisar y solucionar problemas de nuestras aplicaciones en ejecución. También es posible tomar medidas rápidamente mediante la realización de tareas como reciclar procesos, habilitar y deshabilitar diversas colecciones de datos e incluso realizar la integración con el soporte técnico profesional de Microsoft.
 
 ## <a name="general-application-management"></a>Administración general de aplicaciones
 Al administrar aplicaciones, a menudo necesitará realizar una amplia serie de actividades, como la configuración de estrategias de copia de seguridad, la implementación y administración de proveedores de identidades y la configuración de control de acceso basado en roles. Al igual que con otras experiencias de DevOps, la plataforma Azure integra estas tareas directamente en el portal.
@@ -248,7 +249,7 @@ Al administrar aplicaciones, a menudo necesitará realizar una amplia serie de a
 11. En la hoja de la derecha, elija Autenticación de App Service. Observe la variedad de opciones que puede configurar con proveedores conocidos.
     
      ![imagen66][image66]
-12. Elija el proveedor que prefiera y observe las opciones para el ámbito. Puede proporcionar un Id. de la aplicación y un Secreto de la aplicación y habilitar rápidamente la autenticación de Facebook para la aplicación. Azure Portal habilita la autenticación como una solución de llave en mano para las aplicaciones.
+12. Elija el proveedor que prefiera y observe las opciones para el ámbito. Puede proporcionar un Id. de la aplicación y un Secreto de la aplicación y habilitar rápidamente la autenticación de Facebook para la aplicación. Azure Portal permite la autenticación como una solución inmediata para las aplicaciones.
     
      ![imagen67][image67]
 13. Vuelva a la hoja Configuración y elija Usuarios en la categoría Administración de recursos.

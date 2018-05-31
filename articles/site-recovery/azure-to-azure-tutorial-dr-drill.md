@@ -1,21 +1,22 @@
 ---
-title: "Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery (versión preliminar)"
-description: "Aprenda a ejecutar una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región de Azure secundaria mediante el servicio Azure Site Recovery."
+title: Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery
+description: Aprenda a ejecutar una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región de Azure secundaria mediante el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/07/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 66ad4f782917d41a0fd1fbbe5ce50de0dda4589e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: fb1c41e6fe254fbcbee8cb91a177777ed4e37fbb
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208981"
 ---
-# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region-preview"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
+# <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Ejecución de una exploración de recuperación ante desastres en máquinas virtuales de Azure en una región secundaria de Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
@@ -24,6 +25,8 @@ En este tutorial se muestra cómo ejecutar una exploración de recuperación ant
 > [!div class="checklist"]
 > * Comprobar los requisitos previos
 > * Ejecutar una conmutación por error de prueba en una sola máquina virtual
+
+La replicación de Azure a Azure se encuentra en una versión preliminar en este momento.
 
 ## <a name="prerequisites"></a>requisitos previos
 
