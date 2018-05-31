@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: e0337a7ce1392d78eba9791095f5d7a9c7d4afdd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 785ba078669886cf16041752bd7af5a957899d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33205778"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Preguntas sobre el servicio de copia de seguridad de Azure Virtual Machines
 En este artículo se incluyen respuestas a preguntas habituales para ayudarle a comprender rápidamente los componentes del servicio Backup de Azure Virtual Machines. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -54,6 +55,9 @@ Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en la fase 
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Habilité el bloqueo de grupo de recursos en las máquinas virtuales de mi disco administrado con copia de seguridad. ¿Seguirán funcionando mis copias de seguridad?
 Si el usuario bloquea el grupo de recursos, el servicio de Backup no puede eliminar los puntos de restauración anteriores. Debido a esto, las copias de seguridad nuevas comienzan a presentar errores debido a que hay un límite de 18 puntos de restauración que impone el back-end. Si las copias de seguridad presentan un error interno después del bloqueo de grupo de recursos, siga estos [pasos para quitar la colección de puntos de restauración](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>¿Tiene en cuenta la directiva de copia de seguridad el horario de verano?
+Nº Tenga en cuenta que la fecha y la hora de su equipo se muestran en la hora local y con la diferencia del horario de verano actual. Por lo tanto, la hora de las copias de seguridad programadas puede diferir de la hora local debido al horario de verano.
 
 ## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>¿Cómo decido entre la restauración de discos frente a restauración completa de máquinas virtuales?
