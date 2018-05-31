@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070505"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Configuración y problemas de administración de Microsoft Azure Cloud Services: preguntas más frecuentes (P+F)
 
@@ -34,6 +35,7 @@ En este artículo se incluyen las preguntas frecuentes sobre la configuración y
 - [¿Cómo se puede generar una solicitud de firma de certificado (CSR) sin ejecutar RDP en la instancia?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Expira el certificado de administración del servicio en la nube. ¿Cómo se renueva?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [¿Cómo se automatiza la instalación de un certificado SSL principal (.pfx) y un certificado intermedio (.p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [¿Cuál es el propósito del certificado "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Supervisión y registro**
 
@@ -103,6 +105,10 @@ Puede usar los siguientes comandos de PowerShell para renovar sus certificados d
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>¿Automatización de la instalación de un certificado SSL principal (.pfx) y un certificado intermedio (.p7b)?
 
 Puede automatizar esta tarea mediante un script de inicio (batch/cmd/PowerShell) y registrar dicho script en el archivo de definición de servicio. Agregue el script de inicio y el certificado (archivo. p7b) a la carpeta del proyecto del mismo directorio que el script de inicio.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>¿Cuál es el propósito del certificado "Microsoft Azure Service Management for MachineKey"?
+
+Este certificado se usa para cifrar las claves de la máquina en los roles de web de Azure. Para más información, consulte este aviso [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Para más información, consulte los siguientes artículos.
 - [Configuración y ejecución de tareas de inicio en un servicio en la nube](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -213,7 +219,7 @@ Microsoft sigue un proceso estricto que no permite a los ingenieros internos eje
 Este error puede producirse si usa el archivo RDP desde un equipo replicado en Azure Active Directory. Para resolver el problema, siga estos pasos:
 
 1. Haga clic en el archivo RDP que ha descargado y seleccione **Editar**.
-2. Agregue "&#92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
+2. Agregue "& #92;" delante del nombre de usuario. Por ejemplo, utilice **. \nombre de usuario**, en lugar de **nombre de usuario**.
 
 ## <a name="scaling"></a>Escalado
 

@@ -1,6 +1,6 @@
 ---
 title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
-description: "Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights."
+description: Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 060f1c9d2c74ed45e8077ec99503a1d7b885d325
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010471"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: seguimiento de dependencias
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](app-insights-overview.md) mide cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia. Puede investigar llamadas específicas y relacionarlas a solicitudes y excepciones.
@@ -200,9 +201,12 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 *La consulta SQL no se muestra en su totalidad.*
 
-* Actualice a la versión más reciente del SDK Si la versión de .NET es inferior a la 4.6, siga estos pasos:
-  * Host de IIS: instale el [agente de Application Insights](app-insights-monitor-performance-live-website-now.md) en los servidores host.
-  * Aplicación web de Azure: abra la pestaña Application Insights en el panel de control de la aplicación web e instale Application Insights.
+* Actualice a la versión estable más reciente del SDK de Application Insights.
+
+ Si la versión de .NET es inferior a la 4.6, siga estos pasos:
+
+* Host de IIS: instale el [agente de Application Insights](app-insights-monitor-performance-live-website-now.md) en los servidores host.
+* Aplicación web de Azure: abra la pestaña Application Insights en el panel de control de la aplicación web e instale Application Insights.
 
 ## <a name="video"></a>Vídeo
 
