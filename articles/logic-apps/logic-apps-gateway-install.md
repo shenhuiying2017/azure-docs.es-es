@@ -1,25 +1,26 @@
 ---
-title: "Instalación de una puerta de enlace de datos local: Azure Logic Apps | Microsoft Docs"
-description: "Antes de obtener acceso a orígenes de datos locales, instale la puerta de enlace de datos local para obtener cifrado y transferencia de datos más rápidos entre orígenes de datos locales y aplicaciones lógicas."
-keywords: "obtener acceso a datos, local, transferencia de datos, cifrado, orígenes de datos"
+title: 'Instalación de una puerta de enlace de datos local: Azure Logic Apps | Microsoft Docs'
+description: Antes de obtener acceso a orígenes de datos locales, instale la puerta de enlace de datos local para obtener cifrado y transferencia de datos más rápidos entre orígenes de datos locales y aplicaciones lógicas.
+keywords: obtener acceso a datos, local, transferencia de datos, cifrado, orígenes de datos
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179017"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de la puerta de enlace de datos local para Azure Logic Apps
 
@@ -242,6 +243,11 @@ Por lo tanto, cuando el usuario en la nube interactúa con un elemento conectado
 6. Los resultados se envían desde el origen de datos, de vuelta a la puerta de enlace y, después, al servicio en la nube de la puerta de enlace. Seguidamente, el servicio en la nube de la puerta de enlace usa los resultados.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Administración en el nivel de inquilino 
+
+No hay actualmente un único lugar donde los administradores de inquilinos puedan administrar todas las puertas de enlace que otros usuarios han instalado y configurado.  Si es un administrador de inquilinos, se recomienda que solicite a los usuarios de la organización que le agreguen como administrador para cada puerta de enlace que instalen. Esto le permite administrar todas las puertas de enlace de la organización a través de la página de configuración de la puerta de enlace o mediante [comandos de PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 

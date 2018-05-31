@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778281"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Proceso de ciencia de datos en equipos en acción: Uso de un clúster de Hadoop de Azure HDInsight en un conjunto de datos de 1 TB
 
@@ -456,7 +457,7 @@ Para seleccionar el conjunto de datos guardado para usarlo en un experimento de 
 ![Movimiento de arrastre del conjunto de datos hasta el panel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración tienen únicamente fines ilustrativos.**
+> Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración tienen únicamente fines ilustrativos.\*\*
 > 
 > 
 

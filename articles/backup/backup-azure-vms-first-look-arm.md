@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a29e184a47e3b4304f9c4683e76feab3e75dd4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310611"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
 
@@ -39,7 +40,9 @@ Para más información sobre la protección de máquinas virtuales de Premium St
 Para obtener más información sobre qué copias de seguridad que se pueden realizar, vea [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> En este tutorial se asume que tiene una máquina virtual en su suscripción de Azure y que ha tomado las medidas necesarias para que el servicio de copia de seguridad pueda acceder a dicha máquina virtual.
+> El servicio Backup crea un grupo de recursos diferente al de la máquina virtual para guardar la colección de puntos de restauración. Es conveniente que los clientes no bloqueen el grupo de recursos que se ha creado para que lo utilice el servicio Backup.
+El formato de nombres del grupo de recursos creado por el servicio Backup es: AzureBackupRG_`<Geo>`_`<number>`
+<br>Por ejemplo: AzureBackupRG_northeurope_1
 >
 >
 

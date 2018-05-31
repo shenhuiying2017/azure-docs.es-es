@@ -11,17 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33200559"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalización de idioma en Azure Active Directory B2C
-
->[!NOTE]
->Esta característica está en versión preliminar pública.
->
 
 La personalización de idioma en Azure Active Directory B2C (Azure AD B2C) permite que la directiva albergue distintos idiomas a fin de satisfacer las necesidades de los clientes.  Microsoft proporciona las traducciones de [36 idiomas](#supported-languages), pero el usuario también puede proporcionar sus propias traducciones para cualquier idioma. Incluso si su experiencia se proporciona únicamente para un idioma, puede personalizar cualquier texto de las páginas.  
 
@@ -49,7 +46,7 @@ La habilitación de la personalización de idioma en una directiva le permite co
 5. Lea la información del cuadro de diálogo y seleccione **Sí**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Seleccione los idiomas que están habilitados en su recorrido de usuario. 
-Habilite un conjunto de idiomas para la traducción de su recorrido del usuario cuando no se proporcione el parámetro `ui_locales`.
+Habilite un conjunto de idiomas para la traducción del recorrido del usuario cuando lo solicite el explorador sin el parámetro `ui_locales`.
 1. Asegúrese de que la directiva tenga habilitada la personalización de idioma según las instrucciones anteriores.
 2. En la página **Editar directiva**, seleccione **Personalización de idioma**.
 3. Seleccione el idioma que quiere que sea compatible.
@@ -102,7 +99,7 @@ Reemplace `<ExtensionAttribute>` por el nombre de su atributo de usuario persona
 Reemplace `<ExtensionAttributeValue>` por la nueva cadena que se mostrará.
 
 ### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>Entrega de una lista de valores mediante LocalizedCollections
-Si desea proporcionar una lista establecida de valores para respuestas, debe crear un atributo `LocalizedCollections`.  `LocalizedCollections` es una matriz de pares de `Name` y `Value`. Para agregar `LocalizedCollections`, utilice el siguiente formato:
+Si desea proporcionar una lista establecida de valores para respuestas, debe crear un atributo `LocalizedCollections`.  `LocalizedCollections` es una matriz de pares de `Name` y `Value`. El orden de los elementos será el orden en el que se muestran.  Para agregar `LocalizedCollections`, utilice el siguiente formato:
 
 ```JSON
 {
@@ -153,9 +150,9 @@ Puede cargar la página en `fr`. Cuando la página extrae contenido HTML y CSS, 
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="add-custom-locales"></a>Adición de configuraciones regionales personalizadas
+## <a name="add-custom-languages"></a>Incorporación de idiomas personalizados
 
-También puede agregar idiomas para los que Microsoft no proporciona actualmente traducciones. Deberá proporcionar las traducciones para todas las cadenas de la directiva.
+También puede agregar idiomas para los que Microsoft no proporciona actualmente traducciones. Deberá proporcionar las traducciones para todas las cadenas de la directiva.  Los idiomas y los códigos de configuración regional se limitan a los indicados en la norma ISO 639-1. 
 
 1. En la página **Editar directiva**, seleccione **Personalización de idioma**.
 2. Seleccione **Agregar un idioma personalizado** en la parte superior de la página.
@@ -165,6 +162,10 @@ También puede agregar idiomas para los que Microsoft no proporciona actualmente
 6. Seleccione **Habilitar** y la directiva mostrará ahora este idioma para sus usuarios.
 7. Guarde el idioma.
 
+>[!IMPORTANT]
+>Debe habilitar los idiomas personalizados o cargar invalidaciones para poder guardar.
+>
+
 ## <a name="additional-information"></a>Información adicional
 
 ### <a name="page-ui-customization-labels-as-overrides"></a>Etiquetas de personalización de la interfaz de usuario de página como invalidaciones
@@ -172,7 +173,7 @@ Cuando se habilita la personalización de idioma, las ediciones anteriores de et
 ### <a name="up-to-date-translations"></a>Actualización de traducciones
 Microsoft se compromete a proporcionar las traducciones más actualizadas para que haga uso de ellas. Microsoft mejora continuamente las traducciones y garantiza su cumplimiento. Microsoft identificará errores y cambios en la terminología global y creará actualizaciones que funcionen perfectamente en su recorrido del usuario.
 ### <a name="support-for-right-to-left-languages"></a>Compatibilidad con idiomas que se leen de derecha a izquierda
-Microsoft no proporciona actualmente compatibilidad con idiomas que se leen de derecha a izquierda. Si necesita esta característica, vote por ella en [Comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft no proporciona actualmente compatibilidad con idiomas que se leen de derecha a izquierda. Para ello, puede usar configuraciones regionales personalizadas y CSS para cambiar la manera en la que se muestran las cadenas.  Si necesita esta característica, vote por ella en [Comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Traducciones de proveedores de identidades sociales
 Microsoft proporciona el parámetro OIDC `ui_locales` a los inicios de sesión de redes sociales. Pero algunos proveedores de identidades de redes sociales, incluidas Facebook y Google, no los respetan. 
 ### <a name="browser-behavior"></a>Comportamiento del explorador
