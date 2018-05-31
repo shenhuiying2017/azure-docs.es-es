@@ -1,24 +1,25 @@
 ---
-title: "Uso de cloud-init para instalar paquetes en una máquina virtual Linux en Azure | Microsoft Docs"
-description: "Procedimiento para usar cloud-init con el fin de actualizar e instalar paquetes en una máquina virtual Linux con la CLI de Azure 2.0"
+title: Uso de cloud-init para instalar paquetes en una máquina virtual Linux en Azure | Microsoft Docs
+description: Procedimiento para usar cloud-init con el fin de actualizar e instalar paquetes en una máquina virtual Linux con la CLI de Azure 2.0
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: e45bec2a71f94c66ce3044fb81bd2d7cefdf53a5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8d5835b5d1b0c2f77bdf5e1a2b808478b8f4de22
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186161"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Usar Uso de cloud-init para instalar paquetes en una máquina virtual Linux en Azure
 En este artículo se muestra el uso de [cloud-init](https://cloudinit.readthedocs.io) para actualizar paquetes en una máquina virtual Linux (VM) o en conjuntos de escalado de máquinas virtuales (VMSS) en el momento del aprovisionamiento en Azure. Estos scripts de cloud-init se ejecutan durante el primer arranque una vez que Azure ha aprovisionado los recursos. Para obtener más información acerca del funcionamiento nativo de cloud-init en Azure y las distribuciones de Linux compatibles, consulte la [introducción a cloud-init](using-cloud-init.md).
@@ -58,23 +59,22 @@ SSH a la dirección IP pública de la máquina virtual que se muestra en la sali
 ssh <publicIpAddress>
 ```
 
-Ejecute la herramienta de administración de paquetes y compruebe si hay actualizaciones. En el ejemplo siguiente se usa `apt-get` en una máquina virtual Ubuntu:
+Ejecute la herramienta de administración de paquetes y compruebe si hay actualizaciones.
 
 ```bash
-sudo apt-get upgrade
+sudo yum update
 ```
 
-Como cloud-init comprobó e instaló las actualizaciones en el arranque, no hay ninguna actualización que aplicar, tal como se muestra en la salida de ejemplo siguiente:
+Como cloud-init comprobó e instaló las actualizaciones en el arranque, no debería haber ninguna actualización que aplicar.  Puede ver el proceso de actualización, el número de paquetes modificados, así como la instalación de `httpd` mediante `yum history` y revisar una salida similar a la siguiente.
 
 ```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Loaded plugins: fastestmirror, langpacks
+ID     | Command line             | Date and time    | Action(s)      | Altered
+-------------------------------------------------------------------------------
+     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
+     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
+     1 |                          | 2017-12-12 20:32 | Install        |  522
 ```
-
-También puede ver que `httpd` se instaló mediante la ejecución de `yum history` y revisar la salida que hacen referencia a `httpd`. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ejemplos de cloud-init de cambios de configuración adicionales, vea lo siguiente:

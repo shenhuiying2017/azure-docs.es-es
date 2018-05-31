@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 095b0cba8f7d22920203e5e3c4bcd83666188023
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0a39cabeb35450e98cc7d7d64645642959aacde0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194995"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensión Desired State Configuration con plantillas de Azure Resource Manager
 
@@ -33,7 +34,7 @@ En este artículo se describe la plantilla de Azure Resource Manager para el [co
 
 El fragmento de código siguiente corresponde a la sección **Resource** de la plantilla.
 La extensión DSC hereda las propiedades de extensión predeterminadas.
-Para más información, consulte la [clase VirtualMachineExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Para más información, consulte la [clase VirtualMachineExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +84,7 @@ Un nodo del conjunto de escalado de máquinas virtuales tiene una sección **pro
 En **extensiones**, agregue los detalles para la extensión DSC.
 
 La extensión DSC hereda las propiedades de extensión predeterminadas.
-Para más información, consulte la [clase VirtualMachineScaleSetExtension](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+Para más información, consulte la [clase VirtualMachineScaleSetExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -181,7 +182,7 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="details"></a>Detalles
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.wmfVersion |string |Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en **latest**, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son **4.0**, **5.0**, **5.0PP** y **latest**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**. |
 | settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo .zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, establezca la propiedad **protectedSettings.configurationUrlSasToken** en el valor de su token de SAS. Esta propiedad es necesaria si se definen **settings.configuration.script** o **settings.configuration.function**. Si no se especifica ningún valor para estas propiedades, la extensión llamará al script de configuración predeterminada para establecer los metadatos del administrador de configuración de ubicación (LCM) y se deben proporcionar los argumentos. |
@@ -197,10 +198,10 @@ Para una lista de los argumentos disponibles para el script de configuración pr
 
 ## <a name="default-configuration-script"></a>Script de configuración predeterminada
 
-Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+Para más información sobre los valores siguientes, consulte [Configuración básica del administración de configuración local](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 Puede usar el script de configuración predeterminada de la extensión DSC para configurar solo las propiedades de LCM que aparecen en la tabla siguiente.
 
-| Nombre de propiedad | type | DESCRIPCIÓN |
+| Nombre de propiedad | Escriba | DESCRIPCIÓN |
 | --- | --- | --- |
 | settings.configurationArguments.RegistrationKey |securestring |Propiedad obligatoria. Especifica la clave que se usa para que un nodo se registre en el servicio de Azure Automation, como la contraseña de un objeto de credencial de PowerShell. Este valor se puede detectar automáticamente a través del método **listkeys** con la cuenta de Automation. El valor se debe proteger como una configuración protegida. |
 | settings.configurationArguments.RegistrationUrl |string |Propiedad obligatoria. Especifique la dirección URL del punto de conexión de Automation donde el nodo intenta registrarse. Este valor se puede detectar automáticamente a través del método **reference** con la cuenta de Automation. |
@@ -340,9 +341,9 @@ Esto son algunos de los errores que pueden surgir y cómo puede corregirlos.
 
 ### <a name="invalid-values"></a>Valores no válidos
 
-"Privacy.dataCollection is '{0}'.
+"Privacy.dataCollection is '{0}'. ("Privacy.dataCollection es "{0}")
 The only possible values are '', 'Enable', and 'Disable'" (Privacy.dataCollection es '{0}'. Los únicos valores posibles son ", "Enable" y "Disable").
-"WmfVersion es '{0}'.
+"WmfVersion is '{0}'. ("WmfVersion es "{0}")
 Los únicos valores posibles son: and "latest" (WmfVersion es '{0}'. Los únicos valores posibles son... y "latest").
 
 **Problema**: Se proporcionó un valor no permitido.
@@ -352,7 +353,7 @@ Para más información, consulte la tabla que aparece en [Detalles](#details).
 
 ### <a name="invalid-url"></a>Dirección URL no válida
 
-"ConfigurationData.url is '{0}'. This is not a valid URL" (ConfigurationData.url es '{0}'. No es una dirección URL válida) "DataBlobUri is '{0}'. This is not a valid URL" (DataBlobUri es '{0}'. No es una dirección URL válida) "Configuration.url is '{0}'. This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
+"ConfigurationData.url is '{0}'. ("ConfigurationData.url es "{0}") This is not a valid URL" "DataBlobUri is '{0}'. (Esta dirección URL no es válida" "DataBlobUri es "{0}") This is not a valid URL" "Configuration.url is '{0}'. (Esta dirección URL no es válida" "Configuration.url es "{0}") This is not a valid URL" This is not a valid URL" (Configuration.url es '{0}'. No es una dirección URL válida)
 
 **Problema**: Se proporcionó una dirección URL no válida.
 
@@ -361,7 +362,7 @@ Asegúrese de que todas las direcciones URL se resuelvan en ubicaciones válidas
 
 ### <a name="invalid-configurationargument-type"></a>Tipo de ConfigurationArgument no válido
 
-"Invalid configurationArguments type {0}" (Tipo de configurationArguments no válido {0})
+"Invalid configurationArguments type {0}" ("Tipo {0} de configurationArguments" no válido)
 
 **Problema**: La propiedad *ConfigurationArguments* no se puede resolver en un objeto **Hashtable**.
 
@@ -370,7 +371,7 @@ Siga el formato proporcionado en el ejemplo anterior. Esté atento a las comilla
 
 ### <a name="duplicate-configurationarguments"></a>ConfigurationArguments duplicadas
 
-"Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados '{0}' en propiedades configurationArguments públicas y privadas)
+"Found duplicate arguments '{0}' in both public and protected configurationArguments" (Se encontraron argumentos duplicados "{0}" en propiedades configurationArguments públicas y privadas)
 
 **Problema**: La propiedad *ConfigurationArguments* en la configuración pública y la propiedad *ConfigurationArguments* en la configuración protegida contienen propiedades con el mismo nombre.
 

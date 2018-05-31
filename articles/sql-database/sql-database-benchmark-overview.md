@@ -2,19 +2,19 @@
 title: Información general sobre la prueba comparativa de DTU para Azure SQL Database
 description: Este tema describe la prueba comparativa Azure SQL Database Benchmark, que se usa para la medición del rendimiento de Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
+author: jan-eng
+manager: jhubbard
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: a045a545b8a0d4dda33dd404d0d206723eb822ad
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: janeng
+ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363985"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191414"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Información general sobre la prueba comparativa de DTU para Azure SQL Database
 ## <a name="overview"></a>Información general

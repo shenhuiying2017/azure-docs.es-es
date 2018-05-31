@@ -10,11 +10,12 @@ ms.custom: develop apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195335"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error para las aplicaciones cliente de SQL Database: errores de conexión de bases de datos y otros problemas
 
@@ -50,7 +51,7 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 | ---:| ---:|:--- |
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
 | 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. |
-| 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>Para más información, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
+| 40501 |20 |El servicio está ocupado actualmente. Vuelva a intentar la solicitud después de 10 segundos. Identificador de incidente: %ls. Código: %d.<br/><br/>Para más información, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
 | 40613 |17 |La base de datos '%.&#x2a;ls' en el servidor '%.&#x2a;ls' no está disponible actualmente. Vuelva a intentar la conexión más tarde. Si el problema continúa, póngase en contacto con el servicio de soporte al cliente y proporcióneles el id. de seguimiento de sesión de '%.&#x2a;ls'. |
 | 49918 |16 |No se puede procesar la solicitud. No hay suficientes recursos para procesar la solicitud.<br/><br/>El servicio está ocupado actualmente. Vuelva a intentar realizar la solicitud más tarde. |
 | 49919 |16 |No se procesar, crear ni actualizar la solicitud. Hay demasiadas operaciones de creación o actualización en curso para la suscripción "%ld".<br/><br/>El servicio está ocupado procesando varias solicitudes de creación o actualización para su suscripción o servidor. Actualmente las solicitudes están bloqueadas para la optimización de recursos. Consulta [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para las operaciones pendientes. Espere a que se completen solicitudes de creación o actualización pendientes o elimine una de las solicitudes pendientes y vuelva a intentar la solicitud más tarde. |
@@ -86,12 +87,12 @@ La causa de los siguientes errores es un uso excesivo de recursos mientras se tr
 
 Temas relacionados:
 
-* Encontrará información más detallada aquí: [Límites de recursos de Azure SQL Database](sql-database-service-tiers.md).
+* Encontrará información más detallada aquí: [Límites de recursos de Azure SQL Database](sql-database-service-tiers-dtu.md).
 
 | Código de error | Severity | DESCRIPCIÓN |
 | ---:| ---:|:--- |
-| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
-| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers.md). |
+| 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |La base de datos ha alcanzado su cuota de tamaño. Cree particiones o elimine datos, quite índices o consulte la documentación para obtener soluciones posibles. |
 | 40549 |16 |La sesión terminó porque tiene una transacción de larga duración. Intente reducir la transacción. |
 | 40550 |16 |La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
@@ -111,7 +112,7 @@ Los errores siguientes están relacionados con la creación y el uso de grupos e
 | 40858 |EX_USER |El grupo elástico '%ls' ya existe en el servidor: '%ls' |Nombre de grupo elástico, nombre del servidor. |El grupo elástico especificado ya existe en el servidor lógico especificado. |Proporcione un nuevo nombre de grupo elástico. |
 | 40859 |EX_USER |El grupo elástico no admite el nivel de servicio '%ls'. |Nivel de servicio de grupo elástico. |El nivel de servicio especificado no se admite para el aprovisionamiento de grupo elástico. |Especifique la versión correcta o deje el nivel de servicio en blanco para usar el nivel de servicio predeterminado. |
 | 40860 |EX_USER |La combinación del grupo elástico '%ls' y del objetivo de servicio '%ls' no es válida. |Nombre del grupo flexible; nombre del objetivo de nivel de servicio. |El grupo elástico y el objetivo de servicio pueden especificarse juntos solo si se especifica el objetivo de servicio como "ElasticPool". |Especifique la combinación correcta de grupo elástico y objetivo de servicio. |
-| 40861 |EX_USER |La versión de la base de datos '%.*ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.*ls'. |Versión de la base de datos, nivel de servicio del grupo elástico. |La versión de la base de datos es distinta del nivel de servicio del grupo elástico. |No especifique una versión de la base de datos distinta del nivel de servicio del grupo elástico.  Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
+| 40861 |EX_USER |La versión de la base de datos '%.*ls' no puede ser distinta del nivel de servicio del grupo elástico, que es '%.* ls'. |Versión de la base de datos, nivel de servicio del grupo elástico. |La versión de la base de datos es distinta del nivel de servicio del grupo elástico. |No especifique una versión de la base de datos distinta del nivel de servicio del grupo elástico.  Tenga en cuenta que no es necesario especificar la versión de la base de datos. |
 | 40862 |EX_USER |Debe especificarse el nombre del grupo elástico si se especifica el objetivo de servicio del grupo elástico. |None |El objetivo del servicio de grupo elástico no identifica de manera única un grupo elástico. |Especifique el nombre del grupo elástico si usa el objetivo del servicio de grupo elástico. |
 | 40864 |EX_USER |El número de DTU del grupo elástico debe ser de al menos (%d) DTU para el nivel de servicio ' %.* ls'. |Número de DTU del grupo elástico; nivel de servicio del grupo elástico. |Se intentó establecer el número de DTU para el grupo elástico por debajo del límite mínimo. |Vuelva a intentar establecer el número de DTU para el grupo elástico al menos en el límite mínimo. |
 | 40865 |EX_USER |El número de DTU del grupo elástico no puede superar (%d) DTU para el nivel de servicio ' %.* ls'. |Número de DTU del grupo elástico; nivel de servicio del grupo elástico. |Se intentó establecer el número de DTU para el grupo elástico por encima del máximo. |Vuelva a intentar establecer el número de DTU para el grupo elástico en un valor inferior al límite máximo. |
@@ -173,11 +174,11 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 | 40607 |16 |Los inicios de sesión de Windows no se admiten en esta versión de SQL Server. |
 | 40611 |16 |Los servidores pueden tener como máximo 128 reglas de firewall definidas. |
 | 40614 |16 |La dirección IP de inicio de la regla de firewall no puede superar la dirección IP final. |
-| 40615 |16 |No se puede abrir el servidor '{0}' solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP '{1}' acceda al servidor.<br /><br />Para habilitar el acceso, use el Portal de SQL Database o ejecute sp\_set\_firewall\_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones. Puede tardar hasta cinco minutos que este cambio surta efecto. |
+| 40615 |16 |No se puede abrir el servidor "{0}" solicitado por el inicio de sesión. No está permitido que el cliente con la dirección IP "{1}" acceda al servidor.<br /><br />Para habilitar el acceso, use el Portal de SQL Database o ejecute sp\_set\_firewall\_rule en la base de datos maestra para crear una regla de firewall para esta dirección IP o intervalo de direcciones. Puede tardar hasta cinco minutos que este cambio surta efecto. |
 | 40617 |16 |El nombre de la regla de firewall que comienza por (nombre de la regla) es demasiado largo. La longitud máxima es 128. |
 | 40618 |16 |El nombre de la regla de firewall no puede estar vacío. |
 | 40620 |16 |Error de inicio de sesión del usuario "%.&#x2a;ls". Error de cambio de contraseña. El cambio de contraseña durante el inicio de sesión no se admite en esta versión de SQL Server. |
-| 40627 |20 |La operación en el servidor '{0}' y la base de datos '{1}' está en curso. Espere algunos minutos antes de volver a intentarlo. |
+| 40627 |20 |La operación del servidor "{0}" y la base de datos "{1}" está en curso. Espere algunos minutos antes de volver a intentarlo. |
 | 40630 |16 |Error de validación de contraseña. La contraseña no cumple los requisitos de directiva porque es demasiado corta. |
 | 40631 |16 |La contraseña especificada es demasiado larga. No debe tener más de 128 caracteres. |
 | 40632 |16 |Error de validación de contraseña. La contraseña no cumple los requisitos de directiva porque no es lo suficientemente compleja. |
@@ -205,5 +206,6 @@ Los siguientes errores no se incluyen en ninguna categoría anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Conozca más detalles sobre las [características de Azure SQL Database](sql-database-features.md).
-* Conozca más detalles sobre los [niveles de servicio](sql-database-service-tiers.md).
+* Conozca más detalles sobre el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md).
+* Conozca más detalles sobre el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2c06c2220d3a3ed0a27b4f0febb4de95b2137ddc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771405"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Administración de precios y volúmenes de datos de Application Insights
 
@@ -40,11 +41,8 @@ Para ver los precios vigentes actualmente en su moneda y región, consulte [Prec
 
 El plan Básico es el predeterminado cuando se crea un nuevo recurso de Application Insights. El plan Básico es óptimo para todos los clientes menos aquellos con una suscripción a Operations Management Suite.
 
-* En el plan Básico, se le cobra por volumen de datos. El volumen de datos es el número de bytes de telemetría que recibe Application Insights. 
-    
-    El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación.
-
-    Para [los datos tabulares importados en Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), el volumen de datos se mide como el tamaño descomprimido de los archivos enviados a Application Insights.
+* En el plan Básico, se le cobra por volumen de datos. El volumen de datos es el número de bytes de telemetría que recibe Application Insights. El volumen de datos se mide como el tamaño del paquete de datos JSON sin comprimir que recibe Application Insights de su aplicación. Para [los datos tabulares importados en Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), el volumen de datos se mide como el tamaño descomprimido de los archivos enviados a Application Insights.
+* Los cargos por volumen de datos de la aplicación se notifican a partir de abril de 2018 en un nuevo medidor de facturación denominado **Ingesta de datos**. Este nuevo medidor se comparte a través de tecnologías como Application Insights y Log Analytics, y su actual nombre de servicio es **App Services** (pronto cambiará a **Log Analytics**). 
 * Los datos de la [secuencia de métricas en directo](app-insights-live-stream.md) no cuentan para calcular los precios.
 * La [exportación continua](app-insights-export-telemetry.md) y el [conector de Log Analytics](https://go.microsoft.com/fwlink/?LinkId=833039&amp;clcid=0x409) se encuentran disponibles sin ningún cargo adicional en el plan Básico desde abril de 2018.
 

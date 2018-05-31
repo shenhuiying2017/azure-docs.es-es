@@ -14,18 +14,19 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778297"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Infraestructura y conectividad con SAP HANA en Azure (instancias grandes) 
 
 Algunas definiciones iniciales antes de leer esta guía. En [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se presentan dos clases distintas de unidades de HANA (Instancias grandes) con:
 
 - S72, S72m, S144, S144m, S192 y S192m, a las que se hace referencia como "clase de tipo I" de SKU.
-- S384, S384m, S384xm, S576, S768 y S960, a los que se hace referencia como "clase de tipo II" de SKU.
+- S384, S384m, S384xm, S576m, S768m y S960m, a los que se hace referencia como "clase de tipo II" de SKU.
 
 Los especificadores de clase se van a usar en toda la documentación sobre HANA (Instancias grandes) para hacer referencia a diferentes capacidades y requisitos en función de las SKU de HANA (Instancias grandes).
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 En este ejemplo, se usó la SKU de puerta de enlace HighPerformance. Puede elegir HighPerformance o UltraPerformance, las únicas SKU de puerta de enlace que son compatibles con SAP HANA en Azure (Instancias grandes).
 
 > [!IMPORTANT]
-> Para HANA (Instancias grandes) de los tipos de SKU S384, S384m, S384xm, S576, S768 y S960 (SKU de clase de tipo II), el uso de la SKU de puerta de enlace UltraPerformance es obligatorio.
+> Para HANA (Instancias grandes) de los tipos de SKU S384, S384m, S384xm, S576m, S768m y S960m (SKU de clase de tipo II), el uso de la SKU de puerta de enlace UltraPerformance es obligatorio.
 
 ### <a name="linking-vnets"></a>Vinculación de redes virtuales
 

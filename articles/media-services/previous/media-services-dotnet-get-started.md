@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780235"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -154,7 +155,7 @@ En Media Services, cargará (o especificará) los archivos digitales en un recur
 
 El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
 
-El método **CreateFromFile** toma **AssetCreationOptions, que permite especificar una de las siguientes opciones de creación de recursos:
+El método **CreateFromFile** toma \*\*AssetCreationOptions, que permite especificar una de las siguientes opciones de creación de recursos:
 
 * **Ninguno** : no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al usar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
   Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
