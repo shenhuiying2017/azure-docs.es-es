@@ -1,11 +1,11 @@
 ---
 title: Procedimientos recomendados de seguridad de la red de Azure | Microsoft Docs
-description: "Obtenga información sobre las características clave disponibles en Azure para crear entornos de red seguros"
+description: Obtenga información sobre las características clave disponibles en Azure para crear entornos de red seguros
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf015f4857a22b755813d0be1af5a55a8b7b6535
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360479"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Servicios en la nube de Microsoft y seguridad de red
 Servicios en la nube de Microsoft ofrece servicios e infraestructura a gran escala, funcionalidades de calidad empresarial y numerosas opciones de conectividad híbrida. Los clientes pueden elegir tener acceso a estos servicios a través de Internet o con Azure ExpressRoute, que proporciona conectividad de red privada. La plataforma Microsoft Azure permite a los clientes ampliar su infraestructura en la nube sin problemas y crear arquitecturas de varios niveles. Además, otros fabricantes pueden habilitar funcionalidades mejoradas mediante servicios de seguridad y dispositivos virtuales. En este documento se proporciona una visión general de los problemas de seguridad y de arquitectura que los clientes deben tener en cuenta al usar Servicios en la nube de Microsoft con acceso a través de ExpressRoute. También se describe la creación de servicios más seguros en redes virtuales de Azure.
@@ -30,8 +31,8 @@ El gráfico de lógica siguiente puede dirigirle a un ejemplo específico de las
 [Ejemplo 1: Creación de una red perimetral (también conocida como subred filtrada) para proteger las aplicaciones con grupos de seguridad de red (NSG).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
 [Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y grupos de seguridad de red.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
 [Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario (UDR) y grupo de seguridad de red (NSG).](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
-[Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual (VPN) de dispositivo virtual de sitio a sitio.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
-[Ejemplo 5: Incorporación de una conexión híbrida con una instancia de Azure VPN Gateway de sitio a sitio.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
+[Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual (VPN) de aplicación virtual de sitio a sitio.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
+[Ejemplo 5: Incorporación de una conexión híbrida con una puerta de enlace de Azure VPN de sitio a sitio.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
 [Ejemplo 6: Incorporación de una conexión híbrida con ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
 Durante los próximos meses se agregarán a este documento ejemplos para incorporar conexiones entre redes virtuales, alta disponibilidad y encadenamiento de servicios.
 
@@ -92,7 +93,7 @@ Una vez que el tráfico llega a la red virtual, entran en juego muchas caracter�
 * **Conectividad entre instalaciones locales**: los clientes pueden establecer conectividad entre instalaciones locales entre una red virtual y varios sitios locales u otras redes virtuales en Azure. Para crear una conexión, los clientes pueden usar el emparejamiento de red virtual, instancias de Azure VPN Gateway, dispositivos virtuales de red de terceros o ExpressRoute. Azure es compatible con VPN de sitio a sitio (S2S) mediante los protocolos estándar IPsec/IKE y conectividad privada de ExpressRoute.
 * **NSG** permite a los clientes crear reglas (ACL) con el nivel de granularidad deseado: interfaces de red, máquinas virtuales individuales o subredes virtuales. Los clientes pueden controlar el acceso al permitir o denegar la comunicación entre las cargas de trabajo dentro de una red virtual, desde sistemas de redes del cliente a través de conectividad entre locales o comunicación de Internet directa.
 * **UDR** y **Reenvío IP** permiten a los clientes definir las rutas de comunicación entre distintos niveles dentro de una red virtual. Los clientes pueden implementar un firewall, IDS/IPS y otros dispositivos virtuales y enrutar el tráfico de red a través de estos dispositivos de seguridad para la aplicación de directivas de límites de seguridad, auditoría e inspección.
-* **Dispositivos virtuales de red** en Azure Marketplace: hay dispositivos de seguridad, como firewalls, equilibradores de carga e IDS/IPS disponibles en Azure Marketplace y la Galería de imágenes de máquina virtual. Los clientes pueden implementar estos dispositivos en sus redes virtuales y, en concreto, en los límites de seguridad (incluidas las subredes de la red perimetral) para completar un entorno de red segura en múltiples niveles.
+* **Aplicaciones virtuales de red** en Azure Marketplace: hay aplicaciones de seguridad, como firewalls, equilibradores de carga e IDS/IPS disponibles en Azure Marketplace y la Galería de imágenes de VM. Los clientes pueden implementar estos dispositivos en sus redes virtuales y, en concreto, en los límites de seguridad (incluidas las subredes de la red perimetral) para completar un entorno de red segura en múltiples niveles.
 
 En el siguiente diagrama se muestra un ejemplo de cómo se puede construir una arquitectura de red perimetral en Azure con estas características y funcionalidades:
 
@@ -513,13 +514,13 @@ La incorporación de una conexión de red de configuración entre pares privados
 ## <a name="references"></a>Referencias
 ### <a name="helpful-websites-and-documentation"></a>Documentación y sitios web útiles
 * Acceder a Azure con Azure Resource Manager:
-* Acceder a Azure con PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
-* Documentación de redes virtuales: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
-* Documentación del grupo de seguridad de red: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/virtual-networks-nsg.md)
-* Documentación del enrutamiento definido por el usuario: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
+* Acceso a Azure con PowerShell: [https://docs.microsoft.com/powershell/azureps-cmdlets-docs/](/powershell/azure/overview)
+* Documentación sobre redes virtuales: [https://docs.microsoft.com/azure/virtual-network/](https://docs.microsoft.com/azure/virtual-network/)
+* Documentación sobre grupos de seguridad de red: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg](virtual-network/security-overview.md)
+* Documentación sobre enrutamiento definido por el usuario: [https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview](virtual-network/virtual-networks-udr-overview.md)
 * Puertas de enlace virtuales de Azure: [https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway/)
-* Redes VPN de sitio a sitio: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-* Documentación de ExpressRoute (asegúrese de consultar las secciones "Introducción" y "Procedimientos"): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
+* VPNs de sitio a sitio: [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell](vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* Documentación sobre ExpressRoute (recomendamos que consulte las secciones de "Introducción" y "Procedimientos"): [https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
 [0]: ./media/best-practices-network-security/flowchart.png "Diagrama de flujo de opciones de seguridad"

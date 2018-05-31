@@ -1,9 +1,9 @@
 ---
 title: 'Funciones del lenguaje de definición de flujo de trabajo: Azure Logic Apps | Microsoft Docs'
-description: Obtenga información acerca de las funciones que puede utilizar en las definiciones de flujo de trabajo de una aplicación lógica
+description: Obtenga información sobre las funciones para crear aplicaciones lógicas con el lenguaje de definición de flujo de trabajo
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182255"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886619"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Referencia de las funciones del lenguaje de definición de flujo de trabajo para Azure Logic Apps
 
-Este artículo describe las funciones que puede usar al crear flujos de trabajo con [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para más información acerca de las definiciones de una aplicación lógica, consulte [Lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+Este artículo describe las funciones que puede usar al crear flujos de trabajo con [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Para obtener más información sobre las funciones en las definiciones de una aplicación lógica, consulte [Lenguaje de definición de flujo de trabajo para Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > En la sintaxis de las definiciones de parámetros, el signo de interrogación (?) que aparece después de un parámetro significa que el parámetro es opcional. Por ejemplo, consulte [getFutureTime()](#getFutureTime).
@@ -758,7 +758,7 @@ Y devuelve estos resultados:
 
 ## <a name="coalesce"></a>coalesce
 
-Devuelve el primer valor distinto de NULL de uno o más parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
+Devuelve el primer valor distinto de null de uno o más parámetros. Las cadenas vacías, las matrices vacías y los objetos vacíos no son nulos.
 
 ```
 coalesce(<object_1>, <object_2>, ...)

@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886070"
 ---
 # <a name="smart-contract-integration-patterns"></a>Patrones de integración de contratos inteligentes
 
@@ -213,7 +214,7 @@ La integración de datos es bien conocida:
 
 ## <a name="storage-integration"></a>Integración del almacenamiento
 
-Muchos escenarios pueden requerir la necesidad de incorporar archivos verificables. Por varios motivos, no resulta apropiado poner los archivos en una cadena de bloques. En vez de eso, el método habitual es realizar un hash unidireccional en un archivo y compartir ese hash en un libro de contabilidad distribuida. Si se realiza el hash de nuevo en el futuro, este debería devolver el mismo resultado. Si se modifica el archivo, incluso aunque solo se modifique un píxel de una imagen, el hash devolverá un valor diferente.
+Muchos escenarios pueden requerir la necesidad de incorporar archivos verificables. Por varios motivos, no resulta apropiado poner los archivos en una cadena de bloques. En vez de eso, un enfoque habitual es realizar un hash criptográfico (por ejemplo, SHA-256) en un archivo y compartir ese hash en un libro de contabilidad distribuida. Si se realiza el hash de nuevo en el futuro, este debería devolver el mismo resultado. Si se modifica el archivo, incluso aunque solo se modifique un píxel de una imagen, el hash devolverá un valor diferente.
 
 ![Integración del almacenamiento](media/blockchain-workbench-integration-patterns/storage-integration.png)
 

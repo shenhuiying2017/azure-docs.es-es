@@ -1,9 +1,9 @@
 ---
-title: "Solución de problemas de análisis de uso en Azure Application Insights"
-description: "Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights"
+title: Solución de problemas de análisis de uso en Azure Application Insights
+description: 'Guía de solución de problemas: análisis de uso del sitio y las aplicaciones con Application Insights'
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: mbullwin;daviste
+ms.openlocfilehash: 654b99085c406f13fe95476457234761bf840422
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867575"
 ---
 # <a name="troubleshoot-usage-analytics-in-application-insights"></a>Solución de problemas de análisis de uso en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de uso en Application Insights](app-insights-usage-overview.md): [usuarios, sesiones, eventos](app-insights-usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuarios](app-insights-usage-flows.md), [retención](app-insights-usage-retention.md) o cohortes? Estas son algunas respuestas.

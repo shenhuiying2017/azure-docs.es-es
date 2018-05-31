@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426209"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restauración de una copia de seguridad de datos a una instancia administrada de Azure SQL Database
 
@@ -56,7 +57,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLM
    |**Tipo de cuenta**|Almacenamiento de blobs||
    |**Rendimiento**|Estándar o premium|Unidades magnéticas o SSD|
    |**Replicación**|Almacenamiento con redundancia local||
-   |**Nivel de acceso (predeterminado)|Estático o Dinámico||
+   |\*\*Nivel de acceso (predeterminado)|Estático o Dinámico||
    |**Se requiere transferencia segura**|Disabled||
    |**Suscripción**|Su suscripción|Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions).|
    |**Grupos de recursos**|El grupo de recursos que ha creado anteriormente|| 

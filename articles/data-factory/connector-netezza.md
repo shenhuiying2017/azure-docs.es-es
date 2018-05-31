@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 0896f2b23f9b74e12935c0a8b073b64dc743e6a8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940144"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copia de datos de Netezza con Azure Data Factory (beta)
 
@@ -50,6 +51,13 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Netezza:
 | Tipo | La propiedad type debe establecerse en: **Netezza** | Sí |
 | connectionString | Cadena de conexión de ODBC para conectarse a Netezza. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
+
+Una cadena de conexión típica es `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Más propiedades que puede establecer para su caso:
+
+| Propiedad | DESCRIPCIÓN | Obligatorio |
+|:--- |:--- |:--- |:--- |
+| SecurityLevel | El nivel de seguridad (SSL/TLS) que usa el controlador para la conexión con el almacén de datos. Por ejemplo, `SecurityLevel=preferredSecured`. Los valores admitidos son:<br/>- Only Unsecured (**onlyUnSecured**): el controlador no usa SSL.<br/>- **Preferred Unsecured (preferredUnSecured) (valor predeterminado)**: si el servidor proporciona una elección, el controlador no usa SSL. <br/>- **Preferred Secured (preferredSecured)**: si el servidor proporciona una elección, el controlador usa SSL. <br/>- **Only Secured (onlySecured)**: el controlador no se conectará a menos que haya una conexión SSL disponible | Sin  |
+| CaCertFile | La ruta de acceso completa al certificado SSL que usa el servidor. Por ejemplo, `UseSystemTrustStore=<cert path>;`| Sí, si se ha habilitado SSL |
 
 **Ejemplo:**
 

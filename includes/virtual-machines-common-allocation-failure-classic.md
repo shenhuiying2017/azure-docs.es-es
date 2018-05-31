@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531062"
 ---
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
@@ -79,7 +80,7 @@ Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM or
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Implementaciones de ensayo o producción (solo plataforma como servicio).
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported\*
 
 **Causa de anclaje del clúster**
 
@@ -92,7 +93,7 @@ Elimine la primera implementación y el servicio en la nube original y vuelva im
 ## <a name="affinity-group-vmservice-proximity"></a>Grupo de afinidad (proximidad de la VM o el servicio).
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported\*
 
 **Causa de anclaje del clúster**
 
@@ -105,7 +106,7 @@ Si no es necesario un grupo de afinidad, no lo use, o bien intente agrupar los r
 ## <a name="affinity-group-based-virtual-network"></a>Red virtual basada en un grupo de afinidad
 **Error**
 
-New_General* o New_VMSizeNotSupported*
+New_General* o New_VMSizeNotSupported\*
 
 **Causa de anclaje del clúster**
 
