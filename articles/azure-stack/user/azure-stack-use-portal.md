@@ -5,26 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 5aa00123-5b87-45e0-a671-4165e66bfbc6
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 279722cc53889cb0a261fcffde0c7e0f86be6dc5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.reviewer: efemmano
+ms.openlocfilehash: 2ebafc4249f8455bdbe45a07a5bf88aa8984d67a
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358972"
 ---
 # <a name="using-the-azure-stack-portal"></a>Uso del portal de Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Como consumidor de servicios de Azure Stack, puede usar el portal de Azure Stack para suscribirse a ofertas públicas y utilizar los servicios que proporcionan dichas ofertas. Si ha utilizado Azure Portal antes, ya está familiarizado con la interfaz de usuario.
+Puede usar el portal de Azure Stack para suscribirse a ofertas públicas y utilizar los servicios que proporcionan dichas ofertas. Si ha utilizado la versión general de Azure Portal, ya está familiarizado con la manera en que funciona el sitio.
 
 ## <a name="access-the-portal"></a>Acceso al portal
 
@@ -60,13 +60,13 @@ Si necesita instrucciones sobre cómo usar los servicios disponibles, puede habe
     En concreto, se recomienda que revise los artículos siguientes para empezar a trabajar:
 
     - [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md) (Consideraciones clave: uso de servicios o compilación de aplicaciones para Azure Stack)
-    - En la sección de la documentación sobre el uso de servicios, hay un artículo de consideraciones para cada servicio. En la página de consideraciones se describen las diferencias entre el servicio que se ofrece en Azure y el mismo servicio pero ofrecido en Azure Stack. Para un ejemplo, vea [VM considerations](azure-stack-vm-considerations.md) (Consideraciones para VM). Puede haber otra información en la sección “Uso de servicios” que sea única para Azure Stack.
+    - En la sección **Uso de servicios** de la documentación, hay un artículo de consideraciones para cada servicio. En la página de consideraciones se describen las diferencias entre el servicio que se ofrece en Azure y el mismo servicio pero ofrecido en Azure Stack. Para un ejemplo, vea [VM considerations](azure-stack-vm-considerations.md) (Consideraciones para VM). Puede haber otra información en la sección **Uso de servicios** que sea única para Azure Stack.
      
       Puede usar la documentación de Azure como referencia general para un servicio, pero debe tener en cuenta estas diferencias. Sepa que los vínculos de la documentación del icono **Tutoriales de inicio rápido** apuntan a la documentación de Azure.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Si necesita ayuda adicional, póngase en contacto con su organización o proveedor de servicios.
+Si necesita ayuda, póngase en contacto con su organización o proveedor de servicios.
 
 Si usa el Kit de desarrollo de Azure Stack, el [foro de Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack) es el único origen de soporte técnico.
 

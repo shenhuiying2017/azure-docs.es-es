@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
 ms.author: yurid
-ms.openlocfilehash: d0092f57c162cc8727cfed33218e440d4da11f1c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aec29ac1ccf9386615e7603898f071fe9cda44cf
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364342"
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integración de las directivas de seguridad de Security Center con Azure Policy
 Este artículo le ayuda a configurar las directivas de seguridad de Azure Security Center, que se basan en Azure Policy.
@@ -76,7 +77,7 @@ Para comprender las definiciones de directiva que están disponibles en la direc
 | Configuraciones de seguridad |Analiza las configuraciones del sistema operativo diariamente para determinar los problemas que podrían hacer que la máquina virtual sea vulnerable a ataques. La directiva también recomienda cambios en la configuración para afrontar estas vulnerabilidades. Consulte la [lista de líneas de base recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para más información sobre las configuraciones específicas que se están supervisando. (En este momento, Windows Server 2016 no es totalmente compatible). |
 | Endpoint Protection |Recomienda configurar Endpoint Protection para todas las máquinas virtuales (VM) Windows para facilitar la identificación y eliminación de virus, spyware y otro software malintencionado. |
 | Cifrado de discos |Se recomienda habilitar el cifrado de disco en todas las máquinas virtuales para mejorar la protección de datos en reposo. |
-| Grupos de seguridad de red |Recomienda configurar los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) para controlar el tráfico entrante y saliente de máquinas virtuales que tienen puntos de conexión públicos. Todas las interfaces de red de máquina virtual heredan los grupos de seguridad de red configurados para una subred, a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta directiva evalúa las reglas de seguridad de entrada para identificar aquellas que permiten el tráfico entrante. |
+| Grupos de seguridad de red |Recomienda configurar los [grupos de seguridad de red](../virtual-network/security-overview.md) para controlar el tráfico entrante y saliente de máquinas virtuales que tienen puntos de conexión públicos. Todas las interfaces de red de máquina virtual heredan los grupos de seguridad de red configurados para una subred, a menos que se especifique lo contrario. Además de comprobar que se ha configurado un grupo de seguridad de red, esta directiva evalúa las reglas de seguridad de entrada para identificar aquellas que permiten el tráfico entrante. |
 | Firewall de aplicaciones web |Recomienda configurar un firewall de aplicaciones web en máquinas virtuales cuando se cumple una de las siguientes condiciones: <ul><li>Se usa una [dirección IP pública a nivel de instancia](../virtual-network/virtual-networks-instance-level-public-ip.md) y las reglas de seguridad de entrada del grupo de seguridad de red asociado se configuran para permitir el acceso al puerto 80/443.</li><li>Se usa una dirección IP de carga equilibrada y el equilibrio de carga asociado y las reglas de traducción de direcciones de red (NAT) entrantes están configuradas para permitir el acceso al puerto 80 o 443. Para más información, consulte [Compatibilidad de Azure Resource Manager con el equilibrador de carga](../load-balancer/load-balancer-arm.md).</li> |
 | Firewall de próxima generación |Amplía las medidas de protección de la red más allá de los grupos de seguridad de red, que están integrados en Azure. Security Center detecta las implementaciones para las que se recomienda un firewall de próxima generación, y a continuación puede configurar una aplicación virtual. |
 | Auditoría y detección de amenazas de SQL |Recomienda que se habilite la auditoría del acceso a Azure Database, con fines de cumplimiento, así como la detección avanzada de amenazas, con fines de investigación. |
