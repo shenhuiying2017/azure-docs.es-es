@@ -1,32 +1,33 @@
 ---
-title: "Directivas de retención de informes de Azure Active Directory | Microsoft Docs"
-description: "Directivas de retención de datos de informes en Azure Active Directory"
+title: Directivas de retención de informes de Azure Active Directory | Microsoft Docs
+description: Directivas de retención de datos de informes en Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/15/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 61d3e8fbe26ab24ba0b551e52be0769228f09a11
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 9101b3877f8a011878baeed0d5c23d29fddaeaad
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34055178"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Directivas de retención de informes de Azure Active Directory
 
 
 Este tema proporciona respuestas a las preguntas más frecuentes en relación a la retención de datos de los distintos informes de actividad de Azure Active Directory. 
 
-**P: ¿Cómo puede empezar la recopilación de datos de actividad?**
+### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>P: ¿Cómo puede empezar la recopilación de datos de actividad?
 
 **R:**
 
@@ -36,7 +37,7 @@ Este tema proporciona respuestas a las preguntas más frecuentes en relación a 
 | Azure AD Free | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 ---
-**P: ¿Cuándo estarán disponibles los datos de actividad en Azure Portal?**
+### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>P: ¿Cuándo estarán disponibles los datos de actividad en Azure Portal?
 
 **R:**
 
@@ -44,13 +45,15 @@ Este tema proporciona respuestas a las preguntas más frecuentes en relación a 
 - **Dentro de 2 horas**: si no ha activado la generación de informes en Azure Portal.
 
 ---
-**P: ¿Cómo puede empezar la recopilación de señales de seguridad?**  
+
+### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>P: ¿Cómo puede empezar la recopilación de señales de seguridad?  
 
 **R:** En el caso de las señales de seguridad, el proceso de recopilación se inicia cuando decide usar Identity Protection Center. 
 
 
 ---
-**P: ¿Durante cuánto tiempo se almacenan los datos recopilados?**
+
+### <a name="q-for-how-long-is-the-collected-data-stored"></a>P: ¿Durante cuánto tiempo se almacenan los datos recopilados?
 
 **R:**
 

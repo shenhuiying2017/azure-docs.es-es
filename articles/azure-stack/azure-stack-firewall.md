@@ -1,25 +1,26 @@
 ---
 title: Planeamiento del firewall de Azure Stack para sistemas integrados de Azure Stack | Microsoft Docs
-description: "Describe las consideraciones del firewall de Azure Stack para implementaciones de varios nodos con conexión a Azure en Azure Stack."
+description: Describe las consideraciones del firewall de Azure Stack para implementaciones de varios nodos con conexión a Azure en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 05/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 919618c0779d47f0add02d5e7d3ab9ab4b5bdd10
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936203"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integración del firewall de Azure Stack
 Se recomienda que use un dispositivo de firewall para ayudar a proteger Azure Stack. Aunque los firewalls pueden ayudar en el caso de ataques por denegación de servicio distribuido (DDOS), detección de intrusiones e inspección de contenidos, también pueden convertirse en un cuello de botella de rendimiento para servicios de almacenamiento de Azure como blobs, tablas y colas.
@@ -44,7 +45,7 @@ Algunas de las desventajas del uso de NAT para una VIP pública son:
 Actualmente, se recomienda deshabilitar el descifrado SSL en todo el tráfico de Azure Stack. En caso de que se admita en actualizaciones futuras, se proporcionarán instrucciones acerca de cómo habilitarlo en Azure Stack.
 
 ## <a name="edge-firewall-scenario"></a>Escenario de firewall perimetral
-En una implementación perimetral, Azure Stack se implementa directamente detrás del firewall o el enrutador perimetral. En estos casos, se admite que el firewall se encuentre por encima del borde o que actúe como dispositivo de borde, si admite varias rutas de acceso de igual costo (ECMP) con enrutamiento estático o BGP.
+En una implementación perimetral, Azure Stack se implementa directamente detrás del firewall o el enrutador perimetral. En estos casos, se admite que el firewall se encuentre por encima del borde (Escenario 1) donde se admiten configuraciones de firewall activa/activa y activa/pasiva, o que actúe como dispositivo de borde (Escenario 2) donde solo se admite la configuración de firewall activa/activa basada en varias rutas de acceso de igual costo (ECMP) con enrutamiento estático o BGP para la conmutación por error.
 
 Por lo general, las direcciones IP enrutables públicas se especifican para el grupo de VIP públicas de la red externa en el momento de la implementación. En un escenario perimetral, no se recomienda utilizar direcciones IP enrutables públicas en ninguna otra red por motivos de seguridad. Este escenario permite que un usuario disfrute de la experiencia completa en la nube autocontrolada como si se tratara de una nube pública como Azure.  
 

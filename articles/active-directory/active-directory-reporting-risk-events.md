@@ -1,6 +1,6 @@
 ---
 title: Eventos de riesgo de Azure Active Directory | Microsoft Docs
-description: "En este tema se explica detalladamente qué son los eventos de riesgo."
+description: En artículo se explica detalladamente qué son los eventos de riesgo.
 services: active-directory
 keywords: azure active directory identity protection, seguridad, riesgo, nivel de riesgo, vulnerabilidad, directiva de seguridad
 author: MarkusVi
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 05/14/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195325"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de riesgo de Azure Active Directory
 
@@ -39,12 +40,13 @@ En la actualidad, Azure Active Directory detecta seis tipos de eventos de riesgo
 La perspectiva que se obtiene de un evento de riesgo detectado está asociada a su suscripción de Azure AD. Con la edición de Azure AD Premium P2, obtiene la información más detallada acerca de todas las detecciones subyacentes. Con la edición de Azure AD Premium P1, las detecciones que no están cubiertas por su licencia aparecen como el evento de riesgo **Inicio de sesión con riesgo adicional detectado**.
 
 
-En este tema se ofrece información general detallada de los eventos de riesgo y cómo puede usarlos para proteger las identidades de Azure AD.
+En este artículo se ofrece información general detallada de los eventos de riesgo y cómo puede usarlos para proteger las identidades de Azure AD.
 
 
 ## <a name="risk-event-types"></a>Tipo de evento de riesgo
 
-La propiedad de tipo de evento de riesgo es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgo.  
+La propiedad de tipo de evento de riesgo es un identificador de la acción sospechosa para la que se ha creado un registro de evento de riesgo.
+
 Las continuas inversiones de Microsoft en procesos de detección conducirán a:
 
 - Mejoras en la precisión de la detección de los eventos de riesgo ya existentes 
@@ -76,6 +78,8 @@ Este algoritmo omite "falsos positivos" obvios que contribuyen a una condición 
 
 Este tipo de evento de riesgo tiene en cuenta las ubicaciones de inicio de sesión anteriores (dirección IP, latitud/longitud y ASN) para determinar las ubicaciones nuevas o desconocidas. El sistema almacena información acerca de las ubicaciones anteriores utilizadas por un usuario y considera estas ubicaciones "conocidas". El evento de riesgo se desencadena cuando el inicio de sesión se produce desde una ubicación que no está en la lista de ubicaciones conocidas. El sistema tiene un período de aprendizaje inicial de 30 días, durante el cual no marca ninguna nueva ubicación como ubicación desconocida. El sistema también ignora los inicios de sesión desde dispositivos conocidos y ubicaciones geográficamente cercanas a una ubicación conocida. 
 
+Identity Protection detecta inicios de sesión desde ubicaciones desconocidas también para protocolos heredados/de autenticación básica. Dado que estos protocolos no tienen las modernas características conocidas, como el identificador del cliente, no hay suficiente telemetría para reducir los falsos positivos. Para reducir el número de eventos de riesgo detectados, debe pasarse a la autenticación moderna.   
+
 ### <a name="sign-ins-from-infected-devices"></a>Inicios de sesión desde dispositivos infectados
 
 Este tipo de evento de riesgo identifica los inicios de sesión desde dispositivos infectados con malware, que se sabe que se comunican activamente con un servidor bot. Esto se determina mediante la correlación de direcciones IP de dispositivos de usuarios con direcciones IP que estuvieron en contacto con un servidor bot. 
@@ -86,8 +90,7 @@ Este tipo de evento de riesgo identifica las direcciones IP desde las que se ha 
 
 ## <a name="detection-type"></a>Tipo de detección
 
-La propiedad de tipo de detección es un indicador (en tiempo real o sin conexión) del período de tiempo de detección de un evento de riesgo.  
-Actualmente, la mayoría de los eventos de riesgo se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido el evento de riesgo.
+La propiedad de tipo de detección es un indicador (en tiempo real o sin conexión) del período de tiempo de detección de un evento de riesgo. Actualmente, la mayoría de los eventos de riesgo se detectan sin conexión en una operación posterior de procesamiento una vez que ya se ha producido el evento de riesgo.
 
 En la tabla siguiente se muestra la cantidad de tiempo que tarda un tipo de detección en aparecer en un informe relacionado:
 
@@ -113,8 +116,7 @@ Para los tipos de evento de riesgo que detecta Azure Active Directory, los tipos
 
 La propiedad de nivel de riesgo de un evento de riesgo es un indicador (alto, medio o bajo) de la gravedad y la confianza de un evento de riesgo. Esta propiedad le ayuda a clasificar por orden de prioridad las acciones que debe realizar. 
 
-La gravedad del evento de riesgo representa la fuerza de la señal como predicción del riesgo de la identidad.  
-La confianza es indicador de la posibilidad de que existan falsos positivos. 
+La gravedad del evento de riesgo representa la fuerza de la señal como predicción del riesgo de la identidad. La confianza es indicador de la posibilidad de que existan falsos positivos. 
 
 Por ejemplo, 
 
@@ -132,8 +134,7 @@ Los eventos de riesgo de credenciales con fugas se clasifican con gravedad **Alt
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inicios de sesión desde direcciones IP anónimas
 
-El nivel de riesgo de este tipo de evento es **Medio** porque una dirección IP anónima no es una indicación clara de una cuenta en riesgo.  
-Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar si utilizaba direcciones IP anónimas.
+El nivel de riesgo de este tipo de evento es **Medio** porque una dirección IP anónima no es una indicación clara de una cuenta en riesgo. Se recomienda ponerse en contacto inmediatamente con el usuario para comprobar si utilizaba direcciones IP anónimas.
 
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Viaje imposible a ubicaciones inusuales

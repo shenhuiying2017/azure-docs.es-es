@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: dfa3e1996ecbd3d78fef9f85facb7da1c209fafa
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7754242aa79a2ba7931a6d80a7a12a0858c6f260
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776403"
 ---
 # <a name="api-versions-in-azure-search"></a>Versiones de API en Azure Search
 Azure Search implementa las actualizaciones de características de forma regular. A veces, aunque no siempre, estas actualizaciones nos obligan a publicar una nueva versión de la API para mantener la compatibilidad con versiones anteriores. La publicación de una nueva versión le permite controlar cuándo y cómo integrar en su código las actualizaciones del servicio de búsqueda.
@@ -30,16 +31,17 @@ A continuación se incluye una instantánea de las versiones actuales de todas l
 
 | Interfaces | Versión principal más reciente | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |3.0 |Disponibilidad general, lanzado en noviembre de 2016 |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Disponibilidad general, lanzada en abril de 2018 |
 | [Versión preliminar del SDK de .NET](https://aka.ms/search-sdk-preview) |4.0.1-preview |Versión preliminar, publicada en mayo de 2017 |
 | [API de REST de servicio](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Disponibilidad general |
-| [Versión preliminar de la API de REST de servicio](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Vista previa |
+| [API REST de servicio 2016-09-01-Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Vista previa |
+| [API REST de servicio 2017-11-11-Preview](search-api-2017-11-11-preview.md) |2017-11-11-Preview |Vista previa |
 | [SDK de administración de .NET](https://aka.ms/search-mgmt-sdk) |2.0 |Disponibilidad general |
 | [API de REST de administración](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Disponibilidad general |
 
 Para las API de REST, es necesario incluir `api-version` en cada llamada. Esto permite establecer fácilmente una versión específica de destino, como una versión preliminar de API. En el ejemplo siguiente se muestra cómo se especifica el parámetro `api-version` :
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
 > Aunque cada solicitud tiene una `api-version`, se recomienda usar la misma versión para todas las solicitudes de API. Esto ocurre especialmente cuando las nuevas versiones de API incorporan atributos u operaciones que las versiones anteriores no reconocen. Debe evitarse la mezcla de versiones de API, ya que puede tener consecuencias no deseadas.

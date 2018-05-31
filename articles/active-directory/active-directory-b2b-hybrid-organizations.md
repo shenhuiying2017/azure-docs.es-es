@@ -2,22 +2,20 @@
 title: 'Colaboración B2B para organizaciones híbridas: Azure Active Directory | Microsoft Docs'
 description: Proporcione a los asociados acceso tanto a los recursos locales como en la nube con la colaboración B2B de Azure AD.
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/26/2018
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-ms.service: active-directory
-ms.topic: article
-ms.workload: identity
-ms.date: 04/20/2018
-ms.author: twooley
 ms.reviewer: sasubram
-ms.openlocfilehash: 0ccf3eb381f42849b48f3d149942be13380b3670
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 943ccadbc87cd8d2345078405e2a27930634668e
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928103"
 ---
 # <a name="azure-active-directory-b2b-collaboration-for-hybrid-organizations"></a>Colaboración B2B de Azure Active Directory para organizaciones híbridas
 
@@ -31,8 +29,8 @@ Para aquellas aplicaciones que usan la autenticación basada en SAML, puede hace
 
 Para aquellas aplicaciones que usan la autenticación integrada de Windows (IWA) con la delegación restringida de Kerberos (KCD), también puede usar Azure AD Application Proxy para la autenticación. No obstante, para que la autorización funcione, se requiere que un objeto de usuario esté en la instancia local de Windows Server Active Directory. Hay dos métodos que puede usar para crear objetos de usuario locales que representen a los usuarios B2B invitados.
 
-- Puede usar Microsoft Identity Manager (MIM) 2016 SP1 y el agente de administración de MIM para Microsoft Graph. (Esto requiere una suscripción de Azure AD Premium 1).
-- Puede usar un script de PowerShell. (Esta solución no necesita MIM ni AD Premium).
+- Puede usar Microsoft Identity Manager (MIM) 2016 SP1 y el agente de administración de MIM para Microsoft Graph.
+- Puede usar un script de PowerShell. (Esta solución no necesita MIM).
 
 Para más información sobre cómo implementar estas soluciones, consulte [Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales](active-directory-b2b-hybrid-cloud-to-on-premises.md).
 
@@ -40,7 +38,7 @@ Para más información sobre cómo implementar estas soluciones, consulte [Conce
 
 Antes de Azure AD, las organizaciones con sistemas de identidad locales administraban tradicionalmente las cuentas de asociado en sus directorios locales. Si es una organización de este tipo, querrá asegurarse de que los socios seguirán teniendo acceso cuando mueva las aplicaciones y demás recursos a la nube. Idealmente, querrá que estos usuarios utilicen el mismo conjunto de credenciales para acceder a los recursos locales y en la nube. 
 
-Ahora se ofrecen métodos en los que puede usar Azure AD Connect para sincronizar estas cuentas locales en la nube como "usuarios invitados", en los que las cuentas se comportan de igual manera que los usuarios B2B de Azure AD. Esta solución funciona incluso si tiene un sistema de identidad local que le permite a los asociados usar sus propias direcciones de correo electrónico externas como nombre de inicio de sesión.
+Ahora se ofrecen métodos en los que puede usar Azure AD Connect para sincronizar estas cuentas locales en la nube como "usuarios invitados", en los que las cuentas se comportan de igual manera que los usuarios B2B de Azure AD.
 
 Para ayudar a proteger los datos de su empresa, puede controlar el acceso solo a los recursos adecuados y configurar directivas de autorización que traten a estos usuarios invitados de manera diferente a los empleados.
 
@@ -49,5 +47,6 @@ Para más información sobre la implementación, consulte [Conceder a las cuenta
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales](active-directory-b2b-hybrid-cloud-to-on-premises.md)
-- [Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD](active-directory-b2b-hybrid-on-premises-to-cloud.md).
+- [Conceder a las cuentas de asociado administradas localmente acceso a los recursos en la nube mediante la colaboración B2B de Azure AD](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 

@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887249"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Uso de la biblioteca de BulkExecutor en .NET para realizar operaciones en masa en Azure Cosmos DB
 
-En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en .NET de Azure Cosmos DB para importar y actualizar documentos en colecciones de Azure Cosmos DB. Este tutorial lo guiará por una aplicación de .NET de ejemplo cuyas importaciones en bloque generaron documentos aleatoriamente en una colección de Azure Cosmos DB. Después de la importación, muestra cómo se pueden actualizar en masa los datos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos.
+En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en .NET de Azure Cosmos DB para importar y actualizar documentos en colecciones de Azure Cosmos DB. Para información sobre la biblioteca de BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca de BulkExecutor](bulk-executor-overview.md). Este tutorial lo guiará por una aplicación de .NET de ejemplo cuyas importaciones en bloque generaron documentos aleatoriamente en una colección de Azure Cosmos DB. Después de la importación, muestra cómo se pueden actualizar en masa los datos importados al especificar revisiones como operaciones que se deben realizar en campos de documentos específicos.
 
 ## <a name="prerequisites"></a>requisitos previos
 

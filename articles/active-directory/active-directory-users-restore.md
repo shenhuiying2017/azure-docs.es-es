@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 05/09/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 9e28184000964564bcf170a2c8015f3b4c220209
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8dbb546954f8eee0bf997b3d2f4f92d67c0b7869
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33930881"
 ---
 # <a name="restore-a-deleted-user-in-azure-active-directory"></a>Restaurar un usuario eliminado en Azure Active Directory
 
@@ -31,17 +32,15 @@ En este artículo se detallan las instrucciones para restaurar o eliminar de for
 ## <a name="how-to-restore-a-recently-deleted-user"></a>Cómo restaurar un usuario recién eliminado
 Cuando recién se elimina un usuario, se conserva toda la información de directorio. Si se restaura el usuario, también se restaura esa información.
 
-1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Usuarios y grupos** &gt; **Todos los usuarios**. 
-2. En **Mostrar**, filtre la página para mostrar **Usuarios eliminados recientemente**. 
-3. Seleccione uno o más usuarios que se hayan eliminado recientemente.
-4. Seleccione **Restaurar usuario**.
+1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Usuarios** &gt; **Usuarios eliminados**. 
+2. Seleccione uno o más usuarios que se hayan eliminado recientemente.
+3. Seleccione **Restaurar usuario**.
 
 ## <a name="how-to-permanently-delete-a-recently-deleted-user"></a>Cómo eliminar permanentemente un usuario recién eliminado
 
-1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Usuarios y grupos** &gt; **Todos los usuarios**. 
-2. En **Mostrar**, filtre la página para mostrar **Usuarios eliminados recientemente**. 
-3. Seleccione uno o más usuarios que se hayan eliminado recientemente.
-4. Seleccione **Eliminar permanentemente**.
+1. En el [centro de administración de Azure AD](https://aad.portal.azure.com), seleccione **Usuarios** &gt; **Usuarios eliminados**. 
+2. Seleccione uno o más usuarios que se hayan eliminado recientemente.
+3. Seleccione **Eliminar permanentemente**.
 
 ## <a name="required-permissions"></a>Permisos necesarios
 Los siguientes permisos son suficientes para restaurar un usuario.

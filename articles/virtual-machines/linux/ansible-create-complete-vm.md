@@ -1,13 +1,13 @@
 ---
-title: "Uso de Ansible para crear una máquina virtual compleja de Linux en Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo usar Ansible para crear un entorno completo de máquina virtual Linux y administrarla en Azure."
+title: Uso de Ansible para crear una máquina virtual compleja de Linux en Azure | Microsoft Docs
+description: Obtenga información sobre cómo usar Ansible para crear un entorno completo de máquina virtual Linux y administrarla en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 5efb666652bf124160df836b5d12305903d907ba
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896187"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Creación de un entorno completo de máquina virtual Linux en Azure con Ansible
 Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar máquinas virtuales (VM) en Azure al igual que podría hacerlo con cualquier otro recurso. En este artículo se muestra cómo crear un entorno completo de Linux y recursos de apoyo con Ansible. También puede obtener información sobre cómo [crear una VM básica con Ansible](ansible-create-vm.md).
@@ -29,7 +30,7 @@ Ansible permite automatizar la implementación y la configuración de recursos e
 Para administrar recursos de Azure con Ansible, necesita lo siguiente:
 
 - Los módulos de Ansible y SDK de Python de Azure instalados en el sistema de host.
-    - Instalar Ansible en [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73) y [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2).
+    - Instale Ansible en [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts) y [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Las credenciales de Azure y Ansible configurado para usarlas.
     - [Creación de credenciales de Azure y configuración de Ansible](ansible-install-configure.md#create-azure-credentials).
 - CLI de Azure versión 2.0.4 o posterior. Ejecute `az --version` para encontrar la versión. 

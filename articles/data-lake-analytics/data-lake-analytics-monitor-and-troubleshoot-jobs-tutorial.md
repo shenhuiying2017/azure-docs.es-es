@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de trabajos de Azure Data Lake Analytics mediante Azure Portal | Microsoft Docs
+title: Supervisión de trabajos en Azure Data Lake Analytics con Azure Portal | Microsoft Docs
 description: 'Aprenda a usar Azure Portal para solucionar problemas de trabajos de Análisis de Data Lake. '
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,42 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: f6168997c449be5354bd223c516d4f929a1bf894
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33884786"
 ---
-# <a name="troubleshoot-azure-data-lake-analytics-jobs-using-azure-portal"></a>Solución de problemas de trabajos de Azure Data Lake Analytics mediante Azure Portal
-Aprenda a usar Azure Portal para solucionar problemas de trabajos de Data Lake Analytics.
-
-En este tutorial, configurará un problema con un archivo de origen que falta y usará Azure Portal para solucionar el problema.
-
-## <a name="submit-a-data-lake-analytics-job"></a>Envío de un trabajo de Análisis de Data Lake
-
-Envíe el siguiente trabajo de U-SQL:
-
-```
-@searchlog =
-   EXTRACT UserId          int,
-           Start           DateTime,
-           Region          string,
-           Query           string,
-           Duration        int?,
-           Urls            string,
-           ClickedUrls     string
-   FROM "/Samples/Data/SearchLog.tsv1"
-   USING Extractors.Tsv();
-
-OUTPUT @searchlog   
-   TO "/output/SearchLog-from-adls.csv"
-   USING Outputters.Csv();
-```
-    
-El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, pero debería ser **/Samples/Data/SearchLog.tsv**.
-
-
-## <a name="troubleshoot-the-job"></a>Solución de problemas del trabajo
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Supervisión de trabajos en Azure Data Lake Analytics mediante Azure Portal
 
 **Para ver todos los trabajos**
 
@@ -81,5 +53,4 @@ El archivo de origen definido en el script es **/Samples/Data/SearchLog.tsv1**, 
 ## <a name="see-also"></a>Otras referencias
 * [Información general de Análisis de Azure Data Lake](data-lake-analytics-overview.md)
 * [Introducción a Análisis de Azure Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Introducción a Análisis de Azure Data Lake y a U-SQL mediante Visual Studio](data-lake-analytics-u-sql-get-started.md)
 * [Administración de Azure Data Lake Analytics con Azure Portal](data-lake-analytics-manage-use-portal.md)
