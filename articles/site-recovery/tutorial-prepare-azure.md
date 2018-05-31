@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212796"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos de Azure para la replicación de máquinas locales
 
@@ -47,7 +48,7 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquinas virtuales de Azure se crean desde el almacenamiento cuando se realiza la conmutación por error desde el entorno local en Azure.
 
 1. En el menú [Azure Portal](https://portal.azure.com), seleccione **Nuevo** > **Almacenamiento** > **Cuentas de almacenamiento**.
-2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta. En estos tutoriales, se usará el nombre **contosovmsacct1910171607**. El nombre debe ser único en Azure, tener entre 3 y 24 caracteres, y contener solo números y letras minúsculas.
+2. En **Crear cuenta de almacenamiento**, escriba un nombre para la cuenta. En estos tutoriales se usa **contosovmsacct1910171607**. El nombre que elija debe ser único en Azure, tener entre 3 y 24 caracteres, y contener solo números y letras minúsculas.
 3. En **Modelo de implementación**, seleccione **Resource Manager**.
 4. En **Tipo de cuenta** seleccione **Uso general**. En **Rendimiento**, seleccione **Estándar**. No seleccione Blob Storage.
 5. En **Replicación**, seleccione el valor predeterminado **Almacenamiento con redundancia geográfica con acceso de lectura** como redundancia de almacenamiento.
@@ -62,7 +63,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 ## <a name="create-a-vault"></a>Creación de un almacén
 
 1. En Azure Portal, seleccione **Crear un recurso** > **Supervisión y administración** > **Backup y Site Recovery**.
-2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. En este tutorial, se usa **ContosoVMVault**.
+2. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
 3. En **Grupo de recursos**, seleccione el grupo de recursos existente denominado **contosoRG**.
 4. En **Ubicación**, especifique la región de Azure **Europa Occidental**, que se está usando en este conjunto de tutoriales.
 5. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.

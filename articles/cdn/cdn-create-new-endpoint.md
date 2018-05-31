@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198714"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN
 En esta guía de inicio rápido se describe cómo habilitar Azure Content Delivery Network (CDN) mediante la creación de un perfil de CDN y un punto de conexión de CDN nuevos. Una vez haya creado un perfil y un punto de conexión, puede iniciar la entrega de contenido a sus clientes.
@@ -70,7 +71,7 @@ Después de crear un perfil de CDN, puede usarlo para crear un punto de conexió
    ![Punto de conexión de CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata: 
-   - En los perfiles **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en diez minutos. 
+   - En los perfiles de **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en 10 minutos. 
    - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
    - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**, la propagación se completa normalmente en 90 minutos. 
 
@@ -87,6 +88,6 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 Para obtener información acerca de cómo agregar un dominio personalizado al punto de conexión de CDN, consulte el tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Incorporación de Azure CDN a una aplicación web](app-service-web-tutorial-content-delivery-network.md)
+> [Tutorial: Adición de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md)
 
 

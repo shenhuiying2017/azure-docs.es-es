@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 7b83b9de08d024b91ca7008a4f0bf970e8d00688
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261375"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualización de datos de análisis para métricas en todos los recursos de aplicaciones web de Azure
 
 ![Símbolo de Web Apps](./media/log-analytics-azure-web-apps-analytics/azure-web-apps-analytics-symbol.png)  
 
 > [!NOTE]
-> La solución Azure Web Apps Analytics está en desuso.  Los clientes que ya tengan instalada la solución pueden seguir utilizándola, pero no se puede agregar Azure Web Apps Analytics a las nuevas áreas de trabajo.
+> La solución Azure Web Apps Analytics está en desuso.  Los clientes que ya tengan instalada la solución pueden seguir utilizándola, pero no se puede agregar Azure Web Apps Analytics a las nuevas áreas de trabajo.  Para supervisar la aplicación web, le recomendamos que use [Application Insights](../application-insights/app-insights-overview.md). 
 
 La solución Azure Web Apps Analytics (versión preliminar) proporciona información sobre [Azure Web Apps](../app-service/app-service-web-overview.md) mediante la recopilación de distintas métricas en todos los recursos de aplicaciones web de Azure. Con la solución, puede analizar y buscar datos de métricas de recursos de aplicaciones web.
 

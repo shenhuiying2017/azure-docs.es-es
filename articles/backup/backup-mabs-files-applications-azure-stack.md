@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/11/2018
 ms.author: adigan,markgal
-ms.openlocfilehash: 99ac43efa5d3211bbe2d790f28532e682058313c
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075884"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196719"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Copia de seguridad de archivos y aplicaciones en Azure Stack
 Puede usar Azure Backup para proteger o realizar copias de seguridad de archivos y aplicaciones en Azure Stack. Para hacer copias de seguridad de archivos y aplicaciones, instale Microsoft Azure Backup Server como una máquina virtual que se ejecuta en Azure Stack. Puede proteger las aplicaciones que se ejecutan en cualquier servidor de Azure Stack en la misma red virtual. Una vez que haya instalado Azure Backup Server, agregue discos de Azure para aumentar el almacenamiento local disponible para los datos de copia de seguridad a corto plazo. Azure Backup Server usa almacenamiento de Azure para la retención a largo plazo.
@@ -65,7 +65,7 @@ Azure Backup Server almacena los datos de copia de seguridad en discos de Azure 
 
 El almacenamiento de datos de copia de seguridad de Azure reduce la infraestructura de copia de seguridad en Azure Stack. Si los datos tienen más de cinco días de antigüedad, se deben almacenar en Azure.
 
-Para almacenar datos de copia de seguridad en Azure, cree o use un almacén de Recovery Services. Cuando se prepare para hacer una copia de seguridad de la carga de trabajo de Azure Backup Server, deberá [configurar el almacén de Recovery Services](backup-azure-microsoft-azure-backup.md#recovery-services-vault). Una vez configurado, cada vez que se ejecuta un trabajo de copia de seguridad, se crea un punto de recuperación en el almacén. Cada almacén de Recovery Services contiene hasta 9999 puntos de recuperación. Puede conservar los datos de copias de seguridad durante muchos años, en función del número de puntos de recuperación creados y cuánto tiempo se conservaron. Por ejemplo, podría crear puntos de recuperación mensuales y conservarlos durante cinco años.
+Para almacenar datos de copia de seguridad en Azure, cree o use un almacén de Recovery Services. Cuando se prepare para hacer una copia de seguridad de la carga de trabajo de Azure Backup Server, [configure el almacén de Recovery Services](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Una vez configurado, cada vez que se ejecuta un trabajo de copia de seguridad, se crea un punto de recuperación en el almacén. Cada almacén de Recovery Services contiene hasta 9999 puntos de recuperación. Puede conservar los datos de copias de seguridad durante muchos años, en función del número de puntos de recuperación creados y cuánto tiempo se conservaron. Por ejemplo, podría crear puntos de recuperación mensuales y conservarlos durante cinco años.
  
 ### <a name="using-sql-server"></a>Uso de SQL Server
 Si quiere utilizar un servidor SQL Server remoto para la base de datos de Azure Backup Server, seleccione solo una VM de Azure Stack que ejecute SQL Server.

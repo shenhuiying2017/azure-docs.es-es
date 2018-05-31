@@ -13,13 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 5/14/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef6be97144d05f18362ef707ef255b93c8cf21d9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196685"
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Preparación para la copia de seguridad de cargas de trabajo en Azure Backup Server
 > [!div class="op_single_selector"]
@@ -73,40 +74,19 @@ Puede desduplicar el almacenamiento de DPM con la desduplicación de Windows Ser
 > - Un equipo en el que se ejecute Exchange Server
 > - Un equipo que sea un nodo de un clúster
 
-Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, se recomienda unir el servidor al nuevo dominio antes de instalar Azure Backup Server. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
+Siempre una Azure Backup Server a un dominio. Si piensa mover el servidor a un dominio diferente, instale primero Azure Backup Server y luego una el servidor al nuevo dominio. *No se permite*mover una máquina de Azure Backup Server existente a un dominio nuevo después de la implementación.
 
-## <a name="recovery-services-vault"></a>Almacén de Recovery Services
-Tanto si envía datos de copia de seguridad a Azure como si los mantiene localmente, el software debe estar conectado a Azure. Más concretamente, la máquina de Azure Backup Server debe estar registrada en un almacén de Servicios de recuperación.
+Si envía datos de copia de seguridad a Azure o los mantiene localmente, Azure Backup Server debe registrarse en un almacén de Recovery Services.
 
-Para crear un almacén de Servicios de recuperación:
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. En el menú del centro, haga clic en **Examinar** y, en la lista de recursos, escriba **Recovery Services**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacén de Recovery Services**.
-
-    ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) <br/>
-
-    Se muestra la lista de almacenes de Recovery Services.
-3. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar**.
-
-    ![Creación del almacén de Recovery Services, paso 2](./media/backup-azure-microsoft-azure-backup/rs-vault-menu.png)
-
-    Se abre la hoja del almacén de Recovery Services, donde se le pide que especifique los valores de **Nombre**, **Suscripción**, **Grupo de recursos** y **Ubicación**.
-
-    ![Creación del almacén de Recovery Services, paso 5](./media/backup-azure-microsoft-azure-backup/rs-vault-attributes.png)
-4. En **Nombre**, escriba un nombre descriptivo que identifique el almacén. El nombre debe ser único para la suscripción de Azure. Escriba un nombre que tenga entre 2 y 50 caracteres. Debe comenzar por una letra y solo puede contener letras, números y guiones.
-5. Haga clic en **Suscripción** para ver la lista de suscripciones disponibles. Si no está seguro de la suscripción que desea utilizar, use la suscripción predeterminada (o sugerida). Solo hay varias opciones si la cuenta de su organización está asociada a más de una suscripción de Azure.
-6. Haga clic en **Grupo de recursos** para ver la lista de grupos de recursos disponibles o haga clic en **Nuevo** para crear uno. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Haga clic en **Ubicación** para seleccionar la región geográfica del almacén.
-8. Haga clic en **Create**(Crear). La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en la parte superior derecha del portal.
-   Una vez creado el almacén, se abre en el portal.
+[!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
 
 ### <a name="set-storage-replication"></a>Configuración de la replicación de almacenamiento
-La opción de replicación de almacenamiento permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si este almacén es su almacén principal, deje la opción de almacenamiento establecida en almacenamiento con redundancia geográfica. Elija el almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Para más información sobre las opciones de almacenamiento [con redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [con redundancia local](../storage/common/storage-redundancy-lrs.md), consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
+La opción de replicación de almacenamiento permite elegir entre almacenamiento con redundancia geográfica y almacenamiento con redundancia local. De forma predeterminada, los almacenes de Recovery Services usan almacenamiento con redundancia geográfica. Si este almacén es su almacén principal, deje la opción de almacenamiento establecida en almacenamiento con redundancia geográfica. Elija el almacenamiento con redundancia local si desea una opción más económica que no sea tan duradera. Para más información sobre las opciones de almacenamiento [con redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [con redundancia local](../storage/common/storage-redundancy-lrs.md), consulte [Replicación de Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar la configuración de replicación de almacenamiento:
 
-1. Seleccione el almacén para abrir su panel y la hoja de configuración. Si la hoja **Configuración** no se abre, haga clic en la opción **Toda la configuración** del panel del almacén.
-2. En la hoja **Configuración**, haga clic en **Infraestructura de copia de seguridad** > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En la hoja **Configuración de copia de seguridad** , elija la opción de replicación de almacenamiento para su almacén.
+1. Seleccione el almacén para abrir su panel y el menú de configuración. Si el menú **Configuración** no se abre, haga clic en **Toda la configuración** en el panel del almacén.
+2. En el menú **Configuración**, haga clic en **Infraestructura de copia de seguridad** > **Configuración de copia de seguridad** para abrir la hoja **Configuración de copia de seguridad**. En el menú **Configuración de copia de seguridad**, elija la opción de replicación del almacenamiento para su almacén.
 
     ![Lista de copias de seguridad](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -115,7 +95,7 @@ Para editar la configuración de replicación de almacenamiento:
 ## <a name="software-package"></a>Paquete de software
 ### <a name="downloading-the-software-package"></a>Descarga del paquete de software
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
-2. Si ya tiene abierto un almacén de Recovery Services, vaya al paso 3. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú del centro, haga clic en **Examinar**.
+2. Si ya tiene abierto un almacén de Recovery Services, vaya al paso 3. Si no tiene abierto un almacén de Recovery Services pero está en Azure Portal, en el menú principal, haga clic en **Examinar**.
 
    * En la lista de recursos, escriba **Recovery Services**.
    * Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de Recovery Services**cuando lo vea.

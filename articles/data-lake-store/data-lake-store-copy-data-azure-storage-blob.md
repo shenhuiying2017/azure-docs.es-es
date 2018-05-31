@@ -2,23 +2,22 @@
 title: Copia de datos desde Azure Storage Blob a Data Lake Store| Microsoft Docs
 description: Use la herramienta AdlCopy para copiar datos desde Azure Storage Blob a Data Lake Store.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dc273ef8-96ef-47a6-b831-98e8a777a5c1
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 964ba0eb9c619fa226b0704a6c83c05186a95261
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197161"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copia de datos de los blobs de Azure Storage en Data Lake Store
 > [!div class="op_single_selector"]
@@ -37,14 +36,14 @@ Además, puede usar la herramienta AdlCopy en dos modos diferentes:
 * **Independiente**, donde la herramienta usa recursos de Almacén de Data Lake para realizar la tarea.
 * **Con una cuenta de Análisis de Data Lake**, donde las unidades asignadas a la cuenta de Análisis de Data Lake se usan para realizar la operación de copia. Puede que desee usar esta opción cuando quiera realizar las tareas de copia de forma predecible.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * **blobs de Azure Storage** con algunos datos.
 * **Una cuenta de Almacén de Azure Data Lake**. Para obtener instrucciones sobre cómo crear una, consulte la [introducción al Almacén de Azure Data Lake](data-lake-store-get-started-portal.md)
 * **Cuenta de Azure Data Lake Analytics (opcional)**. Consulte el artículo de [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obtener instrucciones sobre cómo crear una cuenta de Data Lake Store.
-* **Herramienta AdlCopy**. Instale la herramienta AdlCopy desde [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **Herramienta AdlCopy**. Instale la herramienta de AdlCopy de [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxis de la herramienta AdlCopy
 Use la siguiente sintaxis para trabajar con la herramienta AdlCopy.

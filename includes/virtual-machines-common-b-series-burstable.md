@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7372a0c49f6e41ef4d336188ceb5cf4393f4c982
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307444"
 ---
 La familia de máquinas virtuales de la serie B le permite elegir qué tamaño de máquina virtual proporciona el rendimiento base necesario para su carga de trabajo, con la posibilidad de ampliar el rendimiento de la CPU hasta el 100 % de una vCPU con procesador Intel® Broadwell E5-2673 v4 a 2.3 GHz o Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -58,8 +59,8 @@ Si tomo los 120 créditos que acumulé durante las horas de poca actividad y le 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>P: ¿Admite la serie B discos de datos de Premium Storage?
 **R**: Sí, toda la serie B admite discos de datos de Premium Storage.   
     
-### <a name="q-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: tengo el crédito restante a 0 después de una reimplementación o una detención e inicio.
-**R**: si una máquina virtual se "REIMPLEMENTA", es decir, se mueve la máquina virtual a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240 minutos.
+### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>P: ¿Por qué tengo el crédito restante a 0 después de volver a hacer una implementación o una detención e inicio?
+**R**: Si una máquina virtual se "REIMPLEMENTA" y se mueve la máquina virtual a otro nodo, el crédito acumulado se pierde. En cambio, si la máquina virtual se detiene y se inicia, pero sigue en el mismo nodo, conservará el crédito acumulado. Cada vez que se inicia por primera vez una máquina virtual en un nodo, obtiene un crédito inicial. En el caso de Standard_B8ms es de 240 minutos.
 
     
 
