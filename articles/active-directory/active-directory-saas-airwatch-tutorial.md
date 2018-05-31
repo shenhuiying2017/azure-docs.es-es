@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con AirWatch | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y AirWatch."
+title: 'Tutorial: Integración de Azure Active Directory con AirWatch | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y AirWatch.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: a0e314aaf59a70107058829ea84dde362f097274
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 89d9bc6a40a6ee814f92cdb4c5a26e660007e64e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34344551"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Tutorial: Integración de Azure Active Directory con AirWatch
 
@@ -28,11 +29,11 @@ La integración de AirWatch con Azure AD proporciona las siguientes ventajas:
 
 - Puede controlar en Azure AD quién tiene acceso a AirWatch.
 - Puede permitir que los usuarios inicien sesión automáticamente en AirWatch (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar las cuentas en una sola ubicación central: Azure Portal.
+- Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con AirWatch, se necesitan los siguientes elementos:
 
@@ -48,7 +49,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Incorporación de AirWatch desde la Galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -64,11 +65,11 @@ Para configurar la integración de AirWatch en Azure AD, es preciso agregarlo de
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **AirWatch**.
 
@@ -168,7 +169,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. En la lista **NameID Format** (Formato de NameID), seleccione **Email address** (Dirección de correo electrónico).
 
-    d. Haga clic en **Guardar**.
+    d. Haga clic en **Save**(Guardar).
 
 14. Haga clic de nuevo en la pestaña **User** (Usuario).
     
@@ -178,7 +179,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     ![Atributo](./media/active-directory-saas-airwatch-tutorial/ic791927.png "Atributo")
 
-    a. En el cuadro de texto **Identificador de objeto**, escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    a. En el cuadro de texto **Identificador de objetos**, escriba **http://schemas.microsoft.com/identity/claims/objectidentifier**.
 
     b. En el cuadro de texto **Nombre de usuario**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
@@ -186,11 +187,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     d. En el cuadro de texto **Nombre**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    e. En el cuadro de texto **Apellidos**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    e. En el cuadro de texto **Apellido**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    f. En el cuadro de texto **Correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    f. En el cuadro de texto **Dirección de correo electrónico**, escriba **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    g. Haga clic en **Guardar**.
+    g. Haga clic en **Save**(Guardar).
 
 <CE>
 
@@ -223,7 +224,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-airwatch-test-user"></a>Creación de un usuario de prueba de AirWatch
 
@@ -244,7 +245,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en AirWatch, tienen q
 
    ![Agregar usuario](./media/active-directory-saas-airwatch-tutorial/ic791931.png "Agregar usuario")   
    1. Especifique **Username** (Nombre de usuario), **Password** (Contraseña), **Confirm Password** (Confirmar contraseña), **First Name** (Nombre), **Last Name** (Apellido), **Email Address** (Correo electrónico) de una cuenta de Azure Active Directory válida que quiera aprovisionar en los cuadros de texto relacionados.
-   2. Haga clic en **Guardar**.
+   2. Haga clic en **Save**(Guardar).
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de AirWatch ofrecida por AirWatch para aprovisionar cuentas de usuario de AAD.
@@ -290,7 +291,7 @@ Si desea probar la configuración de inicio de sesión único, abra el Panel de 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

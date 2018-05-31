@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309477"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355855"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -156,7 +156,7 @@ Este escenario puede hacerse mediante el uso de grupos de seguridad de red en la
 
 * Permitir las solicitudes entrantes de todos los orígenes a los puertos 65503-65534 para la [comunicación del estado del back-end](application-gateway-diagnostics.md).
 
-* Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta AzureLoadBalancer) y el tráfico de red virtual entrante (con la etiqueta VirtualNetwork) en el [NSG](../virtual-network/virtual-networks-nsg.md).
+* Permitir sondeos entrantes de Azure Load Balancer (con la etiqueta AzureLoadBalancer) y el tráfico de red virtual entrante (con la etiqueta VirtualNetwork) en el [NSG](../virtual-network/security-overview.md).
 
 * Bloquear todo el tráfico entrante restante con una regla Denegar todo.
 

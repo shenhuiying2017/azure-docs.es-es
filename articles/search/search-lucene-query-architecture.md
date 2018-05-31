@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195026"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -360,7 +361,7 @@ El ejemplo muestra por qué esto es importante. Las búsquedas con caracteres co
 Existen dos maneras de optimizar las puntuaciones de relevancia en Azure Search:
 
 1. Los **perfiles de puntuación** favorecen a los documentos de la lista de clasificación basados en un conjunto de reglas. En nuestro ejemplo, podemos considerar los documentos que coincidieron en el campo de título más importantes que los documentos que coincidieron en el campo de descripción. Además, si el índice tenía un campo de precio para cada hotel, podríamos favorecer a los documentos con un precio menor. Obtenga información sobre cómo [agregar perfiles de puntuación a un índice de búsqueda.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Priorización de términos** (disponible solo en la sintaxis de consulta completa Lucene) proporciona un operador de priorización `^` que puede aplicarse a cualquier parte del árbol de consulta. En nuestro ejemplo, en lugar de buscar en el prefijo *post-vacacional*\*, puede buscar el término exacto *post-vacacional* o el prefijo, pero los documentos que coinciden con el término exacto se clasifican en una posición superior aplicando la priorización a la consulta de término: *post-vacacional^2||post-vacacional**. Más información sobre la [priorización de términos](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Priorización de términos** (disponible solo en la sintaxis de consulta completa Lucene) proporciona un operador de priorización `^` que puede aplicarse a cualquier parte del árbol de consulta. En nuestro ejemplo, en lugar de buscar en el prefijo *post-vacacional*\*, puede buscar el término exacto *post-vacacional* o el prefijo, pero los documentos que coinciden con el término exacto se clasifican en una posición superior aplicando la priorización a la consulta de término: *post-vacacional^2||post-vacacional*\*. Más información sobre la [priorización de términos](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Puntuación en un índice distribuido

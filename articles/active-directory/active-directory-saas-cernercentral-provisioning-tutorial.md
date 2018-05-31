@@ -1,8 +1,8 @@
 ---
-title: "Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs"
-description: "Aprenda a configurar Azure Active Directory para aprovisionar usuarios en una lista de Cerner Central automáticamente."
+title: 'Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios con Azure Active Directory | Microsoft Docs'
+description: Aprenda a configurar Azure Active Directory para aprovisionar usuarios en una lista de Cerner Central automáticamente.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
 manager: mtillman
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: a4aca2db0190b97d209fc6769b9db55b0ad468d9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 060686089634eda5d15345da9668ff294d350012
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337119"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
 
@@ -57,7 +58,7 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 Esta sección le guía a través de los pasos necesarios para conectar Azure AD con la lista de usuarios de Cerner Central mediante la API de aprovisionamiento de la cuenta de usuario SCIM de Cerner Central, así como para configurar el servicio de aprovisionamiento con el fin de crear, actualizar y deshabilitar cuentas de usuario asignadas en Cerner Central en función de la asignación de grupos y usuarios en Azure AD.
 
 > [!TIP]
-> También puede decidir habilitar el inicio de sesión único basado en SAML para Cerner Central siguiendo las instrucciones de Azure Portal [https://portal.azure.com]. El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí. Para más información, vea el [Tutorial: Integración de Azure Active Directory con Cerner Central](active-directory-saas-cernercentral-tutorial.md).
+> Además, para habilitar el inicio de sesión único basado en SAML para Cerner Central, puede seguir las instrucciones de Azure Portal (https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí. Para más información, vea el [Tutorial: Integración de Azure Active Directory con Cerner Central](active-directory-saas-cernercentral-tutorial.md).
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar el aprovisionamiento de cuentas de usuario automático para Cerner Central en Azure AD, siga estos pasos:
@@ -87,7 +88,7 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
    * Producción: https://cernercentral.com/system-accounts/
 
-4. Por último, para completar la configuración, tiene que adquirir identificadores de dominio kerberos de lista de usuarios tanto para el espacio aislado como para los entornos de producción en Cerner. Para información sobre cómo adquirirlo, consulte: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Por último, para completar la configuración, tiene que adquirir identificadores de dominio kerberos de lista de usuarios tanto para el espacio aislado como para los entornos de producción en Cerner. Para obtener información sobre cómo adquirirlo, consulte https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
 5. Ahora puede configurar Azure AD para aprovisionar cuentas de usuario para Cerner. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
 
@@ -130,7 +131,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 * [Cerner Central: Publishing identity data using Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD) (Cerner Central: Publicación de datos de identidad mediante Azure AD)
 * [Tutorial: configuración de Cerner Central para el inicio de sesión único con Azure Active Directory](active-directory-saas-cernercentral-tutorial.md)
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](active-directory-enterprise-apps-manage-provisioning.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

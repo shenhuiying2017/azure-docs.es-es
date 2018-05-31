@@ -1,254 +1,116 @@
 ---
-title: Guía de planeamiento y diseño de Azure Virtual Network (red virtual) | Microsoft Docs
-description: Obtenga información sobre cómo planear y diseñar redes virtuales en Azure según los requisitos de aislamiento, conectividad y ubicación.
+title: Planear redes virtuales de Azure | Microsoft Docs
+description: Obtenga información sobre cómo planear redes virtuales según los requisitos de aislamiento, conectividad y ubicación.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: tysonn
+editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2016
+ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365049"
 ---
-# <a name="plan-and-design-azure-virtual-networks"></a>Planeación y diseño de Azure Virtual Network
-Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Si aplica cierta planeación y diseño, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. Si no conoce las redes virtuales, le recomendamos que [obtenga información sobre ellas](virtual-networks-overview.md) y aprenda [a implementar](quick-create-portal.md) una antes de continuar.
+# <a name="plan-virtual-networks"></a>Planear redes virtuales
 
-## <a name="plan"></a>Plan
-Un conocimiento detallado de las suscripciones, las regiones y los recursos de red de Azure resulta fundamental para obtener éxito. Como punto de partida, puede usar la lista de consideraciones que aparece a continuación. Una vez que compra esas consideraciones, podrá definir los requisitos para el diseño de la red.
+Crear una red virtual con la cual experimentar es bastante sencillo, pero es probable que, con el tiempo, implemente varias redes virtuales para satisfacer las necesidades de producción que tiene su organización. Con cierto planeamiento, podrá implementar redes virtuales y conectar los recursos que necesita de manera más eficaz. La información de este artículo es más útil si ya está familiarizado con las redes virtuales y tiene cierta experiencia al trabajar con ellas. Si no está familiarizado con las redes virtuales, le recomendamos que lea la [información general sobre Virtual Network](virtual-networks-overview.md).
 
-### <a name="considerations"></a>Consideraciones
-Antes de responder las preguntas relacionadas con la planeación que aparecen más adelante, considere lo siguiente:
+## <a name="naming"></a>Nomenclatura
 
-* Todo lo que se crea en Azure consta de uno o más recursos. Una máquina virtual (VM) es un recurso, la interfaz de adaptador de red (NIC) que una máquina virtual usa es un recurso, la dirección IP pública que una NIC usa es un recurso, la red virtual a la que se conecta la NIC también lo es.
-* Puede crear recursos dentro de una suscripción y una [región de Azure](https://azure.microsoft.com/regions/#services) . Los recursos solo se pueden conectar a una red virtual que existe en la misma región y suscripción en que se encuentran.
-* Puede conectar redes virtuales entre sí mediante:
-    * **[Emparejamiento de red virtual](virtual-network-peering-overview.md)**: las redes virtuales deben existir en la misma región de Azure. El ancho de banda entre los recursos de redes virtuales emparejadas es el mismo que si los recursos estuvieran conectados a la misma red virtual.
-    * **Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**: las redes virtuales pueden estar en la misma región de Azure o en regiones distintas. El ancho de banda entre los recursos en redes virtuales conectadas a través de VPN Gateway está limitado por el ancho de banda de VPN Gateway.
-* Puede conectar redes virtuales a la red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) disponibles en Azure.
-* Es posible agrupar distintos recursos en los [grupos de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), lo que permite facilitar la administración del recurso como una unidad. Un grupo de recursos puede contener recursos provenientes de varias regiones, siempre que estos pertenezcan a la misma suscripción.
+Todos los recursos de Azure tienen un nombre. El nombre debe ser único dentro de un ámbito, que puede variar para cada tipo de recurso. Por ejemplo, el nombre de una red virtual debe ser único dentro de un [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), pero puede haber duplicados del nombre dentro de una [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) o [región](https://azure.microsoft.com/regions/#services) de Azure. Definir una convención de nomenclatura que pueda usar de forma consistente al asignar nombres a recursos le será de utilidad al administrar varios recursos de red con el tiempo. Consulte [Naming conventions](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json) (Convenciones de nomenclatura) para obtener sugerencias.
 
-### <a name="define-requirements"></a>Definición de los requisitos
-Use las siguientes preguntas como punto de partida para diseñar la red de Azure.    
+## <a name="regions"></a>Regiones
 
-1. ¿Qué ubicaciones de Azure usará para hospedar las redes virtuales?
-2. ¿Necesita proporcionar comunicación entre estas ubicaciones de Azure?
-3. ¿Necesita proporcionar comunicación entre las redes virtuales de Azure y los centros de datos locales?
-4. ¿Cuántas máquinas virtuales de infraestructura como servicio (IaaS), roles de servicios en la nube y aplicaciones web necesita para su solución?
-5. ¿Necesita aislar el tráfico según los grupos de máquinas virtuales (es decir, servidores front-end web y servidores de base de datos back-end)?
-6. ¿Necesita controlar el flujo de tráfico mediante aplicaciones virtuales?
-7. ¿Los usuarios necesitan distintos conjuntos de permisos para los diferentes recursos de Azure?
+Todos los recursos de Azure se crean en una suscripción y una región de Azure. Un recurso solo se puede crear en una red virtual que exista en la misma región y suscripción de ese recurso. No obstante, puede conectar redes virtuales que ya existan a diferentes suscripciones y regiones. Para obtener más información, consulte[Conectividad](#connectivity). Al decidir en qué regiones implementar los recursos, debe tener en cuenta dónde se encuentran físicamente los consumidores de esos recursos:
 
-### <a name="understand-vnet-and-subnet-properties"></a>Descripción de las propiedades de las redes virtuales y las subredes
-Los recursos de las redes virtuales y las subredes ayudan a definir un límite de seguridad para las cargas de trabajo que se ejecutan en Azure. Una red virtual se caracteriza por una colección de espacios de direcciones, también denominados bloques CIDR.
+- Los consumidores de recursos normalmente quieren obtener la latencia de red más baja para sus recursos. Para determinar las latencias relativas entre una ubicación específica y las regiones de Azure, consulte [View relative latencies](../network-watcher/view-relative-latencies.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Ver latencias relativas).
+- ¿Debe cumplir con requisitos de residencia, soberanía, cumplimiento o resistencia de datos? Si es así, es fundamental elegir la región que mejor se ajuste a sus requisitos. Para obtener más información, consulte [Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
+- ¿Necesita configurar la resistencia en Azure Availability Zones dentro de la misma región de Azure para los recursos que está implementando? Puede implementar recursos como máquinas virtuales (VM) en diferentes zonas de disponibilidad dentro de la misma red virtual. Sin embargo, no todas las regiones de Azure admiten zonas de disponibilidad. Para obtener más información sobre las zonas de disponibilidad y las regiones que las admiten, consulte [Zonas de disponibilidad](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-> [!NOTE]
-> Los administradores de red ya están familiarizados con la notación CIDR. Si no está familiarizado con el formato CIDR, [puede obtener más información](http://whatismyipaddress.com/cidr).
->
->
+## <a name="subscriptions"></a>Suscripciones
 
-Las Redes virtuales contienen las siguientes propiedades:
+Puede implementar tantas redes virtuales como sea necesario en cada suscripción, hasta el [límite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Por ejemplo, algunas organizaciones tienen suscripciones distintas para diferentes departamentos. Para obtener más información y detalles en torno a las suscripciones, consulte [Subscription governance](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy) (Gobierno de suscripciones).
 
-| Propiedad | DESCRIPCIÓN | Restricciones |
-| --- | --- | --- |
-| **name** |Nombre de red virtual |Cadena de hasta 80 caracteres. Puede incluir letras, números, caracteres de subrayado, puntos o guiones. Debe empezar por una letra o un número. Debe finalizar en una letra, un número o un carácter de subrayado. Puede incluir letras mayúsculas o minúsculas. |
-| **ubicación** |La ubicación de Azure (también conocida como región). |Debe ser una de las ubicaciones válidas de Azure. |
-| **addressSpace** |Es la colección de prefijos de direcciones que conforman la red virtual en la notación CIDR. |Debe ser una matriz de bloques de direcciones CIDR válidos, incluidos intervalos de direcciones IP públicas. |
-| **subredes** |Es la colección de subredes que constituyen la red virtual |Consulte la tabla de propiedades de subred que aparece a continuación. |
-| **dhcpOptions** |El objeto que contiene una propiedad requerida única llamada **dnsServers**. | |
-| **dnsServers** |La matriz de servidores DNS que la red virtual usa. Si no se especifica ningún servidor, se usa la resolución interna de nombres de Azure. |Debe ser una matriz de hasta 10 servidores DNS por dirección IP. |
+## <a name="segmentation"></a>Segmentación
 
-Una subred es un recurso secundario de una red virtual que le ayudará a definir segmentos de espacios de direcciones dentro de un bloque CIDR mediante prefijos de direcciones IP. Las NIC pueden agregarse a subredes y conectarse a máquinas virtuales, lo cual le proporciona conectividad a varias cargas de trabajo.
+Puede crear varias redes virtuales por suscripción y por región. Puede crear varias subredes en cada red virtual. Los detalles siguientes le ayudarán a determinar cuántas redes virtuales y subredes necesita:
 
-Las subredes contienen las siguientes propiedades:
+### <a name="virtual-networks"></a>Redes virtuales
 
-| Propiedad | DESCRIPCIÓN | Restricciones |
-| --- | --- | --- |
-| **name** |Nombre de subred |Cadena de hasta 80 caracteres. Puede incluir letras, números, caracteres de subrayado, puntos o guiones. Debe empezar por una letra o un número. Debe finalizar en una letra, un número o un carácter de subrayado. Puede incluir letras mayúsculas o minúsculas. |
-| **ubicación** |La ubicación de Azure (también conocida como región). |Debe ser una de las ubicaciones válidas de Azure. |
-| **addressPrefix** |Es el prefijo de dirección única que constituye la subred en la notación de CIDR |Debe ser un bloque CIDR único que forme parte de uno de los espacios de direcciones de la red virtual. |
-| **networkSecurityGroup** |Es el grupo de seguridad de red aplicado a la subred | |
-| **routeTable** |Es la tabla de ruta que se aplica a la subred | |
-| **ipConfigurations** |Es la colección de objetos de configuración IP que usan las NIC conectadas a la subred. | |
+Una red virtual es una parte virtual y aislada de la red pública de Azure. Cada red virtual está dedicada a su suscripción. Qué debe tener en cuenta al decidir si quiere crear una o varias redes virtuales en una suscripción:
+
+- ¿Hay algún requisito de seguridad en la organización para aislar el tráfico en redes virtuales diferentes? Puede elegir conectar la redes virtuales o no. Si conecta las redes virtuales, puede implementar una aplicación virtual de red (como un firewall) para controlar el flujo de tráfico entre las redes virtuales. Para obtener más información, consulte [seguridad](#security) y [conectividad](#connectivity).
+- ¿Hay algún requisito en la organización para aislar las redes virtuales en diversas [suscripciones](#subscriptions) o [regiones](#regions)?
+- Una [interfaz de red](virtual-network-network-interface.md) permite que una máquina virtual se comunique con otros recursos. Cada interfaz de red puede tener una o varias direcciones IP privadas asignadas. ¿Cuántas interfaces de red y [direcciones IP privadas](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) se necesitan en una red virtual? Hay [límites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) en el número de interfaces de red y direcciones IP privadas que se pueden tener en una red virtual.
+- ¿Quiere conectar la red virtual a otra red virtual o red local? Puede conectar algunas redes virtuales entre sí o a redes locales, pero no a otras redes. Para obtener más información, consulte[Conectividad](#connectivity). Cada red virtual que se conecta a otra red virtual o local debe tener un espacio de direcciones único. Cada red virtual tiene uno o más intervalos de direcciones públicas o privadas asignados a su espacio de direcciones. Un intervalo de direcciones se especifica en un formato propio del enrutamiento de interdominios sin clases (CIDR), como 10.0.0.0/16. Obtenga más información sobre los [intervalos de direcciones](manage-virtual-network.md#add-or-remove-an-address-range) para redes virtuales.
+- ¿Tiene algún requisito de administración de la organización para recursos en diferentes redes virtuales? De ser así, puede separar los recursos en una red virtual a parte para simplificar la [asignación de permisos](#permissions) a los usuarios de la organización, o para asignar diferentes [directivas](#policies) a diferentes redes virtuales.
+- Cuando implementa algunos recursos del servicio de Azure en una red virtual, estos se encargan de crear su propia red virtual. Para determinar si un servicio de Azure ha creado su propia red virtual, consulte la información de cada [servicio de Azure que se puede implementar en una red virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
+
+### <a name="subnets"></a>Subredes
+
+Una red virtual se puede segmentar en una o más subredes hasta el [límite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Qué debe tener en cuenta al decidir si quiere crear una subred o varias redes virtuales en una suscripción:
+
+- Cada subred debe tener un intervalo de direcciones único, especificado en formato CIDR, en el espacio de direcciones de la red virtual. Este intervalo de direcciones no puede superponerse con otras subredes de la red virtual.
+- Si planea implementar algunos recursos del servicio de Azure en una red virtual, seguramente necesiten crear su propia subred, por lo que debe haber suficiente espacio no asignado para que puedan hacerlo. Para determinar si un servicio de Azure ha creado su propia subred, consulte la información de cada [servicio de Azure que se puede implementar en una red virtual](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Por ejemplo, si conecta una red virtual a una red local mediante Azure VPN Gateway, la red virtual debe tener una subred dedicada para la puerta de enlace. Obtenga más información sobre las [subredes de puerta de enlace](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
+- De forma predeterminada, Azure enruta el tráfico de red entre todas las subredes de una red virtual. Por ejemplo, puede invalidar el enrutamiento predeterminado de Azure para evitar el enrutamiento de Azure entre subredes, o para enrutar el tráfico entre subredes a través de una aplicación virtual de red. Si necesita que el tráfico entre recursos de la misma red virtual fluya a través de una aplicación virtual de red (NVA), implemente los recursos en diferentes subredes. Obtenga más información en el apartado [Seguridad](#security).
+- Puede limitar el acceso a recursos de Azure como, por ejemplo, una cuenta de almacenamiento de Azure o una base de datos de Azure SQL, a subredes específicas con un punto de conexión de servicio de red virtual. Además, puede denegar el acceso a los recursos desde Internet. Puede crear varias subredes y habilitar un punto de conexión de servicio para algunas subredes, pero no para otras. Obtenga más información sobre los [puntos de conexión de servicio](virtual-network-service-endpoints-overview.md) y los recursos de Azure puede habilitar.
+- Puede asociar un grupo de seguridad de red o ninguno, a cada subred de una red virtual. Puede asociar el mismo grupo de seguridad de red u otro diferente a cada subred. Cada grupo de seguridad de red contiene reglas que permiten o niegan el paso del tráfico hacia y desde los orígenes y destinos. Más información sobre los [grupos de seguridad de red](#traffic-filtering).
+
+## <a name="security"></a>Seguridad
+
+Puede filtrar el tráfico de red hacia y desde los recursos en una red virtual mediante los grupos de seguridad de red y las aplicaciones virtuales de red. Puede controlar la manera en que Azure enruta el tráfico de subredes. Asimismo, también puede limitar en su organización quién puede trabajar con los recursos en redes virtuales.
+
+### <a name="traffic-filtering"></a>Filtrado de tráfico
+
+- Puede filtrar el tráfico de red entre recursos de una red virtual mediante un grupo de seguridad de red, una NVA que filtra el tráfico de red o ambos. Para implementar una NVA como un cortafuegos para filtrar el tráfico de red, consulte [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?subcategories=appliances&page=1). Al usar una NVA, también crea rutas personalizadas para enrutar el tráfico de las subredes a la NVA. Obtenga más información acerca el [enrutamiento del tráfico](#traffic-routing).
+- Un grupo de seguridad de red contiene varias reglas de seguridad predeterminadas que permiten o deniegan el tráfico hacia o desde los recursos. Un grupo de seguridad de red se puede asociar a una interfaz de red, a la subred que se encuentra en ella o a ambas. Siempre que sea posible y para simplificar la administración de reglas de seguridad, le recomendamos que asocie un grupo de seguridad de red a las subredes individuales, en lugar de asociarlo a las interfaces de red individuales de la subred.
+- Si debe aplicar reglas de seguridad a varias máquinas virtuales de una subred, puede asociar la interfaz de red en la máquina virtual a uno o varios grupos de seguridad de aplicaciones. Una regla de seguridad puede especificar un grupo de seguridad de aplicaciones en el origen, en el destino o en ambos. A continuación, solo se aplica dicha regla a las interfaces de red que forman parte del grupo de seguridad de aplicaciones. Obtenga más información sobre los [grupos de seguridad de red](security-overview.md) y los [grupos de seguridad de aplicaciones](security-overview.md#application-security-groups).
+- Azure crea de forma predeterminada varias reglas de seguridad en cada grupo de seguridad de red. Una regla predeterminada permite que todo el tráfico fluya entre todos los recursos de una red virtual. Para invalidar este comportamiento, use los grupos de seguridad de red, el enrutamiento personalizado para enrutar el tráfico a una NVA o ambas opciones. Le recomendamos que se familiarice con todas las [reglas de seguridad predeterminadas](security-overview.md#default-security-rules) de Azure, y con la forma de aplicar las reglas del grupo de seguridad de red a un recurso.
+
+Puede ver los diseños de ejemplo para implementar una red perimetral entre Azure e Internet mediante una [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) o los [grupos de seguridad de red](virtual-networks-dmz-nsg.md).
+
+### <a name="traffic-routing"></a>Enrutamiento del tráfico
+
+Azure crea varias rutas predeterminadas para el tráfico saliente desde una subred. Puede invalidar el enrutamiento predeterminado de Azure si crea una tabla de rutas y la asocia a una subred. Los motivos más comunes para invalidar el enrutamiento predeterminado de Azure son:
+- Porque quiere que el tráfico entre subredes fluya a través de una NVA. Obtenga más información sobre cómo [configurar las tablas de rutas para forzar el tráfico a través de una NVA](tutorial-create-route-table-portal.md).
+- Porque quiere forzar todo el tráfico de Internet a través de una NVA o de forma local, a través de Azure VPN Gateway. Forzar el tráfico de Internet de forma local para su inspección y registro a menudo se conoce como "tunelización forzada". Obtenga más información sobre la configuración de la [tunelización forzada](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
+
+Si tiene que implementar el enrutamiento personalizado, le recomendamos que se familiarice con el [enrutamiento en Azure](virtual-networks-udr-overview.md).
+
+## <a name="connectivity"></a>Conectividad
+
+Puede conectar una red virtual a otras redes virtuales mediante el emparejamiento de redes virtuales, o puede conectarla a una red local mediante Azure VPN Gateway.
+
+### <a name="peering"></a>Emparejamiento
+
+Al usar [el emparejamiento de redes virtuales](virtual-network-peering-overview.md), las redes virtuales pueden estar en las mismas regiones de Azure compatibles o en diferentes regiones. Las redes virtuales pueden estar en la misma suscripción de Azure o en suscripciones diferentes, siempre y cuando ambas suscripciones estén asignadas al mismo inquilino de Azure Active Directory. Le recomendamos que se familiarice con los [requisitos y restricciones](virtual-network-manage-peering.md#requirements-and-constraints) de emparejamiento antes de crear un emparejamiento. El ancho de banda entre recursos de redes virtuales emparejadas es el mismo que si los recursos estuvieran en la misma red virtual.
+
+### <a name="vpn-gateway"></a>puerta de enlace de VPN
+
+Puede usar Azure [VPN Gateway](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar una red virtual a la red local mediante un [VPN de sitio a sitio](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), o mediante una conexión dedicada con Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Asimismo, puede combinar el emparejamiento y VPN Gateway para crear [redes de tipo hub-and-spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), donde las redes virtuales denominadas "radios" (spoke) se conectan a una red virtual denominada "concentrador" (hub) y, a su vez, ese concentrador se conecta a una red local.
 
 ### <a name="name-resolution"></a>Resolución de nombres
-De manera predeterminada, la red virtual usa la [resolución de nombres proporcionada por Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md) para resolver los nombres dentro de la red virtual y en la red pública de Internet. Sin embargo, si conecta las redes virtuales a los centros de datos locales, necesita proporcionar [su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) para resolver los nombres entre sus redes.  
 
-### <a name="limits"></a>límites
-Revise los límites de red en el artículo sobre [límites de Azure](../azure-subscription-service-limits.md#networking-limits) para asegurarse de que su diseño no entra en conflicto con cualquiera de los límites. Algunos límites se pueden aumentar con la apertura de una incidencia de soporte técnico.
+Los recursos de una red virtual no pueden resolver los nombres de los recursos en la red virtual emparejada mediante el [DNS integrado](virtual-networks-name-resolution-for-vms-and-role-instances.md) de Azure. Para resolver nombres en una red virtual emparejada, [despliegue su propio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), o use los [dominios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) de Azure DNS. Recuerde que la resolución de nombres entre recursos en una red virtual y en redes locales también requiere que implemente su propio servidor DNS.
 
-### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Puede usar el [RBAC de Azure](../role-based-access-control/built-in-roles.md) para controlar el nivel de acceso que distintos usuarios pueden tener a los diferentes recursos de Azure. De esta forma, puede separar el trabajo que realiza su equipo según sus necesidades.
+## <a name="permissions"></a>Permisos
 
-En lo que respecta a las redes virtuales, los usuarios que cuentan con el rol **Colaborador de la red** tienen el control total sobre los recursos de la red virtual del Administrador de recursos de Azure. De manera similar, los usuarios que cuentan con el rol **Colaborador de la red clásica** tienen el control total sobre los recursos de la red virtual clásica.
+Azure usa el [control de acceso basado en roles](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) para los recursos. Se asignan permisos a un [ámbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) según la siguiente jerarquía: suscripción, grupo de administración, grupo de recursos y recursos individuales. Para obtener más información acerca de la jerarquía, consulte [Organización de los recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabajar con redes virtuales de Azure y todas sus capacidades relacionadas, como el emparejamiento, los grupos de seguridad de red, los puntos de conexión de servicio y las tablas de rutas, puede asignar miembros de la organización a los roles integrados [Propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) o [Colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y, a continuación, asignar uno de esos roles a un ámbito adecuado. Si quiere asignar permisos específicos para un subconjunto de capacidades de red virtual, cree un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y asigne al rol los permisos específicos necesarios para [redes virtuales](manage-virtual-network.md#permissions), [subredes y puntos de conexión de servicio](virtual-network-manage-subnet.md#permissions), [interfaces de red](virtual-network-network-interface.md), [emparejamientos](virtual-network-manage-peering.md#permissions), [grupos de seguridad de aplicaciones y red](manage-network-security-group.md#permissions) o [tablas de rutas](manage-route-table.md#permissions).
 
-> [!NOTE]
-> También puede [crear sus propios roles](../role-based-access-control/role-assignments-portal.md) para separar sus necesidades de administración.
->
->
+## <a name="policy"></a>Directiva
 
-## <a name="design"></a>Diseño
-Una vez que sepa las respuestas a las preguntas de la sección [Planeación](#Plan) , revise los siguientes puntos antes de definir las redes virtuales.
+Azure Policy le permite crear, asignar y administrar las definiciones de directivas. Las definiciones de directivas aplican distintas reglas y efectos en los recursos, para que estos sigan siendo compatibles con los estándares de la organización y los contratos de nivel de servicio. Azure Policy ejecuta una evaluación de los recursos, para detectar los que no son compatibles con las definiciones de directivas que tiene. Por ejemplo, puede tener una directiva que permita la creación de redes virtuales en un solo grupo de recursos específico. Otra directiva puede requerir que cada subred tenga un grupo de seguridad de red asociado a ella. Estas directivas se evalúan al crear y actualizar los recursos.
 
-### <a name="number-of-subscriptions-and-vnets"></a>Cantidad de suscripciones y redes virtuales
-Debe considerar la posibilidad de crear varias redes virtuales en los siguientes escenarios:
-
-* **Las máquinas virtuales que deben existir en las distintas ubicaciones de Azure**. Las redes virtuales de Azure son regionales. No pueden abarcar ubicaciones. Por lo tanto, se necesita, como mínimo, una red virtual para cada ubicación de Azure en la que desea hospedar las máquinas virtuales.
-* **Las cargas de trabajo que deben estar completamente aisladas entre sí**. Puede crear redes virtuales independientes, que incluso usen los mismos espacios de direcciones IP, para aislar las distintas cargas de trabajo entre sí.
-
-Tenga en cuenta que los límites ya indicados son por región, por suscripción. Esto significa que puede usar varias suscripciones para aumentar el límite de los recursos que puede mantener en Azure. Puede usar una VPN sitio a sitio o un circuito de ExpressRoute para conectar redes virtuales en distintas suscripciones.
-
-### <a name="subscription-and-vnet-design-patterns"></a>Patrones de diseño de redes virtuales y suscripciones
-La siguiente tabla muestra algunos patrones de diseño comunes para usar las suscripciones y las redes virtuales.
-
-| Escenario | Diagrama | Ventajas | Desventajas |
-| --- | --- | --- | --- |
-| Suscripción única, dos redes virtuales por aplicación. |![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure1.png) |Solo una suscripción que administrar. |Número máximo de redes virtuales por región de Azure. Necesita más suscripciones después de ese límite. Revise el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits) para obtener más información. |
-| Una suscripción por aplicación, dos redes virtuales por aplicación. |![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure2.png) |Usa solo dos redes virtuales por suscripción. |Es más difícil de administrar cuando hay demasiadas aplicaciones. |
-| Una suscripción por unidad de negocio, dos redes virtuales por aplicación. |![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure3.png) |Equilibrio entre la cantidad de suscripciones y las redes virtuales. |Número máximo de redes virtuales por unidad de negocio (suscripción). Revise el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits) para obtener más información. |
-| Una suscripción por unidad de negocio, dos redes virtuales por grupo de aplicaciones. |![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure4.png) |Equilibrio entre la cantidad de suscripciones y las redes virtuales. |Las aplicaciones se deben aislar mediante subredes y NSG. |
-
-### <a name="number-of-subnets"></a>Cantidad de subredes
-Debe considerar la posibilidad de tener varias subredes en una red virtual en los siguientes escenarios:
-
-* **No hay direcciones IP privadas suficientes para todas las NIC de una subred**. Si el espacio de direcciones de subred no contiene direcciones IP suficientes para la cantidad de NIC de la subred, deberá crear varias subredes. Tenga en cuenta que Azure reserva 5 direcciones IP privadas desde cada subred que no se pueden usar: la primera y la última dirección del espacio de direcciones (para la dirección de subred y multidifusión) y 3 direcciones que se usarán internamente (para DHCP y DNS).
-* **Seguridad**. Puede usar subredes para separar los grupos de máquinas virtuales entre sí para las cargas de trabajo que tengan una estructura de varios niveles y aplicar distintos [grupos de seguridad de red (NSG)](virtual-networks-nsg.md#subnets) para esa subredes.
-* **Conectividad híbrida**. Puede utilizar puertas de enlace de VPN y circuitos de ExpressRoute para [conectar](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) las redes virtuales entre sí y con sus centros de datos locales. Las puertas de enlace de VPN y los circuitos de ExpressRoute requieren la creación de una subred propia.
-* **Aplicaciones virtuales**. Puede utilizar una aplicación virtual, como un firewall, un acelerador de WAN o una puerta de enlace de VPN en una red virtual de Azure. Cuando lo haga, deberá [enrutar el tráfico](virtual-networks-udr-overview.md) a esas aplicaciones y aislarlas en su propia subred.
-
-### <a name="subnet-and-nsg-design-patterns"></a>Patrones de diseño de subredes y NSG
-La siguiente tabla muestra algunos patrones de diseño comunes para usar las subredes.
-
-| Escenario | Diagrama | Ventajas | Desventajas |
-| --- | --- | --- | --- |
-| Una sola subred, NSG por nivel de aplicación, por aplicación. |![Subred única](./media/virtual-network-vnet-plan-design-arm/figure5.png) |Solo una subred que administrar. |Varios NSG necesarios para aislar cada aplicación. |
-| Una subred por aplicación, NSG por nivel de aplicación. |![Subred por aplicación](./media/virtual-network-vnet-plan-design-arm/figure6.png) |Menos NSG que administrar. |Varias subredes que administrar. |
-| Una sola subred por nivel de aplicación, NSG por aplicación. |![Subred por nivel](./media/virtual-network-vnet-plan-design-arm/figure7.png) |Equilibrio entre la cantidad de subredes y los NSG. |Número máximo de NSG por suscripción. Revise el artículo sobre los [límites de Azure](../azure-subscription-service-limits.md#networking-limits) para obtener más información. |
-| Una subred por nivel de aplicación, por aplicación, NSG por subred. |![Subred por nivel por aplicación](./media/virtual-network-vnet-plan-design-arm/figure8.png) |Posiblemente, una cantidad menor de NSG. |Varias subredes que administrar. |
-
-## <a name="sample-design"></a>Ejemplo de diseño
-Para mostrar cómo aplicar la información que aparece en este artículo, considere el escenario siguiente.
-
-Trabaja para una empresa que tiene 2 centros de datos en Norteamérica y dos centros de datos en Europa. Identificó 6 aplicaciones distintas para el cliente que son mantenidas por 2 unidades de negocio diferentes que desea migrar a Azure como plan piloto. La arquitectura básica de las aplicaciones es la siguiente:
-
-* App1, App2, App3 y App4 son aplicaciones web hospedadas en servidores Linux que ejecutan Ubuntu. Cada aplicación se conecta a un servidor de aplicaciones independiente que hospeda servicios RESTful en servidores Linux. Los servicios RESTful se conectan a una base de datos MySQL back-end.
-* App5 y App6 son aplicaciones web hospedadas en servidores Windows que ejecutan Windows Server 2012 R2. Cada aplicación se conecta a una base de datos SQL Server back-end.
-* Actualmente, todas las aplicaciones está hospedadas en uno de los centros de datos de la empresa en Norteamérica.
-* Los centros de datos locales usan el espacio de direcciones 10.0.0.0/8.
-
-Debe diseñar una solución de red virtual que cumple los siguientes requisitos:
-
-* El consumo de recursos de las unidades de negocio no debería afectar a ninguna otra unidad de negocio.
-* Deberá minimizar la cantidad de redes virtuales y subredes para facilitar la administración.
-* Cada unidad de negocio debe tener una sola red virtual de prueba/desarrollo para usar para todas las aplicaciones.
-* Cada aplicación se hospeda en 2 centros de datos de Azure distintos por continente (Norteamérica y Europa).
-* Las aplicaciones están completamente aisladas entre sí.
-* Los clientes pueden tener acceso a cada aplicación a través de Internet, mediante el protocolo HTTP.
-* Los usuarios conectados a los centros de datos locales pueden tener acceso a cada aplicación mediante un túnel cifrado.
-* La conexión a los centros de datos locales debe usar dispositivos VPN existentes.
-* El grupo de redes de la empresa debe tener el control total de la configuración de la red virtual.
-* Los desarrolladores de cada unidad de negocio solo deberían poder implementar máquinas virtuales en las subredes existentes.
-* Todas las aplicaciones se migrarán tal como están a Azure ("levantar y mover").
-* Las bases de datos de cada ubicación se deberán replicar en otras ubicaciones de Azure una vez al día.
-* Cada aplicación deberá usar 5 servidores front-end web, 2 servidores de aplicaciones (cuando corresponda) y 2 servidores de bases de datos.
-
-### <a name="plan"></a>Plan
-Para comenzar a planear el diseño, deberá responder la pregunta que aparece en la sección [Definición de los requisitos](#Define-requirements) , tal como se muestra a continuación.
-
-1. ¿Qué ubicaciones de Azure usará para hospedar las redes virtuales?
-
-    2 ubicaciones en Norteamérica y 2 ubicaciones en Europa. Debe elegirla según la ubicación física de los centros de datos locales existentes. De ese modo, la conexión desde las ubicaciones físicas a Azure tendrá una mejor latencia.
-2. ¿Necesita proporcionar comunicación entre estas ubicaciones de Azure?
-
-    Sí. Debido a que las bases de datos se deben replicar a todas las ubicaciones.
-3. ¿Necesita proporcionar comunicación entre las redes virtuales de Azure y los centros de datos locales?
-
-    Sí. Debido a que los usuarios conectados con los centros de datos locales deberían poder tener acceso a las aplicaciones a través de un túnel cifrado.
-4. ¿Cuántas máquinas virtuales IaaS necesita para su solución?
-
-    200 máquinas virtuales IaaS. App1, App2, App3 y App4 requieren, cada una, 5 servidores web, 2 servidores de aplicaciones y 2 servidores de bases de datos. Hablamos de un total de 9 máquinas virtuales IaaS por aplicación, es decir, 36 máquinas virtuales IaaS. App5 y App6 requieren, cada una, 5 servidores web y 2 servidores de bases de datos. Hablamos de un total de 7 máquinas virtuales IaaS por aplicación, es decir, 14 máquinas virtuales IaaS. Por lo tanto, necesita 50 máquinas virtuales IaaS para todas las aplicaciones en cada una de las regiones de Azure. Debido a que necesitamos usar 4 regiones, serán 200 máquinas virtuales IaaS.
-
-    También deberá proporcionar servidores DNS en cada red virtual o en los centros de datos locales para resolver los nombres entre las máquinas virtuales IaaS de Azure y la red local.
-5. ¿Necesita aislar el tráfico según los grupos de máquinas virtuales (es decir, servidores front-end web y servidores de base de datos back-end)?
-
-    Sí. Todas las aplicaciones deberán estar completamente aisladas entre sí y cada nivel de aplicación también deberá estar aislado.
-6. ¿Necesita controlar el flujo de tráfico mediante aplicaciones virtuales?
-
-    Nº Se pueden usar aplicaciones virtuales para brindar más control sobre el flujo de tráfico, incluido el registro del plano de datos.
-7. ¿Los usuarios necesitan distintos conjuntos de permisos para los diferentes recursos de Azure?
-
-    Sí. El equipo de red necesita tener el control completo de la configuración de las redes virtuales, mientras que los desarrolladores solo debería poder implementar sus máquinas virtuales en las subredes existentes previamente.
-
-### <a name="design"></a>Diseño
-Deberá cumplir con las suscripciones, redes virtuales, subredes y NSG especificados en el diseño. Si bien aquí los analizaremos, deberá obtener más información sobre los [NSG](virtual-networks-nsg.md) antes de finalizar el diseño.
-
-**Cantidad de suscripciones y redes virtuales**
-
-Los siguientes requisitos están relacionados con las suscripciones y las redes virtuales:
-
-* El consumo de recursos de las unidades de negocio no debería afectar a ninguna otra unidad de negocio.
-* Deberá minimizar la cantidad de redes virtuales y las subredes.
-* Cada unidad de negocio debe tener una sola red virtual de prueba/desarrollo para usar para todas las aplicaciones.
-* Cada aplicación se hospeda en 2 centros de datos de Azure distintos por continente (Norteamérica y Europa).
-
-Según esos requisitos, necesitará una suscripción para cada unidad de negocio. De ese modo, el consumo de recursos de una unidad de negocio no se contará de cara a los límites de otras unidades de negocio. Además, dado que desea minimizar la cantidad de redes virtuales, deberá considerar la posibilidad de usar el patrón **una suscripción por unidad de negocio, dos redes virtuales por grupo de aplicaciones** , tal como aparece a continuación.
-
-![Suscripción única](./media/virtual-network-vnet-plan-design-arm/figure9.png)
-
-También deberá especificar el espacio de direcciones para cada red virtual. Dado que necesita tener conectividad entre los centros de datos locales y las regiones de Azure, el espacio de direcciones que las redes virtuales de Azure usan no puede tener un conflicto con la red local y el espacio de direcciones que usa cada red virtual no debería tener conflictos con ninguna otra red virtual existente. Puede usar los espacios de direcciones de la tabla siguiente para cumplir estos requisitos.  
-
-| **Suscripción** | **Red virtual** | **Región de Azure** | **Espacio de direcciones** |
-| --- | --- | --- | --- |
-| BU1 |ProdBU1US1 |Oeste de EE. UU |172.16.0.0/16 |
-| BU1 |ProdBU1US2 |Este de EE. UU |172.17.0.0/16 |
-| BU1 |ProdBU1EU1 |Europa del Norte |172.18.0.0/16 |
-| BU1 |ProdBU1EU2 |Europa occidental |172.19.0.0/16 |
-| BU1 |TestDevBU1 |Oeste de EE. UU |172.20.0.0/16 |
-| BU2 |TestDevBU2 |Oeste de EE. UU |172.21.0.0/16 |
-| BU2 |ProdBU2US1 |Oeste de EE. UU |172.22.0.0/16 |
-| BU2 |ProdBU2US2 |Este de EE. UU |172.23.0.0/16 |
-| BU2 |ProdBU2EU1 |Europa del Norte |172.24.0.0/16 |
-| BU2 |ProdBU2EU2 |Europa occidental |172.25.0.0/16 |
-
-**Cantidad de subredes y NSG**
-
-Los siguientes requisitos están relacionados con las subredes y los NSG:
-
-* Deberá minimizar la cantidad de redes virtuales y las subredes.
-* Las aplicaciones están completamente aisladas entre sí.
-* Los clientes pueden tener acceso a cada aplicación a través de Internet, mediante el protocolo HTTP.
-* Los usuarios conectados a los centros de datos locales pueden tener acceso a cada aplicación mediante un túnel cifrado.
-* La conexión a los centros de datos locales debe usar dispositivos VPN existentes.
-* Las bases de datos de cada ubicación se deberán replicar en otras ubicaciones de Azure una vez al día.
-
-Según esos requisitos, podría usar una subred por nivel de aplicación y usar NSG para filtrar el tráfico por aplicación. De ese modo, solo tiene 3 subredes en cada red virtual (front-end, nivel de aplicación y nivel de datos) y un NSG por aplicación por subred. En este caso, deberá considerar la posibilidad de usar el patrón de diseño **una subred por nivel de aplicación, NSG por aplicación** . La siguiente ilustración muestra cómo se usa el patrón de diseño que representa la red virtual **ProdBU1US1** .
-
-![Una subred por nivel, un NSG por aplicación por nivel](./media/virtual-network-vnet-plan-design-arm/figure11.png)
-
-Sin embargo, también necesita crear una subred adicional para la conectividad de VPN entre las redes virtuales y los centros de datos locales. También deberá especificar el espacio de direcciones para cada subred. La siguiente ilustración muestra una solución de ejemplo para la red virtual **ProdBU1US1** . Este escenario se podría replicar para cada red virtual. Cada color representa una aplicación distinta.
-
-![Red virtual de ejemplo](./media/virtual-network-vnet-plan-design-arm/figure10.png)
-
-**Control de acceso**
-
-Los siguientes requisitos están relacionados con el control de acceso:
-
-* El grupo de redes de la empresa debe tener el control total de la configuración de la red virtual.
-* Los desarrolladores de cada unidad de negocio solo deberían poder implementar máquinas virtuales en las subredes existentes.
-
-Según esos requisitos, podría agregar usuarios desde el equipo de red al rol **Colaborador de la red** integrado en cada suscripción y, además, crear un rol personalizado para los desarrolladores de aplicaciones en cada suscripción y otorgarles derechos para agregar máquinas virtuales a las subredes existentes.
-
-## <a name="next-steps"></a>Pasos siguientes
-* [Implementar una red virtual](quick-create-portal.md).
-* Comprender cómo [equilibrar la carga](../load-balancer/load-balancer-overview.md) de las máquinas virtuales IaaS y [administrar el enrutamiento en varias regiones de Azure](../traffic-manager/traffic-manager-overview.md).
-* Obtener más información sobre los [grupos de seguridad de red](security-overview.md) de una solución NSG.
-* Obtener más información sobre las [opciones de conectividad local y redes virtuales](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
+Igualmente, las directivas se aplican según la jerarquía siguiente: suscripción, grupo de administración y grupo de recursos. Obtenga más información sobre la [directiva de Azure](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o acerca de cómo implementar algunos ejemplos de [plantillas de directivas](policy-samples.md) de redes virtuales.

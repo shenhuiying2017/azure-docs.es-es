@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c3a8f4643175e1da4dd278af238a436a34151616
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8aaf31022d54ebbd8c7c3f0bc72763f8c5139cbc
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348519"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integración de Azure Active Directory con Secret Server (On-Premises)
 
@@ -30,7 +31,7 @@ La integración de Secret Server (On-Premises) con Azure AD proporciona las sigu
 - Puede permitir que los usuarios inicien sesión automáticamente en Secret Server (On-Premises) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -56,7 +57,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Adición de Secret Server (On-Premises) desde la galería
 Para configurar la integración de Secret Server (On-Premises) en Azure AD, es necesario que agregue Secret Server (On-Premises) desde la galería hasta la lista de aplicaciones SaaS administradas.
 
-**Para agregar Secret Server (On-Premises) desde la galería, realice los pasos siguientes:**
+**Para agregar Secret Server (On-Premises) desde la galería, siga los pasos a continuación:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -70,13 +71,13 @@ Para configurar la integración de Secret Server (On-Premises) en Azure AD, es n
 
     ![Botón Nueva aplicación][3]
 
-4. En el cuadro de búsqueda, escriba **Secret Server (On-Premises)**, seleccione **Secret Server (On-Premises)** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Secret Server (On-Premises)**, seleccione **Secret Server (On-Premises)** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Secret Server (On-Premises) en la lista de resultados](./media/active-directory-saas-secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Secret Server (On-Premises) con un usuario de prueba llamado "Britta Simon".
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Secret Server (On-Premises) con una usuaria de prueba llamada "Britta Simon".
 
 Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Secret Server (On-Premises) para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Secret Server (On-Premises).
 
@@ -92,7 +93,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Secret Serv
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Secret Server (On-Premises).
 
-**Para configurar el inicio de sesión único de Azure AD con Secret Server (On-Premises), realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con Secret Server (On-Premises), siga los pasos a continuación:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Secret Server (On-Premises)**, haga clic en **Inicio de sesión único**.
 
@@ -111,7 +112,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `.
 
     > [!NOTE]
-    > El identificador de entidad mostrado anteriormente es solo un ejemplo; usted es libre de elegir cualquier valor único que identifique la instancia de Secret Server en Azure AD. Este identificador de entidad se deberá enviar al [equipo de atención al cliente de Secret Server (On-Premises)](https://thycotic.force.com/support/s/) para que se lo configuren. Para más información, lea [este artículo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
+    > El identificador de entidad mostrado anteriormente es solo un ejemplo; es libre de elegir cualquier valor único que identifique la instancia de Secret Server en Azure AD. Este identificador de entidad se deberá enviar al [equipo de atención al cliente de Secret Server (On-Premises)](https://thycotic.force.com/support/s/) para que se lo configuren. Para obtener más información, lea [este artículo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
 
 4. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -126,7 +127,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Vínculo de descarga del certificado](./media/active-directory-saas-secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
 
-6. Marque **Mostrar configuración avanzada de firma de certificados** y, en **Opción de firma**, seleccione **Sign SAML response and assertion** (Firmar respuesta y aserción SAML).
+6. Marque **Show advanced certificate signing settings** (Mostrar configuración avanzada de firma de certificados) y, en **Opción de firma**, seleccione **Sign SAML response and assertion** (Firmar respuesta y aserción SAML).
 
     ![Opciones de firma](./media/active-directory-saas-secretserver-on-premises-tutorial/signing.png)
 
@@ -172,7 +173,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
  
-### <a name="create-a-secret-server-on-premises-test-user"></a>Creación de un usuario de prueba de Secret Server (On-Premises)
+### <a name="create-a-secret-server-on-premises-test-user"></a>Crear un usuario de prueba de Secret Server (On-Premises)
 
 En esta sección, creará un usuario llamado Britta Simon en Secret Server (On-Premises). Trabaje con el [equipo de soporte técnico de Secret Server (On-Premises)](https://thycotic.force.com/support/s/) para agregar a los usuarios a la plataforma de Secret Server (On-Premises). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
@@ -190,7 +191,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 2. En la lista de aplicaciones, seleccione **Secret Server (On-Premises)**.
 
-    ![El vínculo de Secret Server (On-Premises) en la lista de aplicaciones](./media/active-directory-saas-secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
+    ![Vínculo de Secret Server (On-Premises) en la lista de aplicaciones](./media/active-directory-saas-secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
 
 3. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
 
@@ -216,7 +217,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 

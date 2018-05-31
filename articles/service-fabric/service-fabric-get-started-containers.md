@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366535"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 > [!div class="op_single_selector"]
@@ -198,6 +199,8 @@ El servicio en contenedor necesita un punto de conexión para la comunicación. 
 ```
 
 Al definir un punto de conexión, Service Fabric publica el punto de conexión en el servicio de nomenclatura. Otros servicios que se ejecuten en el clúster pueden resolver este contenedor. También puede realizar la comunicación de contenedor a contenedor utilizando el [proxy inverso](service-fabric-reverseproxy.md). La comunicación se establece al proporcionar el puerto de escucha HTTP del proxy inverso y el nombre de los servicios con los que desea comunicarse como variables de entorno.
+
+El servicio escucha en un determinado puerto (8081 en este ejemplo). Cuando la aplicación se implementa en un clúster de Azure, el clúster y la aplicación se ejecutan detrás de un equilibrador de carga de Azure. El puerto de la aplicación debe estar abierto en el equilibrador de carga de Azure para que el tráfico entrante pueda pasar al servicio.  Puede abrir este puerto en el equilibrador de carga de Azure mediante un [script de PowerShell](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) o en [Azure Portal](https://portal.azure.com).
 
 ## <a name="configure-and-set-environment-variables"></a>Configuración y establecimiento de variables de entorno
 En el manifiesto de servicio, las variables de entorno se pueden especificar para cada paquete de código. Esta característica está disponible para todos los servicios, con independencia de si se implementan como contenedores, procesos o archivos ejecutables de invitado. Estos valores de variable de entorno se invalidan en el manifiesto de aplicación o se especifican durante la implementación como parámetros de la aplicación.

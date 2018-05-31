@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 990abc5c4e546d72d093bcd9e8f37932e93cbeb4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361954"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexiones salientes en Azure
 
@@ -40,11 +41,11 @@ Son varios los [escenarios de salida](#scenarios). Puede combinar estos escenari
 
 Cuando se usan [recursos de Azure Resource Manager](#arm), se definen explícitamente Azure Load Balancer y los recursos relacionados.  Actualmente, Azure proporciona tres métodos diferentes para lograr la conectividad saliente con los recursos de Azure Resource Manager. 
 
-| Escenario | Método | DESCRIPCIÓN |
-| --- | --- | --- |
-| [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos |Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. |
-| [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública de nivel de instancia en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
-| [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública en el nivel de instancia)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
+| Escenario | Método | Protocolos IP | DESCRIPCIÓN |
+| --- | --- | --- | --- |
+| [1. Máquina virtual con una dirección IP pública en el nivel de instancia (con o sin Load Balancer)](#ilpip) | SNAT, no se usa el enmascaramiento de puertos | TCP, UDP, ICMP, ESP | Azure usa la dirección IP pública asignada a la configuración IP de NIC de. la instancia. La instancia tiene disponibles todos los puertos efímeros. |
+| [2. Load Balancer público asociado a una máquina virtual (ninguna dirección IP pública de nivel de instancia en la instancia)](#lb) | SNAT con enmascaramiento de puertos (PAT) mediante los servidores front-end de Load Balancer | TCP, UDP |Azure comparte la dirección IP pública de los servidores front-end de Load Balancer público con varias direcciones IP privadas. Azure usa puertos efímeros de los servidores front-end para PAT. |
+| [3. Máquina virtual independiente (sin Load Balancer, sin dirección IP pública en el nivel de instancia)](#defaultsnat) | SNAT con enmascaramiento de puertos (PAT) | TCP, UDP | Azure designa automáticamente una dirección IP pública para SNAT, la comparte con varias direcciones IP privadas del conjunto de disponibilidad y usa los puertos efímeros de esta dirección IP pública. Se trata de un escenario de reserva para los escenarios anteriores. No es aconsejable si necesita visibilidad y control. |
 
 Si no quiere que una máquina virtual se comunique con puntos de conexión situados fuera de Azure en el espacio de direcciones IP públicas, puede usar grupos de seguridad de red (NSG) para bloquear el acceso según sea necesario. En la sección [Impedir la conectividad saliente](#preventoutbound) se proporciona información sobre los grupos de seguridad de red. Las instrucciones sobre cómo diseñar, implementar y administrar una red virtual sin acceso de salida escapan del ámbito de este artículo.
 
@@ -119,7 +120,7 @@ Cuando se usa [Load Balancer estándar con zonas de disponibilidad](load-balance
 
 ### <a name="pat"></a>SNAT de enmascaramiento de puertos (PAT)
 
-Cuando un recurso de Load Balancer público está asociado con instancias de máquina virtual, se reescribe cada origen de conexión de salida. El origen se reescribe del espacio de direcciones IP privadas de la red virtual a la dirección IP pública de servidor front-end del equilibrador de carga. En el espacio de direcciones IP públicas, la tupla de cinco elementos del flujo (dirección IP de origen, puerto de origen, protocolo de transporte IP, dirección IP de destino, puerto de destino) debe ser única.  
+Cuando un recurso de Load Balancer público está asociado con instancias de máquina virtual, se reescribe cada origen de conexión de salida. El origen se reescribe del espacio de direcciones IP privadas de la red virtual a la dirección IP pública de servidor front-end del equilibrador de carga. En el espacio de direcciones IP públicas, la tupla de cinco elementos del flujo (dirección IP de origen, puerto de origen, protocolo de transporte IP, dirección IP de destino, puerto de destino) debe ser única.  SNAT de enmascaramiento de puertos se puede usar con los protocolos IP UDP o TCP.
 
 Para conseguir esto, se usan puertos efímeros (puertos SNAT) después de volver a escribir la dirección IP de origen privada, dado que varios flujos se originan desde una única dirección IP pública. 
 
@@ -235,18 +236,19 @@ Mediante el comando nslookup, puede enviar una consulta DNS del nombre myip.open
     nslookup myip.opendns.com resolver1.opendns.com
 
 ## <a name="preventoutbound"></a>Impedir la conectividad saliente
-En ocasiones, no es aconsejable permitir que una máquina virtual cree un flujo de salida. O bien, puede que exista un requisito para administrar a qué destinos se puede llegar con los flujos de salida o qué destinos pueden comenzar los flujos de entrada. En este caso, puede usar los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md) para administrar los destinos a los que puede llegar la máquina virtual. También puede usar los NSG para administrar qué destino público puede iniciar los flujos de entrada. 
+En ocasiones, no es aconsejable permitir que una máquina virtual cree un flujo de salida. O bien, puede que exista un requisito para administrar a qué destinos se puede llegar con los flujos de salida o qué destinos pueden comenzar los flujos de entrada. En este caso, puede usar los [grupos de seguridad de red](../virtual-network/security-overview.md) para administrar los destinos a los que puede llegar la máquina virtual. También puede usar los NSG para administrar qué destino público puede iniciar los flujos de entrada.
 
-Cuando se aplica un grupo de seguridad de red a una máquina virtual de carga equilibrada, preste atención a las [etiquetas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-tags) y a las [reglas predeterminadas](../virtual-network/virtual-networks-nsg.md#default-rules). Debe asegurarse de que la máquina virtual puede recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer. 
+Cuando aplique un grupo de seguridad de red a una máquina virtual de carga equilibrada, preste atención a las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) y a las [reglas de seguridad predeterminadas](../virtual-network/security-overview.md#default-security-rules). Debe asegurarse de que la máquina virtual puede recibir solicitudes de sondeo de mantenimiento desde Azure Load Balancer. 
 
 Si un grupo de seguridad de red bloquea las solicitudes de sondeo de mantenimiento de la etiqueta predeterminada AZURE_LOADBALANCER, se producirá un error en el sondeo de mantenimiento de la máquina virtual y esta se marca como inactiva. Load Balancer dejará de enviar nuevos flujos a esa máquina virtual.
 
 ## <a name="limitations"></a>Limitaciones
 - DisableOutboundSnat no está disponible como una opción al configurar una regla de equilibrio de carga en el portal.  Use en su lugar herramientas de cliente, plantilla o REST.
+- Solo se puede acceder a los roles de trabajo web sin una red virtual y otros servicios de plataforma de Microsoft si se usa un equilibrador de carga estándar debido a un efecto secundario del funcionamiento de los servicios previos a la red virtual y otros servicios de plataforma. No debe depender de este efecto secundario, porque el servicio mismo o la plataforma subyacente puede cambiar sin previo aviso. Siempre debe pensar que necesita crear conectividad de salida de manera explícita si lo desea al usar solo un equilibrador de carga estándar interno. El escenario 3 del [SNAT predeterminado](#defaultsnat) que se describe en este artículo no está disponible.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [Load Balancer](load-balancer-overview.md).
+- Más información acerca de [Load Balancer](load-balancer-overview.md).
 - Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
-- Más información sobre los [grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
+- Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md).
 - Aprenda sobre las demás [funcionalidades de red](../networking/networking-overview.md) clave en Azure.

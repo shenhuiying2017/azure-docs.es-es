@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: d6a4701c0318edf8292c777615196a2170a68750
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895602"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creación, modificación o eliminación de una tabla de rutas
 
-Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado de Azure, debe crear una tabla de rutas. Si no está familiarizado con el enrutamiento de Azure, le recomendamos leer [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md) y completar el tutorial [Creación de una ruta definida por el usuario - Azure Portal](tutorial-create-route-table-portal.md) antes de completar las tareas que aparecen este artículo.
+Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado de Azure, debe crear una tabla de rutas. Si no está familiarizado con el enrutamiento en redes virtuales, puede obtener más información sobre él en la [información general sobre enrutamiento](virtual-networks-udr-overview.md) o siguiendo un [tutorial](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -31,8 +32,10 @@ Complete las tareas siguientes antes de seguir los pasos de las secciones de est
 
 - Si todavía no tiene una cuenta de Azure, regístrese para obtener una [cuenta de evaluación gratuita](https://azure.microsoft.com/free).
 - Si usa el portal, abra https://portal.azure.com e inicie sesión con la cuenta de Azure.
-- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial es necesaria la versión 5.2.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
-- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial es necesaria la versión 2.0.26 o superior de la CLI de Azure. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
+- Si usa comandos de PowerShell para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/powershell) o ejecute PowerShell en el equipo. Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. Para realizar este tutorial, es necesaria la versión 5.7.0 del módulo de Azure PowerShell u otra posterior. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+- Si usa la interfaz de la línea de comandos (CLI) de Azure para completar las tareas de este artículo, ejecute los comandos que se encuentran en [Azure Cloud Shell](https://shell.azure.com/bash) o ejecute la CLI en el equipo. Para realizar este tutorial, es necesaria la versión 2.0.31 de la CLI de Azure o una versión posterior. Ejecute `az --version` para buscar la versión instalada. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure 2.0](/cli/azure/install-azure-cli). Si ejecuta de forma local la CLI de Azure, también debe ejecutar `az login` para crear una conexión con Azure.
+
+La cuenta en la que inicia sesión o con la que se conecta a Azure debe tener asignado el rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
 
@@ -63,7 +66,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 3. Para más información sobre la configuración común de Azure, consulte la información siguiente:
     *   [Registro de actividad](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Control de acceso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
-    *   [Etiquetas](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags)
+    *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueos](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Script de Automation](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
@@ -86,7 +89,7 @@ En el cuadro de búsqueda que aparece en la parte superior del portal, escriba *
 
 Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de rutas se puede asociar a varias subredes o a ninguna. Como las tablas de rutas no se asocian a las redes virtuales, debe asociar una tabla de rutas a cada subred con la que desea asociarla. Todo el tráfico que sale de la subred se enruta según las rutas que se crearon dentro de las tablas de rutas, las [rutas predeterminadas](virtual-networks-udr-overview.md#default) y las rutas propagadas desde una red local, si la red virtual está conectada a una puerta de enlace de red virtual de Azure (ExpressRoute, o VPN, si se usa BGP con una puerta de enlace de VPN). Solo puede asociar una tabla de rutas a las subredes de las redes virtuales que existen en la misma suscripción y ubicación de Azure de la tabla de rutas.
 
-1. En el cuadro de búsqueda que se encuentra en la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
+1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
 2. Seleccione la red virtual en la lista que contiene la subred a la que desea asociar una tabla de rutas.
 3. Seleccione **Subredes** en **CONFIGURACIÓN**.
 4. Seleccione la subred a la que desea asociar la tabla de rutas.
@@ -101,7 +104,7 @@ Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de
 
 Cuando desasocia una tabla de rutas de una subred, Azure enruta el tráfico según sus [rutas predeterminadas](virtual-networks-udr-overview.md#default).
 
-1. En el cuadro de búsqueda que se encuentra en la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
+1. En el cuadro de búsqueda de la parte superior del portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela.
 2. Seleccione la red virtual que contiene la subred de la que desea desasociar una tabla de rutas.
 3. Seleccione **Subredes** en **CONFIGURACIÓN**.
 4. Seleccione la subred de la que desea desasociar la tabla de rutas.
@@ -137,7 +140,7 @@ Existe un límite para la cantidad de rutas por tabla de rutas que puede crear p
 6. Escriba el **prefijo de dirección**, en notación CIDR, al que desea enrutar el tráfico. El prefijo no se puede duplicar en más de una ruta dentro de la tabla de rutas, aunque puede estar dentro de otro prefijo. Por ejemplo, si definió 10.0.0.0/16 como prefijo en una ruta, de todos modos puede definir otra ruta con el prefijo de dirección 10.0.0.0/24. Azure selecciona una ruta para el tráfico en función de la coincidencia de prefijo más larga. Para más información sobre cómo Azure selecciona las rutas, consulte [Selección de rutas por parte de Azure](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Seleccione un **tipo de próximo salto**. Para una descripción detallada de todos los tipos de próximo salto, consulte [Enrutamiento del tráfico de redes virtuales](virtual-networks-udr-overview.md).
 8. Escriba una dirección IP en la **dirección del próximo salto**. Solo puede escribir una dirección si seleccionó *Aplicación virtual* en **Tipo de próximo salto**.
-9. Seleccione **Aceptar**. 
+9. Seleccione **Aceptar**.
 
 **Comandos**
 
@@ -226,21 +229,24 @@ Puede determinar el tipo de próximo paso entre una máquina virtual y la direcc
 
 - CLI de Azure: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
 - PowerShell: [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
- 
+
 ## <a name="permissions"></a>Permisos
 
-Para realizar tareas en rutas y en tablas de rutas, la cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignados los permisos adecuados que se muestran en la tabla siguiente:
+Para realizar tareas en rutas y en tablas de rutas, la cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
 
-|Operación                                                       |   Nombre de la operación                               |
-|--------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/routeTables/read                              |   Obtención de una tabla de rutas                              |
-|Microsoft.Network/routeTables/write                             |   Creación o actualización de una tabla de rutas                 |
-|Microsoft.Network/routeTables/delete                            |   Eliminación de una tabla de rutas                           |
-|Microsoft.Network/routeTables/join/action                       |   Unión a una tabla de rutas                             |
-|Microsoft.Network/routeTables/routes/read                       |   Obtención de una ruta                                    |
-|Microsoft.Network/routeTables/routes/write                      |   Creación o actualización de una ruta                       |
-|Microsoft.Network/routeTables/routes/delete                     |   Eliminación de una ruta                                 |
-|Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Obtención de una tabla de rutas eficaces de una interfaz de red  | 
-|Microsoft.Network/networkWatchers/nextHop/action                |   Obtención del próximo salto de una VM                  |
+| .                                                          |   NOMBRE                                                  |
+|--------------------------------------------------------------   |   -------------------------------------------           |
+| Microsoft.Network/routeTables/read                              |   Lectura de una tabla de rutas                                    |
+| Microsoft.Network/routeTables/write                             |   Creación o actualización de una tabla de rutas                        |
+| Microsoft.Network/routeTables/delete                            |   Eliminación de una tabla de rutas                                  |
+| Microsoft.Network/routeTables/join/action                       |   Asociación de una tabla de rutas a una subred                   |
+| Microsoft.Network/routeTables/routes/read                       |   Lectura de una ruta                                          |
+| Microsoft.Network/routeTables/routes/write                      |   Creación o actualización de una ruta                              |
+| Microsoft.Network/routeTables/routes/delete                     |   Eliminación de una ruta                                        |
+| Microsoft.Network/networkInterfaces/effectiveRouteTable/action  |   Obtención de la tabla de rutas eficaces de una interfaz de red |
+| Microsoft.Network/networkWatchers/nextHop/action                |   Obtención del próximo salto de una VM                           |
 
-La operación *Unión a una tabla de rutas* es necesaria para asociar una tabla de rutas a una subred.
+## <a name="next-steps"></a>Pasos siguientes
+
+- Crear una tabla de rutas con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md) o con [plantillas de Azure Resource Manager](template-samples.md)
+- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales

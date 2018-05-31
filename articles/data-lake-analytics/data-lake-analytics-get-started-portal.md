@@ -1,24 +1,21 @@
 ---
-title: Introducción a Azure Data Lake Analytics mediante Azure Portal | Microsoft Docs
-description: 'Aprenda a usar Azure Portal para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar el trabajo. '
+title: Introducción a Azure Data Lake Analytics mediante Azure Portal
+description: Aprenda a usar Azure Portal para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar el trabajo.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358292"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Introducción al uso de Azure Portal por parte de Azure Data Lake Analytics
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>Envío de un trabajo de U-SQL
 
-1. Desde la cuenta de Data Lake Analytics, haga clic en **Nuevo trabajo**.
-2. Pegue el texto del script U-SQL mostrado anteriormente. 
-3. Haga clic en **Enviar trabajo**.   
-4. Espere a que el estado del trabajo cambie a **Correcto**.
-5. Haga clic en la pestaña **Salida** y luego en `data.csv`. 
+1. Desde la cuenta de Data Lake Analytics, seleccione **Nuevo trabajo**.
+2. Pegue el texto del script U-SQL anterior. Asigne un nombre al trabajo. 
+3. Seleccione el botón **Enviar** para iniciar el trabajo.   
+4. Supervise el **estado** del trabajo y espere a que este cambie a **Correcto**.
+5. Seleccione la pestaña **Datos** y, después, seleccione la pestaña **Salidas**. Seleccione el archivo de salida denominado `data.csv` y vea los datos de salida.
 
 ## <a name="see-also"></a>Otras referencias
 

@@ -3,17 +3,18 @@ title: 'Aplicación de recomendaciones de rendimiento: Azure SQL Database | Micr
 description: Use Azure Portal para buscar recomendaciones de rendimiento que pueden optimizar el rendimiento de su instancia de Azure SQL Database.
 services: sql-database
 author: stevestein
-manager: jhubbard
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364359"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -98,7 +99,11 @@ Puede establecer que Azure SQL Database implemente las recomendaciones de forma 
     ![Configuración del asesor](./media/sql-database-advisor-portal/settings.png)
 2. Seleccione las acciones que desee automatizar:
    
-    ![Índices recomendados](./media/sql-database-advisor-portal/automation.png)
+    ![Índices recomendados](./media/sql-database-automatic-tuning-enable/server.png)
+
+> [!NOTE]
+> Tenga en cuenta que, ahora mismo, la opción **DROP_INDEX** no es compatible con las aplicaciones que usan las sugerencias de índice y el cambio de partición, y no debe estar activa en estos casos.
+>
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Ejecutar manualmente el script T-SQL recomendado
 Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.

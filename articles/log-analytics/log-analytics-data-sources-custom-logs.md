@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361896"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registros personalizados de Log Analytics
 El origen de datos de registros personalizados en Log Analytics permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog.  Una vez recopilada la información, puede analizar cada entrada del registro en campos individuales mediante la característica [Campos personalizados](log-analytics-custom-fields.md) de Log Analytics.
@@ -29,7 +30,7 @@ Los archivos de registro que se van a recopilar deben cumplir los criterios sigu
 
 - El registro debe tener una sola entrada por línea o usar una marca de tiempo que coincida con uno de los formatos siguientes al principio de cada entrada.
 
-    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM <br>Lun DD,AAAA HH:MM:SS
+    AAAA-MM-DD HH:MM:SS <br>M/D/AAAA HH:MM:SS AM/PM<br>Mes DD, AAAA HH:MM:SS<br />aaMMdd HH:mm:ss<br />ddMMaa HH:mm:ss<br />MMM d hh:mm:ss<br />dd/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ddTHH:mm:ssK
 
 - El archivo de registro no debe permitir el registro circular o la rotación de registros, donde el archivo se sobrescribe con nuevas entradas.
 - El archivo de registro debe utilizar la codificación ASCII o UTF-8.  No se admiten otros formatos, como UTF-16.

@@ -1,5 +1,5 @@
 ---
-title: Restringir el tráfico web con un firewall de aplicaciones web - CLI de Azure
+title: 'Habilitar firewall de aplicaciones web: CLI de Azure'
 description: Aprenda a restringir el tráfico web con un firewall de aplicaciones web en una puerta de enlace de aplicaciones mediante la CLI de Azure.
 services: application-gateway
 author: vhorne
@@ -10,13 +10,14 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 64de501c2e7912cb4cbbae4b194d6c686a1efe67
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ca00dd3b359d9aff1b987a3bef5b27732678b0a3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356229"
 ---
-# <a name="tutorial-restrict-web-traffic-with-a-web-application-firewall-using-the-azure-cli"></a>Tutorial: restringir el tráfico web con un firewall de aplicaciones web mediante la CLI de Azure
+# <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>Tutorial: Habilitar el firewall de aplicaciones web mediante la CLI de Azure
 
 Puede restringir el tráfico en una [puerta de enlace de aplicaciones](overview.md) con un [firewall de aplicaciones web](waf-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión. 
 
@@ -134,7 +135,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Crear una cuenta de almacenamiento y configurar los diagnósticos

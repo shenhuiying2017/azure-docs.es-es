@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con TrackVia | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TrackVia."
+title: 'Tutorial: Integración de Azure Active Directory con TrackVia | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y TrackVia.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 51b040e1dfaba8fff8136e8947edf716919f53b0
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: f0b0a2f29a1c14477fcd52e03fdfc47fee728c78
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integración de Azure Active Directory con TrackVia
 
@@ -30,7 +31,7 @@ Integrar TrackVia con Azure AD proporciona las siguientes ventajas:
 - Puede permitir que los usuarios inicien sesión automáticamente en TrackVia (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -126,11 +127,22 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 6. Haga clic en el botón **Guardar** .
 
     ![Botón Configurar inicio de sesión único](./media/active-directory-saas-trackvia-tutorial/tutorial_general_400.png)
-    
-7. Para configurar el inicio de sesión único en **TrackVia**, debe enviar el archivo **XML de metadatos** descargado al [equipo de soporte técnico de TrackVia](mailto:support@trackvia.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más sobre la característica de documentación insertada aquí: [Vista previa: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal]( https://go.microsoft.com/fwlink/?linkid=845985)
+7. En la sección **TrackVia Configuration** (Configuración de TrackVia), haga clic en **Configure TrackVia** (Configurar TrackVia) para abrir la ventana **Configurar inicio de sesión**. Copie el valor de **Identificador de entidad de SAML** de la **sección Referencia rápida**
+
+    ![Configuración de TrackVia](./media/active-directory-saas-trackvia-tutorial/tutorial_trackvia_configure.png)
+    
+8. En otra ventana del explorador, inicie sesión en el sitio de la compañía de TrackVia como administrador.
+
+9. Haga clic en la configuración **My Account** (Mi cuenta) de Trackvia y seleccione la pestaña **Single Sign On** (Inicio de sesión único), después, realice los pasos siguientes:
+
+    ![Configuración de TrackVia](./media/active-directory-saas-trackvia-tutorial/configure1.png)
+
+    a. En el cuadro de texto **Identity Provider Entity ID** (Identificador de entidad del proveedor de identidad), pegue el valor de **SAML Entity ID** (Identificador de entidad de SAML) que ha copiado de Azure Portal.
+
+    b. Seleccione **Choose File** (Elegir archivo) para cargar el archivo de metadatos que descargó de Azure Portal.
+
+    c. Haga clic en **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -210,9 +222,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -227,4 +237,3 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 [201]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trackvia-tutorial/tutorial_general_203.png
-

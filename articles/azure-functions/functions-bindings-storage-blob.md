@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: a3d1ca210d490e7a8c634fbfb2a2e11f4e82fae4
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356416"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
@@ -31,14 +32,18 @@ En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!NOTE]
+> Utilice el desencadenador de Event Grid en lugar del desencadenador de Blob Storage para las cuentas de almacenamiento solo para blobs, para operaciones a gran escala o para evitar retrasos por arranques en frío. Para obtener más información, consulte la sección [Desencadenador](#trigger). 
+
 ## <a name="packages"></a>Paquetes
 
 Los enlaces de Blob Storage se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) de GitHub.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-> [!NOTE]
-> Utilice el desencadenador de Event Grid en lugar del desencadenador de Blob Storage para las cuentas de almacenamiento solo para blobs, para operaciones a gran escala o para evitar retrasos por arranques en frío. Para más información, consulte la siguiente sección **Desencadenador**. 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -769,7 +774,7 @@ En C# y script de C#, puede enlazar con los tipos siguientes para la escritura d
 * `CloudPageBlob`<sup>2</sup>
 * `CloudAppendBlob`<sup>2</sup>
 
-<sup>1</sup> requiere un enlace "in" `direction` en *function.json* o `FileAccess.Read` en una biblioteca de clases de C#.
+<sup>1</sup> requiere un enlace "in" `direction` en *function.json* o `FileAccess.Read` en una biblioteca de clases de C#. Sin embargo, puede usar el objeto de contenedor que proporciona el tiempo de ejecución para escribir operaciones, como cargar blobs en el contenedor.
 
 <sup>2</sup> requiere un enlace "inout" `direction` en *function.json* o `FileAccess.ReadWrite` en una biblioteca de clases de C#.
 

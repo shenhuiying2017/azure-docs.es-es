@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/17/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 51f00984a8f0d750bdb478ae4bc8093adad8108e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ce78201e3f87b9687ced181f90d352d73aa29431
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366069"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Almacenamiento de copias de seguridad de Azure SQL Database durante diez años como máximo
 
@@ -54,8 +55,13 @@ W=12 semanas (84 días), M=12 meses (365 días), Y=10 años (3650 días), WeekOf
 
 
  
-Si tuviera que modificar la directiva anterior y establece W=0 (sin copias de seguridad semanales), la cadencia de las copias de seguridad cambiaría tal y como se muestra en la tabla anterior en función de las fechas destacadas. La cantidad de almacenamiento necesaria para mantener estas copias de seguridad se reduciría según corresponda. Nota: Las copias de LTR se crean mediante el servicio de almacenamiento de Azure, por lo que el proceso de copia no tiene ningún impacto en el rendimiento en la base de datos existente.
-Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo.   La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. 
+Si tuviera que modificar la directiva anterior y establece W=0 (sin copias de seguridad semanales), la cadencia de las copias de seguridad cambiaría tal y como se muestra en la tabla anterior en función de las fechas destacadas. La cantidad de almacenamiento necesaria para mantener estas copias de seguridad se reduciría según corresponda. 
+
+> [!NOTE]
+1. Las copias de LTR se crean mediante el servicio de almacenamiento de Azure, por lo que el proceso de copia no tiene ningún impacto en el rendimiento en la base de datos existente.
+2. La directiva se aplica a las copias de seguridad futuras. Por ejemplo, Si el valor de WeekOfYear especificado pertenece al pasado al configurar la directiva, la primera copia de seguridad de LTR se creará el próximo año. 
+3. Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccionar una copia de seguridad específica en función de su marca de tiempo.   La base de datos se puede restaurar en cualquier servidor existente en la misma suscripción que la base de datos original. 
+> 
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo
 

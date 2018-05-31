@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: sashan
-ms.openlocfilehash: 6e82b851f7dc7e2b8c7fe996bff843c8f10f2978
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185433"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura (versión preliminar)
 
@@ -21,11 +22,13 @@ El **escalado horizontal de lectura** le permite equilibrar la carga de las carg
 
 ## <a name="overview-of-read-scale-out"></a>Introducción al escalado horizontal de lectura
 
-Cada base de datos del nivel Premium ([modelo de compra basado en la unidad de transmisión de datos (DTU)](sql-database-service-tiers.md#dtu-based-purchasing-model)) o del nivel Crítico para la empresa ([modelo de compra basado en núcleos virtuals](sql-database-service-tiers.md#vcore-based-purchasing-model-preview)) se aprovisiona automáticamente con varias réplicas Always On para permitir el Acuerdo de Nivel de Servicio de disponibilidad. Estas réplicas se aprovisionan con el mismo nivel de rendimiento que la réplica de lectura-escritura que se usan en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de las réplicas de solo lectura en lugar de compartir estas réplicas. De esta forma, la carga de trabajo de solo lectura se aísla de la carga de trabajo de lectura-escritura principal y no afecta a su rendimiento. La característica va dirigida a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas de manera lógica, como análisis; por lo tanto, el uso de esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
+Cada base de datos del nivel Premium ([modelo de compra basado en DTU](sql-database-service-tiers-dtu.md)) o del nivel Crítico para la empresa ([modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md)) se aprovisiona automáticamente con varias réplicas AlwaysOn para permitir el Acuerdo de Nivel de Servicio de disponibilidad. Estas réplicas se aprovisionan con el mismo nivel de rendimiento que la réplica de lectura-escritura que se usan en las conexiones normales de base de datos. La característica de **escalado horizontal de lectura** le permite equilibrar la carga de las cargas de trabajo de solo lectura de SQL Database gracias al uso de la capacidad de las réplicas de solo lectura en lugar de compartir estas réplicas. De este modo, la carga de trabajo de solo lectura se aísla de la carga de trabajo principal de lectura y escritura y no afecta a su rendimiento. La característica está destinada a las aplicaciones que incluyen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, esta capacidad adicional podría suponer ventajas para el rendimiento sin costo adicional.
 
 Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager. 
 
 Después de habilitar el escalado horizontal de lectura en una base de datos, las aplicaciones que se conecten a ella se dirigirán a la réplica de lectura-escritura o a la réplica de solo lectura de esa base de datos, en función de la propiedad `ApplicationIntent` configurada en la cadena de conexión de la aplicación. Para más información sobre la propiedad `ApplicationIntent`, consulte [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Especificación de la intención de la aplicación).
+
+Si está deshabilitado el escalado de lectura o establece la propiedad ReadScale en un nivel de servicio no admitido, todas las conexiones se dirigen a la réplica de lectura y escritura, con independencia de la propiedad `ApplicationIntent`.
 
 > [!NOTE]
 > Durante la versión preliminar, el Almacén de datos de consultas y los Eventos extendidos no se admiten en las réplicas de solo lectura.
@@ -56,6 +59,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+Puede comprobar si está conectado a una réplica de solo lectura mediante la ejecución de la consulta siguiente. Si está conectado a una réplica de solo lectura, se devolverá READ_ONLY.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
+```
+
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante Azure PowerShell
 
 Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 u otra posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -82,7 +91,7 @@ New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 
 ## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>Habilitación y deshabilitación del escalado horizontal de lectura mediante la API REST de Azure SQL Database
 
-Para crear una base de datos que tenga habilitado de lectura, o para habilitar o deshabilitar el escalado horizontal de lectura en una base de datos existente, cree o actualice la entidad correspondiente de la base de datos con la propiedad `readScale` establecida en `Enabled` o `Disabled`, como en la siguiente solicitud de ejemplo.
+Para crear una base de datos que tenga habilitado el escalado de lectura, o para habilitar o deshabilitar esta característica en una base de datos existente, cree o actualice la entidad correspondiente de la base de datos con la propiedad `readScale` establecida en `Enabled` o `Disabled`, como en la siguiente solicitud de ejemplo.
 
 ```rest
 Method: PUT

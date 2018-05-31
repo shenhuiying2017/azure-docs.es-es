@@ -1,25 +1,27 @@
 ---
 title: Exposición de una aplicación en la galería de aplicaciones de Azure Active Directory | Microsoft Docs
-description: Procedimientos para mostrar una aplicación compatible con el inicio de sesión único en la galería de aplicaciones de Azure Active Directory
+description: Información sobre cómo mostrar una aplicación compatible con el inicio de sesión único en la galería de aplicaciones de Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
-ms.author: bryanla
+ms.date: 05/09/2018
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354459"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Aprenda a mostrar su aplicación en la galería de aplicaciones de Azure Active Directory
 
@@ -49,9 +51,27 @@ Para agregar una aplicación a la galería de Azure AD, debe implementar uno de 
 
 *   **OpenID Connect**: cree la aplicación multiinquilino en Azure AD e implemente el [marco de consentimiento de Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) de la aplicación. Envíe la solicitud de inicio de sesión a un punto de conexión común para que cualquier cliente pueda proporcionar su consentimiento a la aplicación. Puede controlar el acceso de usuario en función del identificador del inquilino y el UPN del usuario que se recibieron en el token. Para integrar la aplicación con Azure AD, siga las [instrucciones para desarrolladores](active-directory-authentication-scenarios.md).
 
+    ![Escala de tiempo para agregar la aplicación de OpenID Connect en la galería](./media/active-directory-app-gallery-listing/openid.png)
+
+    * Si desea agregar la aplicación a la lista en la galería con OpenID Connect, seleccione **OpenID Connect & OAuth 2.0** (OAuth 2.0 y OpenID Connect) como arriba.
+
+    * Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** o **WS-Fed**: la aplicación debe ser capaz de realizar la integración de SSO de SAML/WS-Fed en modo SP o IDP. Si la aplicación es compatible con SAML 2.0, se puede integrar directamente con un inquilino de Azure AD; siga [estas instrucciones para agregar una aplicación personalizada](../active-directory-saas-custom-apps.md).
 
-*   **SSO de contraseña**: cree una aplicación web que tenga una página de inicio de sesión HTML para configurar el [inicio de sesión único basado en contraseña](../active-directory-appssoaccess-whatis.md). El SSO basado en contraseña, también conocido como almacenamiento de contraseñas, permite administrar el acceso y las contraseñas de los usuarios en aplicaciones web que no admiten la federación de identidades. También es útil para escenarios en los que varios usuarios deben compartir la misma cuenta, como las cuentas de las aplicaciones de redes sociales de la organización.
+    ![Escala de tiempo para exponer la aplicación de SAML 2.0 o WS-Fed en la galería](./media/active-directory-app-gallery-listing/saml.png)
+
+    * Si desea agregar la aplicación a la lista en la galería mediante **SAML 2.0** o **WS-Fed**, seleccione **SAMl 2.0/WS-Fed** como arriba.
+
+    * Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
+*   **SSO de contraseña**: cree una aplicación web que tenga una página de inicio de sesión HTML para configurar el [inicio de sesión único basado en contraseña](../manage-apps/what-is-single-sign-on.md). El SSO basado en contraseña, también conocido como almacenamiento de contraseñas, permite administrar el acceso y las contraseñas de los usuarios en aplicaciones web que no admiten la federación de identidades. También es útil para escenarios en los que varios usuarios deben compartir la misma cuenta, como las cuentas de las aplicaciones de redes sociales de la organización.
+
+    ![Escala de tiempo para agregar la aplicación de SSO con contraseña a la galería](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * Si desea agregar la aplicación a la lista en la galería mediante SSO con contraseña, seleccione **Password SSO** (SSO con contraseña) como arriba.
+
+    * Si tiene algún problema para obtener acceso, póngase en contacto con el [equipo de integración del SSO de Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Actualización o eliminación de una lista existente
 
@@ -60,7 +80,7 @@ Para actualizar o eliminar una aplicación existente en la galería de aplicacio
 * Seleccione la opción adecuada de la imagen siguiente:
 
     ![Escala de tiempo para agregar la aplicación SAML a la lista de la galería](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * Si quiere actualizar una aplicación existente, seleccione **Update existing application listing** (Actualizar la lista de aplicaciones existentes).
 
     * Si quiere quitar una aplicación existente de la galería de Azure AD, seleccione **Remove existing application listing** (Quitar lista de aplicaciones existentes).
@@ -86,6 +106,10 @@ El período de tiempo que dura el proceso para mostrar una aplicación de SAML 2
 El período de tiempo que dura el proceso para mostrar una aplicación de OpenID Connect en la galería es de entre 2 y 5 días laborables.
 
    ![Escala de tiempo para agregar la aplicación SAML a la lista de la galería](./media/active-directory-app-gallery-listing/timeline2.png)
+
+La escala de tiempo para el proceso de mostrar la aplicación en la galería con la compatibilidad de aprovisionamiento de usuario es de entre 40 y 45 días laborables.
+
+   ![Escala de tiempo para agregar la aplicación SAML a la lista de la galería](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Extensiones
 

@@ -1,18 +1,19 @@
 ---
 title: Las API y las herramientas de Azure Batch para desarrolladores | Microsoft Docs
-description: "Obtenga información acerca de las API y herramientas disponibles para desarrollar soluciones con el servicio Azure Batch."
+description: Obtenga información acerca de las API y herramientas disponibles para desarrollar soluciones con el servicio Azure Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359329"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Información general sobre las API y herramientas de Batch
 
@@ -26,11 +27,10 @@ Puede procesar de forma eficiente cargas de trabajo a gran escala para su organi
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Cuentas de Azure para desarrollo con Batch
-Cuando se desarrollan soluciones de Batch, se usan las siguientes cuentas en Microsoft Azure.
+Cuando se desarrollan soluciones de Batch, se usan las siguientes cuentas de la suscripción de Azure:
 
-* **Cuenta y suscripción de Azure**: si aún no tiene ninguna suscripción de Azure, puede activar su [ventaja como suscriptor de Visual Studio][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se crea automáticamente una suscripción predeterminada.
-* **Cuenta de Batch**: los recursos de Azure Batch, entre los que se incluyen grupos, nodos de proceso, trabajos y tareas, están asociados a una cuenta de Azure Batch. Cuando la aplicación realiza una solicitud en el servicio Batch, autentica la solicitud mediante el nombre de la cuenta de Azure Batch, la dirección URL de la cuenta y una clave de acceso<o un token de Azure Active Directory. Puede [crear una cuenta de Batch](batch-account-create-portal.md) en Azure Portal o mediante programación.
-* **Cuenta de Storage**: Batch incluye compatibilidad integrada para trabajar con archivos en [Azure Storage][azure_storage]. Casi todos los escenarios de Batch usan Azure Blob Storage tanto para el almacenamiento provisional de los programas que ejecutan las tareas como de los datos que procesan, así como para el almacenamiento de los datos de salida que generan. Para crear una cuenta de Storage, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+* **Cuenta de Batch**: los recursos de Azure Batch, entre los que se incluyen grupos, nodos de proceso, trabajos y tareas, están asociados a una cuenta de [Azure Batch](batch-api-basics.md#account). Cuando la aplicación realiza una solicitud en el servicio Batch, autentica la solicitud mediante el nombre de la cuenta de Azure Batch, la dirección URL de la cuenta y una clave de acceso<o un token de Azure Active Directory. Puede [crear una cuenta de Batch](batch-account-create-portal.md) en Azure Portal o mediante programación.
+* **Cuenta de Storage**: Batch incluye compatibilidad integrada para trabajar con archivos en [Azure Storage][azure_storage]. Casi todos los escenarios de Batch usan Azure Blob Storage tanto para el almacenamiento provisional de los programas que ejecutan las tareas como de los datos que procesan, así como para el almacenamiento de los datos de salida que generan. Para conocer las opciones de cuenta de almacenamiento de Batch, consulte la [introducción a la característica de Batch](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>API del servicio Batch
 

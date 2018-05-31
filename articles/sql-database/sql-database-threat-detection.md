@@ -7,85 +7,83 @@ manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 05/17/2018
 ms.author: ronmat
-ms.openlocfilehash: c4a94ab9c7e0dab9e8c25e54fdd0a30b28b7a8a3
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.reviewer: carlrab
+ms.openlocfilehash: db10bbdd39920b05d9fd8c3907f22c3ee5d08b02
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364155"
 ---
-# <a name="sql-database-threat-detection"></a>Detección de amenazas de SQL Database
+# <a name="azure-sql-database-threat-detection"></a>Detección de amenazas de Azure SQL Database
 
-Detección de amenazas de SQL detecta actividad anómala que indica intentos inusuales y potencialmente peligrosos de obtener acceso a las bases de datos o de vulnerar su seguridad.
+La detección de amenazas de Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad.
 
-## <a name="overview"></a>Información general
+La detección de amenazas forma parte de la oferta de [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md) (ATP), que es un paquete unificado para capacidades avanzadas de seguridad de SQL. Puede acceder a la característica de detección de amenazas y administrarla a través del portal central de SQL ATP.
 
-Detección de amenazas de SQL ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan.  Los usuarios reciben una alerta sobre las actividades sospechosas en las bases de datos, las posibles vulnerabilidades y los ataques por inyección de código SQL, así como sobre los patrones de acceso a las bases de datos anómalos. Las alertas de Detección de amenazas de SQL proporcionan detalles de actividad sospechosa y recomiendan acciones sobre cómo investigar y mitigar la amenaza. Los usuarios pueden explorar los eventos sospechosos mediante la [auditoría de SQL Database](sql-database-auditing.md) para determinar si proceden de un intento de acceder a los datos en la base de datos, infringir su seguridad o aprovecharlos. Detección de amenazas facilita la solución de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.
+## <a name="what-is-threat-detection"></a>¿Qué es la detección de amenazas?
 
-Por ejemplo, la inyección de código SQL es uno de los problemas de seguridad habituales entre las aplicaciones web en Internet y se usa para atacar aplicaciones controladas por datos. Los atacantes aprovechan las vulnerabilidades de la aplicación para inyectar instrucciones SQL malintencionadas en los campos de entrada de la aplicación, con el fin de infringir la seguridad o modificar datos en la base de datos.
+Detección de amenazas de SQL ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan. Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre los patrones de acceso y consultas a las bases de datos anómalos. La detección de amenazas de SQL integra las alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/), que incluye detalles de actividades sospechosas y acciones recomendadas sobre cómo investigar y mitigar la amenaza. La detección de amenazas de SQL facilita la solución de posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni tener que administrar sistemas de supervisión de seguridad avanzada. 
 
-Detección de amenazas de SQL integra alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Cada servidor de SQL Database protegido se factura al mismo precio que el nivel Estándar de Azure Security Center, a 15 USD/nodo/mes (cada servidor protegido cuenta como un nodo).  
+Para obtener una experiencia de investigación, se recomienda habilitar la [auditoría de SQL Database](sql-database-auditing.md), que escribe los eventos de las bases de datos en un registro de auditoría en su cuenta de Azure Storage.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configuración de la detección de amenazas en Azure Portal
 1. Inicie Azure Portal en [https://portal.azure.com](https://portal.azure.com).
-2. Vaya a la página de configuración de SQL Database que desea supervisar. En la página Configuración, seleccione **Auditoría y detección de amenazas**. 
-    ![Panel de navegación][1]
-3. En la página de configuración **Auditoría y detección de amenazas**, **active** la auditoría para que aparezca la configuración de detección de amenazas.
+2. Vaya a la página de configuración del servidor de Azure SQL Database que quiere proteger. En la configuración de seguridad, seleccione **Protección contra amenazas avanzada**.
+3. En la página de configuración **Protección contra amenazas avanzada**:
+
+   - Habilite Protección contra amenazas avanzada en el servidor.
+   - En **Configuración de detección de amenazas**, en el cuadro de texto **Send alerts to** (Enviar alertas a), proporcione la lista de correos electrónicos para recibir alertas de seguridad cuando se detecten actividades anómalas en la base de datos.
   
-    ![Panel de navegación][2]
-4. **Active** Detección de amenazas.
-5. Configure la lista de direcciones de correo electrónico que recibirán alertas de seguridad cuando se detecten actividades anómalas en las bases de datos.
-6. Haga clic en **Guardar** en la página **Auditoría y detección de amenazas** para guardar la configuración de auditoría y detección de amenazas nueva o actualizada.
-       
-    ![Panel de navegación][3]
+   ![Configurar la detección de amenazas](./media/sql-database-threat-detection/set_up_threat_detection.png)
 
 ## <a name="set-up-threat-detection-using-powershell"></a>Configuración de la detección de amenazas mediante PowerShell
 
 Para ver un script de ejemplo, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Exploración de las actividades anómalas en la base de datos cuando se detecta un evento sospechoso
-1. Cuando se detecten actividades anómalas en las bases de datos, recibirá una notificación por correo electrónico. <br/>
-   El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor, el nombre de la aplicación y la hora del evento. Además, el correo electrónico proporciona información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.<br/>
-     
-    ![Panel de navegación][4]
-2. La alerta de correo electrónico incluye un vínculo directo al registro de auditoría de SQL. Al hacer clic en este vínculo inicia Azure Portal y abre los registros de auditoría de SQL aproximadamente a la hora del evento sospechoso. Haga clic en un registro de auditoría para ver más información sobre las actividades sospechosas de la base de datos, lo que facilita la detección de las instrucciones SQL que se ejecutaron (quién ha obtenido acceso, qué hizo y cuándo), y determinar si el evento ha sido legítimo o malintencionado (por ejemplo, ha aprovechado una vulnerabilidad de la aplicación a la inyección de SQL, alguien ha realizado la infracción datos confidenciales, etc.).<br/>
-   ![Panel de navegación][5]
 
+Cuando se detecten actividades anómalas en las bases de datos, recibirá una notificación por correo electrónico. El correo electrónico proporciona información sobre el evento de seguridad sospechoso, en la que se incluyen la naturaleza de las actividades anómalas, el nombre de la base de datos, el nombre del servidor, el nombre de la aplicación y la hora del evento. Además, el correo electrónico proporciona información sobre las posibles causas y las medidas recomendadas para investigar y mitigar la amenaza potencial para la base de datos.
+
+![Informes de actividades anómalas](./media/sql-database-threat-detection/anomalous_activity_report.png)
+     
+1. Haga clic en el vínculo **View recent SQL alerts** (Ver las alertas recientes de SQL) del correo electrónico para iniciar Azure Portal y mostrar la página de alertas de Azure Security Center, que proporciona información general sobre amenazas activas detectadas en la base de datos de SQL.
+
+   ![Amenazas de actividades](./media/sql-database-threat-detection/active_threats.png)
+
+2. Haga clic en una alerta específica para obtener detalles y acciones adicionales para investigar esta amenaza y solucionar amenazas futuras.
+
+   Por ejemplo, la inyección de código SQL es uno de los problemas de seguridad habituales entre las aplicaciones web en Internet y se usa para atacar aplicaciones controladas por datos. Los atacantes aprovechan las vulnerabilidades de la aplicación para inyectar instrucciones SQL malintencionadas en los campos de entrada de la aplicación, con el fin de infringir la seguridad o modificar datos en la base de datos. Para las alertas de inyección de código SQL, los detalles de la alerta incluyen la instrucción SQL vulnerable que se ha aprovechado.
+
+   ![Alerta específica](./media/sql-database-threat-detection/specific_alert.png)
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Exploración de alertas de detección de amenazas para la base de datos en Azure Portal
 
-Detección de amenazas de SQL Database integra la alerta con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Un icono de seguridad SQL dinámico dentro de la página de la base de datos en Azure Portal realiza el seguimiento del estado de las amenazas activas. 
+Detección de amenazas de SQL Database integra la alerta con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Un icono de detección de amenazas de SQL dinámico dentro de las hojas de SQL ATP y de la base de datos en Azure Portal realiza un seguimiento del estado de las amenazas activas.
 
-   ![Panel de navegación][6]
+Haga clic en la **alerta de detección de amenazas** para iniciar la página de alertas de Azure Security Center y obtener información general de las amenazas de SQL activas detectadas en la base de datos.
+
+   ![Alerta de detección de amenazas](./media/sql-database-threat-detection/threat_detection_alert.png)
    
-1. Al hacer clic en el icono de seguridad de SQL se inicia la página de alertas de Azure Security Center y proporciona información general de las amenazas SQL activas detectadas en la base de datos. 
+   ![Alerta 2 de detección de amenazas](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
-  ![Panel de navegación][7]
-
-2. Al hacer clic en una alerta específica se proporcionan detalles y acciones adicionales para investigar esta amenaza y solucionar amenazas futuras.
-
-  ![Panel de navegación][8]
-
+## <a name="azure-sql-database-threat-detection-alerts"></a>Alertas de detección de amenazas de Azure SQL Database 
+La capacidad de detección de amenazas para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos, o de vulnerar su seguridad, y puede desencadenar las siguientes alertas:
+- **Vulnerabilidad ante ataques por inyección de código SQL**: esta alerta se desencadena cuando una aplicación genera una instrucción SQL errónea en la base de datos. Esto puede indicar una posible vulnerabilidad ante ataques por inyección de código SQL. Hay dos posibles razones para la generación de una instrucción errónea:
+   - Existe un defecto en el código de la aplicación que crea la instrucción SQL errónea
+   - El código de la aplicación o los procedimientos almacenados no corrigen los datos que proporciona el usuario al construir la instrucción SQL errónea, lo que se puede aprovechar para ataques por inyección de código SQL
+- **Potencial inyección de código SQL**: esta alerta se desencadena cuando se produce una vulnerabilidad de seguridad activa contra una vulnerabilidad de la aplicación identificada ante inyección de código SQL. Esto significa que el atacante intentan inyectar instrucciones SQL malintencionadas mediante el código de la aplicación vulnerable o procedimientos almacenados.
+- **Acceso desde una ubicación inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a SQL Server, donde alguien ha iniciado sesión en el servidor SQL Server desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde un centro de datos de Azure inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a SQL Server, donde alguien ha iniciado sesión en el servidor SQL Server desde un centro de datos de Azure inusual que se vio en el servidor recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI o Azure SQL Query Editor). En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una entidad de seguridad desconocida**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso a SQL Server, donde alguien ha iniciado sesión en el servidor SQL Server mediante una entidad de seguridad inusual (usuario de SQL). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una aplicación potencialmente dañina**: esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para acceder a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
+- **Credenciales de SQL por fuerza bruta**: esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre Detección de amenazas, visite el [Blog de Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Obtenga más información sobre la [protección contra amenazas avanzada de SQL](sql-advanced-threat-protection.md). 
 * Más información acerca de la [auditoría de Azure SQL Database](sql-database-auditing.md)
 * Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * Para más información sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  
-* Para ver un script de ejemplo de PowerShell, consulte [Configuración de la auditoría y detección de amenazas mediante PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
-
-
-
-<!--Image references-->
-[1]: ./media/sql-database-threat-detection/1_td_click_on_settings.png
-[2]: ./media/sql-database-threat-detection/2_td_turn_on_auditing.png
-[3]: ./media/sql-database-threat-detection/3_td_turn_on_threat_detection.png
-[4]: ./media/sql-database-threat-detection/4_td_email.png
-[5]: ./media/sql-database-threat-detection/5_td_audit_record_details.png
-[6]: ./media/sql-database-threat-detection/6_td_security_tile_view_alerts.png
-[7]: ./media/sql-database-threat-detection/7_td_SQL_security_alerts_list.png
-[8]: ./media/sql-database-threat-detection/8_td_SQL_security_alert_details.png
-
-
