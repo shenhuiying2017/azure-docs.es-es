@@ -11,14 +11,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5548ced4f81cf52d6aec4ce5ab2a3262eb347bd3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360094"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -114,6 +115,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Mapas de Bing
 * CDN
@@ -130,6 +132,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * IoT Hubs
 * Key Vault
 * Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
+* Log Analytics
 * Logic Apps
 * Machine Learning: los servicios de Machine Learning Studio se pueden mover a un grupo de recursos en la misma suscripción, pero no una suscripción diferente. Otros recursos de Machine Learning se pueden mover entre suscripciones.
 * Media Services
@@ -137,7 +140,7 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Notification Hubs
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI (tanto Power BI Embedded como Colección de áreas de trabajo de Power BI)
 * IP pública (consulte las [limitaciones de las direcciones IP públicas](#pip-limitations)).
 * Redis Cache
 * Scheduler
@@ -148,12 +151,13 @@ Los servicios que permiten el traslado a un nuevo grupo de recursos y a una nuev
 * Storage
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
-* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Esto incluye las bases de datos de Azure SQL Database y Azure SQL Data Warehouse. 
+* Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse. 
 * Traffic Manager
 * Virtual Machines: no se pueden mover las máquinas virtuales con Managed Disks. Vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Virtual Machines (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * Conjuntos de escalado de máquinas virtuales; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
 * Redes virtuales; vea [Limitaciones de las redes virtuales](#virtual-networks-limitations).
+* Visual Studio Team Services: las cuentas de VSTS con compras de extensiones que no son de Microsoft deben [cancelar las compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder mover la cuenta a través de suscripciones.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Recursos que no se pueden mover
@@ -164,12 +168,14 @@ Los servicios que actualmente no permiten trasladar un recurso son:
 * Servicio de mantenimiento híbrido de AD
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
-* Kubernetes Service
 * DevTest Labs: el traslado al nuevo grupo de recursos en la misma suscripción está habilitado pero no el traslado de suscripción cruzado.
 * Dynamics LCS
 * ExpressRoute
+* Kubernetes Service
 * Equilibradores de carga (consulte las [limitaciones del equilibrador de carga](#lb-limitations)).
 * Aplicaciones administradas
 * Managed Disks; vea [Limitaciones de Virtual Machines](#virtual-machines-limitations).
@@ -189,6 +195,11 @@ Managed Disks no admite el traslado. Esta restricción indica que tampoco se pue
 * Instantáneas creadas a partir de Managed Disks
 * Conjuntos de disponibilidad con Virtual Machines con Managed Disks
 
+Aunque los discos administrados no se pueden mover, se puede crear una copia y, después, crear una nueva máquina a partir del disco administrado existente. Para más información, consulte:
+
+* Copia de discos administrados en la misma suscripción o en otra con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) o la [CLI de Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
+* Creación de una máquina virtual mediante un disco del SO administrado con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) o la [CLI de Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+
 Las máquinas virtuales creadas a partir de recursos de Marketplace con planes adjuntos no se pueden mover entre suscripciones o grupos de recursos. Desaprovisione el recurso en la suscripción activa y vuelva a implementarlo en la nueva suscripción.
 
 Los recursos de Virtual Machines con certificado almacenados en Key Vault se pueden trasladar al nuevo grupo de recursos en la misma suscripción, pero no entre suscripciones.
@@ -199,7 +210,9 @@ Si mueve una red virtual, también deberá mover sus recursos dependientes. Por 
 
 Para mover una red virtual emparejada, primero debe deshabilitar el emparejamiento de red virtual. Una vez deshabilitado, puede mover la red virtual. Después de moverla, vuelva a habilitar el emparejamiento de red virtual.
 
-No puede mover una red virtual a otra suscripción distinta si la red virtual contiene una subred con vínculos de navegación de recursos. Por ejemplo, si un recurso de Redis Cache está implementado en una subred, esta contiene un vínculo de navegación de recursos.
+Si una red virtual contiene una subred con vínculos de navegación de los recursos, no se puede mover a otra suscripción. Por ejemplo, si un recurso de Redis Cache está implementado en una subred, esta contiene un vínculo de navegación de recursos.
+
+Si una red virtual contiene un servidor DNS personalizado, no se pueden mover a otra suscripción. Para moverla, establézcala en el servidor DNS de predeterminado (se proporciona con Azure). Después, vuelva a configurar el servidor DNS personalizado.
 
 ## <a name="app-service-limitations"></a>limitaciones de App Service
 

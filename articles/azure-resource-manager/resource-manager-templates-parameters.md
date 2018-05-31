@@ -1,6 +1,6 @@
 ---
-title: "Sección del parámetro de plantilla de Azure Resource Manager | Microsoft Docs"
-description: "Describe la sección de parámetros de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON."
+title: Sección del parámetro de plantilla de Azure Resource Manager | Microsoft Docs
+description: Describe la sección de parámetros de plantillas de Azure Resource Manager mediante la sintaxis declarativa de JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359210"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sección de parámetros de plantillas de Azure Resource Manager
 En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Estos valores de parámetros permiten personalizar la implementación al proporcionar valores que son específicos para un entorno concreto (por ejemplo, desarrollo, prueba y producción). No tiene que especificar parámetros en la plantilla, pero sin parámetros la plantilla implementaría siempre los mismos recursos con los mismos nombres, ubicaciones y propiedades.
@@ -90,8 +91,8 @@ El ejemplo anterior mostraba solo algunas de las propiedades que puede utilizar 
 | allowedValues |Sin  |Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto. |
 | minValue |Sin  |El valor mínimo de parámetros de tipo int, este valor es inclusivo. |
 | maxValue |Sin  |El valor máximo de parámetros de tipo int, este valor es inclusivo. |
-| minLength |Sin  |La longitud mínima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo. |
-| maxLength |Sin  |La longitud máxima de los parámetros de tipo cadena, secureString y matriz, este valor es inclusivo. |
+| minLength |Sin  |La longitud mínima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
+| maxLength |Sin  |La longitud máxima de los parámetros de tipo cadena, secureString y matriz; este valor es inclusivo. |
 | Descripción |Sin  |Descripción del parámetro que se muestra a los usuarios a través del portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funciones de plantilla con parámetros
@@ -225,7 +226,7 @@ La información siguiente puede ser útil cuando se trabaja con parámetros:
    }
    ```
 
-* Use **SecureString** para todas las contraseñas y secretos. Si pasa datos confidenciales en un objeto JSON, use el tipo **secureObject**. No se pueden leer los parámetros con los tipos secureString o secureObject después de la implementación de recursos. 
+* Utilice **securestring** en todas las contraseñas y todos los secretos. Si pasa datos confidenciales en un objeto JSON, use el tipo **secureObject**. No se pueden leer los parámetros con los tipos secureString o secureObject después de la implementación de recursos. 
    
    ```json
    "parameters": {

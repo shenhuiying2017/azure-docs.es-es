@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 832f842aeae53e9c089a9889bf064918de417ed5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e0c823982bb799e324dc6fb0fb811fd9ace37878
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160553"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364410"
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Procedimientos recomendados de seguridad para las máquinas virtuales de Azure
 
@@ -69,7 +69,7 @@ Si la máquina virtual ejecuta aplicaciones esenciales que necesitan tener una a
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) también requiere que las máquinas virtuales de carga equilibrada pertenezcan al mismo conjunto de disponibilidad. Si se debe acceder a estas máquinas virtuales desde Internet, debe configurar un [equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-internet-overview.md).
 
-Cuando las máquinas virtuales están expuestas a Internet, es importante [controlar el flujo de tráfico de red con los grupos de seguridad de red (NSG)](../virtual-network/virtual-networks-nsg.md). Puesto que los grupos de seguridad de red se pueden aplicar a subredes, puede minimizar el número de ellos si agrupa los recursos por subred y aplica estos grupos a las subredes. La intención es crear una capa de aislamiento de red, que puede hacerse configurando de la forma adecuada las funcionalidades de [seguridad de red](../best-practices-network-security.md) en Azure.
+Cuando las máquinas virtuales están expuestas a Internet, es importante [controlar el flujo de tráfico de red con los grupos de seguridad de red (NSG)](../virtual-network/security-overview.md). Puesto que los grupos de seguridad de red se pueden aplicar a subredes, puede minimizar el número de ellos si agrupa los recursos por subred y aplica estos grupos a las subredes. La intención es crear una capa de aislamiento de red, que puede hacerse configurando de la forma adecuada las funcionalidades de [seguridad de red](../best-practices-network-security.md) en Azure.
 
 También puede usar la característica de acceso a las máquinas virtuales justo a tiempo desde Azure Security Center para controlar quién tiene acceso remoto a una máquina virtual específica y durante cuánto tiempo.
 

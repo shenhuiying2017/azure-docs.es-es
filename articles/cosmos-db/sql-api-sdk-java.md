@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360155"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java para la API de SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -46,7 +47,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 
 <tr><td>**Contribuya al SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
 
-<tr><td>**Primeros pasos**</td><td>[Introducción al SDK de Java](sql-api-java-get-started.md)</td></tr>
+<tr><td>**Introducción**</td><td>[Introducción al SDK de Java](sql-api-java-get-started.md)</td></tr>
 
 <tr><td>**Tutorial de la aplicación web**</td><td>[Desarrollo de aplicaciones web con Azure Cosmos DB](sql-api-java-application.md)</td></tr>
 
@@ -54,6 +55,22 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 </table></br>
 
 ## <a name="release-notes"></a>Notas de la versión
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Se agregó compatibilidad para índices únicos.
+* Se agregó compatibilidad para limitar el tamaño del token de continuación en opciones de fuente.
+* Se ha corregido un error en la serialización de Json (marca de tiempo).
+* Se ha corregido un error en la serialización de Json (enumeración).
+* Se ha actualizado la dependencia en com.fasterxml.jackson.core:jackson-databind a la 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Se ha mejorado la agrupación de conexiones para el modo directo.
+* Se ha mejorado la captura previa para consultas no ordenadas entre particiones.
+* Se ha mejorado la generación de UUID.
+* Se ha mejorado la lógica de coherencia de sesión.
+* Se agregó compatibilidad con multipolygon.
+* Se agregó compatibilidad con las estadísticas de alcance clave de partición para recopilación.
+* Se ha corregido un error en la compatibilidad de varias regiones.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Se ha mejorado el rendimiento de serialización de JSON.
@@ -184,6 +201,8 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 | Versión | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 de mayo de 2018 |--- |
+| [1.16.0](#1.16.0) |15 de marzo de 2018 |--- |
 | [1.15.0](#1.15.0) |14 de noviembre de 2017 |--- |
 | [1.14.0](#1.14.0) |28 de octubre de 2017 |--- |
 | [1.13.0](#1.13.0) |25 de agosto de 2017 |--- |

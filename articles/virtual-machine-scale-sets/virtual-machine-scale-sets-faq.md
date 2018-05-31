@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: c161b8fb70f20ef7d82834e6c61daff759726b93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895338"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -450,9 +451,9 @@ Si la definición de extensión en el modelo del conjunto de escalado de máquin
 
 Si se ha recuperado el servicio de una máquina virtual existente, aparece como un reinicio y las extensiones no se ejecutan de nuevo. Si se restablece su imagen inicial es como a sustituir el disco de sistema operativo con la imagen de origen. Cualquier especialización del modelo más reciente, como las extensiones, se ejecuta.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-azure-ad-domain"></a>¿Cómo puedo unir un conjunto de escalado de máquinas virtuales a un dominio de Azure AD?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>¿Cómo puedo unir un conjunto de escalado de máquinas virtuales a un dominio de Active Directory?
 
-Para unir un conjunto de escalado de máquinas virtuales a un dominio de Azure Active Directory (Azure AD), puede definir una extensión. 
+Para unir un conjunto de escalado de máquinas virtuales a un dominio de Active Directory (Azure AD), puede definir una extensión. 
 
 Para definir una extensión, utilice la propiedad JsonADDomainExtension:
 

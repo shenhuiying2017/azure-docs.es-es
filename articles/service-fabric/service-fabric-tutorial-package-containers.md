@@ -1,14 +1,14 @@
 ---
-title: "Empaquetamiento e implementación de una aplicación contenedora en Service Fabric | Microsoft Docs"
-description: "En este tutorial, aprenderá a generar una definición de aplicación de Azure Service Fabric con Yeoman y a empaquetar la aplicación."
+title: Empaquetamiento e implementación de una aplicación contenedora en Service Fabric | Microsoft Docs
+description: En este tutorial, aprenderá a generar una definición de aplicación de Azure Service Fabric con Yeoman y a empaquetar la aplicación.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, Containers, microservicios, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365399"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Tutorial: Empaquetamiento e implementación de contenedores como aplicación de Service Fabric
 
@@ -45,7 +46,8 @@ Service Fabric proporciona herramientas de scaffolding para ayudarle a crear apl
 1. Instale nodejs y NPM en la máquina. Tenga en cuenta que los usuarios de Mac OSX tendrán que usar el administrador de paquetes Homebrew.
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. Instale el generador de plantillas Yeoman en la máquina desde NPM. 
 
@@ -247,7 +249,7 @@ Use el script de instalación proporcionado en el directorio **TestContainer** p
 ./install.sh
 ```
 
-Abra un explorador y navegue hasta Service Fabric Explorer en http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
+Abra un explorador y vaya a Service Fabric Explorer en http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
 
 ![Service Fabric Explorer][sfx]
 

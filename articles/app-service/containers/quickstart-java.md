@@ -1,6 +1,6 @@
 ---
-title: Creación de una aplicación web de Java en Azure App Service en Linux
-description: Implementación de su primera aplicación Hola mundo de Java en Azure App Service en Linux en cuestión de minutos.
+title: Guía de inicio rápido para crear una aplicación web de Java en Azure App Service en Linux
+description: En esta guía de inicio rápido, implementará su primera aplicación Hola mundo de Java en Azure App Service en Linux en cuestión de minutos.
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,177 +15,109 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 657a5a72650b330323406703d2c479c96c096f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2018f5b7051f2b6906372dad3319c763974b93b1
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355192"
 ---
-# <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>Versión preliminar: Creación de una aplicación web de Java en App Service en Linux
+# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guía de inicio rápido: Creación de una aplicación web de Java en App Service en Linux
 
-App Service en Linux proporciona en la actualidad una característica en vista previa compatible con las aplicaciones web de Java. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios para versiones en vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). El artículo [Implementación de una aplicación web Hola mundo en un contenedor Linux en la nube con el kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) ofrece un método alternativo para implementar las aplicaciones de Java en su propio contenedor.
+App Service en Linux proporciona en la actualidad una característica en vista previa compatible con las aplicaciones web de Java. Para más información sobre las versiones preliminares, consulte [Términos de uso complementarios para versiones en vista previa de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
-> [!NOTE]
-> En este artículo se implementa una aplicación web de Java en App Service en Linux.
->
-
-[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones utilizando el sistema operativo Linux. En esta guía de inicio rápido se explica cómo se implementa una aplicación Java en App Service en Linux utilizando una imagen integrada. Puede crear la aplicación web con la imagen integrada mediante la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e implementar la aplicación Java en la aplicación web.
+[App Service en Linux](app-service-linux-intro.md) proporciona un servicio de hospedaje web muy escalable y con aplicación automática de revisiones que usa el sistema operativo Linux. En esta guía de inicio rápido se muestra cómo utilizar la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con el [complemento Maven para Azure Web Apps (versión preliminar)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) para implementar una aplicación web de Java con una imagen Linux integrada.
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-java/java-hello-world-in-browser.png)
+
+El artículo [Implementación de una aplicación web Hola mundo en un contenedor Linux en la nube con el kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux) ofrece un método alternativo para implementar las aplicaciones de Java en su propio contenedor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar esta guía de inicio rápido: 
 
-* Debe tener una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-* [Instale Git](https://git-scm.com/).
-* Instale [Eclipse](https://www.eclipse.org/downloads/).
+* [CLI de Azure 2.0 o posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instalado localmente.
+* [Apache Maven](http://maven.apache.org/).
 
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="create-a-java-app"></a>Creación de una aplicación Java
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+Ejecute el siguiente comando mediante Maven, con el fin de crear una nueva aplicación web *helloworld*:  
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+    mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+Cambie al directorio del nuevo proyecto *helloworld* y compile todos los módulos con el comando siguiente:
 
+    mvn verify
 
-## <a name="create-a-web-app"></a>Creación de una aplicación web
-
-En Cloud Shell, cree una [aplicación web](../app-service-web-overview.md) en el plan de App Service `myAppServicePlan`. Puede hacerlo con el comando [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). En el siguiente ejemplo, reemplace *\<app_name>* por un nombre único global de aplicación (los caracteres válidos son `a-z`, `0-9` y `-`). 
-
-```azurecli-interactive
-# Bash
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
-# PowerShell
-az --% webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
-```
-
-En el parámetro **runtime**, use uno de estos entornos de ejecución:
- * TOMCAT|8.5-jre8
- * TOMCAT|9.0-jre8
-
-
-Cuando se ha creado la aplicación web, la CLI de Azure muestra información similar a la del ejemplo siguiente:
-
-```json
-{
-  "additionalProperties": {},
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<your web app name>.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "<your web app name>.azurewebsites.net",
-    "<your web app name>.scm.azurewebsites.net"
-  ],
-  "ftpPublishingUrl": "ftp://<your ftp URL>",  
-  < JSON data removed for brevity. >
-}
-```
-
-Copie el valor para **ftpPublishingUrl**. Lo usará más adelante si elige la implementación mediante FTP.
-
-Vaya a la aplicación web recién creada.
-
-```
-http://<app_name>.azurewebsites.net
-```
-
-Si la aplicación web está en funcionamiento, aparecerá una pantalla predeterminada similar a la siguiente imagen:
-
-![Ir a la aplicación web antes de la implementación](media/quickstart-java/browse-web-app-not-deployed.png)
-
-
-## <a name="download-the-sample-java-app"></a>Descarga de aplicación Java de ejemplo
-
-En una ventana del terminal de la máquina, ejecute el siguiente comando para clonar el repositorio de la aplicación de ejemplo en el equipo local. Implementará esta aplicación de ejemplo en un paso posterior.
-
-```bash
-git clone https://github.com/Azure-Samples/java-docs-hello-world
-```
+Este comando comprobará y creará todos los módulos, incluido el archivo *helloworld.war*, en el subdirectorio *helloworld/target*.
 
 
 ## <a name="deploying-the-java-app-to-app-service-on-linux"></a>Implementación de la aplicación Java en App Service en Linux
 
-Abra el proyecto de ejemplo en [Eclipse](https://www.eclipse.org/downloads/), y [exporte la aplicación Java a un archivo web (WAR)](http://help.eclipse.org/kepler/index.jsp?topic=%2Forg.eclipse.wst.webtools.doc.user%2Ftopics%2Ftwcrewar.html) denominado `helloworld.war`.
+Hay varias opciones para implementar las aplicaciones web Java en App Service en Linux. Entre estas opciones se incluyen:
 
-Para implementar el archivo WAR de la aplicación Java, puede usar WarDeploy (actualmente en [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)), o FTP.
+* [Implementación a través del complemento Maven para Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
+* [Implementación a través de ZIP o WAR](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)
+* [Implementación a través de FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)
 
-Según el método de implementación que utilice, la ruta de acceso relativa para ir a la aplicación web de Java será ligeramente diferente.
+En esta guía de inicio rápido, utilizará el complemento Maven para Azure Web Apps. Sus ventajas son que se usa con facilidad desde Maven y que crea los recursos de Azure necesarios (grupo de recursos, plan de App Service y aplicación web).
 
-### <a name="deploy-with-wardeploy"></a>Implementación con WarDeploy 
+### <a name="deploy-with-maven"></a>Implementación con Maven
 
-Para implementar el archivo WAR con WarDeploy, utilice la siguiente línea de comandos de ejemplo de cURL para enviar una solicitud POST a *https://<your app name>.scm.azurewebsites.net/api/wardeploy*. La solicitud POST debe contener el archivo .war en el cuerpo del mensaje. Las credenciales de implementación de la aplicación se proporcionan en la solicitud mediante la autenticación de HTTP BASIC. Para más información sobre WarDeploy, consulte [Implementar una aplicación en Azure App Service con un archivo ZIP o WAR](../app-service-deploy-zip.md).
+Para realizar la implementación desde Maven, agregue la definición del siguiente complemento al elemento `<build>` del archivo *pom.xml*:
 
-```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
-```
+```xml
+    <plugins>
+      <plugin>
+        <groupId>com.microsoft.azure</groupId> 
+        <artifactId>azure-webapp-maven-plugin</artifactId> 
+        <version>1.1.0</version>
+        <configuration> 
+          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+          <appName>YOUR_WEB_APP</appName> 
+          <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
+          <deploymentType>ftp</deploymentType> 
+          <resources> 
+              <resource> 
+                  <directory>${project.basedir}/target</directory> 
+                  <targetPath>webapps</targetPath> 
+                  <includes> 
+                      <include>*.war</include> 
+                  </includes> 
+                  <excludes> 
+                      <exclude>*.xml</exclude> 
+                  </excludes> 
+              </resource> 
+          </resources> 
+        </configuration>
+      </plugin>
+    </plugins>
+```    
 
-Actualice lo siguiente:
+Actualice los siguientes marcadores de posición en la configuración del complemento:
 
-* `username`: use el nombre de usuario de las credenciales de implementación que creó anteriormente.
-* `war_file_path`: use la ruta de acceso del archivo WAR local.
-* `app_name`: use el nombre de la aplicación que creó anteriormente.
+| Placeholder | DESCRIPCIÓN |
+| ----------- | ----------- |
+| `YOUR_RESOURCE_GROUP` | Nombre del nuevo grupo de recursos en el que se va a crear la aplicación web. Al colocar todos los recursos de una aplicación en un grupo, puede administrarlos juntos. Por ejemplo, si elimina el grupo de recursos también se eliminarán todos los recursos asociados con la aplicación. Actualice este valor con un nombre único de un nuevo grupo de recursos, por ejemplo, *TestResources*. Este nombre lo utilizará para limpiar todos los recursos de Azure en una sección posterior. |
+| `YOUR_WEB_APP` | El nombre de la aplicación formará parte del nombre de host de la aplicación web cuando se implemente en Azure (SU_APLICACIÓN_WEB.azurewebsites.net). Actualice este valor con un nombre único para la nueva aplicación web de Azure, que hospedará la aplicación Java, por ejemplo *contoso*. |
 
-Ejecute el comando. Cuando se lo solicite cURL, escriba la contraseña de las credenciales de implementación.
+El elemento `linuxRuntime` de la configuración controla qué imagen de Linux integrada se utiliza con la aplicación.
 
-Vaya a la aplicación implementada mediante la siguiente dirección URL del explorador web.
+Ejecute el comando siguiente y siga las instrucciones para realizar la autenticación en la CLI de Azure:
 
-```bash
-http://<app_name>.azurewebsites.net
-```
+    az login
 
-El código de ejemplo de Java se está ejecutando en una aplicación web con una imagen integrada.
+Implemente la aplicación de Java en la aplicación web mediante el siguiente comando:
 
-![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-java/java-hello-world-in-browser.png)
-
-Use el explorador web para ir al servlet.
-
-```bash
-http://<app_name>.azurewebsites.net/HelloWorldServlet
-```
-
-El servlet se está ejecutando en una aplicación web con una imagen integrada.
-
-![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-java/java-hello-world-servlet-in-browser.png)
-
-
-
-**¡Enhorabuena!** Ha implementado su primera aplicación Java en App Service en Linux.
-
-
-
-### <a name="ftp-deployment"></a>Implementación mediante FTP
-
-Como alternativa, también puede usar FTP para implementar el archivo WAR. 
-
-Ponga el archivo en una FTP en el directorio */home/site/wwwroot/webapps* de la aplicación web. La siguiente línea de comandos de ejemplo utiliza cURL:
-
-```bash
-curl -T war_file_path -u "app_name\username" ftp://webappFTPURL/site/wwwroot/webapps/
-```
-
-Actualice lo siguiente:
-
-* `war_file_path`: use la ruta de acceso del archivo WAR local.
-* `app_name`: use el nombre de la aplicación que creó anteriormente.
-* `username`: use el nombre de usuario de las credenciales de implementación que creó anteriormente.
-* `webappFTPURL`: use el valor del **nombre de host de FTP** de la aplicación web que copió anteriormente. El nombre de host de FTP también aparece en la hoja **Información general** de la aplicación web en [Azure Portal](https://portal.azure.com/).
-
-Ejecute el comando. Cuando se lo solicite cURL, escriba la contraseña de las credenciales de implementación.
+    mvn clean package azure-webapp:deploy
 
 
-Vaya a la aplicación implementada mediante la siguiente dirección URL del explorador web.
+Una vez que se haya completado la implementación, vaya a la aplicación implementada mediante la siguiente dirección URL en el explorador web.
 
 ```bash
 http://<app_name>.azurewebsites.net/helloworld
@@ -195,20 +127,7 @@ El código de ejemplo de Java se está ejecutando en una aplicación web con una
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
 
-Use el explorador web para ir al servlet.
-
-```bash
-http://<app_name>.azurewebsites.net/helloworld/HelloWorldServlet
-```
-
-El código de ejemplo de Java se está ejecutando en una aplicación web con una imagen integrada.
-
-![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-java/java-hello-world-servlet-in-browser-curl.png)
-
-
-
 **¡Enhorabuena!** Ha implementado su primera aplicación Java en App Service en Linux.
-
 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
@@ -216,8 +135,8 @@ El código de ejemplo de Java se está ejecutando en una aplicación web con una
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca del uso de Java con Azure, consulte los siguientes vínculos:
+En esta guía de inicio rápido, ha usado Maven para crear una aplicación web Java y luego ha implementado dicha aplicación en App Service en Linux. Para más información acerca del uso de Java con Azure, haga clic en el vínculo.
 
-* [Azure para desarrolladores de Java](https://docs.microsoft.com/java/azure/)
-* [Implementación de una aplicación web Hola mundo en un contenedor Linux en la nube mediante el Kit de herramientas de Azure para IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux)
-* [Herramientas de Java para Visual Studio Team Services](https://java.visualstudio.com/)
+> [!div class="nextstepaction"]
+> [Azure para desarrolladores de Java](https://docs.microsoft.com/java/azure/)
+

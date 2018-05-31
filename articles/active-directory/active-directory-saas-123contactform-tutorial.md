@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Integración de Azure Active Directory con 123ContactForm | Microsoft Docs"
-description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y 123ContactForm."
+title: 'Tutorial: Integración de Azure Active Directory con 123ContactForm | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 70955676e78642e6c8a6eb85f8165b327baece3f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f7ad606fc8ee394125300a55dc0586a055a33be
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34341437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Tutorial: integración de Azure Active Directory con 123ContactForm
 
@@ -29,9 +30,9 @@ La integración de 123ContactForm con Azure AD proporciona las siguientes ventaj
 - Puede permitir que los usuarios inicien sesión automáticamente en 123ContactForm (inicio de sesión único) con sus cuentas de Azure AD.
 - Puede administrar sus cuentas en una ubicación central: el nuevo Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Para configurar la integración de Azure AD con 123ContactForm, necesita los siguientes elementos:
 
@@ -47,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 - Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. La situación descrita en este tutorial consta de dos bloques de creación principales:
+En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
 1. Agregar 123ContactForm desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
@@ -63,11 +64,11 @@ Para configurar la integración de 123ContactForm en Azure AD, será preciso que
 
 2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
 
-    ![Aplicaciones][2]
+    ![APLICACIONES][2]
     
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Aplicaciones][3]
+    ![APLICACIONES][3]
 
 4. En el cuadro de búsqueda, escriba **123ContactForm**.
 
@@ -133,7 +134,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-123contactform-tutorial/tutorial_general_400.png)
 
-7. Para configurar el inicio de sesión único en **123ContactForm**, vaya a [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) y realice los pasos siguientes:
+7. Para configurar el inicio de sesión único en **123ContactForm**, vaya a [https://www.123contactform.com/form-2709121/](https://www.123contactform.com/form-2709121/) y siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/active-directory-saas-123contactform-tutorial/submit.png) 
 
@@ -186,7 +187,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Create**(Crear).
  
 ### <a name="creating-a-123contactform-test-user"></a>Crear un usuario de prueba de 123ContactForm
 
@@ -200,7 +201,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 **Para asignar el usuario Britta Simon a 123ContactForm, realice los pasos siguientes:**
 
-1. En Azure Portal, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego, haga clic en **Todas las aplicaciones**.
+1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 
     ![Asignar usuario][201] 
 
@@ -232,7 +233,7 @@ Para más información sobre el Panel de acceso, consulte [Introducción al Pane
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
 
 
 

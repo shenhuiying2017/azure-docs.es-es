@@ -1,11 +1,11 @@
 ---
-title: "Implementación de plantillas con PowerShell en Azure Stack | Microsoft Docs"
-description: "Aprenda a implementar una máquina virtual mediante una plantilla de Resource Manager y PowerShell."
+title: Implementación de plantillas mediante PowerShell en Azure Stack | Microsoft Docs
+description: Implementación de una plantilla en Azure Stack mediante PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
@@ -14,27 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: d271b155d65a7dd95a92262da338cf3a272d140b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.reviewer: ''
+ms.openlocfilehash: 4af82deef029120aa2699e7c69c501ae61a1e8bd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359822"
 ---
-# <a name="deploy-templates-in-azure-stack-using-powershell"></a>Implementación de plantillas en Azure Stack con PowerShell
+# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Implementación de una plantilla en Azure Stack mediante PowerShell
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Use PowerShell para implementar las plantillas de Azure Resource Manager en el Kit de desarrollo de Azure Stack.  Las plantillas de Resource Manager implementan y aprovisionan todos los recursos para su aplicación en una única operación coordinada.
+Puede usar PowerShell para implementar plantillas de Azure Resource Manager en Azure Stack. En este artículo, se muestra cómo usar PowerShell para implementar una plantilla.
 
 ## <a name="run-azurerm-powershell-cmdlets"></a>Ejecución de cmdlets de AzureRM PowerShell
-En este ejemplo, debe ejecutar un script para implementar una máquina virtual en el Kit de desarrollo de Azure Stack mediante una plantilla de Resource Manager.  Antes de continuar, asegúrese de haber [configurado PowerShell](azure-stack-powershell-configure-user.md)  
 
-El disco duro virtual usado en esta plantilla de ejemplo es WindowsServer-2012-R2-Datacenter.
+En este ejemplo, se utilizan cmdlets de AzureRM PowerShell y una plantilla almacenada en GitHub. La plantilla crea una máquina virtual del centro de datos para Windows Server 2012 R2.
 
-1. Vaya a <http://aka.ms/AzureStackGitHub>, busque la plantilla **101-simple-windows-vm** y guárdela en la siguiente ubicación: c:\\plantillas\\azuredeploy-101-simple-windows-vm.json.
-2. En PowerShell, ejecute el siguiente script de implementación. Reemplace *username* y *password* por su nombre de usuario y contraseña. En usos posteriores, incremente el valor del parámetro *$myNum* para evitar sobrescribir su implementación.
-   
+>[!NOTE]
+>Antes de probar este ejemplo, asegúrese de que se haya [configurado PowerShell](azure-stack-powershell-configure-user.md) para un usuario de Azure Stack.
+
+1. Vaya a <http://aka.ms/AzureStackGitHub> y busque la plantilla **101-simple-windows-vm**. Guarde la plantilla en esta ubicación: C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+2. Abra un símbolo del sistema de PowerShell con privilegios elevados.
+3. En el siguiente script, sustituya *username* (nombre de usuario) y *password* (contraseña) por su nombre de usuario y contraseña, y luego ejecute el script.
+
    ```PowerShell
        # Set Deployment Variables
        $myNum = "001" #Modify this per deployment
@@ -56,9 +60,12 @@ El disco duro virtual usado en esta plantilla de ejemplo es WindowsServer-2012-R
            -VmName myVM$myNum `
            -WindowsOSVersion 2012-R2-Datacenter
    ```
-3. Abra el portal de Azure Stack, haga clic en **Examinar**, haga clic en **Máquinas virtuales** y busque la nueva máquina virtual (*myDeployment001*).
 
+   >[!IMPORTANT]
+   >Incremente el valor del parámetro "$myNum" cada vez que ejecute este script para evitar sobrescribir su implementación.
+
+4. Abra el portal de Azure Stack, seleccione **Examinar**, luego seleccione **Máquinas virtuales** y busque su nueva máquina virtual (*myDeployment001*).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
+[Implementación de plantillas con Visual Studio](azure-stack-deploy-template-visual-studio.md)
