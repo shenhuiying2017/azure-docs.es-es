@@ -4,18 +4,18 @@ description: Más información acerca de cómo conectar Microsoft Excel a Base d
 services: sql-database
 keywords: conectar excel a sql, importar datos en excel
 author: joseidz
-manager: craigg
+manager: jhubbard
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: craigg
-ms.openlocfilehash: 6f2894d65240580346b99d203f8289652d8e6618
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5d2d863c0266467a60eafa70f0ef3ecaa9736ac0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364097"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188419"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>Conexión de Excel a una Base de datos SQL de Azure y creación de un informe
 

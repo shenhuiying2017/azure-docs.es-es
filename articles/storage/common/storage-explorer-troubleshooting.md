@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: c409788ef68ab41a23e2991ea0ea1effce841a82
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777084"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -61,6 +62,7 @@ Si no se encuentra ningún certificado autofirmado siguiendo los pasos anteriore
 
 Si no puede iniciar sesión en, pruebe los siguientes métodos de solución de problemas:
 
+* Si se encuentra en macOS y nunca aparece la ventana de inicio de sesión en el cuadro de diálogo de espera de autenticación, intente [estos pasos](#Resetting-the-Mac-Keychain).
 * Reinicio de Explorador de Storage
 * Si la ventana de autenticación está en blanco, espere al menos un minuto antes de cerrar el cuadro de diálogo de autenticación.
 * Asegúrese de que el servidor proxy y el certificado está configurado correctamente para la máquina como para el Explorador de Storage.
@@ -96,7 +98,8 @@ Si no puede quitar una cuenta adjunta o un recurso de almacenamiento a través d
 
 En primer lugar, asegúrese de que la siguiente información que especificó sea correcta:
 
-*Dirección URL del proxy y número de puerto *Nombre de usuario y contraseña si lo requiere el proxy
+* La dirección URL del proxy y el número de puerto
+* El nombre de usuario y la contraseña si los exige el proxy
 
 ### <a name="common-solutions"></a>Soluciones comunes
 
@@ -129,7 +132,7 @@ Si es correcta la configuración de proxy, tendrá que ponerse en contacto con e
 
 Si está conectado a Azure a través de un servidor proxy, compruebe que la configuración de proxy sea correcta. Si el propietario de una suscripción o una cuenta concedió acceso a un recurso, compruebe que disponga de permisos de lectura o lista para dicho recurso.
 
-### <a name="issues-with-sas-url"></a>Problemas con la URL de SAS
+## <a name="issues-with-sas-url"></a>Problemas con la URL de SAS
 Si se conecta a un servicio mediante una dirección URL de SAS y se produce este error:
 
 * Compruebe que la dirección URL proporciona los permisos necesarios para leer o enumerar los recursos.
@@ -146,12 +149,25 @@ Si asoció accidentalmente una dirección URL de SAS no válida y no se puede de
 ## <a name="linux-dependencies"></a>Dependencias de Linux
 
 En distribuciones de Linux diferentes de Ubuntu 16.04, debe instalar manualmente algunas dependencias. En general, se requieren los siguientes paquetes:
-* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * GCC actualizado
 
 Según la distribución, puede que deba instalar otros paquetes. Las [notas de la versión](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) del Explorador de Storage contienen pasos específicos para algunas distribuciones.
+
+## <a name="resetting-the-mac-keychain"></a>Restablecimiento de la cadena de claves de Mac
+En ocasiones, la cadena de claves de macOS puede entrar en un estado que ocasiona problemas en la biblioteca de autenticación del Explorador de Storage. Para sacar a la cadena de claves de ese estado, pruebe los pasos siguientes:
+1. Cierre el Explorador de Storage.
+2. Abra la cadena de claves (**cmd + espacio**, escriba la cadena de claves y presione Entrar).
+3. Seleccione la cadena de claves "login".
+4. Haga clic en el icono de candado para bloquear la cadena de claves (el candado se moverá a una posición de bloqueo; esta operación puede tardar unos segundos según qué aplicaciones tenga abiertas).
+
+    ![imagen](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Inicie el Explorador de Storage
+6. Aparecerá una ventana emergente que dice algo como "El centro de servicios quiere acceder a la cadena de claves", escriba la contraseña de la cuenta de administrador de Mac y haga clic en **permitir siempre** (o en **Permitir** si **Permitir siempre** no está disponible).
+7. Intente iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
