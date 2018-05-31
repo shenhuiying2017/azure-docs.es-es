@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195539"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creación y administración de servidores y bases de datos de Azure SQL Database
 
 SQL Database ofrece tres tipos de bases de datos:
 
-- Una base de datos única que se crea dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de [recursos de proceso y almacenamiento para diferentes cargas de trabajo](sql-database-service-tiers.md). Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
-- Una base de datos creada como parte de un [grupo de bases de datos](sql-database-elastic-pool.md) dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de [recursos de proceso y almacenamiento para diferentes cargas de trabajo](sql-database-service-tiers.md) que se comparten entre todas las bases de datos del grupo. Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
+- Una única base de datos creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento](sql-database-service-tiers-vcore.md). Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
+- Una base de datos creada como parte de un [grupo de bases de datos](sql-database-elastic-pool.md) dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un [conjunto combinado de recursos de proceso y almacenamiento (basados en DTU)](sql-database-service-tiers-dtu.md) o una [escala independiente de recursos de proceso y almacenamiento (basados en núcleos virtuales)](sql-database-service-tiers-vcore.md) que se comparten entre todas las bases de datos del grupo. Una base de datos SQL de Azure está asociada con un servidor lógico de Azure SQL Database, que se crea dentro de una región específica de Azure.
 - Una [instancia de SQL Server](sql-database-managed-instance.md) (una instancia administrada) creada dentro de un [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) con un conjunto definido de recursos de proceso y almacenamiento para todas las bases de datos en esa instancia de servidor. Una instancia administrada contiene bases de datos de usuario y del sistema. El servicio Instancia administrada está concebido para permitir que la base de datos migre mediante lift-and-shift a una plataforma como servicio (PaaS) completamente administrada, sin volver a diseñar la aplicación. Instancia administrada proporciona una gran compatibilidad con el modelo de programación de SQL Server local y con la gran mayoría de las características de SQL Server y las herramientas y los servicios complementarios.  
 
 Microsoft Azure SQL Database es compatible con la versión 7.3 o posterior del cliente de protocolo de secuencia de datos (TDS), y solo permite conexiones TCP/IP cifradas.
@@ -52,7 +53,7 @@ Un servidor lógico de Azure Database:
 - Proporciona un punto de conexión para el acceso a la base de datos (<serverName>. database.windows.net).
 - Proporciona acceso a los metadatos de recursos contenidos a través de las DMV conectándose a una base de datos maestra. 
 - Proporciona el ámbito de las directivas de administración que se aplican a sus bases de datos: inicios de sesión, firewall, auditoría, detección de amenazas, etc. 
-- Está restringido por una cuota dentro de la suscripción principal (veinte servidores por suscripción de forma predeterminada; [consulte el artículo sobre los límites de la suscripción aquí](../azure-subscription-service-limits.md)).
+- Está restringido por una cuota dentro de la suscripción primaria (seis servidores por suscripción de forma predeterminada; [consulte el artículo sobre los límites de la suscripción aquí](../azure-subscription-service-limits.md)).
 - Proporciona el ámbito de la cuota de la base de datos y la cuota de DTU o de núcleos virtuales para los recursos que contiene (por ejemplo, 45 000 DTU).
 - Es el ámbito de control de versiones para funciones que se habilitan en los recursos contenidos. 
 - Los inicios de sesión de la entidad de seguridad en el nivel de servidor pueden administrar todas las bases de datos en un servidor.
@@ -65,11 +66,11 @@ Para ayudar a proteger los datos, un [firewall de SQL Database](sql-database-fir
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Administración de servidores, bases de datos y firewalls de Azure SQL en Azure Portal
 
-Puede crear el grupo de recursos de la base de datos SQL de Azure con antelación o mientras crea el propio servidor. 
+Puede crear el grupo de recursos de la base de datos SQL de Azure con antelación o mientras crea el propio servidor. Existen varios métodos para obtener un nuevo formulario de servidor SQL, bien mediante la creación de un nuevo servidor SQL o como parte de la creación de una base de datos nueva. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Creación de un servidor SQL en blanco (servidor lógico)
 
-Para crear un servidor de Azure SQL Database (sin una base de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario de SQL Server (servidor lógico) en blanco.  
+Para crear un servidor de Azure SQL Database (sin una base de datos) en [Azure Portal](https://portal.azure.com), vaya a un formulario de SQL Server (servidor lógico).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Creación de una base de datos SQL de ejemplo o en blanco
 
@@ -78,7 +79,7 @@ Para crear una base de datos de Azure SQL Database en [Azure Portal](https://por
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Para obtener información sobre cómo seleccionar el plan de tarifa para la base de datos, consulte los [niveles de servicio](sql-database-service-tiers.md).
+> Para información sobre cómo seleccionar el plan de tarifa de la base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 
 Para crear una instancia administrada, consulte [Creación de una instancia administrada](sql-database-managed-instance-create-tutorial-portal.md).
 
@@ -91,7 +92,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
    ![regla de firewall del servidor](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Para configurar las propiedades de rendimiento de una base de datos, vea los [niveles de servicio](sql-database-service-tiers.md).
+> Para configurar las propiedades de rendimiento de una base de datos, consulte el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) y el [modelo de compra basado en núcleos virtuales (versión preliminar)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]

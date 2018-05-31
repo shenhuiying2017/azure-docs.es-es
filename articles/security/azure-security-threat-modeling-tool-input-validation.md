@@ -1,5 +1,5 @@
 ---
-title: "Validación de entrada: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs"
+title: 'Validación de entrada: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: c416ae23565870223abc3f2db1ac460e8bea77f6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d26d869748283718375e35ae4183eef0e51a96ed
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778586"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -340,7 +341,7 @@ using System.Data.SqlClient;
 using (SqlConnection connection = new SqlConnection(connectionString))
 { 
 DataSet userDataset = new DataSet(); 
-SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
 myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
 myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
 myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
@@ -643,7 +644,7 @@ using System.Data.SqlClient;
 using (SqlConnection connection = new SqlConnection(connectionString))
 { 
 DataSet userDataset = new DataSet(); 
-SqlDataAdapter myCommand = new SqlDataAdapter(LoginStoredProcedure", connection); 
+SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
 myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
 myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
 myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 

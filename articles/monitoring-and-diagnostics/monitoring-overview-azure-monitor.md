@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 1ba2f2be8db424bddfccdf374704ec7be5691feb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312175"
 ---
 # <a name="overview-of-azure-monitor"></a>Información general sobre Azure Monitor
 En este artículo se proporciona información general sobre el servicio Azure Monitor de Microsoft Azure. Se describe la utilidad de Azure Monitor y se ofrecen vínculos a información adicional sobre cómo usar este servicio.  Si prefiere un vídeo de introducción, consulte los vínculos de pasos siguientes al final de este artículo. 
@@ -108,7 +109,7 @@ Algunos ejemplos son:
 
 ### <a name="store-and-archive"></a>Almacenamiento y archivado
 Algunos datos de supervisión ya están almacenados y disponibles en Azure Monitor durante un período de tiempo. 
-- Las métricas se almacenan durante 30 días. 
+- Las métricas se almacenan durante 90 días. 
 - Las entradas de registros de actividad se almacenan durante 90 días. 
 - Los registros de diagnóstico no se almacenan. 
 

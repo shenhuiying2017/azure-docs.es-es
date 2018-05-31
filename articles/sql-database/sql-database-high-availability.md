@@ -6,14 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777030"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 Desde el comienzo de la oferta de PaaS de Azure SQL Database, Microsoft se comprometió a integrar la alta disponibilidad (HA) en el servicio para que los clientes no tuvieran que administrar, agregar lógicas especiales o tomar decisiones acerca de la alta disponibilidad. Microsoft ofrece a sus clientes un Acuerdo de Nivel de Servicio para mantener un control total sobre la configuración y el funcionamiento del sistema de alta disponibilidad. El Acuerdo de Nivel de Servicio de alta disponibilidad se aplica a una base de datos SQL en una región y no proporciona protección en los casos de que se produzca un error total en la región debido a factores externos que estén fuera del control de Microsoft (por ejemplo, desastres naturales, guerras, terrorismo, disturbios, acción gubernamental o un error de red o dispositivos externo a los centros de datos de Microsoft, incluido el sitio del cliente o entre este sitio y el centro de datos de Microsoft).
@@ -30,7 +31,7 @@ Los clientes están especialmente interesados en la resistencia de sus propias b
 
 En cuanto a los datos, SQL Database utiliza el almacenamiento local (LS) basado en discos y discos duros virtuales adjuntados directamente y en almacenamiento remoto (RS) basado en los blobs en páginas de Azure Premium Storage. 
 - El almacenamiento local se utiliza en los grupos elásticos y las bases de datos de los niveles Premium y Crítico para la empresa (versión preliminar), que están diseñados para aplicaciones de OLTP críticas con grandes requisitos de IOPS. 
-- El almacenamiento remoto se utiliza en los niveles de servicio Básico y Estándar, diseñados para cargas de trabajo con un presupuesto limitado que necesiten un almacenamiento y una capacidad de proceso que escalen de forma independiente. Usan un blob en páginas individual para archivos de registro y bases de datos y tienen mecanismos de conmutación por error y replicación de almacenamiento integrados.
+- El almacenamiento remoto se utiliza en los niveles de servicio Básico, Estándar y De uso general, diseñados para cargas de trabajo con un presupuesto limitado que necesitan un almacenamiento y una capacidad de proceso que se puedan escalar de forma independiente. Usan un blob en páginas individual para archivos de registro y bases de datos y tienen mecanismos de conmutación por error y replicación de almacenamiento integrados.
 
 En ambos casos, la replicación, la detección de errores y los mecanismos de conmutación por error de SQL Database están totalmente automatizados y operan sin intervención humana. Esta arquitectura está diseñada para garantizar que nunca se pierdan datos confirmados y que la durabilidad de esos datos tenga prioridad sobre todo lo demás.
 
@@ -56,7 +57,7 @@ El sistema de conmutación por error de [Service Fabric](../service-fabric/servi
 
 ## <a name="remote-storage-configuration"></a>Configuración de almacenamiento remoto
 
-En las configuraciones de almacenamiento remoto (niveles Básico y Estándar), se guarda exactamente una copia en el almacenamiento de blobs remoto y utiliza las funcionalidades de los sistemas de almacenamiento para poder detectar la degradación de bits, la redundancia y la durabilidad. 
+En las configuraciones de almacenamiento remoto (niveles Básico, Estándar y De uso general), se guarda exactamente una copia en el almacenamiento de blobs remoto, y se utilizan las funcionalidades de los sistemas de almacenamiento para la detección de la durabilidad, la redundancia y la degradación de bits. 
 
 La arquitectura de alta disponibilidad se muestra en el diagrama siguiente:
  
@@ -87,9 +88,14 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 ## <a name="read-scale-out"></a>Escalado horizontal de lectura
 Tal y como se dijo anteriormente, los niveles de servicio Premium y Crítico para la empresa (versión preliminar) utilizan conjuntos de cuórum y la tecnología AlwaysON para tener una alta disponibilidad tanto en las configuraciones de una sola zona como en las configuraciones con redundancia de zona. Una de las ventajas de AlwasyON es que las réplicas siempre tienen un estado coherente en lo que respecta a las transacciones. Como las réplicas tienen el mismo nivel de rendimiento que la instancia principal, la aplicación puede aprovechar esta capacidad adicional para dar servicio a las cargas de trabajo de solo lectura sin ningún costo adicional (escalado horizontal de lectura). De este modo, las consultas de solo lectura se aislarán de la carga de trabajo principal de lectura y escritura y no afectarán a su rendimiento. La característica de escalado horizontal de lectura se ha diseñado para las aplicaciones que tienen cargas de trabajo de solo lectura separadas lógicamente, como los casos de análisis, y, por tanto, pueden utilizar esta capacidad adicional sin necesidad de conectarse a la instancia principal. 
 
-Para usar la característica de escalado horizontal de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También puede habilitarla más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager.
+Para usar la característica de escalado de lectura con una base de datos determinada, debe habilitarla explícitamente al crear la base de datos. También hacerlo más adelante modificando la configuración con los cmdlets [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) de PowerShell o con el método [Databases - Create or Update](/rest/api/sql/databases/createorupdate) de la API REST de Azure Resource Manager.
 
 Después de habilitar el escalado horizontal de lectura en una base de datos, las aplicaciones que se conecten a ella se dirigirán a la réplica de lectura-escritura o a la réplica de solo lectura de esa base de datos, en función de la propiedad `ApplicationIntent` configurada en la cadena de conexión de la aplicación. Para más información sobre la propiedad `ApplicationIntent`, consulte [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Especificación de la intención de la aplicación). 
+
+Si está deshabilitado el escalado de lectura o establece la propiedad ReadScale en un nivel de servicio no admitido, todas las conexiones se dirigen a la réplica de lectura y escritura, con independencia de la propiedad `ApplicationIntent`.  
+
+> [!NOTE]
+> Es posible activar el escalado de lectura en una base de datos Estándar o De uso general, aunque no tenga como resultado el enrutamiento de la sesión prevista de solo lectura a una réplica diferente. La finalidad de esto es admitir las aplicaciones existentes que se escalan y reducen verticalmente entre los niveles Estándar o De uso general y Premium o Crítico para la empresa.  
 
 La característica de escalado horizontal de lectura favorece la coherencia en el nivel de sesión. Si la sesión de solo lectura se inicia de nuevo después de un error de conexión generado porque las réplicas no estaban disponibles, se puede redirigir a una réplica distinta. Aunque es improbable, puede ocurrir que se procese un conjunto de datos obsoleto. Del mismo modo, si una aplicación escribe datos utilizando una sesión de lectura-escritura y los lee inmediatamente con una sesión de solo lectura, es posible que los nuevos datos no estén visibles inmediatamente.
 
