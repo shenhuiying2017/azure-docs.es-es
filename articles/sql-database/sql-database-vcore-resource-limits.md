@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 204702eee1cf502ac873e0c1f5e3fd257ecce33c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc32ba4858e7be901d2cd4d773491247e9e0e672
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942503"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Límites del modelo de compra basado en núcleos virtuales de Azure SQL Database (versión preliminar)
 
@@ -25,48 +26,95 @@ ms.lasthandoff: 04/28/2018
 Para las bases de datos únicas, las siguientes tablas muestran los recursos disponibles para una base de datos única en cada nivel de servicio y nivel de rendimiento. Puede establecer el nivel de servicio, el nivel de rendimiento y la cantidad de almacenamiento para una base de datos única mediante [Azure Portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal), [Transact-SQL](sql-database-single-database-resources.md#manage-single-database-resources-using-transact-sql), [PowerShell](sql-database-single-database-resources.md#manage-single-database-resources-using-powershell), la [CLI de Azure](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-cli) o la [API de REST](sql-database-single-database-resources.md#manage-single-database-resources-using-the-rest-api).
 
 ### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
-|Nivel de rendimiento|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Generación de H/W|4|4|4|4|4|
-|Núcleos virtuales|1|2|4|8|16|
-|Memoria (GB)|7|14|28|56|112|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
-|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
-|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Tamaño máximo de datos (GB)|1024|1024|1536|3072|4096|
-|Tamaño máximo de registro|307|307|461|922|1229|
-|Tamaño de TempDB (DB)|32|64|128|256|384|
-|IOPS de destino|320|640|1280|2560|5120|
-|Latencia de E/S (aproximada)|5-7 ms (escritura)
-|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
-|Número de réplicas|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+|Nivel de rendimiento|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|:--- | --: |--: |--: |--: |--: |--: |
+|Generación de H/W|4|4|4|4|4|4|
+|Núcleos virtuales|1|2|4|8|16|24|
+|Memoria (GB)|7|14|28|56|112|168|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Tamaño máximo de datos (GB)|1024|1024|1536|3072|4096|4096|
+|Tamaño máximo de registro|307|307|461|922|1229|1229|
+|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|IOPS de destino (64 KB)|500|1000|2000|4000|7000|7000|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|4800|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|1|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|000
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+|Nivel de rendimiento|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
+|Generación de H/W|5|5|5|5|5|5|5|
+|Núcleos virtuales|2|4|8|16|24|32|48|80|
+|Memoria (GB)|11|22|44|88|132|176|264|440|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Tamaño máximo de datos (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
+|Tamaño máximo de registro|307|307|461|614|1229|1229|1229|1229|
+|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS de destino (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|2400|3200|4800|8000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|1|1|1|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
 ### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
-|Nivel de rendimiento|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Generación de H/W|4|4|4|4|4|
-|Núcleos virtuales|1|2|4|8|16|
-|Memoria (GB)|7|14|28|56|112|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|
-|Tipo de almacenamiento|SSD asociada|SSD asociada|SSD asociada|SSD asociada|SSD asociada|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|
-|Tamaño máximo de registro|307|307|307|307|307|
-|Tamaño de TempDB (DB)|32|64|128|256|384|
-|IOPS de destino|5000|10000|20000|40000|80000|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
-|Número de réplicas|3|3|3|3|3|
-|AZ múltiple|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+|Nivel de rendimiento|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Generación de H/W|4|4|4|4|4|4|
+|Núcleos virtuales|1|2|4|8|16|24|
+|Memoria (GB)|7|14|28|56|112|168|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|36|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro|307|307|307|307|307|307|
+|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|IOPS de destino (64 KB)|5000|10000|20000|40000|80000|120000|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|3200|4800|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|3|3|3|3|3|3|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+|Nivel de rendimiento|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
+|Generación de H/W|5|5|5|5|5|5|5|5|
+|Núcleos virtuales|2|4|8|16|24|32|48|80|
+|Memoria (GB)|11|22|44|88|132|176|264|440|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1571|3142|6284|15 768|25 252|37 936|68 104|131,64|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|Tamaño máximo de registro|307|307|307|307|614|1229|1229|1229|
+|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS de destino (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|800|1600|2400|3200|4800|8000|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|1|1|1|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
 ## <a name="single-database-change-storage-size"></a>Base de datos única: cambio del tamaño de almacenamiento
@@ -101,51 +149,103 @@ Para los grupos elásticos de SQL Database, las siguientes tablas muestran los r
 > Los límites de recursos de las bases de datos individuales de los grupos elásticos suelen ser los mismos que los de las bases de datos únicas fuera de los grupos que tienen el mismo nivel de rendimiento. Por ejemplo, el número máximo de trabajos simultáneos en una base de datos GP_Gen4_1 es 200 trabajos. Por lo tanto, el número máximo de trabajos simultáneos en una base de datos de un grupo GP_Gen4_1 también es 200 trabajos. Tenga en cuenta que el número total de trabajos simultáneos en el grupo GP_Gen4_1 es 210.
 
 ### <a name="general-purpose-service-tier"></a>Nivel de servicio de uso general
-|Nivel de rendimiento|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Generación de H/W|4|4|4|4|4|
-|Núcleos virtuales|1|2|4|8|16|
-|Memoria (GB)|7|14|28|56|112|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|
-|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
-|Tamaño máximo de datos (GB)|512|756|1536|2048|3584|
-|Tamaño máximo de registro|154|227|461|614|1075|
-|Tamaño de TempDB (DB)|32|64|128|256|384|
-|IOPS de destino|320|640|1280|2560|5120|
-|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
-|Densidad máxima del grupo|100|200|500|500|500|
-|Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|Número de réplicas|1|1|1|1|1|
-|AZ múltiple|N/D|N/D|N/D|N/D|N/D|
-|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+|Nivel de rendimiento|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Generación de H/W|4|4|4|4|4|4|
+|Núcleos virtuales|1|2|4|8|16|24|
+|Memoria (GB)|7|14|28|56|112|168|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Tamaño máximo de datos (GB)|512|756|1536|2048|3584|4096|
+|Tamaño máximo de registro|154|227|461|614|1075|1229|
+|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|IOPS de destino (64 KB)|500|1000|2000|4000|7000|7000|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|5040|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
+|Densidad máxima del grupo|100|200|500|500|500|500|
+|Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Número de réplicas|1|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|||
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+|Nivel de rendimiento|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|Generación de H/W|5|5|5|5|5|5|5|5|
+|Núcleos virtuales|2|4|8|16|24|32|48|80|
+|Memoria (GB)|11|22|44|88|132|176|264|440|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Tipo de almacenamiento|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|Premium Storage (remoto)|
+|Tamaño máximo de datos (GB)|512|756|1536|2048|3072|4096|4096|4096|
+|Tamaño máximo de registro|154|227|461|614|922|1229|1229|1229|
+|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS de destino (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|2520|3360|5040|8400
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
+|Densidad máxima del grupo|100|200|500|500|500|500|500|500|
+|Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Número de réplicas|1|1|1|1|1|1|1|1|
+|AZ múltiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Escalado horizontal de lectura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
 
 ### <a name="business-critical-service-tier"></a>Nivel de servicio Crítico para la empresa
-|Nivel de rendimiento|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
-|:--- | --: |--: |--: |--: |--: |
-|Generación de H/W|4|4|4|4|4|
-|Núcleos virtuales|1|2|4|8|16|
-|Memoria (GB)|7|14|28|56|112|
-|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|
-|Tipo de almacenamiento|SSD asociada|SSD asociada|SSD asociada|SSD asociada|SSD asociada|
-|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|
-|Tamaño máximo de registro|307|307|307|461|614|
-|Tamaño de TempDB (DB)|32|64|128|256|384|
-|IOPS de destino|320|640|1280|2560|5120|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|
-|Sesiones máximas permitidas|30000|30000|30000|30000|30000|
-|Densidad máxima del grupo|N/D|50|100|100|100|
-|Número mín./máx. de clics para detener del grupo elástico|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
-|AZ múltiple|Sí|Sí|Sí|Sí|Sí|
-|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+#### <a name="generation-4-compute-platform"></a>Plataforma de procesos de generación 4
+|Nivel de rendimiento|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|:--- | --: |--: |--: |--: |--: |--: |
+|Generación de H/W|4|4|4|4|4|4|
+|Núcleos virtuales|1|2|4|8|16|24|
+|Memoria (GB)|7|14|28|56|112|168|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1|2|4|8|20|36|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
+|Tamaño máximo de registro|307|307|307|307|307|307|
+|Tamaño de TempDB (DB)|32|64|128|256|384|384|
+|IOPS de destino (64 KB)|5000|10000|20000|40000|80000|120000|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|3360|5040|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|
+|Densidad máxima del grupo|N/D|50|100|100|100|100|
+|Número mín./máx. de clics para detener del grupo elástico|N/D|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 |||
+
+#### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
+|Nivel de rendimiento|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
+|Generación de H/W|5|5|5|5|5|5|5|5|
+|Núcleos virtuales|2|4|8|16|24|48|64|80|
+|Memoria (GB)|11|22|44|88|132|176|264|440|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|1571|3142|6284|15 768|25 252|37 936|68 104|131,64|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
+|Tamaño máximo de registro|307|307|307|307|614|1229|1229|1229|
+|Tamaño de TempDB (DB)|64|128|256|384|384|384|384|384|
+|IOPS de destino (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Cantidad máxima de trabajos (solicitudes) simultáneos|210|420|840|1680|2520|3360|5040|8400|
+|Sesiones máximas permitidas|30000|30000|30000|30000|30000|30000|30000|30000|
+|Densidad máxima del grupo|N/D|50|100|100|100|100|100|100|
+|Número mín./máx. de clics para detener del grupo elástico|N/D|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|AZ múltiple|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+|||
+
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas

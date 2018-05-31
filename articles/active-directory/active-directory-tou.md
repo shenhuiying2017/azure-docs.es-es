@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192962"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Azure Active Directory Terms of Use
 Términos de uso de Azure AD proporciona un método sencillo que las organizaciones pueden usar para presentar la información a los usuarios finales.  Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes para los requisitos legales o de cumplimiento.
@@ -39,7 +40,7 @@ Términos de uso de Azure AD puede utilizarse en los escenarios siguientes:
 Siga estos pasos para configurar los Términos de uso de Azure AD:
 
 1. Inicie sesión en Azure AD usando un administrador global, administrador de seguridad o un administrador de acceso condicional para el directorio para el que desea configurar los Términos de uso de Azure AD.
-2. Asegúrese de que el directorio tiene una suscripción de Azure AD Premium P1, P2, EMS E3 o EMS E5.  Si no es así [obtenga Azure AD Premium](active-directory-get-started-premium.md) o [inicie una evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/).
+2. Asegúrese de que el directorio tiene una suscripción de Azure AD Premium P1, P2, EMS E3 o EMS E5.  Si no es así, [obtenga Azure AD Premium](active-directory-get-started-premium.md) o [inicie una evaluación gratuita](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Vea el panel Azure AD Terms of Use en [https://aka.ms/catou](https://aka.ms/catou).
 
 >[!IMPORTANT]
@@ -56,7 +57,7 @@ Una vez que haya finalizado los Términos de uso, utilice el procedimiento sigui
 4. Escriba el **Nombre para mostrar**.  El encabezado es lo que ven los usuarios cuando inician sesión.
 5. Con **Examinar** vaya hasta el pdf de los términos de uso finalizados y selecciónelo.  El tamaño de fuente recomendado es 24.
 6. **Seleccionar** un idioma para los términos de uso.  La opción de idioma permite cargar varios términos de uso, cada uno con un idioma diferente.  La versión de los términos de uso que verá un usuario final se basará en sus preferencias del explorador.
-7. Seleccione activado o desactivado para **Requerir a los usuarios que expandan las condiciones de uso**.  Si se establece en activado, los usuarios finales deberán consultar las condiciones de uso antes de aceptarlas.
+7. Seleccione activado o desactivado para **Requerir a los usuarios que expandan las condiciones de uso**.  Si este valor se establece en activado, los usuarios finales deberán consultar las condiciones de uso antes de aceptarlas.
 8. En **Acceso condicional**, puede **forzar** los términos de uso cargados mediante la selección de una plantilla en la lista desplegable o una directiva de acceso condicional personalizada.  Las directivas personalizadas de acceso condicional permiten términos de uso pormenorizados, hasta una aplicación de nube específica o un grupo de usuarios.  Para más información, consulte el artículo sobre [configuración de directivas de acceso condicional](active-directory-conditional-access-best-practices.md)
 9. Haga clic en **Create**(Crear).
 10. Si ha seleccionado una plantilla personalizada de acceso condicional, a continuación, aparece una nueva pantalla que le permite personalizar la directiva de entidad emisora de certificados.
@@ -89,7 +90,7 @@ Si desea ver el número de veces que se han aceptado y rechazado a lo largo de l
 Hay dos maneras de utilizar la auditoría en función de lo que se intente hacer.  
 
 
-Para empezar a trabajar con auditorías utilice el procedimiento siguiente:
+Para empezar a trabajar con auditorías, utilice el procedimiento siguiente:
 
 ### <a name="to-audit-terms-of-use"></a>Para auditar Términos de uso
 1. Vaya al panel en [https://aka.ms/catou](https://aka.ms/catou)
@@ -120,6 +121,13 @@ Los usuarios pueden revisar y ver los términos de uso que han aceptado.  Para e
 
 4.  Desde ahí puede examinar los términos de uso que ha aceptado. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Eliminación de usuarios de términos de uso activos
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+De forma predeterminada, un usuario eliminado permanecerá eliminado en Azure AD durante 30 días, tiempo durante el cual un administrador puede restaurarlo si es necesario.  Después de 30 días, ese usuario se eliminará definitivamente.  Además, mediante el portal de Azure Active Directory, un administrador global puede [eliminar permanentemente un usuario eliminado recientemente](active-directory-users-restore.md) explícitamente antes de que se alcance ese período de tiempo.  Una vez que un usuario se ha eliminado permanentemente, los datos posteriores sobre ese usuario se eliminarán de los términos de uso activos.  La información de auditoría de los usuarios eliminados se conserva en el registro de auditoría.
+
+
 
 ## <a name="additional-information"></a>Información adicional
 La siguiente información es algo a tener en cuenta y puede ayudarle con los términos de uso.
@@ -138,7 +146,7 @@ La siguiente información es algo a tener en cuenta y puede ayudarle con los té
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 **P: ¿Cómo puedo ver si un usuario ha aceptado los términos de uso y cuándo lo ha hecho?**</br>
-R: Simplemente puede hacer clic en el número que hay debajo de aceptado, junto a los términos de uso.  Para más información, consulte [Visualización del estado actual del usuario](#viewing-current-user-status).  Además, la aceptación de los términos de uso por parte de un usuario se escribe en el registro de auditoría. Puede buscar el registro de auditoría de Azure AD para ver los resultados.  
+R: Puede hacer clic en el número que hay debajo de aceptado, junto a los términos de uso.  Para más información, consulte [Visualización del estado actual del usuario](#viewing-current-user-status).  Además, la aceptación de los términos de uso por parte de un usuario se escribe en el registro de auditoría. Puede buscar el registro de auditoría de Azure AD para ver los resultados.  
 
 **P: ¿Si cambian los términos de uso, es necesario para los usuarios aceptar de nuevo?**</br>
 R: Sí, un administrador puede cambiar las condiciones de los términos de uso y ello requiere volver a aceptar las nuevas condiciones.

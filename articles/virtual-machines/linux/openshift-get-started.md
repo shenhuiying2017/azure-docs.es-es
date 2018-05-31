@@ -1,25 +1,26 @@
 ---
-title: "Información general sobre OpenShift en Azure| Microsoft Docs"
-description: "Introducción a OpenShift en Azure."
+title: Información general sobre OpenShift en Azure| Microsoft Docs
+description: Introducción a OpenShift en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 5d154a1c860a5ebd7af2efd55b470bb14efe6c67
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: c8e740a66271c88b3abb036867d1760cc9e77607
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33944508"
 ---
 # <a name="openshift-in-azure"></a>OpenShift en Azure
 
@@ -31,14 +32,14 @@ OpenShift incluye Kubernetes para la administración y orquestación de contened
 - Implementación y escalado sencillos.
 - Mantenimiento del ciclo de vida a largo plazo de los equipos y las aplicaciones.
 
-Hay varias ofertas de OpenShift, dos de las cuales están disponibles para ejecutarse en Azure:
+Hay varias versiones de OpenShift disponibles:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
-De las cuatro ofertas que cubre este artículo, dos están disponibles para que los clientes las implementen en Azure por sí solas: OpenShift Origin y OpenShift Container Platform.
+De las cuatro ofertas que cubre este artículo, solo dos están disponibles para que los clientes las implementen en Azure: OpenShift Origin y OpenShift Container Platform.
 
 ## <a name="openshift-origin"></a>OpenShift Origin
 

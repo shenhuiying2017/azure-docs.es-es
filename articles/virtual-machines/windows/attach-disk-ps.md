@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: cynthn
-ms.openlocfilehash: 708cf186267f25d0f22d71959b6aeceed643d536
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 384203134d1588053f91b66d32e9b0bf1ec69306
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943956"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>Conexión de un disco a una VM con Windows mediante PowerShell
 
@@ -31,7 +32,7 @@ Antes de hacerlo, revise estas sugerencias:
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial se requiere la versión 6.0.0 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Incorporación de un disco de datos vacío a una máquina virtual
@@ -44,7 +45,7 @@ En este ejemplo se muestra cómo agregar un disco de datos vacío a una máquina
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'East US' 
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128
@@ -64,7 +65,7 @@ Para crear un disco en una zona de disponibilidad, use [New-AzureRmDiskConfig](/
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'East US 2' 
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 $dataDiskName = $vmName + '_datadisk1'
 
 $diskConfig = New-AzureRmDiskConfig -SkuName $storageType -Location $location -CreateOption Empty -DiskSizeGB 128 -Zone 1

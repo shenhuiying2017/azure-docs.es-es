@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-ms.openlocfilehash: 488a9954cef210b727518375e218fe084129a6f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1199eca457c3f06fdd6a4b68a05da3210ea9a2c9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197246"
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>Migración de Data Lake Store entre regiones
 
@@ -33,7 +32,7 @@ A medida que Azure Data Lake Store está disponible en nuevas regiones, puede op
 
 ## <a name="migration-considerations"></a>Consideraciones sobre la migración
 
-En primer lugar, identifique la estrategia de migración que mejor se adapte a la aplicación que escribe, lee y procesa los datos en Data Lake Store. Cuando elija una estrategia, tenga en cuenta los requisitos de disponibilidad de la aplicación y el tiempo de inactividad que se produce durante una migración. Por ejemplo, el enfoque más sencillo podría ser usar el modelo de migración a nube “lift-and-shift”. En este enfoque, la aplicación se pausa en la región existente mientras todos los datos se copian en la nueva región. Una vez finalizado el proceso de copia, puede reanudar la aplicación en la nueva región y eliminar después la cuenta antigua de Data Lake Store. Se requiere un tiempo de inactividad durante la migración.
+En primer lugar, identifique la estrategia de migración que mejor se adapte a la aplicación que escribe, lee y procesa los datos en Data Lake Store. Cuando elija una estrategia, tenga en cuenta los requisitos de disponibilidad de la aplicación y el tiempo de inactividad que se produce durante una migración. Por ejemplo, el enfoque más sencillo podría ser usar el modelo de migración a nube "lift-and-shift". En este enfoque, la aplicación se pausa en la región existente mientras todos los datos se copian en la nueva región. Una vez finalizado el proceso de copia, puede reanudar la aplicación en la nueva región y eliminar después la cuenta antigua de Data Lake Store. Se requiere un tiempo de inactividad durante la migración.
 
 Para reducir el tiempo de inactividad, puede empezar a ingerir inmediatamente nuevos datos en la nueva región. Cuando tenga los datos mínimos necesarios, ejecute la aplicación en la nueva región. En segundo plano, continúe copiando los datos más antiguos de la cuenta de Azure Data Lake Store existente en la nueva cuenta de Data Lake Store en la nueva región. Mediante este enfoque, puede hacer el cambio a la nueva región con poco tiempo de inactividad. Una vez que se han copiado todos los datos antiguos, elimine la cuenta antigua de Data Lake Store.
 
