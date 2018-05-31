@@ -1,6 +1,6 @@
 ---
-title: Crear alertas del registro de actividad y administrarlas mediante la nueva experiencia de alertas (versión preliminar) en Azure Monitor | Microsoft Docs
-description: En este artículo se proporciona información acerca de cómo crear alertas del registro de actividad en la pestaña de alertas (versión preliminar) en Azure Monitor. En este artículo se detalla la nueva experiencia de usuario de esta característica.
+title: Creación de alertas del registro de actividad y su administración mediante la nueva experiencia de alertas de Azure Monitor | Microsoft Docs
+description: En este artículo se ofrece información sobre cómo crear alertas del registro de actividad en la pestaña de alertas en Azure Monitor.
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -15,17 +15,18 @@ ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
 ms.custom: ''
-ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202827"
 ---
-# <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Crear alertas del registro de actividad mediante la nueva experiencia de alertas (versión preliminar)
+# <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>Creación de alertas del registro de actividad con la nueva experiencia de alertas
 
 Las alertas del registro de actividad son alertas que se activan cuando un nuevo evento del registro de actividad cumple las condiciones especificadas en la alerta.
 
-Estas alertas son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad mediante la nueva experiencia [Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md).
+Estas alertas son recursos de Azure, por lo que pueden crearse con una plantilla de Azure Resource Manager. También se pueden crear, actualizar o eliminar en Azure Portal. Este artículo presenta los conceptos relativos a las alertas del registro de actividad. Seguidamente, se explica cómo usar Azure Portal para configurar alertas en eventos del registro de actividad mediante la nueva experiencia de [Alertas de Azure](monitoring-overview-unified-alerts.md).
 
 Normalmente es necesario crear alertas del registro de actividad para recibir una notificación si se producen cambios específicos en los recursos de la suscripción de Azure, los cuales suelen abarcar grupos de recursos o algún recurso en particular. Por ejemplo, es posible que quiera recibir una notificación cuando se elimine una máquina virtual (grupo de recursos de ejemplo) en **myProductionResourceGroup**, o que quiera recibir una notificación si cualquier rol nuevo se asigna a un usuario de la suscripción.
 
@@ -46,11 +47,11 @@ Para más información sobre los grupos de acciones, consulte [Creación y admin
 Para más información acerca de las notificaciones de mantenimiento del servicio, consulte [Recibir alertas del registro de actividad con las notificaciones de mantenimiento del servicio](monitoring-activity-log-alerts-on-service-notifications.md).
 
 
-## <a name="whats-new-in-alerts-preview-for-activity-logs"></a>¿Qué novedades tiene la versión preliminar de alertas para los registros de actividad?
+## <a name="whats-new-in-alerts-for-activity-logs"></a>¿Qué novedades tiene la versión preliminar de alertas para los registros de actividad?
 
-[Alertas de Azure (versión preliminar)](monitoring-overview-unified-alerts.md) proporciona una experiencia de usuario mejorada en sus alertas del registro de actividad. Gracias a la [experiencia de usuario mejorada para las alertas](monitoring-overview-unified-alerts.md), ahora puede realizar lo siguiente:
+[Alertas de Azure](monitoring-overview-unified-alerts.md) ofrece una experiencia de usuario mejorada en sus alertas del registro de actividad. Gracias a la [experiencia de usuario mejorada para las alertas](monitoring-overview-unified-alerts.md), ahora puede realizar lo siguiente:
 
-- [Crear](#create-an-alert-rule-for-an-activity-log) y [administrar](#view-and-manage-activity-log-alert-rules) las reglas de alertas del registro de actividad desde la hoja **Supervisar** > **Alertas (versión preliminar)**. Obtenga más información sobre los [registros de actividad](monitoring-overview-activity-logs.md).
+- [Crear](#create-an-alert-rule-for-an-activity-log) y [administrar](#view-and-manage-activity-log-alert-rules) las reglas de alertas del registro de actividad desde la hoja **Supervisar** > **Alertas**. Obtenga más información sobre los [registros de actividad](monitoring-overview-activity-logs.md).
 
 - **Nuevas opciones para los destinos de las alertas**: al crear una nueva regla de alertas del registro de actividad, puede seleccionar un recurso o un grupo de recursos o una suscripción de destino.
 
@@ -68,8 +69,8 @@ Para más información acerca de las notificaciones de mantenimiento del servici
 
 Utilice el siguiente procedimiento:
 
-1. En Azure Portal, seleccione **Supervisar** > **Alertas (versión preliminar).**
-2. Haga clic en **Nueva regla de alertas** que se encuentra en la parte superior de la ventana **Alertas (versión preliminar)**.
+1. En Azure Portal, seleccione **Supervisar** > **Alertas**.
+2. Haga clic en **Nueva regla de alertas** que se encuentra en la parte superior de la ventana **Alertas**.
 
      ![nueva regla de alertas](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule.png)
 
@@ -130,7 +131,7 @@ Utilice el siguiente procedimiento:
 
 ## <a name="view-and-manage-activity-log-alert-rules"></a>Ver y administrar las reglas de alertas del registro de actividad
 
-1. En Azure Portal, haga clic en **Supervisar** > **Alertas (versión preliminar)** y haga clic en **Administrar reglas** en la parte superior izquierda de la ventana.
+1. En Azure Portal, haga clic en **Supervisar** > **Alertas** y haga clic en **Administrar reglas** en la parte superior izquierda de la ventana.
 
     ![ administración de reglas de alerta](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
 

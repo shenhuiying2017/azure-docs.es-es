@@ -1,11 +1,11 @@
 ---
-title: "Creación de una máquina virtual Windows desde un VHD especializado en Azure | Microsoft Docs"
-description: "Cree una nueva máquina virtual Windows asociando un disco administrado especializado como el disco del SO en el modelo de implementación de Resource Manager."
+title: Creación de una máquina virtual Windows desde un VHD especializado en Azure | Microsoft Docs
+description: Cree una nueva máquina virtual Windows asociando un disco administrado especializado como el disco del SO en el modelo de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -13,13 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: 578d31aef5ddeafbd806d0bae4231c135968f78a
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012791"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Creación de una VM de Windows desde un disco especializado mediante PowerShell
 
@@ -40,7 +41,7 @@ En este tema se muestra cómo usar Managed Disks. Si tiene una implementación h
 Si usa PowerShell, asegúrese de que tiene la versión más reciente del módulo de PowerShell AzureRM.Compute. 
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM -RequiredVersion 6.0.0
 ```
 Para más información, consulte [Azure PowerShell Versioning](/powershell/azure/overview) (Control de versiones de Azure PowerShell).
 
@@ -137,7 +138,7 @@ Dependiendo de la conexión de red y del tamaño del archivo VHD, este comando t
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>Creación de un disco administrado a partir del VHD
 
-Cree un disco administrado a partir del VHD especializado en la cuenta de Storage mediante [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). En este ejemplo se usa **myOSDisk1** como nombre del disco, se coloca el disco en el almacenamiento *StandardLRS* y se usa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* como el URI para el VHD de origen.
+Cree un disco administrado a partir del VHD especializado en la cuenta de Storage mediante [New-AzureRMDisk](/powershell/module/azurerm.compute/new-azurermdisk). En este ejemplo se utiliza **myOSDisk1** para el nombre del disco, coloca el disco en el almacenamiento *Standard_LRS* y usa *https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd* como el URI para el disco duro virtual de origen.
 
 Cree un grupo de recursos para la máquina virtual.
 
@@ -153,7 +154,7 @@ Cree el disco del SO a partir del VHD cargado.
 $sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
-    (New-AzureRmDiskConfig -AccountType StandardLRS  `
+    (New-AzureRmDiskConfig -AccountType Standard_LRS  `
     -Location $location -CreateOption Import `
     -SourceUri $sourceUri) `
     -ResourceGroupName $destinationResourceGroup
@@ -337,7 +338,7 @@ $vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
 Agregue el disco del SO a la configuración mediante [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk). Este ejemplo establece el tamaño del disco en *128 GB* y adjunta el disco administrado como un disco del SO *Windows*.
  
 ```powershell
-$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType StandardLRS `
+$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
     -DiskSizeInGB 128 -CreateOption Attach -Windows
 ```
 
@@ -367,5 +368,5 @@ $vmList.Name
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para iniciar sesión en la nueva máquina virtual, examine la máquina virtual en el [Portal](https://portal.azure.com), haga clic en **Conectar**y abra el archivo RDP del Escritorio remoto. Utilice las credenciales de cuenta de la máquina virtual original para iniciar sesión en la nueva máquina virtual. Para más información, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](connect-logon.md).
+Inicie sesión en la nueva máquina virtual. Para más información, consulte [Conexión a una máquina virtual de Azure donde se ejecuta Windows Server e inicio de sesión en ella](connect-logon.md).
 

@@ -10,11 +10,12 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df3d843516bce30253c23080716e606dfb56f25e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211568"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Administración de la retención de copias de seguridad a largo plazo de Azure SQL Database
 
@@ -80,6 +81,10 @@ Vea las copias de seguridad que se han conservado para una base de datos concret
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Uso de PowerShell para configurar directivas de retención a largo plazo y restaurar las copias de seguridad
 
 En las siguientes secciones se explica cómo usar PowerShell para configurar la retención de copias de seguridad a largo plazo, ver las copias de seguridad en el almacén de Azure SQL y realizar una restauración a partir de una copia de seguridad del almacén de Azure SQL.
+
+> [!IMPORTANT]
+> Debe usar la última versión de PowerShell en AzureRM para configurar las directivas de LTR V2. La versión actual es [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview), que es una versión preliminar; por tanto, use este comando para instalarla: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Para obtener instrucciones sobre cómo instalar la versión preliminar, vea la información sobre cómo [obtener el módulo PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). La versión de mayo de 2018 de PowerShell para AzureRM se lanzará en unos días (se prevé para el 18/5/2018); puede ignorar el modificador -AllowPrelease cuando instale la versión de lanzamiento cuando esté disponible y usar el siguiente comando `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Creación de una directiva LTR
 

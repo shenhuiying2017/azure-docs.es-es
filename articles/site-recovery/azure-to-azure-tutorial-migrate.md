@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209715"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Migración de máquinas virtuales de Azure a otra región
 
@@ -102,7 +103,7 @@ El nuevo almacén se agrega al **Panel**, en **Todos los recursos**, y en la pá
 ## <a name="select-the-source"></a>Seleccione el origen
 
 1. En los almacenes de Recovery Services, haga clic en **ConsotoVMVault** > **+Replicar**.
-2. En **Origen**, seleccione **Azure - VERSIÓN PRELIMINAR**.
+2. En **Origen**, seleccione **Azure**.
 3. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 4. Seleccione el modelo de implementación de Resource Manager. A continuación, seleccione el **grupo de recursos de origen**.
 5. Haga clic en **Aceptar** para guardar la configuración.
@@ -115,7 +116,7 @@ Site Recovery recupera una lista de las máquinas virtuales asociadas a la suscr
 
 1. En Azure Portal, haga clic en **Máquinas virtuales**.
 2. Seleccione la máquina virtual que quiera migrar. A continuación, haga clic en **Aceptar**.
-3. En **Configuración**, haga clic en **Recuperación ante desastres (versión preliminar)**.
+3. En **Configuración**, haga clic en **Recuperación ante desastres**.
 4. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
 5. Para este tutorial, acepte los valores predeterminados.
 6. Haga clic en **Habilitar replicación**. Esto inicia un trabajo para habilitar la replicación de la máquina virtual.

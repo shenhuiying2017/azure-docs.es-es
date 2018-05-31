@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203978"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure y de los equipos que no son de Azure para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP, usuario conectado e identificador de inquilino. Asimismo, copia los archivos de volcado de memoria en dicha área de trabajo.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Habilitar el aprovisionamiento automático de Microsoft Monitoring Agent     
-Si el aprovisionamiento automático está habilitado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+El aprovisionamiento automático está desactivado de manera predeterminada. Si el aprovisionamiento automático está habilitado, Security Center aprovisiona Microsoft Monitoring Agent en todas las máquinas virtuales de Azure compatibles y en las que se creen. El aprovisionamiento automático está muy recomendado, pero la instalación manual del agente también está disponible. [Aprenda a instalar la extensión Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos. Para obtener más información, vea [Deshabilitar el aprovisionamiento automático](security-center-enable-data-collection.md#disable-automatic-provisioning) en este artículo. Las instantáneas de disco de máquina virtual y la recopilación de artefactos seguirán habilitadas, aunque se deshabilite el aprovisionamiento automático.
@@ -34,11 +35,14 @@ Si el aprovisionamiento automático está habilitado, Security Center aprovision
 Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
 2. Seleccione la suscripción.
+
+  ![Seleccione la suscripción.][7]
+
 3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
-4. En **Incorporación**, seleccione **Activado** para habilitar el aprovisionamiento automático.
+4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.
 5. Seleccione **Guardar**.
 
-![Habilitar el aprovisionamiento automático][1]
+  ![Habilitar el aprovisionamiento automático][1]
 
 ## <a name="default-workspace-configuration"></a>Configuración predeterminada del área de trabajo
 Los datos recopilados por Security Center se almacenan en áreas de trabajo de Log Analytics.  Puede optar por que los datos se recopilen de las máquinas virtuales de Azure almacenadas en áreas de trabajo creadas por Security Center o en un área de trabajo que haya creado.
@@ -49,16 +53,16 @@ Para usar el área de trabajo existente de Log Analytics:
 
 Para seleccionar un área de trabajo existente de Log Analytics:
 
-1. En **Directiva de seguridad: Recopilación de datos**, seleccione **Usar otra área de trabajo**.
+1. En **Configuración del área de trabajo predeterminada**, seleccione **Use another workspace** (Usar otra área de trabajo).
 
    ![Seleccionar el área de trabajo existente][2]
 
 2. En el menú desplegable, seleccione un área de trabajo para almacenar los datos recopilados.
 
-> [!NOTE]
-> En el menú desplegable solo se muestran las áreas de trabajo a las que tiene acceso y las que están en su suscripción a Azure.
->
->
+  > [!NOTE]
+  > Todas las áreas de trabajo de todas sus suscripciones están disponibles en el menú desplegable. Vea [Selección del área de trabajo entre suscripciones](security-center-enable-data-collection.md#cross-subscription-workspace-selection) para obtener más información.
+  >
+  >
 
 3. Seleccione **Guardar**.
 4. Tras hacer clic en **Guardar**, se le preguntará si quiere reconfigurar las máquinas virtuales supervisadas.
@@ -73,7 +77,15 @@ Para seleccionar un área de trabajo existente de Log Analytics:
 
    - Haga clic en **Cancelar** para cancelar la operación.
 
-   ![Seleccionar el área de trabajo existente][3]
+     ![Seleccionar el área de trabajo existente][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Selección del área de trabajo entre suscripciones
+Cuando se selecciona un área de trabajo para almacenar los datos, todos los espacios de trabajo de todas sus suscripciones están disponibles. La selección del área de trabajo entre suscripciones le permite recopilar datos de máquinas virtuales que se ejecutan en distintas suscripciones y almacenarlos en el área de trabajo que prefiera. Esta funcionalidad funciona tanto en máquinas virtuales que se ejecutan en Linux como en Windows.
+
+> [!NOTE]
+> La selección del área de trabajo entre suscripciones forma parte del nivel gratis de Azure Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+>
+>
 
 ## <a name="data-collection-tier"></a>Nivel de recopilación de datos
 Security Center puede reducir el volumen de eventos mientras mantiene suficientes eventos para la investigación, la auditoría y la detección de amenazas. Puede elegir la directiva de filtrado adecuada para sus suscripciones y áreas de trabajo de cuatro conjuntos de eventos que recopilará el agente.
@@ -84,7 +96,8 @@ Security Center puede reducir el volumen de eventos mientras mantiene suficiente
 - **Ninguno**: Se deshabilita la recopilación de eventos de seguridad de los registros de seguridad y de AppLocker. Para los clientes que elijan esta opción, sus paneles de seguridad solo tendrán registros del Firewall de Windows y evaluaciones preventivas, como el antimalware, la línea base y las actualizaciones.
 
 > [!NOTE]
-> Estos conjuntos se han diseñado para abordar escenarios típicos. Asegúrese de evaluar cuál se ajusta a sus necesidades antes de implementarlo.
+> Estos conjuntos de eventos de seguridad solo están disponibles en nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+Estos conjuntos se han diseñado para abordar escenarios típicos. Asegúrese de evaluar cuál se ajusta a sus necesidades antes de implementarlo.
 >
 >
 
@@ -115,7 +128,7 @@ A continuación se muestra un desglose completo de los identificadores de evento
 >
 
 Para elegir la directiva de filtrado:
-1. En la hoja **Security policy & settings** (Directiva de seguridad y configuración), seleccione la directiva de filtrado en **Eventos de seguridad**.
+1. En la hoja **Directiva de seguridad: Recopilación de datos** (Recopilación de datos de directivas de seguridad), seleccione la directiva de filtrado en **Eventos de seguridad**.
 2. Seleccione **Guardar**.
 
    ![Elegir la directiva de filtrado][5]
@@ -129,12 +142,13 @@ Puede deshabilitar en cualquier momento el aprovisionamiento automático de los 
 >
 
 1. Vuelva al menú principal de Security Center y seleccione la directiva de seguridad.
-
-   ![Deshabilitar el aprovisionamiento automático][6]
-
 2. Seleccione la suscripción en la que quiere deshabilitar el aprovisionamiento automático.
-3. En la hoja **Directiva de seguridad: Recopilación de datos**, en **Incorporación**, seleccione **Desactivado** para deshabilitar el aprovisionamiento automático.
-4. Seleccione **Guardar**.  
+3. En la hoja **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
+4. Seleccione **Guardar**.
+
+  ![Deshabilitación del aprovisionamiento automático][6]
+
+Cuando el aprovisionamiento automático está deshabilitado (desactivado), no se muestra la sección de configuración del área de trabajo predeterminada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automático y una recopilación de datos en Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -153,4 +167,5 @@ En este artículo le hemos mostrado cómo efectuar un aprovisionamiento automát
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
-ms.openlocfilehash: 59b6efd8459f675bc44891d7b04251260fdd38e9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072596"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
@@ -87,12 +88,13 @@ Para mantener el tamaño del documento reducido, no olvide excluir los datos no 
 
 ## <a name="indexer-limits"></a>Límites de indexador
 
-Los servicios básicos creados después de finales de 2017 han aumentado su límite en 15 índices, orígenes de datos e indexadores.
+Los servicios básicos creados después de finales de 2017 han aumentado su límite en 15 índices, orígenes de datos, habilidades e indexadores.
 
 | Recurso | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 o 15|50 |200 |200 |N/D |
 | Orígenes de datos máximos |3 |5 o 15 |50 |200 |200 |N/D |
+| Habilidades máximas |3 |5 o 15 |50 |200 |200 |N/D |
 | Carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D |
 | Tiempo de ejecución máximo | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |
