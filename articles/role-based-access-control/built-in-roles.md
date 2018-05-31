@@ -15,12 +15,12 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203513"
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160842"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Roles integrados para el control de acceso basado en roles de Azure
 El [control de acceso basado en rol (RBAC)](overview.md) tiene varias definiciones de roles integrados que se pueden asignar a usuarios, grupos y entidades de servicio. Las asignaciones de roles sirven para controlar el acceso a los recursos de Azure. No puede modificar los roles integrados, pero puede crear sus propios [roles personalizados](custom-roles.md) para ajustarse a las necesidades específicas de su organización.
@@ -101,7 +101,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de Traffic Manager](#traffic-manager-contributor) | Le permite administrar perfiles de Traffic Manager, pero no controlar los usuarios que tienen acceso a ellos. |
 | [Administrador de acceso de usuario](#user-access-administrator) | Permite administrar el acceso de usuario a los recursos de Azure. |
 | [Inicio de sesión de administrador de Virtual Machine](#virtual-machine-administrator-login) | - Los usuarios con este rol tienen la posibilidad de iniciar sesión en una máquina virtual con privilegios de administrador de Windows o de usuario raíz de Linux. |
-| [Colaborador de la máquina virtual](#virtual-machine-contributor) | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni la cuenta de almacenamiento a las que están conectadas. |
+| [Colaborador de la máquina virtual](#virtual-machine-contributor) | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
 | [Inicio de sesión de usuario de Virtual Machine](#virtual-machine-user-login) | Los usuarios con este rol tienen la posibilidad de iniciar sesión en una máquina virtual como un usuario normal. |
 | [Colaborador de plan web](#web-plan-contributor) | Permite administrar los planes web para sitios web, pero no acceder a ellos. |
 | [Colaborador de sitio web](#website-contributor) | Permite administrar los sitios web (no planes web), pero no acceder a ellos. |
@@ -1443,7 +1443,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descripción** | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni la cuenta de almacenamiento a las que están conectadas. |
+> | **Descripción** | Permite administrar máquinas virtuales, pero no acceder a ellas, ni tampoco a la red virtual ni a la cuenta de almacenamiento a las que están conectadas. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Acciones** |  |
 > | Microsoft.Authorization/*/read | Leer autorización |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3bf2f793baec4a0fdacadd7fb6d3d6784aa17f29
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940194"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261462"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Equilibrio de carga en varias configuraciones de IP mediante Azure Portal
 
@@ -173,7 +173,7 @@ Configuración de un sondeo de estado para el equilibrador de carga:
 
 Para cada sitio web (contoso.com y fabrikam.com), configure las reglas de equilibrio de carga:
     
-1. <a name="step6-1"></a>En **Configuración**, seleccione **Sondeo de estado**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**. 
+1. <a name="step6-1"></a>En **Configuración**, seleccione **Reglas de equilibrio de carga**. En el siguiente panel, cerca de la parte superior, seleccione **Agregar**. 
 
 2. En **Nombre**, escriba un nombre para la regla de equilibrio de carga (por ejemplo, **HTTPc** para contoso.com, o **HTTPf** para fabrikam.com).
 

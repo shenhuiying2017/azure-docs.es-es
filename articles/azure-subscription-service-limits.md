@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: f8b97aeb4c37578b884c924bd1919a59fa0f1cf8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939967"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, esta lista se expandirá y actualizará para abarcar más de la plataforma.
@@ -27,7 +28,7 @@ Este documento enumeran algunos de los límites más comunes de Microsoft Azure,
 Visite [Precios de Azure de un vistazo](https://azure.microsoft.com/pricing/) para más información sobre precios de Azure. Allí, puede calcular los costos mediante la [Calculadora de precio](https://azure.microsoft.com/pricing/calculator/)s o visitando la página de detalles de precios para un servicio (por ejemplo, [Máquinas virtuales Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Si quiere obtener sugerencias para ayudar a administrar los costos, vea [Prevención de costos inesperados con la administración de costos y facturación de Azure](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Si desea aumentar el límite o la cuota por encima del **Límite predeterminado**, [puede abrir una solicitud de soporte técnico al cliente en línea sin cargo alguno](azure-supportability/resource-manager-core-quotas-request.md). Los límites no se pueden subir por encima del valor de **Límite máximo** que se muestra en las tablas siguientes. Si la columna **Límite máximo** no existe, el recurso no tiene límites ajustables.
+> Si desea aumentar el límite o la cuota por encima del **Límite predeterminado**, [puede abrir una solicitud de soporte técnico al cliente en línea sin cargo alguno](azure-resource-manager/resource-manager-quota-errors.md). Los límites no se pueden subir por encima del valor de **Límite máximo** que se muestra en las tablas siguientes. Si la columna **Límite máximo** no existe, el recurso no tiene límites ajustables.
 >
 > Las [suscripciones de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) no son aptas para aumentar el límite ni la cuota. Si tiene una [suscripción de evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), puede actualizar a una suscripción de [Pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obtener más información, consulte [Actualización de evaluación gratuita de Azure a pago por uso](billing/billing-upgrade-azure-subscription.md) y [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq) (Preguntas más frecuentes de la suscripción de evaluación gratuita).
 >
@@ -53,6 +54,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Copia de seguridad](#backup-limits)
 * [Batch](#batch-limits)
@@ -61,7 +63,7 @@ En los límites siguientes, se ha agregado una nueva tabla para reflejar las dif
 * [Cloud Services](#cloud-services-limits)
 * [Azure Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Container Service (AKS)](#container-service-aks-limits)
+* [Kubernetes Service](#container-service-aks-limits)
 * [Factoría de datos](#data-factory-limits)
 * [Análisis de Data Lake](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -129,7 +131,7 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="container-service-aks-limits"></a>Límites de Container Service (AKS)
+### <a name="kubernetes-service-limits"></a>Límites de Kubernetes Service
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Límites de red
@@ -280,6 +282,9 @@ Para más información sobre otros límites, incluido el tamaño de documento, l
 
 ### <a name="azure-event-grid-limits"></a>Límites de Azure Event Grid
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### <a name="azure-maps-limits"></a>Límites de Azure Maps
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Límites del sistema StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

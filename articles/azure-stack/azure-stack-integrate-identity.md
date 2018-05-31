@@ -6,15 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dc6c8ef2953b7495c734ec8b16530cdd812ac792
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770526"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integración del centro de datos de Azure Stack: identidad
 Puede implementar Azure Stack mediante Azure Active Directory (Azure AD) o con los Servicios de federación de Active Directory (AD FS) como proveedores de identidades. Deberá escoger antes de implementar Azure Stack. La implementación mediante AD FS también se conoce como implementación de Azure Stack en modo desconectado.
@@ -60,6 +61,8 @@ Requisitos:
 
 ## <a name="setting-up-graph-integration"></a>Configuración de la integración de Graph
 
+Graph solo permite realizar la integración con un único bosque de Active Directory. Si existen varios bosques, solamente el bosque especificado en la configuración se utilizará para capturar los usuarios y grupos.
+
 Se requiere la siguiente información como entrada para los parámetros de automatización:
 
 
@@ -95,12 +98,14 @@ Para este procedimiento, use un equipo de la red del centro de datos que pueda c
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Cuando se le solicite, especifique la credencial para la cuenta de usuario que desea utilizar para el servicio Graph (por ejemplo, graphservice).
+   Cuando se le solicite, especifique la credencial para la cuenta de usuario que desea utilizar para el servicio Graph (por ejemplo, graphservice). La entrada para el cmdlet Register-DirectoryService debe ser el nombre de bosque o la raíz del dominio del bosque en lugar de cualquier otro dominio del bosque.
 
    > [!IMPORTANT]
    > Espere las credenciales emergentes (no se admite Get-Credential en el punto de conexión con privilegios) y escriba las credenciales de cuenta del servicio Graph.
 
 #### <a name="graph-protocols-and-ports"></a>Puertos y protocolos de Graph
+
+El servicio Graph de Azure Stack utiliza los siguientes protocolos y puertos para comunicarse con un servidor de catálogo global (GC) de escritura permitida y un centro de distribución de claves (KDC) que pueda procesar solicitudes de inicio de sesión en el bosque de Active Directory de destino.
 
 El servicio Graph en Azure Stack usa los protocolos y puertos siguientes para comunicarse con la instancia de Active Directory de destino:
 

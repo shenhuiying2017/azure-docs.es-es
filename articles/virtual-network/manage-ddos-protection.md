@@ -15,53 +15,56 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: jdial
-ms.openlocfilehash: 81f26dc72e7a1194cd7c0a5c4997e64b0f61d444
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: dd094f2b9cdb9b5eb164dda2925d094cafa7cd89
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895619"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Administración de Protección contra DDoS de Azure estándar mediante Azure Portal
 
 Obtenga información acerca de cómo habilitar y deshabilitar la protección contra denegación de servicio (DDoS) distribuido y usar la telemetría para mitigar un ataque DDoS con Protección contra DDoS de Azure estándar. Protección contra DDoS de Azure estándar protege los recursos de Azure, como las máquinas virtuales, los equilibradores de carga y las puertas de enlace de aplicaciones que disponen de una [dirección IP pública](virtual-network-public-ip-address.md) de Azure asignada. Para más información sobre el estándar de protección contra DDoS y sus funcionalidades, vea [Introducción a Protección contra DDoS de Azure estándar](ddos-protection-overview.md).
 
-Antes de completar cualquiera de los pasos de este tutorial, inicie sesión en Azure Portal en https://portal.azure.com. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Antes de completar los pasos de este tutorial, inicie sesión en Azure Portal en https://portal.azure.com con una cuenta asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un[ rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones apropiadas en [Permisos](#permissions).
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="create-a-ddos-protection-plan"></a>Creación de un plan de protección contra DDoS
 
 Un plan de protección contra DDoS define un conjunto de redes virtuales que tiene habilitada la protección contra DDoS estándar en distintas suscripciones. Puede configurar un plan de protección contra DDoS para la organización y vincular redes virtuales de distintas suscripciones al mismo plan. El propio plan de protección contra DDoS también está asociado a una suscripción, la que selecciona durante la creación del plan. La suscripción a la que está asociado el plan incurre en la factura mensual recurrente del plan, además de cargos de uso por encima del límite, en caso de que la cantidad de direcciones IP públicas protegidas supere las 100. Para más información sobre los precios de DDoS, consulte los [detalles de precios](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 En la mayoría de las organizaciones, no es necesario crear más de un plan. Un plan no puede moverse entre suscripciones. Si desea cambiar la suscripción en que se encuentra un plan, debe [eliminar el plan existente](#work-with-ddos-protection-plans) y crear uno nuevo.
- 
+
 1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Busque *DDoS*. Seleccione **Plan de protección contra DDoS** cuando aparezca en los resultados de la búsqueda.
 3. Seleccione **Crear**.
 4. Escriba o seleccione sus propios valores, o bien escriba o seleccione los valores de ejemplo siguientes y, luego, seleccione **Crear**:
 
-    |Configuración  |Valor  |
-    |---------|---------|
-    |NOMBRE     | myDdosProtectionPlan         |
-    |La suscripción     | Seleccione su suscripción.        |
-    |Grupos de recursos     | Seleccione **Crear nuevo** y escriba *myResourceGroup*        |
-    |Ubicación     | Este de EE. UU        |
+    |Configuración        |Valor                                              |
+    |---------      |---------                                          |
+    |NOMBRE           | myDdosProtectionPlan                              |
+    |La suscripción   | Seleccione su suscripción.                         |
+    |Grupos de recursos | Seleccione **Crear nuevo** y escriba *myResourceGroup* |
+    |Ubicación       | Este de EE. UU                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Habilitación de DDoS para una red virtual nueva
 
 1. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Redes** y **Red virtual**.
 3. Escriba o seleccione sus propios valores, o bien escriba o seleccione los valores de ejemplo siguientes, acepte el resto de los valores predeterminados y, luego, seleccione **Crear**:
- 
-    |Configuración  |Valor  |
-    |---------|---------|
-    |NOMBRE     | myVirtualNetwork         |
-    |La suscripción     | Seleccione su suscripción.        |
-    |Grupos de recursos     | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup**        |
-    |Ubicación     | Este de EE. UU        |
-    |Protección contra DDOS| Seleccione **Estándar** y, luego, en **Protección contra DDoS**, seleccione **myDdosProtectionPlan**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.|
+
+    | Configuración         | Valor                                                        |
+    | ---------       | ---------                                                    |
+    | NOMBRE            | myVirtualNetwork                                             |
+    | La suscripción    | Seleccione su suscripción.                                    |
+    | Grupos de recursos  | Seleccione **Usar existente** y, luego, seleccione **myResourceGroup** |
+    | Ubicación        | Este de EE. UU                                                      |
+    | Protección contra DDOS | Seleccione **Estándar** y, luego, en **Protección contra DDoS**, seleccione **myDdosProtectionPlan**. El plan que selecciona puede estar en la misma suscripción que la red virtual, o una suscripción distinta, pero ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory.|
 
 No puede mover una red virtual a otro grupo de recursos ni a otra suscripción si DDoS Standard está habilitado para la red virtual. Si tiene que mover una red virtual que tenga habilitado DDoS Standard, primero deshabilítelo, mueva la red virtual y, luego, habilite DDoS Standard. Después de eso, se restablecen los umbrales de directiva ajustados automáticamente para todas las direcciones IP públicas protegidas en la red virtual.
 
-## <a name="enable-ddos-for-an-existing-virtual-network"></a>Habilitación de DDoS para una red virtual existente 
+## <a name="enable-ddos-for-an-existing-virtual-network"></a>Habilitación de DDoS para una red virtual existente
 
 1. Cree un plan de protección contra DDoS con los pasos descritos en [Creación de un plan de protección contra DDoS](#create-a-ddos-protection-plan), si no tiene un plan de protección de DDoS existente.
 2. Seleccione **Crear un recurso** en la esquina superior izquierda de Azure Portal.
@@ -87,22 +90,22 @@ No puede mover una red virtual a otro grupo de recursos ni a otra suscripción s
 
 Puede seleccionar cualquiera de las métricas de protección contra DDoS disponibles para que le avisen cuando hay una mitigación activa durante un ataque mediante la configuración de alertas de Azure Monitor. Cuando se cumplan las condiciones, recibirá un correo electrónico de alerta en la dirección especificada:
 
-1. Seleccione **Todos los servicios** en la parte superior izquierda del portal. 
+1. Seleccione **Todos los servicios** en la parte superior izquierda del portal.
 2. Escriba *Monitor* en el cuadro **Filtrar**. Seleccione **Monitor** cuando aparezca en los resultados.
 3. Seleccione **Métricas** en **SERVICIOS COMPARTIDOS**.
 4. Escriba o seleccione sus propios valores, o bien escriba los valores de ejemplo siguientes, acepte el resto de los valores predeterminados y, luego, seleccione **Aceptar**:
 
-    |Configuración  |Valor |
-    |---------|---------|
-    |NOMBRE     | myDdosAlert        |
-    |La suscripción     | Seleccione la suscripción que contiene la dirección IP pública para la que desea recibir alertas.        |
-    |Grupos de recursos     |  Seleccione el grupo de recursos que contiene la dirección IP pública para la que desea recibir alertas.       |
-    |Recurso     |    Seleccione la dirección IP pública que contiene la dirección IP pública para la que desea recibir alertas. DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), excepto para entornos de Azure App Service y Azure VPN Gateway. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).    |
-    |Métrica     | Bajo ataque de DDoS o no |
-    |Umbral     |1: un **1** significa que está siendo atacado. Un **0** significa que no está siendo atacado.     |
-    |Período     | Seleccione el valor que prefiera. |
-    |Notificar por correo electrónico     |  Active la casilla de verificación       |
-    |Administrador adicional | Escriba su dirección de correo electrónico si no es propietario del correo electrónico, colaborador o lector de la suscripción.|
+    |Configuración                  |Valor                                                                                               |
+    |---------                |---------                                                                                           |
+    |NOMBRE                     | myDdosAlert                                                                                        |
+    |La suscripción             | Seleccione la suscripción que contiene la dirección IP pública para la que desea recibir alertas.        |
+    |Grupos de recursos           | Seleccione el grupo de recursos que contiene la dirección IP pública para la que desea recibir alertas.      |
+    |Recurso                 | Seleccione la dirección IP pública que contiene la dirección IP pública para la que desea recibir alertas. DDoS supervisa las direcciones IP públicas asignadas a los recursos dentro de una red virtual. Si no tiene ningún recurso con direcciones IP públicas en la red virtual, primero debe crear un recurso con una dirección IP pública. Puede supervisar la dirección IP pública de todos los recursos implementados a través de Resource Manager (no clásico) que aparecen en [Red virtual para servicios de Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), excepto para entornos de Azure App Service y Azure VPN Gateway. Para continuar con este tutorial, puede crear rápidamente una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
+    |Métrica                   | Bajo ataque de DDoS o no                                                                            |
+    |Umbral                | 1: un **1** significa que está siendo atacado. Un **0** significa que no está siendo atacado.                         |
+    |Período                   | Seleccione el valor que prefiera.                                                                   |
+    |Notificar por correo electrónico         | Active la casilla de verificación                                                                                  |
+    |Administrador adicional | Escriba su dirección de correo electrónico si no es propietario del correo electrónico, colaborador o lector de la suscripción. |
 
     Dentro de unos pocos minutos después de la detección del ataque, recibirá un correo electrónico con métricas de Azure Monitor que tiene un aspecto similares a la imagen siguiente:
 
@@ -163,3 +166,20 @@ Microsoft se ha asociado con [BreakingPoint Cloud](https://www.ixiacom.com/produ
 - Optimizar el proceso de respuesta a incidentes durante el ataque de DDoS.
 - Documentar el cumplimiento normativo de DDoS.
 - Enseñar a los equipos de seguridad de red.
+
+## <a name="permissions"></a>Permisos
+
+Para trabajar con planes de protección contra DDoS, su cuenta debe estar asignada al rol de [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) o a un rol [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que tenga asignadas las acciones adecuadas que se muestran en la tabla siguiente:
+
+| .                                            | NOMBRE                                     |
+| ---------                                         | -------------                            |
+| Microsoft.Network/ddosProtectionPlans/read        | Obtención de un plan de protección contra DDoS              |
+| Microsoft.Network/ddosProtectionPlans/write       | Creación o actualización de un plan de protección contra DDoS  |
+| Microsoft.Network/ddosProtectionPlans/delete      | Eliminación de un plan de protección contra DDoS            |
+| Microsoft.Network/ddosProtectionPlans/join/action | Unión a un plan de protección contra DDoS              |
+
+Para habilitar la protección contra DDoS para una red virtual, su cuenta también debe estar asignada a las [acciones para redes virtuales](manage-virtual-network.md#permissions) adecuadas.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Crear y aplicar una [directiva de Azure](policy-samples.md) para redes virtuales

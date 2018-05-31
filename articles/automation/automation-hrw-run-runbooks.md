@@ -3,22 +3,24 @@ title: Ejecución de runbooks en Azure Automation Hybrid Runbook Worker
 description: Este artículo proporciona información acerca de cómo ejecutar runbooks en máquinas de un centro de datos local o en el proveedor de la nube con el rol Hybrid Runbook Worker.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2018
+ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 6fc89469e1a9b2d7142e38f7aea5596fc9adb4e4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 75fc5336458670f4904584b3349f4fac7dc4ca68
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054128"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Ejecución de runbooks en Hybrid Runbook Worker
 
 No hay ninguna diferencia en la estructura de runbooks que se ejecutan en Azure Automation y los que se ejecutan en Hybrid Runbook Worker. Los runbooks que usa con cada uno de ellos probablemente sean muy distintos entre sí, debido a que los runbooks destinados a Hybrid Runbook Worker normalmente administran los recursos en el propio equipo local donde se implementan, mientras que los runbooks en Azure Automation suelen hacerlo en la nube de Azure.
 
-Cuando cree runbooks para que se ejecuten en Hybrid Runbook Worker, debe editarlos y probarlos en la máquina que hospeda el rol Hybrid Worker. La máquina host tiene todos los módulos de PowerShell y el acceso a la red que necesita para administrar y acceder a los recursos locales. Una vez un runbook se haya editado y probado en la máquina de Hybrid Worker, puede cargarlo en el entorno de Azure Automation, que está disponible para ejecutarse en Hybrid Worker. Es importante saber que los trabajos se ejecutan en la cuenta de sistema local, que puede presentar sutiles diferentes. Cuando se crean runbooks para un Hybrid Runbook Worker, esto debe tenerse en cuenta.
+Cuando cree runbooks para que se ejecuten en Hybrid Runbook Worker, debe editarlos y probarlos en la máquina que hospeda el rol Hybrid Worker. La máquina host tiene todos los módulos de PowerShell y el acceso a la red que necesita para administrar y acceder a los recursos locales. Una vez un runbook se haya editado y probado en la máquina de Hybrid Worker, puede cargarlo en el entorno de Azure Automation, que está disponible para ejecutarse en Hybrid Worker. Es importante saber que los trabajos se ejecutan en la cuenta de sistema local para Windows o en una cuenta de usuario especial, **nxautomation**, en Linux, que puede presentar sutiles diferencias. Cuando se crean runbooks para un Hybrid Runbook Worker, esto debe tenerse en cuenta.
 
 ## <a name="starting-a-runbook-on-hybrid-runbook-worker"></a>Inicio de un runbook en Hybrid Runbook Worker
 
@@ -28,12 +30,12 @@ Cuando inicie un runbook en Azure Portal, verá una opción **Ejecutar en** dond
 
 Use el parámetro **RunOn**. Puede usar el comando siguiente para iniciar un runbook llamado Test-Runbook en un grupo de Hybrid Runbook Worker denominado MyHybridGroup con Windows PowerShell.
 
-```powershell-interactive
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
 > [!NOTE]
-> El parámetro **RunOn** se agregó al cmdlet **Start-AzureAutomationRunbook** en la versión 0.9.1 de Microsoft Azure PowerShell. Si tiene instalada una versión anterior, deberá [descargar la versión más reciente](https://azure.microsoft.com/downloads/) . Solo necesita instalar esta versión en una estación de trabajo donde inicia el runbook desde Windows PowerShell. No es necesario que la instale en el equipo de trabajo, a menos que tenga la intención de iniciar runbooks desde ese equipo. Actualmente no puede iniciar un runbook en un Trabajo híbrido de runbook desde otro runbook, debido a que esto requeriría que la versión más reciente de PowerShell de Azure esté instalada en su cuenta de Automation. La versión más reciente se actualiza automáticamente en Azure Automation y pronto se insertará de manera automática en los trabajos.
+> El parámetro **RunOn** se agregó al cmdlet **Start-AzureAutomationRunbook** en la versión 0.9.1 de Microsoft Azure PowerShell. Si tiene instalada una versión anterior, deberá [descargar la versión más reciente](https://azure.microsoft.com/downloads/) . Solo necesita instalar esta versión en una estación de trabajo donde inicia el runbook desde PowerShell. No es necesario que la instale en el equipo de trabajo, a menos que tenga la intención de iniciar runbooks desde ese equipo"
 
 ## <a name="runbook-permissions"></a>Permisos de runbooks
 
@@ -41,11 +43,11 @@ Los runbooks que se ejecutan en una instancia de Hybrid Runbook Worker no pueden
 
 ### <a name="runbook-authentication"></a>Autenticación de runbook
 
-De forma predeterminada, los Runbooks se ejecutan en el contexto de la cuenta de sistema local en el equipo local, por lo que deben proporcionar su propia autenticación a los recursos a los que acceden.
+De forma predeterminada, los Runbooks se ejecutan en el contexto de la cuenta de sistema local para Windows y de una cuenta de usuario especial, **nxautomation**, para Linux en el equipo local, por lo que deben proporcionar su propia autenticación a los recursos a los que obtienen acceso.
 
 Puede usar los recursos [redencial](automation-credentials.md) y [ertificado](automation-certificates.md) en el Runbook con cmdlets que le permitan especificar las credenciales, para que así pueda autenticarse en distintos recursos. El ejemplo siguiente muestra una porción de un runbook que reinicia un equipo. Recupera las credenciales desde un recurso de Credencial y el nombre del equipo desde un recurso de Variable y, a continuación, usa estos valores con el cmdlet Restart-Computer.
 
-```powershell-interactive
+```azurepowershell-interactive
 $Cred = Get-AzureRmAutomationCredential -ResourceGroupName "ResourceGroup01" -Name "MyCredential"
 $Computer = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" -Name  "ComputerName"
 
@@ -56,7 +58,7 @@ También puede aprovechar [InlineScript](automation-powershell-workflow.md#inlin
 
 ### <a name="runas-account"></a>Cuenta RunAs
 
-En lugar de hacer que los runbooks proporcionen su propia autenticación a los recursos locales, puede especificar una cuenta **RunAs** para un grupo de Hybrid Worker. Especifique un [recurso de credencial](automation-credentials.md) que tenga acceso a los recursos locales. Todos los runbooks se ejecutan con estas credenciales si se ejecutan en una instancia de Hybrid Runbook Worker del grupo.
+De forma predeterminada, Hybrid Runbook Worker usa el sistema local para Windows y una cuenta de usuario especial, **nxautomation**, para Linux a fin de ejecutar runbooks. En lugar de hacer que los runbooks proporcionen su propia autenticación a los recursos locales, puede especificar una cuenta **RunAs** para un grupo de Hybrid Worker. Especifique un [recurso de credencial](automation-credentials.md) que tenga acceso a los recursos locales. Todos los runbooks se ejecutan con estas credenciales si se ejecutan en una instancia de Hybrid Runbook Worker del grupo.
 
 El nombre de usuario de la credencial debe tener uno de los siguientes formatos:
 
@@ -79,7 +81,7 @@ Como parte del proceso de compilación automatizado para implementar recursos en
 
 El siguiente runbook de PowerShell, *Export-RunAsCertificateToHybridWorker*, exporta el certificado de ejecución desde la cuenta de Azure Automation y lo descarga e importa en el almacén de certificados de la máquina local de un Hybrid Worker conectado a la misma cuenta. Una vez completado dicho paso, comprueba que el trabajo puede autenticarse correctamente en Azure con la cuenta de ejecución.
 
-```powershell-interactive
+```azurepowershell-interactive
 <#PSScriptInfo
 .VERSION 1.0
 .GUID 3a796b9a-623d-499d-86c8-c249f10a6986

@@ -4,7 +4,7 @@ description: Aprenda a usar datos de registro para obtener un conocimiento más 
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b8b5095fceaa369ae8b7a426ca04685c2d86109
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057944"
 ---
 # <a name="azure-logging-and-auditing"></a>Registro y auditoría de Azure
 ## <a name="introduction"></a>Introducción
@@ -70,7 +71,7 @@ En la tabla siguiente se enumeran el tipo más importante de registros disponibl
 |[Registros de actividad](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de control de los recursos de Azure Resource Manager|   Proporcionan información detallada sobre las operaciones que se realizaron en los recursos de su suscripción.| API de REST y [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Datos frecuentes acerca del funcionamiento de los recursos de Azure Resource Manager de la suscripción| Proporcionan información detallada sobre las operaciones que el mismo recurso realiza.| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Informes de AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Registros e informes|Actividades de inicio de sesión de usuario e información de actividades del sistema acerca de la administración de grupos y usuarios|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Máquina virtual y Cloud Services](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Registro de eventos de Windows y Syslog de Linux|    Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (almacenamiento de Diagnósticos de Microsoft Azure) y Linux en Azure Monitor|
+|[Máquina virtual y Cloud Services](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Registro de eventos de Windows y Syslog de Linux| Captura los datos del sistema y los datos de registro en las máquinas virtuales, y transfiere estos datos a la cuenta de almacenamiento que elija.|   Windows con [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (almacenamiento de Diagnósticos de Microsoft Azure) y Linux en Azure Monitor|
 |[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registro de almacenamiento y proporciona datos de métricas para una cuenta de almacenamiento.|Proporciona información detallada sobre seguimiento de solicitudes, análisis de tendencias de uso y diagnóstico de problemas con la cuenta de almacenamiento.|    API de REST o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registros de flujos de NSG (grupo de seguridad de red)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON y muestra flujos entrantes y salientes por cada regla|Consulte información sobre el tráfico IP de entrada y salida a través de un grupo de seguridad de red|[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Registros, excepciones y diagnósticos personalizados|    Servicio de Application Performance Management (APM) para desarrolladores web en varias plataformas.| API de REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
@@ -130,7 +131,7 @@ Los registros de diagnóstico de Azure ofrecen varias opciones de configuración
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
 |Key Vault|[Registro de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Habilitación y uso de Análisis de tráfico de búsqueda](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
-|Almacén de Data Lake|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Auditoría|
+|Data Lake Store|[Acceso a los registros de diagnóstico de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Auditoría|
 |Data Lake Analytics|[Acceso a los registros de diagnóstico de Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Auditoría|
 |||Microsoft.DataLakeAnalytics/accounts|Requests|
 |||Microsoft.DataLakeStore/accounts|Requests|

@@ -1,25 +1,25 @@
 ---
-title: "Personalización de la página de inicio de sesión del inquilino de Azure Active Directory | Microsoft Docs"
-description: "Aprenda a agregar una personalización de marca de empresa a la página de inicio de sesión de Azure"
+title: Personalización de la página de inicio de sesión del inquilino de Azure Active Directory | Microsoft Docs
+description: Aprenda a agregar una personalización de marca de empresa a la página de inicio de sesión de Azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 03a6b82f769ed9a36c5d3ff9934de75d1536e1ae
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ac8562b77ba43dbb07e886dfa235586198027796
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764451"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Guía de inicio rápido: Incorporación de personalización de marca de empresa a su página de inicio de sesión de Azure AD
 Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en todos los sitios web y servicios que administran. Azure Active Directory (Azure AD) ofrece esta funcionalidad, ya que permite personalizar la apariencia de la página de inicio de sesión con el logotipo de la empresa y combinaciones de colores personalizadas. La página de inicio de sesión se abre al iniciar sesión en aplicaciones web como Office 365 que usan Azure AD como proveedor de identidades. Interactuará con esta página para especificar las credenciales.
@@ -33,7 +33,7 @@ Para evitar confusiones, muchas empresas quieren aplicar un aspecto coherente en
 
 <!--You can customize the following elements on the sign-in page: <attach image>-->
 
-Las personalizaciones de marca de la empresa aparecerán en la página de inicio de sesión de Azure AD cuando los usuarios tengan acceso a una dirección URL específica del inquilino como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
+Las personalizaciones de marca de la empresa aparecerán en la página de inicio de sesión de Azure AD cuando los usuarios accedan a una dirección URL específica del inquilino como [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com).
 
 Por ejemplo, cuando los usuarios visitan www.office.com, la página de inicio de sesión no muestra ninguna personalización de marca de empresa porque el usuario aún no ha especificado las credenciales. Después de que un usuario escribe su identificador de usuario o selecciona un icono de usuario, se muestra la marca de empresa.
 

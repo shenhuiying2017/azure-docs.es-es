@@ -1,30 +1,34 @@
 ---
-title: "Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs"
-description: "Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory"
+title: Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs
+description: Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 859459bbce6b81e2e855201d5c310233d88d0393
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 3831146caad4fe922e482ce782d5d41fb70338f4
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155803"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
-Este tema forma parte de una serie de temas sobre la API de informes de Azure Active Directory.  
-La característica de generación de informes de Azure AD proporciona una API que permite acceder a los datos de informes de actividades de inicio de sesión mediante el uso de código o herramientas relacionadas.
-El objetivo de este tema es ofrecer información de referencia sobre la **API de informes de actividad de inicio de sesión**.
+
+> [!TIP] 
+> Compruebe la nueva Microsoft Graph API para la [generación de informes](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), que reemplazará a esta API. 
+
+Este artículo forma parte de una serie de artículos sobre la API de generación de informes de Azure Active Directory (Azure AD). La característica de generación de informes de Azure AD proporciona una API que permite acceder a los datos de auditoría mediante el uso de código o herramientas relacionadas.
+El objetivo de este artículo es ofrecer información de referencia sobre la **API de auditoría**.
 
 Consulte:
 
@@ -37,7 +41,7 @@ Consulte:
 * Administradores globales
 * Cualquier aplicación que tenga autorización para acceder a la API (la autorización de aplicaciones solo puede configurarse según los permisos del administrador global).
 
-Para configurar el acceso a fin de que una aplicación tenga acceso a API de seguridad tales como eventos de inicio de sesión, use el siguiente PowerShell para agregar la entidad de servicio de las aplicaciones al rol de lector de seguridad
+Para configurar el acceso a fin de que una aplicación tenga acceso a API de seguridad tales como eventos de inicio de sesión, use el siguiente PowerShell para agregar la entidad de servicio de las aplicaciones al rol de lector de seguridad.
 
 ```PowerShell
 Connect-MsolService
@@ -49,11 +53,11 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## <a name="prerequisites"></a>requisitos previos
 Para acceder a este informe a través de la API de generación de informes, debe cumplir los siguientes requisitos:
 
-* Tener una [edición de Azure Active Directory Premium P1 o P2](active-directory-editions.md)
+* Tener una [edición de Azure Active Directory Premium P1 o P2](active-directory-whatis.md)
 * Completar los [requisitos previos para acceder a la API de generación de informes de Azure AD](active-directory-reporting-api-prerequisites.md) 
 
 ## <a name="accessing-the-api"></a>Acceso a la API
-Puede acceder a esta API a través del [Probador de Graph](https://graphexplorer2.cloudapp.net) o mediante programación con, por ejemplo, PowerShell. Para que PowerShell pueda interpretar correctamente la sintaxis de filtro de OData empleada en las llamadas a la API REST Graph de AAD, debe usar el carácter de acento grave para escapar $. El carácter de acento grave actúa como [carácter de escape de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), de modo que PowerShell puede hacer una interpretación literal del carácter $ y evitar que lo confunda con un nombre de variable de PowerShell (por ejemplo, $filter).
+Puede acceder a esta API a través del [Probador de Graph](https://graphexplorer2.cloudapp.net) o mediante programación con, por ejemplo, PowerShell. Use el carácter de acento grave para "escapar" el carácter $ a fin de garantizar que PowerShell pueda interpretar la sintaxis de filtro de OData usada en las llamadas REST de AAD Graph. El carácter de acento grave actúa como [carácter de escape de PowerShell](https://technet.microsoft.com/library/hh847755.aspx), de modo que PowerShell puede hacer una interpretación literal del carácter $ y evitar que lo confunda con un nombre de variable de PowerShell (por ejemplo, $filter).
 
 Este tema se centra en el Probador de Graph. Para ver un ejemplo de PowerShell, consulte este [script de PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
@@ -66,8 +70,7 @@ Puede acceder a esta API con el siguiente URI base:
 
 Debido al volumen de datos, esta API tiene un límite de un millón de registros devueltos. 
 
-Esta llamada devuelve los datos en lotes. Cada lote tiene un máximo de 1000 registros.  
-Para obtener el siguiente lote de registros, haga clic en el vínculo Siguiente. Obtenga la información de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) desde el primer conjunto de registros devueltos. El token de omisión estará al final del conjunto de resultados.  
+Esta llamada devuelve los datos en lotes. Cada lote tiene un máximo de 1000 registros. Para obtener el siguiente lote de registros, haga clic en el vínculo Siguiente. Obtenga la información de [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) desde el primer conjunto de registros devueltos. El token de omisión estará al final del conjunto de resultados.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
@@ -76,7 +79,7 @@ Para obtener el siguiente lote de registros, haga clic en el vínculo Siguiente.
 Puede limitar el número de registros que se devuelven mediante una llamada de API usando un filtro.  
 En lo que respecta a los datos relacionados con las API de inicio de sesión, se admiten los siguientes filtros:
 
-* **$top=\<número de registros que se devolverán\>**: limita el número de registros devueltos. Se trata de una operación costosa. No debe utilizar este filtro si quiere devolver miles de objetos.  
+* **$top=\<número de registros que se devolverán\>**: limita el número de registros devueltos. Se trata de una operación costosa. No use este filtro si quiere devolver miles de objetos.  
 * **$filter=\<instrucción de filtro\>**: para especificar, en función de los campos de filtro compatibles, el tipo de registros que le interesan
 
 ## <a name="supported-filter-fields-and-operators"></a>Operadores y campos de filtro compatibles

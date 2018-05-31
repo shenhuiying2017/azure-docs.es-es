@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 2f56443eb41e2a7f723e95f86f39c5cc47e82f6f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4baced183721d666354667f457f4cc5954b0d11
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32769835"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 
@@ -276,7 +277,11 @@ Para copiar datos en Dynamics, establezca el tipo de receptor de la actividad de
 | ignoreNullValues | Indica si se omiten los valores nulos de los datos de entrada (excepto los campos de clave) durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deja los datos del objeto de destino sin cambiar cuando realiza una operación upsert/update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualiza los datos del objeto de destino a NULL cuando realiza una operación upsert/update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
 >[!NOTE]
->El valor predeterminado del receptor writeBatchSize y el de la actividad de copia [parallelCopies](copy-activity-performance.md#parallel-copy) del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
+>El valor predeterminado del receptor "**writeBatchSize**" y el de la actividad de copia "**[parallelCopies](copy-activity-performance.md#parallel-copy)" del receptor de Dynamics es 10 en ambos casos. Por lo tanto, se enviarán 100 registros a Dynamics simultáneamente.
+
+Para Dynamics 365 en línea, hay un límite de [2 llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Si se supera dicho límite, se produce un error de "Servidor ocupado" antes de que la primera solicitud se haya ejecutado siquiera. Mantener el valor "writeBatchSize" menor o igual a 10 evitará tal limitación de las llamadas simultáneas.
+
+La combinación óptima de "**writeBatchSize**" y "**parallelCopies**" depende del esquema de la entidad; por ejemplo, el número de columnas, el tamaño de fila o el número de complementos, flujos de trabajo o actividades de flujo de trabajo enlazados a esas llamadas, etc. El valor predeterminado de 10 writeBatchSize * 10 parallelCopies es el recomendado de acuerdo con el servicio Dynamics, y funcionará con la mayoría de entidades de Dynamics, si bien podría no proporcionar el mejor rendimiento. Para optimizar el rendimiento, ajuste la combinación en su configuración de la actividad de copia.
 
 **Ejemplo:**
 
@@ -322,12 +327,13 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | boolean | ✓ | ✓ |
+| AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | DECIMAL | ✓ | ✓ |
 | AttributeType.Double | Doble | ✓ | ✓ |
 | AttributeType.EntityName | string | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | |
+| AttributeType.Lookup | Guid | ✓ | ✓ |
 | AttributeType.ManagedProperty | boolean | ✓ | |
 | AttributeType.Memo | string | ✓ | ✓ |
 | AttributeType.Money | DECIMAL | ✓ | ✓ |

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 26c77b706f17f49eff782e6d0d73087050739874
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258766"
 ---
 # <a name="azure-stack-1803-update"></a>Actualización de Azure Stack 1803
 
@@ -40,13 +41,23 @@ El número de compilación de la actualización de Azure Stack 1803 es **2018032
 
 
 ### <a name="prerequisites"></a>requisitos previos
-- Antes de aplicar la actualización de Azure Stack 1803, instale la [actualización 1802](azure-stack-update-1802.md).    
+- Antes de aplicar la actualización de Azure Stack 1803, instale la [actualización 1802](azure-stack-update-1802.md).   
 
+- Antes de aplicar la actualización 1803 de Azure Stack, instale **AzS Hotfix – 1.0.180312.1- Build 20180222.2**. Esta revisión actualiza Windows Defender, y está disponible al descargar actualizaciones para Azure Stack.
+
+  Para instalar la revisión, siga los procedimientos normales para [instalar actualizaciones de Azure Stack](azure-stack-apply-updates.md). El nombre de la actualización aparece como **AzS Hotfix – 1.0.180312.1** e incluye los siguientes archivos: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2 1.bin
+    - Metadata.xml
+
+  Después de cargar estos archivos en una cuenta de almacenamiento y un contenedor, ejecute la instalación desde el icono de actualización en el portal de administración. 
+  
+  A diferencia de las actualizaciones de Azure Stack, al instalar esta actualización no cambia la versión de Azure Stack. Para confirmar que esta actualización está instalada, vea la lista de **actualizaciones instaladas**.
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 - Después de la instalación de 1803, instale todas las revisiones aplicables. Para más información, consulte los siguientes artículos de la Knowledge base, así como nuestra [Directiva de mantenimiento](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - Errores del servicio de API de controlador de red cuando intenta instalar una actualización de Azure Stack](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441: Operations against tenant resources fail and unexpected shares are created on the same tenant or infrastructure volume](https://support.microsoft.com/en-us/help/4294441) (Las operaciones con recursos de inquilino generan errores y se crean recursos compartidos inesperados en el mismo inquilino o volumen de infraestructura)
 
 - Después de instalar esta actualización, revise la configuración del firewall para asegurarse de que están abiertos los [puertos necesarios](azure-stack-integrate-endpoints.md). Por ejemplo, esta actualización presenta Azure Monitor, que incluye un cambio de los registros de auditoría en los registros de actividad. Con este cambio, el puerto 13012 ahora se usa y también debe estar abierto.  
 
@@ -109,8 +120,6 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Puede que vea un panel en blanco en el portal. Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y, a continuación, seleccione **Restaurar configuración predeterminada**.
 
-- Al ver las propiedades de un recurso o grupo de recursos, el botón **Mover** está deshabilitado. Este comportamiento es normal. Actualmente no se admite mover recursos o grupos de recursos entre grupos de recursos o suscripciones.
-
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 
 - No puede ver los permisos de la suscripción mediante los portales de Azure Stack. Como alternativa, use PowerShell para comprobar los permisos.
@@ -141,7 +150,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
   Como alternativa, cree una nueva imagen de máquina virtual con un disco duro virtual ficticio que se pueda crear mediante Hyper-V (nuevo VHD, ruta de acceso C:\dummy.vhd, fijo, bytes de tamaño 1 GB). Este proceso debería corregir el problema que impide que se elimine el elemento con error. A continuación, 15 minutos después de crear la imagen ficticia, puede eliminarlo correctamente.
 
-  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo error.
+  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo un error.
 
 -  Si aprovisionar una extensión en una implementación de máquina virtual tarda demasiado tiempo, los usuarios deberían dejar que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
 
@@ -157,7 +166,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 
 
-- Azure Stack admite una única *puerta de enlace de red* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
+- Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
 - En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
 
@@ -234,6 +243,7 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.  
 
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Después de actualizar a Azure Stack 1803, puede seguir usando los proveedores de recursos SQL y MySQL que implementó anteriormente.  Le recomendamos que actualice SQL y MySQL cuando haya disponible una nueva versión. Al igual que Azure Stack, aplique las actualizaciones a los proveedores de recursos SQL y MySQL de manera secuencial.  Por ejemplo, si usa la versión 1711, aplique primero la versión 1712, luego la versión 1802 y luego actualice a la 1803.      
