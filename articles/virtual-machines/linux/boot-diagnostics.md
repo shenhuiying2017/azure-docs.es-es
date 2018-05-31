@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941860"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Instrucciones de uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales Linux en Azure
 
@@ -44,13 +45,18 @@ Ambas características son compatibles para Azure Virtual Machines en todas las 
 - [Errores de FSTAB](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Habilitación del diagnóstico en una nueva máquina virtual
-1. Cuando cree una máquina virtual desde la versión preliminar del portal, seleccione **Azure Resource Manager** en la lista desplegable de modelo de implementación:
+1. Cuando cree una máquina virtual desde Azure Portal, seleccione **Azure Resource Manager** en la lista desplegable de modelos de implementación:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configure la opción Supervisión para seleccionar la cuenta de almacenamiento donde desee colocar estos archivos de diagnóstico.
+2. En **Configuración**, habilite **Diagnósticos de arranque** y, a continuación, seleccione una cuenta de almacenamiento donde le gustaría colocar estos archivos de diagnóstico.
  
-    ![Creación de una máquina virtual](./media/boot-diagnostics/screenshot4.jpg)
+    ![Creación de una máquina virtual](./media/boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > La característica Diagnósticos de arranque no es compatible con las cuenta de almacenamiento premium. Si usa la cuenta de almacenamiento premium con Diagnósticos de arranque, podría recibir el error StorageAccountTypeNotSupported al iniciar la máquina virtual. 
+    >
+    > 
 
 3. Si va a realizar la implementación con una plantilla de Azure Resource Manager, vaya al recurso de máquina virtual y anexe la sección de perfil de diagnóstico. Recuerde usar el encabezado de versión de API "2015-06-15".
 
@@ -74,11 +80,19 @@ Ambas características son compatibles para Azure Virtual Machines en todas las 
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Actualización de una máquina virtual existente
+Para implementar una máquina virtual de ejemplo con Diagnósticos de arranque habilitado, visite nuestro repositorio aquí.
 
-Para habilitar el diagnóstico de arranque a través del portal, también puede actualizar una máquina virtual existente en el portal. Seleccione la opción Diagnósticos de arranque y guarde. Reinicie la máquina virtual para que surta efecto.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Habilitación de Diagnósticos de arranque en una máquina virtual existente 
 
-![Actualización de una máquina virtual existente](./media/boot-diagnostics/screenshot5.png)
+Para habilitar Diagnósticos de arranque en una máquina virtual existente, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y, luego, seleccione la máquina virtual.
+2. En **Support + troubleshooting** (Soporte técnico y solución de problemas), seleccione **Diagnósticos de arranque** > **Configuración**, cambie el estado a **Activado** y, luego, seleccione una cuenta de almacenamiento. 
+4. Asegúrese de que está seleccionada la opción Diagnósticos de arranque y, a continuación, guarde el cambio.
+
+    ![Actualización de una máquina virtual existente](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Reinicie la máquina virtual para que surta efecto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

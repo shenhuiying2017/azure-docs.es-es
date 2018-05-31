@@ -3,7 +3,7 @@ title: 'Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo r
 description: 'Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC'
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 ms.assetid: 17794288-9074-44b5-acc8-1dacceb3f56c
@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
-ms.openlocfilehash: 497c5a987753cbbe577c1d042d6bf61be9d905ab
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jomolesk
+ms.openlocfilehash: f1339af22132d19f14ea8ebb72fe0e6bd45b7fad
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895561"
 ---
 # <a name="azure-security-and-compliance-blueprint---ffiec-financial-services-regulated-workloads"></a>Plano técnico de seguridad y cumplimiento de Azure: cargas de trabajo reguladas por servicios financieros de FFIEC
 
@@ -132,7 +133,7 @@ Esta solución utiliza los siguientes servicios de Azure. Los detalles de la arq
 >- Aplicación web de Azure
 >- Azure Automation
 >- Runbooks de Azure Automation
->- DNS de Azure
+>- Azure DNS
 >- Azure Virtual Network
 >- Máquina virtual de Azure
 >- Grupo de recursos y directivas de Azure
@@ -388,8 +389,3 @@ Los clientes tienen la responsabilidad de guardar una copia de la [matriz del re
 - Todos los nombres de los clientes, los registros de transacciones y cualquier dato relacionado en esta página son ficticios, ya que se han creado específicamente para esta arquitectura fundamental y solo se proporcionan con fines ilustrativos. No se pretende crear ninguna asociación o conexión real y ninguna debe inferirse.  
 - Esta solución fue desarrollada conjuntamente por Microsoft y Avyan Consulting y está disponible en la [licencia MIT](https://opensource.org/licenses/MIT).
 
-### <a name="document-authors"></a>Autores de los documentos
-
-* *Frank Simorjay (Microsoft)*  
-
-[code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Repositorio de código"

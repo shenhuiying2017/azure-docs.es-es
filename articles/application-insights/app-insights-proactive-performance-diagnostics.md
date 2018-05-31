@@ -1,9 +1,9 @@
 ---
-title: "Detección inteligente: anomalías de rendimiento de Smart | Microsoft Docs"
-description: "Application Insights realiza un análisis inteligente de la telemetría de su aplicación y le advierte de los posibles problemas. Esta característica no necesita ninguna configuración."
+title: 'Detección inteligente: anomalías de rendimiento de Smart | Microsoft Docs'
+description: Application Insights realiza un análisis inteligente de la telemetría de su aplicación y le advierte de los posibles problemas. Esta característica no necesita ninguna configuración.
 services: application-insights
 documentationcenter: windows
-author: antonfrMSFT
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: mbullwin
-ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: mbullwin; antonfr
+ms.openlocfilehash: 59b88a940e83ed89e8638b62680a57ca1514f8b0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868941"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
@@ -132,7 +133,7 @@ La notificación de degradación del tiempo de respuesta indica lo siguiente:
 * Los vínculos para ayudarlo a diagnosticar el problema:
   * Los seguimientos del generador de perfiles para ayudarlo a ver en qué se ha invertido el tiempo de operación (el vínculo está disponible si se han recopilado ejemplos de seguimientos del generador de perfiles para esta operación durante el periodo de detección). 
   * Los informes de rendimiento del Explorador de métrica, donde puede segmentar y desglosar los filtros o intervalos de tiempo de esta operación.
-  * Busque estas llamadas ver las propiedades de llamadas específicas.
+  * Busque esta llamada ver las propiedades de llamadas específicas.
   * Informes de error: si el número es mayor que 1, significa que hubo errores en esta operación que pueden haber contribuido a la degradación del rendimiento.
 
 ## <a name="dependency-duration-degradation"></a>Degradación de la duración de la dependencia
@@ -152,7 +153,7 @@ Observe que le indica:
 * Los vínculos para ayudarlo a diagnosticar el problema:
   * Informes de rendimiento del Explorador de métrica de esta dependencia.
   * Busque estas llamadas de dependencia para ver las propiedades de llamadas.
-  * Informes de error: si el número es mayor que 1, significa esto que hubo errores de llamadas de dependencia durante el periodo de detección que podrían haber contribuido a la degradación de la duración. 
+  * Informes de error: si el número es mayor que 1, significa que hubo errores de llamadas de dependencia durante el período de detección que podrían haber contribuido a la degradación de la duración. 
   * Abra Análisis con las consultas que calculan el número y la duración de esta dependencia.  
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Detección inteligente de los patrones de rendimiento lento 

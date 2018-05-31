@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778103"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366895"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
 
@@ -34,7 +34,7 @@ El acceso a máquina virtual Just-In-Time se puede usar para bloquear el tráfic
 
 Normalmente, los ataques por fuerza bruta tienen como destino los puertos de administración para obtener acceso a una máquina virtual. Si un atacante tiene éxito, puede tomar el control de la máquina virtual y establecer un punto de apoyo en su entorno.
 
-Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en limitar el tiempo que está abierto un puerto. No es necesario que los puertos de administración estén abiertos en todo momento. Solo deben estar abiertos mientras se está conectado a la máquina virtual, por ejemplo, para realizar tareas de administración o mantenimiento. Cuando se habilita Just-In-Time, Security Center usa las reglas del [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) (NSG), que restringen el acceso a los puertos de administración para que no puedan ser objeto de ataques.
+Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en limitar el tiempo que está abierto un puerto. No es necesario que los puertos de administración estén abiertos en todo momento. Solo deben estar abiertos mientras se está conectado a la máquina virtual, por ejemplo, para realizar tareas de administración o mantenimiento. Cuando se habilita Just-In-Time, Security Center usa las reglas del [grupo de seguridad de red](../virtual-network/security-overview.md#security-rules) (NSG), que restringen el acceso a los puertos de administración para que no puedan ser objeto de ataques.
 
 ![Escenario Just-In-Time][1]
 

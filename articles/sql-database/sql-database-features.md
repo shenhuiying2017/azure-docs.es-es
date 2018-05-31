@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: bf9069df55352b4d7884e989be741fc42e06bfdf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7e3b084f833b6d84e5c5102555eb586e306e9de8
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895578"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de funciones: Azure SQL Database frente a SQL Server 
 
@@ -51,7 +52,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sí | Sí |
 | [Palabras clave del lenguaje de control de flujo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sí | Sí |
 | [Consultas entre bases de datos](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consultas elásticas](sql-database-elastic-query-overview.md) | Sí, más el artículo sobre [consultas elásticas](sql-database-elastic-query-overview.md) |
-| [Transacciones entre bases de datos](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Sin  | Sí |
+| [Transacciones entre bases de datos](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Sin  | Sí: consulte [Diferencias de servidores vinculados](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#linked-servers) |
 | [Cursores](https://docs.microsoft.com/sql/t-sql/language-elements/cursors-transact-sql) | Sí |Sí | 
 | [Compresión de datos](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sí |Sí |
 | [Correo electrónico de base de datos](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Sin  | Sí |
@@ -69,8 +70,8 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Instrucciones DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Sí | Sí |
 | [Desencadenadores DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | La mayoría; consulte el artículo sobre instrucciones. |  Sí |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | La mayoría; consulte el artículo sobre DMV |  Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
-|[Enmascaramiento de datos dinámicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Sí](sql-database-dynamic-data-masking-get-started.md)| Sí |
-| [Grupos elásticos](sql-database-elastic-pool.md) | Sí | Una sola instancia administrada puede tener varias bases de datos que comparten el mismo grupo de recursos |
+|[Enmascaramiento de datos dinámicos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)|[Sí](sql-database-dynamic-data-masking-get-started.md)| [Sí](sql-database-dynamic-data-masking-get-started.md) |
+| [Grupos elásticos](sql-database-elastic-pool.md) | Sí | Integrado: una sola instancia administrada puede tener varias bases de datos que comparten el mismo grupo de recursos. |
 | [Notificaciones de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | No; consulte el artículo sobre [alertas](sql-database-insights-alerts-portal.md). | Sí |
 | [Expresiones](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |Sí | Sí |
 | [Eventos extendidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Algunas; consulte [Eventos extendidos en SQL Database](sql-database-xevent-db-diff-from-svr.md) | S; consulte el artículo sobre [diferencias de eventos extendidos](sql-database-managed-instance-transact-sql-information.md#extended-events) |
@@ -83,7 +84,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Replicación geográfica](sql-database-geo-replication-overview.md) | Sí | Sin  |
 | [Procesamiento de Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sí | Sí |
 | [Optimización en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sí: [solo niveles Premium y Crítico para la empresa](sql-database-in-memory.md) | Sin  |
-| [Compatibilidad con datos JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Sí | Sí |
+| [Compatibilidad con datos JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Sí](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Sí](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Elementos de lenguaje](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La mayoría; consulte el artículo sobre elementos. |  Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Servidores vinculados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | No; consulte el artículo sobre [consulta elástica](sql-database-elastic-query-horizontal-partitioning.md). | Solo para SQL Server y SQL Database |
 | [Trasvase de registros](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |Cada base de datos incluye [alta disponibilidad](sql-database-high-availability.md). La recuperación ante desastres se explica en [Información general sobre continuidad empresarial con Azure SQL Database](sql-database-business-continuity.md) |
@@ -103,7 +104,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Administración basada en directivas](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Sin  | Sin  |
 | [Predicados](https://docs.microsoft.com/sql/t-sql/queries/predicates) | Sí | Sí |
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Versión preliminar; consulte el artículo [What's new in machine learning](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services) (Novedades del aprendizaje automático).  | Sin  |
-| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Sin  | Sin  |
+| [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Sin  | Sí |
 | [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Sin  | Sí; consulte el artículo sobre [diferencias de restauración](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Restaurar la base de datos a partir de una copia de seguridad](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo a partir de copias de seguridad automatizadas; consulte el artículo sobre [recuperación de SQL Database](sql-database-recovery-using-backups.md) | Desde copias de seguridad automatizadas (consulte el artículo sobre [recuperación de SQL Database](sql-database-recovery-using-backups.md)) y desde copias de seguridad completas (consulte el artículo sobre [diferencias de copia de seguridad](sql-database-managed-instance-transact-sql-information.md#backup)) |
 | [Seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Sí | Sí |
@@ -132,7 +133,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Tablas del sistema](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Algunas; consulte el artículo sobre tablas. | Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Vistas de catálogo del sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Algunas; consulte el artículo sobre vistas. | Sí; consulte el artículo sobre [diferencias de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Tablas temporales](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tablas temporales globales locales y de ámbito de base de datos | Tablas temporales globales locales y de ámbito de instancia |
-| [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | Sí | Sí |
+| [Tablas temporales](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | [Sí](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) | [Sí](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables) |
 |Detección de amenazas|  [Sí](sql-database-threat-detection.md)|[Sí](sql-database-managed-instance-threat-detection.md)|
 | [Marcas de seguimiento](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Sin  | Sin  |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sí | Sí |
