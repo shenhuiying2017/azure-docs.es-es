@@ -17,6 +17,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797203"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicación de una aplicación web ASP.NET en una máquina virtual de Azure desde Visual Studio
 
@@ -102,7 +103,7 @@ La configuración debería ser similar a la que se muestra a continuación:
 
 #### <a name="deploy-to-clean-web-server"></a>Implementación en servidor web limpio
 
-- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino	** en la pestaña **Configuración**.
+- Si desea asegurarse de que el servidor web tenga una copia limpia de la aplicación web después de cada carga (y que no se quede ningún otro archivo pendiente de una implementación anterior), puede activar la casilla **Quitar archivos adicionales en el destino** en la pestaña **Configuración**.
 
 - Advertencia: La publicación con este parámetro elimina todos los archivos existentes en el servidor web (directorio wwwroot). Asegúrese de que conoce el estado de la máquina antes de publicar con esta opción habilitada. 
 
