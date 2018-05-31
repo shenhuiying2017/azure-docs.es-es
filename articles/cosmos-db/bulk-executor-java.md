@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 648b67f4b782b2a2318170ae2b655af40b7bd2a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e9340e5db78315470052e0c0c70eeef6bf6dafa
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885526"
 ---
 # <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Uso de la biblioteca de BulkExecutor en Java para realizar operaciones en masa con datos de Azure Cosmos DB
 
-En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en masa en una colección de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
+En este tutorial se proporcionan instrucciones sobre cómo usar la biblioteca BulkExecutor en Java de Azure Cosmos DB para importar y actualizar documentos de Azure Cosmos DB. Para información sobre la biblioteca de BulkExecutor y cómo lo ayuda a aprovechar el almacenamiento y el rendimiento masivo, consulte el artículo de [información general sobre la biblioteca de BulkExecutor](bulk-executor-overview.md). En este tutorial, se va a compilar una aplicación de Java que genera documentos aleatorios que se importan en masa en una colección de Azure Cosmos DB. Tras la importación, se actualizarán en masa algunas propiedades de un documento. 
 
 ## <a name="prerequisites"></a>requisitos previos
 
@@ -91,7 +92,7 @@ El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate”
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   La API de importación en bloque acepta una colección de documentos JSON serializados y presenta la siguiente sintaxis; para más detalles, vea la [documentación de la API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   La API de importación en bloque acepta una colección de documentos JSON serializados y presenta la siguiente sintaxis; para más detalles, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -135,9 +136,9 @@ El repositorio clonado contiene dos ejemplos “bulkimport” y “bulkupdate”
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Actualización de datos en masa en Azure Cosmos DB
 
-Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el nuevo valor en el campo de nombre y se elimina el campo de descripción de los documentos existentes. Para consultar el conjunto completo de operaciones admitidas de actualización de campos, vea la [documentación de la API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async). 
+Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync. En este ejemplo, se establece el nuevo valor en el campo de nombre y se elimina el campo de descripción de los documentos existentes. Para consultar el conjunto completo de operaciones admitidas de actualización de campos, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Define los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará SetUpdateOperation para actualizar el campo de nombre y UnsetUpdateOperation para eliminar el campo de descripción de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).  
+1. Define los elementos de actualización junto con las operaciones de actualización de campos correspondientes. En este ejemplo, usará SetUpdateOperation para actualizar el campo de nombre y UnsetUpdateOperation para eliminar el campo de descripción de todos los documentos. También puede realizar otras operaciones, como incrementar un campo de documento con un valor determinado, insertar valores específicos en un campo de matriz o quitar un valor concreto de un campo de matriz. Para obtener información sobre los distintos métodos proporcionados por la API de actualización en masa, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -159,7 +160,7 @@ Puede actualizar los documentos existentes con el uso de la API BulkUpdateAsync.
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   La API de actualización en masa acepta la actualización de una colección de elementos. Cada elemento de actualización especifica la lista de las operaciones de actualización de campos que se realizarán en un documento que se identifica mediante un identificador y un valor con clave de partición. Para más información, vea la [documentación de la API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   La API de actualización en masa acepta la actualización de una colección de elementos. Cada elemento de actualización especifica la lista de las operaciones de actualización de campos que se realizarán en un documento que se identifica mediante un identificador y un valor con clave de partición. Para más información, vea la [documentación de la API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(

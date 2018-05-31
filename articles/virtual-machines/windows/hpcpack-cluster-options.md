@@ -13,63 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 10/26/2017
+ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c5b8c16e076be3002425ceeac377043cea1a40a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1232228d5e2fcd05f41a096a933072dffcca2119
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165764"
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-windows-hpc-workloads-in-azure"></a>Opciones de HPC Pack para crear y administrar un clúster para cargas de trabajo de Windows HPC en Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-Este artículo se centra en las opciones para crear clústeres de HPC Pack para ejecutar cargas de trabajo de Windows. También hay opciones para crear clústeres de HPC Pack que ejecuten [cargas de trabajo de Linux HPC](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Este artículo se centra en las opciones de Azure para crear clústeres de HPC Pack para ejecutar cargas de trabajo de Windows. También hay opciones para crear clústeres de HPC Pack que ejecuten [cargas de trabajo de Linux HPC](../linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="hpc-pack-cluster-in-azure-vms-and-vm-scale-sets"></a>Clúster de HPC Pack en máquinas virtuales de Azure y en conjuntos de escalado de máquinas virtuales
-### <a name="azure-templates"></a>Plantillas de Azure
-* (GitHub) [HPC Pack 2016 cluster templates](https://github.com/MsHpcPack/HPCPack2016) (Plantillas de clúster de HPC Pack 2016)
+### <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
+* (GitHub) [HPC Pack 2016 Update 1 cluster templates](https://github.com/MsHpcPack/HPCPack2016) (Plantillas de clúster de HPC Pack 2016 Update 1)
 * (GitHub) [HPC Pack 2012 R2 cluster templates](https://github.com/MsHpcPack/HPCPack2012R2) (Plantillas de clúster de HPC Pack 2012 R2)
-* (Marketplace) [HPC Pack cluster for Windows workloads (Clúster de HPC par cargas de trabajo de Windows)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/)
-* (Marketplace) [HPC Pack cluster for Excel workloads (Clúster de HPC par cargas de trabajo de Excel)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
-* (Inicio rápido) [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
-* (Inicio rápido) [Create an HPC cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
+* (Guía de inicio rápido) [Create an HPC Pack 2012 R2 cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster) (Creación de un clúster de HPC Pack 2012 R2)
+* (Guía de inicio rápido) [Create an HPC Pack 2012 R2 cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image) (Creación de un clúster de HPC Pack 2012 R2 con nodos de proceso personalizados)
 
 ### <a name="azure-vm-images"></a>Imágenes de VM de Azure
-* [Nodo principal de HPC Pack 2016 en Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016HeadNodeonWindowsServer2016?tab=Overview)
-* [Nodo de proceso de HPC Pack 2016 en Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016ComputeNodeonWindowsServer2016?tab=Overview)
-* [Nodo principal de HPC Pack 2016 en Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016HeadNodeonWindowsServer2012R2?tab=Overview)
-* [Nodo de proceso de HPC Pack 2016 en Windows Server 2012 R2](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.HPCPack2016ComputeNodeonWindowsServer2012R2?tab=Overview)
-* [Nodo principal de HPC Pack 2012 R2 en Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
-* [Nodo de proceso de 2012 R2 en Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
-* [Nodo de proceso de HPC Pack con Excel en Windows Server 2012 R2](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
+Examine las [imágenes de HPC Pack en Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?page=1&search=%22HPC%20%20Pack%22) si desea crear su propio clúster de HPC Pack en Azure.
 
-### <a name="powershell-deployment-script-for-hpc-pack-2012-r2"></a>Script de implementación de PowerShell para HPC Pack 2012 R2
-* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### <a name="tutorials"></a>Tutoriales
 * [Tutorial: Deploy an HPC Pack 2016 cluster in Azure](hpcpack-2016-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Implementación de un clúster de HPC Pack 2016 en Azure)
-* [Tutorial: Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-### <a name="manual-deployment-with-the-azure-portal"></a>Implementación manual con el portal de Azure
-* [Configuración del nodo principal de un clúster de HPC Pack en una VM de Azure](hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
-### <a name="cluster-management"></a>Administración de clústeres
-* [Administración de nodos de proceso en un clúster de HPC Pack en Azure](classic/hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Aumento y reducción de los recursos de proceso de Azure en un clúster de HPC Pack](classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-* [Envío de trabajos a un clúster de HPC Pack en Azure](hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 * [Manage an HPC Pack 2016 cluster in Azure with Azure Active Directory (Administrar un clúster de HPC Pack 2016 en Azure con Azure Active Directory)](hpcpack-cluster-active-directory.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a name="burst-with-worker-role-nodes"></a>Ráfaga con nodos de rol de trabajo 
-* [Irrumpir en instancias de trabajo de Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
-* [Tutorial: Configuración de un clúster híbrido con HPC Pack en Azure](../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-* [Adición de nodos "ráfaga" de Azure a un nodo principal de HPC Pack en Azure](classic/hpcpack-cluster-node-burst.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a name="burst-with-azure-batch"></a>Ráfaga con Azure Batch
-* [Irrumpir en Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
-
-## <a name="rdma-clusters-for-mpi-workloads"></a>Clústeres de RDMA para cargas de trabajo MPI
+## <a name="hpc-pack-2012-r2-cluster-deployment-in-the-classic-deployment-model"></a>Implementación de clústeres de HPC Pack 2012 R2 en el modelo de implementación clásica
+* [Creación de un clúster de HPC con el script de implementación de HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Tutorial: Introducción a un clúster de HPC Pack en Azure para ejecutar cargas de trabajo de Excel y SOA](excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Administración de nodos de proceso en un clúster de HPC Pack en Azure](classic/hpcpack-cluster-node-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Aumento y reducción de los recursos de proceso de Azure en un clúster de HPC Pack](classic/hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [Configuración de un clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+
+
+## <a name="burst-to-azure-from-hpc-pack-2012-r2"></a>Irrumpir en Azure desde HPC Pack 2012 R2
+* [Burst to Azure Worker Instances with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx) (Irrumpir en instancias de trabajo de Azure con Microsoft HPC Pack)
+* [Irrumpir en Azure Batch con HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
+* [Tutorial: Configuración de un clúster híbrido con HPC Pack en Azure](../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+## <a name="job-submission"></a>Envío de trabajo
+
+* [Envío de trabajos a un clúster de HPC Pack en Azure](hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
+
+
+
+
 

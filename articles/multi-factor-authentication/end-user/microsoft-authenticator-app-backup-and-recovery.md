@@ -14,11 +14,12 @@ ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
 ms.custom: end-user
-ms.openlocfilehash: 8fa9a24b5b402ebebb69bc69f7cda47092436642
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896272"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Copia seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
 **Se aplica a:**
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/28/2018
 La aplicación Microsoft Authenticator realiza una copia de seguridad en la nube de las credenciales de la cuenta y la configuración de aplicación relacionada, como el orden de las cuentas. Después de la copia de seguridad, también puede utilizar la aplicación para recuperar la información en un dispositivo nuevo y evitar así un posible bloqueo o tener que volver a crear las cuentas.
 
 >[!IMPORTANT]
-> Necesita una cuenta Microsoft personal y una cuenta de iCloud para cada ubicación de almacenamiento de copia de seguridad. Pero en esa ubicación de almacenamiento, puede copiar varias cuentas. Por ejemplo, puede tener una cuenta personal, una educativa y otra de otro fabricante como Facebook, Google, etc.<br><br>Solo se almacenan las credenciales de la cuenta, incluido el nombre de usuario y el código de verificación de 8 dígitos de la cuenta, necesario para demostrar la identidad con la aplicación Microsoft Authenticator. No almacenamos ninguna otra información asociada con las cuentas, como mensajes de correo electrónico o archivos. Tampoco asociamos ni compartimos las cuentas de ningún modo con otros productos ni servicios. Finalmente, el administrador de TI no obtendrá información de estas cuentas.
+> Necesita una cuenta Microsoft personal y una cuenta de iCloud para cada ubicación de almacenamiento de copia de seguridad. Pero en esa ubicación de almacenamiento, puede copiar varias cuentas. Por ejemplo, puede tener una cuenta personal, una educativa y otra de otro fabricante como Facebook, Google, etc.<br><br>Solo se almacenan las credenciales de la cuenta personal y de terceros, lo que incluye el nombre de usuario y el código de verificación de la cuenta necesarios para demostrar la identidad. No almacenamos ninguna otra información asociada con las cuentas, como mensajes de correo electrónico o archivos. Tampoco asociamos ni compartimos las cuentas de ningún modo con otros productos ni servicios. Finalmente, el administrador de TI no obtendrá información de estas cuentas.
 
 ## <a name="back-up-your-account-credentials"></a>Copia de seguridad de las credenciales de cuenta
 Antes de hacer copias de seguridad las credenciales, debe tener:

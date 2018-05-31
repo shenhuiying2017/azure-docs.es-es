@@ -1,25 +1,28 @@
 ---
-title: "Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory | Microsoft Docs"
-description: "Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure Active Directory."
+title: Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory | Microsoft Docs
+description: Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure Active Directory.
 services: active-directory
-documentationcenter: 
-author: dstrockis
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: dastrock
+ms.date: 04/17/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0344c1da626a8b4679a632db239fc9ded9d5ce6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 134199c879f6793cb4ed0a88cf0593786341f6d8
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157699"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Tipos de aplicación para el punto de conexión v2.0 de Azure Active Directory
 El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede crear mediante Azure AD v2.0, con independencia de su plataforma o idioma preferidos. La información de este artículo está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](active-directory-appmodel-v2-overview.md#getting-started).
@@ -95,7 +98,7 @@ Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, i
 
 Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
-En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por Azure Active Directory.  Para ello, las API web pueden aprovechar las ventajas del flujo **en nombre de** de Azure AD, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes.  El flujo "en nombre de" del punto de conexión v2.0 se describe [aquí con mayor detalle](active-directory-v2-protocols-oauth-on-behalf-of.md).
+En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por Azure Active Directory. Para ello, las API web pueden aprovechar las ventajas del flujo **en nombre de** de Azure AD, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. El flujo "en nombre de" del punto de conexión v2.0 se describe [aquí con mayor detalle](active-directory-v2-protocols-oauth-on-behalf-of.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
@@ -120,4 +123,4 @@ En este flujo, la aplicación interactúa directamente con el punto de conexión
 
 ![Flujo de autenticación de aplicación de demonio](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
-Para compilar una aplicación demonio, consulte la documentación de credenciales de cliente en nuestra sección de [introducción](active-directory-appmodel-v2-overview.md#getting-started) o pruebe una [aplicación de ejemplo de .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+Para compilar una aplicación demonio, consulte la [documentación de credenciales de cliente](active-directory-v2-protocols-oauth-client-creds.md) en nuestra sección de introducción o pruebe una [aplicación de ejemplo de .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

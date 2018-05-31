@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: 2ac28c278b9ac832f05cdb19a48ea576526104b3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a96e856b55f118b74c7cb43ead925e10e4b74f1c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192445"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
@@ -33,7 +34,11 @@ También puede asegurarse fácilmente de que los usuarios invitados tengan el ac
 
 ## <a name="prerequisites"></a>requisitos previos 
 
+
+Las revisiones de acceso están disponibles con la edición Premium P2 de Azure AD, que se incluye en Microsoft Enterprise Mobility + Security, E5. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md). Cada usuario que interactúa con esta característica, ya sea para crear una revisión, rellenar una revisión o confirmar su acceso, etc., requiere una licencia. 
+
 Las revisiones de acceso están disponibles con la edición Premium P2 de Azure AD, que se incluye en Microsoft Enterprise Mobility + Security, E5. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-whatis.md). Cada usuario que interactúa con esta característica para crear una revisión, acceder a ella o aplicarla requiere una licencia.
+
 
 Si va a solicitar a los usuarios invitados que revisen su propio acceso, lea acerca de las licencias de usuario invitado. Para obtener más información, vea [Licencia de colaboración de Azure AD B2B](active-directory-b2b-licensing.md).
 

@@ -1,23 +1,22 @@
 ---
-title: "Autenticación de usuario final: API de REST con Data Lake Store en Azure Active Directory | Microsoft Docs"
-description: "Obtenga información sobre cómo realizar la autenticación de usuario final con Data Lake Store en Azure Active Directory mediante la API de REST"
+title: 'Autenticación de usuario final: API de REST con Data Lake Store en Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo realizar la autenticación de usuario final con Data Lake Store en Azure Active Directory mediante la API de REST
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 5ee13756e4276055a8c9bdd9642d0766c3ca7e5c
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 7bebe1948d26b26716262cafb92e3563f5c6b349
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198959"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-rest-api"></a>Autenticación de usuario final con Data Lake Store mediante la API de REST
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.lasthandoff: 01/10/2018
 
 En este artículo, obtendrá información sobre cómo usar la API de REST para realizar la autenticación de usuario final con Azure Data Lake Store. Para la autenticación entre servicios con Data Lake Store mediante la API de REST, vea [Service-to-service authentication with Data Lake Store using REST API](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticación entre servicios con Data Lake Store mediante la API de REST).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -50,7 +49,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<REDIRECT-URI&gt; debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, use `https%3A%2F%2Flocalhost`).
+   > \<REDIRECT-URI&gt; debe codificarse para utilizarse en una dirección URL. Por tanto, para https://localhost, utilice `https%3A%2F%2Flocalhost`.
    > 
    > 
    

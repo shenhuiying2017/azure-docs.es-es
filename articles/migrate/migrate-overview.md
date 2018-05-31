@@ -4,14 +4,15 @@ description: Proporciona información general acerca del servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202854"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -78,7 +79,7 @@ La tabla resumen los puertos necesarios para las comunicaciones de Azure Migrate
 |Componente          |Para comunicarse con     |Puerto requerido  |Motivo   |
 |-------------------|------------------------|---------------|---------|
 |Recopilador          |Servicio Azure Migrate   |TCP 443        |El recolector se conecta al servicio a través del puerto 443 de SSL|
-|Recopilador          |vCenter Server          |Valor predeterminado 9443   | De manera predeterminada, el recopilador se conecta a vCenter Server en el puerto 9443. Si el servidor escucha otro puerto, debe configurarse como puerto de salida en la máquina virtual del recopilador. |
+|Recopilador          |vCenter Server          |443 predeterminado   | De manera predeterminada, el recopilador se conecta a vCenter Server en el puerto 443. Si el servidor escucha otro puerto, debe configurarse como puerto de salida en la máquina virtual del recopilador. |
 |Máquina virtual local     | Área de trabajo de Log Analytics          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |El agente MMA usa TCP 443 para conectarse a Log Analytics. Este puerto solo se necesita si se usa la característica de visualización de dependencias y se instala Microsoft Monitoring Agent (MMA). |
 
 

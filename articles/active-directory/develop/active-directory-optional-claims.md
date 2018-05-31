@@ -2,23 +2,26 @@
 title: Notificaciones opcionales para la aplicación de Azure AD | Microsoft Docs
 description: Guía en la que se agregan notificaciones personalizadas o adicionales a los tokens SAML 2.0 y web JSON (JWT) que emite Azure Active Directory.
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
-ms.author: hirsin
+ms.date: 04/24/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4670a7e957970acea54ff69d56edcd45092c8fe
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157238"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Notificaciones opcionales en Azure AD (versión preliminar)
 
@@ -65,7 +68,9 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 | `fwd`                      | Dirección IP.  Agrega la dirección IPv4 original del cliente solicitante (cuando se encuentra en una red virtual)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | País del usuario                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | País del inquilino de los recursos                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
+| `acct`    | Estado de la cuenta de los usuarios de un inquilino.  Si el usuario es miembro del inquilino, el valor es `0`.  Si es un invitado, el valor es `1`.  | JWT, SAML | | |
 | `upn`                      | Notificación UserPrincipalName.  Aunque esta notificación se incluye automáticamente, puede especificarla como opcional para adjuntar propiedades adicionales y así modificarle el comportamiento para los usuarios invitados | JWT, SAML  |           | Propiedades adicionales: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+
 ### <a name="v20-optional-claims"></a>Notificaciones opcionales de la versión 2.0
 Estas notificaciones siempre se incluyen en los tokens de la versión 1.0, pero se quitan de los tokens de la versión 2.0, a menos que se soliciten.  Estas notificaciones solo se aplican a los JWT (tokens de identificación y de acceso).  
 
@@ -157,7 +162,7 @@ Indica las notificaciones opcionales solicitadas por una aplicación. Una aplica
 
 **Tabla 5. Propiedades del tipo OptionalClaims**
 
-| NOMBRE        | type                       | DESCRIPCIÓN                                           |
+| NOMBRE        | Escriba                       | DESCRIPCIÓN                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de identificación de JWT.     |
 | `accessToken` | Colección (OptionalClaim) | Notificaciones opcionales que se devuelven en el token de acceso de JWT. |
@@ -171,7 +176,7 @@ Si lo admite una notificación concreta, también puede modificar el comportamie
 
 **Tabla 6. Propiedades del tipo OptionalClaim**
 
-| NOMBRE                 | type                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
+| NOMBRE                 | Escriba                    | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nombre de la notificación opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origen (objeto de directorio) de la notificación. Hay unas notificaciones predefinidas y otras definidas por el usuario desde las propiedades de extensión. Si el valor de origen es null, es una notificación opcional predefinida. Si el valor de origen es user, el valor de la propiedad name es la propiedad de extensión del objeto de usuario. |

@@ -11,16 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166189"
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Extensión (copia) de alertas de OMS a Azure
-A partir del **14 de mayo de 2018**, para todos los clientes que utilizan alertas configuradas en [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), las alertas se extenderán a Azure. Las alertas que se extienden a Azure tienen el mismo comportamiento que en OMS. Las funcionalidades de supervisión siguen intactas. La extensión de las alertas creadas en OMS a Azure ofrece numerosas ventajas. Para más información acerca de las ventajas y el proceso de extensión de alertas de OMS a Azure, consulte [Extend alerts from OMS to Azure](monitoring-alerts-extend.md) (Extensión de alertas de OMS a Azure).
+A partir del **14 de mayo de 2018**, para todos los clientes que utilizan alertas configuradas en [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), las alertas se extenderán a Azure. Las alertas que se extienden a Azure tienen el mismo comportamiento que en OMS. Las funcionalidades de supervisión siguen intactas. La extensión de las alertas creadas en OMS a Azure ofrece numerosas ventajas. Para más información acerca de las ventajas y el proceso de extensión de alertas de OMS a Azure, consulte [Extend alerts from OMS to Azure](monitoring-alerts-extend.md) (Extensión de alertas de OMS a Azure)///.
+
+> [!NOTE]
+> A partir del 14 de mayo de 2018, Microsoft comenzará el proceso de extensión automática de alertas a Azure. No todas las áreas de trabajo y alertas se ampliarán ese día, sino que Microsoft comenzará a extender automáticamente las alertas por tramos en las próximas semanas. Por lo tanto, las alertas del portal OMS no se extenderán automáticamente a Azure inmediatamente el 14 de mayo de 2018 y los usuarios todavía pueden extender manualmente sus alertas mediante las opciones que se detallan a continuación.
 
 Los clientes que deseen mover alertas de OMS a Azure de inmediato pueden hacerlo mediante una de las opciones indicadas.
 
@@ -221,7 +225,7 @@ Y por último, si todas las alertas del área de trabajo especificada ya se han 
 ```
 
 ## <a name="troubleshooting"></a>solución de problemas 
-Durante el proceso de extensión de alertas de OMS en Azure, se pueden producir problemas ocasionales que impiden que el sistema cree ningún [grupo de acciones](monitoring-action-groups.md) necesario. En tales casos aparecerá un mensaje de error en el portal de OMS mediante un banner en la sección de alertas y en las llamadas GET realizadas a la API.
+Durante el proceso de extensión de alertas de OMS en Azure, se pueden producir problemas ocasionales que impiden que el sistema cree los [grupos de acciones](monitoring-action-groups.md) necesarios. En tales casos aparecerá un mensaje de error en el portal de OMS mediante un banner en la sección de alertas y en las llamadas GET realizadas a la API.
 
 A continuación se indican los pasos para corregir cada error:
 1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'** (La suscripción no está registrada para usar el espacio de nombres 'microsoft.insights'): ![página de configuración de alertas del portal de OMS con mensaje de error de registro](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
@@ -236,6 +240,14 @@ A continuación se indican los pasos para corregir cada error:
     a. Si el ámbito de bloqueo está habilitado, al restringir cualquier cambio nuevo en la suscripción o grupo de recursos que contiene el área de trabajo de Log Analytics (OMS), el sistema no puede extender (copiar) las alertas en Azure y crear los grupos de acciones necesarios.
     
     b. Para solucionarlo, elimine el bloqueo *ReadOnly* de la suscripción o grupo de recursos que contiene el área de trabajo mediante Azure Portal, Powershell, la CLI de Azure o una API. Para más información, consulte el artículo sobre [uso del bloqueo de recursos](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Una vez resuelto según los pasos descritos en el artículo, OMS extenderá las alertas en Azure durante la ejecución programada del día siguiente sin necesidad de realizar ninguna otra acción o iniciación.
+
+3. **Error: Policy is present at subscription/resource group level** (Error: Directiva presente en el nivel de grupo de recursos/suscripción): ![página de configuración de alertas del portal de OMS con un mensaje de error de directiva](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Cuando se aplica [Azure Policy](../azure-policy/azure-policy-introduction.md), al restringir cualquier recurso nuevo en la suscripción o el grupo de recursos que contiene el área de trabajo de Log Analytics (OMS), el sistema no puede extender (copiar) las alertas en Azure y crear los grupos de acciones necesarios.
+    
+    b. Para resolver este problema, edite la directiva que provoca el error *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, que impide la creación de nuevos recursos en la suscripción o el grupo de recursos que contiene el área de trabajo. Mediante Azure Portal, PowerShell, la CLI de Azure o las API, puede auditar las acciones para encontrar la directiva adecuada que ocasiona el error. Para más información, consulte el artículo sobre la [visualización de registros de actividad para auditar las acciones](../azure-resource-manager/resource-group-audit.md). 
     
     c. Una vez resuelto según los pasos descritos en el artículo, OMS extenderá las alertas en Azure durante la ejecución programada del día siguiente sin necesidad de realizar ninguna otra acción o iniciación.
 

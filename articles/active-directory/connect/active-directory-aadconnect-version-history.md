@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165492"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -34,6 +35,63 @@ Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actuali
 Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte [cuentas y permisos](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+04/05/2018: publicado para la actualización automática; estará disponible para su descarga pronto.
+
+
+
+### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
+
+Nuevas características y mejoras
+
+
+- Esta versión incluye la versión preliminar pública de la integración de PingFederate en Azure AD Connect. Con esta versión, los clientes pueden configurar su entorno de Azure Active Directory de forma fácil y confiable para aprovechar PingFederate como proveedor de federación. Para obtener más información sobre cómo utilizar esta nueva característica, visite nuestra [documentación en línea](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- Se ha actualizado la utilidad de solución de problemas del asistente de Azure AD Connect y ahora se analizan más escenarios de error, como buzones vinculados y grupos dinámicos de AD. Hay más información disponible sobre la utilidad de solución de problemas [aquí](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Ahora, la configuración de escritura diferida de dispositivo se administra únicamente desde el Asistente de Azure AD Connect.
+- Se ha agregado un nuevo módulo de PowerShell llamado ADSyncTools.psm1 que puede utilizarse para solucionar problemas de conectividad de SQL y otras utilidades de solución de problemas. Hay más información disponible sobre el módulo ADSyncTools [aquí](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- Se ha agregado una nueva tarea adicional: Configurar opciones de dispositivo. Puede usar la tarea para configurar las dos operaciones siguientes: 
+    -   **Combinación de Azure AD híbrido**: si su entorno tiene un uso local de AD y también quiere aprovechar las funcionalidades que proporciona Azure Active Directory, puede implementar dispositivos híbridos unidos a Azure AD. Se trata de dispositivos que están unidos tanto al entorno local de Active Directory como a Azure Active Directory.
+    -   **Escritura diferida de dispositivos**: la escritura diferida de dispositivos se utiliza para habilitar el acceso condicional basado en dispositivos a los dispositivos protegidos de AD FS (2012 R2 o posterior)
+
+   >[!NOTE] 
+   > - La opción para habilitar la escritura diferida de dispositivos de Personalizar las opciones de sincronización se mostrará atenuada. 
+   > -  El módulo de PowerShell para ADPrep está en desuso en esta versión.
+
+
+
+### <a name="fixed-issues"></a>Problemas corregidos 
+
+
+- Procesamiento de reglas de sincronización: las reglas de sincronización de unión de salida sin condición de unión se deben desaplicar si la regla de sincronización principal ya no es aplicable.
+- Asistente de Azure AD Connect: se genera un error al crear la cuenta de Conector de AD si Azure AD Connect está en un grupo de trabajo.
+- Asistente de Azure AD Connect: en la página de inicio de sesión de Azure AD, se muestra la casilla de verificación siempre que haya incoherencias entre los dominios de AD y los dominios de Azure AD verificados.
+- Corrección de actualización automática de PowerShell para establecer el estado de actualización automática correctamente en ciertos casos después de intentar una actualización automática.
+- Asistente de Azure AD Connect: se actualizó la telemetría para capturar la información que faltaba antes.
+- Asistente de Azure AD Connect: instalar el agente de PTA antes de convertir un dominio en administrado.
+- Asistente de Azure AD Connect: no convertir usuarios en administrados (convertir solo el dominio) para PTA.
+- Asistente de Azure AD Connect: Regex multidominio de AD FS no es correcto cuando el UPN del usuario tiene la actualización Regex del carácter especial ' para admitir caracteres especiales.
+- Asistente de Azure AD Connect: quitar un mensaje falso para configurar el atributo de delimitador de origen cuando no hay ningún cambio. 
+- Asistente de Azure AD Connect: compatibilidad con AD FS para el escenario de federación dual.
+- Asistente de Azure AD Connect: las notificaciones de AD FS no se actualizan para el dominio agregado al convertir un dominio administrado en federado.
+- Asistente de Azure AD Connect: durante la detección de los paquetes instalados, encontramos productos Dirsync/Azure AD Sync/Azure AD Connect relacionados obsoletos. Ahora intentaremos desinstalar los productos obsoletos.
+- Asistente de Azure AD Connect: corregir asignación de mensaje de error cuando se produce un error de instalación del agente de autenticación de paso.
+- Asistente de Azure AD Connect: se quitó el contenedor "Configuración" de la página de filtrado de unidad organizativa de dominio.
+- Instalación de motor de sincronización: se quitó la lógica heredada innecesaria que, en ocasiones, provocaba errores del archivo msi de instalación del motor de sincronización.
+- Asistente de Azure AD Connect: se corrigió el texto de ayuda emergente en la página Características opcionales para la sincronización de hash de contraseña.
+- Entorno en tiempo de ejecución del motor de sincronización: se corrigió el escenario en que un objeto CS tiene una eliminación importada y las reglas de sincronización intentan volver a aprovisionarlo.
+- Entorno en tiempo de ejecución del motor de sincronización: se agregó un vínculo de ayuda para la guía de solución de problemas de conectividad en línea al registro de eventos para un error de importación.
+- Entorno en tiempo de ejecución del motor de sincronización: se redujo el uso de memoria del programador de sincronización al enumerar los conectores.
+- Asistente de Azure AD Connect: se corrigió un problema para resolver una cuenta de servicio de sincronización personalizada que no tiene privilegios de lectura de AD.
+- Asistente de Azure AD Connect: se mejoró el registro de selecciones de filtrado por dominio y unidad organizativa.
+- Asistente de Azure AD Connect: se agregaron notificaciones predeterminadas de AD FS a la confianza de federación creada para el escenario de MFA.
+- Asistente de Azure AD Connect: WAP de implementación de AD FS; al agregar un servidor, se produce un error para usar el certificado nuevo.
+- Asistente de Azure AD Connect: excepción de DSSO cuando no se inicializa onPremCredentials para un dominio. 
+- Flujo preferente del atributo distinguishedName de AD desde el objeto de usuario activo.
+- Se corrigió un error cosmético en que la precedencia de la primera regla de sincronización OOB estaba definida como 99, en lugar de 100.
+
+
 
 ## <a name="117510"></a>1.1.751.0
 Estado el 12 de abril de 2018: publicado solo para la descarga

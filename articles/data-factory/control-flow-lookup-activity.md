@@ -11,44 +11,30 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011533"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Actividad de búsqueda en Azure Data Factory
-La actividad de búsqueda puede usarse para leer o buscar un registro, un nombre de tabla o un valor de cualquier origen externo. Además, las actividades posteriores pueden hacer referencia a esta salida. 
 
-La actividad de búsqueda resulta útil cuando se desea recuperar de forma dinámica una lista de archivos, registros o tablas a partir de un archivo de configuración o un origen de datos. Además, otras actividades pueden hacer referencia a la salida de la actividad para llevar a cabo un procesamiento específico solo en esos elementos.
+La actividad de búsqueda se puede usar para recuperar un conjunto de datos de cualquier parte del origen de datos compatible con ADF.  Se puede usar en el siguiente caso:
+- Determinar dinámicamente en qué objetos (archivos, tablas, etc.) operar en una actividad posterior, en lugar de codificar de forma rígida el nombre del objeto
+
+La actividad de búsqueda puede leer y devolver el contenido de un archivo de configuración, una tabla de configuración o el resultado de la ejecución de una consulta o procedimiento almacenado.  El resultado de la actividad de búsqueda se puede usar en una actividad de transformación o copia posterior si es un valor singleton, o bien en una actividad ForEach si es una matriz de atributos.
 
 > [!NOTE]
 > Este artículo se aplica a la versión 2 de Azure Data Factory, que actualmente se encuentra en versión preliminar. Si usa la versión 1 del servicio Data Factory, que está disponible con carácter general, vea la [documentación de Data Factory versión 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades admitidas
 
-Actualmente se admiten los siguientes orígenes de datos para la actividad de búsqueda:
+Se admiten los siguientes orígenes de datos para la búsqueda. El número máximo de filas que puede devolver la actividad de búsqueda es **5000**, con un tamaño máximo de **2 MB**. Actualmente, además, la duración máxima de la actividad de búsqueda antes del tiempo de expiración es una hora.
 
-- Amazon Redshift
-- Azure Blob Storage
-- Azure Cosmos DB
-- Almacén de Azure Data Lake
-- Almacenamiento de archivos de Azure
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- Almacenamiento de tablas de Azure
-- Dynamics 365
-- Dynamics CRM
-- Sistema de archivos
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
-
-El número máximo de filas devueltas por la actividad de búsqueda es **5000**, con un tamaño máximo de **10 MB**.
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -71,16 +57,17 @@ El número máximo de filas devueltas por la actividad de búsqueda es **5000**,
 ```
 
 ## <a name="type-properties"></a>Propiedades de tipo
-NOMBRE | DESCRIPCIÓN | type | ¿Necesario?
+NOMBRE | DESCRIPCIÓN | Escriba | ¿Necesario?
 ---- | ----------- | ---- | --------
 dataset | Proporciona la referencia de conjunto de datos para la búsqueda. Obtenga los detalles de la sección "Propiedades del conjunto de datos" de cada artículo del conector correspondiente. | Par clave-valor | Sí
 de origen | Contiene propiedades de origen específicas para el conjunto de datos, al igual que el origen de la actividad de copia. Obtener los detalles de la sección "Copiar propiedades de la actividad" de cada artículo del conector correspondiente. | Par clave-valor | Sí
 firstRowOnly | Indica si se deben devolver todas las filas o solo la primera. | boolean | Nº El valor predeterminado es `true`.
 
-Tenga en cuenta los siguientes puntos:
+**Tenga en cuenta los siguientes puntos:**
 
 1. No se admite la columna de origen con el tipo ByteArray.
 2. La estructura no se admite en la definición del conjunto de datos. En el caso concreto de los archivos de formato de texto, puede utilizar la fila de encabezado para proporcionar el nombre de columna.
+3. Si su origen de búsqueda es un archivo JSON y el valor `jsonPathDefinition` para volver a dar forma al objeto JSON no se admite, se recuperarán todos los objetos.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Utilizar el resultado de la actividad de búsqueda en una actividad posterior
 
