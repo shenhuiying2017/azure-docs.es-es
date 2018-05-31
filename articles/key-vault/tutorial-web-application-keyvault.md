@@ -1,5 +1,5 @@
 ---
-title: Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves | Microsoft Docs
+title: 'Tutorial: Configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves | Microsoft Docs'
 description: Tutorial de configuración de una aplicación ASP.NET Core para que lea un secreto desde el almacén de claves
 services: key-vault
 documentationcenter: ''
@@ -8,15 +8,16 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305181"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Tutorial: configuración de una aplicación web de Azure para que lea un secreto desde el almacén de claves
 
@@ -48,24 +49,22 @@ Cree un grupo de recursos con el comando [az group create](/cli/azure/group#az_g
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
 El grupo de recursos que acaba de crear se utiliza a lo largo de este tutorial.
 
 ## <a name="create-an-azure-key-vault"></a>Crear una instancia de Azure Key Vault
 
-A continuación, creará una instancia de Key Vault en el grupo de recursos creado en el paso anterior. Debe proporcionar cierta información:
-
->[!NOTE]
-> Aunque "ContosoKeyVault" se utiliza como nombre de la instancia de Key Vault a lo largo de esta guía de inicio rápido, el nombre debe ser único.
+A continuación, creará una instancia de Key Vault en el grupo de recursos creado en el paso anterior. Aunque "ContosoKeyVault" se utiliza como nombre de la instancia de Key Vault a lo largo de este tutorial, tiene que usar un nombre único. Proporcione la siguiente información:
 
 * El nombre del almacén: **ContosoKeyVault**.
 * Nombre del grupo de recursos: **ContosoResourceGroup**.
 * Ubicación: **Este de EE. UU**.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
 La salida de este comando muestra las propiedades del almacén de claves que acaba de crear. Tome nota de las dos propiedades siguientes:
@@ -85,13 +84,13 @@ Estamos agregando un secreto para ayudar a ilustrar cómo funciona. Se puede alm
 Escriba los siguientes comandos para crear un secreto en Key Vault denominado **AppSecret** que almacene el valor **MySecret**:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Para ver el valor contenido en el secreto como texto sin formato:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
 Este comando muestra la información secreta, URI incluido. Después de completar estos pasos debe tener un identificador URI para un secreto en una instancia de Azure Key Vault. Tome nota de esta información. La necesitará en otro paso más adelante.
@@ -212,8 +211,8 @@ Hay dos paquetes NuGet que la aplicación web debe tener instalados. Para instal
 ## <a name="publish-the-web-application-to-azure"></a>Publicación de la aplicación web en Azure
 
 1. Encima del editor, seleccione **WebKeyVault**.
-2. Seleccione **Publicar**.
-3. Seleccione **Publicar** de nuevo.
+2. Seleccione **Publicar** y, a continuación, **Iniciar**.
+3. Cree una nueva instancia de **App Service** y seleccione **Publicar**.
 4. Seleccione **Crear**.
 
 >[!IMPORTANT]
@@ -227,11 +226,11 @@ Azure Key Vault proporciona una manera de almacenar de forma segura las credenci
 2. Ejecute el comando assign-identity para crear la identidad de esta aplicación:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Este es el equivalente de ir al portal y cambiar la **Identidad de servicio administrada** a **Activada** en las propiedades de la aplicación web.
+>Este comando es el equivalente de ir al portal y cambiar la **Identidad de servicio administrada** a **Activada** en las propiedades de la aplicación web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Concesión de derechos a la identidad de aplicación
 
@@ -241,16 +240,16 @@ Desde Azure Portal, vaya a las directivas de acceso de Key Vault y concédase el
 2. Seleccione **Directivas de acceso**.
 3. Seleccione **Agregar nuevo**, en la sección **Permisos de secretos**, seleccione **Obtener** y **Lista**.
 4. Seleccione **Seleccionar la entidad de seguridad** y agregue la identidad de aplicación. Tendrá el mismo nombre que la aplicación.
-5. Selección de **Aceptar**.
+5. Elija **Aceptar**.
 
-Ahora la cuenta de Azure y la identidad de aplicación tendrán derechos para leer información de Key Vault. Si actualiza la página verá la página de inicio del sitio. Si selecciona **Acerca de** verá que el valor almacenado en Key Vault.
+Ahora la cuenta de Azure y la identidad de aplicación tendrán derechos para leer información de Key Vault. Cuando actualice la página verá la página de inicio del sitio. Si selecciona **Acerca de**, verá el valor que almacenó en Key Vault.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Para eliminar un grupo de recursos y todos sus recursos, use el comando **az group delete**.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Pasos siguientes

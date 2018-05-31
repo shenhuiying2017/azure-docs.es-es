@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301614"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Tutorial: Asignación de acceso a los datos de administración de costos
 
@@ -27,7 +28,8 @@ Al registrar su cuenta o contrato de Azure, se creó una cuenta con permisos de 
 > [!div class="checklist"]
 > * Crear un usuario con acceso de administrador
 > * Crear un usuario con acceso de usuario
-> * Crear entidades
+> * Crear y administrar entidades
+
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -56,11 +58,11 @@ Los usuarios típicos que necesitan acceder a datos de administración de costos
 
 Para ver un tutorial en vídeo acerca de cómo agregar usuarios, consulte [Adding Users to Azure Cost Management by Cloudyn](https://youtu.be/Nzn7GLahx30) (Adición de usuarios a Azure Cost Management de Cloudyn).
 
-## <a name="create-entities"></a>Crear entidades
+## <a name="create-and-manage-entities"></a>Crear y administrar entidades
 
-Cuando se define la jerarquía de entidades de costo, identificar la estructura de la organización es un procedimiento recomendado.
+Cuando se define la jerarquía de entidades de costo, identificar la estructura de la organización es un procedimiento recomendado. Las entidades le permiten segmentar gastos por cuentas o suscripciones individuales. Va a crear entidades de costo para crear grupos lógicos y poder administrar y realizar un seguimiento de los gastos. Al crear el árbol, considere cómo quiere o necesita ver sus costos separados por unidades de negocio, centros de costo, entornos y departamentos de ventas. El árbol de entidades de Cloudyn es flexible debido a la herencia de la entidad.
 
-Al crear el árbol, considere cómo quiere o necesita ver sus costos separados por unidades de negocio, centros de costo, entornos y departamentos de ventas. El árbol de entidades de Cloudyn es flexible debido a la herencia de la entidad. Las suscripciones individuales para las cuentas de nube están vinculadas a entidades concretas. Por lo tanto, las entidades tienen varios inquilinos. Puede asignar acceso a usuarios específicos únicamente a su segmento del negocio mediante entidades. Si lo hace, los datos se mantienen aislados, incluso en grandes partes de un negocio, como subsidiarias. Y el aislamiento de los datos facilita su control.  
+Las suscripciones individuales para las cuentas de nube están vinculadas a entidades concretas. Puede asociar una entidad con una cuenta o suscripción de un proveedor de servicios en la nube. Por lo tanto, las entidades tienen varios inquilinos. Puede asignar acceso a usuarios específicos únicamente a su segmento del negocio mediante entidades. Si lo hace, los datos se mantienen aislados, incluso en grandes partes de un negocio, como subsidiarias. Y el aislamiento de los datos facilita su control.  
 
 Cuando registró su cuenta o contrato de Azure con Cloudyn, se copiaron los datos de recursos de Azure, como el uso, el rendimiento, la facturación y los datos de etiquetas de las suscripciones a su cuenta de Cloudyn. Sin embargo, debe crear manualmente el árbol de entidades. Si omitió el registro de Azure Resource Manager, solo estarán disponibles en el portal de Cloudyn los datos de facturación y algunos informes de recursos.
 
@@ -74,6 +76,23 @@ Junto a **Entities** (Entidades), haga clic en **Add Entity** (Agregar entidad).
 
 Al acabar, **guarde** la entidad.
 
+### <a name="entity-access-levels"></a>Niveles de acceso de entidades
+
+Los niveles de acceso de entidades junto con un acceso de usuario le permiten definir qué tipo de acciones están disponibles en el portal Cloudyn.
+
+- **Enterprise** (Empresa): ofrece la posibilidad de crear y administrar entidades de costo secundarias.
+- **Enterprise + Cost Allocation** (Empresa + Asignación de costos): ofrece la posibilidad de crear y administrar las entidades de costo secundarias incluida la asignación de costo para las cuentas consolidadas.
+- **Enterprise, Cost based on parent cost allocation** (Empresa, costo basado en la asignación de costos principales): ofrece la posibilidad de crear y administrar entidades de costo secundarias. El costo de la cuenta se basa en el modelo de asignación de costos del elemento primario.
+- **Custom Dashboards Only** (Solo paneles personalizados): hace que el usuario solo pueda ver los paneles personalizados predefinidos.
+- **Dashboards Only** (Solo paneles) proporciona al usuario la capacidad de ver solo los paneles.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Creación de una jerarquía de entidades de costo
+
+Para crear una jerarquía de entidades de costo, debe tener una cuenta con Enterprise o Enterprise + cost allocation (Empresa o Empresa + Asignación de costos).
+
+En el portal de Cloudyn, haga clic en el símbolo de engranaje en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube). El árbol de **entidades** se muestra en el panel izquierdo. Si es necesario, expanda el árbol de entidades para que pueda ver la entidad que desea asociar a una cuenta.  Las cuentas de proveedor de servicios en la nube se muestran en pestañas en el panel derecho. Seleccione una pestaña y, a continuación, haga clic en una cuenta o suscripción y arrástrela a la entidad y colóquela. El cuadro **Mover** le informa de que la cuenta se movió correctamente. Haga clic en **OK**.
+
+También puede asociar varias cuentas a una entidad. Seleccione las cuentas y, después, haga clic en **Mover**. En el cuadro Mover cuentas, seleccione la entidad a la que desea mover la cuenta y, a continuación, haga clic en **Guardar**. El cuadro Mover cuentas le pide que confirme que desea mover las cuentas. Haga clic en **Sí** y, luego, en **Aceptar**.
 
 Para ver un tutorial en vídeo acerca de cómo crear una jerarquía de entidades de costo, consulte [Creating a Cost Entity Hierarchy in Azure Cost Management by Cloudyn](https://youtu.be/dAd9G7u0FmU) (Creación de una jerarquía de entidades de costo en Azure Cost Management de Cloudyn).
 
@@ -86,7 +105,8 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Crear un usuario con acceso de administrador
 > * Crear un usuario con acceso de usuario
-> * Crear entidades
+> * Crear y administrar entidades
+
 
 Si aún no ha habilitado el acceso de la API de Azure Resource Manager en sus cuentas, consulte el artículo siguiente.
 

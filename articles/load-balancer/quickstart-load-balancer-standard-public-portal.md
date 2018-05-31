@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: dc7d8a4cc5b755504c2430be187d3ab2b46c51d1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 07700ecb8a31e6ee724f27e247f377eb869e6c39
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305147"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Inicio rápido: creación de un equilibrador de carga estándar para equilibrar la carga de las VM mediante Azure Portal
 
@@ -128,7 +129,7 @@ En esta sección se configuran los valores del equilibrador de carga para un gru
 
 ### <a name="create-a-backend-address-pool"></a>Crear un grupo de direcciones de back-end
 
-Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtual conectadas al equilibrador de carga. Cree el grupo de direcciones de back-end *myBackendPool* para incluir *VM1* y *VM2*.
+Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones de back-end contiene las direcciones IP de las tarjetas de interfaz de red (NIC) virtuales conectadas al equilibrador de carga. Cree el grupo de direcciones de back-end *myBackendPool* para incluir *VM1* y *VM2*.
 
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
 2. Haga clic en **Configuración**, **Grupos de back-end** y luego en **Agregar**.
@@ -161,7 +162,7 @@ Para permitir que el equilibrador de carga supervise el estado de la aplicación
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. Cree una regla de Load Balancer *myLoadBalancerRuleWeb* para escuchar el puerto 80 en el front-end *FrontendLoadBalancer* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end, *myBackEndPool*, que también usan el puerto 80. 
+Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. Cree una regla de Load Balancer *myLoadBalancerRuleWeb* para escuchar el puerto 80 en el front-end *FrontendLoadBalancer* y enviar tráfico de red con equilibrio de carga al conjunto de direcciones back-end, *myBackEndPool*, que también usan el puerto 80. 
 
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, haga clic en **myLoadBalancer** en la lista de recursos.
 2. En **Configuración**, haga clic en **Reglas de equilibrio de carga** y luego en **Agregar**.
@@ -189,4 +190,7 @@ Cuando no los necesite, elimine el grupo de recursos, el equilibrador de carga y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca de [Load Balancer Estándar](load-balancer-standard-overview.md).
+En esta guía de inicio rápido, ha creado un equilibrador de carga estándar, le ha asociado máquinas virtuales, ha configurado la regla de tráfico del equilibrador de carga y el sondeo de estado y, después, ha probado el equilibrador de carga. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales de Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Tutoriales de Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
