@@ -7,21 +7,18 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b1d60cc0a83c95c5e33fbaae6083572af3e183ad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32189571"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de SQL Data Warehouse. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
-
-> [!NOTE]
-> La característica de tabla replicada está actualmente en versión preliminar pública. Algunos comportamientos están sujetos a cambios.
-> 
 
 ## <a name="prerequisites"></a>requisitos previos
 En este artículo se da por supuesto que está familiarizado con los conceptos de distribución y movimiento de datos en SQL Data Warehouse.  Para obtener más información, consulte el artículo [Arquitectura](massively-parallel-processing-mpp-architecture.md). 
@@ -44,20 +41,13 @@ Las tablas replicadas funcionan correctamente para tablas de dimensiones pequeñ
 Considere la posibilidad de usar una tabla replicada cuando:
 
 - El tamaño de la tabla en el disco es inferior a 2 GB, independientemente del número de filas. Para averiguar el tamaño de una tabla, puede usar el comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
-- La tabla se usa en combinaciones que en caso contrario requerirían el movimiento de datos. Por ejemplo, una combinación en tablas distribuidas por hash requiere el movimiento de datos cuando las columnas de combinación no son la misma columna de distribución. Si una de las tablas distribuidas por hash es pequeña, considere la posibilidad de usar una tabla replicada. Una combinación en una tabla Round Robin requiere movimiento de datos. Se recomienda usar tablas replicadas en lugar de tablas Round Robin en la mayoría de los casos. 
-
-
-Considere la posibilidad de convertir una tabla distribuida existente en una tabla replicada:
-
-- Los planes de consulta usan operaciones de movimiento de datos que difunden los datos a todos los nodos de proceso. La operación BroadcastMoveOperation usa muchos recursos y reduce el rendimiento de las consultas. Para ver las operaciones de movimiento de datos en los planes de consulta, use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).
+- La tabla se usa en combinaciones que en caso contrario requerirían el movimiento de datos. Al unir tablas que no están distribuidas en la misma columna, como una tabla distribuida mediante hash a una tabla round robin, es necesario realizar la operación de movimiento de datos para completar la consulta.  Si una de las tablas es pequeña, considere la posibilidad de usar una tabla replicada. Se recomienda usar tablas replicadas en lugar de tablas Round Robin en la mayoría de los casos. Para ver las operaciones de movimiento de datos en los planes de consulta, use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  BroadcastMoveOperation es la típica operación de movimiento de datos que se puede eliminar mediante una tabla replicada.  
  
 Es posible que las tablas replicadas no produzcan el mejor rendimiento de las consultas cuando:
 
 - La tabla tiene operaciones frecuentes de inserción, actualización y eliminación. Estas operaciones de lenguaje de manipulación de datos (DML) requieren una recompilación de la tabla replicada. La recompilación puede provocar con frecuencia un rendimiento más lento.
 - El almacenamiento de datos se escala con frecuencia. El escalado de un almacenamiento de datos cambia el número de nodos de proceso, lo que produce una recompilación.
-- La tabla tiene un gran número de columnas, pero las operaciones de datos normalmente solo tienen acceso a un número de columnas reducido. En este escenario, en lugar de replicar toda la tabla, podría ser más eficaz distribuir por hash la tabla y después crear un índice en las columnas a las que se tiene acceso con frecuencia. Cuando una consulta necesita el movimiento de datos, SQL Data Warehouse solo mueve datos en las columnas solicitadas. 
-
-
+- La tabla tiene un gran número de columnas, pero las operaciones de datos normalmente solo tienen acceso a un número de columnas reducido. En este escenario, en lugar de replicar toda la tabla, podría ser más eficaz distribuir la tabla y después crear un índice en las columnas a las que se tiene acceso con frecuencia. Cuando una consulta necesita el movimiento de datos, SQL Data Warehouse solo mueve los datos de las columnas solicitadas. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usar tablas replicadas con predicados de consulta simples
 Antes de elegir entre distribuir o duplicar una tabla, piense en los tipos de consultas que se van a ejecutar en la tabla. Siempre que sea posible,
@@ -67,7 +57,7 @@ Antes de elegir entre distribuir o duplicar una tabla, piense en los tipos de co
 
 Las consultas que consumen más CPU ofrecen un mejor comportamiento cuando el trabajo se distribuye entre todos los nodos de proceso. Por ejemplo, las consultas que ejecutan cálculos en todas las filas de una tabla funcionan mejor en tablas distribuidas que en tablas replicadas. Como una tabla replicada se almacena por completo en cada nodo de proceso, se ejecuta una consulta con gran consumo de CPU sobre una tabla replicada en toda la tabla en cada nodo de proceso. El cálculo adicional puede ralentizar el rendimiento de la consulta.
 
-Por ejemplo, esta consulta tiene un predicado complejo.  Se ejecuta con mayor rapidez cuando el proveedor está una tabla distribuida en lugar de una tabla replicada. En este ejemplo, el proveedor se puede distribuir por hash o mediante el método Round Robin.
+Por ejemplo, esta consulta tiene un predicado complejo.  Se ejecuta con mayor rapidez cuando el proveedor está una tabla distribuida en lugar de una tabla replicada. En este ejemplo, el proveedor se puede distribuir mediante el método round robin.
 
 ```sql
 
@@ -132,7 +122,7 @@ Se vuelve a crear `DimDate` y `DimSalesTerritory` como tablas replicadas y se ej
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Consideraciones de rendimiento para modificar tablas replicadas
-SQL Data Warehouse implementa una tabla replicada mediante el mantenimiento de una versión principal de la tabla. Copia la versión principal a una base de datos de distribución en cada nodo de proceso. Cuando se produce un cambio, SQL Data Warehouse actualiza primero la tabla principal. Después, requiere una recompilación de las tablas en cada nodo de proceso. Una recompilación de una tabla replicada incluye copiar la tabla en todos los nodos de proceso y, después, volver a generar los índices.
+SQL Data Warehouse implementa una tabla replicada mediante el mantenimiento de una versión principal de la tabla. Copia la versión principal a una base de datos de distribución en cada nodo de proceso. Cuando se produce un cambio, SQL Data Warehouse actualiza primero la tabla principal. A continuación, recompila las tablas en cada nodo de ejecución. Una recompilación de una tabla replicada incluye copiar la tabla en todos los nodos de ejecución y, a continuación, compilar los índices.  Por ejemplo, una tabla replicada en un nivel DW400 tiene 5 copias de los datos.  Una copia maestra y una copia completa en cada nodo de ejecución.  Todos los datos se almacenan en bases de datos de distribución. SQL Data Warehouse utiliza este modelo para admitir instrucciones de modificación de datos más rápidas y operaciones de escalado flexibles. 
 
 Las recompilaciones son necesarias después de que:
 - Se carguen o modifiquen datos.
@@ -143,7 +133,7 @@ Las recompilaciones no son necesarias después de que:
 - Se pause la operación.
 - Se reanude la operación.
 
-La regeneración no se produzca inmediatamente después de que se modifiquen los datos. En su lugar, la regeneración se desencadena la primera vez que una consulta realiza una selección en la tabla.  En la instrucción de selección inicial de la tabla se incluyen los pasos para recompilar la tabla replicada.  Dado que la recompilación se realiza dentro de la consulta, el impacto en la instrucción de selección inicial podría ser significativo según el tamaño de la tabla.  Si intervienen varias tablas replicadas que necesitan una recompilación, cada copia se recompila en serie como pasos dentro de la instrucción.  Para mantener la coherencia de datos durante la recompilación de la tabla replicada, se toma un bloqueo exclusivo en la tabla.  El bloqueo impide el acceso a la tabla mientras dure la recompilación. 
+La regeneración no se produzca inmediatamente después de que se modifiquen los datos. En su lugar, la regeneración se desencadena la primera vez que una consulta realiza una selección en la tabla.  La consulta que desencadenó la reconstrucción se lee inmediatamente en la versión maestra de la tabla, mientras que los datos se copian de forma asincrónica en cada nodo de ejecución. Hasta que se no complete la copia de datos, las consultas posteriores continuarán utilizando la versión maestra de la tabla.  Si se produce alguna actividad en la tabla replicada que obligue a realizar otro proceso de recompilación, la copia de datos se invalida y la siguiente instrucción que se seleccione desencadenará de nuevo la copia de datos. 
 
 ### <a name="use-indexes-conservatively"></a>Usar índices de manera conservadora
 Las prácticas recomendadas de indexación estándar se aplican a las tablas replicadas. SQL Data Warehouse recompila el índice de cada tabla replicada como parte de la recompilación. Use los índices solo cuando el aumento de rendimiento supere con creces el coste de recompilar los índices.  
@@ -172,7 +162,7 @@ Por ejemplo, en este modelo de carga se cargan datos de cuatro orígenes pero so
 
 
 ### <a name="rebuild-a-replicated-table-after-a-batch-load"></a>Recompilar una tabla replicada después de una carga por lotes
-Para garantizar tiempos de ejecución de consultas coherentes, se recomienda forzar una actualización de las tablas replicadas después de una carga por lotes. En caso contrario, la primera consulta debe esperar a que las tablas se actualicen, lo que incluye recompilar los índices. Según el tamaño y el número de tablas replicadas afectadas, el impacto en el rendimiento puede ser significativo.  
+Para garantizar tiempos de ejecución de consultas coherentes, se recomienda forzar la compilación de las tablas replicadas después de una carga por lotes. En caso contrario, la primera consulta seguirá usando el movimiento de datos para completar la consulta. 
 
 Esta consulta usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql) para enumerar las tablas replicadas que se han modificado, pero no recompilado.
 
@@ -187,7 +177,7 @@ SELECT [ReplicatedTable] = t.[name]
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
  
-Para forzar una recompilación, ejecute la siguiente instrucción en cada tabla de la salida anterior. 
+Para desencadenar una recompilación, ejecute la siguiente instrucción en cada tabla del resultado anterior. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]

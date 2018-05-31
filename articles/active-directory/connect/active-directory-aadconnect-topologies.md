@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154297"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -44,7 +45,7 @@ Esta es la leyenda de las imágenes del artículo:
 ## <a name="single-forest-single-azure-ad-tenant"></a>Un único bosque, un único inquilino de Azure AD
 ![Topología para un único bosque y un solo inquilino](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-La topología más común es un único bosque local, con uno o varios dominios y un único inquilino de Azure AD. Para la autenticación de Azure AD se utiliza la sincronización de contraseña. La instalación rápida de Azure AD Connect solo es compatible con esta topología.
+La topología más común es un único bosque local, con uno o varios dominios y un único inquilino de Azure AD. Para la autenticación de Azure AD se utiliza la sincronización de hash de contraseñas. La instalación rápida de Azure AD Connect solo es compatible con esta topología.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Bosque único, varios servidores de sincronización con un inquilino de Azure AD
 ![Topología no admitida, filtrada para un único bosque](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +65,7 @@ Las topologías comunes se describen en las siguientes secciones: [Topologías i
 
 En la configuración predeterminada de Azure AD Connect Sync se supone que:
 
-* Los usuarios tienen solo una cuenta habilitada y el bosque donde se encuentra esta cuenta se usa para la autenticación del usuario. Esta suposición es válida para la sincronización de contraseñas y para la federación. Los valores UserPrincipalName y sourceAnchor/immutableID proceden de este bosque.
+* Los usuarios tienen solo una cuenta habilitada y el bosque donde se encuentra esta cuenta se usa para la autenticación del usuario. Esta suposición es aplicable para la sincronización de hash de contraseñas, la autenticación de paso a través y la federación. Los valores UserPrincipalName y sourceAnchor/immutableID proceden de este bosque.
 * Cada usuario tiene un solo buzón de correo.
 * El bosque que aloja el buzón de un usuario tiene la mejor calidad de datos para los atributos visibles en la lista global de direcciones (GAL) de Exchange. Si no hay ningún buzón para el usuario, se puede usar cualquiera de los bosques para aportar estos valores de atributo.
 * Si tiene un buzón vinculado, también hay otra cuenta en otro bosque que se usa para el inicio de sesión.
@@ -157,7 +158,7 @@ Esta topología presenta las siguientes restricciones en escenarios que, por lo 
 
 * Solo uno de los inquilinos de Azure AD puede habilitar una implementación híbrida de Exchange con la instancia local de Active Directory.
 * Los dispositivos de Windows 10 solo pueden asociarse con un inquilino de Azure AD.
-* La opción de inicio de sesión único (SSO) para la sincronización de contraseñas y la autenticación de paso a través solo puede utilizarse con un inquilino de Azure AD.
+* La opción de inicio de sesión único (SSO) para la sincronización de hash de contraseñas y la autenticación de paso a través solo puede utilizarse con un inquilino de Azure AD.
 
 El requisito de un conjunto de objetos mutuamente excluyente también se aplica a la escritura diferida. Algunas características de escritura diferida no se admiten con esta topología, porque estas asumen una sola configuración local. Estas características son:
 

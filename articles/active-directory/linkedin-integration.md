@@ -6,24 +6,27 @@ author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762377"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Conexiones de cuentas de LinkedIn para aplicaciones y servicios de Microsoft
 En este artículo, puede aprender a administrar conexiones de cuentas de LinkedIn para su inquilino en el centro de administración de Azure Active Directory (Azure AD). 
 
 > [!IMPORTANT]
 > La funcionalidad de conexiones de cuentas de LinkedIn se encuentra actualmente en proceso de implementación en inquilinos de Azure AD. Cuando se implemente en su inquilino, estará habilitada de forma predeterminada. No está disponible para clientes del gobierno de Estados Unidos y organizaciones con buzones de Exchange Online hospedados en Australia, Canadá, China, Francia, Alemania, India, Corea del Sur, Reino Unido, Japón y Sudáfrica. La compatibilidad con estas ubicaciones de buzón estará disponible próximamente.  Para obtener una vista actualizada de la información de implementación, consulte la página del [plan de Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+
+## <a name="benefit-to-users"></a>Ventajas para los usuarios
+Una vez conectada la cuenta de LinkedIn de los usuarios, la información de LinkedIn se utiliza para mostrar información personalizada y características en varios servicios o aplicaciones de Microsoft. Los usuarios pueden ver información detallada sobre las personas con las que trabajan en la tarjeta de perfil de Microsoft, aunque sean personas ajenas a la organización. Con el tiempo, su experiencia de LinkedIn también será más apropiado y se adaptará a su trabajo. Por ejemplo, LinkedIn puede sugerir nuevas conexiones en función de los usuarios con quienes trabajen o datos generales sobre las personas que se encuentren en el calendario ese día.
 
 ## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Cómo le aparecen al usuario las conexiones de cuentas de LinkedIn
 Las conexiones de cuentas de LinkedIn permiten a los usuarios ver la información pública del perfil de LinkedIn dentro de algunas de sus aplicaciones de Microsoft. Los usuarios de su inquilino pueden elegir conectar sus cuentas profesionales o educativas de LinkedIn y Microsoft para ver información adicional del perfil de LinkedIn. Para más información, consulte [Información y características de LinkedIn en aplicaciones y servicios de Microsoft](https://go.microsoft.com/fwlink/?linkid=850740).

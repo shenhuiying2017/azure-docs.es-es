@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/06/2018
+ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4f0afe48c37c6cb5dc8c1658f0a7beed4f0e6140
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778103"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administrar el acceso a máquina virtual mediante Just-In-Time
 
@@ -41,7 +42,7 @@ Una manera de reducir el riesgo de sufrir un ataque por fuerza bruta consiste en
 
 Cuando se habilita Just-In-Time, Security Center bloquea el tráfico entrante a las máquinas virtuales de Azure mediante la creación de una regla de NSG. Se deben seleccionar los puertos de la máquina virtual para la que se bloqueará el tráfico entrante. Estos puertos están controlados mediante la solución Just-In-Time.
 
-Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tenga permisos de [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) que conceden acceso de escritura para la máquina virtual. Si tiene permisos de escritura, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos de administración durante el tiempo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior.
+Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tenga permisos de [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) que conceden acceso de escritura para la máquina virtual. Si tiene permisos de escritura, se aprueba la solicitud y Security Center configura automáticamente los grupos de seguridad de red (NSG) para permitir el tráfico entrante a los puertos seleccionados durante el tiempo especificado. Una vez transcurrido ese tiempo, Security Center restaura los NSG a su estado anterior.
 
 > [!NOTE]
 > En la actualidad, el acceso a máquina virtual Just-In-Time de Security Center solo admite las máquinas virtuales que se han implementado mediante Azure Resource Manager. Para obtener más información sobre los modelos de implementación clásico y de Resource Manager, vea [La implementación de Azure Resource Manager frente a la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -119,6 +120,16 @@ Para solicitar acceso a una máquina virtual:
 
 4. En la hoja **Solicitar acceso**, configure para cada máquina virtual los puertos que deben abrirse, junto con la dirección IP de origen en la que se abre el puerto y el tiempo durante el que permanece abierto. Solo puede solicitar acceso a los puertos que están configurados en la directiva Just-In-Time. Cada puerto tiene un tiempo máximo permitido que se basa en la directiva Just-In-Time.
 5. Seleccione **Open ports** (Abrir puertos).
+
+> [!NOTE]
+> Cuando un usuario solicita acceso a una máquina virtual, Security Center comprueba que el usuario tenga permisos de [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) que conceden acceso de escritura para la máquina virtual. Si tienen permisos de escritura, se aprueba la solicitud.
+>
+>
+
+> [!NOTE]
+> Si un usuario que solicita acceso está detrás de un proxy, la opción de "Mi IP" podría no funcionar. Puede haber una necesidad de definir el intervalo completo de la organización.
+>
+>
 
 ## <a name="editing-a-just-in-time-access-policy"></a>Editar una directiva de acceso Just-In-Time
 

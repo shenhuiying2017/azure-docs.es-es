@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la administración de dispositivos en Azure Active Directory | Microsoft Docs"
-description: "Obtenga más información sobre cómo la administración de dispositivos puede ayudarle a tener bajo control los dispositivos que acceden a los recursos de su entorno."
+title: Introducción a la administración de dispositivos en Azure Active Directory | Microsoft Docs
+description: Obtenga más información sobre cómo la administración de dispositivos puede ayudarle a tener bajo control los dispositivos que acceden a los recursos de su entorno.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: faea960d2b6207aab5a2f5df8dc65fddc9ba5b54
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202140"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introducción a la administración de dispositivos en Azure Active Directory
 
@@ -73,7 +74,7 @@ El objetivo de los dispositivos unidos a Azure AD es simplificar:
 
 
 Para cumplir estos objetivos, se ofrece a los usuarios una experiencia de autoservicio con el fin de que consigan que los dispositivos de empresa estén bajo el control de Azure AD.  
-La **unión a Azure AD** está pensada para aquellas organizaciones en las que la nube es prioritaria y exclusiva. Son por lo general pequeñas y medianas empresas que carecen de una infraestructura de Windows Server Active Directory local. 
+La **unión a Azure AD** está pensada para aquellas organizaciones en las que la nube es prioritaria o exclusiva. No hay ninguna restricción de tamaño o tipo de organización que puede implementar una unión a Azure AD. La unión a Azure AD funciona bien incluso en un entorno híbrido y puede habilitar el acceso a aplicaciones y recursos locales.
 
 La implementación de dispositivos unidos a Azure AD ofrece las siguientes ventajas:
 
@@ -81,11 +82,14 @@ La implementación de dispositivos unidos a Azure AD ofrece las siguientes venta
 
 - **Itinerancia de las configuraciones de usuario** conforme a la empresa entre dispositivos unidos. Los usuarios no necesitan conectarse a una cuenta de Microsoft (por ejemplo, Hotmail) para ver la configuración en todos los dispositivos.
 
-- **Acceso a la Tienda Windows para empresas** mediante la cuenta de AD. Los usuarios pueden elegir entre un inventario de aplicaciones ya seleccionadas por la organización.
+- **Acceso a la Tienda Windows para empresas** mediante una cuenta de Azure AD. Los usuarios pueden elegir entre un inventario de aplicaciones ya seleccionadas por la organización.
 
 - Compatibilidad con **Windows Hello** para un acceso cómodo y seguro a los recursos de trabajo.
 
 - **Restricción del acceso** a las aplicaciones únicamente desde aquellos dispositivos que satisfagan las directivas de cumplimiento.
+
+- **Acceso total a los recursos locales** cuando el dispositivo tiene línea de visión al controlador de dominio local.
+
 
 Aunque la unión a Azure AD esté pensada principalmente para aquellas organizaciones que no tengan una infraestructura de Windows Server Active Directory local, sin duda se puede utilizar también en escenarios donde:
 

@@ -3,7 +3,7 @@ title: Cifrado en reposo de datos de Microsoft Azure | Microsoft Docs
 description: Este artículo proporciona información general sobre el cifrado en reposo de datos de Microsoft Azure, funcionalidades y consideraciones.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: TomSh
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
-ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 04/26/2018
+ms.author: barclayn
+ms.openlocfilehash: 54dc97c0d20f90d3b57b715fb21714a11e5a1525
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312583"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 Hay varias herramientas en Microsoft Azure para proteger los datos según las necesidades de seguridad y cumplimiento de su empresa. Este documento se centra en:
@@ -236,17 +237,17 @@ Cualquier cliente mediante las características de la infraestructura de Azure c
 
 #### <a name="azure-storage"></a>Almacenamiento de Azure
 
-Azure Blob y Archivo admiten el cifrado en reposo para escenarios cifrados del lado servidor, así como datos cifrados del cliente (cifrado del lado cliente).
+Todos los servicios de Azure Storage (Blob Storage, Queue Storage, Table Storage y Azure Files) admiten el cifrado de los datos en reposo en el lado servidor, mientras que solamente algunos servicios admiten el cifrado de las claves administradas por el cliente y el cifrado del lado cliente.  
 
-- Lado servidor: Los clientes que usan Azure Blob Storage pueden habilitar el cifrado en reposo en cada cuenta de recursos de Azure Storage. Una vez habilitado el lado servidor, el cifrado se realiza de forma transparente en la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption).
-- Lado cliente: Se admite el cifrado del lado cliente de Azure Blobs. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) (Cifrado del lado cliente y Azure Key Vault para Microsoft Azure Storage) para más información.
+- Lado servidor: de forma predeterminada, todos los servicios de Azure Storage admiten el cifrado en el lado servidor mediante claves administradas por el servicio, lo que es transparente para la aplicación. Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob Storage y Azure Files también admiten las claves administradas por el cliente en Azure Key Vault. Para más información, consulte [Cifrado del servicio Storage mediante claves administradas por el cliente en Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Lado cliente: Azure Blobs, Tables y Queues admiten el cifrado en el lado cliente. Cuando se usa el cifrado del lado cliente, los clientes cifran los datos y los cargan como un blob cifrado. El cliente se encarga de la administración de claves. Consulte [Cifrado del lado de cliente y Azure Key Vault para Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) para más información.
 
 
 #### <a name="sql-azure"></a>SQL Azure
 
 SQL Azure admite actualmente el cifrado en reposo para escenarios de cifrado en el lado cliente y en el lado servicio administrados por Microsoft.
 
-Actualmente, la compatibilidad con cifrado del servidor se proporciona a través de la característica SQL denominada cifrado de datos transparente. Una vez que un cliente de SQL Azure habilita la clave TDE se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. A partir de junio de 2017, el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) se habilitará de forma predeterminada en las bases de datos recién creadas.
+Actualmente, la compatibilidad con el cifrado del servidor se proporciona a través de una característica de SQL denominada Cifrado de datos transparente. Una vez que un cliente de SQL Azure habilita la clave TDE se crea y administra automáticamente para él. El cifrado en reposo puede habilitarse en los niveles de base de datos y servidor. A partir de junio de 2017, el [cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) se habilitará de forma predeterminada en las bases de datos recién creadas.
 
 Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la característica [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). Always Encrypted utiliza una clave que el cliente crea y almacena. Los clientes pueden almacenar la clave maestra en el almacén de certificados de Windows, Azure Key Vault, o un módulo de seguridad de hardware. Al usar SQL Server Management Studio, los usuarios de SQL eligen qué clave que les gustaría usar para cifrar cada columna.
 
@@ -257,10 +258,10 @@ Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la 
 | **Almacenamiento y bases de datos**            |                |                     |                              |                              |        |
 | Disco (IaaS)                      |                | -                   | Sí                          | Sí*                         | -      |
 | SQL Server (IaaS)                |                | Sí                 | Sí                          | Sí                          | Sí    |
-| SQL Azure (PaaS)                 |                | Sí                 | Vista previa                      | -                            | Sí    |
-| Azure Storage (blobs en bloques o en páginas) |                | Sí                 | Vista previa                      | -                            | Sí    |
-| Azure Storage (archivos)            |                | Sí                 | -                            | -                            | -      |
-| Azure Storage (tablas, colas)   |                | -                   | -                            | -                            | Sí    |
+| SQL Azure (PaaS)                 |                | Sí                 | Sí                          | -                            | Sí    |
+| Azure Storage (blobs en bloques o en páginas) |                | Sí                 | Sí                          | -                            | Sí    |
+| Azure Storage (archivos)            |                | Sí                 | Sí                          | -                            | -      |
+| Azure Storage (tablas, colas)   |                | Sí                 | -                            | -                            | Sí    |
 | Cosmos DB (documento DB)          |                | Sí                 | -                            | -                            | -      |
 | StorSimple                       |                | Sí                 | -                            | -                            | Sí    |
 | Backup                           |                | -                   | -                            | -                            | Sí    |
@@ -275,7 +276,7 @@ Se admite el cifrado del lado cliente de los datos de SQL Azure a través de la 
 | Power BI                         |                | Sí                 | -                            | -                            | -      |
 | **Servicios IoT**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Sí    |
-| Azure Service Bus                      |                | Sí (nivel Premium)              | -                            | -                            | Sí    |
+| Azure Service Bus                      |                | Sí              | -                            | -                            | Sí    |
 | Event Hubs                       |                | Sí             | -                            | -                            | -      |
 
 

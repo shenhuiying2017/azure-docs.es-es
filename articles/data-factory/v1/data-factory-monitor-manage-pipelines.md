@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771371"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory, que está disponible con carácter general. Si usa la versión 2 del servicio Data Factory, que se encuentra en versión preliminar, consulte el artículo sobre [la supervisión y administración de canalizaciones en Data Factory en la versión 2](../monitor-visually.md).
 
+En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante Azure Portal y PowerShell.
+
 > [!IMPORTANT]
 > La aplicación de supervisión y administración proporciona una mejor compatibilidad con la supervisión y la administración de las canalizaciones de datos y la solución de problemas. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
-
-En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante Azure Portal y PowerShell.
+> [!IMPORTANT]
+> La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Descripción de las canalizaciones y los estados de actividad
 Con Azure Portal, puede:
@@ -103,7 +106,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 <td>ActivityResume</td><td>La actividad está en pausa y no puede ejecutar los segmentos hasta que se reanude.</td>
 </tr>
 <tr>
-<td>Retry</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
+<td>Reintento</td><td>Se está volviendo a intentar la ejecución de la actividad.</td>
 </tr>
 <tr>
 <td>Validación</td><td>Aún no ha iniciado la validación.</td>
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Depuración de canalizaciones
 Azure Data Factory ofrece amplias funcionalidades a través de Azure Portal y Azure PowerShell para depurar y solucionar problemas de las canalizaciones.
 
-> [NOTA} Es mucho más fácil solucionar errores mediante la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
+> [!NOTE] 
+> Es mucho más fácil solucionar errores mediante la aplicación de supervisión y administración. Para más información sobre el uso de la aplicación, consulte el artículo [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Búsqueda de errores en una canalización
 Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al fallo. Puede depurar y solucionar los errores en Azure Data Factory con los métodos siguientes.
@@ -296,6 +300,35 @@ El valor "UpdateType" se establece en "UpstreamInPipeline", lo que significa que
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Creación de alertas en Azure Portal
+
+1.  Inicie sesión en Azure Portal y seleccione **Monitor -> Alertas** para abrir la página de alertas.
+
+    ![Abra la página Alertas.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Haga clic en **+Nueva regla de alertas** para crear una nueva alerta.
+
+    ![Creación de una nueva alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Defina **Alert condition** (Condición de la alerta). (Asegúrese de seleccionar **Factorías de datos** en el campo **Filtrar por tipo de recurso**). También puede especificar valores para **Dimensiones**.
+
+    ![Definir la condición de la alerta: Seleccione el destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definir la condición de la alerta: Agregue criterios de alerta.](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definir la condición de la alerta: Agregue la lógica de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Defina los **Detalles de alertas**.
+
+    ![Definir los detalles de la alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Defina el **Grupo de acciones**.
+
+    ![Definir el grupo de acciones: Crear un nuevo grupo de acciones](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definir el grupo de acciones: Establecer las propiedades](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Definir el grupo de acciones: Nuevo grupo de acciones creado](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Desplazamiento de una factoría de datos a una suscripción o un grupo de recursos diferente
 Puede mover una factoría de datos a un grupo de recursos o una suscripción diferentes con el botón **Mover** de la barra de comandos que aparece en la página principal de su factoría de datos.

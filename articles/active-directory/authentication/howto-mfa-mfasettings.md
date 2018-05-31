@@ -1,24 +1,21 @@
 ---
 title: Configuración de Azure Multi-Factor Authentication| Microsoft Docs
-description: Este artículo describe cómo configurar Azure Multi-Factor Authentication para informes, alertas de fraude, omisiones por única vez, mensajes de voz personalizados, almacenamiento en caché, IP de confianza y contraseñas de aplicación.
+description: En este artículo se describe cómo configurar Azure Multi-Factor Authentication en Azure Portal
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 75af734e-4b12-40de-aba4-b68d91064ae8
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: f587800d3b1d205107b6c8091ca424b01b9e67e6
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869808"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 

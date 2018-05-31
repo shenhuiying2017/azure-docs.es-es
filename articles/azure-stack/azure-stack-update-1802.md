@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d0641e1c7c09ac081e4dc024d6e231b88bcb58d2
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196226"
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936677"
 ---
 # <a name="azure-stack-1802-update"></a>Actualización 1802 de Azure Stack
 
@@ -117,6 +117,8 @@ Los siguientes son problemas conocidos posteriores a la instalación de la compi
 
 - Puede que vea un panel en blanco en el portal. Para recuperar el panel, seleccione el icono de engranaje en la esquina superior derecha del portal y, a continuación, seleccione **Restaurar configuración predeterminada**.
 
+- Al ver las propiedades de un recurso o grupo de recursos, el botón **Mover** está deshabilitado. Este comportamiento es normal. Actualmente no se admite mover recursos o grupos de recursos entre grupos de recursos o suscripciones.
+
 - La eliminación de las suscripciones del usuario da como resultado recursos huérfanos. Como alternativa, elimine primero los recursos del usuario o todo el grupo de recursos y, a continuación, elimine las suscripciones del usuario.
 
 - No puede ver los permisos de la suscripción mediante los portales de Azure Stack. Como alternativa, use PowerShell para comprobar los permisos.
@@ -162,7 +164,7 @@ No hay ningún problema conocido después de actualizar a 1802.
 
   Como alternativa, cree una nueva imagen de máquina virtual con un disco duro virtual ficticio que se pueda crear mediante Hyper-V (nuevo VHD, ruta de acceso C:\dummy.vhd, fijo, bytes de tamaño 1 GB). Este proceso debería corregir el problema que impide que se elimine el elemento con error. A continuación, 15 minutos después de crear la imagen ficticia, puede eliminarlo correctamente.
 
-  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo un error.
+  Luego puede volver a intentar cargar la imagen de máquina virtual que anteriormente produjo error.
 
 -  Si aprovisionar una extensión en una implementación de máquina virtual tarda demasiado tiempo, los usuarios deberían dejar que se agote el tiempo de espera de aprovisionamiento en lugar de intentar detener el proceso para desasignar o eliminar la máquina virtual.  
 
@@ -180,9 +182,9 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 - El equilibrio de carga interno (ILB) administra incorrectamente las direcciones MAC de máquinas virtuales de back-end, lo que hace que se interrumpa cuando se usan instancias de Linux en la red de back-end.  ILB funciona bien con instancias de Windows en la red de back-end.
 
--   La característica de reenvío IP está visible en el portal; sin embargo, no ocurre nada al habilitar esta característica. El motivo es que aún no se admite.
+-   La característica de reenvío IP está visible en el portal, sin embargo, no ocurre nada al habilitar esta característica. El motivo es que aún no se admite.
 
-- Azure Stack admite una única *puerta de enlace de red local* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
+- Azure Stack admite una única *puerta de enlace de red* por dirección IP. Y esto se aplica a las suscripciones de todos los inquilinos. Tras la creación de la primera conexión a la puerta de enlace de red local, los sucesivos intentos para crear un recurso de puerta de enlace de red local con la misma dirección IP se bloquean.
 
 - En una red virtual que se creó con una configuración de servidor DNS de *Automática*, se produce un error al cambiar a un servidor DNS personalizado. La configuración actualizada no se inserta en las máquinas virtuales de esa red virtual.
 
@@ -261,7 +263,6 @@ No hay ningún problema conocido después de actualizar a 1802.
 
 - Solo el proveedor de recursos puede crear elementos en servidores que hospedan SQL o MySQL. Los elementos creados en un servidor host que no se crean con el proveedor de recursos podrían dar lugar a un error de coincidencia de estado.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
 
 > [!NOTE]  
 > Después de actualizar a Azure Stack 1802, puede seguir usando los proveedores de recursos SQL y MySQL que implementó anteriormente.  Le recomendamos que actualice SQL y MySQL cuando haya disponible una nueva versión. Al igual que Azure Stack, aplique las actualizaciones a los proveedores de recursos SQL y MySQL de manera secuencial.  Por ejemplo, si usa la versión 1710, aplique primero la versión 1711, luego la versión 1712 y luego actualice a la 1802.      
