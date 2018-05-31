@@ -1,23 +1,24 @@
 ---
-title: "Comunicación remota en Azure Service Fabric | Microsoft Docs"
-description: "La comunicación remota de Service Fabric permite a los clientes y servicios comunicarse con los servicios mediante la llamada a procedimiento remoto."
+title: Comunicación remota en Azure Service Fabric | Microsoft Docs
+description: La comunicación remota de Service Fabric permite a los clientes y servicios comunicarse con los servicios mediante la llamada a procedimiento remoto.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 51a9c8bd628ef9e65d04a3a4ddbdc127d84d4b54
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 074c428662abb5c3acf86835f6fedbf3f8791acf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212983"
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicación remota de servicio con Reliable Services
 > [!div class="op_single_selector"]
@@ -101,7 +102,7 @@ Toda la excepción remota generada por la API de servicio se vuelve a enviar al 
 ServiceProxy controla todas las excepciones de conmutación por error para la partición de servicio para la que se crea. Vuelve a resolver los puntos de conexión si existen excepciones de conmutación por error (excepciones no transitorias) y recupera la llamada con el punto de conexión correcto. El número de reintentos para la excepción de conmutación por error es indefinido.
 En el caso de TransientExceptions, solo recupera la llamada.
 
-[OperationRetrySettings] proporciona los parámetros de reintento predeterminados. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings) El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
+[OperationRetrySettings] proporciona los parámetros de reintento predeterminados. (https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client._operation_retry_settings)) El usuario puede configurar estos valores pasando el objeto OperationRetrySettings al constructor ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de la comunicación para Reliable Services](service-fabric-reliable-services-secure-communication.md)

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304467"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de máquinas virtuales entre distintas zonas de disponibilidad con un equilibrador de carga estándar mediante Azure Portal
 
@@ -37,6 +38,8 @@ El equilibrio de carga proporciona un mayor nivel de disponibilidad al distribui
 > * Ver un equilibrador de carga en acción
 
 Para más información sobre cómo usar las zonas de disponibilidad con Load Balancer Estándar, consulte [Load Balancer Estándar y zonas de disponibilidad](load-balancer-standard-availability-zones.md).
+
+Si lo prefiere, puede realizar los pasos de este artículo con la [CLI de Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar. 
 
@@ -141,18 +144,21 @@ Cree máquinas virtuales en distintas zonas (zona 1, zona 2 y zona 3) de la regi
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, en la lista de recursos haga clic en **myVM1**, que se encuentra en el grupo de recursos *myResourceGroupLBAZ*.
 2. En la página **Información general**, haga clic en **Conectar** a RDP en la máquina virtual.
 3. Inicie sesión en la máquina virtual con el nombre de usuario *azureuser*.
-4. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Administrador del servidor** .
-5. En la página de inicio rápido del Administrador del servidor, haga clic en **Agregar roles y características**.
-
-   ![Incorporación al grupo de direcciones de back-end ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. En el **Asistente para agregar roles y características**, use los siguientes valores:
-    - En la página **Tipo de instalación**, haga clic en **Instalación basada en características o en roles**.
-    - En la página **Seleccionar servidor de destino **, haga clic en** myVM1**.
-    - En la página **Seleccionar rol de servidor**, haga clic en **Servidor web (IIS)**.
-    - Siga las instrucciones para completar el resto del asistente.
-2. Cierre la sesión RDP con la máquina virtual *myVM1*.
-3. Repita los pasos 1 a 7 para instalar IIS en las máquinas virtuales *myVM2* y *myVM3*.
+4. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Windows PowerShell**.
+5. En la ventana de PowerShell, ejecute los comandos siguientes para instalar el servidor IIS, eliminar el archivo iisstart.htm predeterminado y agregar uno nuevo que muestre el nombre de la máquina virtual:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Cierre la sesión de RDP con *myVM1*.
+7. Repita los pasos 1 a 6 para instalar IIS y el archivo iisstart.htm actualizado en *myVM2* y *myVM3*.
 
 ## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
 
@@ -215,7 +221,7 @@ Las reglas de equilibrador de carga se utilizan para definir cómo se distribuye
 
 2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. La página predeterminada del servidor web de IIS se muestra en el explorador.
 
-      ![Servidor web de IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![Servidor web de IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Para ver cómo el equilibrador de carga reparte el tráfico entre las máquinas virtuales distribuidas por la zona, puede realizar una actualización forzada del explorador web.
 

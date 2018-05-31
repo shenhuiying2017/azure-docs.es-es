@@ -1,27 +1,30 @@
 ---
-title: Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)
+title: Replicación de una máquina virtual de Azure en otra región de Azure
 description: En esta guía de inicio rápido se indican los pasos necesarios para replicar una máquina virtual de Azure de una región de Azure a otra región.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208845"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Replicación de una máquina virtual de Azure en otra región de Azure (versión preliminar)
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicación de una máquina virtual de Azure en otra región de Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
-En esta guía de inicio rápido se describe cómo replicar una máquina virtual de Azure en una región distinta de Azure.
+En esta guía de inicio rápido se describe cómo replicar una máquina virtual de Azure en una región distinta de Azure. La replicación de Azure de Azure se encuentra en una versión preliminar en este momento
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -31,7 +34,7 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
 
 1. En Azure Portal, haga clic en **Máquinas virtuales** y seleccione la máquina virtual que desea replicar.
 
-2. En **Configuración**, haga clic en **Recuperación ante desastres (versión preliminar)**.
+2. En **Configuración**, haga clic en **Recuperación ante desastres**.
 3. En **Configurar recuperación ante desastres** > **Región de destino**, seleccione la región de destino en la que quiere realizar la replicación.
 4. En esta guía de inicio rápido, acepte los restantes valores predeterminados.
 5. Haga clic en **Habilitar replicación**. Esto inicia un trabajo para habilitar la replicación de la máquina virtual.
@@ -59,7 +62,7 @@ La máquina virtual de la región primaria deja de replicar al deshabilitar la r
 Detenga la replicación como se indica a continuación:
 
 1. Seleccione la máquina virtual.
-2. En **Recuperación ante desastres (versión preliminar)**, haga clic en **Más**.
+2. En **Recuperación ante desastres**, haga clic en **Más**.
 3. Haga clic en **Deshabilitar replicación**.
 
    ![Deshabilitar replicación](media/azure-to-azure-quickstart/disable2-replication.png)

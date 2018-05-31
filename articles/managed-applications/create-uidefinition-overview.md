@@ -1,6 +1,6 @@
 ---
-title: "Descripción de la creación de definiciones de interfaz de usuario para aplicaciones administradas de Azure | Microsoft Docs"
-description: "Describe cómo crear definiciones de interfaz de usuario para aplicaciones administradas de Azure"
+title: Descripción de la creación de definiciones de interfaz de usuario para aplicaciones administradas de Azure | Microsoft Docs
+description: Describe cómo crear definiciones de interfaz de usuario para aplicaciones administradas de Azure
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 1e995a3de33960fa3255074a704528bec9d21491
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59003e71324f5342cb2b724f670603fd6b67afe4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305232"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Creación de la interfaz de usuario de Azure Portal para una aplicación administrada
 En este documento se presentan los conceptos principales del archivo createUiDefinition.json. Azure Portal usa este archivo para generar la interfaz de usuario para crear una aplicación administrada.
@@ -79,6 +80,6 @@ El propio archivo createUiDefinition.json tiene un esquema simple. Su profundida
 - [Elementos](create-uidefinition-elements.md)
 - [Funciones](create-uidefinition-functions.md)
 
-Aquí encontrará un esquema JSON actual para CreateUiDefinition: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Un esquema JSON actual para createUiDefinition está disponible aquí: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
 Para un archivo de interfaz de usuario de ejemplo, vea [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).

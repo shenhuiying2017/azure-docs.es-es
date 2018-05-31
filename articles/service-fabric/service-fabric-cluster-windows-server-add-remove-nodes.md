@@ -1,24 +1,25 @@
 ---
-title: "Incorporación o eliminación de un clúster de Service Fabric independiente | Microsoft Docs"
-description: "Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube."
+title: Incorporación o eliminación de un clúster de Service Fabric independiente | Microsoft Docs
+description: Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 252dcdf0ff9e1fecd6665808bfe7978a4417018b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212551"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que [cree su clúster de Service Fabric independiente en máquinas con Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y que deba agregar o eliminar nodos del clúster. En este artículo, se muestran los pasos detallados para llevarlo a cabo. Tenga en cuenta que no se permite agregar o eliminar nodos en los clústeres de desarrollo local.
@@ -57,7 +58,7 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas con W
     Puede supervisar el progreso de la actualización en Service Fabric Explorer. Como alternativa, puede ejecutar [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Agregar nodos a clústeres configurados con seguridad de Windows mediante gMSA
-En clústeres configurados con cuentas de servicio administradas de grupo (gMSA)(https://technet.microsoft.com/library/hh831782.aspx), se puede agregar un nuevo nodo mediante una actualización de configuración:
+En clústeres configurados con cuentas de servicio administradas de grupo (gMSA) (https://technet.microsoft.com/library/hh831782.aspx)), se puede agregar un nuevo nodo mediante una actualización de configuración:
 1. Ejecute [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) en cualquiera de los nodos existentes para obtener el archivo de configuración más reciente y agregue los detalles del nodo que desea agregar en la sección "Nodes". Asegúrese de que el nuevo nodo forma parte de la misma cuenta administrada de grupo. Esta cuenta debe ser un administrador en todos los equipos.
 
     ```

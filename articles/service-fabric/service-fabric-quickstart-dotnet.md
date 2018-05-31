@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207213"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Inicio rápido: Creación de una aplicación .NET de Service Fabric en Azure
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables. 
@@ -109,6 +110,7 @@ Para ver lo que ocurre en el código, siga estos pasos:
     - Por último, devuelva la respuesta desde el servicio back-end al cliente **(3)**.
 
 4. Pulse **F5** para continuar.
+    - Si el explorador se lo pide, conceda al grupo ServiceFabricAllowedUsers permisos de lectura y ejecución para el modo de depuración.
     - Ya está en el punto de interrupción del servicio back-end.
     
     ![Incorporación del servicio back-end de voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Ahora que la aplicación está lista, puede implementarla en un clúster directa
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Escalar aplicaciones y servicios en un clúster
 Es fácil escalar servicios de Service Fabric en un clúster para adaptarse a un cambio en la carga en los servicios. Para escalar un servicio, cambie el número de instancias que se ejecutan en el clúster. Existen varias formas de escalar los servicios, ya sea mediante scripts o comandos de PowerShell o la CLI de Service Fabric (sfctl). En este ejemplo, se usa Service Fabric Explorer.
 
-Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y es accesible desde un explorador. Para ello, vaya al puerto de administración HTTP de clústeres (19080), por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y es accesible desde un explorador. Para ello, vaya al puerto de administración HTTP de clústeres (19080), por ejemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Es posible que reciba una advertencia del explorador que le indica que la ubicación no es de confianza. Esto se debe a que se trata de un certificado autofirmado. Puede pasar por alto la advertencia y continuar. Cuando se lo solicite el explorador, seleccione el certificado instalado para conectarse. 
+Es posible que reciba una advertencia del explorador que le indica que la ubicación no es de confianza. Esto se debe a que se trata de un certificado autofirmado. Puede pasar por alto la advertencia y continuar.
+1. Cuando se lo solicite el explorador, seleccione el certificado instalado para conectarse. El certificado de clúster de entidad que seleccione en la lista debe coincidir con el clúster de entidad al que está intentando acceder. Por ejemplo, win243uja6w62r.westus.cloudapp.azure.com.
+2. Si el explorador se lo pide, conceda acceso a la clave privada de CryptoAPI para esta sesión.
 
 Para escalar el servicio front-end web, siga estos pasos:
 
-1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Abra Service Fabric Explorer en el clúster, por ejemplo, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. En la vista de árbol, expanda **Applications** (Aplicaciones) ->**VotingType**->**fabric:/Voting**. Haga clic en el botón de puntos suspensivos (tres puntos) situado junto al nodo **fabric:/Voting/VotingWeb** en la vista de árbol y seleccione **Scale Service** (Escalar servicio).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

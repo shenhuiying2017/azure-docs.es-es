@@ -1,24 +1,25 @@
 ---
 title: Implementar el servicio Administrador de dispositivos de StorSimple en Azure | Microsoft Docs
-description: "Aquí encontrará información acerca de cómo crear y eliminar el servicio StorSimple Device Manager en Azure Portal, así como una descripción acerca de cómo administrar la clave de registro del servicio."
+description: Aquí encontrará información acerca de cómo crear y eliminar el servicio StorSimple Device Manager en Azure Portal, así como una descripción acerca de cómo administrar la clave de registro del servicio.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012750"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implementar el servicio Administrador de dispositivos de StorSimple para dispositivos de la serie StorSimple 8000
 
@@ -29,7 +30,9 @@ El servicio StorSimple Device Manager se ejecuta en Microsoft Azure y se conecta
 En este tutorial se describen los pasos necesarios para la creación, la eliminación, la migración del servicio y la administración de la clave de registro del servicio. La información contenida en este artículo se aplica solo a los dispositivos de la serie StorSimple 8000. Para más información sobre StorSimple Virtual Array, vaya a [Implementación del servicio Administrador de dispositivos de StorSimple en una instancia de StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Todos los administradores de dispositivos de StorSimple clásico realizarán la transición automáticamente al nuevo Azure Portal. Si tiene alguna pregunta, consulte [Preguntas más frecuentes: realizar la transición a Azure Portal](storsimple-8000-move-azure-portal-faq.md). No se admiten los cmdlets de PowerShell de Azure Service Manager (ASM) después de cambiar al nuevo Azure Portal. Actualice los scripts para administrar los dispositivos y, después, vea [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md) (Uso de scripts basados en SKD de Azure Resource Manager para administrar dispositivos de StorSimple) para obtener más información. El nuevo Azure Portal admite dispositivos que ejecutan la versión Update 5.0 o posterior. Si el dispositivo no está actualizado, instale Update 5 inmediatamente. Para más información, vaya a [Instalación de Update 5](storsimple-8000-install-update-5.md). Si está usando StorSimple Cloud Appliance (8010/8020), no puede actualizar una aplicación en la nube. Utilice la versión más reciente del software para crear una nueva aplicación en la nube con la versión Update 5.0 y después realizar una conmutación por error en la nueva aplicación en la nube creada. Todos los dispositivos que ejecutan Update 4.0 o una versión anterior experimentarán [la funcionalidad de administración reducida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Azure Portal admite dispositivos que ejecutan la versión Update 5.0 o posterior. Si el dispositivo no está actualizado, instale Update 5 inmediatamente. Para más información, vaya a [Instalación de Update 5](storsimple-8000-install-update-5.md). 
+> - Si está usando StorSimple Cloud Appliance (8010/8020), no puede actualizar una aplicación en la nube. Utilice la versión más reciente del software para crear una nueva aplicación en la nube con la versión Update 5.0 y después realizar una conmutación por error en la nueva aplicación en la nube creada. 
+> - Todos los dispositivos que ejecutan Update 4.0 o una versión anterior experimentarán [la funcionalidad de administración reducida](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Crear un servicio
 Para crear un servicio Administrador de dispositivos de StorSimple, debe tener:
@@ -38,11 +41,7 @@ Para crear un servicio Administrador de dispositivos de StorSimple, debe tener:
 * Una cuenta de Almacenamiento de Microsoft Azure activa.
 * La información de facturación que se usa para la administración de acceso
 
-Solo se permiten las suscripciones con un contrato Enterprise. En Azure Portal no se admiten las suscripciones de Microsoft Sponsorship que se permitían en el Portal de Azure clásico. Cuando se usa una suscripción no compatible, verá el siguiente mensaje:
-
-![La suscripción no es válida](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-También puede generar una cuenta de almacenamiento predeterminada cuando se crea el servicio.
+Solo se permiten las suscripciones con un contrato Enterprise. También puede generar una cuenta de almacenamiento predeterminada cuando se crea el servicio.
 
 Un único servicio puede administrar varios dispositivos. Sin embargo, un dispositivo no puede abarcar varios servicios. Una gran empresa puede tener varias instancias de servicio para trabajar con distintas suscripciones, organizaciones o incluso las ubicaciones de implementación. 
 
@@ -149,8 +148,7 @@ Este paso se realiza en la interfaz de Windows PowerShell para StorSimple del di
 
 > [!NOTE]
 > Hasta que se complete la sustitución de claves no se pueden realizar operaciones en Azure Portal del servicio StorSimple Manager.
-> 
-> 
+
 
 Si utiliza la consola serie del dispositivo para conectarse a la interfaz de Windows PowerShell, realice los pasos siguientes.
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1424ae2d9ffe7308fe85b7eb8ed6b0062d59ce31
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057941"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212388"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Modelo de compra basado en núcleos virtuales de Azure SQL Database (versión preliminar)
 
@@ -27,7 +27,7 @@ ms.locfileid: "34057941"
 |**Modelo de compra**|**Descripción**|**Más adecuado para**|
 |---|---|---|
 |Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los niveles de rendimiento se expresan como unidades de transmisión de datos (DTU) para las bases de datos únicas y como unidades de transmisión de datos elásticas (eDTU) para los grupos de bases de datos elásticas. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-what-is-a-dtu.md)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.| 
-|Modelo basado en núcleos virtuales|Este modelo le permite escalar los recursos de proceso y almacenamiento de manera independiente. También permite usar Ventaja híbrida de Azure para SQL Server para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
+|Modelo basado en núcleos virtuales|Este modelo le permite escalar los recursos de proceso y almacenamiento de manera independiente (hasta 80 núcleos virtuales, 4 TB de espacio de almacenamiento de datos y 200 000 IOPS). También permite usar Ventaja híbrida de Azure para SQL Server para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
 ||||  
 
 ![Modelo de precios](./media/sql-database-service-tiers/pricing-model.png)
@@ -66,10 +66,10 @@ La tabla siguiente le ayudará a comprender las diferencias entre estos dos nive
 ||**Uso general**|**Crítico para la empresa**|
 |---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|
-|Proceso|De 1 a 16 núcleos virtuales|De 1 a 16 núcleos virtuales|
+|Proceso|Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5 |Entre 1 y 80 núcleos virtuales, de generación 4 y generación 5|
 |Memoria|7 GB por núcleo |7 GB por núcleo |
-|Storage|Almacenamiento remoto Premium, de 5 GB a 4 TB|Almacenamiento local de SSD, de 5 GB a 1 TB|
-|Rendimiento de E/S (aproximado)|500 IOPS por núcleo virtual con 7500 IOPS como máximo|5000 IOPS por núcleo|
+|Storage|Almacenamiento remoto Premium, de 5 GB a 4 TB|Almacenamiento local de SSD, de 5 GB a 4 TB|
+|Rendimiento de E/S (aproximado)|500 IOPS por núcleo virtual con 7000 IOPS como máximo|5000 IOPS por núcleo con 200 000 IOPS como máximo|
 |Disponibilidad|1 réplica, sin escalado de lectura|3 réplicas, 1 [escalado de lectura](sql-database-read-scale-out.md), HA con redundancia de zona|
 |Copias de seguridad|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)|RA-GRS, de 7 a 35 días (7 días de forma predeterminada)*|
 |En memoria|N/D|Compatible|

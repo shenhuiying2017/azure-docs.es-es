@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176293"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203784"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Supervisión del uso y costos estimados
 
@@ -93,7 +93,7 @@ El nuevo modelo de precios simplifica las opciones de precios que ofrecen Log An
 La estimación de costos muestra los efectos de estos cambios.
 
 > [!WARNING]
-> Tenga en cuenta lo siguiente si usa Azure Resource Manager o PowerShell para implementar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) o [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) en una suscripción que haya trasladado al nuevo modelo de precios. Si especifica un plan de tarifa que no sea "pergb2018" para Log Analytics o "Básico" para Application Insights, no se producirá un error en la implementación aunque haya especificado un plan de tarifa no válido; es más, la implementación se realizará correctamente, **pero usará solo el plan de tarifa válido**. 
+> Tenga en cuenta lo siguiente si usa Azure Resource Manager o PowerShell para implementar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) o [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) en una suscripción que haya trasladado al nuevo modelo de precios. Si especifica un plan de tarifa que no sea "pergb2018" para Log Analytics, o "Básico" para Application Insights, no se producirá un error en la implementación aunque haya especificado un plan de tarifa no válido; es más, la implementación se realizará correctamente, **pero usará solo el plan de tarifa válido** (esto no corresponde al plan Gratuito de Log Analytics, donde se genera un mensaje de plan de tarifa no válido).
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Traslado al nuevo modelo de precios

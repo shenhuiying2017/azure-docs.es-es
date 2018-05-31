@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077681"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planeamiento de una implementación de Azure File Sync (versión preliminar)
 Use Azure File Sync (versión preliminar) para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -46,7 +47,14 @@ El agente de Azure File Sync es un paquete descargable que permite la sincroniza
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Punto de conexión de servidor
-Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Pueden existir varios puntos de conexión de servidor en el mismo volumen si sus espacios de nombres no se superponen (por ejemplo, `F:\sync1` y `F:\sync2`). Además, puede configurar directivas de niveles de nube de manera individual para cada punto de conexión de servidor. Actualmente, no es posible crear un punto de conexión de servidor para la raíz de un volumen (por ejemplo `F:\` o `C:\myvolume`, si un volumen se monta como un punto de montaje).
+Un punto de conexión de servidor representa una ubicación específica en un servidor registrado, como una carpeta en un volumen de servidor. Pueden existir varios puntos de conexión de servidor en el mismo volumen si sus espacios de nombres no se superponen (por ejemplo, `F:\sync1` y `F:\sync2`). Además, puede configurar directivas de niveles de nube de manera individual para cada punto de conexión de servidor. 
+
+Puede crear un punto de conexión de servidor a través de un punto de montaje. Tenga en cuenta que se omiten los puntos de montaje en el punto de conexión de servidor.  
+
+Puede crear un punto de conexión de servidor en el volumen del sistema, pero si lo hace existen dos limitaciones:
+* No se pueden habilitar los niveles de nube.
+* La restauración rápida del espacio de nombres (en la que el sistema desactiva todo el espacio de nombres y, a continuación, empieza a recuperar contenido) no se realiza.
+
 
 > [!Note]  
 > Solo se admiten volúmenes no extraíbles.  Las unidades asignadas desde un recurso compartido remoto no son compatibles con rutas de acceso de punto de conexión de servidor.  Además, un punto de conexión de servidor puede encontrarse en el volumen del sistema de Windows, aunque los niveles de nube no se admitan en dicho volumen.
@@ -105,7 +113,7 @@ Las versiones futuras de Windows Server se agregarán tan pronto como se publiqu
 | ~$\*.\* | Archivo temporal de Office |
 | \*.tmp | Archivo temporal |
 | \*.laccdb | Archivo de bloqueo de base de datos de Access|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Archivo de sincronización interna|
 | \\System Volume Information | Carpeta específica del volumen |
 | $RECYCLE.BIN| Carpeta |
 | \\SyncShareState | Carpeta para sincronización |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 804a60431faad745f8fdf01db822151dd2c8bc68
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4c0b65411e9846077036e16204b7a407c6c7ee9e
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185450"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261776"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la CLI de Azure 2.0
 
@@ -126,7 +126,7 @@ azure storage account list
 Se pueden usar filtros para limitar los datos que se almacenan en la captura de paquetes. En el ejemplo siguiente se configura una captura de paquetes con varios filtros.  Los tres primeros filtros recopilan el tráfico TCP saliente solo de la dirección IP local 10.0.0.3 a los puertos de destino 20, 80 y 443.  El último filtro recopila solo el tráfico UDP.
 
 ```azurecli
-az network watcher packet-capture create --resource-group {resoureceurceGroupName} --vm {vmName} --name packetCaptureName --storage-account gwteststorage123abc --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
+az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
 El ejemplo siguiente es la salida esperada de la ejecución del cmdlet `az network watcher packet-capture create`.
@@ -184,61 +184,26 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Obtención de una captura de paquetes
 
-Al ejecutar el cmdlet `az network watcher packet-capture show` se recupera el estado de una captura de paquetes que se está ejecutando o se ha completado.
+Al ejecutar el cmdlet `az network watcher packet-capture show-status` se recupera el estado de una captura de paquetes que se está ejecutando o se ha completado.
 
 ```azurecli
-az network watcher packet-capture show --name packetCaptureName --location westcentralus
+az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-El ejemplo siguiente es la salida del cmdlet `az network watcher packet-capture show`. El ejemplo siguiente es una vez completada la captura. El valor de PacketCaptureStatus es Stopped, con un valor de StopReason de TimeExceeded. Este valor muestra que la captura de paquetes fue correcta y agotó su tiempo.
+El ejemplo siguiente es la salida del cmdlet `az network watcher packet-capture show-status`. El siguiente ejemplo refiere a cuando se detiene la captura, con un StopReason de TimeExceeded. 
 
 ```
 {
-  "bytesToCapturePerPacket": 0,
-  "etag": "W/\"b8cf3528-2e14-45cb-a7f3-5712ffb687ac\"",
-  "filters": [
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "20"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "80"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "443"
-    },
-    {
-      "localIpAddress": "",
-      "localPort": "",
-      "protocol": "UDP",
-      "remoteIpAddress": "",
-      "remotePort": ""
-    }
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
-  "name": "packetCaptureName",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "NetworkWatcherRG",
-  "storageLocation": {
-    "filePath": null,
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/gwteststorage123abc",
-    "storagePath": "https://gwteststorage123abc.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapt
-ure_16_22_34_630.cap"
+  "additionalProperties": {
+    "status": "Succeeded"
   },
-  "target": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-  "timeLimitInSeconds": 18000,
-  "totalBytesPerSession": 1073741824
+  "captureStartTime": "2016-12-06T17:20:01.5671279Z",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
+cketCaptures/packetCaptureName",
+  "name": "packetCaptureName",
+  "packetCaptureError": [],
+  "packetCaptureStatus": "Stopped",
+  "stopReason": "TimeExceeded"
 }
 ```
 

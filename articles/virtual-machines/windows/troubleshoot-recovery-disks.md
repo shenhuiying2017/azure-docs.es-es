@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 2201fa48c84aec2c291d8df7e16293a41720ce3e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 408429d0f8697b8b807e386dbcf2eade29938249
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271698"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Solución de problemas de una máquina virtual Windows mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure PowerShell
 Si la máquina virtual Windows de Azure se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure PowerShell para conectar el disco duro virtual a otra máquina virtual Windows para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -31,6 +32,9 @@ El proceso de solución de problemas es el siguiente:
 3. Conéctese a la máquina virtual de solución de problemas. Edite los archivos o ejecute cualquier herramienta necesaria para solucionar los problemas del disco duro virtual original.
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
+
+Si la máquina virtual usa discos administrados, consulte [Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+
 
 Asegúrese de que tiene [la Azure PowerShell más reciente](/powershell/azure/overview) instalada y con la sesión iniciada en su suscripción:
 
@@ -200,6 +204,13 @@ $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"
 Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enable
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo
+1. Detenga la máquina virtual Windows de disco administrado.
+2. [Cree una instantánea de disco administrado](snapshot-copy-managed-disk.md) del disco del sistema operativo de la máquina virtual de disco administrado.
+3. [Cree un nuevo disco administrado a partir de la instantánea](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Asocie el disco administrado como un disco de datos de la máquina virtual](attach-disk-ps.md).
+5. [Cambie el disco de datos del paso 4 por un disco de sistema operativo](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones RDP a una máquina virtual de Azure](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
