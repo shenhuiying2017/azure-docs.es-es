@@ -1,11 +1,11 @@
 ---
 title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azure AD | Microsoft Docs
-description: "Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros."
+description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069900"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
@@ -80,7 +81,7 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 
 La configuración del servicio de aprovisionamiento de Azure AD para una aplicación seleccionada se inicia en  **[Azure Portal](https://portal.azure.com)**. En la sección **Azure Active Directory > Aplicaciones empresariales**, seleccione **Agregar**, **Todos** y, a continuación, agregue lo que necesite entre los elementos siguientes en función de su escenario:
 
-* Todas las aplicaciones de la sección **Aplicaciones destacadas** admiten el aprovisionamiento automático. Consulte la [lista de tutoriales de aplicaciones para el aprovisionamiento de usuarios]active-directory-saas-tutorial-list.md) para ver más.
+* Todas las aplicaciones de la sección **Aplicaciones destacadas** admiten el aprovisionamiento automático. Consulte la [lista de tutoriales de aplicaciones para el aprovisionamiento de usuarios](active-directory-saas-tutorial-list.md) para ver más.
 
 * Use la opción "Aplicación situada fuera de la galería" para las integraciones de SCIM desarrolladas de forma personalizada
 
@@ -220,4 +221,5 @@ Póngase en contacto con nosotros a través del [foro de comentarios de Azure Ac
 * [Filtros de ámbito para el aprovisionamiento de usuario](active-directory-saas-scoping-filters.md)
 * [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md)
 * [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Plan de implementación detallado de aprovisionamiento de usuarios de salida de una aplicación](https://aka.ms/userprovisioningdeploymentplan)
 
