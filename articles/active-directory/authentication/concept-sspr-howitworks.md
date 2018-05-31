@@ -16,11 +16,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro;seohack1
-ms.openlocfilehash: 5933448b40a590b39df5ae4cf07fd858bebcd28f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32157728"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Profundización del autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -49,7 +50,7 @@ Lea los pasos siguientes para obtener información sobre la lógica de la págin
        * Si la comprobación del usuario no está configurada, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
      * Si la directiva requiere dos comprobaciones, esta garantiza que el usuario tiene los datos correspondientes definidos para al menos dos de las comprobaciones habilitadas por la directiva del administrador.
        * Si la comprobación del usuario no está configurada, se recomienda al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
-   * Comprueba si la contraseña del usuario se administra en un entorno local (federado o sincronizado con hash de contraseña).
+   * Comprueba si la contraseña del usuario se administra en un entorno local (federado, con autenticación de paso a través o con sincronización de hash de contraseñas).
      * Si la escritura diferida está implementada y la contraseña del usuario se administra en un entorno local, el usuario puede continuar con la autenticación y restablecer la contraseña.
      * Si la escritura diferida no está implementada y la contraseña del usuario se administra en un entorno local, se pide al usuario que se ponga en contacto con el administrador para restablecer la contraseña.
 4. Si se determina que el usuario puede restablecer correctamente la contraseña, se le guiará a través del proceso de restablecimiento.
@@ -224,8 +225,8 @@ Esta página proporciona un estado rápido del cliente de escritura diferida con
 
 Este control determina si la escritura diferida de contraseñas está habilitada para este directorio. Si lo está, indica el estado del servicio de escritura diferida local. Esto es útil si desea deshabilitar temporalmente la escritura diferida de contraseñas sin tener que volver a configurar Azure AD Connect.
 
-* Si el modificador se establece en **Sí**, se habilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña pueden restablecer sus contraseñas.
-* Si el modificador se establece en **No**, se deshabilita la escritura diferida y los usuarios federados y sincronizados por hash de contraseña no pueden restablecer sus contraseñas.
+* Si el modificador se establece en **Sí**, se habilita la escritura diferida y los usuarios federados, con autenticación de paso a través o con sincronización de hash de contraseñas pueden restablecer sus contraseñas.
+* Si el modificador se establece en **No**, se deshabilita la escritura diferida y los usuarios federados, con autenticación de paso a través o con sincronización de hash de contraseñas no pueden restablecer sus contraseñas.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña
 

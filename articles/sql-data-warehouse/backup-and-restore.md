@@ -10,11 +10,12 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 535c16da137b114704aa9a2e97576ced5e9eba44
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187606"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 Obtenga información acerca de cómo funcionan la copia de seguridad y la restauración en Azure SQL Data Warehouse. Use copias de seguridad de almacenamiento de datos para restaurar el almacenamiento de datos a un punto de restauración en la región primaria. Use copias de seguridad con redundancia geográfica para restaurar en una región geográfica distinta. 
@@ -55,9 +56,9 @@ Cuando se quita un almacenamiento de datos SQL Data Warehouse crea una instantá
 > 
 
 ## <a name="geo-backups"></a>Copias de seguridad geográficas
-SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad geográfica en el servidor en la región con emparejamiento geográfico. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no pueda acceder a las instantáneas de su región primaria.
+SQL Data Warehouse realiza una copia de seguridad geográfica una vez al día en un [centro de datos emparejado](../best-practices-availability-paired-regions.md). El RPO para una restauración geográfica es de 24 horas. Puede restaurar la copia de seguridad de replicación geográfica en un servidor de cualquier otra región donde se admita SQL Data Warehouse. Una copia de seguridad geográfica garantiza que pueda restaurar el almacenamiento de datos en caso de que no pueda acceder a las instantáneas de su región primaria.
 
-Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos está optimizado para ofrecer elasticidad, lo puede [rechazar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) si lo desea. No se pueden rechazar las copias de seguridad geográficas con el nivel de rendimiento Optimizado para Compute.
+Las copias de seguridad geográficas están activadas de manera predeterminada. Si el almacenamiento de datos es Gen1, puede [optar por no participar](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy), si lo desea. No se pueden optar por no realizar las copias de seguridad de replicación geográfica para Gen2, ya que la protección de datos es una garantía integrada.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad
 Observará que la factura de Azure tiene un elemento de línea para Premium Storage de Azure y un elemento de línea para el almacenamiento con redundancia geográfica. El cargo de Premium Storage es el costo total del almacenamiento de sus datos en la región primaria, que incluye las instantáneas.  El cargo con redundancia geográfica abarca el costo de almacenamiento de las copias de seguridad geográficas.  

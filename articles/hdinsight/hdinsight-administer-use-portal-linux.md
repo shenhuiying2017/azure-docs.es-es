@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/22/2018
+ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361978"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
@@ -125,7 +126,7 @@ Si recibe un error de NoRegisteredProviderFound o MissingSubscriptionRegistratio
    * **Origen de datos predeterminado**: el sistema de archivos predeterminado del clúster.
    * **Tamaño de los nodos de trabajo**: el tamaño de máquina virtual seleccionado de los nodos de trabajo.
    * **Tamaño de nodo principal**: el tamaño de máquina virtual seleccionado de los nodos principales.
-   * **Red virtual**: el nombre de la red virtual y de la subred en la que se implementa el clúster, si se seleccionó una durante la implementación.
+   * **Red virtual**: el nombre de la red virtual en la que se implementa el clúster (en caso de haber seleccionado uno durante la implementación).
 
 ## <a name="delete-clusters"></a>Eliminación de clústeres
 Al eliminar un clúster, no se elimina la cuenta de almacenamiento predeterminada ni otras cuentas de almacenamiento vinculadas. Puede volver a crear el clúster con las mismas cuentas de almacenamiento y las mismas tiendas de metadatos. Se recomienda usar un nuevo contenedor de blobs predeterminado cuando vuelva a crear el clúster.
