@@ -3,7 +3,7 @@ title: Muestreo de telemetría en Azure Application Insights | Microsoft Docs
 description: Cómo mantener el volumen de telemetría bajo control.
 services: application-insights
 documentationcenter: windows
-author: vgorbenko
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8f0c6e6567e82f885bb5cd0c6b6af797b393969c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: mbullwin; vitalyg
+ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309613"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33869910"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
 
@@ -39,7 +39,7 @@ El muestreo reduce los costos de tráfico y datos y le ayuda a evitar la limitac
 ## <a name="types-of-sampling"></a>Tipos de muestreo
 Existen tres métodos de muestreo alternativos:
 
-* **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. A partir del SDK v 2.0.0-beta3, este es el método de muestreo predeterminado. Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET. En el caso de aplicaciones ASP.NET Core que tienen como destino un marco de trabajo completo, el muestreo adaptable se puede encontrar partir de la versión 1.0.0 del SDK de Microsoft.ApplicationInsights.AspNetCore. Para las aplicaciones ASP.NET Core que tienen como destino NetCore, el muestreo adaptable se puede encontrar a partir de la versión 2.2.0-beta1 del SDK de Microsoft.ApplicationInsights.AspNetCore.
+* **muestreo adaptable** ajusta automáticamente el volumen de telemetría enviado desde el SDK en la aplicación de ASP.NET. A partir del SDK v 2.0.0-beta3, este es el método de muestreo predeterminado. Actualmente, el muestreo solo está disponible para la telemetría del lado servidor de ASP.NET. En el caso de aplicaciones ASP.NET Core que tienen como destino una plataforma completa, el muestreo adaptable se puede encontrar partir de la versión 1.0.0 del SDK de Microsoft.ApplicationInsights.AspNetCore. Para las aplicaciones ASP.NET Core que tienen como destino NetCore, el muestreo adaptable se puede encontrar a partir de la versión 2.2.0-beta1 del SDK de Microsoft.ApplicationInsights.AspNetCore.
 
 * **Muestreo de frecuencia fija** reduce el volumen de telemetría enviado desde el servidor ASP.NET o Java y desde los exploradores de los usuarios. El usuario establece la frecuencia. El cliente y el servidor sincronizarán su muestreo por lo que, en Búsqueda, puede desplazarse entre las solicitudes y las vistas de página relacionadas.
 * El **muestreo de ingesta** funciona en el portal de Azure. Lo que hace es descartar algunos de los datos de telemetría que llegan desde su aplicación según la frecuencia de muestreo establecida. Aunque no reduce el tráfico de telemetría enviado desde su aplicación, le ayuda a mantenerse dentro de su cuota mensual. La ventaja principal del muestreo de ingesta es que puede establecer la frecuencia de muestreo sin volver a implementar la aplicación, y funciona de manera uniforme en todos los clientes y servidores. 
