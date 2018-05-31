@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: sethm
-ms.openlocfilehash: d72a4de8591898a55e4225ace154fd5ed53e6f91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 847fe0c08d442388cfa506042272bb358058cb4c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194711"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -69,7 +70,8 @@ role: RECEIVER,
 ### <a name="transfer-a-request-message"></a>Transferencia de un mensaje de solicitud  
 
 Transfiere un mensaje de solicitud.  
-  
+Un estado de transacción se puede agregar opcionalmente para las operaciones que admiten transacciones.
+
 ```  
 requestLink.sendTransfer(  
         Message(  
@@ -79,8 +81,12 @@ requestLink.sendTransfer(
                 },  
                 application-properties: {  
                         "operation" -> "<operation>",  
-                },  
-        )  
+                }
+        ),
+        [Optional] State = transactional-state: {
+                txn-id: <txn-id>
+        }
+)
 ```  
   
 ### <a name="receive-a-response-message"></a>Recepción de un mensaje de respuesta  
@@ -195,7 +201,7 @@ La asignación que representa un mensaje debe contener las siguientes entradas:
   
 ### <a name="schedule-message"></a>Programación de mensajes  
 
-Programa mensajes.  
+Programa mensajes. Esta operación admite transacciones.
   
 #### <a name="request"></a>Solicitud  
 
@@ -217,8 +223,9 @@ La asignación que representa un mensaje debe contener las siguientes entradas:
 |Clave|Tipo de valor|Obligatorio|Contenido del valor|  
 |---------|----------------|--------------|--------------------|  
 |message-id|string|Sí|`amqpMessage.Properties.MessageId` como cadena|  
-|session-id|string|Sí|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|string|Sí|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|  
+|session-id|string|Sin |`amqpMessage.Properties.GroupId as string`|  
+|partition-key|string|Sin |`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|Mediante una clave de partición|string|Sin |`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |Mensaje|Matriz de byte|Sí|Mensaje codificado con AMQP 1.0.|  
   
 #### <a name="response"></a>Response  
@@ -537,6 +544,85 @@ El mensaje de respuesta debe incluir las siguientes propiedades de la aplicació
 |statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
 |statusDescription|string|Sin |Descripción del estado.|  
   
+### <a name="get-rules"></a>Obtener reglas
+
+#### <a name="request"></a>Solicitud
+
+El mensaje de solicitud debe incluir las siguientes propiedades de la aplicación:
+
+|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+|operación|string|Sí|`com.microsoft:enumerate-rules`|  
+|`com.microsoft:server-timeout`|uint|Sin |Tiempo de espera de funcionamiento del servidor en milisegundos.|  
+
+El cuerpo del mensaje de solicitud debe constar de una sección con el **valor de AMQP** que contiene una **asignación** con las siguientes entradas:  
+  
+|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+|top|int|Sí|El número de reglas que se capturan en la página.|  
+|skip|int|Sí|El número de reglas que se omiten. Define el índice inicial (+ 1) en la lista de reglas. | 
+
+#### <a name="response"></a>Response
+
+El mensaje de respuesta incluye las siguientes propiedades:
+
+|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+|statusCode|int|Sí|Código de respuesta HTTP [RFC2616]<br /><br /> 200: operación realizada correctamente; en caso contrario, significa que se ha producido un error.|  
+|reglas| matriz de asignación|Sí|Matriz de reglas. Cada regla se representa mediante un mapa.|
+
+Cada entrada de mapa de la matriz incluye las siguientes propiedades:
+
+|Clave|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+|rule-description|matriz de objetos descritos|Sí|`com.microsoft:rule-description:list` con el código descrito de AMQP 0x0000013700000004| 
+
+`com.microsoft.rule-description:list` es una matriz de objetos descritos. La matriz incluye lo siguiente:
+
+|Índice|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | matriz de objetos descritos | Sí | `filter` como se especifica a continuación. |
+| 1 | matriz de objetos descritos | Sí | `ruleAction` como se especifica a continuación. |
+| 2 | string | Sí | nombre de la regla. |
+
+`filter` puede ser de uno de los siguientes tipos:
+
+| Nombre de descriptor | Código de descriptor | Valor |
+| --- | --- | ---|
+| `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
+| `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlación |
+| `com.microsoft:true-filter:list` | 0x000001370000007 | Filtro true que representa 1 = 1 |
+| `com.microsoft:false-filter:list` | 0x000001370000008 | Filtro false que representa 1 = 0 |
+
+`com.microsoft:sql-filter:list` es una matriz descrita que incluye:
+
+|Índice|Tipo de valor|Obligatorio|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Sí | Expresión de filtro SQL |
+
+`com.microsoft:correlation-filter:list` es una matriz descrita que incluye:
+
+|Índice (si existe)|Tipo de valor|Contenido del valor|  
+|---------|----------------|--------------|--------------------|  
+| 0 | string | Id. de correlación |
+| 1 | string | Id. de mensaje |
+| 2 | string | Para |
+| 3 | string | Responder a |
+| 4 | string | Etiqueta |
+| 5 | string | Identificador de sesión |
+| 6 | string | Respuesta a identificador de sesión|
+| 7 | string | Tipo de contenido |
+| 8 | Map | Mapa de propiedades definidas por la aplicación |
+
+`ruleAction` puede ser cualquiera de los siguientes tipos:
+
+| Nombre de descriptor | Código de descriptor | Valor |
+| --- | --- | ---|
+| `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Acción de regla vacía: no hay existe ninguna acción de regla |
+| `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Acción de regla SQL |
+
+`com.microsoft:sql-rule-action:list` es una matriz de objetos descritos cuya primera entrada es una cadena que contiene la expresión de la acción de regla SQL.
+
 ## <a name="deferred-message-operations"></a>Operaciones de mensajes diferidos  
   
 ### <a name="receive-by-sequence-number"></a>Recepción por número de secuencia  
@@ -583,7 +669,7 @@ La asignación que representa un mensaje debe contener las siguientes entradas:
   
 ### <a name="update-disposition-status"></a>Actualización del estado de disposición  
 
-Actualiza el estado de disposición de los mensajes diferidos.  
+Actualiza el estado de disposición de los mensajes diferidos. Esta operación admite transacciones.
   
 #### <a name="request"></a>Solicitud  
 

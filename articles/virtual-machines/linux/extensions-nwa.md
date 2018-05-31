@@ -3,7 +3,7 @@ title: Extensión de máquina virtual del agente de Azure Network Watcher para L
 description: Implemente el agente de Network Watcher en la máquina virtual Linux mediante una extensión de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 83e2c726228e43612caf94bd8564abc9df3882f9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5a33f183470ec3879344f0cfe335bab38f9ff30f
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778672"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 
@@ -39,11 +40,12 @@ La extensión del agente de Network Watcher puede ejecutarse en estas distribuci
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS y 12.04 LTS |
 | Debian | 7 y 8 |
-| Redhat | 6.x y 7.x |
-| Oracle Linux | 7x |
-| Suse | 11 y 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| Redhat | 6 y 7 |
+| Oracle Linux | 6.8+ y 7 |
+| SUSE Linux Enterprise Server | 11 y 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ y 7 |
+| CoreOS | 899.17.0+ |
 
 Tenga en cuenta que CoreOS no se admite en este momento.
 
@@ -112,4 +114,4 @@ El resultado de la ejecución de las extensiones se registra en los archivos que
 
 ### <a name="support"></a>Soporte técnico
 
-Si necesita más ayuda con cualquier aspecto de este artículo, puede consultar la documentación de Network Watcher o ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/en-us/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/en-us/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
+Si necesita más ayuda con cualquier aspecto de este artículo, puede consultar la documentación de Network Watcher o ponerse en contacto con los expertos de Azure en los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione Obtener soporte. Para obtener información sobre el uso del soporte técnico, lea las [Preguntas más frecuentes de soporte técnico de Microsoft Azure](https://azure.microsoft.com/support/faq/).
