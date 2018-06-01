@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 173e31e3b1f855d488f7f8baf6659b1521ea7aa5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212881"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
@@ -35,7 +36,7 @@ Antes de empezar, es útil [revisar la arquitectura](vmware-azure-architecture.m
 
 ## <a name="select-a-replication-goal"></a>Selección de un objetivo de replicación
 
-1. En **Almacenes de Recovery Services**, haga clic en el nombre del almacén **ContosoVMVault**.
+1. En **Almacenes de Recovery Services**, seleccione el nombre del almacén. En este escenario se usa **ContosoVMVault**.
 2. En **Introducción**, seleccione Site Recovery. Luego, seleccione **Preparar infraestructura**.
 3. En **Objetivo de protección** > **¿Dónde están ubicadas las máquinas?**, seleccione **Local**.
 4. En **¿A dónde quiere replicar las máquinas?**, seleccione **En Azure**.
@@ -139,7 +140,7 @@ Seleccione y compruebe los recursos de destino.
 1. Abra [Azure Portal](https://portal.azure.com) y seleccione **Todos los recursos**.
 2. Haga clic en el almacén de Recovery Service llamado **ContosoVMVault**.
 3. Para crear una directiva de replicación, seleccione **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación** > **+Directiva de replicación**.
-4. En **Crear la directiva de replicación**, especifique el nombre de directiva **VMwareRepPolicy**.
+4. En **Crear la directiva de replicación**, especifique el nombre de directiva. Para este escenario se usa **VMwareRepPolicy**.
 5. En **Umbral de RPO**, use el valor predeterminado de 60 minutos. Este valor define la frecuencia de creación de puntos de recuperación. Se genera una alerta cuando la replicación continua supera este límite.
 6. En **Retención de punto de recuperación**, use el valor predeterminado de 24 horas como duración del período de retención de cada punto de recuperación. En este tutorial, use 72 horas. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período.
 7. En **Frecuencia de instantánea coherente con la aplicación**, use el valor predeterminado de 60 minutos como frecuencia de creación de instantáneas coherentes con la aplicación. Seleccione **Aceptar** para crear la directiva.

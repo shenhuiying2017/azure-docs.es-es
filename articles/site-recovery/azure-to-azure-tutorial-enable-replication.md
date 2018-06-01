@@ -1,21 +1,22 @@
 ---
-title: Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery (versión preliminar)
+title: Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery
 description: Aprenda a configurar la recuperación ante desastres para las máquinas virtuales de Azure en una región de Azure diferente con el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211674"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure (versión preliminar)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configuración de la recuperación ante desastres para las máquinas virtuales de Azure en una región secundaria de Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a su estrategia de recuperación ante desastres mediante la administración y la coordinación de la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
 
@@ -27,6 +28,7 @@ Este tutorial muestra cómo configurar la recuperación ante desastres en una re
 > * Configuración del acceso de salida para las máquinas virtuales
 > * Habilitación de la replicación para una máquina virtual
 
+La replicación de Azure a Azure se encuentra en una versión preliminar en este momento.
 ## <a name="prerequisites"></a>requisitos previos
 
 Para completar este tutorial:
@@ -109,7 +111,7 @@ Más información sobre [roles integrados del control de acceso basado en rol de
 ### <a name="select-the-source"></a>Seleccione el origen
 
 1. En los almacenes de Recovery Services, haga clic en el nombre del almacén y > **+Replicar**. 
-2. En **Origen**, seleccione **Azure - VERSIÓN PRELIMINAR**.
+2. En **Origen**, seleccione **Azure**.
 3. En **Ubicación de origen**, seleccione la región de Azure de origen donde se ejecutan actualmente sus máquinas virtuales.
 4. Seleccione el **modelo de implementación de las máquinas virtuales de Azure**: **Resource Manager** o **Clásico**.
 5. Seleccione el **grupo de recursos de origen** para las máquinas virtuales de Resource Manager o el **servicio en la nube** para las máquinas virtuales clásicas.

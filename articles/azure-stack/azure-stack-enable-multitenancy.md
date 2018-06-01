@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 05/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9ee54827ae9e8a803a5e3d7464559aec62c67119
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59b0f8e4c7234b246d4fb54d065ff318939e2662
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301842"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Habilitar los servicios multiinquilino en Azure Stack
 
@@ -75,7 +76,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 Después de completar los pasos en el directorio de Azure Stack, Mary debe dar su consentimiento para que Azure Stack tenga acceso al directorio de invitados y para registrar Azure Stack en el directorio de invitados. 
 
 ### <a name="registering-azure-stack-with-the-guest-directory"></a>Registrar Azure Stack en el directorio de invitados
-Una vez que el administrador del directorio de invitados ha dado su consentimiento para que Azure Stack tenga acceso al directorio de Fabrikam, debe registrar Azure Stack en el inquilino del directorio de Fabrikam.
+Una vez que el administrador del directorio de invitados ha dado su consentimiento para que Azure Stack tenga acceso al directorio de Fabrikam, Mary debe registrar Azure Stack en el inquilino del directorio de Fabrikam.
 
 ````PowerShell
 $tenantARMEndpoint = "https://management.local.azurestack.external"
