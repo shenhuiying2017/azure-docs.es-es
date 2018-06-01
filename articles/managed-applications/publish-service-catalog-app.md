@@ -1,20 +1,21 @@
 ---
-title: "Creación y publicación de una aplicación administrada del catálogo de servicios de Azure | Microsoft Docs"
-description: "Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización."
+title: Creación y publicación de una aplicación administrada del catálogo de servicios de Azure | Microsoft Docs
+description: Se explica cómo crear una aplicación administrada de Azure diseñada para los miembros de su organización.
 services: managed-applications
 author: tfitzmac
 manager: timlt
 ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 11/02/2017
+ms.date: 05/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 46adcdf39625c85dc962a7541b68c5500cf920ee
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305317"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Publicación de una aplicación administrada para consumo interno
 
@@ -55,7 +56,7 @@ Agregue el siguiente JSON al archivo. Define los parámetros para crear una cuen
         }
     },
     "variables": {
-        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString('storage'))]"
+        "storageAccountName": "[concat(parameters('storageAccountNamePrefix'), uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -152,8 +153,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
-  -Kind Storage `
-  -EnableEncryptionService Blob
+  -Kind Storage
 
 $ctx = $storageAccount.Context
 
@@ -173,7 +173,9 @@ El siguiente paso consiste en seleccionar una aplicación o un grupo de usuarios
 
 Necesita el identificador de objeto del grupo de usuarios que se usará para administrar los recursos. 
 
-![Obtener identificador de grupo](./media/publish-service-catalog-app/get-group-id.png)
+```powershell
+$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+```
 
 ### <a name="get-the-role-definition-id"></a>Obtención del identificador de definición de rol
 
@@ -203,21 +205,49 @@ New-AzureRmManagedApplicationDefinition `
   -LockLevel ReadOnly `
   -DisplayName "Managed Storage Account" `
   -Description "Managed Azure Storage Account" `
-  -Authorization "<group-id>:$ownerID" `
+  -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
-## <a name="create-the-managed-application-by-using-the-portal"></a>Creación de una aplicación administrada con Azure Portal
+## <a name="create-the-managed-application"></a>Creación de una aplicación administrada
+
+Puede implementar la aplicación administrada mediante el portal, PowerShell o la CLI de Azure.
+
+### <a name="powershell"></a>PowerShell
+
+Primero, vamos a usar PowerShell para implementar la aplicación administrada.
+
+```powershell
+# Create resource group
+New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
+
+# Get ID of managed application definition
+$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
+
+# Create the managed application
+New-AzureRmManagedApplication `
+  -Name storageApp `
+  -Location westcentralus `
+  -Kind ServiceCatalog `
+  -ResourceGroupName applicationGroup `
+  -ManagedApplicationDefinitionId $appid `
+  -ManagedResourceGroupName "InfrastructureGroup" `
+  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
+```
+
+La aplicación administrada y la infraestructura administrada ya existen en la suscripción.
+
+### <a name="portal"></a>Portal
 
 Ahora, vamos a usar el portal para implementar la aplicación administrada. Puede consultar la interfaz de usuario que creó en el paquete.
 
-1. Vaya a Azure Portal. Seleccione **+ Nuevo** y busque el **catálogo de servicios**.
+1. Vaya a Azure Portal. Seleccione **Crear un recurso** y busque **catálogo de servicios**.
 
-   ![Búsqueda del catálogo de servicios](./media/publish-service-catalog-app/select-new.png)
+   ![Búsqueda del catálogo de servicios](./media/publish-service-catalog-app/create-new.png)
 
 1. Seleccione la **aplicación administrada del catálogo de servicios**.
 
-   ![Selección del catálogo de servicios](./media/publish-service-catalog-app/select-service-catalog.png)
+   ![Selección del catálogo de servicios](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
 
 1. Seleccione **Crear**.
 
@@ -229,15 +259,15 @@ Ahora, vamos a usar el portal para implementar la aplicación administrada. Pued
 
 1. Proporcione la información básica necesaria para la aplicación administrada. Especifique la suscripción y un nuevo grupo de recursos que contenga la aplicación administrada. Seleccione **Centro occidental de EE. UU.** como ubicación. Cuando haya terminado, seleccione **Aceptar**.
 
-   ![Envío de parámetros de aplicaciones administradas](./media/publish-service-catalog-app/provide-basics.png)
+   ![Envío de parámetros de aplicaciones administradas](./media/publish-service-catalog-app/add-basics.png)
 
 1. Proporcione valores que sean específicos de los recursos de la aplicación administrada. Cuando haya terminado, seleccione **Aceptar**.
 
-   ![Envío de parámetros de recursos](./media/publish-service-catalog-app/provide-resource-values.png)
+   ![Envío de parámetros de recursos](./media/publish-service-catalog-app/add-storage-settings.png)
 
 1. La plantilla valida los valores que proporcionó. Si la validación es correcta, seleccione **Aceptar** para iniciar la implementación.
 
-   ![Validación de aplicación administrada](./media/publish-service-catalog-app/validate.png)
+   ![Validación de aplicación administrada](./media/publish-service-catalog-app/view-summary.png)
 
 Una vez que finalice la implementación, la aplicación administrada existirá en un grupo de recursos llamado applicationGroup. La cuenta de almacenamiento existe en un grupo de recursos llamado applicationGroup más un valor de cadena con hash.
 
