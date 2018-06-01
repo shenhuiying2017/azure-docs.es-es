@@ -11,25 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/16/2018
+ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5b325fd4326f2594a7386c65dea17a3da19abde8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ada38fc26f2fce9251ae648302733b04fe4c82ec
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195835"
 ---
-# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows
+# <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Supervisión del uso y el rendimiento en las aplicaciones de escritorio de Windows clásicas
 
-Aunque puede enviarse telemetría a Application Insights desde una aplicación de escritorio, esto es principalmente útil para fines experimentales y de depuración.
+Las aplicaciones hospedadas en el entorno local, en Azure y en otras nubes pueden aprovechar las ventajas de Application Insights. La única limitación es la necesidad de [permitir la comunicación](app-insights-ip-addresses.md) al servicio de Application Insights. Para supervisar las aplicaciones de la Plataforma universal de Windows (UWP), se recomienda [Visual Studio App Center](app-insights-mobile-center-quickstart.md).
 
-## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Para enviar telemetría a Application Insights desde una aplicación Windows
+## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Para enviar datos de telemetría a Application Insights desde una aplicación Windows clásica
 1. En [Azure Portal](https://portal.azure.com), [cree un recurso de Application Insights](app-insights-create-new-resource.md). Para el tipo de aplicación, elija la aplicación ASP.NET.
 2. Realice una copia de la clave de instrumentación. Busque la clave en la lista desplegable Essentials del recurso que acaba de crear. 
 3. En Visual Studio, edite los paquetes NuGet de su proyecto de aplicación y agregue Microsoft.ApplicationInsights.WindowsServer. (O elija Microsoft.ApplicationInsights si únicamente le interesa la API sola, sin los módulos de recopilación de telemetría estándar).
 4. Establezca la clave de instrumentación en el código:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*su clave*`";`
    
     o en ApplicationInsights.config (si tiene instalado uno de los paquetes de telemetría estándar):
    

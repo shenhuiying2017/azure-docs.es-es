@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271749"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solución de problemas de una máquina virtual Linux mediante la conexión del disco del sistema operativo a una máquina virtual de recuperación mediante Azure Portal
 Si la máquina virtual Linux se encuentra un error de disco o de arranque, deberá realizar los pasos para solucionar problemas en el propio disco duro virtual. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar Azure Portal para conectar el disco duro virtual a otra máquina virtual Linux para solucionar los errores y, posteriormente, volver a crear la máquina virtual original.
@@ -31,6 +32,7 @@ El proceso de solución de problemas es el siguiente:
 4. Desmonte y desconecte el disco duro virtual de la máquina virtual de solución de problemas.
 5. Cree una máquina virtual mediante el disco duro virtual original.
 
+Si la máquina virtual usa discos administrados, consulte [Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Determinación de los problemas de arranque
 Examine el diagnóstico de arranque y la captura de pantalla de la máquina virtual para determinar por qué la máquina virtual no es capaz de arrancar correctamente. Un ejemplo habitual sería una entrada no válida en `/etc/fstab` o un disco duro virtual subyacente que se va a eliminar o mover.
@@ -170,6 +172,13 @@ La plantilla se carga en Azure Portal para su implementación. Escriba los nombr
 Cuando se crea la máquina virtual desde el disco duro virtual existente, puede que no se habilite automáticamente el diagnóstico de arranque. Para comprobar el estado del diagnóstico de arranque y activarlo si es necesario, seleccione la máquina virtual en el portal. En **Supervisión**, haga clic en **Configuración de diagnóstico**. Asegúrese de que el estado es **Activado**, y que la marca de verificación situada junto a **Diagnósticos de arranque** está seleccionada. Si realiza cambios, haga clic en **Guardar**:
 
 ![Actualización de la configuración de los diagnósticos de arranque](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Solución de problemas de una máquina virtual de disco administrado mediante la conexión de un nuevo disco de sistema operativo
+1. Detenga la máquina virtual Windows de disco administrado.
+2. [Cree una instantánea de disco administrado](../windows/snapshot-copy-managed-disk.md) del disco del sistema operativo de la máquina virtual de disco administrado.
+3. [Cree un nuevo disco administrado a partir de la instantánea](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Asocie el disco administrado como un disco de datos de la máquina virtual](../windows/attach-disk-ps.md).
+5. [Cambie el disco de datos del paso 4 por un disco de sistema operativo](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones SSH a una máquina virtual Linux de Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solucionar problemas de conectividad de aplicaciones en una máquina virtual de Linux en Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

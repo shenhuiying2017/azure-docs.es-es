@@ -1,21 +1,22 @@
 ---
-title: "Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure con Azure Site Recovery (versión preliminar)"
-description: "Aprenda a conmutar por error y por recuperación la replicación de las máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery"
+title: Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure replicadas en una región secundaria de Azure con Azure Site Recovery
+description: Aprenda a conmutar por error y por recuperación la replicación de las máquinas virtuales de Azure en una región secundaria de Azure con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209280"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Conmutación por error y conmutación por recuperación de las máquinas virtuales de Azure entre regiones de Azure (versión preliminar)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Conmutación por error y por recuperación de máquinas virtuales de Azure entre regiones de Azure
 
 El servicio [Azure Site Recovery](site-recovery-overview.md) contribuye a su estrategia de recuperación ante desastres mediante la administración y la coordinación de la replicación, la conmutación por error y la conmutación por recuperación de máquinas locales y máquinas virtuales (VM) de Azure.
 
@@ -26,6 +27,8 @@ Este tutorial describe cómo conmutar por error una sola máquina virtual de Azu
 > * Volver a proteger la máquina virtual de Azure secundaria, de modo que se replique en la región principal
 > * Realizar la conmutación por recuperación de la máquina virtual secundaria
 > * Volver a proteger la máquina virtual principal a la región secundaria
+
+La replicación de Azure a Azure se encuentra en una versión preliminar en este momento.
 
 ## <a name="prerequisites"></a>requisitos previos
 
