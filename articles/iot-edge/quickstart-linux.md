@@ -9,11 +9,12 @@ ms.author: kgremban
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 750f09c91a086b22df5e7557e4b6fc6a763499e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a9cb627c4d8eff2226717dd675d24349730e90d5
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068730"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Guía de inicio rápido: implementación del primer módulo de IoT Edge en un dispositivo Linux o Mac (versión preliminar)
 
@@ -27,6 +28,15 @@ En esta guía de inicio rápido se usa el equipo o la máquina virtual como un d
 
 * PIP de Python, para instalar el runtime de IoT Edge.
    * Linux: `sudo apt-get install python-pip`.
+      
+      > [!Note]
+      > En ciertas distribuciones (por ejemplo, Raspbian), también tendrá que actualizar determinados paquetes pip e instalar dependencias adicionales:
+      
+        ```
+        sudo pip install --upgrade setuptools pip
+        sudo apt-get install python2.7-dev libffi-dev libssl-dev
+        ```
+        
    * MacOS: `sudo easy_install pip`.
 * Docker, para ejecutar los módulos de IoT Edge
    * [Instale Docker para Linux][lnk-docker-ubuntu] y asegúrese de que se ejecuta. 

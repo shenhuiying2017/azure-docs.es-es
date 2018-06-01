@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2017
+ms.date: 05/14/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 165a899dbad0893b3a2bddcfc68c9b5d737e9d3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197817"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Storage: Diferencias y consideraciones
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/28/2018
 
 Azure Stack Storage es el conjunto de servicios de almacenamiento en la nube de Microsoft Azure Stack. Azure Stack Storage proporciona blob, tabla, cola y funcionalidad de administración de cuenta con una semántica coherente de Azure.
 
-En este artículo se resumen las diferencias entre Azure Stack Storage y Azure Storage. También se resumen otras consideraciones a tener en cuenta al implementar la Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Consideraciones clave](azure-stack-considerations.md).
+En este artículo se resumen las diferencias entre Azure Stack Storage y los servicios de Azure Storage. También se muestran los aspectos que se deben tener en cuenta al implementar Azure Stack. Para obtener información acerca de las diferencias de alto nivel entre Azure y Azure Stack, consulte el tema [Key considerations](azure-stack-considerations.md) (Consideraciones clave).
 
 ## <a name="cheat-sheet-storage-differences"></a>Hoja de referencia rápida: Diferencias de almacenamiento
 
@@ -49,26 +50,28 @@ Eliminación temporal para Blob Storage|Vista previa|Todavía no se admite.
 |Clave de partición de tabla y tamaño de clave de fila|1 024 caracteres (2 048 bytes)|400 caracteres (800 bytes)
 |Instantánea de blob|No se limita el número máximo de instantáneas de un blob.|El número máximo de instantáneas de un blob es 1 000.|
 
-### <a name="metrics"></a>Métricas
-También hay algunas diferencias con las métricas de almacenamiento:
+También hay diferencias en las métricas de almacenamiento:
+
 * Los datos de transacción de las métricas de almacenamiento no distinguirán el ancho de banda de red interna o externa.
 * Los datos de transacción de las métricas de almacenamiento no incluyen el acceso de la máquina virtual a los discos montados.
 
 ## <a name="api-version"></a>Versión de API
+
 Solo las siguientes versiones son compatibles con Azure Stack Storage:
 
 API de los servicios de Azure Storage:
 
 Actualización 1802 o versiones más recientes:
+
  - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
  - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
  - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08 ](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
  - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Versiones anteriores:
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 API de administración de los servicios de Azure Storage:
 
@@ -94,4 +97,3 @@ Las siguientes bibliotecas de cliente son compatibles con Azure Stack Storage:
 
 * [Empezar a trabajar con herramientas de desarrollo de Azure Stack Storage](azure-stack-storage-dev.md)
 * [Introducción a Azure Stack Storage](azure-stack-storage-overview.md)
-
