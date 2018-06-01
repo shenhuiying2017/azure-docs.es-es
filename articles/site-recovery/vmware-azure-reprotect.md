@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0946d5234292cfb69a7e9b5bc7846e6acf94dff4
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072630"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Reprotección de máquinas de Azure a un sitio local
 
@@ -39,6 +40,8 @@ Si ha usado una plantilla para crear las máquinas virtuales, asegúrese de que 
 - Asegúrese de abrir los puertos siguientes durante la conmutación por error y la conmutación por recuperación.
 
     ![Puertos para conmutación por error y conmutación por recuperación](./media/vmware-azure-reprotect/failover-failback.png)
+
+- Puede leer todos los requisitos previos sobre puertos y creación de listas blancas de direcciones URL [aquí](vmware-azure-deploy-configuration-server.md#prerequisites)
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implementación de un servidor de procesos en Azure
 
@@ -77,9 +80,9 @@ Después de crear un servidor de destino maestro, haga lo siguiente:
     - El volumen de retención predeterminado para Windows es el volumen R.
     - El volumen de retención predeterminado para Linux es /mnt/retention.
 - Si está usando una máquina existente de servidor de procesos o de servidor de configuración o una escala o una máquina de servidor de procesos o de servidor de destino maestro, tiene que agregar una nueva unidad. La nueva unidad debe cumplir los requisitos anteriores. Si la unidad de retención no está presente, no aparece en la lista de selección desplegable en el portal. Después de agregar una unidad al destino maestro local, pasa un máximo de quince minutos hasta que la unidad aparece en la selección en el portal. También puede actualizar el servidor de configuración si la unidad no aparece pasados quince minutos.
-- Instale las herramientas de VMware en el servidor de destino principal. Sin las herramientas de VMware, los almacenes de datos del host ESXi del destino maestro no se pueden detectar.
+- Instale las herramientas de VMware o de open-vm-tools en el servidor de destino maestro. Sin las herramientas, los almacenes de datos del host ESXi del destino maestro no se pueden detectar.
 - Establezca `disk.EnableUUID=true` en los parámetros de configuración de la máquina virtual del destino maestro en VMware. Si la fila no existe, agréguela. Esta configuración es necesaria a fin de proporcionar un UUID uniforme al disco de máquina virtual (VMDK) para que se monte correctamente.
-- El destino maestro debe tener al menos un almacén de datos de VMFS asociado. Si no hay ninguno, la entrada **Almacén de datos** de la página reprotegida estará vacía y no podrá continuar.
+- El host ESX en el que se creó el destino maestro debe tener al menos un almacén de datos VMFS asociado. Si no hay ninguno, la entrada **Almacén de datos** de la página reprotegida estará vacía y no podrá continuar.
 - El servidor de destino maestro no puede tener instantáneas en los discos. Si hay instantáneas, se produce un error en la reprotección y la conmutación por recuperación.
 - El destino maestro no puede tener ninguna controladora SCSI paravirtual. La controladora solo puede ser una controladora de LSI Logic. Sin ella, se produce un error en la reprotección.
 - En cualquier instancia dada, el destino maestro puede tener 60 discos como máximo conectados a él. Si el número de máquinas virtuales que se va a volver a proteger en el destino maestro local suma más de 60 discos, las reprotecciones en el destino maestro empezarán a generar errores. Asegúrese de que tiene suficientes ranuras de disco de destino maestro o implemente servidores de destino maestro adicionales.
@@ -92,7 +95,7 @@ Después del arranque de una máquina virtual en Azure, el agente tarda algún t
 
 1. En **Almacén** > **Elementos replicados**, haga clic con el botón derecho en la máquina virtual que ha sido objeto de la conmutación por error y seleccione **Reproteger**. También puede hacer clic en la máquina y seleccionar **Reproteger** con los botones de comando.
 2. Compruebe que la dirección de la reprotección, **Azure a local**, ya esté seleccionada.
-3. En **Servidor de destino maestro** y **Servidor de procesos**, seleccione el servidor de destino maestro local y el servidor de procesos.
+3. En **Servidor de destino maestro** y **Servidor de procesos**, seleccione el servidor de destino maestro local y el servidor de procesos.  
 4. En **Almacén de datos**, seleccione aquel en el que quiera recuperar los discos en local. Se usa esta opción cuando se elimina la máquina virtual local y es necesario crear discos. Esta opción se omite si los discos ya existen, pero debe especificar un valor.
 5. Elija la unidad de retención.
 6. La directiva de conmutación por recuperación se selecciona automáticamente.
