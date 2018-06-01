@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947277"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Finalización de la creación de ofertas con contenido de marketing
 En este paso del proceso de publicación, deberá proporcionar determinados contenidos de marketing y los detalles acerca de la oferta o SKU en Azure Marketplace. Por ejemplo, proporcionará una descripción de su producto, logotipos de empresa, planes de precios, detalles de los planes y otra información necesaria para insertar su oferta o SKU en el entorno de ensayo. Esta información se usa como contenido de marketing en nuestro Portal de Azure. Comenzará este proceso en el [portal de publicación][link-pubportal].
@@ -115,10 +116,10 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 * **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
 * **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -&gt; Máquinas virtuales -&gt; pestaña Walkthrough (Tutorial) -&gt; Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -&gt; Publisher Namespace (Espacio de nombres de publicador) -&gt; Espacio de nombres
 * **Puertos**: Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Open Ports (Abrir puertos)
-* **Pricing Change of listed SKU(s)**
-* **Billing Model Change of listed SKU(s)**
+* **Cambio de precios de las SKU activas**
+* **Cambio del modelo de facturación de las SKU activas**
 * **Removal of billing regions of listed SKU(s)**
-* **Changing the data disk count of listed SKU(s) (Cambio del número de discos de datos de las SKU activas)**
+* **Cambio del número de discos de datos de las SKU activas**
 
 ## <a name="step-2-set-your-prices"></a>Paso 2: Establecimiento de precios
 ### <a name="pricing-models"></a>Modelos de precios
@@ -153,10 +154,10 @@ En estos momentos, existen los **3 tipos de modelos de facturación**
 
 **Importante** : Cuando una oferta o SKU se muestre en Azure Marketplace, no podrá cambiar los campos que se indican a continuación.
 
-* **Pricing Change of listed SKU(s) (Cambio de precios de las SKU activas)**
-* **Billing Model Change of listed SKU(s)**
+* **Cambio de precios de las SKU activas**
+* **Cambio del modelo de facturación de las SKU activas**
 * **Removal of billing regions of listed SKU(s)**
-* **Changing the data disk count of listed SKU(s)**
+* **Cambio del número de discos de datos de las SKU activas**
 * **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
 * **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
 * **Publisher Namespace** (Espacio de nombres de publicador): Portal de publicación -&gt; Máquinas virtuales -&gt; pestaña Walkthrough (Tutorial) -&gt; Tell Us About Your Company (Indíquenos la información de su empresa) (esta opción se encuentra en el paso 2 sobre registro) -&gt; Publisher Namespace (Espacio de nombres de publicador) -&gt; Espacio de nombres
