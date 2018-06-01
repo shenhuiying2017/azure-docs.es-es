@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: kumud
-ms.openlocfilehash: 1c805819a22d26e650d13b0e41ebac00c4e52d91
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 677fc66b66d6c17806a313f2fac3a15e8e1775ba
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261586"
 ---
 # <a name="using-azure-dns-for-private-domains"></a>Uso de Azure DNS para dominios privados
 El Sistema de nombres de dominio, o DNS, es responsable de traducir o resolver el nombre del servicio en su dirección IP. Azure DNS es un servicio de hospedaje para dominios DNS que permite resolver nombres mediante la infraestructura de Microsoft Azure.  Además de los dominios DNS con conexión a Internet, Azure DNS ahora también admite dominios DNS privados como una característica en versión preliminar.  
@@ -54,7 +55,7 @@ Azure DNS proporciona un servicio DNS confiable y seguro para administrar y reso
 
 ## <a name="limitations"></a>Limitaciones
 * 1 red virtual de registro por zona privada.
-* Hasta 10 redes virtuales de resolución por zona privada.
+* Hasta 10 redes virtuales de resolución por zona privada
 * Una red virtual dada solo se puede vincular a una zona privada como red virtual de registro.
 * Una red virtual determinada puede vincularse con un máximo de diez zonas privada como red virtual de resolución.
 * Si se especifica una red virtual de registro, los registros DNS de las máquinas virtuales de dicha red que se registren en la zona privada no se podrán ver o recuperar desde Powershell, la CLI o las API, pero los registros de máquina virtual se registrarán y resolverán correctamente.

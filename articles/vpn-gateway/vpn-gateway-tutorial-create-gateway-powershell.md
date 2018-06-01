@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 867a1c55c0f96b17f77049d7f24d47f41a90d9f9
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210205"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Creación y administración de Azure VPN Gateway con el módulo de Azure PowerShell
 
@@ -35,8 +36,9 @@ En el siguiente diagrama se muestran la red virtual y la puerta de enlace de VPN
 
 ![VNet y VPN Gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
+### <a name="azure-cloud-shell-and-azure-powershell"></a>Azure Cloud Shell y Azure PowerShell
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 Si decide instalar y usar PowerShell de forma local, para este tutorial se requiere la versión 5.3 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure. 
 

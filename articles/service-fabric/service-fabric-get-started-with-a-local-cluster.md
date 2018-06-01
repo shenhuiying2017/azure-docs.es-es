@@ -1,11 +1,11 @@
 ---
-title: "Implementación y actualización local de microservicios de Azure | Microsoft Docs"
-description: "Aprenda a configurar un clúster local de Service Fabric, implementar una aplicación existente en él y actualizar dicha aplicación."
+title: Implementación y actualización local de microservicios de Azure | Microsoft Docs
+description: Aprenda a configurar un clúster local de Service Fabric, implementar una aplicación existente en él y actualizar dicha aplicación.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205253"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introducción a la implementación y actualización de aplicaciones en un clúster local
 El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza la aplicación a una nueva versión, y todo ello desde Windows PowerShell.
@@ -85,7 +86,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (llamada WordCo
     Si todo va bien, debería ver el siguiente resultado:
    
     ![Implementación de una aplicación en el clúster local][deploy-app-to-local-cluster]
-7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/índex.html](http://localhost:8081/wordcount/index.html). Debería ver lo siguiente:
+7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html). Debería ver lo siguiente:
    
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
    
@@ -124,7 +125,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
    
     El conjunto de comandos que ha usado, al igual que todos los comandos de PowerShell de Service Fabric, están disponibles para cualquier clúster al que se pueda conectar, tanto local como remoto.
    
-    Si desea interactuar con el clúster de una forma más visual, puede usar la herramienta Explorador de Service Fabric basada en web, para lo que debe navegar a [http://localhost:19080/Explorer](http://localhost:19080/Explorer) en el explorador.
+    Si desea interactuar con el clúster de una forma más visual, puede usar la herramienta Service Fabric Explorer basada en web, para lo que debe ir a [http://localhost:19080/Explorer](http://localhost:19080/Explorer) en el explorador.
    
     ![Ver detalles de aplicación en el Explorador de Service Fabric][sfx-service-overview]
    
@@ -148,7 +149,7 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
     Debería ver el siguiente resultado en PowerShell cuando comience la actualización.
    
     ![Progreso de la actualización en PowerShell][ps-appupgradeprogress]
-3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y navegue a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicaciones** en el árbol de la izquierda, elija **WordCount** y finalmente **fabric:/WordCount**. En la pestaña de información básica, verá el estado de la actualización mientras progresa por los dominios de actualización del clúster.
+3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y vaya a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicaciones** en el árbol de la izquierda, elija **WordCount** y finalmente **fabric:/WordCount**. En la pestaña de información básica, verá el estado de la actualización mientras progresa por los dominios de actualización del clúster.
    
     ![Progreso de la actualización en el Explorador de Service Fabric][sfx-upgradeprogress]
    
