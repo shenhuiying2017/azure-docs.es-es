@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: b632622868480638174b616780441e13c16a52c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34259004"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -804,20 +805,13 @@ Para ello, debe usar [Workday Studio](https://community.workday.com/studio-downl
 
 * Se ha resuelto un problema anterior en el que los registros de auditoría no aparecían en los inquilinos de Azure AD ubicados en la Unión Europea. Sin embargo, se requiere la configuración adicional del agente para inquilinos de Azure AD en la Unión Europea. Para más información, consulte [Parte 3: configuración del agente de sincronización local](#Part 3: Configure the on-premises synchronization agent).
 
-## <a name="gdpr-compliance"></a>Cumplimiento del GDPR
+## <a name="gdpr-information"></a>Información sobre el RGPD
 
 El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD impone reglas sobre las empresas, agencias gubernamentales, entidades sin ánimo de lucro y otras organizaciones que ofrecen bienes y servicios a personas de la UE o que recopilan y analizan datos vinculados a residentes en la UE. 
 
-El servicio de aprovisionamiento de Azure AD cumple con el RGPD, además de ser compatible con el resto de características y servicios de Microsoft. Para más información sobre el GDPR de Microsoft, vea las [condiciones del servicio](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+Para más información sobre el GDPR de Microsoft, vea las [condiciones del servicio](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Sin embargo, dado que la solución de aprovisionamiento Workday para Active Directory requiere la instalación de un agente de sincronización en un servidor unido a un dominio, hay algunos eventos que se deben supervisar a efectos de conformidad con el GDPR.
- 
-El agente crea registros en el **registro de eventos de Windows**, que puede contener información de identificación personal.
-
-Se puede cumplir con el GDPR de dos formas:
-
-1. Previa solicitud, en cuyo caso se extraen los datos de una persona y se eliminan de los registros de eventos de Windows. 
-2. Mantener el período de retención de los registros de eventos de Windows del proceso de AADSyncAgent durante menos de 48 horas.
+Tenga en cuenta que la solución de aprovisionamiento Workday para Active Directory requiere que se instale un agente de sincronización en un servidor unido a un dominio, y este agente crea registros en el **registro de eventos de Windows**, que puede contener información de identificación personal.
 
 Para obtener información sobre cómo configurar la retención de datos de los registros de eventos de Windows, vea la [configuración de los registros de eventos](https://technet.microsoft.com/library/cc952132.aspx). Para obtener información general sobre el registro de eventos de Windows, vea [este artículo](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
@@ -827,4 +821,3 @@ Para obtener información sobre cómo configurar la retención de datos de los r
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
 * [Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workday](active-directory-saas-workday-tutorial.md)
 * [Aprenda a integrar otras aplicaciones SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-

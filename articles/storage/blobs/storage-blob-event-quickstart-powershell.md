@@ -8,11 +8,12 @@ ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 6d7ccd94243d7064008197518f6194d5837b17be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261445"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Enrutamiento de eventos de Blob Storage a un punto de conexión web personalizado con PowerShell
 
@@ -21,7 +22,7 @@ Azure Event Grid es un servicio de eventos para la nube. En este artículo, apre
 Por lo general, los eventos se envían a un punto de conexión que responde ante ellos, como un webhook o Azure Function. Para simplificar el ejemplo de este artículo, los eventos se envían a una dirección URL que, simplemente, recopila los mensajes. Ha creado esta dirección URL mediante una herramienta de terceros de [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **Hookbin** no está pensado para el uso de alto rendimiento. El uso de esta herramienta es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta.
+> **Hookbin** no está pensado para el uso de alto rendimiento. El uso de esta herramienta es meramente ilustrativo. Si inserta más de un evento a la vez, puede que no vea todos los eventos en la herramienta. Además, tenga en cuenta que **Hookbin** obtiene un [tratamiento especial](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) por parte de Azure Event Grid. Para facilitar las pruebas, Event Grid envía eventos sin requerir una respuesta correcta a las solicitudes de validación de suscripción (lo que ocurriría [en otro caso](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
 
 Al completar los pasos descritos en este artículo, verá que los datos del evento se han enviado a un punto de conexión.
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/15/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: eb824913a4b3482879ccc45e2f660342695b1618
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258953"
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165492"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -38,13 +38,14 @@ Descarga | [Descargar Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=6
 
 ## <a name="118190"></a>1.1.819.0
 
-### <a name="release-status"></a>Estado de la versión
+04/05/2018: publicado para la actualización automática; estará disponible para su descarga pronto.
 
-14/5/2018: Publicado para actualización y descarga automáticas.
+
 
 ### <a name="new-features-and-improvements"></a>Nuevas características y mejoras
 
 Nuevas características y mejoras
+
 
 - Esta versión incluye la versión preliminar pública de la integración de PingFederate en Azure AD Connect. Con esta versión, los clientes pueden configurar su entorno de Azure Active Directory de forma fácil y confiable para aprovechar PingFederate como proveedor de federación. Para obtener más información sobre cómo utilizar esta nueva característica, visite nuestra [documentación en línea](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - Se ha actualizado la utilidad de solución de problemas del asistente de Azure AD Connect y ahora se analizan más escenarios de error, como buzones vinculados y grupos dinámicos de AD. Hay más información disponible sobre la utilidad de solución de problemas [aquí](active-directory-aadconnect-troubleshoot-objectsync.md).
@@ -62,16 +63,14 @@ Nuevas características y mejoras
 
 ### <a name="fixed-issues"></a>Problemas corregidos 
 
-- Esta versión actualiza la instalación de SQL Server Express a SQL Server 2012 SP4, que, entre otras cosas, ofrece correcciones para varias vulnerabilidades de seguridad.  Consulta [aquí](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) para obtener más información sobre SQL Server 2012 SP4.
+
 - Procesamiento de reglas de sincronización: las reglas de sincronización de unión de salida sin condición de unión se deben desaplicar si la regla de sincronización principal ya no es aplicable.
-- Se han aplicado varias correcciones de accesibilidad a la interfaz de usuario de Synchronization Service Manager y al Editor de reglas de sincronización
 - Asistente de Azure AD Connect: se genera un error al crear la cuenta de Conector de AD si Azure AD Connect está en un grupo de trabajo.
 - Asistente de Azure AD Connect: en la página de inicio de sesión de Azure AD, se muestra la casilla de verificación siempre que haya incoherencias entre los dominios de AD y los dominios de Azure AD verificados.
 - Corrección de actualización automática de PowerShell para establecer el estado de actualización automática correctamente en ciertos casos después de intentar una actualización automática.
 - Asistente de Azure AD Connect: se actualizó la telemetría para capturar la información que faltaba antes.
-- Asistente de Azure AD Connect: Los siguientes cambios se realizaron cuando se usa la tarea **Cambiar inicio de sesión de usuario** para cambiar de AD FS a autenticación de paso a través:
-    - El agente de autenticación de paso a través está instalado en el servidor de Azure AD Connect y la característica de autenticación de paso a través está habilitada, antes de convertir dominios de federados a administrados.
-    - Los usuarios ya no se convierten de federados a administrados. Solo se convierten los dominios.
+- Asistente de Azure AD Connect: instalar el agente de PTA antes de convertir un dominio en administrado.
+- Asistente de Azure AD Connect: no convertir usuarios en administrados (convertir solo el dominio) para PTA.
 - Asistente de Azure AD Connect: Regex multidominio de AD FS no es correcto cuando el UPN del usuario tiene la actualización Regex del carácter especial ' para admitir caracteres especiales.
 - Asistente de Azure AD Connect: quitar un mensaje falso para configurar el atributo de delimitador de origen cuando no hay ningún cambio. 
 - Asistente de Azure AD Connect: compatibilidad con AD FS para el escenario de federación dual.
