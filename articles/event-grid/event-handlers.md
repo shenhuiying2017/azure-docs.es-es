@@ -5,14 +5,15 @@ services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
-ms.topic: article
-ms.date: 04/25/2018
+ms.topic: conceptual
+ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: ccbabed3fd1df39ac2ba732064392a1a0ecede2a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301774"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Controladores de eventos de Azure Event Grid
 
@@ -38,6 +39,14 @@ Use Azure Functions para responder sin servidor a los eventos.
 | [Automatización del cambio de tamaño de las imágenes cargadas mediante Event Grid](resize-images-on-storage-blob-upload-event.md) | Los usuarios cargan imágenes a través de la aplicación web en la cuenta de almacenamiento. Cuando se crea un blob de almacenamiento, Event Grid envía un evento a la aplicación de función, que cambia el tamaño de la imagen cargada. |
 | [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md) | Cuando Event Hubs crea un archivo de captura, Event Grid envía un evento a una aplicación de función. La aplicación recupera el archivo de captura y migra los datos a un almacenamiento de datos. |
 | [Ejemplos de integración de Azure Service Bus en Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envía mensajes de temas de Service Bus a la aplicación de función y a la aplicación lógica. |
+
+## <a name="hybrid-connections"></a>conexiones híbridas
+
+Use las conexiones híbridas de Azure Relay para enviar eventos a las aplicaciones que están dentro de una red empresarial y no tienen un punto de conexión de acceso público.
+
+|Título  |DESCRIPCIÓN  |
+|---------|---------|
+| [Envío de eventos a una conexión híbrida](custom-event-to-hybrid-connection.md) | Envía un evento personalizado a una conexión híbrida existente para su procesamiento mediante una aplicación de escucha. |
 
 ## <a name="logic-apps"></a>Logic Apps
 
