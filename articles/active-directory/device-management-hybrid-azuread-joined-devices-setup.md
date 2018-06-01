@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157799"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -83,8 +84,20 @@ Asegúrese de que las direcciones URL siguientes son accesibles desde equipos de
 
 - https://device.login.microsoftonline.com
 
-Si la organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD.
+- STS de su organización (dominios federados)
 
+Si no se ha hecho, el STS de su organización (para dominios federados) se debe incluir en la configuración de la intranet local del usuario.
+
+Si su organización tiene previsto usar SSO sin problemas, las siguientes direcciones URL deben ser accesibles desde los equipos que se encuentran dentro de su organización y también se deben agregar a la zona de la intranet local del usuario:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Además, se debe habilitar la siguiente configuración en la zona de la intranet del usuario: "Permitir actualizaciones en la barra de estado a través de script".
+
+
+Si su organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD.
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
@@ -549,8 +562,6 @@ Cuando se hayan completado los pasos necesarios, los dispositivos unidos a un do
 ### <a name="remarks"></a>Comentarios
 
 - Para controlar el lanzamiento del registro automático de los equipos con Windows 10 y Windows Server 2016 unidos a un dominio, se puede usar un objeto de directiva de grupo. **Si no desea que estos dispositivos se registren automáticamente con Azure AD o desea controlar el registro**, primero debe implementar una directiva de grupo que deshabilite el registro automático en todos estos dispositivos antes de empezar con los pasos de configuración. Una vez que configure todo y cuando esté listo para probar, debe implementar una directiva de grupo que deshabilite el registro automático solo en los dispositivos de prueba y, luego, en todos los dispositivos que usted elija.
-
-- La actualización de noviembre de 2015 de Windows 10 se une automáticamente en Azure AD **solo** si se establece el objeto de directiva de grupo del lanzamiento.
 
 - Para el lanzamiento de equipos Windows de nivel inferior, se puede implementar un [paquete de Windows Installer](#windows-installer-packages-for-non-windows-10-computers) en los equipos que se seleccionen.
 

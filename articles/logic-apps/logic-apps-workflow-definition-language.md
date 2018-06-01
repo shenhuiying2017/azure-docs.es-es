@@ -3,7 +3,7 @@ title: Esquema del lenguaje de definición de flujo de trabajo - Azure Logic App
 description: Escritura de definiciones de flujo de trabajo personalizadas para Azure Logic Apps con el lenguaje de definición de flujo de trabajo
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775288"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886820"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definiciones de flujo de trabajo de Logic Apps con el esquema de lenguaje de definición de flujo de trabajo
 
@@ -220,7 +220,8 @@ En [expresiones](#expressions) y [funciones](#functions), los operadores realiza
 
 ## <a name="functions"></a>Functions
 
-Algunas expresiones obtienen sus valores de las acciones en tiempo de ejecución que puede que no existan aún cuando comienza a ejecutarse una aplicación lógica. Para trabajar con estos valores o hacer referencia a ellos mediante expresiones, puede usar *funciones*. Por ejemplo, puede usar funciones matemáticas para los cálculos, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que devuelve la suma de números enteros y flotantes. 
+Algunas expresiones obtienen sus valores de las acciones en tiempo de ejecución que puede que no existan aún cuando comienza a ejecutarse una aplicación lógica. Para trabajar con estos valores o hacer referencia a ellos mediante expresiones, puede usar [*funciones*](../logic-apps/workflow-definition-language-functions-reference.md). Por ejemplo, puede usar funciones matemáticas para los cálculos, como la función [add()](../logic-apps/workflow-definition-language-functions-reference.md#add), que devuelve la suma de números enteros y flotantes. Para información detallada sobre cada función, consulte el [artículo de referencia alfabético](../logic-apps/workflow-definition-language-functions-reference.md).
+O bien, puede seguir aprendiendo sobre las funciones y su uso general.
 
 Estas son solo algunas tareas de ejemplo que se pueden realizar con funciones: 
 
