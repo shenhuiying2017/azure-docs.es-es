@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/16/2018
 ms.author: danis
-ms.openlocfilehash: 5c292bf0f92423826d58fb0e9175f51d0599bf44
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: dcc5637b159341fc4b6cc8130b1807c8a2f604fc
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944857"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261832"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de OMS para Linux
 
@@ -36,12 +36,12 @@ La extensión del agente de OMS puede ejecutarse en estas distribuciones de Linu
 
 | Distribución | Versión |
 |---|---|
-| CentOS Linux | 5, 6 y 7 |
-| Oracle Linux | 5, 6 y 7 |
-| Red Hat Enterprise Linux Server | 5, 6 y 7 |
-| Debian GNU/Linux | 6, 7 y 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
-| SUSE Linux Enterprise Server | 11 y 12 |
+| CentOS Linux | 5, 6 y 7 (x86/x64) |
+| Oracle Linux | 5, 6 y 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 5, 6 y 7 (x86/x64) |
+| Debian GNU/Linux | 6, 7 y 8 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 y 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
 En la tabla siguiente se proporciona una asignación de la versión de la extensión de VM de OMS y el paquete del agente de OMS para cada versión. Se incluye un vínculo a las notas de la versión del paquete del agente de OMS. Las notas de versión incluyen detalles sobre corrección de errores y nuevas características que están disponibles para una versión de agente determinada.  
