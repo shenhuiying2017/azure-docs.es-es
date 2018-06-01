@@ -1,2 +1,0 @@
-
-Para que la aplicación de función use la versión preliminar 2.0 del tiempo de ejecución de Functions, establezca la configuración de la aplicación `FUNCTIONS_EXTENSION_VERSION` en la aplicación de función en el valor de `beta`.
