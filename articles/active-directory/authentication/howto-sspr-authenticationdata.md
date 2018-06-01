@@ -2,25 +2,20 @@
 title: Azure AD SSPR data requirements (Requisitos de datos de SSPR de Azure AD) | Microsoft Docs
 description: Requisitos de datos del autoservicio de restablecimiento de contraseña de Azure AD y cómo cumplirlos
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257595"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implementación del restablecimiento de contraseña sin necesidad de registro del usuario final
 
@@ -39,16 +34,27 @@ Para funcionar correctamente, los números de teléfono deben tener el formato *
 
 Si usa la configuración predeterminada en Azure AD Connect, se realizan las siguientes asignaciones:
 
-| Active Directory local | Azure AD | Información de contacto de autenticación de Azure AD |
-| --- | --- | --- |
-| telephoneNumber | Teléfono del trabajo | Teléfono alternativo |
-| mobile | Teléfono móvil | Teléfono |
+| Active Directory local | Azure AD |
+| --- | --- |
+| telephoneNumber | Teléfono del trabajo |
+| mobile | Teléfono móvil |
 
-Estos campos pueden aparecer vacíos hasta que un usuario confirma sus datos de autenticación.
+Una vez que un usuario verifica el número de teléfono móvil, el campo Teléfono de la información de contacto para la autenticación de Azure AD se rellenará también con dicho número.
+
+## <a name="authentication-contact-info"></a>Información de contacto para la autenticación
 
 Un administrador global puede establecer manualmente la información de contacto de autenticación para el usuario, como se muestra en la captura de pantalla siguiente.
 
 ![Contacto][Contact]
+
+Si se rellena el campo de teléfono y el teléfono móvil está habilitado en la directiva de SSPR, el usuario verá dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña. 
+
+El campo de teléfono alternativo no se utiliza para restablecer la contraseña.
+
+Si se rellena el campo de correo electrónico y el correo electrónico está habilitado en la directiva de SSPR, el usuario verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
+
+Si se rellena el campo de correo electrónico alternativo y el correo electrónico está habilitado en la directiva de SSPR, el usuario **no** verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña. 
+
 
 ## <a name="security-questions-and-answers"></a>Preguntas y respuestas de seguridad
 

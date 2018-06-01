@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196770"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de errores de Azure Backup: problemas con el agente o la extensión
 
@@ -194,21 +195,6 @@ Este problema es específico de máquinas virtuales administradas en las que el 
 
 #### <a name="solution"></a>Solución
 
-Para resolver el problema, realice los pasos siguientes para quitar la colección de puntos de restauración: <br>
- 
-1. Quite el bloqueo en el grupo de recursos en el que se encuentra la máquina virtual. 
-2. Instale ARMClient mediante Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Inicie sesión en ARMClient. <br>
-    `.\armclient.exe login`
-4. Obtenga la colección de puntos de restauración que corresponde a la máquina virtual: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
-
-    Ejemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Elimine la colección de puntos de restauración: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. La próxima copia de seguridad programada crea automáticamente una colección de puntos de restauración y nuevos puntos de restauración.
-
- 
-Si bloquea de nuevo el grupo de recursos, el problema se vuelve a producir. 
+Para resolver el problema, quite el bloqueo del grupo de recursos y deje que el servicio de Azure Backup borre la colección de puntos de recuperación y las instantáneas subyacentes en la siguiente copia de seguridad.
+Una vez hecho, puede activar de nuevo el bloqueo en el grupo de recursos de la máquina virtual. 
 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 2a16e346e508b96338bb1c216ad6a64c013895f2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312328"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272189"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Planes de tarifa de Azure Database for PostgreSQL
 
@@ -87,6 +87,14 @@ El almacenamiento que se aprovisiona es la cantidad de capacidad de almacenamien
 Puede agregar capacidad de almacenamiento adicional durante y después de la creación del servidor. El plan Básico no proporciona una garantía de IOPS. En los planes de tarifa Uso general y Memoria optimizada, el valor de IOPS se escala con el tamaño de almacenamiento aprovisionado en una proporción 3:1.
 
 Puede supervisar el consumo de E/S en Azure Portal o mediante los comandos de la CLI de Azure. Las métricas pertinentes que se deben supervisar son el [límite de almacenamiento, el porcentaje de almacenamiento, el almacenamiento usado y el porcentaje de E/S](concepts-monitoring.md).
+
+### <a name="reaching-the-store-limit"></a>Alcance del límite de almacenamiento
+
+El servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelve menor que 5 GB o, de ser inferior, el 5 % del almacenamiento aprovisionado. Por ejemplo, si ha aprovisionado 100 GB de almacenamiento, y el uso real supera los 95 GB, el servidor se marca como de solo lectura. O bien, si ha aprovisionado 5 GB de almacenamiento, el servidor se marca como de solo lectura cuando el almacenamiento disponible se vuelva inferior a 250 MB.  
+
+Si el servidor se establece en solo lectura, todas las sesiones existentes se desconectan, y las transacciones no confirmadas se revierten. Las operaciones de escritura y las confirmaciones de transacción posteriores producirán errores. Todas las consultas de lectura subsiguientes seguirán funcionando sin interrupciones.  
+
+Puede aumentar la cantidad de almacenamiento aprovisionado en el servidor, o iniciar una sesión nueva en modo de lectura-escritura y quitar datos para recuperar almacenamiento disponible. Al ejecutar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;`, la sesión actual se establece en modo de lectura-escritura. Para evitar daños en los datos, no realice operaciones de escritura cuando el servidor aún esté en estado de solo lectura.
 
 ## <a name="backup"></a>Backup
 

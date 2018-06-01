@@ -14,11 +14,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8c67c89f00362b0fc6a510a8117ac176bb3c8b6c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15fa3e7738810ada48f471a685f79a82445ad70c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271313"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)
 **acción de script** se puede usar para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante el proceso de creación de clústeres para instalar software adicional en un clúster.
@@ -312,12 +313,10 @@ Consulte [Desarrollo de scripts de acciones de script con HDInsight][hdinsight-w
 * En [Creación de clústeres de Hadoop en HDInsight][hdinsight-provision-cluster] se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
 * [Desarrollo de acciones de script con HDInsight][hdinsight-write-script]
 * [Instalación y uso de Spark en clústeres de HDInsight][hdinsight-install-spark]
-* [Instalación y uso de R en clústeres de Hadoop de HDInsight][hdinsight-install-r]
 * [Instalación y uso de Solr en clústeres de Hadoop de HDInsight](hdinsight-hadoop-solr-install.md).
 * [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs

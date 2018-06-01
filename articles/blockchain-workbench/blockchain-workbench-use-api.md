@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 27ed94b3ce14c57e369b0c80d4c53b72a5ae40a8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257910"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Usar la API de REST de Azure Blockchain Workbench 
 
@@ -26,12 +27,14 @@ La API de REST de Azure Blockchain Workbench proporciona a los desarrolladores y
 * Enumerar las acciones disponibles para un contrato
 * Ejecutar una acción para un contrato
 
+Las aplicaciones de cadena de bloques de ejemplo utilizadas en los escenarios pueden [descargarse de GitHub](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Enumerar aplicaciones
 
-Una vez que un usuario haya iniciado sesión en el cliente de cadena de bloques, la primera tarea consiste en recuperar todas las aplicaciones de cadena de bloques de Blockchain Workbench para el usuario. En este escenario, el usuario tiene acceso a dos aplicaciones:
+Una vez que un usuario haya iniciado sesión en el cliente de cadena de bloques, la primera tarea consiste en recuperar todas las aplicaciones de Blockchain Workbench para el usuario. En este escenario, el usuario tiene acceso a dos aplicaciones:
 
-1.  Asset Transfer
-2.  Refrigerated Transportation
+1.  [Asset Transfer](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Refrigerated Transportation](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Use la [API Applications GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Enumerar flujos de trabajo para una aplicación
 
-Una vez que un usuario selecciona la aplicación de cadena de bloques aplicable, en este caso, Asset Transfer, el cliente de la cadena de bloques recupera todos los flujos de trabajo de la aplicación de cadena de bloques específica. Los usuarios luego pueden seleccionar el flujo de trabajo aplicable antes de ver todas las instancias de contrato inteligente del flujo de trabajo. Cada aplicación de cadena de bloques tiene uno o varios flujos de trabajo y cada flujo de trabajo tiene cero o instancias de contrato inteligente. Al compilar aplicaciones cliente de cadena de bloques, es recomendable omitir el flujo de la experiencia de usuario que permite a los usuarios seleccionar el flujo de trabajo adecuado cuando hay un solo flujo de trabajo para la aplicación de cadena de bloques. En este caso, Asset Transfer tiene un solo flujo de trabajo, que también se llama Asset Transfer.
+Una vez que un usuario selecciona la aplicación de cadena de bloques aplicable, en este caso, **Asset Transfer**, el cliente de la cadena de bloques recupera todos los flujos de trabajo de la aplicación de cadena de bloques específica. Los usuarios luego pueden seleccionar el flujo de trabajo aplicable antes de ver todas las instancias de contrato inteligente del flujo de trabajo. Cada aplicación de cadena de bloques tiene uno o varios flujos de trabajo y cada flujo de trabajo tiene cero o instancias de contrato inteligente. Al compilar aplicaciones cliente de cadena de bloques, es recomendable omitir el flujo de la experiencia de usuario que permite a los usuarios seleccionar el flujo de trabajo adecuado cuando hay un solo flujo de trabajo para la aplicación de cadena de bloques. En este caso, **Asset Transfer** tiene un solo flujo de trabajo, que también se llama **Asset Transfer**.
 
 Use la [API Applications Workflows GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Enumerar las instancias de contrato inteligente para un flujo de trabajo
 
-Una vez que un usuario selecciona el flujo de trabajo aplicable, en este caso, Asset Transfer, el cliente de la cadena de bloques recuperará todas las instancias de contrato inteligente para el flujo de trabajo especificado. Puede usar esta información para mostrar todas las instancias de contrato inteligente del flujo de trabajo y permitir a los usuarios profundizar en cualquiera de las instancias de contrato inteligente que se muestran. En este ejemplo, considere la posibilidad de que un usuario desee interactuar con una de las instancias de contrato inteligente para tomar medidas.
+Una vez que un usuario selecciona el flujo de trabajo aplicable, en este caso, **Asset Transfer**, el cliente de la cadena de bloques recuperará todas las instancias de contrato inteligente para el flujo de trabajo especificado. Puede usar esta información para mostrar todas las instancias de contrato inteligente del flujo de trabajo y permitir a los usuarios profundizar en cualquiera de las instancias de contrato inteligente que se muestran. En este ejemplo, considere la posibilidad de que un usuario desee interactuar con una de las instancias de contrato inteligente para tomar medidas.
 
 Use la [API Contracts GET](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
 
@@ -306,4 +309,5 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de la API de REST de Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
+> [!div class="nextstepaction"]
+> [Referencia de la API de REST de Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

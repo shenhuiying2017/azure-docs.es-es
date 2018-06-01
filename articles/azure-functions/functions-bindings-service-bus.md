@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304120"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces de Azure Service Bus en Azure Functions
 
@@ -33,6 +34,8 @@ En este artículo se explica cómo trabajar con enlaces de Azure Service Bus en 
 Los enlaces de Service Bus se proporcionan en el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). El código fuente del paquete se encuentra en el repositorio [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) de GitHub.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Desencadenador
 
@@ -49,16 +52,22 @@ Vea el ejemplo específico del lenguaje:
 
 ### <a name="trigger---c-example"></a>Desencadenador: ejemplo de C#
 
-En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que registra un mensaje de cola de Service Bus.
+En el ejemplo siguiente se muestra una [función de C#](functions-dotnet-class-library.md) que lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ Este ejemplo es para la versión 1.x de Azure Functions. Para la versión for 2.
  
 ### <a name="trigger---c-script-example"></a>Desencadenador: ejemplo de script de C#
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función registra un mensaje de cola de Service Bus.
+En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de script de C#](functions-reference-csharp.md) que usa el enlace. La función lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus.
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -88,9 +97,19 @@ Estos son los datos de enlace del archivo *function.json*:
 Este es el código de script de C#:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Desencadenador: ejemplo de JavaScript
 
-En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función registra un mensaje de cola de Service Bus. 
+En el ejemplo siguiente se muestra un enlace de desencadenador de Service Bus en un archivo *function.json* y una [función de JavaScript](functions-reference-node.md) que usa el enlace. La función lee [metadatos de mensaje](#trigger---message-metadata) y registra un mensaje de cola de Service Bus. 
 
 Estos son los datos de enlace del archivo *function.json*:
 
@@ -148,6 +167,9 @@ Este es el código del script de JavaScript:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +269,30 @@ El control de mensajes dudosos no se puede controlar ni configurar en Azure Func
 
 ## <a name="trigger---peeklock-behavior"></a>Desencadenador: comportamiento de PeekLock
 
-El entorno de ejecución de Functions recibe un mensaje en [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente.
+El entorno de ejecución de Functions recibe un mensaje en [modo PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Llama a `Complete` en el mensaje si la función finaliza correctamente, o llama a `Abandon` si se produce un error en la función. Si la ejecución de la función dura más que el tiempo de espera de `PeekLock`, el bloqueo se renovará automáticamente siempre que la función esté en ejecución. 
+
+Functions 1.x le permite configurar `autoRenewTimeout` en *host.json*, que asigna a [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). El valor predeterminado de esta opción es de 5 minutos según la documentación de Service Bus, aunque que puede aumentar el límite de tiempo de Functions desde el valor predeterminado de 5 minutos a 10 minutos. Sin embargo puede que no quiera hacer eso con las funciones de Service Bus, ya que podría superar el límite de renovación de este.
+
+## <a name="trigger---message-metadata"></a>Desencadenador: metadatos del mensaje
+
+El desencadenador de Service Bus proporciona varias [propiedades de metadatos](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Estas propiedades pueden usarse como parte de expresiones de enlace en otros enlaces o como parámetros del código. Estas son propiedades de la clase [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+
+|Propiedad|Escriba|DESCRIPCIÓN|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Número total de entregas.|
+|`DeadLetterSource`|`string`|Origen de los mensajes fallidos.|
+|`ExpiresAtUtc`|`DateTime`|Hora de expiración en UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|Hora de puesta en la cola en UTC.|
+|`MessageId`|`string`|Se trata de un valor definido por el usuario que Service Bus puede utilizar para identificar mensajes duplicados, si está habilitado.|
+|`ContentType`|`string`|Un identificador de tipo de contenido que usa el remitente y el receptor para la lógica específica de la aplicación.|
+|`ReplyTo`|`string`|La respuesta a la dirección de cola.|
+|`SequenceNumber`|`Int64`|El número único que Service Bus asigna a un mensaje.|
+|`To`|`string`|Dirección de envío.|
+|`Label`|`string`|Etiqueta específica de la aplicación.|
+|`CorrelationId`|`string`|Identificador de correlación.|
+|`Properties`|`IDictionary<String,Object>`|Las propiedades de mensaje específicas de la aplicación.|
+
+Consulte los [ejemplos de código](#trigger---example) que utilizan estas propiedades más arriba en este artículo.
 
 ## <a name="trigger---hostjson-properties"></a>Desencadenador: propiedades de host.json
 
@@ -404,7 +449,7 @@ Este es el código de script de JavaScript que crea un único mensaje:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +460,9 @@ Este es el código de script de JavaScript que crea varios mensajes:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```
