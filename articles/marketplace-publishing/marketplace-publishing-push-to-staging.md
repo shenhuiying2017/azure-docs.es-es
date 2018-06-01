@@ -118,7 +118,7 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 * **Puertos**: Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña Imágenes de VM -&gt; Open Ports (Abrir puertos)
 * **Cambio de precios de las SKU activas**
 * **Cambio del modelo de facturación de las SKU activas**
-* **Removal of billing regions of listed SKU(s)**
+* **Eliminación de las regiones de facturación de las SKU de la lista**
 * **Cambio del número de discos de datos de las SKU activas**
 
 ## <a name="step-2-set-your-prices"></a>Paso 2: Establecimiento de precios
@@ -156,7 +156,7 @@ En estos momentos, existen los **3 tipos de modelos de facturación**
 
 * **Cambio de precios de las SKU activas**
 * **Cambio del modelo de facturación de las SKU activas**
-* **Removal of billing regions of listed SKU(s)**
+* **Eliminación de las regiones de facturación de las SKU de la lista**
 * **Cambio del número de discos de datos de las SKU activas**
 * **Offer Identifier** (Identificador de oferta): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; Imágenes de VM -&gt; Offer Identifier (Identificador de oferta)
 * **SKU Identifier** (Identificador de SKU): Portal de publicación -&gt; Máquinas virtuales -&gt; Select your Offer (Seleccionar oferta) -&gt; pestaña SKUs (SKU) -&gt; Offer Identifier (Identificador de oferta)
