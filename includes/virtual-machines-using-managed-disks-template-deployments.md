@@ -216,4 +216,4 @@ Para información completa sobre las especificaciones de API de REST, revise la 
 * Visite el documento [Introducción a Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md) para más información sobre los discos administrados.
 * Revise la documentación de referencia de plantilla de los recursos de máquina virtual en el documento de [referencia de plantilla Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Revise la documentación de referencia de plantilla de los recursos de disco en el documento de [referencia de plantilla Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).
- 
+* Para obtener información acerca del uso de discos administrados en Azure Virtual Machine Scale Sets, consulte el documento [Use data disks with scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) (Uso de discos de datos con conjuntos de escalado).

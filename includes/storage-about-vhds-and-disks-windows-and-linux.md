@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b8b61f2a512cca2a88274b93d04a1fdc8893a88f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34222920"
 ---
 ## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 
@@ -20,15 +21,14 @@ Los discos duros virtuales usados en Azure son archivos .vhd almacenados como bl
 
 Azure admite el formato VHD de disco fijo. El formato fijo coloca el disco lógico linealmente dentro del archivo, de manera que el desplazamiento de disco X se almacena en el desplazamiento de blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. El formato fijo a menudo desaprovecha el espacio porque la mayoría de discos contienen grandes rangos sin utilizar. Sin embargo, Azure almacena los archivos .vhd en un formato disperso; así pues, se beneficia de las ventajas de los discos fijos y dinámicos al mismo tiempo. Para obtener más información, consulte [Introducción a los discos duros virtuales](https://technet.microsoft.com/library/dd979539.aspx).
 
-Todos los archivos .vhd de Azure que quiera usar como origen para crear discos o imágenes son de solo lectura, excepto los archivos .vhd que el usuario cargó o copió en Azure Storage (los cuales pueden ser de lectura/escritura o de solo lectura). Cuando se crea un disco o una imagen, Azure hace copias de los archivos .vhd de origen. Estas copias pueden ser de solo lectura o de lectura y escritura, en función de cómo use el disco duro virtual.
+Todos los archivos VHD de Azure que quiera usar como origen para crear discos o imágenes son de solo lectura, excepto los archivos .vhd que el usuario cargó o copió en Azure Storage (los cuales pueden ser de lectura/escritura o de solo lectura). Cuando se crea un disco o una imagen, Azure hace copias de los archivos .vhd de origen. Estas copias pueden ser de solo lectura o de lectura y escritura, en función de cómo use el disco duro virtual.
 
 Cuando se crea una máquina virtual desde una imagen, Azure crea un disco para la máquina virtual que es una copia del archivo .vhd de origen. Para proteger contra la eliminación accidental, Azure coloca una concesión en cada archivo .vhd de origen que se usa para crear una imagen, un disco del sistema operativo o un disco de datos.
 
 Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión eliminando el disco o la imagen. Para eliminar un archivo .vhd que está siendo usado por una máquina virtual como disco del sistema operativo, puede eliminar la máquina virtual, el disco del sistema operativo y el archivo .vhd de origen a la vez, eliminando la máquina virtual y todos los discos asociados. Sin embargo, para eliminar un archivo .vhd que es el origen de un disco de datos es necesario realizar varios pasos en un orden determinado. Primero, desasocie el disco de la máquina virtual y, a continuación, elimine el disco y el archivo .vhd.
+
 > [!WARNING]
 > Si elimina un archivo .vhd de origen del almacenamiento o elimina la cuenta de almacenamiento, Microsoft no puede recuperar esos datos por usted.
-> 
-> Los blobs en páginas en Premium Storage están diseñados para su uso exclusivo como discos duros virtuales. Microsoft no recomienda almacenar otros tipos de datos en blobs en páginas en Premium Storage, ya que el costo puede ser mucho mayor. Use los blobs en bloques para almacenar datos que no se encuentren en un disco duro virtual.
 
 ## <a name="types-of-disks"></a>Tipos de discos 
 

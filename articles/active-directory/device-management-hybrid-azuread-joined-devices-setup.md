@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157799"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258319"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Configuración de dispositivos híbridos unidos a Azure Active Directory
 
@@ -96,6 +96,7 @@ Si su organización tiene previsto usar SSO sin problemas, las siguientes direcc
 
 - Además, se debe habilitar la siguiente configuración en la zona de la intranet del usuario: "Permitir actualizaciones en la barra de estado a través de script".
 
+Si su organización usa una configuración administrada (no federada) con AD local y no utiliza ADFS para federar con Azure AD, la combinación de Azure AD híbrido de Windows 10 usa los objetos de equipo de AD para sincronizarse con Azure AD. Asegúrese de que todas las unidades organizativas que contengan los objetos de equipo que deban unirse a Azure AD híbrido estén habilitados para sincronizarse en la configuración de sincronización de Azure AD Connect.
 
 Si su organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD.
 
@@ -187,6 +188,14 @@ En una configuración con varios bosques, debe usar el script siguiente para cre
 
     $deSCP.CommitChanges()
 
+En el script anterior,
+
+- `$verifiedDomain = "contoso.com"` corresponde a un marcador de posición que se debe reemplazar con uno de los nombres de dominio comprobados en Azure AD. Para poder utilizar el dominio, deberá ser su propietario.
+
+Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-domains-add-azure-portal.md) para más información sobre nombres de dominios comprobados.  
+Para obtener una lista de los dominios comprobados de la compañía, puede usar el cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0). 
+
+![Get-AzureADDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
 
 ## <a name="step-2-setup-issuance-of-claims"></a>Paso 2: Configuración de la emisión de notificaciones
 
@@ -330,6 +339,7 @@ En la notificación anterior,
 
 
 Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-domains-add-azure-portal.md) para más información sobre nombres de dominios comprobados.  
+
 Para obtener una lista de los dominios comprobados de la compañía, puede usar el cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0). 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
