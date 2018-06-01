@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 588da055d06d7e63510085ff48169f3ea756c53c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257649"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Información general de Azure Stack Marketplace
 
@@ -29,7 +30,7 @@ Marketplace es una colección de servicios, aplicaciones y recursos personalizad
 
 Como operador Azure Stack, usted decide qué elementos quiere agregar (publicar) en Marketplace. Puede publicar elementos, como bases de datos, App Services, etc. Esto hace que sean visibles para todos los usuarios. Puede publicar elementos personalizados creados por usted. También puede publicar elementos de una creciente [lista de elementos de Azure Marketplace](azure-stack-marketplace-azure-items.md). Al publicar un elemento en Marketplace, los usuarios pueden verlo a los cinco minutos.
 
-Para abrir Marketplace, haga clic en **Nuevo**.
+Para abrir Marketplace, en la consola de administración, seleccione **Nuevo**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
@@ -47,5 +48,6 @@ Cada elemento publicado en Marketplace utiliza un formato denominado paquete de 
 En la versión 1803 y versiones posteriores, Azure Stack convierte las imágenes en archivos dispersos cuando se descargan de Azure o al cargar imágenes personalizadas. Este proceso supone más tiempo a la hora de agregar una imagen, pero ahorra espacio y acelera la implementación de esas imágenes. La conversión solo se aplica a las nuevas imágenes.  Las imágenes existentes no cambian. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+[Descarga de elementos de Marketplace](azure-stack-download-azure-marketplace-item.md)  
 [Creación y publicación de un producto en Marketplace](azure-stack-create-and-publish-marketplace-item.md)
 

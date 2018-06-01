@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196991"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Optimización del rendimiento de Azure Data Lake Store
 
@@ -66,7 +65,7 @@ Normalmente, los motores de análisis como HDInsight y Azure Data Lake Analytics
 
 En general, organice los datos en archivos de un tamaño mayor para mejorar el rendimiento.  Como regla general, organice los conjuntos de datos en archivos de 256 MB o más. En algunos casos, como para las imágenes y datos binarios, no es posible procesarlos en paralelo.  En estos casos, se recomienda mantener los archivos individuales por debajo de 2 GB.
 
-A veces, las canalizaciones de datos ejercen un control limitado sobre los datos sin procesar que tienen una gran cantidad de archivos pequeños.  Se recomienda disponer de un proceso de "cocinado" que genere archivos de mayor tamaño para usarlos en las aplicaciones de bajada.  
+A veces, las canalizaciones de datos ejercen un control limitado sobre los datos sin procesar que tienen una gran cantidad de archivos pequeños.  Se recomienda disponer de un proceso de "cocinado" que genere archivos de mayor tamaño para usarlos en las aplicaciones de bajada.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organización de los datos de serie temporal en carpetas
 
@@ -123,7 +122,7 @@ Hay tres niveles dentro de un clúster de HDInsight que se pueden optimizar para
 
 En función de la carga de trabajo, siempre habrá un tamaño de contenedor de YARN mínimo que se necesite. Si elige un contenedor demasiado pequeño, los trabajos no tendrán memoria suficiente. Normalmente, los contenedores de YARN no deben ser menores de 1 GB. Es habitual ver contenedores de YARN de 3 GB. Para algunas cargas de trabajo, puede que necesite contenedores de YARN mayores.  
 
-**Aumente los núcleos para cada contenedor de YARN.**  Aumente el número de núcleos asignados a cada contenedor para incrementar las tareas en paralelo que se ejecutan en cada uno.  Funciona en las aplicaciones como Spark que ejecutan varias tareas por contenedor.  En las aplicaciones como Hive que ejecutan un único subproceso en cada contenedor, es mejor tener varios contenedores en lugar de más núcleos por contenedor.   
+**Aumente los núcleos para cada contenedor de YARN.**  Aumente el número de núcleos asignados a cada contenedor para incrementar las tareas en paralelo que se ejecutan en cada uno.  Funciona en las aplicaciones como Spark que ejecutan varias tareas por contenedor.  En las aplicaciones como Hive que ejecutan un único subproceso en cada contenedor, es mejor tener varios contenedores en lugar de más núcleos por contenedor.
 
 ### <a name="workload-layer"></a>Nivel de carga de trabajo
 

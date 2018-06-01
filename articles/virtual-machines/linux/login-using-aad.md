@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944000"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271967"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory (versión preliminar)
 
@@ -35,6 +35,7 @@ Usar la autenticación de Azure AD para iniciar sesión en máquinas virtuales L
   - Como se disminuye la dependencia de las cuentas de administrador local, no tiene que preocuparse de la pérdida o el robo de las credenciales ni tampoco si los usuarios configuraron credenciales poco seguras, etc.
   - Las directivas de complejidad y vigencia de las contraseñas configuradas para el directorio de Azure AD también ayudan a proteger las máquinas virtuales Linux.
   - Para proteger aún más el inicio de sesión en máquinas virtuales de Azure, puede configurar la autenticación multifactor.
+  - La capacidad de iniciar sesión en máquinas virtuales Linux con Azure Active Directory también funciona con clientes que usan [Servicios de federación](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Colaboración sin complicaciones:** con el control de acceso basado en rol (RBAC), puede especificar quién puede iniciar sesión en una máquina virtual determinada como usuario habitual o con privilegios de administrador. Cuando los usuarios se unen o dejan el equipo, puede actualizar la directiva de RBAC de la máquina virtual para conceder acceso según corresponda. Esta experiencia es mucho más simple que limpiar las máquinas virtuales para quitar las claves SSH públicas innecesarias. Cuando los empleados dejan la organización y su cuenta de usuario se deshabilita o quita de Azure AD, dejan de tener acceso a los recursos.
 
@@ -50,7 +51,7 @@ La versión preliminar de esta característica actualmente admite estas distribu
 
 La versión preliminar de esta característica actualmente admite estas regiones de Azure:
 
-- Todas las regiones públicas de Azure
+- Todas las regiones de Azure global
 
 >[!IMPORTANT]
 > Para usar esta característica en versión preliminar, solo debe implementar una distribución de Linux compatible en una región de Azure compatible. La característica no es compatible con Azure Government ni con las nubes soberanas.
@@ -167,6 +168,10 @@ Si completa correctamente el paso de autenticación en un explorador web, es pos
 - Compruebe que el nombre de inicio de sesión que especificó en el símbolo del sistema SSH sea correcto. Un error tipográfico en el nombre de inicio de sesión puede provocar una falta de coincidencia entre el nombre de inicio de sesión que especificó en el símbolo del sistema SSH y la cuenta con que inició sesión en Azure AD. Por ejemplo, si escribió *azuresuer@contoso.onmicrosoft.com* en lugar de *azureuser@contoso.onmicrosoft.com*.
 - Si tiene varias cuentas de usuario, asegúrese de no escribir una distinta en la ventana del explorador cuando inicie sesión en Azure AD.
 - Linux es un sistema operativo que distingue mayúsculas de minúsculas. Hay una diferencia entre "Azureuser@contoso.onmicrosoft.com" y "azureuser@contoso.onmicrosoft.com", lo que puede provocar un error de coincidencia. Asegúrese de especificar el UPN con el uso correcto de mayúsculas y minúsculas en el símbolo del sistema SSH.
+
+## <a name="preview-feedback"></a>Comentarios sobre la versión preliminar
+
+Comparta sus comentarios sobre esta característica en versión preliminar o notifique cualquier problema mediante el [foro de comentarios de Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

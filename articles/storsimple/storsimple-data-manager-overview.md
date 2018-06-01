@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Microsoft Azure StorSimple Data Manager | Microsoft Docs"
-description: "Proporciona una introducción al servicio StorSimple Data Manager"
+title: Introducción a Microsoft Azure StorSimple Data Manager | Microsoft Docs
+description: Proporciona una introducción al servicio StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/26/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271911"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Introducción a la solución StorSimple Data Manager
 
@@ -80,6 +81,11 @@ Los recursos de proceso utilizan esta clave para realizar la transformación. Es
 Si la región de Data Manager es diferente de la región de la definición del trabajo, es importante que sepa qué datos y metadatos residen en cada una de estas regiones. El siguiente diagrama muestra el efecto de tener diferentes regiones para Data Manager y para la definición del trabajo.
 
 ![Servicio y definición del trabajo en distintas regiones](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="gdpr-compliance"></a>Cumplimiento del RGPD
+
+El [Reglamento general de protección de datos (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) es una ley de privacidad y protección de datos de la Unión Europea (UE). El RGPD incluye muchos requisitos acerca de cómo recopilar, almacenar y usar la información personal. Las reglas del RGPD se imponen a las empresas, a las instituciones oficiales y a otras organizaciones que operan en la UE, y recopilan y analizan datos vinculados a residentes en la UE. StorSimple Data Manager es compatible con RGPD. El servicio Data Manager no recopila datos personales.
+Para obtener más información, revise la directiva de privacidad de Microsoft en el [Centro de confianza](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

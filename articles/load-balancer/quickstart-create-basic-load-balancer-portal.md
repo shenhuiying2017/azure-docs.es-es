@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304885"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guía de inicio rápido: Creación de una instancia pública de Load Balancer Básico mediante Azure Portal
 
@@ -165,7 +166,7 @@ Para permitir que la instancia de Load Balancer Básico supervise el estado de l
 
 ### <a name="create-a-load-balancer-rule"></a>Creación de una regla de equilibrador de carga
 
-Las reglas de Load Balancer se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Se define la configuración de IP front-end para el tráfico entrante y el grupo IP de back-end para recibir el tráfico, junto con el puerto de origen y destino requeridos. 
+Las reglas de Load Balancer se utilizan para definir cómo se distribuye el tráfico a las máquinas virtuales. Defina la configuración de la IP de front-end para el tráfico entrante y el grupo de IP de back-end para el tráfico entrante, junto con los puertos de origen y destino requeridos. 
 
 Cree una regla del equilibrador de carga llamada **myLoadBalancerRuleWeb** para escuchar en el puerto 80 en el front-end **LoadBalancerFrontEnd**. La regla es también para el envío de tráfico de red con equilibrio de carga al grupo de direcciones de back-end **myBackEndPool**, también a través del puerto 80. 
 
@@ -194,4 +195,7 @@ Cuando no los necesite, puede eliminar el grupo de recursos, el equilibrador de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido se han creado un grupo de recursos, recursos de red y servidores de back-end. Después, se han usado dichos recursos para crear un equilibrador de carga. Para más información acerca de los equilibradores de carga y sus recursos asociados, siga leyendo los artículos del tutorial.
+En esta guía de inicio rápido se han creado un grupo de recursos, recursos de red y servidores de back-end. Después, se han usado dichos recursos para crear un equilibrador de carga básico. Para más información acerca de Azure Load Balancer, diríjase a los tutoriales correspondientes.
+
+> [!div class="nextstepaction"]
+> [Tutoriales de Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
