@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304732"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Equilibrio de carga de VM en una zona de disponibilidad con Load Balancer estándar mediante Azure Portal
 
@@ -31,7 +32,7 @@ Este tutorial le ayudará a crear una instancia pública de [Load Balancer está
 > * Crear un Load Balancer estándar de Azure con un front-end de zona
 > * Crear grupos de seguridad de red para definir las reglas de tráfico de entrada
 > * Crear VM de zona y conectarlas a un equilibrador de carga
-> * Crear el sondeo de estado de un equilibrador de carga
+> * Crear un sondeo de estado de un equilibrador de carga
 > * Crear reglas de tráfico del equilibrador de carga
 > * Crear un sitio de IIS básico
 > * Ver un equilibrador de carga en acción
@@ -95,7 +96,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
     - *TCP*: en **Protocolo**
     - *Permitir*: en **Acción**
     - *100* en **Prioridad**
-    - *myHTTPRule* como **Nombre**
+    - *myHTTPRule* en **Nombre**
     - *Permitir HTTP* como **Descripción**
 4. Haga clic en **OK**.
  
@@ -139,7 +140,7 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
 2. En la página **Información general**, haga clic en **Conectar** a RDP en la máquina virtual.
 3. Inicie sesión en la máquina virtual con el nombre de usuario y la contraseña que especificó al crearla (puede que deba seleccionar **Más opciones** y **Usar una cuenta diferente** para especificar las credenciales que escribió al crear la máquina virtual). A continuación, seleccione **Aceptar**. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Seleccione **Sí** para continuar con la conexión.
 4. En el escritorio del servidor, vaya a **Herramientas administrativas de Windows**>**Windows PowerShell**.
-6. En la ventana de PowerShell, ejecute los comandos siguientes para instalar el servidor IIS, y eliminar el archivo default.htm y agregar uno nuevo que muestre el nombre de la máquina virtual:
+6. En la ventana de PowerShell, ejecute los comandos siguientes para instalar el servidor IIS, eliminar el archivo iisstart.htm predeterminado y agregar uno nuevo que muestre el nombre de la máquina virtual:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ En esta sección, se crean reglas de NSG para permitir conexiones entrantes que 
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Cierre la sesión de RDP con *myVM1*
-9. Repita los pasos del 1 al 8 para instalar IIS en *myVM2*.
+7. Cierre la sesión de RDP con *myVM1*
+8. Repita los pasos del 1 al 7 para instalar IIS en *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Creación de recursos del equilibrador de carga
 
@@ -164,7 +165,7 @@ Para distribuir el tráfico a las máquinas virtuales, un grupo de direcciones d
 1. Haga clic en **Todos los recursos** en el menú de la izquierda y, después, en **myLoadBalancer* en la lista de recursos.
 2. Haga clic en **Configuración**, **Grupos de back-end** y luego en **Agregar**.
 3. En la página **Agregar grupo back-end**, realice lo siguiente:
-    - En el espacio para el nombre, escriba *myBackEndPool* como nombre del grupo back-end.
+    - En el espacio para el nombre, escriba *myBackEndPool* como nombre del grupo de servidores back-end.
     - Para **Red virtual**, en el menú desplegable, haga clic en *myVNet*
     - Para **Máquina Virtual** y **Dirección IP**, agregue *myVM1* y *myVM2* y sus direcciones IP públicas correspondientes.
 4. Haga clic en **Agregar**.
