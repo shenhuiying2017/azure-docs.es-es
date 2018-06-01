@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 84475302-EFC2-4C35-B4CF-60C857A96345
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 09a774e5dda71d87c3862a6152ff5d2c9468c40c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010071"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Uso de los perfiles de la versión de la API con GO en Azure Stack
 
@@ -35,7 +34,7 @@ Un perfil es una combinación de diferentes tipos de recursos con distintas vers
 En el SDK para GO, los perfiles están disponibles en la ruta de acceso profiles/, con la versión en formato **AAAA-MM-DD**. En este momento, la última versión del perfil de Azure Stack es **2017-03-09**. Para importar un servicio determinado de un perfil, debe importar su módulo correspondiente del perfil. Por ejemplo, para importar el servicio **Compute** desde el perfil **2017-03-09**:
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## <a name="install-azure-sdk-for-go"></a>Instalación del SDK de Azure para GO
@@ -63,7 +62,8 @@ El SDK para GO depende de los módulos de Azure Go-AutoRest para enviar solicitu
 Para ejecutar un ejemplo de código de GO en Azure Stack:
   1. Instale el SDK de Azure para GO y sus dependencias. Para obtener instrucciones, consulte la sección anterior, [Instalación del SDK de Azure para GO](#install-azure-sdk-for-go).
   2. Obtenga la información de metadatos del punto de conexión de Resource Manager. El punto de conexión devuelve un archivo JSON con la información necesaria para ejecutar el código de GO.
-  > [!note]  
+
+  > [!Note]  
   > El valor de **ResourceManagerUrl** del Kit de desarrollo de Azure Stack (ASDK) es: `https://management.local.azurestack.external/`  
   > El valor de **ResourceManagerUrl** en los sistemas integrados es: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Para recuperar los metadatos necesarios: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
@@ -82,7 +82,7 @@ Para ejecutar un ejemplo de código de GO en Azure Stack:
   ```
 
   3. Si no está disponible, cree una suscripción y guarde su identificador para usarlo más adelante. Para información sobre la creación de una suscripción, consulte [Creación de suscripciones para ofertas en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Cree una entidad de servicio con ámbito de suscripción y el rol **Propietario**. Guarde el identificador y el secreto de la entidad de servicio. Para información sobre la creación de una entidad de servicio para Azure Stack, consulte [Creación de una entidad de servicio](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). El entorno de Azure Stack se ha configurado.
+  4. Cree una entidad de servicio con ámbito de suscripción y el rol **Propietario**. Guarde el identificador y el secreto de las entidades de servicio. Para información sobre la creación de una entidad de servicio para Azure Stack, consulte [Creación de una entidad de servicio](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). El entorno de Azure Stack se ha configurado.
   5. Importe un módulo de servicio del perfil del SDK para GO del código. La versión actual del perfil de Azure Stack es **2017-03-09**. Por ejemplo, para importar el módulo de red del tipo de perfil **2017-03-09**: 
 
   ````go
@@ -129,7 +129,7 @@ Authorizer se debe establecer como autorizador del cliente de recursos. Existen 
 
 En esta sección, se presenta una forma común de obtener tokens de autorizador en Azure Stack mediante credenciales de cliente:
 
-  1. Si hay una entidad de servicio con el rol de propietario en la suscripción disponible, omita este paso. De lo contrario, cree una entidad de servicio ([instrucciones]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)) y asígnele un rol de propietario con ámbito en la suscripción ([instrucciones]( https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)). Guarde el identificador y el secreto de la aplicación de la entidad de servicio. 
+  1. Si hay una entidad de servicio con el rol de propietario en la suscripción disponible, omita este paso. De lo contrario, cree una entidad de servicio ([instrucciones]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)) y asígnele un rol de propietario con ámbito en la suscripción ([instrucciones]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal)). Guarde el identificador y el secreto de la aplicación de la entidad de servicio. 
 
   2. Importe el paquete **adal** de Go-AutoRest en el código. 
   
@@ -178,7 +178,8 @@ En esta sección, se presenta una forma común de obtener tokens de autorizador 
 ## <a name="example"></a>Ejemplo
 
 En esta sección, se muestra un ejemplo de código de GO para crear una red virtual en Azure Stack. Para ver ejemplos completos de SDK para GO, consulte el [repositorio de ejemplos de SDK de Azure para GO](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Hay ejemplos de Azure Stack disponibles en la ruta de acceso hybrid/, dentro de las carpetas de servicios del repositorio.
-> [!note]  
+
+> [!Note]  
 > Para ejecutar el código de este ejemplo, compruebe que la suscripción utilizada tiene el proveedor de recursos **Red** como **Registrado**. Para confirmarlo, busque la suscripción en el portal de Azure Stack y haga clic en **Proveedores de recursos**.
 
 1. Importe los paquetes necesarios en el código. Debe usar el perfil más reciente disponible en Azure Stack para importar el módulo de red. 
@@ -196,7 +197,7 @@ En esta sección, se muestra un ejemplo de código de GO para crear una red virt
   )
   ````
 
-2. Defina las variables del entorno. Tenga en cuenta que, para crear una red virtual, debe tener un grupo de recursos. 
+2. Defina las variables del entorno. Para crear una red virtual, debe tener un grupo de recursos. 
 
   ````go
   var (
