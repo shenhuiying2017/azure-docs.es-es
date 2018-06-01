@@ -1,11 +1,11 @@
 ---
-title: "Aplicación Node.js con Socket.io: Azure"
-description: "Aprenda a usar socket.io en una aplicación node.js hospedada en Azure."
+title: 'Aplicación Node.js con Socket.io: Azure'
+description: Aprenda a usar socket.io en una aplicación node.js hospedada en Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: craigshoemaker
-manager: routlaw
-editor: 
+author: thraka
+manager: timlt
+editor: ''
 ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
 ms.service: cloud-services
 ms.workload: tbd
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: cshoe
-ms.openlocfilehash: 186cf5e22468b7abf58d6366ca0dec616be23cc6
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.author: adegeo
+ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011322"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Creación de una aplicación de chat Node.js con Socket.IO en un servicio de Azure Cloud Services
 
 Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y los clientes. Este tutorial le guía en el hospedaje de una aplicación de chat basada en socket.IO en Azure. Para obtener más información sobre Socket.IO, consulte [socket.io](http://socket.io).
 
-Captura de pantalla de la aplicación completa:
+A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![Una ventana del explorador que muestra el servicio hospedado en Azure][completed-app]  
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 Asegúrese de que los siguientes productos y versiones están instalados para completar correctamente el ejemplo de este artículo:
 
 * Instalar [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -61,7 +62,7 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 
 1. Cree una copia local del repositorio con el botón **Clonar** . Puede también usar el botón **ZIP** para descargar el proyecto.
    
-   ![Ventana de explorador con https://github.com/LearnBoost/socket.io/tree/master/examples/chat, y el icono de descarga ZIP resaltado][chat-example-view]
+   ![Una vista de la ventana del explorador https://github.com/LearnBoost/socket.io/tree/master/examples/chat, con el icono de descarga ZIP resaltado][chat-example-view]
 2. Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\chat**. Copie el contenido de este directorio al directorio **C:\\node\\chatapp\\WorkerRole1** creado anteriormente.
    
    ![Explorador que muestra el contenido del directorio examples\\chat extraído del archivo][chat-contents]
@@ -115,7 +116,7 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
    >
 
 
-2. Abra un explorador y navegue a **http://127.0.0.1**.
+2. Abra un explorador y vaya a **http://127.0.0.1**.
 3. Cuando se abra la ventana del explorador, escriba un alias y luego presione Entrar.
    De esta manera, podrá publicar mensajes con un sobrenombre específico. Para probar la funcionalidad multiusuario, abra ventanas del explorador adicionales con la misma dirección URL y escriba diferentes alias.
    
@@ -123,7 +124,7 @@ Después de guardar los cambios en **server.js**, use los siguientes pasos para 
 4. Después de probar la aplicación, detenga el emulador ejecutando el siguiente comando:
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Para implementar la aplicación en Azure, use el cmdlet **Publish-AzureServiceProject** . Por ejemplo:
+5. Para implementar la aplicación en Azure, use el cmdlet **Publish-AzureServiceProject** . Por ejemplo: 
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
