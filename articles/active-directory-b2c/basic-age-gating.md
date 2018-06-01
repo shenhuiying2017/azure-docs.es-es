@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206703"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261289"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Usar el acceso según la edad en Azure AD B2C
 
@@ -48,25 +48,22 @@ Una vez que el directorio esté configurado para usar el acceso según la edad, 
 Una vez habilitado el acceso según la edad en el flujo de usuario, la experiencia de usuario cambia.  Al hacer el registro, se solicita a los usuarios su fecha de nacimiento y país de residencia junto con los atributos de usuario que se configuraron en el flujo de usuarios.  Al iniciar sesión, los usuarios que todavía no hayan especificado la fecha de nacimiento y el país de residencia deberán proporcionar esta información la próxima vez que inicien sesión.  A partir de estos dos valores, Azure AD B2C identificará si el usuario es un menor y actualizará el campo `ageGroup`, cuyo valor puede ser `null`, `Undefined`, `Minor`, `Adult` y `NotAdult`.  A continuación, se usan los campos `ageGroup` y `consentProvidedForMinor` para calcular `legalAgeGroupClassification`. 
 
 ##<a name="age-gating-options"></a>Opciones del acceso según la edad
-Puede habilitar Azure AD B2C para bloquear a menores que no tengan autorización parental, o permitirles el acceso y que la aplicación decida qué hacer con ellos.  
+Puede elegir que Azure AD B2C bloquee a menores que no tengan autorización parental, o permitirles el acceso y que la aplicación decida qué hacer con ellos.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Permitir el acceso a menores sin autorización parental
-Para los flujos de usuarios que tengan el registro, el inicio de sesión o ambos, puede optar por permitir el acceso de menores sin autorización a la aplicación.  En el caso de los menores sin autorización parental, se les permite iniciar sesión o registrarse de manera normal y se emite un token de identificación con la notificación `legalAgeGroupClassification`.  Al usar esta notificación, puede elegir la experiencia que tienen estos usuarios, como la necesidad de que consigan una autorización parental (y así actualizar el campo `consentProvidedForMinor`).
+Para los flujos de usuarios que permitan el registro, el inicio de sesión o ambos, puede optar por permitir el acceso de menores sin autorización a la aplicación.  En el caso de los menores sin autorización parental, se les permite iniciar sesión o registrarse de manera normal, y Azure AD B2C emite un token de identificación con la notificación `legalAgeGroupClassification`.  Al usar esta notificación, puede elegir la experiencia que tienen estos usuarios, como la necesidad de que consigan una autorización parental (y así actualizar el campo `consentProvidedForMinor`).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Bloquear a menores sin autorización parental
-Para los flujos de usuarios que tengan el registro, el inicio de sesión o ambos, puede optar por bloquear el acceso de menores sin autorización a la aplicación.  Hay dos opciones para administrar los usuarios bloqueados en Azure AD B2C:
+Para los flujos de usuarios que permitan el registro, el inicio de sesión o ambos, puede optar por bloquear el acceso de menores sin autorización a la aplicación.  Hay dos opciones para administrar los usuarios bloqueados en Azure AD B2C:
 * Enviar datos JSON de vuelta a la aplicación: esta opción enviará una respuesta a la aplicación indicando que se bloqueó un menor.
 * Mostrar una página de error: se mostrará al usuario una página que le informe que no puede acceder a la aplicación.
 
 ##<a name="known-issues"></a>Problemas conocidos
-###<a name="customization-unavailable-for-new-pages"></a>No se pueden personalizar páginas nuevas.
-Hay dos páginas nuevas que pueden estar disponibles en el flujo de usuario cuando habilita el acceso según la edad.  Estas páginas son las encargadas de recopilar el país o región y la fecha de nacimiento al iniciar sesión, y la página de error no se puede usar con el diseño de página o la personalización del idioma.  Esta opción estará disponible en una próxima actualización.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato de la respuesta cuando se bloquea a un menor.
 Actualmente la respuesta no tiene un formato adecuado, pero este error se abordará en una próxima actualización.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Si elimina atributos específicos que se agregaron durante la configuración, es posible que el directorio no pueda usar el acceso según la edad.
-Al configurar el acceso según la edad, configuró el directorio a través de una opción en `Properties`.  Si elimina `legalCountry` o `dateOfBirth`, el inquilino no podrá usar más el acceso según la edad y no se podrán volver a crear las propiedades.
+Al configurar el acceso según la edad, configuró el directorio a través de una opción en `Properties`.  Si elimina `legalCountry` o `dateOfBirth` a través de Graph, el directorio no podrá usar más el acceso según la edad, y no se podrán volver a crear las propiedades.
 
 ###<a name="list-of-countries-is-incomplete"></a>La lista de países o regiones está incompleta.
 Actualmente, la lista de países o regiones del elemento legalCountry está incompleta, pero agregaremos el resto de países y regiones en una próxima actualización.
