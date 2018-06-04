@@ -45,8 +45,6 @@
           href: container-instances-using-azure-container-registry.md
         - name: Establecimiento de variables de entorno (env)
           href: container-instances-environment-variables.md
-        - name: Solución de problemas de implementaciones
-          href: container-instances-troubleshooting.md
     - name: administración
       items:
         - name: Ejecución de un comando (exec)
@@ -69,6 +67,12 @@
           href: container-instances-volume-gitrepo.md
         - name: secret
           href: container-instances-volume-secret.md
+    - name: Solución de problemas
+      items:
+        - name: Obtención de registros y eventos de contenedores
+          href: container-instances-get-logs.md
+        - name: Solución de problemas comunes
+          href: container-instances-troubleshooting.md
 - name: Referencia
   items:
     - name: Azure CLI
@@ -78,7 +82,7 @@
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
-      href: /dotnet/api/overview/azure/containerinstances
+      href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
     - name: Java
