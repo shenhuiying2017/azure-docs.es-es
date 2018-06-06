@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilice la biblioteca de autenticación de Microsoft (MSAL) para obtener un token para la API Graph de Microsoft.
+## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utilice la biblioteca de autenticación de Microsoft (MSAL) para obtener un token para Microsoft Graph API.
 
 Abra `ViewController.swift` y reemplace el código por:
 
@@ -126,9 +126,9 @@ Es posible que `acquireTokenSilent` genere eventualmente un error; por ejemplo, 
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Llamada a la API Graph de Microsoft con el token que acaba de obtener
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Llamada a Microsoft Graph API con el token que acaba de obtener
 
-Agregue el siguiente método nuevo a `ViewController.swift`. El método se utiliza para realizar una solicitud `GET` a la API de Microsoft Graph con un *encabezado de autorización HTTP*:
+Agregue el siguiente método nuevo a `ViewController.swift`. El método se utiliza para realizar una solicitud `GET` a Microsoft Graph API con un *encabezado de autorización HTTP*:
 
 ```swift
 func getContentWithToken() {
@@ -156,7 +156,7 @@ func getContentWithToken() {
 <!--start-collapse-->
 ### <a name="making-a-rest-call-against-a-protected-api"></a>Llamada de REST con una API protegida
 
-En esta aplicación de ejemplo, el método `getContentWithToken()` se usa para realizar una solicitud HTTP `GET` a un recurso protegido que requiere un token y, a continuación, devolver el contenido al autor de la llamada. Este método agrega el token adquirido al *encabezado de autorización HTTP*. En este ejemplo, el recurso es el punto de conexión *me* de la API Graph de Microsoft, que muestra información de perfil del usuario.
+En esta aplicación de ejemplo, el método `getContentWithToken()` se usa para realizar una solicitud HTTP `GET` a un recurso protegido que requiere un token y, a continuación, devolver el contenido al autor de la llamada. Este método agrega el token adquirido al *encabezado de autorización HTTP*. En este ejemplo, el recurso es el punto de conexión *me* de Microsoft Graph API, que muestra información de perfil del usuario.
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>Configuración del cierre de sesión

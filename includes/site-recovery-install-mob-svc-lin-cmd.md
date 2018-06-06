@@ -22,7 +22,7 @@ Usage:
 ./install -d <Install Location> -r <MS|MT> -v VmWare -q
 ```
 
-|.|type|DESCRIPCIÓN|Valores posibles|
+|.|Escriba|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |-r |Obligatorio|Especifica si se debe instalar Mobility Service (MS) o MasterTarget(MT).|MS </br> MT|
 |-d |Opcional|Ubicación en que se instala Mobility Service.|/usr/local/ASR|
@@ -38,7 +38,7 @@ cd /usr/local/ASR/Vx/bin
 UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 ```
 
-|.|type|DESCRIPCIÓN|Valores posibles|
+|.|Escriba|DESCRIPCIÓN|Valores posibles|
 |-|-|-|-|
 |-i |Obligatorio|Dirección IP del servidor de configuración|Cualquier dirección IP válida|
 |-P |Obligatorio|Ruta de acceso completa del archivo donde se guarda la frase de contraseña de conexión|Cualquier carpeta válida|

@@ -1,6 +1,6 @@
 En la tabla siguiente se muestran los enlaces que son compatibles con las dos versiones principales del entorno de tiempo de ejecución de Azure Functions.
 
-| type | 1.x | 2.x | Desencadenador | Entrada | Salida |  
+| Escriba | 1.x | 2.x | Desencadenador | Entrada | Salida |  
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Blob Storage](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔<sup>1</sup>|✔|✔|✔|  
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|  

@@ -9,10 +9,11 @@ ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34152230"
 ---
 Las organizaciones tienen necesidades informáticas a gran escala. Las cargas de trabajo de Big Compute incluyen el diseño y análisis de ingeniería, los cálculos de riesgos financieros, la representación de imágenes, los modelos complejos, las simulaciones de Monte Carlo, etc. 
 
@@ -118,11 +119,11 @@ Obtenga información sobre cómo:
 
 Los proveedores o desarrolladores SaaS pueden usar los SDK y las herramientas de Batch para integrar las aplicaciones de HPC o las cargas de trabajo de los contenedores con Azure, almacenar provisionalmente datos en Azure y crear canalizaciones de ejecución de trabajos. 
 
-Aprenda a:
+Obtenga información sobre cómo:
 
 * [Empezar a desarrollar con Batch](../articles/batch/quick-run-dotnet.md)
 * [Usar ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples)
-* [Usar máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
+* [Uso de máquinas virtuales de prioridad baja con Batch](../articles/batch/batch-low-pri-vms.md)
 * [Ejecutar cargas de trabajo de HPC en contenedores con Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Ejecutar cargas de trabajo de R paralelas en Batch](https://github.com/Azure/doAzureParallel)
 * [Ejecutar trabajos Spark a petición en Batch](https://github.com/Azure/aztk)
@@ -167,7 +168,7 @@ Las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtual
 
 ### <a name="ai-and-machine-learning"></a>AI y aprendizaje automático
 * [Machine Learning Services](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
+* [Inteligencia artificial de Batch](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Redes
