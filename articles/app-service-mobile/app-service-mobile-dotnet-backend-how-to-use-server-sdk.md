@@ -16,10 +16,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8216dafdd846f10ca1c8fc33b710a093aca20c7b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "31589635"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabajar con el SDK del servidor back-end de .NET para Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +36,7 @@ En este tema se muestra cómo usar el SDK del servidor back-end de .NET en escen
 La documentación de referencia del SDK del servidor se encuentra aquí: [Referencia de .NET de Azure Mobile Apps][1].
 
 ## <a name="create-app"></a>Creación de un back-end de aplicación móvil .NET
-Si va a iniciar un nuevo proyecto, puede crear una aplicación de App Service mediante el [Portal de Azure] o Visual Studio. Puede ejecutar la aplicación de App Service localmente o publicarla en la aplicación móvil de App Service basada en la nube.
+Si va a iniciar un nuevo proyecto, puede crear una aplicación de App Service mediante el [Azure Portal] o Visual Studio. Puede ejecutar la aplicación de App Service localmente o publicarla en la aplicación móvil de App Service basada en la nube.
 
 Si va a agregar funcionalidades móviles a un proyecto existente, consulte la sección [Descarga e inicialización del SDK](#install-sdk) .
 
@@ -468,7 +469,7 @@ Asegúrese de que el back-end tenga instalado [Microsoft.Azure.Mobile.Server.Aut
 En el ejemplo anterior, debe configurar los parámetros de la aplicación *authAudience* y *authIssuer* en el archivo Web.config para que cada uno sea la dirección URL de la raíz de la aplicación; para ello, usará el esquema HTTPS. De igual modo, debe establecer *authSigningKey* como el valor de la clave de firma de la aplicación.
 Para obtener la clave de firma:
 
-1. Vaya a la aplicación en [Portal de Azure]
+1. Vaya a la aplicación en [Azure Portal]
 2. Haga clic en **Herramientas**, **Kudu**, **Ir**.
 3. En el sitio de administración de Kudu, haga clic en **Entorno**.
 4. Busque el valor de *WEBSITE\_AUTH\_SIGNING\_KEY*.
@@ -481,7 +482,7 @@ Use la clave de firma para el parámetro *authSigningKey* en la configuración d
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
