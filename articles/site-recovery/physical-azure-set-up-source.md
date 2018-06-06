@@ -1,8 +1,8 @@
 ---
-title: "Configuración del entorno de origen (servidores físicos a Azure) | Microsoft Docs"
-description: "En este artículo se describe cómo configurar el entorno local para comenzar a replicar servidores físicos que ejecutan Windows o Linux en Azure."
+title: Configuración del entorno de origen (servidores físicos a Azure) | Microsoft Docs
+description: En este artículo se describe cómo configurar el entorno local para comenzar a replicar servidores físicos que ejecutan Windows o Linux en Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811142"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configuración del entorno de origen (servidores físicos a Azure)
 
