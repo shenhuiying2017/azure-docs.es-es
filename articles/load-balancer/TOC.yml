@@ -10,18 +10,26 @@
       href: quickstart-create-basic-load-balancer-portal.md
     - name: 'Creación de Load Balancer básico: CLI de Azure'
       href: quickstart-create-basic-load-balancer-cli.md
+    - name: 'Creación de Load Balancer básico: Azure PowerShell'
+      href: quickstart-create-basic-load-balancer-powershell.md
     - name: 'Creación de Load Balancer estándar: Azure Portal'
       href: quickstart-load-balancer-standard-public-portal.md
     - name: 'Creación de Load Balancer estándar: CLI de Azure'
       href: quickstart-load-balancer-standard-public-cli.md
+    - name: 'Creación de instancia de Standard Load Balancer: Azure PowerShell'
+      href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutoriales
   items:
+    - name: Creación y administración de Load Balancer
+      href: tutorial-load-balancer-standard-manage-portal.md
     - name: Equilibrio de carga del tráfico interno a las máquinas virtuales
       href: tutorial-load-balancer-basic-internal-portal.md
     - name: Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Equilibrio de carga de máquinas virtuales en una zona de disponibilidad específica
       href: tutorial-load-balancer-standard-public-zonal-portal.md
+    - name: Configuración del reenvío de puertos de Load Balancer
+      href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Ejemplos
   items:
     - name: CLI de Azure

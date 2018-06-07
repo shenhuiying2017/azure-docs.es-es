@@ -12,9 +12,15 @@
 - name: Tutoriales
   items:
     - name: 'Carga, codificación y streaming'
-      href: stream-files-tutorial-with-api.md
+      items:
+        - name: Con .NET
+          href: stream-files-tutorial-with-api.md
+        - name: Con REST
+          href: stream-files-tutorial-with-rest.md
     - name: Análisis del vídeo
-      href: analyze-videos-tutorial-with-api.md
+      items:
+        - name: Con .NET
+          href: analyze-videos-tutorial-with-api.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código de Azure
@@ -25,18 +31,24 @@
   items:
     - name: Recursos
       href: assets-concept.md
-    - name: Escala de velocidad de bits adaptativa generada automáticamente
-      href: autogen-bitrate-ladder.md
+    - name: Encoding
+      items:
+        - name: Información general
+          href: encoding-concept.md
+        - name: Escala de velocidad de bits adaptativa generada automáticamente
+          href: autogen-bitrate-ladder.md
     - name: Inteligencia multimedia
       href: intelligence-concept.md
+    - name: Reacción a eventos
+      href: reacting-to-media-services-events.md
     - name: Cuentas de almacenamiento
       href: storage-account-concept.md
     - name: Transformaciones y trabajos
       href: transform-concept.md
-    - name: Reacción a eventos
-      href: reacting-to-media-services-events.md
 - name: Guías de procedimientos
   items:
+    - name: Migración de v2 a v3
+      href: migrate-from-v2-to-v3.md
     - name: 'Creación de una cuenta: CLI'
       href: create-account-cli-how-to.md
     - name: 'Acceso a API: CLI'
@@ -49,8 +61,14 @@
           href: job-input-from-http-how-to.md
         - name: Desde un archivo local
           href: job-input-from-local-file-how-to.md
+    - name: Personalización de los valores preestablecidos de transformación
+      items:
+        - name: Con .NET Core
+          href: customize-encoder-presets-how-to.md
 - name: Referencia
   items:
+    - name: Especificación OpenAPI (Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: CLI de Azure 2.0
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
@@ -61,6 +79,8 @@
       href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node .js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Esquemas de eventos
       href: media-services-event-schemas.md
 - name: Recursos
@@ -77,3 +97,5 @@
       href: release-notes.md
     - name: Cuotas y limitaciones
       href: limits-quotas-constraints.md
+    - name: Preguntas más frecuentes
+      href: frequently-asked-questions.md

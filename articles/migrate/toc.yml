@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Conceptos
   items:
-    - name: Conceptos del recopilador
+    - name: Sobre el recopilador
       href: concepts-collector.md
     - name: Cálculos de evaluación
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Guías de procedimientos
   items:
-    - name: Migración de los recursos locales a Azure
+    - name: Serie de migración de Contoso
       items:
-        - name: 'Información general de escenario: Migración de los recursos locales a Azure'
-          href: migrate-scenarios-overview.md
-        - name: 'Escenario 1: Evaluación de los recursos locales para la migración a Azure'
+        - name: '1. Contoso: Introducción a la migración'
+          href: contoso-migration-overview.md
+        - name: '2. Contoso: Configuración de una infraestructura de Azure'
+          href: contoso-migration-infrastructure.md
+        - name: '3. Contoso: Evaluación de los recursos locales para la migración a Azure'
           href: migrate-scenarios-assessment.md
-        - name: 'Escenario 2: Migración a Azure mediante lift-and-shift'
+        - name: '4. Contoso: Rehospedaje en máquinas virtuales de Azure y en la Instancia administrada de Azure SQL Database'
           href: migrate-scenarios-lift-and-shift.md
     - name: Detección y evaluación de un entorno grande
       href: how-to-scale-assessment.md

@@ -95,11 +95,11 @@
           href: security-internet-of-things-overview.md
           items:
             - name: Procedimientos recomendados para la seguridad de IoT
-              href: ../iot-suite/iot-security-best-practices.md
+              href: ../iot-accelerators/iot-security-best-practices.md
             - name: Seguridad de IoT
-              href: '../iot-suite/iot-security-architecture.md#security-in-iot'
+              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
             - name: Proteger su implementación de IoT
-              href: ../iot-suite/iot-suite-security-deployment.md
+              href: ../iot-accelerators/iot-accelerators-security-deployment.md
     - name: Seguridad de Azure Service Fabric
       href: azure-service-fabric-security-overview.md
       items:
@@ -159,6 +159,8 @@
           href: ./blueprints/fedramp-datawarehouse-overview.md
         - name: Aplicación web de IaaS
           href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: Aplicación web PaaS
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:
@@ -197,6 +199,8 @@
       href: ./blueprints/azure-health.md
 - name: Notas del producto
   href: security-white-papers.md
+- name: Servicios de seguridad de Azure
+  href: azure-security-services-technologies.md
 - name: Información técnica
   href: security-overviews.md
 - name: Procedimientos recomendados

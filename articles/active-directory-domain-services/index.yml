@@ -1,0 +1,102 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentación de Azure AD Domain Services
+metadata:
+  title: Documentación de Azure AD Domain Services
+  description: Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio. Tutoriales y otra documentación le muestran cómo administrar máquinas virtuales mediante directivas de grupo.
+  keywords: Azure AD, Azure, unión a un dominio, directiva de grupos, LDAP, Kerberos, controlador de dominio, DC, migración mediante lift-and-shift
+  author: mahesh-unnikrishnan
+  ms.author: maheshu
+  manager: mtillman
+  ms.date: 6/1/2018
+  ms.topic: landing-page
+  ms.devlang: na
+  ms.service: active-directory
+  ms.component: domains
+  ms.openlocfilehash: 4b065baf02a71d37b05cecf441b27f05a393c08c
+  ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 06/04/2018
+  ms.locfileid: "34726578"
+sections:
+- items:
+  - type: markdown
+    text: Aprenda cómo usar Active Directory Domain Services para unir máquinas virtuales de Azure a un dominio sin usar controladores de dominio. Tutoriales y otra documentación le muestran cómo administrar máquinas virtuales mediante directivas de grupo.
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - href: active-directory-ds-overview.md
+      html: <p>Averigüe qué puede hacer por usted Azure AD Domain Services.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_investigate.svg
+      title: ¿Qué es Azure AD Domain Services?
+    - href: active-directory-ds-getting-started.md
+      html: <p>Cree su propio dominio administrado con este sencillo tutorial.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_deploy.svg
+      title: Introducción
+    - href: active-directory-ds-contact-us.md
+      html: <p>Reciba ayuda cuando la necesita.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_support.svg
+      title: Obtención de soporte técnico
+    - href: https://azure.microsoft.com/en-us/updates/?product=active-directory-ds
+      html: <p>Consulte las nuevas características de Azure AD Domain Services.</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_whats-new.svg
+      title: Novedades
+- title: Vídeos
+  items:
+  - type: markdown
+    text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
+- title: Planeación de artículos
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-comparison.md">¿Es este servicio adecuado para mí?</a>
+    - html: <a href="active-directory-ds-features.md">Características de Azure AD Domain Services</a>
+    - html: <a href="active-directory-ds-scenarios.md">Uso del servicio</a>
+    - html: <a href="active-directory-ds-synchronization.md">Descripción de la sincronización de contraseñas en Azure AD Domain Services</a>
+    - html: <a href="https://azure.microsoft.com/en-us/pricing/details/active-directory-ds/">Precios de Azure AD Domain Services</a>
+- title: Aplicaciones de Azure AD Domain Services
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-deploy-azure-app-proxy.md">Implementación del proxy de aplicación de Azure AD</a>
+    - html: <a href="active-directory-ds-enable-sharepoint-profile-sync.md">Sincronización de perfiles de SharePoint Server</a>
+    - html: <a href="active-directory-ds-enable-kcd.md">Configuración de la delegación limitada de Kerberos</a>
+- title: Artículos de procedimientos
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-check-health.md">Comprobación del mantenimiento de un dominio administrado </a>
+    - html: <a href="active-directory-ds-csp.md">Suscripciones de Azure CSP y Azure AD Domain Services</a>
+    - html: <a href="active-directory-ds-admin-guide-administer-dns.md">Administración de DNS</a>
+    - html: <a href="active-directory-ds-networking.md">Selección de una red virtual</a>
+    - html: <a href="active-directory-ds-admin-guide-configure-secure-ldap.md">Configuración de LDAP seguro</a>
+    - html: <a href="active-directory-ds-admin-guide-create-ou.md">Creación de una unidad organizativa</a>
+    - html: <a href="active-directory-ds-admin-guide-administer-group-policy.md">Administración de la directiva de grupo</a>
+- title: Artículos de solución de problemas
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="active-directory-ds-troubleshooting.md">Guía de solución de problemas</a>
+    - html: <a href="active-directory-ds-troubleshoot-alerts.md">Resolución de alertas en el dominio administrado</a>
+    - html: <a href="active-directory-ds-faqs.md">Preguntas más frecuentes</a>
+    - html: <a href="https://azure.microsoft.com/en-us/support/options/">Obtención de soporte técnico</a>
+- title: 'Otros recursos:'
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Enviar comentarios sobre Azure AD Domain Services en UserVoice</a>
+    - html: <a href="https://azure.microsoft.com/en-us/roadmap/?category=security-identity">Azure Roadmap</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-contact-us">Póngase en contacto con nosotros</a>

@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Notas de la versión
       items:
+        - name: Actualización 1805
+          href: azure-stack-update-1805.md
         - name: Actualización 1804
           href: azure-stack-update-1804.md
         - name: Actualización 1803
           href: azure-stack-update-1803.md
         - name: Actualización 1802
           href: azure-stack-update-1802.md
-        - name: Actualización 1712
-          href: azure-stack-update-1712.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: Publicación de puntos de conexión
                   href: azure-stack-integrate-endpoints.md
+        - name: Integración de identidades
+          items:
+            - name: Elección de un proveedor de identidades
+              href: azure-stack-integrate-identity.md
+            - name: Validación de la identidad de Azure
+              href: azure-stack-validate-identity.md
         - name: Requisitos de infraestructura de clave pública para la implementación de Azure Stack
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: Corrección de certificados PKI
               href: azure-stack-remediate-certs.md
-            - name: Recursos de implementación
-              items:
-                - name: Referencia del cmdlet Start-AzsReadiness
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Ver el informe de preparación
-                  href: azure-stack-validation-report.md
-            - name: Integración de identidades
-              items:
-                - name: Elección de un proveedor de identidades
-                  href: azure-stack-integrate-identity.md
-                - name: Validación de la identidad de Azure
-                  href: azure-stack-validate-identity.md
+        - name: Recursos de implementación
+          items:
+            - name: Acerca de las redes de implementación
+              href: deployment-networking.md
         - name: Validación del registro de Azure
           href: azure-stack-validate-registration.md
+          items:
+            - name: Referencia del cmdlet Start-AzsReadiness
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Ver el informe de preparación
+              href: azure-stack-validation-report.md
         - name: Supervisión externa
           href: azure-stack-integrate-monitor.md
         - name: Integración de seguridad

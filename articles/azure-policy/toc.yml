@@ -17,26 +17,50 @@
   items:
     - name: Creación y administración de Azure Policy
       href: create-manage-policy.md
+    - name: Exploración de Azure Policy (laboratorios prácticos)
+      href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Ejemplos
   items:
-    - name: Plantillas de directiva
+    - name: Ejemplos de Azure Policy
       href: json-samples.md
 - name: Conceptos
   items:
     - name: Estructura de definición de Azure Policy
       href: policy-definition.md
+    - name: Descripción de los efectos de directivas
+      href: policy-effects.md
 - name: Guías de procedimientos
   items:
     - name: Creación de directivas mediante programación
       href: policy-insights.md
+    - name: Recopilación de datos de cumplimiento
+      href: policy-compliance.md
 - name: Referencia
   items:
     - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
+    - name: API DE REST
+      items:
+        - name: Eventos
+          href: /rest/api/policy-insights/policyevents
+        - name: States
+          href: /rest/api/policy-insights/policystates
+        - name: Assignments
+          href: /rest/api/resources/policyassignments
+        - name: Definiciones de directiva
+          href: /rest/api/resources/policydefinitions
+        - name: Definiciones de iniciativas
+          href: /rest/api/resources/policysetdefinitions
 - name: Recursos
   items:
+    - name: 'GitHub: Ejemplos de Azure Policy'
+      href: 'https://github.com/Azure/azure-policy'
+    - name: 'Vídeo: Compilación 2018'
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: 'Vídeo: Ignite 2017'
+      href: 'https://myignite.microsoft.com/videos/54781'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios

@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: Seguridad y cumplimiento
       items:
-        - name: Administración de RBAC
+        - name: Uso del control de acceso basado en rol
           href: azure-stack-manage-permissions.md
-        - name: Creación de entidades de servicio
+        - name: Uso de entidades de servicio
           href: Azure-stack-create-service-principals.md
     - name: Uso de servicios
       items:
@@ -107,7 +107,7 @@
           items:
             - name: Instalación de PowerShell de Azure Stack
               href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Descarga de herramientas
+            - name: Descarga de herramientas de Azure Stack
               href: azure-stack-powershell-download.md
             - name: 'Configuración de PowerShell: usuario'
               href: azure-stack-powershell-configure-user.md
@@ -128,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: API de proveedor de recursos compatibles con perfiles
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Uso del módulo de directivas
+        - name: Uso del módulo de directivas de Azure Stack
           href: azure-stack-policy-module.md
         - name: Uso de plantillas
           items:
             - name: Introducción a las plantillas
               href: azure-stack-arm-templates.md
-            - name: Desarrollo de plantillas
+            - name: Consideraciones sobre plantillas
               href: azure-stack-develop-templates.md
             - name: Comprobación de plantillas
               href: azure-stack-validate-templates.md
