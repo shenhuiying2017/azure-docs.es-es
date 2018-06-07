@@ -4,20 +4,19 @@ title: Documentación sobre Azure IoT Central (versión preliminar)
 metadata:
   title: 'Documentación sobre Azure IoT Central (versión preliminar): tutoriales y referencia de API | Microsoft Docs'
   description: Azure IoT Central es una solución SaaS (software como servicio) totalmente administrada que facilita la conexión, la supervisión y la administración de sus recursos de IoT a escala. Azure IoT Central simplifica la configuración inicial de la solución de IoT y reduce la carga de administración, los costos operativos y la sobrecarga de un proyecto típico de IoT. Aprenda a crear, personalizar, administrar y usar una aplicación de Azure IoT Central con nuestros tutoriales y guías de inicio rápido.
-  services: iot-central
-  author: czeumault
-  manager: carolz
-  ms.prod: microsoft-iot-central
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  author: dominicbetts
   ms.topic: landing-page
   ms.date: 11/08/2017
-  ms.author: carolz
-  ms.openlocfilehash: 3e443a4ba2de76971ef856b67fdeb1f8836f68e1
-  ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+  ms.author: dobett
+  ms.service: iot-central
+  services: iot-central
+  manager: timlt
+  ms.openlocfilehash: df6acc821183e7336d8079895c7494eed397eea1
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/16/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34628579"
 abstract:
   description: Azure IoT Central es una solución SaaS (software como servicio) totalmente administrada que facilita la conexión, la supervisión y la administración de sus recursos de IoT a escala. Azure IoT Central simplifica la configuración inicial de la solución de IoT y reduce la carga de administración, los costos operativos y la sobrecarga de un proyecto típico de IoT. Aprenda a crear, personalizar, administrar y usar una aplicación de Azure IoT Central con nuestros tutoriales y guías de inicio rápido.
 sections:

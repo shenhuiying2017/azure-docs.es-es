@@ -81,7 +81,7 @@
   items:
     - name: Soluciones
       items:
-        - name: Soluciones preconfiguradas de IoT Suite
+        - name: Aceleradores de soluciones de IoT
           href: /azure/iot-suite
         - name: IoT Central
           href: /microsoft-iot-central

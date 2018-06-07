@@ -13,7 +13,7 @@
 - name: Colas
   href: ./queues/storage-queues-introduction.md
 - name: Tablas
-  href: ../cosmos-db/table-storage-overview.md
+  href: ./tables/table-storage-overview.md
 - name: Discos
   items:
     - name: Windows

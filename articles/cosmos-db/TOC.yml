@@ -1,3 +1,4 @@
+metadata: {}
 items:
   - name: Documentación sobre Azure Cosmos DB
     href: index.yml
@@ -70,6 +71,8 @@ items:
     items:
       - name: Distribución global
         href: distribute-data-globally.md
+      - name: Configuración de varios maestros
+        href: multi-region-writers.md
       - name: Creación de particiones
         href: partition-data.md
       - name: Throughput
@@ -80,8 +83,6 @@ items:
         href: unique-keys.md
       - name: Base de datos sin servidor
         href: serverless-computing-database.md
-      - name: Introducción a BulkExecutor
-        href: bulk-executor-overview.md
       - name: Seguridad
         href: database-security.md
         items:
@@ -167,8 +168,6 @@ items:
                 href: sql-api-resources.md
               - name: Datos del documento de modelo
                 href: modeling-data.md
-              - name: Configuración de varios maestros
-                href: multi-region-writers.md
           - name: Guías de procedimientos
             items:
               - name: 'BulkExecutor: .NET'
@@ -399,8 +398,6 @@ items:
                 href: table-storage-how-to-use-dotnet.md
               - name: 'F#'
                 href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-              - name: Node.js
-                href: table-storage-cloud-service-nodejs.md
               - name: Java
                 href: table-storage-how-to-use-java.md
               - name: Node.js
@@ -413,8 +410,6 @@ items:
                 href: table-storage-how-to-use-python.md
               - name: Ruby
                 href: table-storage-how-to-use-ruby.md
-              - name: PowerShell
-                href: table-storage-how-to-use-powershell.md
           - name: Referencia
             items:
               - name: .NET
@@ -467,10 +462,14 @@ items:
         href: regional-failover.md
       - name: Registro de diagnósticos
         href: logging.md
+      - name: Introducción a BulkExecutor
+        href: bulk-executor-overview.md
       - name: Escrituras y lecturas rentables
         href: key-value-store-cost.md
       - name: Expiración automática de los datos
         href: time-to-live.md
+      - name: Administración mediante PowerShell
+        href: manage-account-with-powershell.md
       - name: Administración del uso de Explorador de Azure Storage
         href: storage-explorer.md
   - name: Recursos

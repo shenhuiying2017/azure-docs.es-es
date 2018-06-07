@@ -73,10 +73,15 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funcionalidad del sistema operativo
       href: web-sites-available-operating-system-functionality.md
+    - name: Seguridad
+      href: app-service-security.md
+      items:
+        - name: Autenticación y autorización
+          href: app-service-authentication-overview.md
+        - name: Sistema operativo y aplicación de revisiones en el entorno de ejecución
+          href: app-service-patch-os-runtime.md
     - name: Direcciones IP de entrada y salida
       href: app-service-ip-addresses.md
-    - name: Autenticación y autorización
-      href: app-service-authentication-overview.md
     - name: Conexiones híbridas
       href: app-service-hybrid-connections.md
     - name: Integración de Traffic Manager
@@ -85,8 +90,6 @@
       href: app-service-local-cache-overview.md
     - name: Diagnóstico
       href: app-service-diagnostics.md
-    - name: Sistema operativo y aplicación de revisiones en el entorno de ejecución
-      href: app-service-patch-os-runtime.md
 - name: Guías de procedimientos
   items:
     - name: Configuración de la aplicación
