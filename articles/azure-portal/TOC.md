@@ -15,6 +15,7 @@
 ### [Creación mediante programación de paneles de Azure](azure-portal-dashboards-create-programmatically.md)
 ## administración
 ### [Activación del contraste alto o cambio de tema](azure-portal-change-theme-high-contrast.md)
+### [Exportación o eliminación de la configuración de usuario](azure-portal-export-delete-settings.md)
 ### [Uso del portal para administrar recursos](../azure-resource-manager/resource-group-portal.md)
 ### [Administración de accesos con el control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md)
 ### [Uso compartido de paneles con el control de acceso basado en rol](azure-portal-dashboard-share-access.md)

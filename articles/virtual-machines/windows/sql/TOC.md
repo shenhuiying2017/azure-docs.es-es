@@ -1,12 +1,12 @@
 # Información general
 ## [Acerca de las máquinas virtuales Windows con SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 
  
-# Inicios rápidos
+# Guías de inicio rápido
 ## [Creación de máquinas virtuales de SQL: Portal](quickstart-sql-vm-create-portal.md)
 ## [Creación de máquinas virtuales de SQL: PowerShell](quickstart-sql-vm-create-powershell.md)
 
 # Conceptos
-## Prácticas recomendadas
+## Procedimientos recomendados
 ### [Procedimientos recomendados de rendimiento](virtual-machines-windows-sql-performance.md)
 ### [Consideraciones sobre la seguridad](virtual-machines-windows-sql-security.md)
 ### [Patrones de aplicación](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
@@ -19,7 +19,8 @@
 #### [Configuración de la integración de Azure Key Vault](virtual-machines-windows-ps-sql-keyvault.md)
 ## Copia de seguridad y restauración
 ### [Copia de seguridad y restauración](virtual-machines-windows-sql-backup-recovery.md)
-### [Copia de seguridad automatizada](virtual-machines-windows-sql-automated-backup.md)
+### [Copia de seguridad automatizada para SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Copia de seguridad automatizada para SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Uso de Azure Storage para la copia de seguridad y la restauración](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Guías de procedimientos
@@ -48,7 +49,7 @@
 ## [REST](/rest/api/)
 
 # Recursos
-## [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md)
+## [P+F](virtual-machines-windows-sql-server-iaas-faq.md)
 ## [Precios](virtual-machines-windows-sql-server-pricing-guidance.md)
 ## [¿PaaS o IaaS?](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)
 ## [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
@@ -56,4 +57,4 @@
 ## [Herramientas de SQL Server](https://docs.microsoft.com/sql/tools/overview-sql-tools)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=compute)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server)
-## [Stack Overflow](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)
+## [Desbordamiento de la pila](http://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server)

@@ -51,6 +51,8 @@
           href: container-instances-exec.md
         - name: Supervisión del uso de CPU y memoria
           href: container-instances-monitor.md
+        - name: Registro con Azure Log Analytics
+          href: container-instances-log-analytics.md
     - name: Ejecución de cargas de trabajo
       items:
         - name: Ejecutar tareas en contenedores

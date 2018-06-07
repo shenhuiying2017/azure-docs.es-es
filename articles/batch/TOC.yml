@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Creación de un grupo en una red virtual
           href: batch-virtual-network.md
+        - name: Montaje de un recurso compartido de archivos de Azure
+          href: pool-file-shares.md
         - name: Uso de máquinas virtuales de procesos intensivos
           href: batch-pool-compute-intensive-sizes.md
         - name: Uso de nodos de proceso Linux

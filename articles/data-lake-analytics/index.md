@@ -1,26 +1,24 @@
 ---
-title: "Documentación sobre Azure Data Lake Analytics: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a realizar análisis de macrodatos con Data Lake Analytics. Los tutoriales muestran cómo ejecutar análisis por lotes, en tiempo real e interactivos, y cómo escribir consultas U-SQL."
+title: 'Documentación sobre Azure Data Lake Analytics: tutoriales y referencia de API'
+description: Aprenda a realizar análisis de macrodatos con Azure Data Lake Analytics. Los tutoriales muestran cómo ejecutar análisis por lotes, en tiempo real e interactivos, y cómo escribir consultas U-SQL.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624223"
 ---
-# <a name="data-lake-analytics-documentation"></a>Documentación de Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Documentación de Azure Data Lake Analytics
 
-Aprenda a usar Data Lake Analytics para ejecutar trabajos de análisis de macrodatos con capacidad de escalado a conjuntos de datos masivos. Los tutoriales y otra documentación muestran cómo crear y administrar trabajos de análisis por lotes, en tiempo real e interactivos, y cómo realizar consultas mediante el lenguaje U-SQL.
+Aprenda a usar Azure Data Lake Analytics para ejecutar trabajos de análisis de macrodatos con capacidad de escalado a conjuntos de datos masivos. Los tutoriales y otra documentación muestran cómo crear y administrar trabajos de análisis por lotes, en tiempo real e interactivos, y cómo realizar consultas mediante el lenguaje U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -79,12 +77,12 @@ Aprenda a usar Data Lake Analytics para ejecutar trabajos de análisis de macrod
     </li>
 </ul>
 
-## <a name="quickstarts"></a>Inicios rápidos
+## <a name="quickstarts"></a>Guías de inicio rápido
 <table>
     <tr>
         <td><a href="data-lake-analytics-get-started-portal.md">Portal</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
-        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">código de Visual Studio</a></td>
+        <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
         <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
         <td><a href="data-lake-analytics-get-started-cli2.md">CLI de Azure 2.0</a></td>
     </tr>
@@ -98,7 +96,6 @@ Aprenda a usar Data Lake Analytics para ejecutar trabajos de análisis de macrod
         <td><a href="data-lake-analytics-manage-use-cli.md">CLI de Azure</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">SDK de Python</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">SDK de Java</a></td>
     </tr>
 </table>
 
@@ -140,7 +137,7 @@ Aprenda a usar Data Lake Analytics para ejecutar trabajos de análisis de macrod
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakeanalytics/">API DE REST</a></p>
+                        <p><a href="/rest/api/datalakeanalytics/">API de REST</a></p>
                     </div>
                 </div>
             </div>
