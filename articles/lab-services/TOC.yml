@@ -10,18 +10,18 @@
   items:
     - name: DevTest Labs
       items:
-        - name: 1. Configuración de un laboratorio personalizado
+        - name: 1. Configuración de un laboratorio
           href: tutorial-create-custom-lab.md
-        - name: 2. Acceso a un laboratorio personalizado
+        - name: 2. Acceso a un laboratorio
           href: tutorial-use-custom-lab.md
     - name: Laboratorios educativos
       items:
         - name: 1. Configuración de una cuenta de laboratorio
-          href: tutorial-setup-lab-account.md
+          href: classroom-labs/tutorial-setup-lab-account.md
         - name: 2. Configuración de un laboratorio educativo
-          href: tutorial-setup-classroom-lab.md
+          href: classroom-labs/tutorial-setup-classroom-lab.md
         - name: 3. Acceso a un laboratorio educativo
-          href: tutorial-connect-virtual-machine-classroom-lab.md
+          href: classroom-labs/tutorial-connect-virtual-machine-classroom-lab.md
 - name: Ejemplos
   items:
     - name: DevTest Labs
@@ -50,20 +50,20 @@
     - name: Laboratorios educativos
       items:
         - name: Administración de cuentas de laboratorio
-          href: how-to-manage-lab-accounts.md
+          href: classroom-labs/how-to-manage-lab-accounts.md
         - name: Administración de laboratorios educativos
-          href: how-to-manage-classroom-labs.md
+          href: classroom-labs/how-to-manage-classroom-labs.md
         - name: Acceso a laboratorios educativos
-          href: how-to-use-classroom-lab.md
+          href: classroom-labs/how-to-use-classroom-lab.md
     - name: DevTest Labs
       items:
-        - name: Creación de un laboratorio personalizado
+        - name: Creación de un laboratorio
           href: devtest-lab-create-lab.md
-        - name: Creación de una máquina virtual en el laboratorio personalizado
+        - name: Creación de una máquina virtual en el laboratorio
           href: devtest-lab-create-first-vm.md
-        - name: Configuración de directivas para el laboratorio personalizado
+        - name: Configuración de directivas para el laboratorio
           href: devtest-lab-get-started-with-lab-policies.md
-        - name: Uso de máquinas virtuales en un laboratorio personalizado
+        - name: Uso de máquinas virtuales en un laboratorio
           items:
             - name: Creación de máquinas virtuales
               href: devtest-lab-add-vm.md
@@ -75,7 +75,7 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Reinicio de una máquina virtual
               href: devtest-lab-restart-vm.md
-        - name: Uso de entornos en un laboratorio personalizado
+        - name: Uso de entornos en un laboratorio
           items:
             - name: Creación de un entorno
               href: devtest-lab-create-environment-from-arm.md
@@ -85,7 +85,7 @@
               href: devtest-lab-add-devtest-user.md
             - name: Personalización de permisos con roles personalizados
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
-        - name: Configuración de un laboratorio personalizado
+        - name: Configuración de un laboratorio
           items:
             - name: Configuración de directivas y programaciones
               href: devtest-lab-set-lab-policy.md
@@ -95,11 +95,11 @@
               href: devtest-lab-configure-marketplace-images.md
             - name: Habilitar una imagen con licencia
               href: devtest-lab-enable-licensed-images.md
-            - name: Incorporación de etiquetas a un laboratorio personalizado
+            - name: Incorporación de etiquetas a un laboratorio
               href: devtest-lab-add-tag.md
-            - name: Anuncio de entrada de blog en un laboratorio personalizado
+            - name: Anuncio de entrada de blog en un laboratorio
               href: devtest-lab-announcements.md
-            - name: Incorporación de información de soporte técnico a un laboratorio personalizado
+            - name: Incorporación de información de soporte técnico a un laboratorio
               href: devtest-lab-internal-support-message.md
         - name: Selección de imágenes o fórmulas personalizadas
           href: devtest-lab-comparing-vm-base-image-types.md

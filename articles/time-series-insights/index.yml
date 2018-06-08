@@ -1,36 +1,46 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación sobre Azure Time Series Insights"
+title: Documentación sobre Azure Time Series Insights
 metadata:
-  title: "Documentación sobre Azure Time Series Insights: tutoriales y referencia de API | Microsoft Docs"
-  description: "Aprenda a ejecutar análisis de IoT en la nube con procesamiento de eventos totalmente administrado. Analice en tiempo real datos procedentes de aplicaciones, sensores y dispositivos, entre otros."
+  title: 'Documentación sobre Azure Time Series Insights: tutoriales y referencia de API | Microsoft Docs'
+  description: Aprenda a ejecutar análisis de IoT en la nube con procesamiento de eventos totalmente administrado. Analice en tiempo real datos procedentes de aplicaciones, sensores y dispositivos, entre otros.
   services: time-series-insights
-  author: kfile
-  manager: jhubbard
+  author: bryanla
+  manager: timlt
   ms.service: time-series-insights
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/13/2017
-  ms.author: kfile
-  ms.openlocfilehash: 8ccc0fe8ca23fabb6d2cb697836e8f402dbaf672
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.date: 05/16/2018
+  ms.author: bryanla
+  ms.openlocfilehash: 5ea126c2095e6bada8752f4b4187f504bbd67a46
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34651029"
 abstract:
-  description: "Aprenda a configurar el entorno de Time Series Insights, a explorar y a analizar los datos de series temporales de las soluciones de IoT o de otros elementos conectados. La documentación describe los requisitos previos, los procedimientos, las referencias de API y cualquier otro artículo necesario para ayudarle a empezar a trabajar en cuestión de minutos."
+  description: Aprenda a configurar el entorno de Time Series Insights, a explorar y a analizar los datos de series temporales de las soluciones de IoT o de otros elementos conectados. La documentación describe los requisitos previos, los procedimientos, las referencias de API y cualquier otro artículo necesario para ayudarle a empezar a trabajar en cuestión de minutos.
+  aside:
+    image:
+      alt: Un vídeo de introducción a las características de Azure IoT Time Series Insights.
+      height: 110
+      src: media/index/tsi-intro-shannon-bloch.png
+      width: 250
+    title: Time Series Insight para aplicaciones de IoT. (16:09)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Time-Series-Insight-for-IoT-apps/player
+    width: 250
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: "Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales."
+    text: Aprenda a implementar Log Analytics y a configurar la recopilación de datos desde Azure, otros proveedores de nube y recursos locales.
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/azure/time-series-insights/media/index/time-series-insights.svg
-      text: "Exploración de Azure Time Series Insights"
+      text: Exploración de Azure Time Series Insights
       href: /azure/time-series-insights/time-series-quickstart
 - title: Referencia
   items:
@@ -39,4 +49,4 @@ sections:
     className: cardsD
     items:
     - title: API existentes
-      html: "<p><a href=\"/rest/api/time-series-insights-management\">API de administración de recursos</a></p>   <p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-queryapi\">API de consulta</a></p><p><a href=\"/rest/api/time-series-insights/time-series-insights-reference-query-syntax\">Sintaxis de consulta</a></p>"
+      html: <p><a href="/rest/api/time-series-insights-management">API de administración de recursos</a></p>   <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API de consulta</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Sintaxis de consulta</a></p>

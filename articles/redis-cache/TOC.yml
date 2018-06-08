@@ -10,6 +10,8 @@
       href: cache-web-app-howto.md
     - name: Creación de una aplicación .NET
       href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: Creación de una aplicación .NET Core
+      href: cache-dotnet-core-quickstart.md
     - name: Creación de una aplicación Node.js
       href: cache-nodejs-get-started.md
     - name: Creación de una aplicación Java
@@ -48,6 +50,8 @@
           href: cache-how-to-premium-vnet.md
         - name: Distribuir la memoria caché mediante agrupación en clústeres
           href: cache-how-to-premium-clustering.md
+        - name: Migrar desde Managed Cache Service
+          href: cache-migrate-to-redis.md
     - name: Automatizar
       items:
         - name: Implementación y administración con Azure PowerShell

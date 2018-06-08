@@ -75,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: Configuración de SSL
           href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-and-security-vnet.md
     - name: Continuidad del negocio
       items:
         - name: Información general
@@ -89,6 +91,10 @@
           href: concepts-compatibility.md
         - name: Desarrollo de aplicaciones
           href: concepts-database-application-development.md
+    - name: Replicación
+      items:
+        - name: Replicación de datos internos
+          href: concepts-data-in-replication.md
 - name: Guías de procedimientos
   items:
     - name: Administración de un servicio
@@ -141,18 +147,30 @@
       items:
         - name: Creación de alertas basadas en métricas
           href: howto-alert-on-metric.md
+    - name: Replicación
+      items:
+        - name: Configuración de la replicación de datos internos
+          href: howto-data-in-replication.md
     - name: Solución de problemas
       items:
         - name: Solución de problemas del rendimiento de las consultas
           href: howto-troubleshoot-query-performance.md
         - name: Uso de vistas en el esquema sys
           href: howto-troubleshoot-sys-schema.md
+    - name: Virtual Network
+      items:
+        - name: Azure Portal
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: Referencia
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
     - name: API DE REST
       href: /rest/api/mysql
+    - name: Procedimientos almacenados de replicación de datos internos
+      href: reference-data-in-stored-procedures.md
 - name: Recursos
   items:
     - name: Plantillas de implementación

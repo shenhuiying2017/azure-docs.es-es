@@ -37,6 +37,8 @@
           href: tutorial-nodejs-mongodb-app.md
         - name: Contenedor personalizado de Python con PostgreSQL
           href: tutorial-docker-python-postgresql-app.md
+    - name: Aplicación de varios contenedores
+      href: tutorial-multi-container-app.md
     - name: Personalización de una imagen de Docker
       href: tutorial-custom-docker-image.md
     - name: Asignación de un dominio personalizado
@@ -44,7 +46,7 @@
     - name: Enlazar certificado SSL
       href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Incorporación de CDN
-      href: ../../cdn/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: usuarios
       href: tutorial-auth-aad.md
 - name: Ejemplos
@@ -129,6 +131,8 @@
           href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Supervisión de la aplicación
       items:
+        - name: Conexión a una aplicación a través de SSH
+          href: app-service-linux-ssh-support.md
         - name: Cuotas y alertas
           href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Habilitamiento de registros

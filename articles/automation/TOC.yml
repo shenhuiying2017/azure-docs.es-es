@@ -159,14 +159,12 @@
       items:
         - name: Galería de runbooks
           href: automation-runbook-gallery.md
-        - name: Supervisión de runbooks con registros de actividad
-          href: automation-alert-activity-log.md
+        - name: Supervisión de runbooks con alertas de métricas
+          href: automation-alert-metric.md
         - name: Inicio de un runbook desde alertas de Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Creación de máquinas virtuales de Amazon Web Service
           href: automation-scenario-aws-deployment.md
-        - name: Corrección de alertas de máquinas virtuales de Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Iniciar/detener las VM fuera de las horas de trabajo
           href: automation-solution-vm-management.md
         - name: Eliminación de grupo de recursos
@@ -215,16 +213,12 @@
   items:
     - name: Vídeo de introducción a Automation
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Aprendizaje de Azure Automation
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Azure Roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Ruta de aprendizaje
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Foro de MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Precios
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Notas de la versión

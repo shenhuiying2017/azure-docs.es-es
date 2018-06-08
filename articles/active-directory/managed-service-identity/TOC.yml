@@ -4,20 +4,22 @@
   items:
     - name: Acerca de Managed Service Identity
       href: overview.md
-    - name: Guías de inicio rápido
+- name: Guías de inicio rápido
+  items:
+    - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Resource Manager
       items:
-        - name: Uso de una identidad MSI de máquina virtual para acceder a Azure Resource Manager
-          items:
-            - name: Máquina virtual de Windows
-              href: tutorial-windows-vm-access-arm.md
-            - name: Máquina virtual de Linux
-              href: tutorial-linux-vm-access-arm.md
+        - name: Máquina virtual de Windows
+          href: tutorial-windows-vm-access-arm.md
+        - name: Máquina virtual de Linux
+          href: tutorial-linux-vm-access-arm.md
 - name: Tutoriales
   items:
     - name: VM/VMSS de Windows
       items:
         - name: Acceso a Azure Data Lake Store
           href: tutorial-windows-vm-access-datalake.md
+        - name: Acceso a Azure Storage
+          href: tutorial-vm-windows-access-storage.md
         - name: Acceso a Azure Storage mediante una clave de acceso
           href: tutorial-windows-vm-access-storage.md
         - name: Acceso a Azure Storage mediante SAS
@@ -34,6 +36,8 @@
       items:
         - name: Acceso a Azure Data Lake Store
           href: tutorial-linux-vm-access-datalake.md
+        - name: Acceso a Azure Storage
+          href: tutorial-linux-vm-access-storage.md
         - name: Acceso a Azure Storage mediante una clave de acceso
           href: tutorial-linux-vm-access-storage-access-key.md
         - name: Acceso a Azure Storage mediante SAS
@@ -116,3 +120,7 @@
       href: known-issues.md
     - name: Servicios de Azure que admiten identidades administradas
       href: services-support-msi.md
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-msi'
+    - name: Foro para desarrolladores de AAD
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences'

@@ -13,6 +13,8 @@
       href: /azure/virtual-machines/linux/cloudfoundry-get-started
     - name: Implementación del inyector de OMS en Cloud Foundry
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Integración de Cloud Foundry con Azure
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Recursos
   items:
     - name: Azure Roadmap

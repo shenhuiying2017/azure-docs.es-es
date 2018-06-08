@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: Creación en otra región
               href: multi-geo.md
+            - name: Visualización y eliminación de los datos de la cuenta de Studio
+              href: export-delete-personal-data-dsr.md
     - name: Adquisición y comprensión de datos
       items:
         - name: Importación de datos de aprendizaje
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: Módulos personalizados
           href: gallery-custom-modules.md
+        - name: Visualización y eliminación de los datos de cuenta
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Recursos
   items:
     - name: Azure Roadmap
