@@ -39,7 +39,9 @@
   items:
     - name: Implementación
       items:
-        - name: Implementación de grupos de varios contenedores
+        - name: 'Grupo de varios contenedores: YAML'
+          href: container-instances-multi-container-yaml.md
+        - name: 'Grupo de varios contenedores: Resource Manager'
           href: container-instances-multi-container-group.md
         - name: Implementación desde Azure Container Registry
           href: container-instances-using-azure-container-registry.md
