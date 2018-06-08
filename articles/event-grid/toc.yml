@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Envío de eventos al almacenamiento de cola
       href: custom-event-to-queue-storage.md
+    - name: Envío de eventos a Event Hubs
+      href: custom-event-to-eventhub.md
 - name: Tutoriales
   items:
     - name: Envío de un correo electrónico cuando cambia la máquina virtual

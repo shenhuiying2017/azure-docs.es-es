@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Tutoriales
   items:
-    - name: 1. Implementación del ASDK
-      items:
-        - name: 'Implementación del Kit de desarrollo de Azure Stack: Instalador'
-          href: asdk-deploy.md
-        - name: 'Implementación del Kit de desarrollo de Azure Stack: PowerShell'
-          href: asdk-deploy-powershell.md
-        - name: Reimplementación del Kit de desarrollo de Azure Stack
-          href: asdk-redeploy.md
-    - name: 2. Incorporación de un elemento de Marketplace
-      items:
-        - name: Descarga de Azure
-          href: asdk-marketplace-item.md
-        - name: Incorporación desde un origen local
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Ofertas de servicios de IaaS
-      href: asdk-offer-services.md
-    - name: 4. Suscripción a una oferta
+    - name: Suscripción a una oferta
       href: asdk-subscribe-services.md
-    - name: 5. Actualización de ofertas y planes
+    - name: Actualización de ofertas y planes
       href: asdk-update-offers.md
-    - name: 6. Creación de una máquina virtual a partir de una plantilla
+    - name: Creación de una máquina virtual a partir de una plantilla
       href: asdk-create-vm-template.md
 - name: Conceptos
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: Preparación del equipo host del Kit de desarrollo de Azure Stack
           href: asdk-prepare-host.md
-        - name: Instalación del Kit de desarrollo de Azure Stack
+        - name: 'Implementación del Kit de desarrollo de Azure Stack: Instalador'
           href: asdk-install.md
+        - name: 'Implementación del Kit de desarrollo de Azure Stack: PowerShell'
+          href: asdk-deploy-powershell.md
         - name: Configuración posterior a la implementación
           href: asdk-post-deploy.md
+        - name: Reimplementación del Kit de desarrollo de Azure Stack
+          href: asdk-redeploy.md
     - name: Registro del Kit de desarrollo de Azure Stack
       href: asdk-register.md
     - name: Configuración de los valores de telemetría de Azure Stack
