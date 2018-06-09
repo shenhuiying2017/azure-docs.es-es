@@ -29,6 +29,8 @@
   items:
     - name: Incorporación
       items:
+        - name: Incorporación de varias máquinas virtuales desde el portal
+          href: automation-onboard-solutions-from-browse.md
         - name: Incorporación a partir de una máquina virtual de Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Incorporación desde cuenta de Automation
