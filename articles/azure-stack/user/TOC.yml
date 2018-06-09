@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Configuración de conectividad de nube híbrida
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Suscripción a una oferta
+      href: azure-stack-subscribe-services.md
+    - name: Creación de una máquina virtual a partir de una plantilla
+      href: azure-stack-create-vm-template.md
 - name: Guías de procedimientos
   items:
     - name: Uso del portal de Azure Stack

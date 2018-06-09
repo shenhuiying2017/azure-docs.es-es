@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: Notas de la versión del Kit de desarrollo de Azure Stack
       href: asdk-release-notes.md
-- name: Tutoriales
-  items:
-    - name: Suscripción a una oferta
-      href: asdk-subscribe-services.md
-    - name: Actualización de ofertas y planes
-      href: asdk-update-offers.md
-    - name: Creación de una máquina virtual a partir de una plantilla
-      href: asdk-create-vm-template.md
 - name: Conceptos
   items:
     - name: Consideraciones de planeación de implementación
