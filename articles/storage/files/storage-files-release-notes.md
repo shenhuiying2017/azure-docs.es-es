@@ -3,16 +3,17 @@ title: Notas de la versión del agente de Azure File Sync (versión preliminar) 
 description: Notas de la versión del agente de Azure File Sync (versión preliminar)
 services: storage
 author: wmgries
-manager: jeconnoc
+manager: aungoo
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735651"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Notas de la versión del agente de Azure File Sync (versión preliminar)
 Azure File Sync le permite centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Las instalaciones de Windows Server se transforman en una memoria caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a los datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -24,18 +25,70 @@ Las siguientes versiones son compatibles con Azure File Sync:
 
 | Hito | Número de versión del agente | Fecha de lanzamiento | Status |
 |----|----------------------|--------------|------------------|
-| Paquete acumulativo de actualizaciones de marzo | 2.2.0.0 | 12 de marzo de 2018 | Compatible (versión recomendada) |
+| Actualización 2 | 3.0.12.0 | 22 de mayo de 2018 | Compatible (versión recomendada) |
+| Paquete acumulativo de actualizaciones de abril | 2.3.0.0 | 8 de mayo de 2018 | Compatible |
+| Paquete acumulativo de actualizaciones de marzo | 2.2.0.0 | 12 de marzo de 2018 | Compatible |
 | Paquete acumulativo de actualizaciones de febrero | 2.1.0.0 | 28 de febrero de 2018 | Compatible |
 | Actualización 1 | 2.0.11.0 | 8 de febrero de 2018 | Compatible |
-| Paquete acumulativo de actualizaciones de enero | 1.4.0.0 | 8 de enero de 2018 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
-| Paquete acumulativo de actualizaciones de noviembre | 1.3.0.0 | 30 de noviembre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
-| Paquete acumulativo de actualizaciones de octubre | 1.2.0.0 | 31 de octubre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
-| Versión preliminar inicial | 1.1.0.0 | 26 de septiembre de 2017 | Compatible hasta el 8 de mayo de 2018<sup>1</sup> |
-
-\[1\]: Las versiones del agente de Azure File Sync durante la versión preliminar no cumplen de forma intencionada con la directiva de actualización. La directiva de actualización se ejecutará a partir de la primera versión del agente después de declarar la disponibilidad general de Azure File Sync.
+| Paquete acumulativo de actualizaciones de enero | 1.4.0.0 | 8 de enero de 2018 | Compatible |
+| Paquete acumulativo de actualizaciones de noviembre | 1.3.0.0 | 30 de noviembre de 2017 | Compatible |
+| Paquete acumulativo de actualizaciones de octubre | 1.2.0.0 | 31 de octubre de 2017 | Compatible |
+| Versión preliminar inicial | 1.1.0.0 | 26 de septiembre de 2017 | Compatible |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Directiva de actualización del agente de Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30120"></a>Versión del agente 3.0.12.0
+Las notas siguientes son para la versión 3.0.12.0 del agente de Azure File Sync (publicada el 22 de mayo de 2018).
+
+### <a name="agent-installation-and-server-configuration"></a>Instalación del agente y configuración del servidor
+Para más información sobre cómo instalar y configurar el agente de Azure File Sync con Windows Server, consulte [Planeamiento de una implementación de Azure File Sync (versión preliminar)](storage-sync-files-planning.md) y [Cómo implementar Azure File Sync (versión preliminar)](storage-sync-files-deployment-guide.md).
+
+- El paquete de instalación del agente debe instalarse con permisos elevados (administrador).
+- El agente no es compatible con las opciones de implementación de Windows Server Core ni Nano Server.
+- El agente solo se admite en Windows Server 2016 y Windows Server 2012 R2.
+- El agente requiere al menos 2 GB de memoria física.
+- El servicio del agente de sincronización de Storage (FileSyncSvc) no admite puntos de conexión de servidor ubicados en un volumen que tiene el directorio de información del volumen del sistema (SVI) comprimido. Esta configuración producirá resultados inesperados.
+
+### <a name="interoperability"></a>Interoperabilidad
+- Las aplicaciones antivirus, de copia de seguridad y de otro tipo que accedan a archivos organizados en niveles pueden provocar recuperaciones no deseadas, salvo que respeten el atributo sin conexión y pasen por alto la lectura del contenido de esos archivos. Para más información, consulte [Solución de problemas de Azure File Sync (versión preliminar)](storage-sync-files-troubleshoot.md).
+- No utilice el Administrador de recursos del servidor de archivos (FSRM) ni otros filtros de archivos. Los filtros de archivos pueden provocar errores de sincronización sin fin cuando los archivos están bloqueados debido al filtro de archivos.
+- No se admite la ejecución de sysprep en un servidor que tenga instalado el agente de Azure File Sync y puede provocar resultados inesperados. La instalación del agente y el registro del servidor se deben realizar después de implementar la imagen del servidor y completar la instalación mínima de sysprep.
+- En el mismo volumen no se puede desduplicar datos y ordenar en niveles en la nube.
+
+### <a name="sync-limitations"></a>Limitaciones de la sincronización
+Los siguientes elementos no se sincronizan, pero el resto del sistema funciona con normalidad:
+- Rutas de acceso de más de 2,048 caracteres.
+- La parte de la lista de control de acceso discrecional (DACL) de un descriptor de seguridad, si es mayor de 2 KB. (Este problema aplica únicamente si tiene más de unas 40 entradas de control de acceso [ACE] en un solo elemento).
+- La parte de la lista de control de acceso del sistema (SACL) de un descriptor de seguridad que se utiliza para la auditoría.
+- Atributos extendidos.
+- Flujos de datos alternativos.
+- Puntos de repetición de análisis.
+- Vínculos físicos.
+- La compresión (si se establece en un archivo de servidor) no se conserva al sincronizarse los cambios con ese archivo desde otros puntos de conexión.
+- Los archivos cifrados con EFS (u otros cifrados con modo de usuario) que evitan que el servicio lea los datos. 
+    
+    > [!Note]  
+    > Azure File Sync siempre cifra los datos en tránsito. Los datos siempre se cifran en reposo en Azure.
+ 
+### <a name="server-endpoints"></a>Puntos de conexión de servidor
+- Un punto de conexión de servidor solo se puede crear en un volumen NTFS. En este momento Azure File Sync no admite ReFS, FAT, FAT32 ni otros sistemas de archivos.
+- Los niveles de nube no se admiten en el volumen del sistema. Para crear un punto de conexión de servidor en el volumen del sistema, deshabilite los niveles de la nube al crear el punto de conexión de servidor.
+- Los clústeres de conmutación por error solo son compatibles con discos en clúster, pero no con volúmenes compartidos de clúster (CSV).
+- No se puede anidar un punto de conexión de servidor. Puede coexistir en el mismo volumen en paralelo con otro punto de conexión.
+- No almacene un archivo de paginación de aplicación o sistema operativo en un punto de conexión de servidor.
+- Los archivos en niveles quedarán inservibles si los archivos no se vuelven a llamar antes de eliminar el punto de conexión de servidor.
+ 
+### <a name="cloud-tiering"></a>Niveles de nube
+- Si un archivo en niveles se copia en otra ubicación mediante el uso de Robocopy, el archivo resultante no estará en niveles. El atributo sin conexión podría estar establecido porque Robocopy incluye incorrectamente dicho atributo en las operaciones de copia.
+- Al ver las propiedades de archivo desde un cliente de SMB, puede parecer que el atributo sin conexión se ha establecido incorrectamente debido a que SMB almacena en caché los metadatos del archivo.
+
+## <a name="agent-version-2300"></a>Versión del agente 2.3.0.0
+Las notas siguientes son para la versión 2.3.0.0 del agente de Azure File Sync publicada el 8 de mayo de 2018. Estas notas son adicionales a las notas de la versión enumeradas para la versión 2.0.11.0.
+
+Esta versión incluye las siguientes correcciones:
+- Las actualizaciones del agente pueden bloquearse si el controlador del filtro de niveles en la nube no se descarga.
+- Puede disminuir el rendimiento de la sincronización al sincronizar una gran cantidad de archivos.
 
 ## <a name="agent-version-2200"></a>Versión del agente 2.2.0.0
 Las notas siguientes son para la versión 2.2.0.0 del agente de Azure File Sync publicada 12 de marzo de 2018.  Estas notas son adicionales a las notas de la versión enumeradas para las versiones 2.1.0.0 y 2.0.11.0.

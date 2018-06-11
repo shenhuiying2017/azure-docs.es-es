@@ -1,22 +1,21 @@
 ---
-title: Personalización de la interfaz de usuario con directivas personalizadas - Azure AD B2C | Microsoft Docs
+title: Personalización de una interfaz de usuario mediante directivas personalizadas en Azure Active Directory B2C | Microsoft Docs
 description: Información acerca de cómo personalizar una interfaz de usuario (IU) con directivas personalizadas en Azure AD B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 3a8d797793b0e54df112ec44cdb37cbb1b40ce86
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200865"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34710148"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configuración de la interfaz de usuario personalizada en una directiva personalizada
 

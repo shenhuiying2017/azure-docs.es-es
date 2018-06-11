@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770628"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735148"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Condiciones del acceso condicional de Azure Active Directory 
 
@@ -149,7 +150,7 @@ La condición de aplicaciones de cliente le permite aplicar una directiva a dist
 - Sitios web y servicios
 - Aplicaciones de escritorio y aplicaciones móviles 
 
-![Condiciones](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Una aplicación se clasifica como:
 
@@ -157,7 +158,7 @@ Una aplicación se clasifica como:
 
 - Una aplicación móvil o aplicación de escritorio si utiliza la aplicación móvil de OpenID Connect para un cliente nativo.
 
-Para obtener una lista completa de las aplicaciones de cliente que puede utilizar en la directiva de acceso condicional, consulte la [Referencia técnica del acceso condicional de Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Para obtener una lista completa de las aplicaciones cliente que puede utilizar en la directiva de acceso condicional, consulte [Condición de aplicaciones cliente](active-directory-conditional-access-technical-reference.md#client-apps-condition) en Referencia de configuración del acceso condicional de Azure Active Directory.
 
 Los casos de uso comunes para esta condición son directivas que:
 
@@ -167,6 +168,20 @@ Los casos de uso comunes para esta condición son directivas que:
 
 Además de utilizar protocolos de autenticación modernos y SSO web, puede aplicar esta condición a las aplicaciones de correo que utilizan Exchange ActiveSync, como las aplicaciones de correo electrónico nativas de la mayoría de los smartphones. Actualmente, aplicaciones de cliente con protocolos heredados deben protegerse mediante AD FS.
 
+Esta condición solo se puede seleccionar si **Office 365 Exchange Online** es la única aplicación en la nube que ha seleccionado.
+
+![Aplicaciones de nube](./media/active-directory-conditional-access-conditions/32.png)
+
+La selección de **Exchange ActiveSync** como condición de aplicaciones cliente solo se admite si no hay otras condiciones en una directiva configurada. Sin embargo, puede restringir el ámbito de esta condición para que solo se aplique a las plataformas compatibles.
+
+ 
+![Plataformas compatibles](./media/active-directory-conditional-access-conditions/33.png)
+
+Aplicar esta condición solo a las plataformas compatibles equivale a todas las plataformas de dispositivo en una [condición de plataforma de dispositivo](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Plataformas compatibles](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Para más información, consulte:
 
 - [Configuración de SharePoint Online y Exchange Online para el acceso condicional de Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,9 +189,53 @@ Además de utilizar protocolos de autenticación modernos y SSO web, puede aplic
 - [Acceso condicional basado en aplicaciones de Azure Active Directory](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Autenticación heredada  
+
+Ahora se aplica el acceso condicional a los clientes de Office antiguos que no admiten la autenticación moderna, así como a los clientes que utilizan protocolos de correo como POP, IMAP, SMTP, etc. Esto permite configurar directivas como el **bloqueo del acceso desde otros clientes**.
+
+
+![Autenticación heredada](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Problemas conocidos
+
+- La configuración de una directiva para **otros clientes** bloquea toda la organización ante determinados clientes como SPConnect. Esto se debe a que estos clientes se autentican de maneras inesperadas. Este problema no aplica a las aplicaciones principales de Office como los clientes de Office anteriores. 
+
+- La directiva puede tardar hasta 24 horas en surtir efecto. 
+
+
+#### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+**¿Esto bloqueará los servicios Web Exchange (EWS)?**
+
+Depende del protocolo de autenticación que use EWS. Si la aplicación EWS utiliza la autenticación moderna, lo cubrirá la aplicación cliente "Aplicaciones móviles y clientes de escritorio". Si la aplicación EWS utiliza la autenticación básica, lo cubrirá la aplicación cliente "Otros clientes".
+
+
+**¿Qué controles se pueden usar en Otros clientes?**
+
+Cualquier control puede configurarse para "Otros clientes". Sin embargo, la experiencia del usuario final será bloquear el acceso en todos los casos. "Otros clientes" no admiten controles como MFA, dispositivo compatible, unión a un dominio, etc. 
+ 
+**¿Qué condiciones uso para Otros clientes?**
+
+Para "Otros clientes" se pueden configurar cualesquiera condiciones.
+
+**¿Admite Exchange ActiveSync todas las condiciones y controles?**
+
+Nº Este es el resumen de la compatibilidad de Exchange ActiveSync (EAS):
+
+- EAS solo admite que los destinos sean usuario y grupo. No admite invitado ni rol. Si se configura la condición de invitado o de rol, todos los usuarios se bloquearán, ya que no podemos determinar si la directiva debe aplicarse al usuario, o no.
+
+- EAS solo funciona con Exchange como aplicación en la nube. 
+
+- EAS no admite ninguna condición, salvo la propia aplicación cliente.
+
+- EAS se pueden configurar con cualquier control (todos menos el cumplimiento del dispositivo provocarán un bloqueo).
+
+**¿Se aplicarán las directivas a todas las aplicaciones de manera predeterminada a partir de ahora?**
+
+Nº No hay ningún cambio en el comportamiento predeterminado de las directivas. Las directivas de continuarán aplicándose al explorador y a las aplicaciones móviles y clientes de escritorio de forma predeterminada.
 
 
 

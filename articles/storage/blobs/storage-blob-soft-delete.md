@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701690"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminación temporalmente de blobs de Azure Storage (versión preliminar)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Eliminación temporal de blobs de Azure Storage
 
 ## <a name="overview"></a>Información general
 
-Azure Storage ofrece la posibilidad de eliminar temporalmente (versión preliminar) objetos de blob, con el fin de que se puedan recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
+Azure Storage ofrece la posibilidad de eliminar temporalmente objetos de blob, con el fin de que pueda recuperar más fácilmente los datos cuando una aplicación u otro usuario de la cuenta de almacenamiento los hayan modificado o eliminado por error.
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
@@ -29,10 +30,6 @@ Se puede configurar el tiempo durante el que los datos eliminados se pueden recu
 
 La eliminación temporal es compatible con las versiones anteriores; no es preciso realizar ningún cambio en las aplicaciones para aprovechar las ventajas de los mecanismos de protección que se obtienen con esta característica. Sin embargo, la [recuperación de datos](#recovery) incorpora la nueva **Undelete Blob** API.
 
-> [!NOTE]
-> En la versión preliminar pública, no se permite llamar a Set Blob Tier en un blob con instantáneas.
-La eliminación temporal genera instantáneas que proteger los datos cuando se sobrescriben. En la actualidad, se trabaja activamente para encontrar una solución que permita el almacenamiento por niveles de blobs con instantáneas.
-
 ### <a name="configuration-settings"></a>Valores de configuración
 
 Cuando se crea una cuenta, la eliminación temporal está desactivada de forma predeterminada. La eliminación temporal también está desactivada de forma predeterminada en las cuentas de almacenamiento existentes. Esta característica se puede activar o desactivar en cualquier momento de la vida de una cuenta de almacenamiento.
@@ -41,7 +38,7 @@ Aunque la función esté desactivada será posible acceder y recuperar los datos
 
 El período de retención indica la cantidad de tiempo durante el que los datos eliminados temporalmente se almacenan y están disponibles para su recuperación. En el caso de los blobs y las instantáneas de blob que se eliminan explícitamente, el reloj del período de retención se pone en marcha cuando se eliminan los datos. Sin embargo, en el caso de las instantáneas eliminadas temporalmente que genera la característica de eliminación temporal cuando se sobrescriben los datos, se pone en marcha cuando se genera la instantánea. Actualmente, los datos que se eliminan temporalmente se pueden conservar un periodo que oscila entre 1 y 365 días.
 
-El período de retención de la eliminación temporal se puede cambiar en cualquier momento. El periodo de retención actualizado solo se aplicará a los datos recién eliminados. Los datos eliminados con anterioridad expirarán en función del periodo de retención que se configuró en el momento en que se eliminaron.
+El período de retención de la eliminación temporal se puede cambiar en cualquier momento. El periodo de retención actualizado solo se aplicará a los datos recién eliminados. Los datos eliminados con anterioridad expirarán en función del periodo de retención que se configuró en el momento en que se eliminaron. Si intenta eliminar un objeto eliminado temporalmente, su hora de expiración no resultará afectará.
 
 ### <a name="saving-deleted-data"></a>Guardado de los datos eliminados
 
@@ -54,7 +51,7 @@ Si se usan **Put Blob**, **Put Block**, **Put Block List** o **Copy Blob** cuand
 *Los datos eliminados temporalmente son de color gris, mientras que los datos activos están son de color azul. Los últimos datos escritos aparecen debajo de los datos más antiguos. Cuando B0 se sobrescribe con B1, se genera una instantánea de eliminación temporal de B0. Cuando B1 se sobrescribe con B2, se genera una instantánea de eliminación temporal de B1.*
 
 > [!NOTE]
-> La eliminación temporal sólo ofrece protección contra escritura en las operaciones de copia cuando está activada en la cuenta del blob de destino.
+> La eliminación temporal solo ofrece protección contra escritura en las operaciones de copia cuando está activada en la cuenta del blob de destino.
 
 > [!NOTE]
 > La eliminación temporal no permite la protección contra escritura de blobs en el nivel de archivo. Si un blob archivado se sobrescribe con blob nuevo en cualquier nivel, el primero expira de forma permanente.
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-En la sección [Pasos siguientes](#Next steps) puede encontrar un puntero a la aplicación que generó esta salida.
+En la sección [Pasos siguientes](#next-steps) puede encontrar un puntero a la aplicación que generó esta salida.
 
 ## <a name="pricing-and-billing"></a>Precios y facturación
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure CLI 
+Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Para comprobar si la opción eliminación temporal está activada, use el siguiente comando: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Biblioteca de cliente de Python
 
 Para habilitar la eliminación temporal, actualice las propiedades del servicio del cliente del blob:
@@ -272,15 +282,19 @@ La eliminación temporal forma parte de una estrategia de protección de datos y
 
 **¿Para qué tipos de almacenamiento se puede usar la eliminación temporal?**
 
-Actualmente, la eliminación temporal sólo está disponible para el almacenamiento de blobs (objeto).
+Actualmente, la eliminación temporal solo está disponible para el almacenamiento de blobs (objeto).
 
 **¿Está disponible la eliminación temporal para todos los tipos de cuentas de almacenamiento?**
 
-Sí, la eliminación temporal está disponible no solo para las cuentas de almacenamiento de blobs, sino también para los blobs de las cuentas de uso general. Esto se aplica tanto a las cuentas estándar como a las premium. La eliminación temporal no está disponible para los discos administrados.
+Sí, la eliminación temporal no solo está disponible para las cuentas de almacenamiento de blobs, sino también para los blobs de las cuentas de uso general (tanto GPV1 como GPv2). Esto se aplica tanto a las cuentas estándar como a las premium. La eliminación temporal no está disponible para los discos administrados.
 
 **¿Está disponible la eliminación temporal para todas las capas de almacenamiento?**
 
 Sí, la eliminación temporal está disponible para todas las capas de almacenamiento, es decir, la de acceso frecuente, la de acceso esporádico y la de archivo. Sin embargo, la eliminación temporal no permite la protección contra la sobrescritura en los blobs de la capa de archivo.
+
+**¿Se puede usar la API de Set Blob Tier para almacenar los blobs por niveles con instantáneas eliminadas temporalmente?**
+
+Sí. Las instantáneas eliminadas temporalmente permanecerán en el nivel original, pero el blob base se moverá al nivel nuevo. 
 
 **Las cuentas de almacenamiento Premium tienen un límite de instantáneas de blob de 100. ¿Cuentan las instantáneas eliminadas temporalmente para este límite?**
 

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: dddb35ea2ba1c02f78234fe33cdb832e9aacbff5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735126"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Herramientas de Azure Functions para Visual Studio  
 
@@ -31,7 +32,7 @@ Herramientas de Azure Functions proporciona los siguientes beneficios:
 * Desarrollar e implementar funciones de C# compiladas previamente. Las funciones compiladas previamente proporcionan un mejor rendimiento de arranque en frío que las funciones basadas en scripts de C#. 
 * Programar las funciones en C# a la vez que se tienen todos los beneficios del desarrollo de Visual Studio. 
 
-En este tema se muestra cómo usar Herramientas de Azure Functions para Visual Studio 2017 a fin de desarrollar las funciones en C#. También puede obtener información sobre cómo publicar el proyecto en Azure como un ensamblado .NET.
+En este artículo se muestra cómo usar Herramientas de Azure Functions para Visual Studio 2017 para desarrollar funciones en C#. También puede obtener información sobre cómo publicar el proyecto en Azure como un ensamblado .NET.
 
 > [!IMPORTANT]
 > No mezcle el desarrollo local con el desarrollo del portal en la misma aplicación de función. Al publicar desde un proyecto local en una aplicación de la función, el proceso de implementación sobrescribe todas las funciones que ha desarrollado en el portal.
@@ -74,15 +75,15 @@ Para crear e implementar funciones, también necesita:
 
 4. Una vez completada la actualización, elija **Cerrar** y reinicie Visual Studio.
 
-## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions 
+## <a name="create-an-azure-functions-project"></a>Creación de un proyecto de Azure Functions
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
 La plantilla de proyecto crea un proyecto de C#, instala el paquete NuGet `Microsoft.NET.Sdk.Functions` y establece la plataforma de destino. Functions 1.x tiene como destino .NET Framework y Functions 2.x tiene como destino .NET Standard. El proyecto nuevo contiene los archivos siguientes:
 
 * **host.json**: permite configurar el host de Functions. Esta configuración se aplica tanto cuando se ejecuta localmente como en Azure. Para más información, consulte la [referencia sobre host.json](functions-host-json.md).
-    
-* **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Azure no usa estas configuraciones, sino que las usa [Azure Functions Core Tools](functions-run-local.md). Use este archivo para especificar la configuración, tal como las cadenas de conexión a otros servicios de Azure. Agregue una clave nueva a la matriz de **valores** para cada conexión que requieren las funciones de su proyecto. Para más información, consulte [Archivo de configuración local](functions-run-local.md#local-settings-file) en el tema Azure Functions Core Tools.
+
+* **local.settings.json**: mantiene la configuración que se usa cuando se ejecutan localmente las funciones. Azure no usa estas configuraciones, sino que las usa [Azure Functions Core Tools](functions-run-local.md). Utilice este archivo para especificar la configuración de la aplicación para las variables que requieren sus funciones. Agregue un elemento nuevo a la matriz de **valores** de cada conexión que requieren los enlaces de las funciones de su proyecto. Para más información, consulte [Archivo de configuración local](functions-run-local.md#local-settings-file) en el artículo Azure Functions Core Tools.
 
 Para más información, consulte [Proyecto de biblioteca de clases de Functions](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -92,13 +93,13 @@ El entorno de tiempo de ejecución de Functions usa internamente una cuenta de A
 
 [!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
 
- Para establecer la cadena de conexión de cuenta de almacenamiento:
+Para establecer la cadena de conexión de cuenta de almacenamiento:
 
-1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor **Cadena de conexión principal**.   
+1. En Visual Studio, abra **Cloud Explorer**, expanda **Cuenta de almacenamiento** > **Su cuenta de almacenamiento** y seleccione **Propiedades** y copie el valor **Cadena de conexión principal**.
 
 2. En el proyecto, abra el archivo local.settings.json y establezca el valor de la clave **AzureWebJobsStorage** en la cadena de conexión que copió.
 
-3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.  
+3. Repita el paso anterior para agregar claves únicas a la matriz de **valores** para cualquier otra conexión que requieran sus funciones.
 
 ## <a name="create-a-function"></a>Creación de una función
 
@@ -108,11 +109,11 @@ En las funciones compiladas previamente, los enlaces que la función usa se defi
 
 2. Elija el desencadenador, establezca las propiedades de enlace y haga clic en **Crear**. En el ejemplo siguiente se muestra la configuración cuando se crea una función desencadenada de Queue Storage. 
 
-    ![](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
-    
-    Este ejemplo de desencadenador usa una cadena de conexión con una clave denominada **QueueStorage**. Esta configuración de la cadena de conexión se debe definir en el archivo local.settings.json. 
- 
-3. Examine la clase recién agregada. Verá un método **Run** estático, que cuenta con el atributo **FunctionName**. Este atributo indica que el método es el punto de entrada de la función. 
+    ![Crear una función desencadenada por la cola](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
+
+    Este ejemplo de desencadenador usa una cadena de conexión con una clave denominada **QueueStorage**. Esta configuración de la cadena de conexión se debe definir en el archivo local.settings.json.
+
+3. Examine la clase recién agregada. Verá un método **Run** estático, que cuenta con el atributo **FunctionName**. Este atributo indica que el método es el punto de entrada de la función.
 
     Por ejemplo, la clase C# siguiente representa una función desencadenada de Queue Storage:
 
@@ -120,25 +121,56 @@ En las funciones compiladas previamente, los enlaces que la función usa se defi
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
-    
+
     namespace FunctionApp1
     {
         public static class Function1
         {
-            [FunctionName("QueueTriggerCSharp")]        
+            [FunctionName("QueueTriggerCSharp")]
             public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, TraceWriter log)
             {
                 log.Info($"C# Queue trigger function processed: {myQueueItem}");
             }
         }
-    } 
+    }
     ````
- 
     Se aplica un atributo específico de enlace a cada parámetro de enlace que se suministra al método de punto de entrada. El atributo toma la información de enlace como parámetros. En el ejemplo anterior, el primer parámetro tiene aplicado un atributo **QueueTrigger**, que indica la función desencadenada de cola. El nombre de la configuración de cadena de conexión y el nombre de cola se pasan como parámetros en el atributo **QueueTrigger**.
+    
+Puede utilizar el procedimiento anterior para agregar más funciones a su proyecto de aplicación de funciones. Cada función del proyecto puede tener un desencadenador diferente, pero una función no puede tener más de un desencadenador. Para más información, consulte [Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md).
+
+## <a name="add-bindings"></a>Adición de enlaces
+
+Al igual que sucede con los desencadenadores, los enlaces de entrada y salida se agregan a la función como atributos de enlace. Agregue los enlaces a una función como se indica a continuación:
+
+1. Asegúrese de que ha [configurado el proyecto para el desarrollo local](#configure-the-project-for-local-development).
+
+2. Agregue el paquete de extensión de NuGet adecuado para el enlace concreto. Para más información, consulte [Desarrollo local con C# mediante Visual Studio](functions-triggers-bindings.md#local-csharp) en el artículo Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions. Los requisitos del paquete NuGet específico del enlace se encuentran en el artículo de referencia del enlace. Por ejemplo, buscar los requisitos del paquete para el desencadenador de Event Hubs en el [artículo de referencia Enlaces de Azure Event Hubs](functions-bindings-event-hubs.md).
+
+3. Si hay valores de la aplicación que necesite el enlace, agréguelos a la colección **Valores** en el [archivo de configuración local](functions-run-local.md#local-settings-file). Estos valores se utilizan cuando la función se ejecuta localmente. Cuando la función se ejecuta en la aplicación de funciones en Azure, se usan los [valores de la aplicación de aplicaciones](#function-app-settings).
+
+4. Agregue el atributo de enlace apropiado para la firma del método. En el ejemplo siguiente, un mensaje de la cola desencadena la función y el enlace de salida, se crea un nuevo mensaje de la cola con el mismo texto en otra cola.
+
+    ```csharp
+    public static class SimpleExampleWithOutput
+    {
+        [FunctionName("CopyQueueMessage")]
+        public static void Run(
+            [QueueTrigger("myqueue-items-source", Connection = "AzureWebJobsStorage")] string myQueueItem, 
+            [Queue("myqueue-items-destination", Connection = "AzureWebJobsStorage")] out string myQueueItemCopy,
+            TraceWriter log)
+        {
+            log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+            myQueueItemCopy = myQueueItem;
+        }
+    }
+    ```
+La conexión con el almacenamiento en la cola se obtiene del valor `AzureWebJobsStorage`. Para más información, consulte el artículo de referencia del enlace concreto. 
+
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="testing-functions"></a>Funciones de prueba
 
-Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio.  
+Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio.
 
 Para probar la función, presione F5. Si se le solicita, acepte la solicitud de Visual Studio para descargar e instalar las herramientas de Azure Functions Core (CLI). También es preciso que habilite una excepción de firewall para que las herramientas para controlen las solicitudes de HTTP.
 
@@ -152,9 +184,9 @@ Para más información sobre cómo usar Azure Functions Core Tools, consulte [Co
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Configuración de Function App   
+## <a name="function-app-settings"></a>Configuración de Function App
 
-Cualquier configuración que agregue en local.settings.json debe agregarse a la aplicación de función en Azure. Esta configuración no se carga automáticamente cuando publica el proyecto. 
+Cualquier configuración que agregue en local.settings.json debe agregarse a la aplicación de función en Azure. Esta configuración no se carga automáticamente cuando publica el proyecto.
 
 La manera más sencilla de cargar la configuración requerida en la aplicación de función en Azure es usar el vínculo **Administrar configuración de la aplicación...** que aparece una vez que publica correctamente el proyecto. 
 
@@ -176,4 +208,4 @@ Para más información sobre Herramientas de Azure Functions, consulte la secci�
 
 Para más información sobre Azure Functions Core Tools, consulte [Codificación y comprobación de las funciones de Azure en un entorno local](functions-run-local.md).
 
-Para más información sobre el desarrollo de funciones como las bibliotecas de clases de .NET, consulte [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md). En este tema también se ofrecen ejemplos sobre cómo usar atributos para declarar varios tipos de vínculos admitidos por Azure Functions.    
+Para más información sobre el desarrollo de funciones como las bibliotecas de clases de .NET, consulte [Referencia para desarrolladores de C# de Azure Functions](functions-dotnet-class-library.md). Este artículo también tiene vínculos a ejemplos de cómo usar atributos para declarar los distintos tipos de vínculos compatibles con Azure Functions.    

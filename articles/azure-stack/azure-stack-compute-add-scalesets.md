@@ -1,22 +1,23 @@
 ---
-title: Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack | Microsoft Docs
-description: Obtenga información acerca de cómo un operador de la nube puede agregar el escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack.
+title: Puesta en disponibilidad de conjuntos de escalado de máquinas virtuales en Azure Stack | Microsoft Docs
+description: Obtenga información acerca de cómo un operador en la nube puede agregar conjuntos de escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack
 services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800647"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Proporcionar conjuntos de escalado de máquinas virtuales en Azure Stack
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Puesta en disponibilidad de conjuntos de escalado de máquinas virtuales en Azure Stack
 
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -28,52 +29,27 @@ Los conjuntos de escalado de máquinas virtuales en Azure Stack son similares a 
 * [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich habla sobre los conjuntos de escalado de Azure)
 * [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el escalado automático. Puede agregar más instancias a un conjunto de escalado a través del portal de Azure Stack, las plantillas de Resource Manager o PowerShell.
+En Azure Stack, los conjuntos de escalado de máquinas virtuales no admiten el escalado automático. Puede agregar más instancias a un conjunto de escalado con plantillas de Resource Manager, la CLI o PowerShell.
 
 ## <a name="prerequisites"></a>requisitos previos
-* **PowerShell y herramientas**
 
-   Instalación y configuración de PowerShell para Azure Stack y las herramientas de Azure Stack. Consulte [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md) (Ponerse en marcha con PowerShell en Azure Stack).
-
-   Después de instalar las herramientas de Azure Stack, asegúrese de importar el siguiente módulo de PowerShell (ruta de acceso relativa a la carpeta .\ComputeAdmin en la carpeta AzureStack-Tools-master):
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
-
-* **Imagen del sistema operativo**
-
-   Si no ha agregado ninguna imagen de sistema operativo a la plataforma Marketplace de Azure Stack, consulte [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md) (Agregar la imagen de VM de Windows Server 2016 a la plataforma Marketplace de Azure Stack).
-
-   Para obtener compatibilidad con Linux, descargue Ubuntu Server 16.04 y agréguelo con ```Add-AzsPlatformImage``` con los siguientes parámetros: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
-
+- **Redifusión de Marketplace**  
+    Registre Azure Stack con Azure global para habilitar la redifusión de Marketplace. Siga las instrucciones de [Registro de Azure Stack con Azure](azure-stack-registration.md).
+- **Imagen del sistema operativo**  
+    Si no ha agregado ninguna imagen de sistema operativo a la plataforma Marketplace de Azure Stack, consulte [Adición de un elemento de Marketplace de Azure Stack desde Azure](asdk/asdk-marketplace-item.md).
 
 ## <a name="add-the-virtual-machine-scale-set"></a>Adición del conjunto de escalado de máquinas virtuales
 
-Edite el siguiente script de PowerShell para su entorno y, después, ejecútelo para agregar un conjunto de escalado de máquinas virtuales a la plataforma Marketplace de Azure Stack. 
+1. Abra Azure Stack Marketplace y conéctese a Azure. Seleccione **Administración de Marketplace**> **+ Agregar desde Azure**.
 
-``$User`` es la cuenta que usa para conectar el portal de administración. Por ejemplo, serviceadmin@contoso.onmicrosoft.com.
+    ![Administración de Marketplace](media/azure-stack-compute-add-scalesets/image01.png)
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
+2. Agregue y descargue el elemento de Marketplace Conjunto de escalado de máquinas virtuales.
 
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
+    ![Conjunto de escalado de máquinas virtuales](media/azure-stack-compute-add-scalesets/image02.png)
 
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Actualización de imágenes en un conjunto de escalado de máquinas virtuales
 
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Actualización de imágenes en un conjunto de escalado de máquinas virtuales 
 Después de crear un conjunto de escalado de máquinas virtuales, los usuarios pueden actualizar imágenes en él sin tener que volver a crearlo. El proceso para actualizar una imagen depende de los siguientes escenarios:
 
 1. La plantilla de implementación del conjunto de escalado de máquinas virtuales **especifica latest** para *version*:  
@@ -102,7 +78,7 @@ Después de crear un conjunto de escalado de máquinas virtuales, los usuarios p
 
 2. La plantilla de implementación del conjunto de escalado de máquinas virtuales **no especifica latest** para *version* y, en su lugar, especifica un número de versión:  
 
-     Si descarga una imagen con una versión más reciente (que cambia la versión disponible), el conjunto de escalado no se podrá escalar verticalmente. Esto es así por diseño, ya que la versión de la imagen especificada en la plantilla del conjunto de escalado debe estar disponible.  
+    Si descarga una imagen con una versión más reciente (que cambia la versión disponible), el conjunto de escalado no se podrá escalar verticalmente. Esto es así por diseño, ya que la versión de la imagen especificada en la plantilla del conjunto de escalado debe estar disponible.  
 
 Para más información, consulte [Imágenes y discos del sistema operativo](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
@@ -112,7 +88,7 @@ Para más información, consulte [Imágenes y discos del sistema operativo](.\us
 Para eliminar un elemento de la galería del conjunto de escalado de máquinas virtuales, ejecute el siguiente comando de PowerShell:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]

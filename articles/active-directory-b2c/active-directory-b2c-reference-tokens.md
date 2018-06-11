@@ -1,21 +1,21 @@
 ---
-title: 'Referencia de tokens: Azure AD B2C | Microsoft Docs'
+title: Referencia de tokens en Azure Active Directory B2C | Microsoft Docs
 description: Tipos de tokens emitidos en Azure Active Directory B2C
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e2ca582c9ec767e9b810c574e3efddc6485bb6a0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709315"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: referencia de tokens
 
@@ -68,7 +68,7 @@ Cuando una API recibe un token de acceso, debe [validar la firma](#token-validat
 
 Con Azure AD B2C, tendrá un control preciso sobre el contenido de los tokens. Se puede configurar [directivas](active-directory-b2c-reference-policies.md) para enviar ciertos conjuntos de datos de usuario en las notificaciones que la aplicación necesita para sus operaciones. Dichas notificaciones pueden incluir propiedades estándar, tales como los valores de `displayName` y `emailAddress` del usuario. También pueden incluir [atributos de usuario personalizados](active-directory-b2c-reference-custom-attr.md) que se pueden definir en el directorio de B2C. Todos los tokens de identificador y de acceso que reciba contienen un conjunto concreto de notificaciones relacionadas con la seguridad. Las aplicaciones pueden usar estas notificaciones para autenticar usuarios y solicitudes de manera segura.
 
-Tenga en cuenta que  las notificaciones de los tokens de identificador no se devuelven en ningún orden concreto. Además, se pueden agregar nuevas notificaciones en tokens de identificador en cualquier momento. No se debe interrumpir la aplicación cuando se agreguen nuevas notificaciones. Estas son las notificaciones que se espera que existan en los tokens de identificador y de acceso que emite Azure AD B2C. Las directivas determinan otras notificaciones adicionales. Para practicar, intente inspeccionar las notificaciones del token de identificador de ejemplo, pegándolo en [jwt.ms](https://jwt.ms). Puede encontrar más información al respecto en la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Tenga en cuenta que las notificaciones de los tokens de identificador no se devuelven en ningún orden concreto. Además, se pueden agregar nuevas notificaciones en tokens de identificador en cualquier momento. No se debe interrumpir la aplicación cuando se agreguen nuevas notificaciones. Estas son las notificaciones que se espera que existan en los tokens de identificador y de acceso que emite Azure AD B2C. Las directivas determinan otras notificaciones adicionales. Para practicar, intente inspeccionar las notificaciones del token de identificador de ejemplo, pegándolo en [jwt.ms](https://jwt.ms). Puede encontrar más información al respecto en la [especificación OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 | NOMBRE | Notificación | Valor de ejemplo | DESCRIPCIÓN |
 | --- | --- | --- | --- |
@@ -89,7 +89,7 @@ Tenga en cuenta que  las notificaciones de los tokens de identificador no se dev
 ### <a name="refresh-tokens"></a>Tokens de actualización
 Los tokens de actualización son tokens de seguridad que la aplicación puede usar para adquirir nuevos tokens de identificador y tokens de acceso en un flujo de OAuth 2.0. Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con los usuarios.
 
-Para recibir un token de actualización en la respuesta de un token, la aplicación debe solicitar el ámbito `offline_acesss` . Para obtener más información sobre el ámbito `offline_access` , consulte la [referencia de protocolo de Azure AD B2C](active-directory-b2c-reference-protocols.md).
+Para recibir un token de actualización en la respuesta de un token, la aplicación debe solicitar el ámbito `offline_acesss` . Para obtener más información sobre el ámbito `offline_access`, consulte la [referencia de protocolo de Azure AD B2C](active-directory-b2c-reference-protocols.md).
 
 Los tokens de actualización son, y siempre serán, totalmente opacos para tu aplicación. Los emite Azure AD y solo Azure AD los puede inspeccionar e interpretar. Son de larga duración, pero la aplicación no se debe escribir esperando que un token de actualización dure un período de tiempo especificado. Los tokens de actualización pueden invalidarse en cualquier momento por varios motivos. La única forma para que tu aplicación sepa si un token de actualización es válido es intentar canjearlo mediante una solicitud de token a Azure AD.
 

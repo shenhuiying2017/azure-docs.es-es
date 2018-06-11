@@ -1,76 +1,123 @@
 ---
-title: Incorporación del conector de Azure Blob Storage en Logic Apps | Microsoft Docs
-description: Muestra cómo empezar a trabajar y configurar el conector de Azure Blob Storage en una aplicación lógica
-services: ''
-documentationcenter: ''
+title: 'Conexión a Azure Blob Storage: Azure Logic Apps | Microsoft Docs'
+description: Creación y administración de blobs en Azure Storage con Azure Logic Apps
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b5dc3f75-6bea-420b-b250-183668d2848d
-ms.service: logic-apps
-ms.devlang: na
+manager: cfowler
+ms.author: estfan
+ms.date: 05/21/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 05/02/2017
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7aaff2ac78201c4484105c6cacc5f0fef19ca7b5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 15d737cd85f70717bfdf15dfb3d179f977b63c72
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34723439"
 ---
-# <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Uso del conector de Azure Blob Storage en una aplicación lógica
-Use el conector de Azure Blob Storage para cargar, actualizar, obtener y eliminar blobs en la cuenta de almacenamiento, todo dentro de una aplicación lógica.  
+# <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
-Con Almacenamiento de blobs de Azure:
+En este artículo se muestra cómo se puede acceder y administrar los archivos almacenados como blobs en una cuenta de Azure Storage desde dentro de una aplicación de lógica con el conector de Azure Blob Storage. De este modo, puede crear aplicaciones lógicas que automatizan tareas y flujos de trabajo para administrar los archivos. Por ejemplo, puede crear aplicaciones lógicas que creen, obtengan, actualicen y eliminen archivos en su cuenta de almacenamiento.
 
-* Cree un flujo de trabajo cargando nuevos proyectos u obteniendo archivos recientemente actualizados.
-* Use acciones para obtener metadatos de archivos, eliminar un archivo, copiar archivos y muchas otras cosas. Por ejemplo, cuando se actualiza una herramienta en un sitio web de Azure (desencadenador), se actualiza un archivo en Blob Storage (acción). 
+Suponga que tiene una herramienta que se actualiza en un sitio web de Azure, que actúa como desencadenador para su aplicación lógica. Cuando se produce este evento, la aplicación lógica puede actualizar algunos archivos en el contenedor de Blob Storage, que es una acción de la aplicación lógica. 
 
-En este tema se muestra cómo usar el conector de Azure Blob Storage en una aplicación lógica.
+Si no tiene una suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>. Si nunca trabajó con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el artículo sobre [Inicio rápido: creación de su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obtener información técnica específica del conector, consulte la <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">referencia sobre el conector de Azure Blob Storage</a>.
 
-Para más información sobre Logic Apps, consulte [¿Qué son las aplicaciones lógicas?](../logic-apps/logic-apps-overview.md) y [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>requisitos previos
 
-## <a name="connect-to-azure-blob-storage"></a>Conexión con el almacenamiento de blobs de Azure
-Antes de que la aplicación lógica pueda acceder a cualquier servicio, cree primero una *conexión* a este. Una conexión proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para conectarse a una cuenta de almacenamiento, debe crear primero una *conexión* con Blob Storage. Para crear una conexión, escriba las credenciales que utiliza normalmente para acceder al servicio al que se está conectando. En el caso de Almacenamiento de Azure, para crear la conexión, deberá escribir las credenciales de la cuenta de almacenamiento. 
+* Una [cuenta de Azure Storage y un contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-#### <a name="create-the-connection"></a>Creación de la conexión
-> [!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+* La aplicación lógica en la que necesita acceso a la cuenta de Azure Blob Storage. Para iniciar la aplicación lógica con un desencadenador de Azure Blob Storage, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="use-a-trigger"></a>Uso de un desencadenador
-Este conector no tiene ningún desencadenador. Utilice otros desencadenadores para iniciar la aplicación lógica; por ejemplo, un desencadenador de periodicidad, un desencadenador HTTP webhook, los desencadenadores disponibles con otros conectores, etc. En [Creación de una nueva aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) se puede ver un ejemplo.
+<a name="add-trigger"></a>
 
-## <a name="use-an-action"></a>Uso de una acción
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.
+## <a name="add-blob-storage-trigger"></a>Agregar un desencadenador de Blob Storage
 
-1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
-   
-    ![](./media/connectors-create-api-azureblobstorage/add-action.png)
-2. Elija **Add an action**(Agregar una acción).
-3. En el cuadro de texto, escriba "blob" para obtener una lista de todas las acciones disponibles.
-   
-    ![](./media/connectors-create-api-azureblobstorage/actions.png) 
-4. En nuestro ejemplo, elija **AzureBlob - Obtener metadatos de archivo mediante la ruta de acceso**. Si ya existe una conexión, seleccione el botón **...** (Mostrar selector) para seleccionar un archivo.
-   
-    ![](./media/connectors-create-api-azureblobstorage/sample-file.png)
-   
-    Si se le solicita la información de conexión, escriba los detalles para crear la conexión. Estas propiedades se describen en la sección [Creación de la conexión](connectors-create-api-azureblobstorage.md#create-the-connection) de este tema. 
-   
-   > [!NOTE]
-   > En este ejemplo, obtenemos los metadatos de un archivo. Para ver los metadatos, agregue otra acción que cree un archivo nuevo mediante otro conector. Por ejemplo, agregue una acción de OneDrive que cree un nuevo archivo de "prueba" basándose en los metadatos. 
+En Azure Logic Apps, cada aplicación lógica debe comenzar con un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que se activa cuando sucede un evento específico o cuando se cumple una condición determinada. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica y empieza a ejecutar el flujo de trabajo de la aplicación.
 
+En este ejemplo se muestra cómo se puede iniciar un flujo de trabajo de una aplicación lógica con el desencadenador **Azure Blob Storage: cuando se agrega o modifica un blob (solo propiedades)** cuando las propiedades de un blob se agregan o se actualizan en un contenedor de almacenamiento. 
 
-5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
+1. En Azure Portal o Visual Studio, cree una aplicación lógica en blanco que abre el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
 
-> [!TIP]
-> [Explorador de Storage](http://storageexplorer.com/) es una excelente herramienta para administrar varias cuentas de almacenamiento.
+2. En el cuadro de búsqueda, escriba "azure blob" como filtro. En la lista de desencadenadores, seleccione el que desee.
 
-## <a name="connector-specific-details"></a>Detalles específicos del conector
+   En este ejemplo se utiliza este desencadenador: **almacenamiento de blobs de Azure: cuando se agrega o modifica un blob (solo propiedades)**
 
-Vea los desencadenadores y las acciones definidos en Swagger y vea también todos los límites en los [detalles del conector](/connectors/azureblobconnector/). 
+   ![Seleccionar un desencadenador](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+
+3. Si se le piden los detalles de la conexión, [cree ahora su conexión de Blob Storage](#create-connection). O bien, si la conexión ya existe, especifique la información necesaria para el desencadenador.
+
+   Para este ejemplo, seleccione el contenedor y la carpeta que desea supervisar.
+
+   1. En el cuadro **Contenedor**, seleccione el icono de la carpeta.
+
+   2. En la lista de carpetas, elija el corchete angular derecho (**>**) y, después, desplácese hasta que encuentre y seleccione la carpeta que desee. 
+
+      ![Seleccionar carpeta](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
+
+   3. Seleccione el intervalo y la frecuencia con la que desea que el desencadenador compruebe si hay cambios en la carpeta.
+
+4. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
+
+5. Ahora, agregue a la aplicación lógica una o varias acciones, en función de las tareas que desea realizar con los resultados del desencadenador.
+
+<a name="add-action"></a>
+
+## <a name="add-blob-storage-action"></a>Agregar un acción a Blob Storage
+
+En Azure Logic Apps, una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es un paso del flujo de trabajo que sigue a un desencadenador u otra acción. En este ejemplo, la aplicación lógica se inicia con el [desencadenador Periodicidad](../connectors/connectors-native-recurrence.md).
+
+1. En Azure Portal o Visual Studio, abra la aplicación lógica en el diseñador de aplicaciones lógicas. En este ejemplo se usa Azure Portal.
+
+2. En el Diseñador de Logic Apps, en el desencadenador o la acción, elija **Nuevo paso** > **Agregar una acción**.
+
+   ![Agregar una acción](./media/connectors-create-api-azureblobstorage/add-action.png) 
+
+   Para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. 
+   Elija el signo más (**+**) que aparece y, luego, elija **Agregar una acción**.
+
+3. En el cuadro de búsqueda, escriba "azure blob" como filtro. En la lista de acciones, seleccione la acción que desee.
+
+   En este ejemplo se usa esta acción: **Azure Blob Storage: obtener el contenido del blob**
+
+   ![Acción Select](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
+
+4. Si se le piden los detalles de la conexión, [cree ahora su conexión de Azure Blob Storage](#create-connection). O bien, si la conexión ya existe, especifique la información necesaria para la acción. 
+
+   En este ejemplo, seleccione el archivo que desee.
+
+   1. En el cuadro **Blob**, seleccione el icono de la carpeta.
+  
+      ![Seleccionar carpeta](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
+
+   2. Busque el archivo que desee por el número de **identificador** del blob y selecciónelo. Dicho número de **identificador** se puede encontrar en los metadatos del blob que devuelve el desencadenador de almacenamiento del blob descrito anteriormente.
+
+5. Cuando esté listo, elija **Guardar** en la barra de herramientas del diseñador.
+Para probar la aplicación lógica, asegúrese de que la carpeta seleccionada contiene un blob.
+
+En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenido, agregue otra acción que cree un archivo con el blob mediante otro conector. Por ejemplo, agregue una acción de OneDrive que cree un archivo basándose en el contenido del blob.
+
+<a name="create-connection"></a>
+
+## <a name="connect-to-storage-account"></a>Conectar con la cuenta de almacenamiento
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+
+## <a name="connector-reference"></a>Referencia de conectores
+
+Para obtener datos técnica, como los desencadenadores, las acciones y los límites, tal como lo describe el archivo Swagger del conector, consulte la [página de referencia del conector](/connectors/azureblobconnector/). 
+
+## <a name="get-support"></a>Obtención de soporte técnico
+
+* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 
+* Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
