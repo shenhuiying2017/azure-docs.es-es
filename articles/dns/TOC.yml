@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: Zonas DNS inversas
       href: dns-reverse-dns-overview.md
+    - name: Recuperación ante desastres mediante Azure DNS y Traffic Manager
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedimientos
   items:
     - name: 'Creación de una zona DNS personalizada y un registro: CLI de Azure'

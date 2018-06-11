@@ -47,6 +47,8 @@
           href: container-instances-using-azure-container-registry.md
         - name: Establecimiento de variables de entorno (env)
           href: container-instances-environment-variables.md
+        - name: Configuración de sondeos de ejecución
+          href: container-instances-liveness-probe.md
     - name: administración
       items:
         - name: Ejecución de un comando (exec)

@@ -8,6 +8,7 @@
 ### [Procedimientos recomendados de seguridad de red](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Aplicaciones virtuales de red de alta disponibilidad](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Combinación de métodos de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Recuperación ante desastres mediante Azure DNS y Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Planeamiento y diseño
 ### [Redes virtuales](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conectividad entre implementaciones locales: VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
