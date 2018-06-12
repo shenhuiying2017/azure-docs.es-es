@@ -43,6 +43,8 @@
       href: storage-accounts.md
     - name: Uso de los informes de Cost Management
       href: use-reports.md
+    - name: Uso de paneles
+      href: dashboards.md
 - name: Recursos
   items:
     - name: Vídeos sobre Cost Management

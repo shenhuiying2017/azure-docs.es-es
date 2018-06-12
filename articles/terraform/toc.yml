@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Tutoriales
   items:
+    - name: Creación de un clúster de Kubernetes con AKS y Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
     - name: Ranuras de implementación del proveedor de Terraform y de Azure
       href: terraform-slot-walkthru.md
     - name: Creación de una máquina virtual de Terraform con MSI habilitado
