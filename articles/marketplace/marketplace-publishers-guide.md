@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 79e7d049ebf184e273e05250bd6f112d4c6be53d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34715367"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34806877"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guía del anunciante de Azure Marketplace y AppSource
 
@@ -144,7 +144,7 @@ Esta es la lista de las opciones de soporte técnico de Azure Marketplace:
 |Canal de soporte técnico  |DESCRIPCIÓN  |
 |---------|---------|
 |Foros de MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Foro de Microsoft Developer Network.         |
-|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Entorno de Stack Overflow para obtener soluciones y formular preguntas acerca de todo lo relacionado con Azure y Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
+|Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Entorno de Stack Overflow para obtener soluciones y formular preguntas acerca de todo lo relacionado con Azure y Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Virtual Machines](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li><li>[Contenedores de Azure](https://stackoverflow.com/search?q=azure+container)</li></ul> |
 
 
 **Recursos de marketing**
@@ -215,7 +215,10 @@ Para obtener más información sobre nuestras ventajas de comercialización y la
 |**Requisito**  |**Detalles** |**Opción de publicación**  |
 |---------|---------|---------|
 |**Facturación y medición**   |  Su contenedor debe admitir modelos de facturación gratuitos o Traiga su propia licencia.       |  Transacción       |
-|**Imagen basada en Docker**    |   Las imágenes del contenedor deben basarse en el formato de imagen de Docker y deben extraerse de los registros de contenedor de Azure.      |  Transacción       |
+|**Imagen compilada a partir de Dockerfile**    |   Las imágenes de contenedor se deben basar en la especificación de imagen de Docker y se deben compilar a partir de un archivo de Docker. Más información sobre la compilación de imágenes de Docker [aquí].(1https://docs.docker.com/engine/reference/builder/#usage)     |  Transacción       |
+|**Hospedaje en ACR**    |   Las imágenes de contenedor se deben hospedar en un repositorio de Azure Container Registry (ACR). Más información acerca del trabajo con ACR [aquí].(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     |  Transacción       |
+|**Etiquetado de imágenes**    |   Las imágenes de contenedor deben contener al menos 1 etiqueta (número máximo de etiquetas: 16). Más información sobre el etiquetado de una imagen [aquí].(https://docs.docker.com/engine/reference/commandline/tag/)     |  Transacción       |
+
 
 #### <a name="prerequisites-specific-to-transation-publishing-for-saas-app-subscriptions"></a>Requisitos previos específicos de la publicación de transacción para suscripciones de aplicaciones SaaS
 
@@ -224,7 +227,8 @@ Para obtener más información sobre nuestras ventajas de comercialización y la
 |**Facturación y medición**    |   El precio de su oferta se fija en una tarifa plana mensual. Los precios y las funcionalidades "true-up" basados en uso no se admiten en este momento.      |   Transacción      |
 |**Cancelación**  |   El cliente puede cancelar su oferta en cualquier momento.      |   Transacción      |
 |**Página de aterrizaje de transacción**     |   Usted hospeda una página de aterrizaje de transacción personalizada de Azure donde los usuarios pueden crear y administrar su cuenta de servicio SaaS.      |    Transacción     |
-|**API de suscripción de software como servicio**    |   Usted expone un servicio que puede interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica.      |     Transacción    |
+|**API de suscripción**    |   Usted expone un servicio que puede interactuar con la suscripción SaaS para crear, actualizar y eliminar una cuenta de usuario y un plan de servicio. Los cambios importantes en la API deben admitirse dentro de un plazo de 24 horas. Los cambios no importantes en la API se publicarán de forma periódica.      |     Transacción    |
+
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Requisitos previos específicos de la publicación de servicios de consultoría
 
@@ -473,7 +477,7 @@ Para agregar información fiscal:
 
 1. Inicie sesión en el [Centro para desarrolladores de Microsoft](https://dev.windows.com) con su cuenta Microsoft (si es necesario).
 2. Seleccione **Perfil fiscal** en el menú izquierdo.
-3. En la página **Configure su formulario fiscal**, seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Seleccione **Next** (Siguiente).
+3. En la página **Configure su formulario fiscal** , seleccione el país o la región donde tenga la residencia permanente y después seleccione el país o la región donde tiene la nacionalidad principal. Seleccione **Next** (Siguiente).
 4. Escriba la información fiscal y, después, seleccione **Siguiente**.
 
 Si tiene problemas para registrarse en el Centro para desarrolladores, abra una incidencia de soporte técnico:
