@@ -75,6 +75,10 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Reinicio de una máquina virtual
               href: devtest-lab-restart-vm.md
+            - name: Cambiar el tamaño de una máquina virtual
+              href: devtest-lab-resize-vm.md
+            - name: Reimplementación de una máquina virtual
+              href: devtest-lab-redeploy-vm.md
         - name: Uso de entornos en un laboratorio
           items:
             - name: Creación de un entorno

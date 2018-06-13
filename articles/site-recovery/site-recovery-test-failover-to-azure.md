@@ -1,6 +1,6 @@
 ---
-title: "Conmutación por error de prueba a Azure en Azure Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre cómo ejecutar una conmutación por error de prueba desde su entorno local a Azure con el servicio Azure Site Recovery."
+title: Conmutación por error de prueba a Azure en Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo ejecutar una conmutación por error de prueba desde su entorno local a Azure con el servicio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643658"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Conmutación por error de prueba a Azure en Site Recovery
 
@@ -40,7 +41,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
     - Site Recovery intentará crear las máquinas virtuales de prueba en una subred con el mismo nombre y dirección IP que se proporcionaron en la configuración de **Proceso y red** de la máquina virtual.
     - Si no hay ninguna subred con el mismo nombre disponible en la red virtual de Azure utilizada para la conmutación por error de prueba, la máquina virtual de prueba se creará en la primera subred que aparezca por orden alfabético.
-    - Si la misma dirección IP no está disponible en la subred, la máquina virtual recibirá otra dirección IP que sí lo esté. [Más información](#creating-a-network-for-test-failover).
+    - Si la misma dirección IP no está disponible en la subred, la máquina virtual recibirá otra dirección IP que sí lo esté. [Más información](#create-a-network-for-test-failover).
 4. Si realiza la conmutación por error a Azure y el cifrado de datos está habilitado, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado durante la instalación del proveedor. Puede omitir este paso si no está habilitado el cifrado.
 5. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Debe poder ver la máquina de réplica de prueba en el Portal de Azure.
 6. Para iniciar una conexión RDP con la máquina virtual de Azure, debe [agregar una dirección IP pública](https://aka.ms/addpublicip) en la interfaz de red de la máquina virtual conmutada por error. 

@@ -74,15 +74,6 @@
           href: app-service-app-service-environment-control-inbound-traffic.md
         - name: Uso de la seguridad por niveles
           href: app-service-app-service-environment-layered-security.md
-    - name: CLI 2.0
-- name: Referencia
-  items:
-    - name: Azure CLI
-      href: /cli/azure/appservice
-    - name: Azure PowerShell
-      href: /powershell
-    - name: API DE REST
-      href: /rest/api/appservice/
 - name: Recursos
   items:
     - name: Azure Roadmap

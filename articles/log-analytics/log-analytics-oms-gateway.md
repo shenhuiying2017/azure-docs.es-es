@@ -289,7 +289,7 @@ La siguiente tabla muestra los identificadores de evento y las descripciones de 
 | 103 |Se ha recibido un comando HTTP CONNECT del cliente |
 | 104 |No es un comando HTTP CONNECT |
 | 105 |El servidor de destino no está en la lista de permitidos o el puerto de destino no es un puerto seguro (443) <br> <br> Asegúrese de que el agente MMA del servidor de puerta de enlace y los agentes que se comunican con la puerta de enlace están conectados a la misma área de trabajo de Log Analytics. |
-| 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Asegúrese de que: <br>    <br> &#149; Utiliza una puerta de enlace con el número de versión 1.0.395.0, o uno superior. <br> & #149; Tanto el agente MMA del servidor de puerta de enlace como los agentes que se comunican con la puerta de enlace están conectados a la misma área de trabajo de Log Analytics. |
+| 105 |ERROR TcpConnection – Invalid Client certificate: CN=Gateway <br><br> Asegúrese de que: <br>    <br> - Utiliza una puerta de enlace con el número de versión 1.0.395.0, o uno superior. <br> - Tanto el agente MMA del servidor de puerta de enlace como los agentes que se comunican con la puerta de enlace están conectados a la misma área de trabajo de Log Analytics. |
 | 106 |La puerta de enlace de OMS solo admite TLS 1.0, TLS 1.1 y 1.2.  No admite SSL. Para las versiones de protocolo TLS/SSL no admitidas, la puerta de enlace de OMS genera el identificador de evento 106.|
 | 107 |Se ha comprobado la sesión de TLS |
 

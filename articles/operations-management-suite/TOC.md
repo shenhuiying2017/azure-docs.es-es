@@ -45,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Análisis de Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Mapa de servicio
-##### [Tutorial](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Uso](../monitoring/monitoring-service-map.md)
 ##### [Configuración](../monitoring/monitoring-service-map-configure.md)
 ##### [Integración con Operations Manager](../monitoring/monitoring-service-map-scom.md)

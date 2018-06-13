@@ -58,7 +58,7 @@ En el ejemplo siguiente se crea un conjunto de registros con el nombre relativo 
 New-AzureRmDnsRecordSet -Name "www" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
 ```
 
-Para crear un conjunto de registros en el "vértice" de una zona (en este caso, "contoso.com"), use el nombre del conjunto de registros "@" (excluidas las comillas):
+Para crear un conjunto de registros en el "vértice" de una zona (en este caso, "contoso.com"), use el nombre del conjunto de registros \"\@\" (excluidas las comillas):
 
 ```powershell
 New-AzureRmDnsRecordSet -Name "@" -RecordType A -ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4") 
