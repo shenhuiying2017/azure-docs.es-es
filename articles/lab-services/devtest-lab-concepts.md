@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781804"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general

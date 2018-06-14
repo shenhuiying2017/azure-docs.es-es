@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782704"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services
 Esta página de la comunidad de Azure Media Services (AMS) describe diferentes maneras de obtener actualizaciones de AMS. También puede ver nuevos vídeos y podcasts, hacer preguntas y proporcionar comentarios.   
