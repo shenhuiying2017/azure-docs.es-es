@@ -1,11 +1,11 @@
 ---
 title: Directivas de Azure API Management | Microsoft Docs
-description: "Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API."
+description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712875"
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
 
@@ -113,7 +114,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
 </ip-filter>
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre cómo trabajar con directivas, consulte:
 

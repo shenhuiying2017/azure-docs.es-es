@@ -1,6 +1,6 @@
 ---
-title: "Introducción a la continuidad empresarial con Azure Database for PostgreSQL"
-description: "Introducción a la continuidad empresarial con Azure Database for PostgreSQL."
+title: Introducción a la continuidad empresarial con Azure Database for PostgreSQL
+description: Introducción a la continuidad empresarial con Azure Database for PostgreSQL.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693123"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Introducción a la continuidad empresarial con Azure Database for PostgreSQL
 
@@ -50,7 +51,7 @@ La otra opción es usar la característica de replicación geográfica de Azure 
 > [!IMPORTANT]
 > La restauración geográfica solo es posible si se ha aprovisionado el servidor con almacenamiento de copia de seguridad con redundancia geográfica.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para más información acerca de las copias de seguridad automatizadas, consulte [Copia de seguridad en Azure Database for PostgreSQL](concepts-backup.md). 
 - Para restaurar a un momento dado mediante Azure Portal, consulte cómo  [restaurar una base de datos a un momento dado con Azure Portal](howto-restore-server-portal.md).
 - Para restaurar a un momento dado mediante la CLI de Azure, consulte cómo  [restaurar una base de datos a un momento dado con la CLI](howto-restore-server-cli.md).

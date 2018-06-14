@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29974153"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Descarga y extracción de Kit de desarrollo de Azure Stack (ASDK)
 Después de asegurarse de que el equipo host del kit de desarrollo cumple los requisitos básicos para instalar el Kit de desarrollo de Azure Stack, el siguiente paso es descargar y extraer el paquete de implementación del kit para obtener Cloudbuilder.vhdx.

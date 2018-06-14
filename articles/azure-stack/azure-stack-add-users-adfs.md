@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de usuarios a los AD FS de Azure Stack | Microsoft Docs"
+title: Incorporación de usuarios a los AD FS de Azure Stack | Microsoft Docs
 description: Aprenda a agregar usuarios a las implementaciones de Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554598"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Incorporación de usuarios al Kit de desarrollo de Azure Stack
 
