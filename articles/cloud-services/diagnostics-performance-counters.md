@@ -1,12 +1,12 @@
 ---
 title: Recopilar contadores de rendimiento en Azure Cloud Services | Microsoft Docs
-description: "Obtenga información acerca de cómo detectar, usar y crear contadores de rendimiento en Cloud Services con Azure Diagnostics y Application Insights."
+description: Obtenga información acerca de cómo detectar, usar y crear contadores de rendimiento en Cloud Services con Azure Diagnostics y Application Insights.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cloud-services
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29134052"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recopilar información con contadores de rendimiento para Azure Cloud Service
 
