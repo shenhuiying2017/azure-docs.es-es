@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure | Microsoft Docs
-description: "En este artículo se describe el análisis de un informe generado por Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure."
+description: En este artículo se describe el análisis de un informe generado por Azure Site Recovery Deployment Planner en el escenario de Hyper-V en Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466881"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -355,5 +356,5 @@ Cada tabla de lotes proporciona un resumen del uso de red del lote.
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre la [estimación de costos](hyper-v-deployment-planner-cost-estimation.md).

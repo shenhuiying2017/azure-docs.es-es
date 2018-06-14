@@ -1,12 +1,12 @@
 ---
-title: "Implementación de un dispositivo de la serie StorSimple 8000 en el Portal de Government | Microsoft Docs"
+title: Implementación de un dispositivo de la serie StorSimple 8000 en el Portal de Government | Microsoft Docs
 description: Describe los pasos y procedimientos recomendados para implementar el dispositivo de la serie StorSimple 8000 con Update 3 o posterior y el servicio en el Portal de Azure Government.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108753"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implementación del dispositivo StorSimple local en el Portal de Government
 

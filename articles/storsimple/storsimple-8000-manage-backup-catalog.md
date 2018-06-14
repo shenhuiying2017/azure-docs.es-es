@@ -1,12 +1,12 @@
 ---
-title: "Administración del catálogo de copias de seguridad de StorSimple | Microsoft Docs"
-description: "Explica cómo usar la página del catálogo de copias de seguridad del servicio StorSimple Device Manager para enumerar, seleccionar y eliminar conjuntos de copias de seguridad."
+title: Administración del catálogo de copias de seguridad de StorSimple | Microsoft Docs
+description: Explica cómo usar la página del catálogo de copias de seguridad del servicio StorSimple Device Manager para enumerar, seleccionar y eliminar conjuntos de copias de seguridad.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108383"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Uso del servicio StorSimple Device Manager para administrar su catálogo de copias de seguridad
 ## <a name="overview"></a>Información general
