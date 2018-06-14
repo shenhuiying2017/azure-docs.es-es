@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783584"
 ---
 # <a name="improve-the-accuracy-of-computer-vision-models"></a>Mejora de la precisión de los modelos de Computer Vision
 
