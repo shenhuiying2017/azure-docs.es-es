@@ -1,11 +1,11 @@
 ---
-title: "¿Qué es Administrador de instantáneas StorSimple? | Microsoft Docs"
-description: "Describe Administrador de instantáneas StorSimple, su arquitectura y sus características."
+title: ¿Qué es Administrador de instantáneas StorSimple? | Microsoft Docs
+description: Describe Administrador de instantáneas StorSimple, su arquitectura y sus características.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111473"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Una introducción a StorSimple Snapshot Manager
 

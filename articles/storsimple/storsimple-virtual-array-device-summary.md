@@ -1,11 +1,11 @@
 ---
 title: Hoja de resumen de dispositivos de StorSimple Virtual Array | Microsoft Docs
-description: "Describe la hoja de resumen de dispositivos para StorSimple Device Manager y explica cómo usarla para supervisar el estado de StorSimple Virtual Array."
+description: Describe la hoja de resumen de dispositivos para StorSimple Device Manager y explica cómo usarla para supervisar el estado de StorSimple Virtual Array.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109643"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Uso de la hoja de resumen de dispositivos para StorSimple Device Manager conectado a StorSimple Virtual Array
 

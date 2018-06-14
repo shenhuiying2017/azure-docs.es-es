@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23125503"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Ejemplo 1: crear una red perimetral simple mediante grupos de seguridad de red con PowerShell clásico
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
