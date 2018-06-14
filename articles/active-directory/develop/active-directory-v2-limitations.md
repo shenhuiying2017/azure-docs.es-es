@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156398"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>¿Debo usar el punto de conexión v2.0?
 Cuando compile aplicaciones que se integren con Azure Active Directory, debe decidir si los protocolos de autenticación y el punto de conexión v2.0 cumplen con sus necesidades. El punto de conexión original de Azure Active Directory sigue siendo totalmente compatible y, en algunos aspectos, ofrece más características que el v2.0. Sin embargo, el punto de conexión v2.0 [presenta ventajas importantes](active-directory-v2-compare.md) para los desarrolladores.

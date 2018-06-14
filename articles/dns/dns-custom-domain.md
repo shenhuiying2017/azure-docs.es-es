@@ -1,5 +1,5 @@
 ---
-title: "Integración de Azure DNS con los recursos de Azure | Microsoft Docs"
+title: Integración de Azure DNS con los recursos de Azure | Microsoft Docs
 description: Aprenda a usar Azure DNS para proporcionar DNS a los recursos de Azure.
 services: dns
 documentationcenter: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994389"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar Azure DNS para proporcionar la configuración de un dominio personalizado para un servicio de Azure
 
@@ -168,6 +169,6 @@ Vuelva al punto de conexión de CDN haciendo clic en **Redes** > **Perfiles de C
 
 Una vez completado este paso, vuelva a la zona DNS y cree un registro CNAME sin el prefijo cdnverify.  Después de ese momento, ya es seguro eliminar el registro CNAME con el prefijo cdnverify. Para más información sobre CDN y los procedimientos para configurar un dominio personalizado sin el paso de registro intermedio, visite [Asignación del contenido de la red CDN de Azure a un dominio personalizado](../cdn/cdn-map-content-to-custom-domain.md?toc=%dns%2ftoc.json).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a [configurar búsquedas inversas de DNS para servicios hospedados en Azure](dns-reverse-dns-for-azure-services.md).

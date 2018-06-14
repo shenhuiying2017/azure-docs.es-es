@@ -1,6 +1,6 @@
 ---
-title: "Administración de clústeres de Azure Swarm con la API de Docker"
-description: "Implementación de contenedores en un clúster de Docker Swarm en Azure Container Service"
+title: Administración de clústeres de Azure Swarm con la API de Docker
+description: Implementación de contenedores en un clúster de Docker Swarm en Azure Container Service
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331552"
 ---
 # <a name="container-management-with-docker-swarm"></a>Administración de contenedores con Docker Swarm
 

@@ -1,11 +1,11 @@
 ---
-title: "Preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics | Microsoft Docs"
-description: "Este artículo ofrece respuesta a las preguntas más frecuentes sobre la actualización de Log Analytics al nuevo lenguaje de consulta."
+title: Preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics | Microsoft Docs
+description: Este artículo ofrece respuesta a las preguntas más frecuentes sobre la actualización de Log Analytics al nuevo lenguaje de consulta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993876"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Problemas conocidos y preguntas frecuentes sobre la nueva búsqueda de registros de Log Analytics
 
@@ -166,6 +167,6 @@ Antes de la disponibilidad general, podía revertir el área de trabajo después
 Antes de la actualización, podría crear una vista con el Diseñador de vistas de algún icono del panel principal del Portal de OMS.  Cuando se actualiza el área de trabajo, este elemento se elimina.  Puede crear una vista con el Diseñador de vistas en el portal de OMS; para ello, haga clic en el botón + de color verde en el menú de la izquierda.  Continúe con la creación de una vista en Azure Portal; para ello, haga clic en el icono del Diseñador de vistas.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Obtenga más información sobre la [actualización del área de trabajo al nuevo lenguaje de consulta de Log Analytics](log-analytics-log-search-upgrade.md).

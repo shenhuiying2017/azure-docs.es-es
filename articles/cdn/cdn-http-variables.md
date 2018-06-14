@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011465"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:

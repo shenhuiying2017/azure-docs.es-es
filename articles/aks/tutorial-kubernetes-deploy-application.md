@@ -3,17 +3,18 @@ title: 'Tutorial de Kubernetes en Azure: implementación de la aplicación'
 description: 'Tutorial de AKS: implementación de la aplicación'
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067680"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Ejecución de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -72,10 +73,10 @@ Guarde y cierre el archivo.
 
 ## <a name="deploy-application"></a>Implementación de la aplicación
 
-Use el comando [kubectl create][kubectl-create] para ejecutar la aplicación. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.
+Use el comando [kubectl apply][kubectl-apply] para ejecutar la aplicación. Este comando analiza el archivo de manifiesto y crea los objetos de Kubernetes definidos.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Salida:
@@ -132,6 +133,7 @@ Pase al siguiente tutorial para obtener información acerca de cómo escalar una
 > [Escalar infraestructura y aplicación de Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943702"
 abstract:
   description: Las máquinas virtuales Linux de Azure proporcionan una infraestructura bajo demanda, a gran escala, segura y virtualizada con Red Hat, Ubuntu o la distribución de Linux de su elección. Aprenda a crear, configurar, administrar, actualizar y escalar máquinas virtuales Linux con nuestros inicios rápidos, tutoriales y ejemplos.
   aside:

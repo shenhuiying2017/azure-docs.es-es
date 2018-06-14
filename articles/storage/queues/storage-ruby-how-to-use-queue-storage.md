@@ -1,6 +1,6 @@
 ---
 title: Uso de Queue Storage en Ruby | Microsoft Docs
-description: "Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Ruby."
+description: Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Ruby.
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993643"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Uso del almacenamiento de colas de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

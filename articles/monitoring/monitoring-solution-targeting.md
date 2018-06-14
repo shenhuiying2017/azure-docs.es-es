@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887405"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Selección de destino de las soluciones de administración en Azure (versión preliminar)
 Cuando se agrega una solución de administración a la suscripción, se implementa automáticamente de forma predeterminada en todos los agentes de Windows y Linux conectados al área de trabajo de Log Analytics.  Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes.  En este artículo se describe cómo usar **Selección de destino de solución**, que es una característica que permite aplicar un ámbito a sus soluciones.

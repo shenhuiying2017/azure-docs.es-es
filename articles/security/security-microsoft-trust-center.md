@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Trust Center e información de seguridad de Azure | Microsoft Docs"
-description: "El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura."
+title: Microsoft Trust Center e información de seguridad de Azure | Microsoft Docs
+description: El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541577"
 ---
 # <a name="microsoft-trust-center"></a>Centro de confianza de Microsoft
 El sitio de información de seguridad de Azure en Azure.com proporciona la información que necesita para planear, diseñar, implementar, configurar y administrar soluciones en la nube de forma segura. El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura.
