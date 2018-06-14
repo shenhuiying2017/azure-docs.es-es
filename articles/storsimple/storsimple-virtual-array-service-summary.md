@@ -1,11 +1,11 @@
 ---
 title: Hoja de resumen de servicios de StorSimple Virtual Array | Microsoft Docs
-description: "Describe la hoja de resumen del servicio StorSimple Device Manager y explica cómo usarlo para supervisar el estado de StorSimple Virtual Array."
+description: Describe la hoja de resumen del servicio StorSimple Device Manager y explica cómo usarlo para supervisar el estado de StorSimple Virtual Array.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 8a2b9a84-b0e6-48b9-b366-d16f004241a5
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109743"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Uso de la hoja de resumen del servicio StorSimple Device Manager conectado a StorSimple Virtual Array
 ## <a name="overview"></a>Información general

@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798587"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Exploración y administración de recursos de almacenamiento mediante el Explorador de servidores
 

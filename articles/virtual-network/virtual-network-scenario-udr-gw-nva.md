@@ -1,6 +1,6 @@
 ---
-title: "Conexión híbrida con aplicación de 2 niveles | Microsoft Docs"
-description: "Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure"
+title: Conexión híbrida con aplicación de 2 niveles | Microsoft Docs
+description: Obtenga información sobre cómo implementar aplicaciones virtuales y UDR para crear un entorno de aplicaciones de niveles múltiples en Azure
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23643869"
 ---
 # <a name="virtual-appliance-scenario"></a>Escenario de aplicación virtual
 Un escenario común entre los clientes de Azure de mayor tamaño es la necesidad de ofrecer una aplicación en 2 niveles expuesta a Internet a la vez que permiten el acceso al nivel posterior desde un centro de datos local. Este documento le guiará en un escenario con Rutas definidas por el usuario (UDR), una Puerta de enlace de VPN y aplicaciones virtuales de red para implementar un entorno de 2 niveles que cumple los siguientes requisitos:

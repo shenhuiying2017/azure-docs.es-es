@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31596932"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Uso de transacciones en SQL Data Warehouse
 Sugerencias para implementar transacciones en Azure SQL Data Warehouse para el desarrollo de soluciones.

@@ -1,12 +1,12 @@
 ---
-title: "Preparación de unidades de disco duro para un trabajo de importación de Azure Import/Export | Microsoft Docs"
-description: "Aprenda a preparar unidades de disco duro mediante la herramienta WAImportExport para crear un trabajo de importación para el servicio Azure Import/Export."
+title: Preparación de unidades de disco duro para un trabajo de importación de Azure Import/Export | Microsoft Docs
+description: Aprenda a preparar unidades de disco duro mediante la herramienta WAImportExport para crear un trabajo de importación para el servicio Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23469244"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparación de unidades de disco duro para un trabajo de importación
 

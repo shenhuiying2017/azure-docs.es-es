@@ -1,11 +1,11 @@
 ---
-title: "Administración de soluciones conectadas de asociados en Azure Security Center | Microsoft Docs"
-description: "En este documento se explica cómo Azure Security Center permite supervisar de un vistazo el estado de mantenimiento de las soluciones de asociados integradas con su suscripción de Azure."
+title: Administración de soluciones conectadas de asociados en Azure Security Center | Microsoft Docs
+description: En este documento se explica cómo Azure Security Center permite supervisar de un vistazo el estado de mantenimiento de las soluciones de asociados integradas con su suscripción de Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23454987"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Administración de las soluciones conectadas de asociados con Azure Security Center
 Este artículo le explica la administración y supervisión de soluciones de seguridad conectadas en Azure Security Center.
