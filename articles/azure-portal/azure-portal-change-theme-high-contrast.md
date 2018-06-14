@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165407"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activación del contraste alto o cambio del tema en Azure Portal
 Si necesita más contraste o desea cambiar la combinación de colores en Azure Portal, vaya a la configuración del portal para realizar el cambio. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165356"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Creación y uso compartido de paneles en Azure Portal
 Puede crear varios paneles y compartirlos con otras personas que tengan acceso a sus suscripciones de Azure.  En este artículo se explican los aspectos básicos de la administración del acceso a los paneles, así como de su creación, edición y publicación.

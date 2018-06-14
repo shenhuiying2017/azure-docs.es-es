@@ -13,6 +13,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301365"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos de Azure Event Grid para las suscripciones
 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/14/2018
+  ms.locfileid: "34166509"
 abstract:
   description: Azure Virtual Machines proporciona una infraestructura bajo demanda, a gran escala, segura y virtualizada con Windows Server. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Windows con nuestros inicios rápidos, tutoriales y ejemplos.
   aside:

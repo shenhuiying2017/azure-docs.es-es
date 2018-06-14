@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213000"
 ---
 # <a name="introduction-to-application-groups"></a>Introducción a los grupos de aplicaciones
 Cluster Resource Manager de Service Fabric administra normalmente los recursos mediante la distribución uniforme de la carga (representada mediante [métricas](service-fabric-cluster-resource-manager-metrics.md)) por todo el clúster. Service Fabric administra la capacidad de los nodos del clúster y el clúster como un todo mediante la [capacidad](service-fabric-cluster-resource-manager-cluster-description.md). Las métricas y la capacidad funcionan muy bien con muchas cargas de trabajo diferentes, pero patrones que hacen un uso intensivo de diferentes instancias de aplicación de Service Fabric en ocasiones introducen requisitos adicionales. Por ejemplo, puede que desee:

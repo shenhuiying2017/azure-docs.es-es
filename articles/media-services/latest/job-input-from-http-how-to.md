@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34159934"
 ---
 # <a name="create-a-job-input-from-an-https-url"></a>Creación de una entrada de trabajo a partir de una dirección URL de HTTP(s)
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205134"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitación de Cluster Resource Manager de Service Fabric
 Aunque haya configurado correctamente Cluster Resource Manager, el clúster puede ver alterado su comportamiento. Por ejemplo, podría haber errores simultáneos de nodos y de dominios de error. ¿Qué pasaría si esto sucediera durante una actualización? Cluster Resource Manager siempre intenta corregirlo todo y consume los recursos del clúster tratando de reorganizar y corregir el clúster. Las limitaciones contribuyen a ofrecer un mecanismo de protección a fin de que el clúster pueda usar los recursos para estabilizarse: el nodo se recupera, las particiones de red se reparan y los bits corregidos se implementan.
