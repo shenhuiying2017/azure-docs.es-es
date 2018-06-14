@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943248"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Implementación de su oferta en Azure Marketplace
 Cuando quede satisfecho con su oferta (es decir, haya probado escenarios de clientes, contenido de marketing, etc.) y esté listo para el lanzamiento, solicite **Enviar a producción** en la pestaña **Publicar**.  

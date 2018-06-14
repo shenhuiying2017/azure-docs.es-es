@@ -1,11 +1,11 @@
 ---
-title: "Catálogo de copias de seguridad de StorSimple Snapshot Manager | Microsoft Docs"
-description: "Describe cómo usar el complemento MMC del Administrador de instantáneas StorSimple para ver y administrar el catálogo de copia de seguridad."
+title: Catálogo de copias de seguridad de StorSimple Snapshot Manager | Microsoft Docs
+description: Describe cómo usar el complemento MMC del Administrador de instantáneas StorSimple para ver y administrar el catálogo de copia de seguridad.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111293"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Uso de Administrador de instantáneas StorSimple para administrar el catálogo de copia de seguridad
 
@@ -91,7 +92,7 @@ Utilice el procedimiento siguiente para crear un duplicado (clon) de un volumen 
    
    1. En el cuadro de texto **Nombre** , escriba un nombre para el volumen clonado. Este nombre aparecerá en el nodo **Volúmenes** . 
    2. (Opcional) seleccione **Unidad**y, a continuación, seleccione una letra de unidad de la lista desplegable.
-   3. (Opcional) seleccione **Carpeta (NTFS)**y escriba una ruta de acceso a la carpeta o haga clic en Examinar y seleccione una ubicación para la carpeta. 
+   3. (Opcional) seleccione **Carpeta (NTFS)** y escriba una ruta de acceso a la carpeta o haga clic en Examinar y seleccione una ubicación para la carpeta. 
    4. Haga clic en **Crear**.
 5. Cuando finalice el proceso de clonación, tiene que inicializar el volumen clonado. Inicie el Administrador del servidor y, a continuación, inicie Administración de discos. Para obtener instrucciones detalladas, consulte [Montar volúmenes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Una vez inicializado, el volumen aparecerá en la lista del nodo **Volúmenes** en el panel **Ámbito**. Si el volumen no aparece, actualice la lista de volúmenes (haga clic con el botón derecho en el nodo **Volúmenes** y, luego, haga clic en **Actualizar**).
 

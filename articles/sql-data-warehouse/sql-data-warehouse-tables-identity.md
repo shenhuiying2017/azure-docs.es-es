@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526991"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Uso de IDENTITY para crear claves suplentes en Azure SQL Data Warehous
 Recomendaciones y ejemplos de uso de la propiedad IDENTITY para crear claves suplentes en tablas de Azure SQL Data Warehouse.

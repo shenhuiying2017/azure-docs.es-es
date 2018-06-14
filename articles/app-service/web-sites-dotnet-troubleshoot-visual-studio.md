@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30266145"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Solución de problemas de una aplicación web en Azure App Service con Visual Studio
 ## <a name="overview"></a>Información general
@@ -683,7 +684,7 @@ Además, no es necesario realizar un seguimiento de ASP.NET o de `System.Diagnos
 Para obtener más información acerca del análisis de registros de servidor web, consulte los siguientes recursos:
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
-  Una herramienta para visualizar datos en registros de servidor web (archivos*.log* ).
+  Una herramienta para visualizar datos en registros de servidor web (archivos *.log* ).
 * [Solución de problemas de rendimiento de IIS o errores de aplicación al usar LogParser](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Una introducción a la herramienta de analizador del registro que puede utilizar para analizar registros de servidor web.
 * [Publicaciones en el blog de Robert McMurray sobre el uso de LogParser](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>

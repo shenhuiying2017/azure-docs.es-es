@@ -1,11 +1,11 @@
 ---
-title: "Creación de hosts de Docker en Azure con Docker Machine | Microsoft Docs"
-description: "Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
+title: Creación de hosts de Docker en Azure con Docker Machine | Microsoft Docs
+description: Describe el uso de la máquina de Docker para crear hosts de docker en Azure.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124503"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Creación de hosts de Docker en Azure con docker-machine
 La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una máquina virtual host que ejecute el demonio de Docker.

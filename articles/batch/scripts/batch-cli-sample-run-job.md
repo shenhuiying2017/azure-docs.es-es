@@ -1,12 +1,12 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: ejecución de un trabajo con Batch | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: ejecución de un trabajo con Batch"
+title: 'Ejemplo de script de la CLI de Azure: ejecución de un trabajo con Batch | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: ejecución de un trabajo con Batch'
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843619"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Ejemplo de la CLI: ejecución de un trabajo y tareas con Azure Batch
 

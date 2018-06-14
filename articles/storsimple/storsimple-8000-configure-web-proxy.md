@@ -1,12 +1,12 @@
 ---
-title: "Configuración de proxy web para dispositivos de la serie StorSimple 8000 | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para configurar opciones de proxy web para el dispositivo StorSimple."
+title: Configuración de proxy web para dispositivos de la serie StorSimple 8000 | Microsoft Docs
+description: Obtenga información acerca de cómo usar Windows PowerShell para StorSimple para configurar opciones de proxy web para el dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108513"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar el proxy web para el dispositivo StorSimple
 

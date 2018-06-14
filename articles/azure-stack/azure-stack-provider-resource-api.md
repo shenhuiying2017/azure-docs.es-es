@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877286"
 ---
 # <a name="provider-resource-usage-api"></a>API de uso de recursos de proveedor
 El término *proveedor* se aplica al administrador de servicios y a los proveedores delegados. Los operadores de Azure Stack y los proveedores delegados pueden usar la API de uso del proveedor para ver el uso de sus inquilinos directos. Por ejemplo, como se muestra en el diagrama, P0 puede llamar a la API de proveedores para obtener información del uso directo de P1 y de P2 y P1 puede llamarla para obtener información de uso sobre P3 y P4.

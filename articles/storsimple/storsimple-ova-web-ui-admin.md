@@ -1,11 +1,11 @@
 ---
-title: "Administración de la interfaz de usuario web de la matriz virtual de StorSimple | Microsoft Docs"
-description: "Describe cómo realizar tareas de administración básicas en los dispositivos mediante la interfaz de usuario web de la matriz virtual de StorSimple."
+title: Administración de la interfaz de usuario web de la matriz virtual de StorSimple | Microsoft Docs
+description: Describe cómo realizar tareas de administración básicas en los dispositivos mediante la interfaz de usuario web de la matriz virtual de StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109963"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>Usar la interfaz de usuario web para administrar la matriz virtual de StorSimple
 ![flujo del proceso de instalación](./media/storsimple-ova-web-ui-admin/manage4.png)

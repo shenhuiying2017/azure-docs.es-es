@@ -1,11 +1,11 @@
 ---
-title: "Límites de la matriz virtual de StorSimple | Microsoft Docs"
-description: "Describe los límites del sistema y los tamaños recomendados de las conexiones y componentes de la matriz virtual de Microsoft Azure StorSimple."
+title: Límites de la matriz virtual de StorSimple | Microsoft Docs
+description: Describe los límites del sistema y los tamaños recomendados de las conexiones y componentes de la matriz virtual de Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 429e9f83-5699-4f18-b519-500c125946f6
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108593"
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>¿Qué son los límites de la matriz virtual de StorSimple?
 

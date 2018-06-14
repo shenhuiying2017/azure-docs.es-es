@@ -1,6 +1,6 @@
 ---
-title: "Conmutación por error y conmutación por recuperación de máquinas virtuales de Hyper-V replicadas en Azure con Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre cómo conmutar por error máquinas virtuales de Hyper-V en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery."
+title: Conmutación por error y conmutación por recuperación de máquinas virtuales de Hyper-V replicadas en Azure con Site Recovery | Microsoft Docs
+description: Obtenga información sobre cómo conmutar por error máquinas virtuales de Hyper-V en Azure y conmutar por recuperación en el sitio local con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852904"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Conmutar por error y conmutar por recuperación máquinas virtuales de Hyper-V replicadas en Azure
 

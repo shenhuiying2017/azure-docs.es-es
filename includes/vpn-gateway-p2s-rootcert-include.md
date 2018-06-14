@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197137"
 ---
 Puede usar un certificado de raíz generada mediante una solución empresarial (se recomienda) o puede generar un certificado autofirmado. Después de crear el certificado raíz, exporte los datos del certificado público (no la clave privada) en forma de archivo X.509 .cer codificado en Base 64 y cargue los datos del certificado público en Azure.
 
