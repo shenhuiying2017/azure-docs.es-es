@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: copia de seguridad de una máquina virtual de Azure | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: copia de seguridad de una máquina virtual de Azure"
+title: 'Ejemplo de script de Azure PowerShell: copia de seguridad de una máquina virtual de Azure | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: copia de seguridad de una máquina virtual de Azure'
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997530"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>Copia de seguridad de una máquina virtual de Azure cifrada con PowerShell
 

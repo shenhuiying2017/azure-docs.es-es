@@ -1,6 +1,6 @@
 ---
-title: "Ejemplos de código de Azure Storage | Microsoft Docs"
-description: "Consulte, descargue y ejecute código de ejemplo y aplicaciones para Almacenamiento de Azure. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, utilizando las bibliotecas de cliente de almacenamiento .NET, Java, Node.js y C++."
+title: Ejemplos de código de Azure Storage | Microsoft Docs
+description: Consulte, descargue y ejecute código de ejemplo y aplicaciones para Almacenamiento de Azure. Descubra ejemplos introductorios de blobs, colas, tablas y archivos, utilizando las bibliotecas de cliente de almacenamiento .NET, Java, Node.js y C++.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059690"
 ---
 # <a name="azure-storage-samples"></a>Ejemplos de Almacenamiento de Azure
 
