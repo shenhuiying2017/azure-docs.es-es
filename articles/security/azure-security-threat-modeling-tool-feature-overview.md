@@ -1,6 +1,6 @@
 ---
 title: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs
-description: "Información acerca de todas las características disponibles en Threat Modeling Tool"
+description: Información acerca de todas las características disponibles en Threat Modeling Tool
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754752"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Información general de las características de Threat Modeling Tool
 
@@ -204,7 +205,7 @@ Una vez que haya terminado de cambiar las prioridades y de actualizar el estado 
 
 ![Informe](./media/azure-security-threat-modeling-tool-feature-overview/report.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para contribuir con una plantilla para la comunidad, vaya a nuestra página de [GitHub](https://github.com/Microsoft/threat-modeling-templates). 
 * Para empezar a usar la herramienta, vaya a la página de [Descarga](https://aka.ms/tmtpreview).

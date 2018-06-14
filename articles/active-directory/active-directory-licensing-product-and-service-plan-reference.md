@@ -1,13 +1,13 @@
 ---
 title: Nombres de productos e identificadores del plan de servicio para licencias en Azure Active Directory | Microsoft Docs
-description: "Asignación de identificadores para administrar licencias de Azure AD en Azure Portal, el portal de Office 365, PowerShell o Microsoft Graph"
+description: Asignación de identificadores para administrar licencias de Azure AD en Azure Portal, el portal de Office 365, PowerShell o Microsoft Graph
 services: active-directory
 keywords: Planes de servicio de licencias de Azure Active Directory
-documentationcenter: 
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609333"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nombres de productos e identificadores del plan de servicio para licencias
 

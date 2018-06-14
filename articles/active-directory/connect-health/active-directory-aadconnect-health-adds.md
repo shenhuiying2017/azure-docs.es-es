@@ -1,8 +1,8 @@
 ---
 title: Uso de Azure AD Connect Health con AD DS | Microsoft Docs
-description: "Esta es la página de Azure AD Connect Health donde se describe cómo supervisar la sincronización de AD DS."
+description: Esta es la página de Azure AD Connect Health donde se describe cómo supervisar la sincronización de AD DS.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: arluca
 manager: mtillman
 editor: curtand
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614420"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso de Azure AD Connect Health con AD DS
 La siguiente documentación es específica de la supervisión de Active Directory Domain Services con Azure AD Connect Health. Las versiones compatibles de AD DS son: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016.
