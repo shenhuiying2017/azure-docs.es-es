@@ -1,13 +1,13 @@
 ---
-title: "Administración de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana | Microsoft Docs"
+title: Administración de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana | Microsoft Docs
 description: Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Grafana.
 services: network-watcher
 documentationcenter: na
 author: kumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036530"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana
 

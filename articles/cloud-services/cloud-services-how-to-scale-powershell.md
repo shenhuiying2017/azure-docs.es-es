@@ -1,11 +1,11 @@
 ---
 title: Escalado de un servicio en la nube de Azure en Windows PowerShell | Microsoft Docs
-description: "(modelo clásico) Aprenda a usar PowerShell para escalar o reducir horizontalmente un rol web o de trabajo en Azure."
+description: (modelo clásico) Aprenda a usar PowerShell para escalar o reducir horizontalmente un rol web o de trabajo en Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998010"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Escalado de un servicio en la nube en PowerShell
 
