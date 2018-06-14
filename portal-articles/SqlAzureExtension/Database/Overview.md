@@ -1,6 +1,6 @@
 ---
-title: "Introducción a SQL Database | Microsoft Docs"
-description: "Contenido de ayuda de introducción a SQL Database en Azure Portal"
+title: Introducción a SQL Database | Microsoft Docs
+description: Contenido de ayuda de introducción a SQL Database en Azure Portal
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073935"
 ---
 # <a name="sql-database-documentation"></a>Documentación de SQL Database
 
