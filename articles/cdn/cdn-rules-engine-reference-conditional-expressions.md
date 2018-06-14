@@ -1,11 +1,11 @@
 ---
 title: Expresiones condicionales del motor de reglas de la red CDN de Azure | Microsoft Docs
-description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
+description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997980"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expresiones condicionales del motor de reglas de la red CDN de Azure
 En este tema se muestran descripciones detalladas de las expresiones condicionales para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).

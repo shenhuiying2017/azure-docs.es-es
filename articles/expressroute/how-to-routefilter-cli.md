@@ -1,13 +1,13 @@
 ---
-title: "Configuración de filtros de ruta para el emparejamiento de Microsoft de Azure ExpressRoute: CLI | Microsoft Docs"
-description: "En este artículo se describe cómo configurar filtros de ruta para el emparejamiento de Microsoft mediante la CLI de Azure"
+title: 'Configuración de filtros de ruta para el emparejamiento de Microsoft de Azure ExpressRoute: CLI | Microsoft Docs'
+description: En este artículo se describe cómo configurar filtros de ruta para el emparejamiento de Microsoft mediante la CLI de Azure
 documentationcenter: na
 services: expressroute
 author: anzaman
 manager: ganesr
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013200"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: CLI de Azure
 

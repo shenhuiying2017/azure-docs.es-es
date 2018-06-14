@@ -1,8 +1,8 @@
 ---
-title: "Creación y uso de una firma de acceso compartido (SAS) con Azure Blob Storage | Microsoft Docs"
-description: "En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Blob Storage y cómo consumirlas en las aplicaciones cliente."
+title: Creación y uso de una firma de acceso compartido (SAS) con Azure Blob Storage | Microsoft Docs
+description: En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Blob Storage y cómo consumirlas en las aplicaciones cliente.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056800"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs
 

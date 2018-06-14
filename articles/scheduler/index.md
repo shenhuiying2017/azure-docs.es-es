@@ -1,11 +1,11 @@
 ---
-title: "Documentación sobre Azure Scheduler: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a usar Scheduler para programar e invocar trabajos como acciones periódicas de aplicación y mantenimiento rutinario. Tutoriales, referencias de API y mucho más."
+title: 'Documentación sobre Azure Scheduler: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a usar Scheduler para programar e invocar trabajos como acciones periódicas de aplicación y mantenimiento rutinario. Tutoriales, referencias de API y mucho más.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071354"
 ---
 # <a name="scheduler-documentation"></a>Documentación de Scheduler
 

@@ -1,6 +1,6 @@
 ---
-title: "Introducción a las máquinas virtuales Windows | Microsoft Docs"
-description: "Contenido de ayuda de introducción a las máquinas virtuales Windows en Azure Portal"
+title: Introducción a las máquinas virtuales Windows | Microsoft Docs
+description: Contenido de ayuda de introducción a las máquinas virtuales Windows en Azure Portal
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073867"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Windows
 

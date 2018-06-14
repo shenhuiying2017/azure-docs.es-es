@@ -1,6 +1,6 @@
 ---
 title: Compatibilidad de WebSocket en Application Gateway | Microsoft Docs
-description: "En esta página se proporciona información general sobre la compatibilidad de Application Gateway con WebSocket."
+description: En esta página se proporciona información general sobre la compatibilidad de Application Gateway con WebSocket.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986730"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
 

@@ -1,6 +1,6 @@
 ---
-title: "Uso de Azure Storage con una solución de integración continua Jenkins | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins."
+title: Uso de Azure Storage con una solución de integración continua Jenkins | Microsoft Docs
+description: En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060070"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso del Almacenamiento de Azure con una solución de integración continua Jenkins
 ## <a name="overview"></a>Información general
