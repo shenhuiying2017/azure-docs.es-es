@@ -1,11 +1,11 @@
 ---
-title: "Visualización de registros de flujo del grupo de seguridad de red de Azure con Power BI | Microsoft Docs"
-description: "En esta página se describe cómo utilizar Power BI para visualizar los registros de flujo del grupo de seguridad de red (NSG)."
+title: Visualización de registros de flujo del grupo de seguridad de red de Azure con Power BI | Microsoft Docs
+description: En esta página se describe cómo utilizar Power BI para visualizar los registros de flujo del grupo de seguridad de red (NSG).
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878588"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualización de registros de flujo del grupo de seguridad de red con Power BI
 

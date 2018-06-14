@@ -1,11 +1,11 @@
 ---
 title: Causas comunes del reciclado de roles del servicio en la nube | Microsoft Docs
-description: "Un rol del servicio en la nube que se recicla repentinamente puede causar un considerable tiempo de inactividad. A continuación encontrará algunos de los problemas comunes que provocan el reciclaje de los roles, lo que le ayudará a reducir el tiempo de inactividad."
+description: Un rol del servicio en la nube que se recicla repentinamente puede causar un considerable tiempo de inactividad. A continuación encontrará algunos de los problemas comunes que provocan el reciclaje de los roles, lo que le ayudará a reducir el tiempo de inactividad.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984293"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Problemas comunes que causan el reciclaje de los roles
 En este artículo se describen algunas de las causas comunes de problemas relacionados con la implementación y se proporcionan sugerencias para la resolución de dichos problemas. Aparece una indicación de que existe un problema con una aplicación cuando la instancia de rol no se inicia o cuando alterna entre los estados inicializando, ocupado y deteniendo.

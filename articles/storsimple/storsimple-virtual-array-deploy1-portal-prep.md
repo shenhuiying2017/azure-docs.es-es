@@ -1,11 +1,11 @@
 ---
-title: "Preparación del portal para StorSimple Virtual Array | Microsoft Docs"
-description: "El primer tutorial para implementar la matriz virtual de StorSimple trata sobre la preparación de Azure Portal"
+title: Preparación del portal para StorSimple Virtual Array | Microsoft Docs
+description: El primer tutorial para implementar la matriz virtual de StorSimple trata sobre la preparación de Azure Portal
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24526560"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
