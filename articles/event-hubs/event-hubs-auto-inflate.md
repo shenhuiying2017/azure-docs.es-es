@@ -1,12 +1,12 @@
 ---
-title: "Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs | Microsoft Docs"
-description: "Habilite el inflado automático en un espacio de nombres para escalar verticalmente y de gorma automática unidades de procesamiento."
+title: Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs | Microsoft Docs
+description: Habilite el inflado automático en un espacio de nombres para escalar verticalmente y de gorma automática unidades de procesamiento.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018616"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalado vertical y automático de las unidades de procesamiento de Azure Event Hubs
 
@@ -101,7 +102,7 @@ Puede habilitar el inflado automático durante la implementación de una plantil
 
 Para ver la plantilla completa, consulte la plantilla [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Creación de un espacio de nombres de Event Hubs y habilitación del inflado) en GitHub.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 

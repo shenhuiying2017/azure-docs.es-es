@@ -1,11 +1,11 @@
 ---
-title: "Mensajería asincrónica de Service Bus | Microsoft Docs"
-description: "Descripción de la mensajería asincrónica de Azure Service Bus."
+title: Mensajería asincrónica de Service Bus | Microsoft Docs
+description: Descripción de la mensajería asincrónica de Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28929997"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Patrones de mensajería asincrónica y alta disponibilidad
 
@@ -130,7 +131,7 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha aprendido los conceptos básicos de la mensajería asincrónica en Service Bus, obtenga más detalles sobre los [espacios de nombres emparejados][paired namespaces].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception

@@ -1,6 +1,6 @@
 ---
-title: "Usar ACR con un clúster DC/OS de Azure"
-description: "Use un Azure Container Registry con un clúster DC/OS en Azure Container Service"
+title: Usar ACR con un clúster DC/OS de Azure
+description: Use un Azure Container Registry con un clúster DC/OS en Azure Container Service
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922899"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Use ACR con un clúster de DC/OS para implementar la aplicación
 
@@ -190,7 +191,7 @@ Implemente la aplicación con la CLI de DC/OC.
 dcos marathon app add acrDemo.json
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En este tutorial, configuró DC/OS para usar Azure Container Registry, incluidas las siguientes tareas:
 

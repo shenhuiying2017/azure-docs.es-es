@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929829"
 ---
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemas al configurar y aprovisionar usuarios en una aplicación
 

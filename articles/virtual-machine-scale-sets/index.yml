@@ -17,6 +17,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33941074"
 abstract:
   description: Los conjuntos de escalado de máquinas virtuales de Azure permiten crear y administrar un grupo de máquinas virtuales idénticas, con equilibrio de carga y ajuste automático. Aprenda a crear, configurar, administrar y escalar automáticamente conjuntos de escalado de máquinas virtuales con nuestros inicios rápidos, tutoriales y ejemplos.
 sections:

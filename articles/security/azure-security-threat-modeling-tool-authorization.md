@@ -1,5 +1,5 @@
 ---
-title: "Autorización: Herramienta de modelado de amenazas de Microsoft (Azure) | Microsoft Docs"
+title: 'Autorización: Herramienta de modelado de amenazas de Microsoft (Azure) | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019524"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Marco de seguridad: Autorización | Mitigaciones 
 | Producto o servicio | Artículo |

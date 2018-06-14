@@ -10,13 +10,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 05/08/2018
 ms.author: larryfr
-ms.openlocfilehash: bdb2369f81ae8aeeb0a57e092dc1af7d0a7ded8f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c7c1b37102e94f00ac6077958952eb52b342668
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939266"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Tutorial: Uso de Spark Structured Streaming con Kafka en HDInsight
 
@@ -147,8 +148,8 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
     | La suscripción | Su suscripción de Azure |
     | Grupos de recursos | El grupo de recursos que contiene los recursos. |
     | Ubicación | La región de Azure en que se crean los recursos. |
-    | Spark Cluster Name (Nombre de clúster de Spark) | El nombre del clúster de Spark. |
-    | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. |
+    | Spark Cluster Name (Nombre de clúster de Spark) | El nombre del clúster de Spark. Los seis primeros caracteres deben ser distintos del nombre de clúster de Kafka. |
+    | Kafka Cluster Name (Nombre de clúster de Kafka) | El nombre del clúster de Kafka. Los seis primeros caracteres deben ser distintos del nombre de clúster de Spark. |
     | Cluster Login User Name (Nombre de usuario de inicio de sesión del clúster) | El nombre del usuario administrador de los clústeres. |
     | Cluster Login Password (Contraseña de inicio de sesión del clúster) | La contraseña del usuario administrador de los clústeres. |
     | SSH User Name (Nombre de usuario de SSH) | El usuario de SSH que se crea para los clústeres. |

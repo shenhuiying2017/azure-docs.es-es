@@ -1,12 +1,12 @@
 ---
-title: "Nueva autenticación de las matrices virtuales de StorSimple | Microsoft Docs"
-description: "Aquí se explica cómo usar la autenticación basada en AAD del servicio, cómo generar una nueva clave de registro y cómo realizar el registro manual de los dispositivos."
+title: Nueva autenticación de las matrices virtuales de StorSimple | Microsoft Docs
+description: Aquí se explica cómo usar la autenticación basada en AAD del servicio, cómo generar una nueva clave de registro y cómo realizar el registro manual de los dispositivos.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28031056"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Uso de la nueva autenticación de StorSimple
 
@@ -89,6 +90,6 @@ Realice los pasos siguientes para generar una clave de registro del servicio AAD
 
     ![Confirmar regeneración](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga información sobre cómo implementar la [matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md).

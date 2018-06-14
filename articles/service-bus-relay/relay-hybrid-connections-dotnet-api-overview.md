@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las API de .NET Standard para Azure Relay | Microsoft Docs"
-description: "Introducción a las API de .NET Standard para Azure Relay"
+title: Introducción a las API de .NET Standard para Azure Relay | Microsoft Docs
+description: Introducción a las API de .NET Standard para Azure Relay
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016440"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Introducción a la API de estándar de .NET de las conexiones híbridas de Retransmisión de Azure
 
@@ -134,7 +135,7 @@ var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para aprender más sobre Retransmisión de Azure, visite estos vínculos:
 

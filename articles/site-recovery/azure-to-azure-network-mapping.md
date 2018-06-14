@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072140"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Asignación de redes virtuales en regiones diferentes de Azure
 

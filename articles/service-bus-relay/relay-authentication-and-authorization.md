@@ -1,12 +1,12 @@
 ---
-title: "Autenticación y autorización en Azure Relay | Microsoft Docs"
-description: "Introducción a la autenticación de Firma de acceso compartido (SAS) en Azure Relay"
+title: Autenticación y autorización en Azure Relay | Microsoft Docs
+description: Introducción a la autenticación de Firma de acceso compartido (SAS) en Azure Relay
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018124"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticación y autorización en Azure Relay
 
@@ -45,7 +46,7 @@ Para obtener acceso a una entidad, el cliente requiere un token SAS generado con
 
 La compatibilidad de la autenticación con SAS para Azure Relay se incluye en el SDK .NET de Azure 2.0 y versiones posteriores. SAS incluye compatibilidad con un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Todas las API que aceptan una cadena de conexión como parámetro incluyen compatibilidad con cadenas de conexión SAS.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para obtener más información sobre SAS, siga consultando [Autenticación en Service Bus con Firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md).
 - Consulte la guía [Protocolo de conexiones híbridas de Azure Relay](relay-hybrid-connections-protocol.md) para obtener información detallada sobre la funcionalidad Conexiones híbridas.
