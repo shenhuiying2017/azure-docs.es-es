@@ -1,11 +1,11 @@
 ---
-title: "Seguimiento y diagnóstico de un extremo a otro de Azure Service Bus | Microsoft Docs"
-description: "Información general del diagnóstico y el seguimiento de un extremo a otro del cliente de Service Bus"
+title: Seguimiento y diagnóstico de un extremo a otro de Azure Service Bus | Microsoft Docs
+description: Información general del diagnóstico y el seguimiento de un extremo a otro del cliente de Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741222"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Seguimiento y correlación distribuidos del servicio de mensajería de Service Bus
 
@@ -224,7 +225,7 @@ Puede usar `IsEnabled` y también implementar estrategias de muestreo. Gracias a
 
 Cuando hay varios agentes de escucha `DiagnosticSource` en el mismo origen, un solo agente de escucha no es suficiente para aceptar el evento, por lo que no se puede garantizar que llame a `IsEnabled`.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlación de Application Insights](../application-insights/application-insights-correlation.md)

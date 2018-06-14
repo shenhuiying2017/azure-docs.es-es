@@ -1,12 +1,12 @@
 ---
 title: Solucionar problemas de rendimiento de Azure Virtual Network | Microsoft Docs
-description: "En esta página se proporciona un método de prueba normalizado del rendimiento de vínculos de red de Azure."
+description: En esta página se proporciona un método de prueba normalizado del rendimiento de vínculos de red de Azure.
 services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27318895"
 ---
 # <a name="troubleshooting-network-performance"></a>Solución de problemas de rendimiento de red
 ## <a name="overview"></a>Información general
@@ -202,7 +203,7 @@ Configuración de la prueba:
 
 \* La latencia de Brasil es un buen ejemplo de que la distancia lineal varía significativamente de la distancia del tenido de fibra. Esperaba que la latencia fuera de 160 ms aproximadamente, pero realmente es de 189 ms. Esta variación con lo que esperaba podría ser un indicio de que existe un problema de red en algún punto, pero lo más probable es que el tendido de fibra no llegue hasta Brasil en línea recta y que tenga una distancia de 1000 km o más para llegar a Brasil desde Seattle.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 1. Descargue Azure Connectivity Toolkit de GitHub en [http://aka.ms/AzCT][ACT]
 2. Siga las instrucciones para las [pruebas de rendimiento de los vínculos][Performance Doc]
 

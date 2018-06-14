@@ -1,6 +1,6 @@
 ---
-title: "Configuración de MPIO en un host de Linux de StorSimple | Microsoft Docs"
-description: "Configuración de MPIO en StorSimple conectado a un host Linux que ejecuta CentOS 6.6"
+title: Configuración de MPIO en un host de Linux de StorSimple | Microsoft Docs
+description: Configuración de MPIO en StorSimple conectado a un host Linux que ejecuta CentOS 6.6
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779098"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
 Este artículo explica los pasos necesarios para configurar E/S de múltiples rutas (MPIO) en el servidor host de Centos 6.6. El servidor host está conectado al dispositivo de Microsoft Azure StorSimple para una alta disponibilidad a través de los iniciadores iSCSI. Describe detalladamente la detección automática de dispositivos de múltiples rutas de acceso y el programa de instalación específico solo para los volúmenes de StorSimple.
@@ -440,7 +441,7 @@ Para obtener más información, consulte [Usar el comando interactivo de soluci�
 | &nbsp; |`mpathconf --enable` |Crear un archivo de ejemplo mulitpath.conf en `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Cuando está configurando MPIO en el host Linux, es posible que tenga que hacer referencia a los siguientes documentos de CentoS 6.6:
 
 * [Configuración de MPIO en CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)

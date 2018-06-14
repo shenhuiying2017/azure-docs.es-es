@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34357068"
 ---
 # <a name="resolve-reserved-resource-name-errors"></a>Resolver errores de nombres de recurso reservados
 
