@@ -1,11 +1,11 @@
 ---
 title: Hybrid Connections de Azure App Service | Microsoft Docs
-description: "Creación y uso de Hybrid Connections para acceder a recursos de redes distintas"
+description: Creación y uso de Hybrid Connections para acceder a recursos de redes distintas
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/30/2017
+ms.locfileid: "25990826"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Hybrid Connections de Azure App Service #
 

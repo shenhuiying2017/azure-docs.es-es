@@ -1,11 +1,11 @@
 ---
-title: "Adición de retraso en Logic Apps | Microsoft Docs"
-description: "Información general sobre las acciones de retraso y retraso hasta y cómo usarlas con una aplicación lógica de Azure."
-services: 
-documentationcenter: 
+title: Adición de retraso en Logic Apps | Microsoft Docs
+description: Información general sobre las acciones de retraso y retraso hasta y cómo usarlas con una aplicación lógica de Azure.
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 915f48bf-3bd8-4656-be73-91a941d0afcd
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27963679"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introducción a las acciones de retraso y retraso hasta
 Con las acciones de retraso y retraso hasta, puede completar escenarios de flujo de trabajo como los siguientes.
@@ -71,6 +72,6 @@ Un * significa que es un campo obligatorio.
 
 <br>
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

@@ -1,11 +1,11 @@
 ---
 title: Requisitos del sistema de la matriz virtual de Microsoft Azure StorSimple | Microsoft Docs
-description: "Obtenga más información sobre los requisitos de software y red de la matriz virtual de StorSimple"
+description: Obtenga más información sobre los requisitos de software y red de la matriz virtual de StorSimple
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24815235"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general

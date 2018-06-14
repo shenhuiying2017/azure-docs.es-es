@@ -1,11 +1,11 @@
 ---
 title: Nombre del emisor y clave del emisor en BizTalk Services | Microsoft Azure
-description: "Obtenga información acerca de cómo recuperar el Nombre del emisor y la Clave de emisor para Service Bus o Access Control (ACS) en BizTalk Services. MABS, WABS"
+description: Obtenga información acerca de cómo recuperar el Nombre del emisor y la Clave de emisor para Service Bus o Access Control (ACS) en BizTalk Services. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103436"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: nombre del emisor y clave del emisor
 

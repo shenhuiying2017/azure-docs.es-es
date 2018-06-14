@@ -1,11 +1,11 @@
 ---
-title: "Cómo configurar la persistencia de datos para Azure Redis Cache Premium"
-description: "Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Azure Redis Cache de nivel Premium"
+title: Cómo configurar la persistencia de datos para Azure Redis Cache Premium
+description: Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Azure Redis Cache de nivel Premium
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: b01cf279-60a0-4711-8c5f-af22d9540d38
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910858"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>Cómo configurar la persistencia de datos para Azure Redis Cache Premium
 Azure Redis Cache tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluidas las características de nivel premium como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Azure Redis Cache premium.
@@ -179,7 +180,7 @@ Cuando la agrupación en clústeres está habilitada, cada partición de la memo
 Después de una reescritura, hay dos conjuntos de archivos AOF en el almacenamiento. Las operaciones de reescritura se producen en segundo plano y se anexan al primer conjunto de archivos, mientras que las operaciones de conjunto que se envían a la memoria caché durante la reescritura se anexan al segundo conjunto. Durante las operaciones de reescritura se almacena de forma temporal una copia de seguridad por si hubiera un error, pero se elimina inmediatamente después de que finalice la reescritura.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
 * [Introducción al nivel Premium de Azure Redis Cache](cache-premium-tier-intro.md)

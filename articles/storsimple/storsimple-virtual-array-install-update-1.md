@@ -1,12 +1,12 @@
 ---
-title: "Instalación de Update 1.0 en StorSimple Virtual Array | Microsoft Docs"
-description: "Describe cómo usar la IU web de StorSimple Virtual Array para aplicar actualizaciones mediante Azure Portal y el método de revisiones"
+title: Instalación de Update 1.0 en StorSimple Virtual Array | Microsoft Docs
+description: Describe cómo usar la IU web de StorSimple Virtual Array para aplicar actualizaciones mediante Azure Portal y el método de revisiones
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010828"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instalación de Update 1.0 en StorSimple Virtual Array
 

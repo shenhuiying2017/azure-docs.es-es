@@ -13,14 +13,20 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
+  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
+  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927125"
 abstract:
   description: Azure Migrate le ayuda a detectar y a evaluar la idoneidad de las máquinas locales para la migración a Azure y proporciona estimaciones de tamaño y de costo para ejecutar máquinas virtuales de Azure.
 sections:
-  - title: Tutoriales detallados
+- title: Tutoriales detallados
+  items:
+  - type: paragraph
+    text: Aprenda a evaluar máquinas virtuales de VMware para la migración a Azure
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Aprenda a evaluar máquinas virtuales de VMware para la migración a Azure
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-assessment-vmware">Detección y evaluación de las máquinas virtuales locales de VMware</a>
+    - html: <a href="tutorial-assessment-vmware">Detección y evaluación de las máquinas virtuales locales de VMware</a>

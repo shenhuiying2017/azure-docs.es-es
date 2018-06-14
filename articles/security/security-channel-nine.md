@@ -1,6 +1,6 @@
 ---
-title: "Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Docs"
-description: "El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean."
+title: Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Docs
+description: El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540142"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vídeos sobre seguridad de Azure de Channel 9
 [Channel 9](https://channel9.msdn.com/) es una comunidad que reúne a quienes se encuentran detrás de nuestros productos y los conecta con los clientes.

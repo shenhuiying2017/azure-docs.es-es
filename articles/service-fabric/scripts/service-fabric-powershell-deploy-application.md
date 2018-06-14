@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: implementar una aplicación en un clúster | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: implementar una aplicación en un clúster de Service Fabric."
+title: 'Ejemplo de script de Azure PowerShell: implementar una aplicación en un clúster | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: implementar una aplicación en un clúster de Service Fabric.'
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927607"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implementación de una aplicación en un clúster de Service Fabric
 
@@ -47,7 +48,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Crea una aplicación a partir de un tipo de aplicación registrada. |
 | [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Quita un paquete de aplicación de Service Fabric del almacén de imágenes.|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el módulo Service Fabric PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/service-fabric/?view=azureservicefabricps).
 

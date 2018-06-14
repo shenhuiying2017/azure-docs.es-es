@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de Azure Redis Cache | Microsoft Docs"
-description: "Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Azure Redis Cache"
+title: Supervisión de Azure Redis Cache | Microsoft Docs
+description: Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Azure Redis Cache
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 7e70b153-9c87-4290-85af-2228f31df118
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910656"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Supervisión de Azure Redis Cache
 Azure Redis Cache usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Redis Cache y ayudarle a administrar sus aplicaciones de almacenamiento en caché.
