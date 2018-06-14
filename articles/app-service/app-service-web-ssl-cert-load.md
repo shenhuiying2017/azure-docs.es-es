@@ -1,11 +1,11 @@
 ---
-title: "Uso de un certificado SSL cargado en el código de aplicación de Azure App Service | Microsoft Docs"
-description: 
+title: Uso de un certificado SSL cargado en el código de aplicación de Azure App Service | Microsoft Docs
+description: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26047606"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Uso de un certificado SSL en el código de aplicación de Azure App Service
 

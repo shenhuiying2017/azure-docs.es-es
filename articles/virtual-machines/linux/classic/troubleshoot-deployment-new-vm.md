@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de implementación de máquinas virtuales Linux (modelo clásico) | Microsoft Docs"
-description: "Solución de problemas de implementación clásica al crear una nueva máquina virtual de Linux en Azure"
+title: Solución de problemas de implementación de máquinas virtuales Linux (modelo clásico) | Microsoft Docs
+description: Solución de problemas de implementación clásica al crear una nueva máquina virtual de Linux en Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: c8a963fa-6b2a-4c7a-a1f4-7793adb02b19
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27965975"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación clásica con la creación de una máquina virtual de Linux en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -88,6 +89,6 @@ Según las restricciones del servicio en la nube que utilice para crear la nueva
 * Cree la nueva máquina virtual en la nueva red virtual.
 * [Conecte la red virtual existente](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/) a la nueva red virtual. Consulte más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/). Asimismo, puede [migrar la red virtual basada en un grupo de afinidad a una red virtual regional](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)y, después, crear la nueva máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación clásica con el reinicio o el cambio de tamaño de una máquina virtual con Linux existente en Azure](restart-resize-error-troubleshooting.md).
 

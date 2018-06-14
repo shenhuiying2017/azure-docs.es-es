@@ -1,12 +1,12 @@
 ---
-title: "Conexión de Raspberry Pi al Conjunto de aplicaciones de IoT de Azure mediante Node.js con sensores reales | Microsoft Docs"
-description: "Use el Starter Kit de IoT de Microsoft Azure para Raspberry Pi 3 y el Conjunto de aplicaciones de IoT de Azure. Use Node.js para conectar su Raspberry Pi a la solución de supervisión remota, enviar telemetría desde sensores a la nube y responder a los métodos invocados desde el panel de la solución."
-services: 
+title: Conexión de Raspberry Pi al Conjunto de aplicaciones de IoT de Azure mediante Node.js con sensores reales | Microsoft Docs
+description: Use el Starter Kit de IoT de Microsoft Azure para Raspberry Pi 3 y el Conjunto de aplicaciones de IoT de Azure. Use Node.js para conectar su Raspberry Pi a la solución de supervisión remota, enviar telemetría desde sensores a la nube y responder a los métodos invocados desde el panel de la solución.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: nodejs
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010668"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-nodejs"></a>Conexión de Raspberry Pi 3 a la solución de supervisión remota y envío de telemetría desde un sensor real mediante Node.js
 

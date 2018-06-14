@@ -1,11 +1,11 @@
 ---
-title: "Directivas de autenticación de Azure API Management | Microsoft Docs"
-description: "Aprenda sobre las directivas de autenticación disponibles para su uso en Azure API Management."
+title: Directivas de autenticación de Azure API Management | Microsoft Docs
+description: Aprenda sobre las directivas de autenticación disponibles para su uso en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127766"
 ---
 # <a name="api-management-authentication-policies"></a>Directivas de autenticación de Azure API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](http://go.microsoft.com/fwlink/?LinkID=398186).  

@@ -1,12 +1,12 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: calcular el tamaño del contenedor de blobs | Microsoft Docs"
-description: "Calcule el tamaño de un contenedor en Azure Blob Storage sumando el tamaño de cada uno de sus blobs."
+title: 'Ejemplo de script de Azure PowerShell: calcular el tamaño del contenedor de blobs | Microsoft Docs'
+description: Calcule el tamaño de un contenedor en Azure Blob Storage sumando el tamaño de cada uno de sus blobs.
 services: storage
 documentationcenter: na
 author: tamram
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24814582"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Cálculo del tamaño de un contenedor de Blob Storage
 

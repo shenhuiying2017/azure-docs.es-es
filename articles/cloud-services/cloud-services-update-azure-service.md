@@ -1,11 +1,11 @@
 ---
-title: "Actualización de un servicio en la nube | Microsoft Docs"
-description: "Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad."
+title: Actualización de un servicio en la nube | Microsoft Docs
+description: Aprenda a actualizar servicios en la nube en Azure. Obtenga información acerca de cómo se realiza una actualización en un servicio en la nube para garantizar la disponibilidad.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860678"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Actualización de un servicio en la nube
 

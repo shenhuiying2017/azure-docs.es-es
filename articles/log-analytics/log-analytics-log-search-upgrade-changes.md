@@ -1,11 +1,11 @@
 ---
-title: "¿Qué ha cambiado en Azure Log Analytics? | Microsoft Docs"
-description: "Este artículo ofrece respuesta a las preguntas más frecuentes sobre la actualización de Log Analytics al nuevo lenguaje de consulta."
+title: ¿Qué ha cambiado en Azure Log Analytics? | Microsoft Docs
+description: Este artículo ofrece respuesta a las preguntas más frecuentes sobre la actualización de Log Analytics al nuevo lenguaje de consulta.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039866"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>¿Qué ha cambiado en Azure Log Analytics?
 Además del propio lenguaje de consulta, hay varias mejoras y cambios que debe tener en cuenta cuando el área de trabajo de Log Analytics se [actualiza al nuevo lenguaje de consulta](log-analytics-log-search-new.md).  En este artículo se describen brevemente los cambios entre un área de trabajo heredada y actualizada con vínculos a contenido detallado para cada una. 

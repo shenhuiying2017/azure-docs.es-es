@@ -1,11 +1,11 @@
 ---
-title: "Información sobre la limitación en BizTalk Services | Microsoft Docs"
-description: "Obtenga información acerca de los umbrales de limitación y comportamientos en tiempo de ejecución resultantes para BizTalk Services. La limitación se basa en el uso de la memoria y el número de mensajes. MABS, WABS"
+title: Información sobre la limitación en BizTalk Services | Microsoft Docs
+description: Obtenga información acerca de los umbrales de limitación y comportamientos en tiempo de ejecución resultantes para BizTalk Services. La limitación se basa en el uso de la memoria y el número de mensajes. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: f6663cf2-cda4-4bac-855e-27d2ad5c4fa4
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102093"
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk Services: limitaciones
 

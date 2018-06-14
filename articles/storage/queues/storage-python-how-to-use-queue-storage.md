@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986756"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Uso del almacenamiento de colas de Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
