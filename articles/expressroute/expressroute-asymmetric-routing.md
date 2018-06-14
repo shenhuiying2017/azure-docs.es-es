@@ -1,11 +1,11 @@
 ---
-title: "Enrutamiento asimétrico | Microsoft Docs"
-description: "Este artículo le guía a través de los problemas a los que se puede enfrentar un cliente con enrutamiento asimétrico en una red que tiene varios vínculos a un destino."
+title: Enrutamiento asimétrico | Microsoft Docs
+description: Este artículo le guía a través de los problemas a los que se puede enfrentar un cliente con enrutamiento asimétrico en una red que tiene varios vínculos a un destino.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710021"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Enrutamiento asimétrico con varias rutas de acceso de red
 En este artículo se explica cómo el tráfico de red de reenvío y de retorno puede tomar distintas rutas cuando hay varias rutas de acceso disponibles entre el origen y el destino de la red.

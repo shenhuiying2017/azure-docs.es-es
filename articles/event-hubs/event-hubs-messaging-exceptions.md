@@ -1,11 +1,11 @@
 ---
-title: "Excepciones de mensajería de Azure Event Hubs | Microsoft Docs"
-description: "Lista de excepciones de mensajería y acciones sugeridas de Azure Event Hubs."
+title: Excepciones de mensajería de Azure Event Hubs | Microsoft Docs
+description: Lista de excepciones de mensajería y acciones sugeridas de Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783135"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Excepciones de mensajería de Event Hubs
 
@@ -93,7 +94,7 @@ Este error puede producirse por uno de estos dos motivos:
 Este error se produce raras veces. Se produce cuando el contenedor que ejecuta el código para su espacio de nombres hace un uso bajo de la CPU: no más de unos pocos segundos antes de que comience el equilibrador de carga de Event Hubs.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)

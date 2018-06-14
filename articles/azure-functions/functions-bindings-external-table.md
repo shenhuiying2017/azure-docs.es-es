@@ -2,11 +2,11 @@
 title: Enlace de tabla externa para Azure Functions (experimental)
 description: Uso de enlaces de tablas externas en Azure Functions
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27613288"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Enlace de tabla externa para Azure Functions (experimental)
 
@@ -198,7 +199,7 @@ Un conector tabular proporciona conjuntos de datos, y cada conjunto de datos con
 |**Hoja de cálculo de Google**|Hoja de cálculo|Hoja de cálculo 
 |**Excel**|Archivo de Excel|Hoja 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

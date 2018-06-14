@@ -1,11 +1,11 @@
 ---
-title: "Transición de circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs"
-description: "Esta página proporciona una visión general de lo que necesita saber sobre cómo realizar la transición del modelo de implementación clásica al modelo de implementación de Resource Manager."
+title: Transición de circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs
+description: Esta página proporciona una visión general de lo que necesita saber sobre cómo realizar la transición del modelo de implementación clásica al modelo de implementación de Resource Manager.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710072"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
 En este artículo se ofrece información general de lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.

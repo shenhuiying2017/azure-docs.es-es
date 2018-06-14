@@ -1,12 +1,12 @@
 ---
-title: "Visualización y administración de alertas para dispositivos de la serie StorSimple 8000 | Microsoft Docs"
-description: "Describe las condiciones de alerta y gravedad de StorSimple, cómo configurar notificaciones de alerta y cómo usar el servicio StorSimple Device Manager para administrar las alertas."
+title: Visualización y administración de alertas para dispositivos de la serie StorSimple 8000 | Microsoft Docs
+description: Describe las condiciones de alerta y gravedad de StorSimple, cómo configurar notificaciones de alerta y cómo usar el servicio StorSimple Device Manager para administrar las alertas.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745785"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -225,7 +226,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 |:--- |:--- |:--- |
 | Error de creación de paquete de soporte técnico. |StorSimple no pudo generar el paquete. |Vuelva a intentarlo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. Cuando haya solucionado el problema, borre esta alerta de la página de alertas. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda más sobre [los errores de StorSimple y la solución de problemas al implementar un dispositivo](storsimple-8000-troubleshoot-deployment.md).
 

@@ -1,12 +1,12 @@
 ---
-title: "Reemplazo de la batería del dispositivo Microsoft Azure StorSimple de la serie 8000 | Microsoft Docs"
-description: "Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple."
+title: Reemplazo de la batería del dispositivo Microsoft Azure StorSimple de la serie 8000 | Microsoft Docs
+description: Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742820"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
 
@@ -105,6 +106,6 @@ Si aparece el estado **DEGRADADO** , se recomienda lo siguiente:
 > [!IMPORTANT]
 > Deseche la batería que no funciona según las normas nacionales y regionales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-8000-hardware-component-replacement.md).
 
