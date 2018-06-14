@@ -1,6 +1,6 @@
 ---
-title: "Objetivos de escalabilidad y rendimiento para discos de máquina virtual en Windows - Microsoft Azure | Microsoft Docs"
-description: "Obtenga información sobre los objetivos de escalabilidad y rendimiento para los discos de máquina virtual conectados a máquinas virtuales que ejecutan Windows."
+title: Objetivos de escalabilidad y rendimiento para discos de máquina virtual en Windows - Microsoft Azure | Microsoft Docs
+description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para los discos de máquina virtual conectados a máquinas virtuales que ejecutan Windows.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24871489"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Objetivos de escalabilidad y rendimiento para discos de máquinas virtuales con Windows
 

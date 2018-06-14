@@ -1,11 +1,11 @@
 ---
-title: "Tareas de administración de servicios en la nube comunes | Microsoft Docs"
-description: "Vea cómo administrar Cloud Services en Azure Portal. Estos ejemplos usan el Portal de Azure."
+title: Tareas de administración de servicios en la nube comunes | Microsoft Docs
+description: Vea cómo administrar Cloud Services en Azure Portal. Estos ejemplos usan el Portal de Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121202"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Administración de Cloud Services en Azure Portal
 En el área de **Cloud Services** de Azure Portal, puede:
@@ -124,7 +125,7 @@ La hoja **Información general** tiene una barra de estado en la parte superior.
 
 [Azure portal]: https://portal.azure.com
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).

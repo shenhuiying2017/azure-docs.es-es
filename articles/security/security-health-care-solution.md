@@ -1,5 +1,5 @@
 ---
-title: "Guía práctica para el diseño de soluciones seguras de asistencia sanitaria en Azure | Microsoft Docs"
+title: Guía práctica para el diseño de soluciones seguras de asistencia sanitaria en Azure | Microsoft Docs
 description: " Este artículo le ayuda a entender cómo mejorar la seguridad para las soluciones de asistencia sanitaria mediante los servicios de Azure y sus características configurables. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540982"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Guía práctica para el diseño de soluciones de asistencia sanitaria en Azure
 Nuevas empresas del sector sanitario, integradores de sistemas (SIs), proveedores de software independientes (ISV) y organizaciones de asistencia sanitaria que estén considerando la posibilidad de cambiar a Azure, buscan una guía para incorporar controles de seguridad que les ayuden a cumplir sus obligaciones de cumplimiento de normas.
