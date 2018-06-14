@@ -1,11 +1,11 @@
 ---
-title: "Uso de Mobile Services: ¿cómo ayuda App Service?"
-description: "Obtenga información sobre qué ventajas aporta Servicios de aplicaciones a los proyectos de Mobile Services existentes."
+title: 'Uso de Mobile Services: ¿cómo ayuda App Service?'
+description: Obtenga información sobre qué ventajas aporta Servicios de aplicaciones a los proyectos de Mobile Services existentes.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460419"
 ---
 # <a name="getting-started"></a>Uso de Mobile Services: ¿cómo ayuda App Service?
 ## <a name="overview"></a>Información general
