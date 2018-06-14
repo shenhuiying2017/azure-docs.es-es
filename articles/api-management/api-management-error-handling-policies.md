@@ -2,10 +2,10 @@
 title: Control de errores en las directivas de Azure API Management | Microsoft Docs
 description: Aprenda a responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128233"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Control de errores en las directivas de API Management
 Azure API Management proporciona un objeto `ProxyError` que permite a los publicadores responder a las condiciones de error que se pueden producir durante el procesamiento de solicitudes en el proxy. Para acceder al objeto `ProxyError` se usa la propiedad [context.LastError](api-management-policy-expressions.md#ContextVariables). Este objeto se puede usar en las directivas de la sección de directivas `on-error`. En este tema se proporciona una referencia a las funcionalidades de control de errores de Azure API Management.  

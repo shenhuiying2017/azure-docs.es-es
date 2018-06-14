@@ -1,11 +1,11 @@
 ---
-title: "Excepciones de mensajería de Azure Service Bus | Microsoft Docs"
-description: "Lista de excepciones de mensajería de Service Bus y las acciones sugeridas."
+title: Excepciones de mensajería de Azure Service Bus | Microsoft Docs
+description: Lista de excepciones de mensajería de Service Bus y las acciones sugeridas.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930157"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Excepciones de mensajería de Service Bus
 En este artículo se enumeran algunas excepciones generadas por las API de mensajería de Microsoft Azure Service Bus. Esta referencia está sujeta a cambios, de modo que compruebe las actualizaciones.
@@ -104,7 +105,7 @@ Para las colas y los temas, el tiempo de espera se especifica en la propiedad [M
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener la referencia completa de la API de .NET para Service Bus, consulte la [referencia de la API de .NET de Azure](/dotnet/api/overview/azure/service-bus).
 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33940717"
 abstract:
   description: Aprenda a hacer streaming de vídeos a petición, a realizar difusión en directo y a analizar los vídeos con Media Services. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 sections:

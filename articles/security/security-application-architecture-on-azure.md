@@ -1,5 +1,5 @@
 ---
-title: "Integración de la seguridad en diseños de arquitectura de Azure | Microsoft Docs"
+title: Integración de la seguridad en diseños de arquitectura de Azure | Microsoft Docs
 description: " Este artículo le ayudará a comprender la arquitectura de aplicaciones y servicios en Azure para facilitar la integración de características de seguridad en el diseño y la implementación. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/23/2017
+ms.locfileid: "25549448"
 ---
 # <a name="application-architecture-on-azure"></a>Arquitectura de aplicaciones en Azure
 Para ayudar a proteger sus soluciones basadas en la nube en Microsoft Azure, es esencial contar con unos sólidos fundamentos en materia de arquitectura. De un buen conocimiento de la arquitectura de aplicaciones y servicios pueden sacar provecho arquitectos, diseñadores e implementadores. Estos conocimientos básicos lo ayudarán a comprender todos los componentes de sus soluciones basadas en la nube y facilitarán la integración de características de seguridad en todos los aspectos del diseño y la implementación.

@@ -1,11 +1,11 @@
 ---
 title: Plantillas del portal para desarrolladores de Azure API Management | Microsoft Docs
-description: "Aprenda a personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas en Azure API Management."
+description: Aprenda a personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas en Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 5189f3d8-2a4c-4dc8-ab19-11c7df0114d4
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128756"
 ---
 # <a name="developer-portal-templates"></a>Plantillas del portal para desarrolladores
 

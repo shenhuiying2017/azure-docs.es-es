@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28209591"
 ---
 # <a name="ansible-with-azure"></a>Ansible con Azure
 
@@ -44,6 +45,6 @@ A través de su característica de [inventario dinámico](http://docs.ansible.co
 ## <a name="additional-azure-marketplace-options"></a>Opciones adicionales de Azure Marketplace
 La imagen en Azure Marketplace de [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) de Red Hat ayuda a las organizaciones a escalar la automatización de TI y administrar implementaciones complejas en infraestructuras físicas, virtuales y en la nube. Ansible Tower incluye funcionalidades que proporcionan los niveles adicionales de visibilidad, control, seguridad y eficacia que necesitan las empresas de hoy en día. Ansible Tower cifra las credenciales como claves de Azure y SSH de forma que puede delegar trabajos a empleados con menos experiencia sin el riesgo de exponer las credenciales.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - [Configuración de Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Creación de una máquina virtual Linux](/azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

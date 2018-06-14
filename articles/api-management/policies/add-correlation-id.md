@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935121"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Incorporación de un encabezado con un identificador de correlación
 

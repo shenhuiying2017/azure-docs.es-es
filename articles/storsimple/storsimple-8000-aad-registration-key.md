@@ -1,12 +1,12 @@
 ---
-title: "Usar la nueva autenticación del servicio de Administrador de dispositivos StorSimple 8000 en Azure | Documentos de Microsoft"
-description: "Aquí se explica cómo usar la autenticación basada en AAD del servicio, cómo generar una nueva clave de registro y cómo realizar el registro manual de los dispositivos."
+title: Usar la nueva autenticación del servicio de Administrador de dispositivos StorSimple 8000 en Azure | Documentos de Microsoft
+description: Aquí se explica cómo usar la autenticación basada en AAD del servicio, cómo generar una nueva clave de registro y cómo realizar el registro manual de los dispositivos.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28031046"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usar la nueva autenticación de StorSimple
 
@@ -93,7 +94,7 @@ Realice los pasos siguientes para volver a crear una clave de registro de servic
     > [!NOTE] 
     > Si va a crear StorSimple Cloud Appliance en el servicio que se registró en el dispositivo de la serie StorSimple 8000, no genere ninguna clave de registro mientras esté en curso el proceso de creación. Espere a que se complete el proceso de creación y, a continuación, genere la clave de registro.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Obtenga más información sobre cómo implementar [dispositivos de la serie StorSimple 8000](storsimple-8000-deployment-walkthrough-u2.md).
 

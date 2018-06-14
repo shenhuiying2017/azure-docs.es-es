@@ -1,12 +1,12 @@
 ---
-title: "Disponibilidad por región de StorSimple | Microsoft Docs"
-description: "En este artículo se detallan las regiones de Azure en las que están disponibles los distintos modelos de dispositivo de StorSimple."
+title: Disponibilidad por región de StorSimple | Microsoft Docs
+description: En este artículo se detallan las regiones de Azure en las que están disponibles los distintos modelos de dispositivo de StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24879065"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiones disponibles para StorSimple
 

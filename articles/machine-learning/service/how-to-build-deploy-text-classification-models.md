@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939723"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Compilación e implementación de modelos de clasificación de texto con Azure Machine Learning
 
@@ -420,13 +421,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Análisis y establecimiento de los parámetros de los distintos pasos de la canalización
 
-Con respecto al ajuste de un modelo de scikit-learn, el preprocesamiento se hace antes del ajuste con una canalización de pasos de preprocesador y caracterizador (transformación). De ahí la referencia a una "canalización" para el entrenamiento. Durante la evaluación, toda la canalización, incluido el preprocesamiento y la predicción del modelo scikit-learn, se aplica a un conjunto de datos de prueba.
+Durante el entrenamiento, debe tener columnas de texto y etiqueta. Mientras tanto, solo la columna de texto es necesaria para las predicciones. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Análisis y establecimiento de los parámetros de los distintos pasos de la canalización
+    
+Por lo general, los parámetros se establecen antes de ajustar un modelo. 
 
 ***Ejemplo con text_word_ngrams*** 
-
-Por lo general, los parámetros se establecen antes de ajustar un modelo. 
 
 En los ejemplos de código siguientes se muestra cómo entrenar el modelo con los parámetros predeterminados de canalización y modelo. 
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057781"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatización de aplicación de revisiones de sistema operativo y marco con ACR Build
 

@@ -1,8 +1,8 @@
 ---
-title: "Introducción a la verificación en dos pasos | Microsoft Docs"
-description: "Esta es la página de Azure Multi-Factor Authentication que ayudará a los usuarios finales para avanzar con Azure Multi-Factor Authentication."
+title: Introducción a la verificación en dos pasos | Microsoft Docs
+description: Esta es la página de Azure Multi-Factor Authentication que ayudará a los usuarios finales para avanzar con Azure Multi-Factor Authentication.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198112"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>¿Qué relevancia tiene Azure Multi-Factor Authentication para mí?
 Ha recibido un correo electrónico de alguien en el departamento de TI o su jefe, que le informa de que se ha agregado una comprobación de seguridad adicional a su cuenta.  ¿Qué quiere decir esto?

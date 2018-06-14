@@ -1,11 +1,11 @@
 ---
-title: "Corrección de configuraciones de seguridad en Azure Security Center | Microsoft Docs"
-description: "En este documento se muestra cómo implementar la recomendación de Azure Security Center \"Corregir las configuraciones de seguridad\"."
+title: Corrección de configuraciones de seguridad en Azure Security Center | Microsoft Docs
+description: En este documento se muestra cómo implementar la recomendación de Azure Security Center "Corregir las configuraciones de seguridad".
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103938"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Corregir las configuraciones de seguridad en Azure Security Center
 Azure Security Center analiza diariamente el sistema operativo (SO) de sus máquinas virtuales (VM) y equipos en busca de alguna configuración que pueda hacer que estos sean más vulnerables frente a los ataques. Security Center recomienda resolver las vulnerabilidades cuando la configuración del sistema operativo no coincida con las reglas de configuración de seguridad recomendadas y realizar cambios en la configuración para hacer frente a estas vulnerabilidades.
@@ -92,7 +93,7 @@ En este ejemplo, se examinará la recomendación "Corregir las configuraciones d
 
    ![Información detallada sobre el equipo seleccionado][6]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo se muestra cómo implementar la recomendación de Security Center de corregir las configuraciones de seguridad. Para saber cómo personalizar las valoraciones de configuración de seguridad, consulte [Personalización de las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)](security-center-customize-os-security-config.md).
 
 Consulte la [lista de reglas de configuración recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para obtener más información sobre las configuraciones específicas que se están supervisando. Security Center utiliza Common Configuration Enumeration (CCE) con el fin de asignar identificadores únicos a las reglas de configuración. Visite el sitio de [CCE](https://nvd.nist.gov/cce/index.cfm) para obtener más información.

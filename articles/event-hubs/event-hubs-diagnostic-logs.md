@@ -1,13 +1,13 @@
 ---
-title: "Registros de diagnóstico de Azure Event Hubs | Microsoft Docs"
-description: "Aprenda a configurar registros de diagnósticos para centros de eventos en Azure."
-keywords: 
-documentationcenter: 
+title: Registros de diagnóstico de Azure Event Hubs | Microsoft Docs
+description: Aprenda a configurar registros de diagnósticos para centros de eventos en Azure.
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932722"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Registros de diagnósticos de Event Hubs
 
@@ -136,7 +137,7 @@ Example:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Introducción a Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Introducción a la API de Event Hubs](event-hubs-api-overview.md)
 * [Introducción a Event Hubs](event-hubs-dotnet-standard-getstarted-send.md)

@@ -1,11 +1,11 @@
 ---
-title: "Mensajes, cargas y serialización de Azure Service Bus | Microsoft Docs"
-description: "Introducción a las cargas de mensajes de Service Bus"
+title: Mensajes, cargas y serialización de Azure Service Bus | Microsoft Docs
+description: Introducción a las cargas de mensajes de Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200070"
 ---
 # <a name="messages-payloads-and-serialization"></a>Mensajes, cargas y serialización
 
@@ -84,7 +85,7 @@ Por lo general se recomienda JSON y Apache Avro como formatos de carga de datos 
 
 Las variantes de .NET Standard y la API de Java solo aceptan matrices de bytes, lo que significa que la aplicación debe administrar el control de la serialización de objetos. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

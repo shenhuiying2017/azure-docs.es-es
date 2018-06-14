@@ -1,12 +1,12 @@
 ---
-title: "Configuración de puerto de Azure Relay | Microsoft Docs"
-description: "Obtenga información sobre los valores de puerto de Azure Relay."
+title: Configuración de puerto de Azure Relay | Microsoft Docs
+description: Obtenga información sobre los valores de puerto de Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017382"
 ---
 # <a name="azure-relay-port-settings"></a>Configuración de puerto de Relay de Azure
 
@@ -48,7 +49,7 @@ Las conexiones híbridas emplean protocolos WebSocket como mecanismo de transpor
 ||" |Sin |HTTP|  
 |[Clase WS2007HttpRelayBinding](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (servicio)|Es posible usar el|9351/HTTP|
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información sobre Azure Relay, visite estos vínculos:
 * [¿Qué es Relay de Azure?](relay-what-is-it.md)
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)

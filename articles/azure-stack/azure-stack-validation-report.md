@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937557"
 ---
 # <a name="azure-stack-validation-report"></a>Informe de validación de Azure Stack
 La herramienta Azure Stack Readiness Checker ejecuta validaciones que admiten la implementación y el mantenimiento de un entorno de Azure Stack. La herramienta escribe los resultados de la validación en un archivo de informe .json. El informe muestra los datos resumidos y detallados sobre el estado de los requisitos previos de implementación de Azure Stack y sobre la rotación de secretos en implementaciones de Azure Stack existentes.  

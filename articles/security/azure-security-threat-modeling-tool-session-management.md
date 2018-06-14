@@ -1,5 +1,5 @@
 ---
-title: "Administración de sesiones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs"
+title: 'Administración de sesiones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019966"
 ---
 # <a name="security-frame-session-management--articles"></a>Marco de seguridad: Administración de sesiones | Artículos 
 | Producto o servicio | Artículo |

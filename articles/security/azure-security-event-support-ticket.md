@@ -1,6 +1,6 @@
 ---
-title: "Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad: Azure | Microsoft Docs"
-description: "Como vendedor en Azure Marketplace, habiendo identificado un posible evento de seguridad, necesito saber cómo registrar una incidencia de soporte técnico adecuada."
+title: 'Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad: Azure | Microsoft Docs'
+description: Como vendedor en Azure Marketplace, habiendo identificado un posible evento de seguridad, necesito saber cómo registrar una incidencia de soporte técnico adecuada.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129947"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Procedimientos para registrar una incidencia de soporte técnico de un evento de seguridad
 

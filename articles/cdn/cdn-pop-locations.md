@@ -12,13 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 05/07/2018
 ms.author: v-deasim
-ms.openlocfilehash: 75a6dfe28e0a67eb59b00411591ac68c6fd0f3ee
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3138c2c3136b4bfa6c1c96e5f278bbadef6a73d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010591"
 ---
 # <a name="azure-cdn-pop-locations-by-region"></a>Ubicaciones POP de Azure CDN por región
 > [!div class="op_single_selector"]
@@ -37,15 +38,13 @@ En este artículo se enumeran las ubicaciones de punto de presencia (POP) actual
 
 | Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
-| Norteamérica | Toronto, Canadá<br />Querétaro, México<br />San Juan, Puerto Rico<br />Ashburn, VA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Cheyenne, WY, Estados Unidos<br />Chicago, IL, Estados Unidos<br /> Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Phoenix, AZ, Estados Unidos<br />Quincy, WA, Estados Unidos<br />San Antonio, TX, Estados Unidos<br />Santa Clara, CA, Estados Unidos<br />| Puebla, México<br />Querétaro, México<br />Atlanta, GA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Chicago, IL, Estados Unidos<br />Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Filadelfia, PA, Estados Unidos<br />San José, CA, Estados Unidos<br />Seattle, WA, Estados Unidos<br />Washington, DC, Estados Unidos | Canadá<br />México<br />Estados Unidos |
+| Norteamérica | Toronto, Canadá<br />Querétaro, México<br />San Juan, Puerto Rico<br />Ashburn, VA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Cheyenne, WY, Estados Unidos<br />Chicago, IL, Estados Unidos<br /> Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Phoenix, AZ, Estados Unidos<br />Quincy, WA, Estados Unidos<br />San Antonio, TX, Estados Unidos<br />Santa Clara, CA, Estados Unidos<br />| Ciudad de México, México<br />Puebla, México<br />Querétaro, México<br />Atlanta, GA, Estados Unidos<br />Boston, MA, Estados Unidos<br />Chicago, IL, Estados Unidos<br />Dallas, TX, Estados Unidos<br />Denver, CO, Estados Unidos<br />Los Ángeles, CA, Estados Unidos<br />Miami, FL, Estados Unidos<br />Nueva York, NY, Estados Unidos<br />Filadelfia, PA, Estados Unidos<br />San José, CA, Estados Unidos<br />Seattle, WA, Estados Unidos<br />Washington, DC, Estados Unidos | Canadá<br />México<br />EE. UU. |
 | Sudamérica | Campinas, Brasil<br />Río de Janeiro, Brasil<br />Santiago, Chile | Buenos Aires, Argentina<br />Río de Janeiro, Brasil<br />São Paulo, Brasil<br />Valparaíso, Chile<br />Barranquilla, Colombia<br />Medellín, Colombia<br />Quito, Ecuador<br />Lima, Perú | Brasil<br />Perú |
-| Europa del Norte y Europa del Este | Praga, República Checa<br />Copenhague, Dinamarca<br /> Helsinki, Finlandia<br />Estocolmo, Suecia | Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Riga, Letonia<br />Varsovia, Polonia<br />Estocolmo, Suecia | Dinamarca<br />Polonia<br />Suecia<br /> |
-| Europa Occidental | Viena, Austria<br />Bruselas, Bélgica<br />Marsella, Francia<br />París, Francia<br />Fráncfort, Alemania<br />Atenas, Grecia<br />Dublín, Irlanda<br />Milán, Italia<br />Ámsterdam, Países Bajos<br />Madrid, España<br />Zurich, Suiza<br />Durham, Reino Unido<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena, Austria<br />París, Francia<br />Fráncfort, Alemania<br />Ámsterdam, Países Bajos<br />Londres, Reino Unido | Austria<br />Francia<br />Alemania<br />Irlanda<br />Países Bajos<br />Suiza<br />Reino Unido |
-| Europa del Sur | | Milán, Italia<br />Madrid, España | Italia<br />España |
+| Europa | Viena, Austria<br />Bruselas, Bélgica<br />Praga, República Checa<br />Copenhague, Dinamarca<br /> Helsinki, Finlandia<br />Marsella, Francia<br />París, Francia<br />Fráncfort, Alemania<br />Atenas, Grecia<br />Dublín, Irlanda<br />Milán, Italia<br />Ámsterdam, Países Bajos<br />Madrid, España<br />Estocolmo, Suecia<br />Zurich, Suiza<br />Durham, Reino Unido<br />Londres, Reino Unido<br />Manchester, Reino Unido | Viena, Austria<br />Copenhague, Dinamarca<br />Helsinki, Finlandia<br />Marsella, Francia<br />París, Francia<br />Fráncfort, Alemania<br />Milán, Italia<br />Riga, Letonia<br />Ámsterdam, Países Bajos<br />Varsovia, Polonia<br />Madrid, España<br />Estocolmo, Suecia<br />Londres, Reino Unido | Austria<br />Dinamarca<br />Francia<br />Alemania<br />Irlanda<br />Italia<br />Países Bajos<br />Polonia<br />España<br />Suecia<br />Suiza<br />Reino Unido |
 | África | Ciudad del Cabo, Sudáfrica<br />Johannesburgo (Sudáfrica) | Johannesburgo (Sudáfrica) | |
 | Oriente Medio | | Muscat, Omán<br />Fujirah, Emiratos Árabes Unidos | Qatar |
 | India | Chennai, India<br />Bombay, India | Bengaluru, India<br />Chennai, India<br />Delhi, India<br />Bombay, India<br />Nueva Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Osaka, Japón<br />Tokio, Japón<br />Busan, Corea<br />Kuala Lumpur, Malasia<br />Manila, Filipinas<br />Singapur<br />Seúl, Corea del Sur<br />Taipei, Taiwán<br />Bangkok, Tailandia | Hong Kong<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
+| Asia | Hong Kong<br />Osaka, Japón<br />Tokio, Japón<br />Kuala Lumpur, Malasia<br />Manila, Filipinas<br />Singapur<br />Seúl, Corea del Sur<br />Taipei, Taiwán<br />Bangkok, Tailandia | Hong Kong<br />Batam, Indonesia<br />Yakarta, Indonesia<br />Osaka, Japón<br />Tokio, Japón<br />Singapur<br />Busán, Corea del Sur<br />Seúl, Corea del Sur<br />Kaohsiung, Taiwán | Hong Kong<br />Indonesia<br />Japón<br />Malasia<br />Filipinas<br />Singapur<br />Taiwán<br />Tailandia<br />Vietnam |
 | Australia y Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Melbourne, Australia<br />Sídney, Australia<br />Auckland, Nueva Zelanda | Australia<br />Nueva Zelanda |
 
 

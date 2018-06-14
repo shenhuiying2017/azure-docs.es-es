@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979214"
 ---
 # <a name="service-bus-quotas"></a>Cuotas de Service Bus
 En esta sección se muestra una lista de las cuotas básicas y los umbrales de limitación en la mensajería de Azure Service Bus.
