@@ -1,12 +1,12 @@
 ---
 title: Uso de PowerShell para administrar recursos de Azure Event Hubs | Microsoft Docs
-description: "Usar el módulo de PowerShell para crear y administrar Event Hubs"
+description: Usar el módulo de PowerShell para crear y administrar Event Hubs
 services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782224"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Uso de PowerShell para administrar recursos de Event Hubs
 
@@ -148,7 +149,7 @@ Remove-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace 
 Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $Namespace
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Consulte la documentación completa del módulo de PowerShell de Resource Manager de Event Hubs [aquí](/powershell/module/azurerm.eventhub). Esta página enumera todos los cmdlets disponibles.
 - Para más información sobre el uso de plantillas de Azure Resource Manager, consulte el artículo [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores mediante una plantilla de Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).

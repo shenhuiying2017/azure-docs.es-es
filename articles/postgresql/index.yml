@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación sobre Base de datos de Azure para PostgreSQL"
+title: Documentación sobre Base de datos de Azure para PostgreSQL
 metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
-  title: "Documentación sobre Base de datos de Azure para PostgreSQL: tutoriales y referencia de API"
-  description: "Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional en Microsoft Cloud diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de PostgreSQL."
+  title: 'Documentación sobre Base de datos de Azure para PostgreSQL: tutoriales y referencia de API'
+  description: Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional en Microsoft Cloud diseñado para los desarrolladores y basado en el motor de base de datos de código abierto de PostgreSQL.
   services: postgresql
   author: czeumault
   manager: carolz
@@ -19,10 +19,11 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27784833"
 abstract:
-  description: "Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica.  Desarrolle aplicaciones con la Base de datos PostgreSQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección.  Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos."
+  description: Base de datos de Azure para PostgreSQL es un servicio de base de datos relacional basado en el motor de base de datos de código abierto de PostgreSQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con rendimiento predecible, gran seguridad, alta disponibilidad y escalabilidad dinámica.  Desarrolle aplicaciones con la Base de datos PostgreSQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección.  Aprenda a usar Base de datos PostgreSQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
     text: 'Aprenda a crear una base de datos PostgreSQL mediante:'
@@ -40,16 +41,16 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: "Obtenga información sobre cómo:"
+    text: 'Obtenga información sobre cómo:'
   - type: list
     style: ordered
     items:
-    - html: "Diseño de una base de datos&#58; <a href=\"/azure/postgresql/tutorial-design-database-using-azure-portal\">Azure Portal</a> | <a href=\"/azure/postgresql/tutorial-design-database-using-azure-cli\">CLI de Azure</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json\">Compilación de una aplicación web con Python y la CLI</a>"
+    - html: Diseño de una base de datos&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure Portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">CLI de Azure</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Compilación de una aplicación web con Python y la CLI</a>
 - title: Muestras
   items:
   - type: paragraph
-    text: "Busque scripts para administrar las tareas más habituales."
+    text: Busque scripts para administrar las tareas más habituales.
   - type: list
     style: unordered
     className: spaced noBullet
@@ -61,7 +62,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: "Línea de comandos"
+    - title: Línea de comandos
       html: <p><a href="/cli/azure">CLI de Azure</a></p>
     - title: REST
       html: <p><a href="/rest/api/postgresql">API de REST</a></p>

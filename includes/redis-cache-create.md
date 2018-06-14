@@ -13,6 +13,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34173125"
 ---
 Para crear una memoria caché, primero inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Crear un recurso** > **Bases de datos** > **Redis Cache**.
 

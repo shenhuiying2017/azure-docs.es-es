@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360043"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Esquema NetworkTrafficRules de definición de Azure Cloud Services
 El nodo `NetworkTrafficRules` es un elemento opcional del archivo de definición de servicio que especifica cómo se comunican los roles entre sí. Limita qué roles pueden acceder a los puntos de conexión internos del rol en cuestión. `NetworkTrafficRules` no es un elemento independiente; se combina con dos o más roles de un archivo de definición de servicio.

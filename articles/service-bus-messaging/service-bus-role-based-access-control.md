@@ -1,12 +1,12 @@
 ---
-title: "Versión preliminar del control de acceso basado en rol (RBAC) de Azure Service Bus | Microsoft Docs"
+title: Versión preliminar del control de acceso basado en rol (RBAC) de Azure Service Bus | Microsoft Docs
 description: Control de acceso basado en rol de Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783384"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Control de acceso basado en rol de Active Directory (versión preliminar)
 
@@ -75,7 +76,7 @@ Antes de poder ejecutar el ejemplo, edite el archivo App.config y, según el esc
  
 Al ejecutar la aplicación de consola, deberá seleccionar un escenario. Haga clic en **Interactive User Login** (Inicio de sesión de usuario interactivo). Para ello, escriba su número y pulse ENTRAR. La aplicación muestra una ventana de inicio de sesión, solicita su consentimiento para acceder a Service Bus y, a continuación, utiliza el servicio para ejecutarse en el escenario de envío o recepción mediante la identidad de inicio de sesión.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas.
 

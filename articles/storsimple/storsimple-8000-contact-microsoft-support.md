@@ -1,12 +1,12 @@
 ---
-title: "Creación de un vale de soporte técnico para la serie 8000 de StorSimple | Microsoft Docs"
-description: "Aprenda a registrar una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo de la serie StorSimple 8000."
+title: Creación de un vale de soporte técnico para la serie 8000 de StorSimple | Microsoft Docs
+description: Aprenda a registrar una solicitud de soporte técnico y a iniciar una sesión de soporte técnico en su dispositivo de la serie StorSimple 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743062"
 ---
 # <a name="contact-microsoft-support"></a>Ponerse en contacto con el soporte técnico de Microsoft
 
@@ -113,6 +114,6 @@ Lleve a cabo los siguientes pasos para iniciar una sesión de soporte.
 > Puede deshabilitar el acceso al soporte técnico ejecutando `Disable-HcsSupportAccess`. El dispositivo StorSimple también intenta deshabilitar el acceso al soporte técnico 8 horas después de iniciada la sesión. Es un procedimiento recomendado cambiar las credenciales de su dispositivo StorSimple después de una sesión de soporte técnico.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a [diagnosticar y solucionar problemas relacionados un dispositivo de la serie StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

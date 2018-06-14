@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202618"
 ---
 # <a name="use-zeppelin-to-run-hive-queries-in-azure-hdinsight"></a>Uso de Zeppelin para ejecutar consultas de Hive en Azure HDInsight 
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267212"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Información sobre los tokens de usuario de la colaboración B2B de Azure Active Directory
 

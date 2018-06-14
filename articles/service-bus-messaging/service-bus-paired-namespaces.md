@@ -1,11 +1,11 @@
 ---
 title: Espacios de nombres emparejados de Azure Service Bus | Microsoft Docs
-description: "Detalles de la implementación y costos de los espacios de nombres emparejados"
+description: Detalles de la implementación y costos de los espacios de nombres emparejados
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159548"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Detalles de implementación y costos asociados de los espacios de nombres emparejados
 
@@ -98,7 +99,7 @@ Al menos uno de los programas ejecutables de la aplicación debe ejecutar activa
 ## <a name="closefault-behavior"></a>Comportamiento de cierre o error
 Dentro de una aplicación que hospeda el sifón, cuando el elemento principal o secundario [MessagingFactory][MessagingFactory] genera un error o se cierra sin que su asociado genere un error o se cierre, y el sifón detecta este estado, el sifón actúa. Si el otro elemento [MessagingFactory][MessagingFactory] no se cierra en 5 segundos, el sifón generará un error en el otro elemento [MessagingFactory][MessagingFactory] que aún está abierto.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información sobre la mensajería asincrónica de Service Bus, consulte [Patrones de mensajería asincrónica y alta disponibilidad][Asynchronous messaging patterns and high availability]. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

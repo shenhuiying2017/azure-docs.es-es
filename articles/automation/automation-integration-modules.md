@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195869"
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de integración de Azure Automation
 PowerShell es la principal tecnología que se esconde detrás de Azure Automation. Desde que Azure Automation se integró en PowerShell, los módulos de PowerShell resultan clave para la extensibilidad de Azure Automation. En este artículo, explicaremos los aspectos específicos sobre el uso de los módulos de PowerShell en Azure Automation, lo que se conoce como “Módulos de integración” y los procedimientos recomendados para crear sus propios módulos de PowerShell y asegurarse de que funcionan como módulos de integración en Azure Automation. 

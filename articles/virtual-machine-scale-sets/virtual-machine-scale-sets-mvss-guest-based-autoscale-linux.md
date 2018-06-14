@@ -1,11 +1,11 @@
 ---
-title: "Uso del escalado automático de Azure con métricas de invitado en una plantilla de conjunto de escalado de Linux | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar el escalado automático con métricas de invitado en una plantilla de conjunto de escalado de máquinas virtuales de Linux"
+title: Uso del escalado automático de Azure con métricas de invitado en una plantilla de conjunto de escalado de Linux | Microsoft Docs
+description: Obtenga información acerca de cómo usar el escalado automático con métricas de invitado en una plantilla de conjunto de escalado de máquinas virtuales de Linux
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: na
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781435"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Escalado automático con métricas de invitado en una plantilla de conjunto de escalado de Linux
 
@@ -186,6 +187,6 @@ Por último, agregue un recurso `autoscaleSettings` para configurar el escalado 
 
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

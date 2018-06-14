@@ -1,12 +1,12 @@
 ---
-title: "Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager | Microsoft Docs"
-description: "En este documento aprenderá cómo implementar AD FS en Azure para alta disponibilidad."
-keywords: "Ad fs con Azure Traffic Manager, adfs con Azure Traffic Manager, geográfico, centro de datos múltiples, centros de datos geográficos, centros de datos geográficos múltiples, implementar AD FS en azure, implementar azure adfs, azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs en azure, implementar adfs en azure, implementar AD FS en azure, adfs de azure, introducción a AD FS, Azure, ADFS en Azure, iaas, ADFS, mover ADFS a azure"
+title: Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager | Microsoft Docs
+description: En este documento aprenderá cómo implementar AD FS en Azure para alta disponibilidad.
+keywords: Ad fs con Azure Traffic Manager, adfs con Azure Traffic Manager, geográfico, centro de datos múltiples, centros de datos geográficos, centros de datos geográficos múltiples, implementar AD FS en azure, implementar azure adfs, azure adfs, azure ad fs, implementar adfs, implementar ad fs, adfs en azure, implementar adfs en azure, implementar AD FS en azure, adfs de azure, introducción a AD FS, Azure, ADFS en Azure, iaas, ADFS, mover ADFS a azure
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604786"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Implementación entre regiones geográficas de AD FS de alta disponibilidad en Azure con Azure Traffic Manager
 [Implementación de AD FS en Azure](active-directory-aadconnect-azure-adfs.md) proporciona instrucciones paso a paso sobre cómo implementar una infraestructura de AD FS sencilla para su organización en Azure. En este artículo se proporcionan los pasos para crear una implementación entre regiones geográficas de AD FS en Azure mediante [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager ayuda a crear una infraestructura de AD FS de alta disponibilidad y rendimiento, extendida geográficamente, para su organización mediante una serie de métodos de enrutamiento disponibles que satisfacen las distintas necesidades de la infraestructura.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367331"
 ---
 # <a name="azure-network-security-best-practices"></a>Procedimientos recomendados de seguridad de la red de Azure
 Microsoft Azure permite conectar máquinas virtuales y aplicaciones a otros dispositivos en red, colocándolos en instancias de Azure Virtual Network. Una instancia de Azure Virtual Network es una construcción que permite conectar tarjetas de interfaz de red virtual a una red virtual para posibilitar las comunicaciones basadas en TCP/IP entre dispositivos habilitados para red. Azure Virtual Machines conectadas a una instancia de Azure Virtual Network pueden conectarse a dispositivos en la misma instancia de Azure Virtual Network, distintas instancias de Azure Virtual Network, en Internet o, incluso, en sus propias redes locales.
