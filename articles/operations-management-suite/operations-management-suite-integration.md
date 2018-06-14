@@ -1,8 +1,8 @@
 ---
-title: "Integración con Operations Management Suite (OMS) | Microsoft Docs"
-description: "Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con OMS y vínculos a artículos que proporcionan información técnica detallada."
+title: Integración con Operations Management Suite (OMS) | Microsoft Docs
+description: Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con OMS y vínculos a artículos que proporcionan información técnica detallada.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039470"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integración con Operations Management Suite (OMS)
 Operations Management Suite es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube.  Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con vínculos y servicios de OMS que proporcionan información técnica detallada. 

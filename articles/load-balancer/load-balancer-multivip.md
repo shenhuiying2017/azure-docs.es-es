@@ -1,6 +1,6 @@
 ---
 title: Varias direcciones VIP para un servicio en la nube
-description: "Información general sobre multiVIP y cómo establecer varias direcciones VIP en un servicio en la nube"
+description: Información general sobre multiVIP y cómo establecer varias direcciones VIP en un servicio en la nube
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020850"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configuración de varias direcciones VIP para un servicio en la nube
 

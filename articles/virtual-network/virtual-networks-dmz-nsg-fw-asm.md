@@ -1,11 +1,11 @@
 ---
-title: "Ejemplo de red perimetral: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red | Microsoft Docs"
-description: "Creación de una red perimetral con un firewall y grupos de seguridad de red (NSG)"
+title: 'Ejemplo de red perimetral: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red | Microsoft Docs'
+description: Creación de una red perimetral con un firewall y grupos de seguridad de red (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126933"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]

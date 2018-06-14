@@ -1,11 +1,11 @@
 ---
-title: "Configuración de la tunelización forzada para conexiones de sitio a sitio de Azure: modelo clásico | Microsoft Docs"
-description: "Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local."
+title: 'Configuración de la tunelización forzada para conexiones de sitio a sitio de Azure: modelo clásico | Microsoft Docs'
+description: Cómo redirigir o forzar todo el tráfico vinculado a Internet a la ubicación local.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23123843"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuración de la tunelización forzada mediante el modelo de implementación clásica
 

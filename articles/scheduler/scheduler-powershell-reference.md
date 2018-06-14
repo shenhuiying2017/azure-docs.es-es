@@ -5,7 +5,7 @@ services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039840"
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>Referencia de cmdlets de PowerShell de Programador
 En la tabla siguiente aparece una descripción y vínculos a la página de referencia de cada uno de los cmdlets importantes de Programador de Azure.

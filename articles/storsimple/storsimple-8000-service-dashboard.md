@@ -1,12 +1,12 @@
 ---
 title: Uso del resumen del dispositivo de la serie StorSimple 8000 | Microsoft Docs
-description: "Describe la hoja del resumen del servicio de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple."
+description: Describe la hoja del resumen del servicio de StorSimple y explica cómo se usa para supervisar el estado de la solución de StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108213"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Uso de la hoja de resumen del servicio del dispositivo de la serie StorSimple 8000
 
