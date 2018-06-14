@@ -2,10 +2,10 @@
 title: Filtros de tema de Azure Service Bus | Microsoft Docs
 description: Filtros de temas de Azure Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198875"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros y acciones de temas
 
@@ -51,7 +52,7 @@ En la creación de particiones se usan filtros para distribuir los mensajes entr
 
 En el enrutamiento se usan filtros para distribuir los mensajes entre las suscripciones a temas de un modo predecible, pero no necesariamente exclusivo. Junto con la característica de [reenvío automático](service-bus-auto-forwarding.md), pueden usarse filtros de tema para crear gráficos complejos de enrutamiento dentro de un espacio de nombres de Service Bus para la distribución de mensajes dentro de una región de Azure. Con Azure Functions o Azure Logic Apps actuando como puente entre los espacios de nombres de Azure Service Bus, puede crear topologías globales complejas con integración directa en las aplicaciones de línea de negocio.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

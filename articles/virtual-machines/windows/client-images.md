@@ -1,11 +1,11 @@
 ---
-title: "Uso de imágenes de cliente de Windows en Azure | Microsoft Docs"
-description: "Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo/pruebas"
+title: Uso de imágenes de cliente de Windows en Azure | Microsoft Docs
+description: Cómo usar las ventajas para la suscripción de Visual Studio a fin de implementar Windows 7, Windows 8 o Windows 10 en Azure para escenarios de desarrollo/pruebas
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103683"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Uso del cliente Windows en Azure para escenarios de desarrollo y pruebas
 Puede usar Windows 7, Windows 8 o Windows 10 Enterprise (x64) en Azure para escenarios de desarrollo y pruebas siempre que tenga una suscripción adecuada a Visual Studio (anteriormente MSDN). En este artículo se describen los requisitos de idoneidad para ejecutar Windows 7, Windows 8.1 o Windows 10 Enterprise en Azure y usar las siguientes imágenes de la galería de Azure.
@@ -62,6 +63,6 @@ También puede ver el id. de la oferta en la pestaña ["Suscripciones"](http://a
 
 ![Detalles del id. de oferta desde el portal de la cuenta de Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora puede implementar las máquinas virtuales con [PowerShell](quick-create-powershell.md), [plantillas de Resource Manager](ps-template.md) o [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

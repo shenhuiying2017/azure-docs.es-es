@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069917"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas de inicio de sesión con un vínculo profundo en una aplicación
 

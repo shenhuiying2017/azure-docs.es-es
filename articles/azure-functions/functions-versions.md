@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las versiones de tiempo de ejecución de Azure Functions"
-description: "Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso."
+title: Introducción a las versiones de tiempo de ejecución de Azure Functions
+description: Azure Functions admite varias versiones del runtime. Conozca las diferencias entre ellas y cómo elegir la más adecuada en su caso.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919362"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Introducción a las versiones de tiempo de ejecución de Azure Functions
 
@@ -62,7 +63,7 @@ En la tabla siguiente se indica qué enlaces se admiten en cada versión de tiem
 
 Para información acerca de la compatibilidad con los enlaces y otros espacios funcionales en la versión 2.x, consulte los [problemas conocidos del Runtime 2.0](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Selección del destino de la versión 2.0 del runtime en el entorno de desarrollo local](functions-run-local.md)

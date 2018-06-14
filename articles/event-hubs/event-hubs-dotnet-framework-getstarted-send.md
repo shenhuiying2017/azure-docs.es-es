@@ -1,11 +1,11 @@
 ---
-title: "Envío de eventos a Azure Event Hubs mediante .NET Framework | Microsoft Docs"
-description: "Introducción al envío de eventos a Event Hubs mediante .NET Framework"
+title: Envío de eventos a Azure Event Hubs mediante .NET Framework | Microsoft Docs
+description: Introducción al envío de eventos a Event Hubs mediante .NET Framework
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984993"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Envío de eventos a Azure Event Hubs mediante .NET Framework
 
@@ -101,7 +102,7 @@ En esta sección se va escribir una aplicación de consola Windows que envía ev
   
 Felicidades. Ha enviado mensajes a un centro de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía datos, puede pasar a los siguientes escenarios:
 
 * [Recepción de eventos mediante el Host de procesador de eventos](event-hubs-dotnet-framework-getstarted-receive-eph.md)

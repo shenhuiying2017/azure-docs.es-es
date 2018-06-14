@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941135"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
 Ahora puede crear [conjuntos de escalado de máquinas virtuales](/azure/virtual-machine-scale-sets/) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 

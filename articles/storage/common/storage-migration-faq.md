@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071397"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Preguntas más frecuentes sobre la migración en Azure Storage
 

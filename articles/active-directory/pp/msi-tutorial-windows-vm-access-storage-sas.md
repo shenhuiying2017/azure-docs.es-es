@@ -1,8 +1,8 @@
 ---
-title: "Uso de una identidad MSI de máquina virtual Windows para acceder a Azure Storage con una credencial SAS"
-description: "Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento."
+title: Uso de una identidad MSI de máquina virtual Windows para acceder a Azure Storage con una credencial SAS
+description: Tutorial que muestra cómo utilizar Managed Service Identity (MSI) en una máquina virtual Windows para acceder a Azure Storage, mediante una credencial SAS en lugar de una clave de acceso de la cuenta de almacenamiento.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979993"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Uso de Managed Service Identity en una máquina virtual Windows para tener acceso a Azure Storage a través de una credencial SAS
 

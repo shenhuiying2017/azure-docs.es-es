@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33934537"
 abstract:
   description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio. Con nuestras guías de inicio rápido, tutoriales y ejemplos aprenderá a crear, asignar y administrar definiciones de directivas.
 sections:

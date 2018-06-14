@@ -1,12 +1,12 @@
 ---
 title: Requisitos del sistema de la serie StorSimple 8000 | Microsoft Docs
-description: "Describe los requisitos de software, redes y alta disponibilidad y procedimientos recomendados para una solución Microsoft Azure StorSimple."
+description: Describe los requisitos de software, redes y alta disponibilidad y procedimientos recomendados para una solución Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28011068"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de la serie StorSimple 8000, alta disponibilidad y requisitos de red
 
@@ -241,7 +242,7 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 * Configure StorSimple con [configuraciones de clúster de servidor de archivos de dos nodos][1]. Mediante la eliminación de puntos individuales de error y el aumento de la redundancia en el lado del host, la solución completa pasará a presentar una alta disponibilidad.
 * Use recursos compatibles de disponibilidad continua (CA) disponibles con Windows Server 2012 (SMB 3.0) para lograr una alta disponibilidad durante la conmutación por error de los controladores de almacenamiento. Para obtener información adicional para configurar los clústeres de servidores de archivos y de recursos compartidos disponibles continuamente con Windows Server 2012, consulte este [vídeo de demostración](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Obtenga más información acerca de los límites de StorSimple](storsimple-8000-limits.md).
 * [Obtenga más información sobre cómo implementar la solución StorSimple](storsimple-8000-deployment-walkthrough-u2.md).

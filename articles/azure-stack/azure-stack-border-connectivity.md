@@ -1,12 +1,12 @@
 ---
-title: "Consideraciones de integración de red de conectividad de borde para sistemas integrados de Azure Stack | Microsoft Docs"
-description: "Obtenga información acerca de lo que puede hacer para planear la conectividad de red de borde de centro de datos con Azure Stack de varios nodos."
+title: Consideraciones de integración de red de conectividad de borde para sistemas integrados de Azure Stack | Microsoft Docs
+description: Obtenga información acerca de lo que puede hacer para planear la conectividad de red de borde de centro de datos con Azure Stack de varios nodos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919441"
 ---
 # <a name="border-connectivity"></a>Conectividad de borde 
 El planeamiento de la integración de red es un requisito previo importante para la correcta implementación, operación y administración de sistemas integrados de Azure Stack. El planeamiento de conectividad de borde comienza con la elección de si se debe usar el enrutamiento dinámico con el protocolo de puerta de enlace de borde (BGP). Esto requiere la asignación de un número de sistema autónomo de BGP de 16 bits (público o privado) o el uso del enrutamiento estático, en el cual se asigna una ruta estática predeterminada a los dispositivos de borde.
@@ -59,5 +60,5 @@ Un proxy transparente (también conocido como proxy interceptor, alineado o forz
 
 ![Proxy transparente](media/azure-stack-border-connectivity/transparent-proxy.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Integración de DNS](azure-stack-integrate-dns.md)
