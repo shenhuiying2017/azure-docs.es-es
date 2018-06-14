@@ -1,6 +1,6 @@
 ---
-title: "Configuración del tiempo de espera de inactividad de TCP de Load Balancer | Microsoft Docs"
-description: "Configuración del tiempo de espera de inactividad de TCP de Load Balancer"
+title: Configuración del tiempo de espera de inactividad de TCP de Load Balancer | Microsoft Docs
+description: Configuración del tiempo de espera de inactividad de TCP de Load Balancer
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020910"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Modificación de la configuración de tiempo de espera de inactividad de TCP para Azure Load Balancer
 

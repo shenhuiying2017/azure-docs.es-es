@@ -1,11 +1,11 @@
 ---
-title: "Búsqueda de registros en Azure Security Center | Microsoft Docs"
-description: "Obtenga información acerca de cómo Azure Security Center usa la búsqueda de registros de Log Analytics para recuperar y analizar los datos de seguridad."
+title: Búsqueda de registros en Azure Security Center | Microsoft Docs
+description: Obtenga información acerca de cómo Azure Security Center usa la búsqueda de registros de Log Analytics para recuperar y analizar los datos de seguridad.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040440"
 ---
 # <a name="azure-security-center-search"></a>Búsqueda de registros en Azure Security Center
 Azure Security Center usa la [búsqueda de registros de Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar y analizar los datos de seguridad. Log Analytics incluye un lenguaje de consulta para recuperar y consolidar rápidamente los datos. En Security Center, puede aprovechar la búsqueda de registros de Log Analytics para la construcción de consultas y el análisis de los datos recopilados.

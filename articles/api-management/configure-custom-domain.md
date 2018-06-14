@@ -1,11 +1,11 @@
 ---
-title: "Configuración de un nombre de dominio personalizado para la instancia de API Management | Microsoft Docs"
-description: "En este tema, se explica cómo configurar un nombre de dominio personalizado para la instancia de Azure API Management."
+title: Configuración de un nombre de dominio personalizado para la instancia de API Management | Microsoft Docs
+description: En este tema, se explica cómo configurar un nombre de dominio personalizado para la instancia de Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29345377"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado 
 
@@ -62,6 +63,6 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Actualización y escalado del servicio](upgrade-and-scale.md)

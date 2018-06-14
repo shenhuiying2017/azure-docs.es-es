@@ -1,11 +1,11 @@
 ---
-title: "Administración de capturas de paquetes con Azure Network Watcher: API de REST | Microsoft Docs"
-description: "En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la API de REST de Azure"
+title: 'Administración de capturas de paquetes con Azure Network Watcher: API de REST | Microsoft Docs'
+description: En esta página se explica cómo administrar la característica de captura de paquetes de Network Watcher mediante la API de REST de Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23035370"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Administración de capturas de paquetes con Azure Network Watcher mediante la API de REST de Azure
 

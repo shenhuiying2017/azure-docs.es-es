@@ -1,5 +1,5 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: migración de blobs entre cuentas de almacenamiento mediante AzCopy en Windows | Documentos de Microsoft"
+title: 'Ejemplo de script de Azure PowerShell: migración de blobs entre cuentas de almacenamiento mediante AzCopy en Windows | Documentos de Microsoft'
 description: Con AzCopy se copia el contenido de Blob de una cuenta de Azure Storage a otra.
 services: storage
 documentationcenter: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "29360724"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Migración de blobs entre cuentas de almacenamiento mediante AzCopy en Windows
 
@@ -70,7 +71,7 @@ Este script usa los siguientes comandos para copiar datos de una cuenta de almac
 | [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Devuelve los contenedores de almacenamiento asociados con esta cuenta de Storage. |
 | [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Crea un contexto de Azure Storage. |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información sobre el módulo de Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
 

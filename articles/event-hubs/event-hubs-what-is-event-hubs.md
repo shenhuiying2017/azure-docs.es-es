@@ -1,12 +1,12 @@
 ---
-title: "¿Qué es Azure Event Hubs y por qué usarlo? | Microsoft Docs"
-description: "Información general e introducción a Azure Event Hubs: ingesta de telemetría de escala de nube desde sitios web, aplicaciones y dispositivos"
+title: ¿Qué es Azure Event Hubs y por qué usarlo? | Microsoft Docs
+description: 'Información general e introducción a Azure Event Hubs: ingesta de telemetría de escala de nube desde sitios web, aplicaciones y dispositivos'
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686912"
 ---
 # <a name="what-is-event-hubs"></a>¿Qué es Event Hubs?
 
@@ -48,7 +49,7 @@ Event Hubs ofrece los siguientes elementos clave:
 
 Para detalles técnicos sobre estas y otras características de Event Hubs, consulte [Event Hubs features overview](event-hubs-features.md) (Introducción a las características de Event Hubs). 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener información detallada sobre los precios de Event Hubs, consulte [Precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
