@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895652"
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>Requisitos de acceso físico para entornos compatibles con PCI DSS 
 ## <a name="pci-dss-requirement-9"></a>Requisito 9 de PCI DSS

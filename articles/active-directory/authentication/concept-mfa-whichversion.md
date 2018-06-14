@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866359"
 ---
 # <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Elección de la solución de Azure Multi-Factor Authentication más adecuada
 Puesto que existen varios modelos de Azure Multi-Factor Authentication (MFA), se debe responder primero a algunas preguntas para descubrir cuál es el más adecuado para usar.  Estas preguntas son:

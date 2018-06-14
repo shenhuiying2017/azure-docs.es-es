@@ -1,9 +1,9 @@
 ---
-title: "Conversión de una plantilla de conjunto de escalado de Azure Resource Manager para usar un disco administrado | Microsoft Docs"
-description: "Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado."
-keywords: "conjuntos de escalado de máquinas virtuales"
+title: Conversión de una plantilla de conjunto de escalado de Azure Resource Manager para usar un disco administrado | Microsoft Docs
+description: Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado.
+keywords: conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781078"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Conversión de una plantilla de conjunto de escalado en una plantilla de conjunto de escalado de un disco administrado
 
@@ -142,7 +143,7 @@ Si especifica `n` discos en esta matriz, cada máquina virtual del conjunto de e
 Para más información acerca del uso de discos de datos con conjuntos de escalado, consulte [este artículo](./virtual-machine-scale-sets-attached-disks.md).
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para las plantillas de Azure Resource Manager de ejemplo que usan conjuntos de escalado, busque "vmss" en el [repositorio de GitHub de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 
 Para obtener información general, consulte la [página de destino principal de los conjuntos de escalado](https://azure.microsoft.com/services/virtual-machine-scale-sets/).

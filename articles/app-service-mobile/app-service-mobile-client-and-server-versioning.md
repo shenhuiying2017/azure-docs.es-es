@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27593381"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Control de versiones de cliente y servidor en Mobile Apps y Mobile Services
 La versión más reciente de Azure Mobile Services es la característica **Mobile Apps** de Azure App Service.

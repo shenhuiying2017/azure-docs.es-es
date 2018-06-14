@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885275"
 ---
 # <a name="management-solutions-in-azure"></a>Soluciones de administración en Azure
 Las soluciones de administración aprovechan los servicios de Azure para proporcionar información adicional sobre el funcionamiento de una aplicación o servicio determinados. Este artículo proporciona una breve descripción de las soluciones de administración en Azure y los detalles sobre su uso e instalación.

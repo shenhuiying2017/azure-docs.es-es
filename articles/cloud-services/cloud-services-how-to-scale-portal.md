@@ -1,11 +1,11 @@
 ---
-title: "Escalar automáticamente un servicio en la nube en el portal | Microsoft Docs"
-description: "Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure."
+title: Escalar automáticamente un servicio en la nube en el portal | Microsoft Docs
+description: Obtenga información sobre cómo usar el portal para configurar reglas de escalado automático de un rol de trabajo o un rol web de servicio en la nube en Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27992279"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Procedimiento para configurar el escalado automático para un servicio en la nube en el Portal
 
