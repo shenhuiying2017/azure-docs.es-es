@@ -1,12 +1,12 @@
 ---
 title: Uso del SDK de .NET para trabajos de Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: "Obtenga información sobre cómo usar el SDK de .NET para iniciar trabajos de StorSimple Data Manager"
+description: Obtenga información sobre cómo usar el SDK de .NET para iniciar trabajos de StorSimple Data Manager
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27928243"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Uso del SDK de .NET para iniciar la transformación de datos
 
@@ -199,6 +200,6 @@ Realice los pasos siguientes si desea usar .NET para iniciar un trabajo de trans
 
  ![Fragmento de código completo para desencadenar un trabajo de .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Manage using the StorSimple Data Manager service UI](storsimple-data-manager-ui.md) (Administración del uso de la interfaz de usuario del servicio StorSimple Data Manager).

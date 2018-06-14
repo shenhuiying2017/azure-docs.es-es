@@ -1,11 +1,11 @@
 ---
-title: "Visualización y administración de alertas de Microsoft Azure StorSimple Virtual Array | Microsoft Docs"
-description: "Describe las condiciones de alerta y gravedad de la matriz virtual de StorSimple y cómo usar el servicio Administrador de StorSimple para administrar las alertas."
+title: Visualización y administración de alertas de Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+description: Describe las condiciones de alerta y gravedad de la matriz virtual de StorSimple y cómo usar el servicio Administrador de StorSimple para administrar las alertas.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27786414"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Use de StorSimple Device Manager para administrar alertas de la matriz virtual de StorSimple
 
@@ -164,7 +165,7 @@ Las siguientes tablas enumeran algunas de las alertas de StorSimple que pueden e
 |:--- |:--- |:--- |
 | La contraseña de <*nombre de dispositivo*> expirará en <*número*> días. |Advertencia de contraseña. |Su contraseña expirará en < número> días. Considere la posibilidad de cambiar la contraseña. Para obtener más información, consulte [Cambiar la contraseña del administrador de dispositivos de la matriz virtual de StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Obtenga más información sobre la matriz virtual de StorSimple](storsimple-ova-overview.md)
 

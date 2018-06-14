@@ -21,6 +21,7 @@ ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713423"
 ---
 # <a name="azure-powershell-samples"></a>Ejemplos de Azure PowerShell
 

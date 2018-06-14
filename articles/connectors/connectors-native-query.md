@@ -1,11 +1,11 @@
 ---
-title: "Adición de la acción de consulta a Logic Apps | Microsoft Docs"
-description: "En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como Filter array (Filtrar matriz)."
-services: 
-documentationcenter: 
+title: Adición de la acción de consulta a Logic Apps | Microsoft Docs
+description: En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como Filter array (Filtrar matriz).
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962652"
 ---
 # <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
@@ -79,6 +80,6 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 | --- | --- | --- |
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

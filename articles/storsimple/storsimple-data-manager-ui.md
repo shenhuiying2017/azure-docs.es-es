@@ -1,12 +1,12 @@
 ---
 title: Interfaz de usuario de Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: "Describe cómo se usa la interfaz de usuario del servicio StorSimple Data Manager."
+description: Describe cómo se usa la interfaz de usuario del servicio StorSimple Data Manager.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862264"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Administración del servicio StorSimple Data Manager en Azure Portal
 
@@ -159,6 +160,6 @@ Siempre que tenga que mover los datos de StorSimple a la cuenta de almacenamient
     ![Iniciar ejecución de trabajo 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Use the .Net SDK to initiate data transformation](storsimple-data-manager-dotnet-jobs.md) (Uso del SDK de .NET para iniciar la transformación de datos).

@@ -12,7 +12,7 @@ Use otras herramientas y servicios de Azure. Cuando el dispositivo se ha conecta
 | [Previsión meteorológica con datos del sensor][Weather_Forecast]      | Azure Machine Learning             |
 | [Detección de anomalías automática y reacción][Anomaly_Detect] | Azure Logic Apps                   |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Cuando se hayan completado estos tutoriales, puede explorar aún más las funcionalidades de IoT Hub mediante la [guía del desarrollador][lnk-dev-guide]. Puede encontrar más tutoriales en la sección [Cómo][lnk-how-to].
 

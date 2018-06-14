@@ -1,11 +1,11 @@
 ---
-title: "Protección de Virtual Machines en Azure Security Center | Microsoft Docs"
-description: "En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger las máquinas virtuales y a cumplir las directivas de seguridad."
+title: Protección de Virtual Machines en Azure Security Center | Microsoft Docs
+description: En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger las máquinas virtuales y a cumplir las directivas de seguridad.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27623505"
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protección de las máquinas virtuales en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios.  Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, redes, SQL y aplicaciones.

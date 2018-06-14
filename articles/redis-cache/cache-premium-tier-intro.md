@@ -1,11 +1,11 @@
 ---
-title: "Introducción al plan Premium de Azure Redis Cache | Microsoft Docs"
-description: "Aprenda a crear y a administrar la persistencia de Redis, la agrupación en clústeres de Redis y la compatibilidad de red virtual para las instancias de Azure Redis Cache de nivel Premium."
+title: Introducción al plan Premium de Azure Redis Cache | Microsoft Docs
+description: Aprenda a crear y a administrar la persistencia de Redis, la agrupación en clústeres de Redis y la compatibilidad de red virtual para las instancias de Azure Redis Cache de nivel Premium.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911210"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Introducción al nivel Premium de Azure Redis Cache
 Azure Redis Cache es una memoria caché distribuida y administrada que ayuda a compilar aplicaciones muy útiles y altamente escalables mediante el acceso ultrarrápido a los datos. 
@@ -93,7 +94,7 @@ Para más información, consulte [Configuración de replicación geográfica par
 ## <a name="to-scale-to-the-premium-tier"></a>Para escalar al nivel premium
 Para escalar al nivel premium, basta con elegir uno de los niveles premium en la hoja **Cambiar el plan de tarifa** . También puede escalar la memoria caché al nivel premium con PowerShell y la CLI. Para obtener instrucciones detalladas, consulte [Escalado de Azure Redis Cache](cache-how-to-scale.md) y [Automatización de una operación de escalado](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Cree una memoria caché y explore las nuevas características del nivel Premium.
 
 * [Cómo configurar la persistencia para una instancia Azure Redis Cache Premium](cache-how-to-premium-persistence.md)

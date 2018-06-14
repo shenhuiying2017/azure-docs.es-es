@@ -1,6 +1,6 @@
 ---
-title: "Habilitación de SSL de extremo a extremo en Azure Application Gateway | Microsoft Docs"
-description: "En esta página se proporciona información general sobre la compatibilidad de Application Gateway con el protocolo SSL de extremo a extremo."
+title: Habilitación de SSL de extremo a extremo en Azure Application Gateway | Microsoft Docs
+description: En esta página se proporciona información general sobre la compatibilidad de Application Gateway con el protocolo SSL de extremo a extremo.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704717"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Introducción a SSL de extremo a extremo con Application Gateway
 
