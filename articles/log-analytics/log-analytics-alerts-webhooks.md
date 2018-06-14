@@ -1,8 +1,8 @@
 ---
-title: "Ejemplo de acción de alerta de webhook en Log Analytics de OMS | Microsoft Docs"
-description: "Una de las acciones que puede ejecutar en respuesta a una alerta de Log Analytics es un *webhook*, que permite invocar un proceso externo a través de una sola solicitud HTTP. En este artículo, le guiaremos por un ejemplo en el que se creará una acción de webhook en una alerta de Log Analytics con Slack."
+title: Ejemplo de acción de alerta de webhook en Log Analytics de OMS | Microsoft Docs
+description: Una de las acciones que puede ejecutar en respuesta a una alerta de Log Analytics es un *webhook*, que permite invocar un proceso externo a través de una sola solicitud HTTP. En este artículo, le guiaremos por un ejemplo en el que se creará una acción de webhook en una alerta de Log Analytics con Slack.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020810"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Creación de una acción de alerta de webhook en Log Analytics de OMS para enviar mensajes a Slack
 Una de las acciones que puede ejecutar en respuesta a una [alerta de Log Analytics](log-analytics-alerts.md) es un *webhook*, que permite invocar un proceso externo a través de una sola solicitud HTTP.  En [Alerts in Log Analytics](log-analytics-alerts.md)

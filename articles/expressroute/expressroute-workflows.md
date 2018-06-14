@@ -1,11 +1,11 @@
 ---
 title: Flujo de trabajo para configurar un circuito ExpressRoute | Microsoft Docs
-description: "Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares"
+description: Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013130"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
 Esta página le guiará a través del aprovisionamiento de servicios y de los flujos de trabajo de configuración del enrutamiento a alto nivel.

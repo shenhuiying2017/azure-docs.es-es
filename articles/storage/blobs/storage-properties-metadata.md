@@ -1,8 +1,8 @@
 ---
-title: "Establecimiento y recuperación de propiedades y metadatos de objetos en Azure Storage | Microsoft Docs"
-description: "Almacenamiento de metadatos personalizados en los objetos de Almacenamiento de Azure y establecimiento y recuperación de propiedades del sistema."
+title: Establecimiento y recuperación de propiedades y metadatos de objetos en Azure Storage | Microsoft Docs
+description: Almacenamiento de metadatos personalizados en los objetos de Almacenamiento de Azure y establecimiento y recuperación de propiedades del sistema.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056060"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Establecimiento y recuperación de propiedades y metadatos
 
