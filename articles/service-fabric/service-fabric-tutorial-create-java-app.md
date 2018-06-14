@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949895"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Creación e implementación de una aplicación con un servicio front-end de Java Web API y un servicio back-end con estado
 Este tutorial es la primera parte de una serie. Cuando termine, tendrá una aplicación de votación con un front-end web de Java que guarda los resultados de la votación en un servicio back-end con estado del clúster. Esta serie de tutoriales requiere una máquina de desarrollador de Linux o Mac OSX en funcionamiento. Si no desea crear manualmente la aplicación de votación, puede [descargar el código fuente de la aplicación terminada](https://github.com/Azure-Samples/service-fabric-java-quickstart) y pasar directamente al [Tutorial de la aplicación de ejemplo de votación](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).

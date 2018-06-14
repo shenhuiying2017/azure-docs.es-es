@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845662"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Conexión de los roles de Azure Cloud Services a un controlador de dominio de AD personalizado que se hospeda en Azure
 En primer lugar, vamos a configurar una red virtual en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y los conectaremos al controlador de dominio.

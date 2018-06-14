@@ -1,12 +1,12 @@
 ---
-title: "Solución de problemas de conmutación por error en Azure | Microsoft Docs"
-description: "En este artículo se describe cómo solucionar problemas y errores comunes de la conmutación por error en Azure"
+title: Solución de problemas de conmutación por error en Azure | Microsoft Docs
+description: En este artículo se describe cómo solucionar problemas y errores comunes de la conmutación por error en Azure
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874366"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Solución de problemas y errores cuando una máquina virtual se conmuta por error en Azure
 Es posible que aparezca uno de los errores siguientes mientras se realiza la conmutación por error de una máquina virtual en Azure. Para solucionar los problemas, use los pasos que se describen para cada condición de error.

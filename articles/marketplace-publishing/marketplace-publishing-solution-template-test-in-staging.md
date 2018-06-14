@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937842"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Prueba de la oferta de plantilla de solución en ensayo
 En la etapa de ensayo se implementa la oferta en un “espacio aislado” privado, donde puede probar y comprobar su funcionalidad antes pasarla a producción. La oferta aparece en un entorno de ensayo tal y como lo haría para un cliente que la ha implementado. La oferta debe estar certificada para pasar a un entorno de ensayo.

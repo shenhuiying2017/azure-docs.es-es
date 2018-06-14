@@ -1,12 +1,12 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: calcular el tamaño del contenedor de blobs | Microsoft Docs"
-description: "Calcule el tamaño de un contenedor en Azure Blob Storage sumando el tamaño de los blobs del contenedor."
+title: 'Ejemplo de script de la CLI de Azure: calcular el tamaño del contenedor de blobs | Microsoft Docs'
+description: Calcule el tamaño de un contenedor en Azure Blob Storage sumando el tamaño de los blobs del contenedor.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847114"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>Cálculo del tamaño de un contenedor de Blob Storage
 

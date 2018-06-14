@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Cloud Shell | Microsoft Docs"
-description: "Introducción a Azure Cloud Shell."
-services: 
-documentationcenter: 
+title: Introducción a Azure Cloud Shell | Microsoft Docs
+description: Introducción a Azure Cloud Shell.
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29844112"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Introducción a Azure Cloud Shell
 Azure Cloud Shell es un shell interactivo, accesible desde el explorador, para administrar recursos de Azure.

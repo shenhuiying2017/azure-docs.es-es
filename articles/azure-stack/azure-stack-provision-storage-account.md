@@ -2,7 +2,7 @@
 title: Cuentas de almacenamiento en Azure Stack | Microsoft Azure
 description: Aprenda a crear una cuenta de almacenamiento en Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
 ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733730"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Cuentas de almacenamiento en Azure Stack
 Las cuentas de almacenamiento incluyen Blob service y Table service y el espacio de nombres único para los objetos de datos de almacenamiento. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta de almacenamiento.

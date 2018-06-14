@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29821052"
 ---
 En la _ventana del terminal local_, agregue una instancia remota de Azure al repositorio de Git local. Reemplace _&lt;deploymentLocalGitUrl-from-create-step>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de una aplicación web](#create).
 

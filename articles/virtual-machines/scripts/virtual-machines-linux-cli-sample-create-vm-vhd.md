@@ -1,13 +1,13 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: crear una máquina virtual con un disco duro virtual | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: crear una máquina virtual mediante un disco duro virtual."
+title: 'Ejemplo de script de la CLI de Azure: crear una máquina virtual con un disco duro virtual | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: crear una máquina virtual mediante un disco duro virtual.'
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849348"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Crear una máquina virtual con un disco duro virtual
 

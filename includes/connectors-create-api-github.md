@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: logic-apps
 author: MandiOhlinger
 ms.service: logic-apps
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29764201"
 ---
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica en blanco. 
 

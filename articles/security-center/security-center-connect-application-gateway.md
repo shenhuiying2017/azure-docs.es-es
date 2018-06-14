@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854287"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Conexión de Microsoft Azure Application Gateway con Azure Security Center
 Este documento le ayuda a configurar la integración del firewall de aplicaciones web de Application Gateway (WAF) y Security Center.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940048"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Requisitos previos generales para crear una oferta para Azure Marketplace
 Conozca los requisitos previos generales, centrados en procesos de negocio, que se necesitan para avanzar con el proceso de la creación de ofertas.

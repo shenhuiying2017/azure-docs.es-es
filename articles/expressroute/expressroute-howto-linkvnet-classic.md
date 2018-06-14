@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875004"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conexión de una red virtual a un circuito ExpressRoute mediante PowerShell (clásica)
 > [!div class="op_single_selector"]

@@ -1,12 +1,12 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: incorporación de una aplicación a Batch | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: incorporación de una aplicación a Batch"
+title: 'Ejemplo de script de la CLI de Azure: incorporación de una aplicación a Batch | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: incorporación de una aplicación a Batch'
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843109"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Ejemplo la CLI: incorporación de una aplicación en una cuenta de Azure Batch
 

@@ -1,12 +1,12 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: grupo de Linux en Batch | Microsoft Docs'
-description: "Ejemplo de script de la CLI de Azure: creación y administración de un grupo de Linux en Batch"
+description: 'Ejemplo de script de la CLI de Azure: creación y administración de un grupo de Linux en Batch'
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843381"
 ---
 # <a name="cli-example-create-and-manage-a-linux-pool-in-azure-batch"></a>Ejemplo de la CLI: creación y administración de un grupo de Linux en Azure Batch
 

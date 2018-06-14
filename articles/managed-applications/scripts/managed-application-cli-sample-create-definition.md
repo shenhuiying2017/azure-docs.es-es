@@ -1,6 +1,6 @@
 ---
-title: "Ejemplo de script de la CLI de Azure: creación de una definición de aplicación administrada | Microsoft Docs"
-description: "Ejemplo de script de la CLI de Azure: creación de una definición de aplicación administrada"
+title: 'Ejemplo de script de la CLI de Azure: creación de una definición de aplicación administrada | Microsoft Docs'
+description: 'Ejemplo de script de la CLI de Azure: creación de una definición de aplicación administrada'
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848090"
 ---
 # <a name="create-a-managed-application-definition-with-azure-cli"></a>Creación de una definición de aplicación administrada con la CLI de Azure
 
