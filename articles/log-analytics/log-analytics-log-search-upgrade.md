@@ -1,11 +1,11 @@
 ---
-title: "Actualización de Azure Log Analytics para la nueva búsqueda de registros | Microsoft Docs"
-description: "El nuevo lenguaje de consulta de Log Analytics ya casi está aquí, y puede participar en la versión preliminar pública.  En este artículo se describen las ventajas del nuevo lenguaje y cómo convertir el área de trabajo."
+title: Actualización de Azure Log Analytics para la nueva búsqueda de registros | Microsoft Docs
+description: El nuevo lenguaje de consulta de Log Analytics ya casi está aquí, y puede participar en la versión preliminar pública.  En este artículo se describen las ventajas del nuevo lenguaje y cómo convertir el área de trabajo.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983995"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Actualización de Azure Log Analytics para la nueva búsqueda de registros
 
@@ -95,7 +96,7 @@ Si ya está familiarizado con el lenguaje de consulta heredado de Log Analytics,
 ![Convertidor de lenguaje](media/log-analytics-log-search-upgrade/language-converter.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Consulte un [tutorial sobre el nuevo lenguaje](https://go.microsoft.com/fwlink/?linkid=856078).
 - Consulte un [tutorial sobre cómo usar el portal de la búsqueda de registros](log-analytics-log-search-log-search-portal.md) con el nuevo lenguaje de consulta.
 - Obtenga una introducción al nuevo [Portal de análisis avanzado](https://go.microsoft.com/fwlink/?linkid=856587).

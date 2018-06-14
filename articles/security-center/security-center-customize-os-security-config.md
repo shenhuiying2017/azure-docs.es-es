@@ -1,12 +1,12 @@
 ---
-title: "Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar) | Microsoft Docs"
-description: "En este artículo se muestra cómo personalizar las valoraciones del centro de seguridad."
+title: Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar) | Microsoft Docs
+description: En este artículo se muestra cómo personalizar las valoraciones del centro de seguridad.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200017"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar las configuraciones de seguridad del sistema operativo en Azure Security Center (versión preliminar)
 
@@ -316,7 +317,7 @@ Si no tiene permisos suficientes, puede que reciba un error general tal como se 
 
 ![Mensaje de error "Error durante el proceso de guardado"](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este artículo se ha mostrado cómo personalizar las valoraciones de configuración de seguridad del sistema operativo en Security Center. Para más información sobre las reglas de configuración y la corrección, consulte:
 
 - [Security Center Common Configuration Identifiers and Baseline Rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) (Identificadores y reglas de línea de base comunes de configuración de Security Center).

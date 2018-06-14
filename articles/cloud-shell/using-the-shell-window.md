@@ -1,12 +1,12 @@
 ---
 title: Usar la ventana Azure Cloud Shell | Microsoft Docs
-description: "Información general sobre cómo usar la ventana Azure Cloud Shell."
+description: Información general sobre cómo usar la ventana Azure Cloud Shell.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28920001"
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Uso de la ventana Azure Cloud Shell
 
@@ -61,7 +62,7 @@ Si sale de una sesión, asegúrese de salir de cada ventana de sesión, ya que c
 ## <a name="exit-command"></a>Comando Exit
 Al ejecutar `exit` se terminará la sesión activa. Este comportamiento se produce de forma predeterminada después de 20 minutos sin interacción.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)
 [Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md)

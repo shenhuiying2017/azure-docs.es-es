@@ -1,8 +1,8 @@
 ---
-title: "Movimiento de grandes cantidades de datos desde el almacenamiento en la nube y hacia él en Azure | Microsoft Docs"
-description: "Información general sobre los distintos métodos de mover los datos hacia Azure Storage y desde él."
+title: Movimiento de grandes cantidades de datos desde el almacenamiento en la nube y hacia él en Azure | Microsoft Docs
+description: Información general sobre los distintos métodos de mover los datos hacia Azure Storage y desde él.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984602"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movimiento de datos hacia y desde Azure Storage
 Si desea mover los datos locales a Azure Storage (o viceversa), hay varias maneras de hacerlo. El método que le resulte más adecuado dependerá de su escenario. Este artículo ofrece una breve descripción de diferentes escenarios y ofertas adecuadas para cada uno.
