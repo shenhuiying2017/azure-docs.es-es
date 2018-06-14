@@ -1,10 +1,10 @@
 ---
-title: "Activación de la sincronización sin conexión para una aplicación móvil de Azure (Cordova) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar la aplicación móvil de Servicios de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Cordova"
+title: Activación de la sincronización sin conexión para una aplicación móvil de Azure (Cordova) | Microsoft Docs
+description: Obtenga información acerca de cómo usar la aplicación móvil de Servicios de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Cordova
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593721"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activación de la sincronización sin conexión para una aplicación móvil Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -189,7 +190,7 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 * [Sincronización de datos sin conexión en Azure Mobile Apps]
 * [Visual Studio Tools para Apache Cordova]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Examine características de sincronización sin conexión más avanzadas, como la resolución de conflictos, en el [ejemplo de sincronización sin conexión]
 * Examine la referencia de API de sincronización sin conexión en la [documentación de la API](https://azure.github.io/azure-mobile-apps-js-client).
 
