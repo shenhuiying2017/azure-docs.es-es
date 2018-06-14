@@ -1,11 +1,11 @@
 ---
-title: "Introducción al SDK de red CDN de Azure para Node.js | Microsoft Docs"
+title: Introducción al SDK de red CDN de Azure para Node.js | Microsoft Docs
 description: Aprenda a escribir aplicaciones Node.js para administrar la red CDN de Azure.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998390"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 > [!div class="op_single_selector"]

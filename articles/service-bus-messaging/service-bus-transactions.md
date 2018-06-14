@@ -1,11 +1,11 @@
 ---
-title: "Introducción al procesamiento de transacciones en Azure Service Bus| Microsoft Docs"
-description: "Información general sobre las transacciones atómicas de Azure Service Bus y la característica \"enviar por\""
+title: Introducción al procesamiento de transacciones en Azure Service Bus| Microsoft Docs
+description: Información general sobre las transacciones atómicas de Azure Service Bus y la característica "enviar por"
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558948"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones de Service Bus
 
@@ -76,7 +77,7 @@ using (scope = new TransactionScope())
 } 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte los siguientes artículos para más información sobre las colas de Service Bus:
 

@@ -1,11 +1,11 @@
 ---
-title: "Habilitación del cifrado de datos transparente para Stretch Database: Azure | Microsoft Docs"
-description: "Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure"
+title: 'Habilitación del cifrado de datos transparente para Stretch Database: Azure | Microsoft Docs'
+description: Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
 ms.service: sql-server-stretch-database
 ms.workload: data-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23055360"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure
 > [!div class="op_single_selector"]
