@@ -1,11 +1,11 @@
 ---
-title: "Actualización al nivel Estándar de Security Center para mejorar la seguridad | Microsoft Docs"
-description: "En este artículo se ofrece información sobre los precios de Azure Security Center."
+title: Actualización al nivel Estándar de Security Center para mejorar la seguridad | Microsoft Docs
+description: En este artículo se ofrece información sobre los precios de Azure Security Center.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23473947"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar de Security Center para mejorar la seguridad
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
