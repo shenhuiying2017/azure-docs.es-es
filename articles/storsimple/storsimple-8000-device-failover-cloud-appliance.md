@@ -1,12 +1,12 @@
 ---
-title: "Conmutación por error y recuperación ante desastres de StorSimple en un dispositivo StorSimple Cloud Appliance | Microsoft Docs"
-description: "Aprenda a conmutar por error el dispositivo físico de la serie StorSimple 8000 a un dispositivo de nube."
+title: Conmutación por error y recuperación ante desastres de StorSimple en un dispositivo StorSimple Cloud Appliance | Microsoft Docs
+description: Aprenda a conmutar por error el dispositivo físico de la serie StorSimple 8000 a un dispositivo de nube.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108333"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Conmutación por error a StorSimple Cloud Appliance
 

@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión de las actualizaciones de la matriz virtual de StorSimple | Microsoft Docs"
-description: "Describe los problemas críticos por resolver y las soluciones de la matriz virtual de StorSimple que ejecuta la actualización 0.3."
+title: Notas de la versión de las actualizaciones de la matriz virtual de StorSimple | Microsoft Docs
+description: Describe los problemas críticos por resolver y las soluciones de la matriz virtual de StorSimple que ejecuta la actualización 0.3.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: b197651a-3c40-4185-b23d-4c8f22cfa8f4
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109343"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notas de la versión de Update 0.3 de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general

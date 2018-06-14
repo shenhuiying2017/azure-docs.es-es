@@ -1,12 +1,12 @@
 ---
-title: "Notas de la versión de StorSimple Virtual Array Update 0.4 | Microsoft Docs"
-description: "Describe los problemas críticos por resolver y las soluciones de StorSimple Virtual Array que ejecuta Update 0.4."
+title: Notas de la versión de StorSimple Virtual Array Update 0.4 | Microsoft Docs
+description: Describe los problemas críticos por resolver y las soluciones de StorSimple Virtual Array que ejecuta Update 0.4.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110603"
 ---
 # <a name="storsimple-virtual-array-update-04-release-notes"></a>Notas de la versión de Update 0.4 de la matriz virtual de StorSimple
 

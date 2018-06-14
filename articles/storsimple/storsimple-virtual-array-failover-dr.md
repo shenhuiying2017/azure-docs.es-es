@@ -1,11 +1,11 @@
 ---
-title: "Recuperación ante desastres y conmutación por error de dispositivos para StorSimple Virtual Array | Microsoft Docs"
-description: "Obtenga más información sobre cómo conmutar por error la matriz virtual de StorSimple."
+title: Recuperación ante desastres y conmutación por error de dispositivos para StorSimple Virtual Array | Microsoft Docs
+description: Obtenga más información sobre cómo conmutar por error la matriz virtual de StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110753"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
 

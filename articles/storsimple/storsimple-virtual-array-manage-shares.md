@@ -1,11 +1,11 @@
 ---
-title: "Administración de recursos compartidos de StorSimple Virtual Array | Microsoft Docs"
-description: "Describe el servicio StorSimple Device Manager y explica cómo usarlo para administrar recursos compartidos en StorSimple Virtual Array."
+title: Administración de recursos compartidos de StorSimple Virtual Array | Microsoft Docs
+description: Describe el servicio StorSimple Device Manager y explica cómo usarlo para administrar recursos compartidos en StorSimple Virtual Array.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 0a799c83-fde5-4f3f-af0e-67535d1882b6
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110593"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Device Manager para administrar recursos compartidos en StorSimple Virtual Array
 

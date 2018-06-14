@@ -1,11 +1,11 @@
 ---
-title: "Planeamiento y diseño de conexiones entre sitios locales: Azure VPN Gateway | Microsoft Docs"
-description: "Obtenga información acerca del planeamiento y diseño de VPN Gateway para conexiones entre sitios locales, híbridos y entre redes virtuales"
+title: 'Planeamiento y diseño de conexiones entre sitios locales: Azure VPN Gateway | Microsoft Docs'
+description: Obtenga información acerca del planeamiento y diseño de VPN Gateway para conexiones entre sitios locales, híbridos y entre redes virtuales
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125483"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>Planeamiento y diseño de VPN Gateway
 

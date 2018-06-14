@@ -1,12 +1,12 @@
 ---
 title: Componentes de hardware de la serie StorSimple 8000 y su estado | Microsoft Docs
-description: "Aprenda a supervisar los componentes de hardware del dispositivo StorSimple a través del servicio StorSimple Device Manager."
+description: Aprenda a supervisar los componentes de hardware del dispositivo StorSimple a través del servicio StorSimple Device Manager.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110063"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar el servicio StorSimple Device Manager para supervisar componentes y estados de hardware
 ## <a name="overview"></a>Información general

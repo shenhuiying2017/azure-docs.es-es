@@ -1,11 +1,11 @@
 ---
 title: Perfiles anidados de Traffic Manager | Microsoft Docs
-description: "En este artículo se explica la característica \"Perfiles anidados\" del Administrador de tráfico de Azure."
+description: En este artículo se explica la característica "Perfiles anidados" del Administrador de tráfico de Azure.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111703"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Perfiles anidados del Administrador de tráfico
 
