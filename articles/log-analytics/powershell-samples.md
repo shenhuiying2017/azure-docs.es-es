@@ -2,12 +2,12 @@
 title: Ejemplos de PowerShell en Azure Log Analytics | Microsoft Docs
 description: Ejemplos de PowerShell en Azure Log Analytics
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021080"
 ---
 # <a name="azure-log-analytics-powershell-samples"></a>Ejemplos de PowerShell en Azure Log Analytics
 
