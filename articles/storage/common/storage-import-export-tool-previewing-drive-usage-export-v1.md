@@ -1,11 +1,11 @@
 ---
-title: "Vista previa de uso de disco para un trabajo de exportación de Azure Import/Export (versión 1) | Microsoft Docs"
-description: "Obtenga información sobre cómo conseguir una vista previa de la lista de blobs que ha seleccionado para un trabajo de exportación en el servicio Azure Import/Export."
+title: Vista previa de uso de disco para un trabajo de exportación de Azure Import/Export (versión 1) | Microsoft Docs
+description: Obtenga información sobre cómo conseguir una vista previa de la lista de blobs que ha seleccionado para un trabajo de exportación en el servicio Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059300"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Vista previa de uso de disco para un trabajo de exportación
 Antes de crear un trabajo de exportación, debe elegir un conjunto de blobs que se van a exportar. El servicio Microsoft Azure Import/Export permite usar una lista de rutas de acceso de blob o prefijos de blob para representar los blobs que ha seleccionado.  

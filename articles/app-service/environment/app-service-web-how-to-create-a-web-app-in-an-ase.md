@@ -1,11 +1,11 @@
 ---
-title: "Creación de una aplicación web en una instancia de App Service Environment v1"
+title: Creación de una aplicación web en una instancia de App Service Environment v1
 description: Aprenda a crear aplicaciones web y planes de App Service en una instancia de App Service Environment v1
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386918"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creación de una aplicación web en una instancia de App Service Environment v1
 

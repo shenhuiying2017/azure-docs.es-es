@@ -1,11 +1,11 @@
 ---
-title: "Análisis de estadísticas de uso con los informes de HTTP avanzados de la red CDN de Azure | Microsoft Docs"
-description: "Aprenda a crear informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN."
+title: Análisis de estadísticas de uso con los informes de HTTP avanzados de la red CDN de Azure | Microsoft Docs
+description: Aprenda a crear informes de HTTP avanzados en la red CDN de Microsoft Azure. Estos informes proporcionan información detallada sobre la actividad de la red CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999040"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Análisis de estadísticas de uso con los informes de HTTP avanzados de la red CDN de Azure
 ## <a name="overview"></a>Información general

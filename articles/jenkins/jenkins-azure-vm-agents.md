@@ -1,8 +1,8 @@
 ---
-title: "Escale las implementaciones de Jenkins con agentes de máquina virtual de Azure."
-description: "Agregue una funcionalidad adicional a las canalizaciones de Jenkins mediante Azure Virtual Machines con el complemento de agente de máquina virtual de Azure."
+title: Escale las implementaciones de Jenkins con agentes de máquina virtual de Azure.
+description: Agregue una funcionalidad adicional a las canalizaciones de Jenkins mediante Azure Virtual Machines con el complemento de agente de máquina virtual de Azure.
 services: multiple
-documentationcenter: 
+documentationcenter: ''
 author: rloutlaw
 manager: justhe
 ms.service: multiple
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29392647"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Escalado de las implementaciones de Jenkins para satisfacer la demanda con agentes de máquina virtual de Azure
 
@@ -142,7 +143,7 @@ Seleccione **Verify Template** (Verificar plantilla) para verificar la configura
 
 ![Salida de consola](./media/jenkins-azure-vm-agents/console-output.png)
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [CI/CD en Azure App Service](java-deploy-webapp-tutorial.md)

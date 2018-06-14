@@ -1,11 +1,11 @@
 ---
-title: "Ejemplos de configuración de enrutadores de cliente ExpressRoute | Microsoft Docs"
-description: "Esta página ofrece ejemplos de configuración de enrutador para enrutadores Cisco y Juniper."
+title: Ejemplos de configuración de enrutadores de cliente ExpressRoute | Microsoft Docs
+description: Esta página ofrece ejemplos de configuración de enrutador para enrutadores Cisco y Juniper.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 564826bc-017a-4683-a385-37c9fa814948
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013110"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Ejemplos de configuración de enrutadores para configurar y administrar enrutamiento
 Esta página ofrece ejemplos de configuración de enrutamiento e interfaces para enrutadores Cisco serie IOS-XE y Juniper serie MX. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 

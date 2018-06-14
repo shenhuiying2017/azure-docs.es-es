@@ -2,11 +2,11 @@
 title: Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack | Microsoft Docs
 description: Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388590"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamiento de la capacidad de los roles de servidor de Azure App Service en Azure Stack
 *Se aplica a: sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
@@ -99,6 +100,6 @@ En entornos de producción, el rol de servidor de archivos experimenta una inten
 - clúster de servidor de archivos
 - Dispositivo NAS (almacenamiento conectado a la red). Para más información, consulte [Aprovisionamiento de un servidor de archivos](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Antes de empezar a trabajar con App Service en Azure Stack](azure-stack-app-service-before-you-get-started.md)

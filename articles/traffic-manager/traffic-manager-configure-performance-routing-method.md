@@ -1,11 +1,11 @@
 ---
-title: "Configuración del método de enrutamiento del tráfico de rendimiento con Azure Traffic Manager | Microsoft Docs"
-description: "En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico al punto de conexión con latencia más baja."
+title: Configuración del método de enrutamiento del tráfico de rendimiento con Azure Traffic Manager | Microsoft Docs
+description: En este artículo se explica cómo configurar Traffic Manager para enrutar el tráfico al punto de conexión con latencia más baja.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110663"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configuración del método de enrutamiento del tráfico de rendimiento
 

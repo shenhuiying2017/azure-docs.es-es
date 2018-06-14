@@ -1,13 +1,13 @@
 ---
-title: "Migración de las redes virtuales asociadas de ExpressRoute del modelo clásico a Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "En esta página se describe cómo migrar las redes virtuales asociadas a Resource Manager después de mover el circuito."
+title: 'Migración de las redes virtuales asociadas de ExpressRoute del modelo clásico a Azure Resource Manager: PowerShell | Microsoft Docs'
+description: En esta página se describe cómo migrar las redes virtuales asociadas a Resource Manager después de mover el circuito.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013210"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migración de las redes virtuales asociadas de ExpressRoute del portal clásico a Resource Manager
 

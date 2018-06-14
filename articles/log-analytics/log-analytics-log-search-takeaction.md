@@ -1,12 +1,12 @@
 ---
-title: "Acción de runbook de Azure Automation iniciada por el usuario en Log Analytics | Microsoft Docs"
-description: "En este artículo se describe cómo ejecutar un runbook de Automation desde un resultado de búsqueda de Log Analytics a petición."
+title: Acción de runbook de Azure Automation iniciada por el usuario en Log Analytics | Microsoft Docs
+description: En este artículo se describe cómo ejecutar un runbook de Automation desde un resultado de búsqueda de Log Analytics a petición.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394622"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar acciones con un runbook de Automation desde un resultado de búsqueda de registros de Log Analytics
 
@@ -47,7 +48,7 @@ Para realizar acciones en un evento e iniciar un runbook desde los resultados de
 
 Si selecciona un runbook que estaba configurado para que [se llame desde una alerta de Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), tendrá un parámetro de entrada denominado **WebhookData** de tipo **Object**.  Si el parámetro de entrada es obligatorio, debe pasar los resultados de la búsqueda al runbook para que pueda convertir la cadena con formato JSON en un tipo de objeto, lo que le permitirá filtrar los elementos específicos a los que hará referencia en las actividades de runbook.  Para ello, seleccione **Search result (Object)** (Resultado de búsqueda (objeto)) en la lista desplegable.<br><br> ![Seleccionar el objeto de datos de webhook para el parámetro de runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Revise la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md) para ver todos los campos de búsqueda y las facetas disponibles en Log Analytics.
 * Para obtener información sobre cómo invocar un runbook de Automation de manera automática, vea [Llamada a un runbook de Azure Automation desde una alerta de Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  

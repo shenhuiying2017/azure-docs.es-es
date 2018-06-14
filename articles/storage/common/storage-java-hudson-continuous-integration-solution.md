@@ -1,6 +1,6 @@
 ---
 title: Uso de Hudson con Blob Storage | Microsoft Docs
-description: "Describe cómo usar Hudson con almacenamiento de blobs de Azure como un repositorio para artefactos de compilación."
+description: Describe cómo usar Hudson con almacenamiento de blobs de Azure como un repositorio para artefactos de compilación.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060130"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso del almacenamiento de Azure con una solución de integración continua Hudson
 ## <a name="overview"></a>Información general
@@ -148,7 +149,7 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados por el servicio BLOB
 A continuación se ofrece información general acerca de los componentes del servicio BLOB.
 
-* **Cuenta de almacenamiento:**todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
+* **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
 * **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
 * **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de dirección URL**: los blobs son direccionables con el siguiente formato de dirección URL:

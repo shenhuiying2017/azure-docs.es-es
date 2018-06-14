@@ -1,11 +1,11 @@
 ---
-title: "Conexión de una red virtual a otra mediante una conexión entre redes virtuales: CLI de Azure | Microsoft Docs"
-description: "Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure."
+title: 'Conexión de una red virtual a otra mediante una conexión entre redes virtuales: CLI de Azure | Microsoft Docs'
+description: Conecte redes virtuales entre sí mediante una conexión entre redes virtuales y la CLI de Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400324"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configuración de una conexión de puerta de enlace de VPN de red virtual a red virtual mediante la CLI de Azure
 
@@ -381,7 +382,7 @@ Este paso se divide en dos sesiones de la CLI marcadas como **[Suscripción 1]**
 ## <a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Para más información, consulte la [documentación sobre máquinas virtuales](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md).

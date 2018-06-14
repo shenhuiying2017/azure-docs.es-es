@@ -1,11 +1,11 @@
 ---
-title: "Problemas de inicio de sesión en una aplicación de Microsoft | Microsoft Docs"
-description: "Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones propias de Microsoft mediante Azure AD (por ejemplo, Office 365)"
+title: Problemas de inicio de sesión en una aplicación de Microsoft | Microsoft Docs
+description: Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones propias de Microsoft mediante Azure AD (por ejemplo, Office 365)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384235"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -524,6 +525,6 @@ El acceso a la aplicación se puede bloquear porque no se haya producido la oper
 
 -   También puede exigir que se produzca este consentimiento de nivel de administrador si sigue las instrucciones que aparecen en la sección **Solicitud de los permisos de un administrador de directorios** de [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Uso del punto de conexión de consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

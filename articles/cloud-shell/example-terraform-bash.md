@@ -1,8 +1,8 @@
 ---
-title: "Implementación con Terraform de Bash en Azure Cloud Shell | Microsoft Docs"
-description: "Implementación con Terraform de Bash en Azure Cloud Shell"
+title: Implementación con Terraform de Bash en Azure Cloud Shell | Microsoft Docs
+description: Implementación con Terraform de Bash en Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386527"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Implementación con Terraform de Bash en Azure Cloud Shell
 Este artículo le guía en la creación de un grupo de recursos con el [proveedor de AzureRM de Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 
@@ -186,6 +187,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Ha creado correctamente un recurso de Azure a través de Terraform. Consulte los pasos siguientes para seguir aprendiendo acerca de Cloud Shell.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Más información sobre el proveedor de Terraform de Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Guía de inicio rápido de Bash en Cloud Shell](quickstart.md)

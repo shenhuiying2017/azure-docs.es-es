@@ -1,10 +1,10 @@
 ---
-title: "Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1"
-description: "Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1"
+title: Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
+description: Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 services: app-service\web
 documentationcenter: .net
 author: chrissfanos
-editor: 
+editor: ''
 ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
 ms.service: app-service
 ms.devlang: multiple
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986580"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 ## <a name="overview"></a>Información general

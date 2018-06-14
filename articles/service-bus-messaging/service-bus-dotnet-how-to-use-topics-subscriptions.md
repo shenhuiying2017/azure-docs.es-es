@@ -1,12 +1,12 @@
 ---
-title: "Introducción a los temas y las suscripciones de Azure Service Bus | Microsoft Docs"
-description: "Escriba una aplicación de consola de .NET Core en C# que use los temas y las suscripciones de mensajería de Service Bus."
+title: Introducción a los temas y las suscripciones de Azure Service Bus | Microsoft Docs
+description: Escriba una aplicación de consola de .NET Core en C# que use los temas y las suscripciones de mensajería de Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396948"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introducción a las colas de Service Bus
 
@@ -426,7 +427,7 @@ Para recibir los mensajes que acaba de enviar, cree otra aplicación de consola 
 
 Felicidades. Con la biblioteca estándar. NET, ahora ha creado un tema y una suscripción, y enviado y recibido diez mensajes.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure/azure-service-bus/tree/master/samples), donde se muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 

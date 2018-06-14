@@ -1,11 +1,11 @@
 ---
-title: "Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto | Microsoft Docs"
-description: "En esta página se describe cómo utilizar herramientas de código abierto para visualizar los registros de flujo de grupo de seguridad de red."
+title: Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto | Microsoft Docs
+description: En esta página se describe cómo utilizar herramientas de código abierto para visualizar los registros de flujo de grupo de seguridad de red.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394177"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto
 
@@ -241,7 +242,7 @@ Mediante la barra de consulta en la parte superior del panel, puede filtrar el p
 
 Al combinar los registros de flujo de grupo de seguridad de red con Elastic Stack, dispone de una forma eficaz y personalizable para visualizar el tráfico de red. Estos paneles permiten obtener y compartir rápidamente información detallada sobre el tráfico de red, así como filtrar e investigar cualquier posible anomalía. Con Kibana, puede personalizar estos paneles y crear visualizaciones específicas para satisfacer las necesidades de seguridad, cumplimiento y auditoría.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Aprenda a visualizar los registros de flujo de grupo de seguridad de red con Power BI en el artículo [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualización de registros de flujo de grupo de seguridad de red con Power BI).
 

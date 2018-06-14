@@ -1,8 +1,8 @@
 ---
-title: "Configuración de la autenticación mutua de TLS para una aplicación web"
-description: "Aprenda a configurar la aplicación web para que use la autenticación de certificado de cliente en TLS."
+title: Configuración de la autenticación mutua de TLS para una aplicación web
+description: Aprenda a configurar la aplicación web para que use la autenticación de certificado de cliente en TLS.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985770"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Configuración de la autenticación mutua de TLS para una aplicación web
 ## <a name="overview"></a>Información general

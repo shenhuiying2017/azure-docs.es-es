@@ -1,11 +1,11 @@
 ---
-title: "Creación e implementación de un servicio en la nube | Microsoft Docs"
+title: Creación e implementación de un servicio en la nube | Microsoft Docs
 description: Aprenda a crear e implementar un servicio en la nube mediante el Portal de Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388091"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
 Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
@@ -91,7 +92,7 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Configuración de un [nombre de dominio personalizado](cloud-services-custom-domain-name-portal.md).
 * [Administración de su servicio en la nube](cloud-services-how-to-manage-portal.md).

@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la biblioteca de la red CDN de Azure para .NET | Microsoft Docs"
+title: Introducción a la biblioteca de la red CDN de Azure para .NET | Microsoft Docs
 description: Aprenda a escribir aplicaciones .NET para administrar la red CDN de Azure con Visual Studio.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "22998180"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 > [!div class="op_single_selector"]

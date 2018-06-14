@@ -1,11 +1,11 @@
 ---
-title: "Protección de las aplicaciones en Azure Security Center | Microsoft Docs"
-description: "En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger los recursos de Azure y a cumplir las directivas de seguridad."
+title: Protección de las aplicaciones en Azure Security Center | Microsoft Docs
+description: En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger los recursos de Azure y a cumplir las directivas de seguridad.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040230"
 ---
 # <a name="protecting-your-applications-in-azure-security-center"></a>Protección de las aplicaciones en Azure Security Center
 El Centro de seguridad de Azure analiza el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios.  Las recomendaciones se aplican a los tipos de recursos de Azure: máquinas virtuales, redes, SQL y aplicaciones.

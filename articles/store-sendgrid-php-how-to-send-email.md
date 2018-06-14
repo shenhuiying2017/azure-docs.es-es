@@ -1,8 +1,8 @@
 ---
-title: "Uso del servicio de correo electrónico SendGrid (PHP) | Microsoft Docs"
-description: "Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en PHP."
+title: Uso del servicio de correo electrónico SendGrid (PHP) | Microsoft Docs
+description: Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos en PHP.
 documentationcenter: php
-services: 
+services: ''
 manager: sendgrid
 editor: mollybos
 author: thinkingserious
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059930"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Uso del servicio de correo electrónico SendGrid desde PHP
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en PHP.

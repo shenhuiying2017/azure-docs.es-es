@@ -1,6 +1,6 @@
 ---
 title: 'Amenazas: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
-description: "Página de categorías de amenazas de Microsoft Threat Modeling Tool, que contiene categorías para todas las amenazas generadas expuestas."
+description: Página de categorías de amenazas de Microsoft Threat Modeling Tool, que contiene categorías para todas las amenazas generadas expuestas.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043310"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Amenazas de Microsoft Threat Modeling Tool
 

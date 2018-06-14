@@ -1,11 +1,11 @@
 ---
-title: "Configuración de una matriz virtual de StorSimple como servidor de archivos | Microsoft Docs"
-description: "En este tercer tutorial sobre la implementación de matrices virtuales StorSimple se enseña a configurar un dispositivo virtual como servidor de archivos."
+title: Configuración de una matriz virtual de StorSimple como servidor de archivos | Microsoft Docs
+description: En este tercer tutorial sobre la implementación de matrices virtuales StorSimple se enseña a configurar un dispositivo virtual como servidor de archivos.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111853"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Implementación de una matriz virtual de StorSimple: configurar un servidor de archivos mediante Azure Portal
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

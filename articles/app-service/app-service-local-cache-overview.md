@@ -1,13 +1,13 @@
 ---
-title: "Información general de la caché local de Azure App Service | Microsoft Docs"
-description: "En este artículo se describe cómo habilitar, cambiar el tamaño y consultar el estado de la característica de caché local del Servicio de aplicaciones de Azure"
+title: Información general de la caché local de Azure App Service | Microsoft Docs
+description: En este artículo se describe cómo habilitar, cambiar el tamaño y consultar el estado de la característica de caché local del Servicio de aplicaciones de Azure
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985950"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Información general de caché local del Servicio de aplicaciones de Azure
 El contenido de una aplicación web de Azure se almacena en Almacenamiento de Azure y surge de manera duradera como un recurso compartido de contenido. Este diseño está pensado para trabajar con una amplia gama de aplicaciones y tiene los siguientes atributos:  

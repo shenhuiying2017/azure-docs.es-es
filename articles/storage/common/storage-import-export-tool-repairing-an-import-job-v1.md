@@ -1,11 +1,11 @@
 ---
-title: "Reparación de un trabajo de importación de Azure Import/Export (versión 1) | Microsoft Docs"
-description: "Obtenga información sobre cómo reparar un trabajo de importación que se creó y ejecutó con el servicio Azure Import/Export."
+title: Reparación de un trabajo de importación de Azure Import/Export (versión 1) | Microsoft Docs
+description: Obtenga información sobre cómo reparar un trabajo de importación que se creó y ejecutó con el servicio Azure Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059870"
 ---
 # <a name="repairing-an-import-job"></a>Reparación de un trabajo de importación
 El servicio Microsoft Azure Import/Export puede dar error al copiar algunos de los archivos o partes de un archivo en Azure Blob service. Estas son algunas razones de los errores:  

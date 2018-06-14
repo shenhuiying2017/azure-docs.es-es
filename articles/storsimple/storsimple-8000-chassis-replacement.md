@@ -1,12 +1,12 @@
 ---
 title: Reemplazo del chasis del dispositivo de la serie 8000 de StorSimple | Microsoft Docs
-description: "Describe cómo quitar y reemplazar el chasis del gabinete EBOD y del gabinete principal de StorSimple."
+description: Describe cómo quitar y reemplazar el chasis del gabinete EBOD y del gabinete principal de StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108163"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Reemplazar el chasis en el dispositivo StorSimple
 ## <a name="overview"></a>Información general
