@@ -1,11 +1,11 @@
 ---
 title: Formato del archivo de registro de Azure Import/Export | Microsoft Docs
-description: "Obtenga información acerca del formato de los archivos de registro creados cuando se ejecutan los pasos de un trabajo del servicio Import/Export."
+description: Obtenga información acerca del formato de los archivos de registro creados cuando se ejecutan los pasos de un trabajo del servicio Import/Export.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060010"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Formato del archivo de registro del servicio Azure Import/Export
 Cuando el servicio Microsoft Azure Import/Export realiza una acción en una unidad como parte de un trabajo de importación o de exportación, los registros se escriben en blobs en bloques de la cuenta de almacenamiento asociada a dicho trabajo.  

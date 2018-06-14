@@ -1,6 +1,6 @@
 ---
-title: "Información general sobre Azure Functions | Microsoft Docs"
-description: "Contenido de ayuda de introducción a Azure Functions en Azure Portal"
+title: Información general sobre Azure Functions | Microsoft Docs
+description: Contenido de ayuda de introducción a Azure Functions en Azure Portal
 services: functions
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073816"
 ---
 # <a name="azure-functions-documentation"></a>Documentación de Azure Functions
 

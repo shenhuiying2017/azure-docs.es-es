@@ -1,11 +1,11 @@
 ---
-title: "Introducción a la vista de grupos de seguridad de Azure Network Watcher | Microsoft Docs"
-description: "En esta página se proporciona información general sobre las funcionalidades de la vista de seguridad de Network Watcher"
+title: Introducción a la vista de grupos de seguridad de Azure Network Watcher | Microsoft Docs
+description: En esta página se proporciona información general sobre las funcionalidades de la vista de seguridad de Network Watcher
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036720"
 ---
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introducción a la vista de grupos de seguridad de red de Azure Network Watcher
 

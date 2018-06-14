@@ -1,11 +1,11 @@
 ---
 title: Procedimiento para configurar una instancia de App Service Environment v1
-description: "Configuración, administración y supervisión de App Service Environment v1"
+description: Configuración, administración y supervisión de App Service Environment v1
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987870"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
 

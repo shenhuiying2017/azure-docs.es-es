@@ -2,9 +2,9 @@
 documentType: LandingData
 title: Documentación sobre Azure Container Service
 metadata:
-  document_id: null
+  document_id: 
   title: 'Documentación sobre Azure Container Service: tutoriales y referencia de API | Microsoft Docs'
-  meta.description: 'Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
+  meta.description: Azure Container Service allows you to quickly deploy a production ready Kubernetes, DC/OS, or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: czeumault
   manager: carolz
@@ -14,22 +14,28 @@ metadata:
   ms.topic: landing-page
   ms.date: 07-21-2017
   ms.author: carolz
+  ms.openlocfilehash: 7625fbb02a1ede91c01c35cddd286f4c26ad77be
+  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.translationtype: HT
+  ms.contentlocale: es-ES
+  ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068379"
 abstract:
-  description: 'Azure Container Service le permite implementar rápidamente un clúster de Kubernetes, DC/OS o Docker Swarm listo para producción. Obtenga información sobre cómo usar Azure Container Service con estos inicios rápidos, tutoriales y ejemplos.'
+  description: Azure Container Service le permite implementar rápidamente un clúster de Kubernetes, DC/OS o Docker Swarm listo para producción. Obtenga información sobre cómo usar Azure Container Service con estos inicios rápidos, tutoriales y ejemplos.
 sections:
-  - title: null
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
     items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introducción a los clústeres de Kubernetes
-            href: /azure/container-service/kubernetes
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/kubernetes
-          - title: Introducción a los clústeres de DC/OS y Docker Swarm
-            href: /azure/container-service/dcos-swarm
-            image:
-              src: media/index/get-started.svg
-              href: /azure/container-service/dcos-swarm
+    - title: Introducción a los clústeres de Kubernetes
+      href: /azure/container-service/kubernetes
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/kubernetes
+    - title: Introducción a los clústeres de DC/OS y Docker Swarm
+      href: /azure/container-service/dcos-swarm
+      image:
+        src: media/index/get-started.svg
+        href: /azure/container-service/dcos-swarm
