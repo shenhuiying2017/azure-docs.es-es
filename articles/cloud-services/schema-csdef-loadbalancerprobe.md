@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360060"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definición de Azure Cloud Services
 El sondeo del equilibrador de carga es un sondeo de mantenimiento definido por el cliente de los puntos de conexión UDP y los puntos de conexión de las instancias de rol. El elemento `LoadBalancerProbe` no es un elemento independiente; se combina con el rol web o el rol de trabajo en un archivo de definición de servicio. Un elemento `LoadBalancerProbe` se puede usar en más de un rol.

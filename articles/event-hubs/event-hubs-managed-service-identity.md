@@ -1,12 +1,12 @@
 ---
-title: "Identidad de servicio administrada con Azure Event Hubs en versión preliminar | Microsoft Docs"
+title: Identidad de servicio administrada con Azure Event Hubs en versión preliminar | Microsoft Docs
 description: Uso de identidades de servicio administradas con Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783376"
 ---
 # <a name="managed-service-identity-preview"></a>Identidad de servicio administrada (versión preliminar)
 
@@ -76,7 +77,7 @@ Para enviar o recibir mensajes, escriba el nombre del espacio de nombres y el no
  
 Tenga en cuenta que la identidad de servicio administrada solo funciona dentro del entorno de Azure y únicamente en la implementación de App Service en que la configuró. Tenga en cuenta también que las identidades de servicio administradas no funcionan con las ranuras de implementación de App Service en este momento.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para obtener más información acerca de Event Hubs, visite los vínculos siguientes:
 

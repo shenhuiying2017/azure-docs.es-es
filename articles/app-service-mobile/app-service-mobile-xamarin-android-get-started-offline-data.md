@@ -1,10 +1,10 @@
 ---
-title: "Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)"
-description: "Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android."
+title: Activación de la sincronización sin conexión para la aplicación móvil de Azure (Xamarin Android)
+description: Obtenga información acerca de cómo usar la aplicación móvil del Servicio de aplicaciones para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin Android.
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593103"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Activación de la sincronización sin conexión para la aplicación móvil Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

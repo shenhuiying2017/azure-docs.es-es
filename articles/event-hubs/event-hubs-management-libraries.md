@@ -1,12 +1,12 @@
 ---
-title: "Bibliotecas de administración de Azure Event Hubs | Microsoft Docs"
-description: "Administración de entidades y espacios de nombres de Event Hubs desde .NET"
+title: Bibliotecas de administración de Azure Event Hubs | Microsoft Docs
+description: Administración de entidades y espacios de nombres de Event Hubs desde .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780980"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de administración de Event Hubs
 
@@ -76,6 +77,6 @@ El patrón para manipular los recursos de Event Hubs sigue un protocolo común:
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Ejemplo de administración de .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Referencia de Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

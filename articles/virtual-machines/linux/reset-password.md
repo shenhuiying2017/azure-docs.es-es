@@ -1,13 +1,13 @@
 ---
-title: "Restablecimiento de la contraseña local de Linux en máquinas virtuales de Azure | Microsoft Docs"
-description: "Introducción de los pasos para restablecer la contraseña local de Linux en la máquina virtual de Azure"
+title: Restablecimiento de la contraseña local de Linux en máquinas virtuales de Azure | Microsoft Docs
+description: Introducción de los pasos para restablecer la contraseña local de Linux en la máquina virtual de Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: cshepard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27578369"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
 
@@ -104,7 +105,7 @@ No puede iniciar sesión en la máquina virtual y recibe un mensaje que indica q
 
 12. Vuelva a crear la máquina virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Solución de problemas de máquinas virtuales de Azure mediante la conexión de un disco de SO a otra máquina virtual de Azure](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 

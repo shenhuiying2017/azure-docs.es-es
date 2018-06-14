@@ -1,11 +1,11 @@
 ---
-title: "Búsqueda de una API específica necesaria para una aplicación desarrollada internamente | Microsoft Docs"
-description: "Configuración de los permisos necesarios para acceder a una API determinada en una aplicación desarrollada internamente con Azure AD"
+title: Búsqueda de una API específica necesaria para una aplicación desarrollada internamente | Microsoft Docs
+description: Configuración de los permisos necesarios para acceder a una API determinada en una aplicación desarrollada internamente con Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26613732"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Búsqueda de una API específica necesaria para una aplicación desarrollada internamente
 

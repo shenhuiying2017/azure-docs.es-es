@@ -1,15 +1,15 @@
 ---
 title: Montaje de Azure File Storage en una VM de Windows de Azure | Microsoft Docs
-description: "Almacene archivos en la nube con Azure File Storage y monte un recurso compartido de archivos de nube en una máquina virtual (VM) de Azure."
-documentationcenter: 
+description: Almacene archivos en la nube con Azure File Storage y monte un recurso compartido de archivos de nube en una máquina virtual (VM) de Azure.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577558"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Uso de recursos compartidos de archivos de Azure con máquinas virtuales de Windows 
 
@@ -71,6 +72,6 @@ En esta sección se da por supuesto que ya tiene un recurso compartido de archiv
 6. Haga clic con el botón derecho en un archivo y elija **Descargar** para descargarlo en una máquina local.
    
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 También puede crear y administrar recursos compartidos de archivos con PowerShell. Para más información, vea [Introducción a Azure File Storage en Windows](../../storage/files/storage-dotnet-how-to-use-files.md).

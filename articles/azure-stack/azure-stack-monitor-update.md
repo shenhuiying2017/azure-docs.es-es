@@ -1,11 +1,11 @@
 ---
-title: "Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios | Microsoft Docs"
-description: "Obtenga información sobre cómo usar el punto de conexión con privilegios para supervisar el estado de actualización de los sistemas integrados de Azure Stack."
+title: Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios | Microsoft Docs
+description: Obtenga información sobre cómo usar el punto de conexión con privilegios para supervisar el estado de actualización de los sistemas integrados de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621868"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Supervisión de las actualizaciones en Azure Stack mediante el uso del punto de conexión con privilegios
 
@@ -194,7 +195,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 El punto de conexión con privilegios está disponible en todas las máquinas virtuales ERCS en el entorno de Azure Stack. Dado que la conexión no se realiza a un punto de conexión de alta disponibilidad, puede experimentar algunas interrupciones, advertencias o mensajes de error. Estos mensajes podrían indicar que la sesión se ha desconectado o que se ha producido un error al comunicarse con el servicio ECE. Este comportamiento es normal. Puede volver a intentar la operación al cabo de unos minutos o crear una sesión de punto de conexión con privilegios en una de las otras máquinas virtuales ERCS. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Administración de las actualizaciones en Azure Stack](azure-stack-updates.md) 
 

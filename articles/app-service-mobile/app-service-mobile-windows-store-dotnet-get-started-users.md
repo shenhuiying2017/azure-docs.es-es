@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de autenticación a una aplicación de la Plataforma universal de Windows (UWP) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar Azure App Service Mobile Apps para autenticar a los usuarios de la aplicación de la Plataforma universal de Windows (UWP) en una variedad de proveedores de identidades, incluidos AAD,Google, Facebook, Twitter y Microsoft."
+title: Incorporación de autenticación a una aplicación de la Plataforma universal de Windows (UWP) | Microsoft Docs
+description: Obtenga información acerca de cómo usar Azure App Service Mobile Apps para autenticar a los usuarios de la aplicación de la Plataforma universal de Windows (UWP) en una variedad de proveedores de identidades, incluidos AAD,Google, Facebook, Twitter y Microsoft.
 services: app-service\mobile
 documentationcenter: windows
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592151"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>Incorporación de la autenticación a la aplicación de Windows
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -155,7 +156,7 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha completado este tutorial de autenticación básica, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md)  

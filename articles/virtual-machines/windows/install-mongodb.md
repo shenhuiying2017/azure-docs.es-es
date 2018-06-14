@@ -1,11 +1,11 @@
 ---
-title: "Instalación de MongoDB en una máquina virtual Windows en Azure | Microsoft Docs"
-description: "Aprenda a instalar MongoDB en una máquina virtual de Azure en la que se ejecuta Windows Server 2012 R2 y que se ha creado con el modelo clásico de implementación de Resource Manager."
+title: Instalación de MongoDB en una máquina virtual Windows en Azure | Microsoft Docs
+description: Aprenda a instalar MongoDB en una máquina virtual de Azure en la que se ejecuta Windows Server 2012 R2 y que se ha creado con el modelo clásico de implementación de Resource Manager.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745986"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalación y configuración de MongoDB en una máquina virtual Windows en Azure
 [MongoDB](http://www.mongodb.org) es una conocida base de datos NoSQL de código abierto y alto rendimiento. Este artículo le guía por la instalación y configuración de MongoDB en una máquina virtual (VM) Windows Server 2016 en Azure. También es posible [instalar MongoDB en una máquina virtual Linux en Azure](../linux/install-mongodb.md).
@@ -161,6 +162,6 @@ Si es necesario, cree una regla de grupo de seguridad de red para permitir el ac
 > El puerto TCP 27017 es el puerto predeterminado que usa MongoDB. Para cambiarlo, use el parámetro `--port` al iniciar `mongod.exe` manualmente o desde un servicio. Si cambia el puerto, asegúrese de actualizar las reglas de Firewall de Windows y del grupo de seguridad de red en los pasos anteriores.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial ha aprendido a instalar y configurar MongoDB en una máquina virtual Windows. Ahora puede acceder a MongoDB en una máquina virtual Windows siguiendo los temas avanzados de la [documentación de MongoDB](https://docs.mongodb.com/manual/).
 

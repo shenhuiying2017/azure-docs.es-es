@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de implementación de máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Windows en Azure"
+title: Solución de problemas de implementación de máquinas virtuales Windows en Azure | Microsoft Docs
+description: Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Windows en Azure
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27580378"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -88,6 +89,6 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
   * Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
   * Agregue la nueva máquina virtual a la misma red virtual.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar el tamaño de una máquina virtual Windows existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

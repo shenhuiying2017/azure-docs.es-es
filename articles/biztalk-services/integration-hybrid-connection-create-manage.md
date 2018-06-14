@@ -1,11 +1,11 @@
 ---
-title: "Creación y administración de conexiones híbridas| Microsoft Docs"
-description: "Obtenga información acerca de cómo crear una conexión híbrida, administrar la conexión e instalar el administrador de conexiones híbridas. MABS, WABS"
+title: Creación y administración de conexiones híbridas| Microsoft Docs
+description: Obtenga información acerca de cómo crear una conexión híbrida, administrar la conexión e instalar el administrador de conexiones híbridas. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: aac0546b-3bae-41e0-b874-583491a395ea
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628855"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Creación y administración de conexiones híbridas
 

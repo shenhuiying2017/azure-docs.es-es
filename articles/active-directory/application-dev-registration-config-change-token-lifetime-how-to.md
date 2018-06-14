@@ -1,11 +1,11 @@
 ---
-title: "Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada | Microsoft Docs"
-description: "Aprenda a actualizar las directivas de vigencia de los tokens para la aplicación que está desarrollando en Azure AD"
+title: Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada | Microsoft Docs
+description: Aprenda a actualizar las directivas de vigencia de los tokens para la aplicación que está desarrollando en Azure AD
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614382"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Modificación de los valores predeterminados de vigencia de los tokens en una aplicación personalizada
 

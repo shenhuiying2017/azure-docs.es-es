@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213153"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric admite cambios dinámicos de carga, en respuesta a las incorporaciones y las eliminaciones de nodos o servicios. También corrige automáticamente las infracciones de restricciones y reequilibra el clúster de manera proactiva. ¿Pero con qué frecuencia se realizan estas acciones y qué las activa?

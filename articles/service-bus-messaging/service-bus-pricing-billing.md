@@ -1,11 +1,11 @@
 ---
-title: "Precios y facturación de Service Bus | Microsoft Docs"
-description: "Información general de la estructura de precios de Service Bus."
+title: Precios y facturación de Service Bus | Microsoft Docs
+description: Información general de la estructura de precios de Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159793"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Precios y facturación de Service Bus
 
@@ -98,7 +99,7 @@ Por ejemplo:
 
 Sí. No hay ningún cargo de conexión por el envío de eventos mediante HTTP, independientemente del número de sistemas o dispositivos emisores. La recepción de eventos con HTTP con un tiempo de expiración superior a cero, que a menudo se conoce como "long polling", genera cargos por conexión asíncrona. Las conexiones AMQP generan cargos por conexiones asíncronas, sin importar si las conexiones se usan para enviar o para recibir. Las mil primeras conexiones asíncrónicas de todos los espacios de nombres Estándar de una suscripción de Azure se incluyen sin cargo adicional (más allá del cargo base). Dado que estos números son suficientes para cubrir una gran cantidad de escenarios de mensajería entre servicios, los cargos por conexión asíncrona normalmente solo son relevantes si planea usar AMQP o HTTP long-polling con un gran número de clientes; por ejemplo, para conseguir una mayor eficiencia en el streaming de eventos o para habilitar la comunicación bidireccional con muchos dispositivos o instancias de aplicación.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * Para información completa sobre precios de Service Bus, consulte la [página de precios de Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 * Vea las [preguntas más frecuentes sobre Service Bus](service-bus-faq.md#pricing) para ver algunas preguntas comunes sobre los precios y la facturación de Service Bus.

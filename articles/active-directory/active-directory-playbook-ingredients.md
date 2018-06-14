@@ -1,12 +1,12 @@
 ---
-title: "Componentes de la guía de prueba de concepto de Azure Active Directory | Microsoft Docs"
-description: "Explorar e implementar rápidamente escenarios de administración de identidades y acceso"
+title: Componentes de la guía de prueba de concepto de Azure Active Directory | Microsoft Docs
+description: Explorar e implementar rápidamente escenarios de administración de identidades y acceso
 services: active-directory
-keywords: "azure active directory, guía, prueba de concepto, PoC"
-documentationcenter: 
+keywords: azure active directory, guía, prueba de concepto, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602545"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Componentes de la guía de prueba de concepto de Azure Active Directory 
 

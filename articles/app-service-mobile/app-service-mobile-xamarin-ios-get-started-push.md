@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de notificaciones push a la aplicación Xamarin iOS con Azure App Service"
-description: "Obtenga información acerca de cómo usar Azure App Service para enviar notificaciones push a su aplicación Xamarin.iOS."
+title: Incorporación de notificaciones push a la aplicación Xamarin iOS con Azure App Service
+description: Obtenga información acerca de cómo usar Azure App Service para enviar notificaciones push a su aplicación Xamarin.iOS.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27592514"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Incorporación de notificaciones push a la aplicación Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]

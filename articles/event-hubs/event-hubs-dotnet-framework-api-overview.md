@@ -1,11 +1,11 @@
 ---
-title: "Introducción a las API de .NET Framework de Azure Event Hubs | Microsoft Docs"
+title: Introducción a las API de .NET Framework de Azure Event Hubs | Microsoft Docs
 description: Resumen de algunas de las principales API de cliente de .NET Framework de Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781901"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Introducción a las API de .NET Framework de Event Hubs
 
@@ -178,7 +179,7 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener más información acerca de los escenarios de Event Hubs, visite estos vínculos:
 
 * [¿Qué es Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

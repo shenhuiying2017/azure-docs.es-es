@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261078"
 ---
 # <a name="microsoftnetworkavailabilityzonedropdown-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Network.AvailabilityZoneDropdown
 Un control para seleccionar la zona de disponibilidad.

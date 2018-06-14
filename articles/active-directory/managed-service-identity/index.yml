@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/20/2018
+  ms.locfileid: "34354289"
 abstract:
   description: Managed Service Identity (MSI) proporciona a los servicios de Azure una identidad administrada automáticamente en Azure Active Directory (Azure AD). Puede usar esta identidad para autenticarse en cualquier servicio que admita la autenticación de Azure AD, sin necesidad de tener credenciales en el código.  Aprenda a crear y administrar Managed Service Identity con nuestros tutoriales y guías de inicio rápido.
 sections:

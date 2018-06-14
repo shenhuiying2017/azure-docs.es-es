@@ -1,13 +1,13 @@
 ---
-title: "Análisis de registros de flujo de grupo de seguridad de red de Azure con Graylog | Microsoft Docs"
+title: Análisis de registros de flujo de grupo de seguridad de red de Azure con Graylog | Microsoft Docs
 description: Aprenda a administrar y analizar registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26639290"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 

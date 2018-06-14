@@ -1,12 +1,12 @@
 ---
 title: Uso de PowerShell para administrar recursos de Azure Service Bus | Microsoft Docs
-description: "Use el módulo de PowerShell para crear y administrar recursos de Service Bus"
+description: Use el módulo de PowerShell para crear y administrar recursos de Service Bus
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159745"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
@@ -159,7 +160,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar otras entidades, como temas y suscripciones. Estos cmdlets son sintácticamente similares a los de creación de colas que se han mostrado en la sección anterior.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Consulte la documentación completa del módulo de PowerShell de Resource Manager de Service Bus [aquí](/powershell/module/azurerm.servicebus). Esta página enumera todos los cmdlets disponibles.
 - Para obtener información acerca del uso de las plantillas de Azure Resource Manager, consulte el artículo [Cómo crear recursos de Service Bus mediante plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md).

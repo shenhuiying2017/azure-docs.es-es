@@ -1,11 +1,11 @@
 ---
-title: "Solución de problemas de implementación de servicios en la nube | Microsoft Docs"
-description: "Hay varios problemas comunes que pueden surgir al implementar servicios en la nube en Azure. Este artículo proporciona soluciones a algunos de ellos."
+title: Solución de problemas de implementación de servicios en la nube | Microsoft Docs
+description: Hay varios problemas comunes que pueden surgir al implementar servicios en la nube en Azure. Este artículo proporciona soluciones a algunos de ellos.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26408186"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solución de problemas de implementación de servicios en la nube
 Al implementar un paquete de aplicación del servicio en la nube en Azure, puede obtener información sobre la implementación en el panel **Propiedades** del Portal de Azure. Puede usar los detalles de este panel para ayudarle a solucionar problemas con el servicio en la nube y proporcionar esta información al soporte técnico de Azure al abrir una nueva solicitud de soporte técnico.

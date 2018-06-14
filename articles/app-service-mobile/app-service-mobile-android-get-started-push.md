@@ -1,10 +1,10 @@
 ---
-title: "Adición de notificaciones de inserción a una aplicación Android con Mobile Apps | Microsoft Docs"
-description: "Obtenga información sobre cómo usar Azure Mobile Apps para enviar notificaciones push a su aplicación de Android."
+title: Adición de notificaciones de inserción a una aplicación Android con Mobile Apps | Microsoft Docs
+description: Obtenga información sobre cómo usar Azure Mobile Apps para enviar notificaciones push a su aplicación de Android.
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593035"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Incorporación de notificaciones push a la aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -69,7 +70,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Agrega Firebase a
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Prueba de la aplicación con el servicio móvil publicado
 Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que ha completado este tutorial, considere la posibilidad de continuar con uno de los siguientes tutoriales:
 
 * [Adición de la autenticación a la aplicación de Android](app-service-mobile-android-get-started-users.md)

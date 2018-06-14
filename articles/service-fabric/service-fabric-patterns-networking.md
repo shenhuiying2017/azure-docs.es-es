@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207230"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:

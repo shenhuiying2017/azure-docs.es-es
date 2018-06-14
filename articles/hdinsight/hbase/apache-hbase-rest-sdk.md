@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164523"
 ---
 # <a name="use-the-hbase-net-sdk"></a>Uso del SDK de .NET para HBase
 

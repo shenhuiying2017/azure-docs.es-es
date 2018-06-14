@@ -1,11 +1,11 @@
 ---
-title: "Uso del servicio de correo electrónico SendGrid (.NET) | Microsoft Docs"
-description: "Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET."
-services: 
+title: Uso del servicio de correo electrónico SendGrid (.NET) | Microsoft Docs
+description: Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET.
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534862"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Envío de correos electrónicos con SendGrid y Azure
 ## <a name="overview"></a>Información general
@@ -249,7 +250,7 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
 ## <a name="how-to-use-additional-sendgrid-services"></a>Uso de servicios adicionales de SendGrid
 SendGrid ofrece varias API y webhooks que puede usar para aprovechar la funcionalidad adicional dentro de la aplicación de Azure. Para más detalles, consulte la [referencia de la API de SendGrid][SendGrid API documentation].
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, siga estos vínculos para obtener más información:
 
 * Repositorio de bibliotecas de C#\# de SendGrid: [sendgrid-csharp][sendgrid-csharp]

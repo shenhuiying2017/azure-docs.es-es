@@ -1,11 +1,11 @@
 ---
-title: "Recuperación ante desastres con localización geográfica de Azure Event Hubs | Microsoft Docs"
-description: "Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs"
+title: Recuperación ante desastres con localización geográfica de Azure Event Hubs | Microsoft Docs
+description: Cómo usar regiones geográficas para conmutar por error y llevar a cabo una recuperación ante desastres en Azure Event Hubs
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745901"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Recuperación ante desastres con localización geográfica de Azure Event Hubs
 
@@ -100,7 +101,7 @@ Tenga en cuenta los siguientes aspectos con esta versión:
 
 4. La sincronización de entidades puede llevar algún tiempo, unas 50-100 entidades por minuto.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * El [ejemplo en GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) le guía a través de un flujo de trabajo simple que crea un emparejamiento geográfico e inicia una conmutación por error para un escenario de recuperación ante desastres.
 * La [referencia de la API de REST](/rest/api/eventhub/disasterrecoveryconfigs) describe las API para llevar a cabo la configuración de recuperación de desastres con localización geográfica.

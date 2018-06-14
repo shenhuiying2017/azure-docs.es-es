@@ -1,6 +1,6 @@
 ---
-title: "Activar la sincronización sin conexión para la aplicación móvil de Azure (Android)"
-description: "Obtenga información sobre cómo usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en su aplicación de Android"
+title: Activar la sincronización sin conexión para la aplicación móvil de Azure (Android)
+description: Obtenga información sobre cómo usar App Service Mobile Apps para almacenar en caché y sincronizar datos sin conexión en su aplicación de Android
 documentationcenter: android
 author: conceptdev
 manager: crdun
@@ -18,6 +18,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594198"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Activar la sincronización sin conexión para la aplicación móvil de Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

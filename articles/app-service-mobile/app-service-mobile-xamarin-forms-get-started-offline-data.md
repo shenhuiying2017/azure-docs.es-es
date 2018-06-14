@@ -1,10 +1,10 @@
 ---
-title: "Habilitación de la sincronización sin conexión para una aplicación móvil de Azure (Xamarin.Forms) | Microsoft Docs"
-description: "Obtenga información acerca de cómo usar la aplicación móvil de App Service para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin.Forms."
+title: Habilitación de la sincronización sin conexión para una aplicación móvil de Azure (Xamarin.Forms) | Microsoft Docs
+description: Obtenga información acerca de cómo usar la aplicación móvil de App Service para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin.Forms.
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594724"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Habilitación de la sincronización sin conexión para la aplicación móvil Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
