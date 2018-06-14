@@ -2,10 +2,10 @@
 title: Uso de propiedades en directivas de Azure API Management
 description: Aprenda a usar las propiedades en directivas de Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197119"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Uso de propiedades en directivas de Azure API Management
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y propiedades. 
@@ -107,7 +108,7 @@ Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector
 
 Aunque los valores de propiedad pueden contener expresiones de directiva, no pueden contener otras propiedades. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre cómo trabajar con directivas
   * [Directivas de Azure API Management](api-management-howto-policies.md)
   * [Referencia de directiva](https://msdn.microsoft.com/library/azure/dn894081.aspx)
