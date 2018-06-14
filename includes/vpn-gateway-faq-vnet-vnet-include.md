@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30921315"
 ---
 Las preguntas más frecuentes sobre red virtual a red virtual se aplican a las conexiones VPN Gateway. Si busca información sobre el emparejamiento de redes virtuales, consulte [Emparejamiento de redes virtuales](../articles/virtual-network/virtual-network-peering-overview.md).
 

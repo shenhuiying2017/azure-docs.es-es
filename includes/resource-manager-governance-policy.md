@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817046"
 ---
 Las [directivas de Azure](/azure/azure-policy/) ayudan a asegurarse de que todos los recursos de la suscripción satisfacen los estándares corporativos. El uso de directivas reduce los costos al restringir las opciones de implementación únicamente a los tipos de recursos y las SKU que están aprobadas. Se definen reglas y acciones para los recursos y esas reglas se aplican automáticamente durante la implementación. Por ejemplo, puede controlar los tipos de recursos que se implementan. O, puede restringir las ubicaciones aprobadas de los recursos. Algunas directivas deniegan una acción y otras configuran la auditoría de una acción.
 

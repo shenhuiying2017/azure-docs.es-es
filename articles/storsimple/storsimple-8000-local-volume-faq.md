@@ -1,12 +1,12 @@
 ---
-title: "Volúmenes de StorSimple anclados localmente (P+F) | Microsoft Docs"
-description: "Proporciona respuestas a las preguntas más frecuentes acerca de los volúmenes anclados localmente de StorSimple."
+title: Volúmenes de StorSimple anclados localmente (P+F) | Microsoft Docs
+description: Proporciona respuestas a las preguntas más frecuentes acerca de los volúmenes anclados localmente de StorSimple.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109473"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
 ## <a name="overview"></a>Información general
@@ -161,7 +162,7 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 
 **P.** ¿Puedo cambiar el tipo de un volumen durante la restauración?
 
-**A.**No, no se puede cambiar el tipo de volumen durante la restauración.
+**A.** No, no se puede cambiar el tipo de volumen durante la restauración.
 
 * Los volúmenes que se han eliminado se restaurarán con el tipo almacenado en la instantánea.
 * Los volúmenes existentes se restauran de acuerdo con el tipo actual, independientemente del tipo almacenado en la instantánea (consulte las dos preguntas anteriores).

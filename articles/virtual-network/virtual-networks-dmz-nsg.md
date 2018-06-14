@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23126683"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Ejemplo 1: Crear una red perimetral simple mediante NSG con una plantilla de Azure Resource Manager
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]

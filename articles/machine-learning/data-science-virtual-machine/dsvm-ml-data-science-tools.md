@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409557"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Herramientas de aprendizaje automático y ciencia de datos
 Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia. 

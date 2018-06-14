@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30198237"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>¿Se admite la directiva de IPsec o IKE personalizada en todas las SKU de Azure VPN Gateway?
 La directiva IPsec/IKE personalizada se admite en las puertas de enlace Azure VPN Gateway **VpnGw1, VpnGw2, VpnGw3, Estándar** y **HighPerformance**. La SKU **Basic** **no** se admite.

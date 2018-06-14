@@ -1,12 +1,12 @@
 ---
-title: "Administración de credenciales de la cuenta de almacenamiento de StorSimple para dispositivos de la serie Microsoft Azure StorSimple 8000 | Microsoft Docs"
-description: "Explica cómo usar la página Configurar de StorSimple Device Manager para agregar, editar, eliminar o girar las claves de seguridad de una cuenta de almacenamiento."
+title: Administración de credenciales de la cuenta de almacenamiento de StorSimple para dispositivos de la serie Microsoft Azure StorSimple 8000 | Microsoft Docs
+description: Explica cómo usar la página Configurar de StorSimple Device Manager para agregar, editar, eliminar o girar las claves de seguridad de una cuenta de almacenamiento.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108723"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Uso del servicio StorSimple Device Manager para administrar las credenciales de la cuenta de almacenamiento
 

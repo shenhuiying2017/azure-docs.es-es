@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433341"
 ---
 Cuando haya terminado, puede eliminar el grupo de recursos. Al eliminar el grupo de recursos, se elimina la cuenta de almacenamiento, el recurso compartido de archivos de Azure y otros recursos que se implementaron en el grupo de recursos.
 
