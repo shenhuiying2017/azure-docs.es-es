@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Documentación de usuario de Azure Automation"
+title: Documentación de usuario de Azure Automation
 metadata:
   document_id: 
-  title: "Documentación de Azure Automation: tutoriales y referencia de API"
+  title: 'Documentación de Azure Automation: tutoriales y referencia de API'
   description: Aprenda a usar Azure Automation
   services: automation
   author: georgewallace
@@ -19,19 +19,20 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 01/11/2018
+  ms.locfileid: "27773832"
 abstract:
-  description: "Aprenda a usar Automation para configurar y automatizar las tareas operativas en un entorno híbrido. En los tutoriales, las referencias de API y otra documentación, se muestra cómo automatizar procesos, administrar actualizaciones, proporcionar la configuración deseada del estado, hacer un seguimiento de los cambios y recopilar el inventario."
+  description: Aprenda a usar Automation para configurar y automatizar las tareas operativas en un entorno híbrido. En los tutoriales, las referencias de API y otra documentación, se muestra cómo automatizar procesos, administrar actualizaciones, proporcionar la configuración deseada del estado, hacer un seguimiento de los cambios y recopilar el inventario.
 sections:
-- title: "Inicios rápidos en 5 minutos"
+- title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: "Aprenda a automatizar y configurar tanto su entorno híbrido como el de Azure mediante Automation:"
+    text: 'Aprenda a automatizar y configurar tanto su entorno híbrido como el de Azure mediante Automation:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/automation/media/index/automation.svg
-      text: "Creación de una cuenta de Automation"
+      text: Creación de una cuenta de Automation
       href: /azure/automation/automation-quickstart-create-account
     - image:
         src: /azure/automation/media/index/runbook.svg
@@ -39,27 +40,27 @@ sections:
       href: /azure/automation/automation-quickstart-create-runbook
     - image:
         src: /azure/automation/media/index/dscconfig.svg
-      text: "Creación de una configuración de DSC"
+      text: Creación de una configuración de DSC
       href: /azure/automation/automation-quickstart-dsc-configuration
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: "Aprenda a integrar, implementar y administrar sus entornos híbridos y de Azure."
+    text: Aprenda a integrar, implementar y administrar sus entornos híbridos y de Azure.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/automation/automation-watchers-tutorial">Configure las tareas del monitor</a>
-    - html: "<a href=\"/azure/automation/automation-tutorial-update-management\">Administre las actualizaciones en su máquina virtual</a>"
-    - html: "<a href=\"/azure/automation/automation-onboard-solutions\">Realice la incorporación a escala</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-installed-software\">Identifique el software instalado en una máquina virtual</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-troubleshoot-changes\">Solucione los problemas de los cambios en una máquina virtual</a>"
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Administre las actualizaciones en su máquina virtual</a>
+    - html: <a href="/azure/automation/automation-onboard-solutions">Realice la incorporación a escala</a>
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifique el software instalado en una máquina virtual</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Solucione los problemas de los cambios en una máquina virtual</a>
 - title: Referencia
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Línea de comandos"
+    - title: Línea de comandos
       html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
     - title: Idiomas
       html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>

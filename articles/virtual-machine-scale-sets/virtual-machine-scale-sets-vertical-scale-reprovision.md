@@ -1,11 +1,11 @@
 ---
-title: "Escalado vertical de conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs"
-description: "Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Azure Automation"
+title: Escalado vertical de conjuntos de escalado de máquinas virtuales de Azure | Microsoft Docs
+description: Cómo escalar verticalmente una máquina virtual en respuesta a las alertas de supervisión con Azure Automation
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781826"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 Este artículo describe cómo escalar verticalmente [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/) de Azure con o sin reaprovisionamiento. Para el escalado vertical de máquinas virtuales que no están en conjuntos de escalado, consulte [Escalado vertical de máquinas virtuales con Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,11 +1,11 @@
 ---
-title: "Información sobre las plantillas de conjunto de escalado de máquinas virtuales | Microsoft Docs"
-description: "Obtenga información sobre cómo crear una plantilla de conjunto de escalado de viabilidad mínimo para conjuntos de escalado de máquinas virtuales"
+title: Información sobre las plantillas de conjunto de escalado de máquinas virtuales | Microsoft Docs
+description: Obtenga información sobre cómo crear una plantilla de conjunto de escalado de viabilidad mínimo para conjuntos de escalado de máquinas virtuales
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781262"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Más información sobre las plantillas de conjuntos de escalado de máquinas virtuales
 Las [plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituyen una excelente manera de implementar grupos de recursos relacionados. En esta serie de tutoriales se explica cómo crear una plantilla de conjunto de escalado de viabilidad mínimo y cómo modificarla para adaptarla a distintos escenarios. Todos los ejemplos proceden de este [repositorio de GitHub](https://github.com/gatneil/mvss). 
@@ -208,6 +209,6 @@ Sin embargo, no basta con el identificador de la red virtual. Proporcione la sub
 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]

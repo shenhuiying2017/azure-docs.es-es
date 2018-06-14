@@ -3,21 +3,36 @@ title: Conexión SSH con los nodos de un clúster de Azure Kubernetes Service (A
 description: Creación de una conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164329"
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>Conexión SSH con los nodos de un clúster de Azure Kubernetes Service (AKS)
 
-En ocasiones, necesitará acceder a un nodo de Azure Kubernetes Service (AKS) para el mantenimiento, la recopilación de registros u otras operaciones de solución de problemas. Los nodos de Azure Kubernetes Service (AKS) no están expuestos a Internet. Utilice los pasos indicados en este documento para crear una conexión SSH con un nodo de AKS.
+En ocasiones, necesitará acceder a un nodo de Azure Kubernetes Service (AKS) para el mantenimiento, la recopilación de registros u otras operaciones de solución de problemas. Los nodos de AKS no están expuestos a Internet. Utilice los pasos indicados en este documento para crear una conexión SSH con un nodo de AKS.
+
+## <a name="reset-ssh-keys"></a>Restablecimiento de las claves SSH
+
+Si ha implementado un AKS sin claves SSH o no tiene acceso a las claves SSH correctas, se pueden restablecer desde Azure Portal.
+
+Vaya a su clúster AKS, seleccione un nodo AKS (máquina virtual) y seleccione **Restablecer contraseña** para restablecer la clave pública SSH.
+
+![Máquina virtual AKS con el botón Restablecer contraseña](media/aks-ssh/reset-password.png)
+
+Seleccione **Restablecer la clave pública SSH**, escriba el nombre de usuario del clúster AKS, que es **azueruser** de forma predeterminada, y cópielo en una clave pública SSH. Seleccione **Actualizar** cuando haya terminado.
+
+![Máquina virtual del portal de AKS con el botón Restablecer contraseña](media/aks-ssh/reset-password-2.png)
+
+Una vez restablecida la clave SSH, puede crear una conexión SSH mediante la clave privada correspondiente.
 
 ## <a name="get-aks-node-address"></a>Obtención de la dirección del nodo de AKS
 
@@ -56,7 +71,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copie la clave SSH en el pod y reemplace el nombre del pod por el valor adecuado.
+Copie la clave SSH privada en el pod y reemplace el nombre del pod por el valor correspondiente.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

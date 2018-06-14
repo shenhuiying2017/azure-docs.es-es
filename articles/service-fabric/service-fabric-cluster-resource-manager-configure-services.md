@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210586"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuración de Cluster Resource Manager para los servicios de Service Fabric
 Cluster Resource Manager de Service Fabric permite un control muy exhaustivo de las reglas que rigen cada servicio con nombre. Cada servicio con nombre puede especificar reglas sobre cómo debe asignarse en el clúster. Cada servicio con nombre también puede definir el conjunto de métricas que incluirá en los informes, y su importancia para ese servicio. La configuración de los servicios se divide en tres tareas distintas:

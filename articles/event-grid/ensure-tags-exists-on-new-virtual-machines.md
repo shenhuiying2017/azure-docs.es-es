@@ -1,12 +1,12 @@
 ---
-title: "Integración de Azure Automation con Event Grid | Microsoft Docs"
-description: "Obtenga información sobre cómo agregar automáticamente una etiqueta cuando se crea una máquina virtual y enviar una notificación a Microsoft Teams."
-keywords: "automatización, runbook, teams, event grid, máquina virtual, VM"
+title: Integración de Azure Automation con Event Grid | Microsoft Docs
+description: Obtenga información sobre cómo agregar automáticamente una etiqueta cuando se crea una máquina virtual y enviar una notificación a Microsoft Teams.
+keywords: automatización, runbook, teams, event grid, máquina virtual, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349077"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integración de Azure Automation con Event Grid y Microsoft Teams
 

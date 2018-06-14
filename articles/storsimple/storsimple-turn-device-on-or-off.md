@@ -1,11 +1,11 @@
 ---
 title: Encendido o apagado del dispositivo de la serie StorSimple 8000 | Microsoft Docs
-description: "Explica cómo encender un dispositivo de StorSimple nuevo, encender un dispositivo apagado o que perdió energía y apagar un dispositivo activo."
+description: Explica cómo encender un dispositivo de StorSimple nuevo, encender un dispositivo apagado o que perdió energía y apagar un dispositivo activo.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779455"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Activación o desactivación del dispositivo StorSimple serie 8000
 
@@ -171,6 +172,6 @@ Después de acceder a Windows PowerShell para StorSimple o a Azure Portal, siga 
 > [!NOTE]
 > Los cables SAS que se utilizan para conectar el gabinete EBOD con el gabinete principal no deben quitarse hasta después que se apague el sistema.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Contact Microsoft Support](storsimple-8000-contact-microsoft-support.md) .
 

@@ -1,11 +1,11 @@
 ---
-title: "Escenarios de uso y consideraciones de implementación de Azure AD Join | Microsoft Docs"
-description: "Se explica cómo los administradores pueden configurar Azure AD Join para sus usuarios finales (empleados, estudiantes, otros usuarios). También describe los distintos escenarios reales de uso de Azure AD Join."
+title: Escenarios de uso y consideraciones de implementación de Azure AD Join | Microsoft Docs
+description: Se explica cómo los administradores pueden configurar Azure AD Join para sus usuarios finales (empleados, estudiantes, otros usuarios). También describe los distintos escenarios reales de uso de Azure AD Join.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602437"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Escenarios de uso y consideraciones de implementación de Azure AD Join
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Escenarios de uso de Azure AD Join

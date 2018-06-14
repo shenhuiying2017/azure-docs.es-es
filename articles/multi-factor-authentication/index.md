@@ -1,11 +1,11 @@
 ---
-title: "Documentación sobre Azure Multi-Factor Authentication: tutoriales y referencia de API | Microsoft Docs"
-description: "Aprenda a implementar la autenticación multifactor con diversos métodos de verificación que proporcionan un proceso de inicio de sesión simple. Tutoriales, un SDK y mucho más."
+title: 'Documentación sobre Azure Multi-Factor Authentication: tutoriales y referencia de API | Microsoft Docs'
+description: Aprenda a implementar la autenticación multifactor con diversos métodos de verificación que proporcionan un proceso de inicio de sesión simple. Tutoriales, un SDK y mucho más.
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630825"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentación de Multi-Factor Authentication
 

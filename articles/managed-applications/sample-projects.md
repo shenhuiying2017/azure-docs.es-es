@@ -1,5 +1,5 @@
 ---
-title: "Ejemplos de proyectos de una aplicación administrada de Azure | Microsoft Docs"
+title: Ejemplos de proyectos de una aplicación administrada de Azure | Microsoft Docs
 description: Resume los ejemplos de proyectos disponibles para las aplicaciones administradas de Azure
 services: managed-applications
 documentationcenter: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753067"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Ejemplos de proyectos para las aplicaciones administradas de Azure
 

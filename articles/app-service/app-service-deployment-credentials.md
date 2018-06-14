@@ -1,8 +1,8 @@
 ---
-title: "Credenciales de implementación de Azure App Service | Microsoft Docs"
-description: "Aprenda a usar las credenciales de implementación de Azure App Service."
+title: Credenciales de implementación de Azure App Service | Microsoft Docs
+description: Aprenda a usar las credenciales de implementación de Azure App Service.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778554"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configuración de credenciales de implementación para Azure App Service
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) admite dos tipos de credenciales para la [implementación de GIT local](app-service-deploy-local-git.md) y la [implementación FTP/S](app-service-deploy-ftp.md). Estas credenciales no son las mismas que las de Azure Active Directory.
@@ -90,6 +91,6 @@ Para restablecer las credenciales de nivel de aplicación:
 
     La acción de restablecimiento invalida cualquier archivo .PublishSettings anteriormente descargado.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Obtenga información sobre cómo usar estas credenciales para implementar la aplicación desde [GIT local](app-service-deploy-local-git.md) o con [FTP/S](app-service-deploy-ftp.md).

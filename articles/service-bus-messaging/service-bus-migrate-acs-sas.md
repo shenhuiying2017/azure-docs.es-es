@@ -1,11 +1,11 @@
 ---
-title: "Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido | Microsoft Docs"
+title: Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido | Microsoft Docs
 description: Migrar aplicaciones desde Access Control Service a SAS
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27160272"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
@@ -59,7 +60,7 @@ Esta configuración nueva y adicional de SAS se puede establecer localmente en c
 
 Las reglas de SAS no están diseñadas para ser cuentas, pero se denominan claves de firma asociadas a derechos. Por tanto, los escenarios en los que la aplicación crea varias identidades de servicio y les concede derechos de acceso para varias entidades o el espacio de nombres completo siguen requiriendo un intermediario que emita tokens. [Póngase en contacto con el soporte técnico](https://azure.microsoft.com/support/options/) si necesita instrucciones relativas a este tipo intermediario.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la autenticación de Service Bus, vea los siguientes temas:
 
