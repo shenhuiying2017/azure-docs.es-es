@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Microsoft Azure StorSimple y el programa de proveedores de soluciones en la nube | Microsoft Docs"
-description: "Introducción a StorSimple y CSP para asociados de StorSimple."
+title: Introducción a Microsoft Azure StorSimple y el programa de proveedores de soluciones en la nube | Microsoft Docs
+description: Introducción a StorSimple y CSP para asociados de StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109583"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Implementación de StorSimple Virtual Array para el programa de proveedores de soluciones en la nube
 

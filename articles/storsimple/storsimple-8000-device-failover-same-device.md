@@ -1,12 +1,12 @@
 ---
-title: "Conmutación por error y recuperación ante desastres de StorSimple para dispositivos de la serie 8000| Microsoft Docs"
+title: Conmutación por error y recuperación ante desastres de StorSimple para dispositivos de la serie 8000| Microsoft Docs
 description: Aprenda a conmutar por error el dispositivo StorSimple en el mismo dispositivo.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108203"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Conmutación por error del dispositivo físico StorSimple en el mismo dispositivo
 

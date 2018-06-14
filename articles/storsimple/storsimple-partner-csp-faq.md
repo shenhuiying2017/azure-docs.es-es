@@ -1,12 +1,12 @@
 ---
-title: "Preguntas más frecuentes acerca de Microsoft Azure StorSimple y el programa de proveedores de soluciones en la nube para asociados | Microsoft Docs"
+title: Preguntas más frecuentes acerca de Microsoft Azure StorSimple y el programa de proveedores de soluciones en la nube para asociados | Microsoft Docs
 description: Encuentre respuestas a varias preguntas comunes sobre StorSimple y CSP para asociados.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109063"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple para el programa de proveedores de soluciones en la nube: preguntas más frecuentes
 
