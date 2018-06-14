@@ -1,11 +1,11 @@
 ---
-title: "Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs"
-description: "Detección de mensajes duplicados de Service Bus"
+title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
+description: Detección de mensajes duplicados de Service Bus
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198560"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -53,7 +54,7 @@ Tenga en cuenta que el hecho de habilitar la detección de duplicados y el tama�
 
 Mantener la ventana pequeña significa que menos identificadores de mensaje se deben conservar y coincidir, y el rendimiento resulta afectado en un menor grado. En las entidades de alto rendimiento que requieren la detección de duplicados, debe mantener la ventana lo más pequeña posible.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 

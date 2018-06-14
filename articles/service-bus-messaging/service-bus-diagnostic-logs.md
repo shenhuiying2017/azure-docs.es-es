@@ -1,13 +1,13 @@
 ---
-title: "Registros de diagnóstico de Azure Service Bus | Microsoft Docs"
-description: "Aprenda cómo configurar registros de diagnóstico para Service Bus en Azure."
-keywords: 
+title: Registros de diagnóstico de Azure Service Bus | Microsoft Docs
+description: Aprenda cómo configurar registros de diagnóstico para Service Bus en Azure.
+keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
 author: banisadr
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29122192"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Registros de diagnóstico de Service Bus
 
@@ -91,7 +92,7 @@ Este es un ejemplo de una cadena JSON de registro operativo:
 }
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte los siguientes vínculos para más información acerca de Service Bus:
 

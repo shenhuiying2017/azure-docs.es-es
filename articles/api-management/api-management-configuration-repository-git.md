@@ -1,8 +1,8 @@
 ---
-title: "Configuración del servicio API Management con Git - Azure | Microsoft Docs"
-description: "Obtenga información sobre cómo guardar y configurar la configuración del servicio de administración de API mediante Git."
+title: Configuración del servicio API Management con Git - Azure | Microsoft Docs
+description: Obtenga información sobre cómo guardar y configurar la configuración del servicio de administración de API mediante Git.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117544"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -254,7 +255,7 @@ La carpeta `templates` contiene la configuración para las [plantillas de correo
 * `<template name>\configuration.json` : es la configuración de la plantilla de correo electrónico.
 * `<template name>\body.html` : es el cuerpo de la plantilla de correo electrónico.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para obtener información sobre otras formas de administrar la instancia de servicio, consulte:
 
 * Administrar la instancia de servicio con los siguientes cmdlets de PowerShell

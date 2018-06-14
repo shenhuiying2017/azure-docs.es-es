@@ -1,25 +1,26 @@
 ---
-title: "Implementación de OpenShift Origin en Azure | Microsoft Docs"
+title: Implementación de OpenShift Origin en Azure | Microsoft Docs
 description: Implemente OpenShift Origin en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
 ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
 ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123126"
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implementación de OpenShift Origin en Azure
 
@@ -133,7 +134,7 @@ Cuando ya no se necesiten, puede usar el comando [az group delete](/cli/azure/gr
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Tareas posteriores a la implementación](./openshift-post-deployment.md)
 - [Solución de problemas de implementación de OpenShift](./openshift-troubleshooting.md)

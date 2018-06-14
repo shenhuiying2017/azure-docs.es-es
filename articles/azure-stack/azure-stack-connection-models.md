@@ -1,12 +1,12 @@
 ---
-title: "Modelos de conexión de sistemas integrados en Azure Stack | Microsoft Docs"
-description: "Determinación de las decisiones de planeamiento de implementación para Azure Stack en varios nodos."
+title: Modelos de conexión de sistemas integrados en Azure Stack | Microsoft Docs
+description: Determinación de las decisiones de planeamiento de implementación para Azure Stack en varios nodos.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118795"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modelos de conexión de sistemas integrados en Azure Stack
 Si está interesado en un sistema integrado de Azure Stack, será preciso que comprenda [varias consideraciones de integración del centro de datos](azure-stack-datacenter-integration.md) para la implementación de Azure Stack y determinar cómo va a ajustarse el sistema a su centro de datos. Además, tendrá que decidir exactamente de qué forma va a integrar Azure Stack en su entorno de nube híbrida. En este artículo se proporciona información general acerca de estas decisiones importantes, lo que incluye decisiones acerca de la conexión de Azure, del almacén de identidades y del modelo de facturación.
@@ -45,7 +46,7 @@ Puede implementar Azure Stack, ya sea conectado a Internet (y a Azure) o descone
 
 Una vez que haya decidido el modelo de conexión de Azure que va a usar para la implementación de Azure Stack, deben tomarse más decisiones que dependen de la conexión para el método de facturación y el almacén de identidades. 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Decisiones de implementación de Azure Stack con conexión a Azure](azure-stack-connected-deployment.md)
 

@@ -1,12 +1,12 @@
 ---
-title: "Administración de un plan de App Service en Azure | Microsoft Docs"
-description: "Aprenda cómo realizar distintas tareas para administrar un plan de App Service."
-keywords: "servicio de aplicaciones, azure app service, escalar, plan de app service, cambiar, crear, administrar, administración"
+title: Administración de un plan de App Service en Azure | Microsoft Docs
+description: Aprenda cómo realizar distintas tareas para administrar un plan de App Service.
+keywords: servicio de aplicaciones, azure app service, escalar, plan de app service, cambiar, crear, administrar, administración
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117687"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Administración de un plan de App Service en Azure
 
@@ -111,7 +112,7 @@ Para evitar cargos inesperados, al eliminar la última aplicación en un plan de
 > [!IMPORTANT]
 > Los planes de App Service que no tienen aplicaciones asociadas a ellos seguirán generando cargos, ya que siguen reservando las instancias de máquinas virtuales configuradas.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Escalado vertical de aplicaciones en Azure](web-sites-scale.md)

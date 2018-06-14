@@ -1,11 +1,11 @@
 ---
-title: "Configuración de una MSI asignada por el usuario para una máquina virtual de Azure mediante una plantilla de Azure"
-description: "Instrucciones detalladas para configurar una identidad de servicio administrada (MSI) asignada por el usuario para una máquina virtual de Azure, mediante una plantilla de Azure Resource Manager."
+title: Configuración de una MSI asignada por el usuario para una máquina virtual de Azure mediante una plantilla de Azure
+description: Instrucciones detalladas para configurar una identidad de servicio administrada (MSI) asignada por el usuario para una máquina virtual de Azure, mediante una plantilla de Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984046"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configuración de una identidad de servicio administrada (MSI) asignada por el usuario para una máquina virtual, mediante una plantilla de Azure
 
