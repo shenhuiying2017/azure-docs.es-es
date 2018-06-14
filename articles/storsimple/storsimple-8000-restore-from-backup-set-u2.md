@@ -1,12 +1,12 @@
 ---
-title: "Restauración de un volumen desde una copia de seguridad en la serie StorSimple 8000 | Microsoft Docs"
-description: "Explica cómo usar el catálogo de copias de seguridad del servicio StorSimple Device Manager para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad."
+title: Restauración de un volumen desde una copia de seguridad en la serie StorSimple 8000 | Microsoft Docs
+description: Explica cómo usar el catálogo de copias de seguridad del servicio StorSimple Device Manager para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109263"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
 
