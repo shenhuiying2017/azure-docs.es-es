@@ -1,12 +1,12 @@
 ---
-title: "Introducción a Azure Queue Storage | Microsoft Docs"
-description: "Introducción Azure Queue Storage"
+title: Introducción a Azure Queue Storage | Microsoft Docs
+description: Introducción Azure Queue Storage
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059590"
 ---
 # <a name="introduction-to-queues"></a>Introducción a las colas
 

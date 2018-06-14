@@ -1,11 +1,11 @@
 ---
-title: "Supervisión y procesamiento de eventos de seguridad en Azure Security Center | Microsoft Docs"
-description: "Obtenga información sobre cómo usar el panel de eventos de Security Center para ver los eventos de seguridad relativos a máquinas virtuales de Azure y a equipos que no son de Azure."
+title: Supervisión y procesamiento de eventos de seguridad en Azure Security Center | Microsoft Docs
+description: Obtenga información sobre cómo usar el panel de eventos de Security Center para ver los eventos de seguridad relativos a máquinas virtuales de Azure y a equipos que no son de Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040660"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Supervisión y procesamiento de eventos de seguridad en Azure Security Center
 El panel Eventos proporciona información general sobre el número de eventos de seguridad recopilados a lo largo del tiempo y una lista de eventos importantes que requieren su atención.  

@@ -1,5 +1,5 @@
 ---
-title: "Auditoría y registro: Microsoft Threat Modeling Tool: Azure | Microsoft Docs"
+title: 'Auditoría y registro: Microsoft Threat Modeling Tool: Azure | Microsoft Docs'
 description: mitigaciones para amenazas expuestas en Threat Modeling Tool
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044410"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 | Producto o servicio | Artículo |
