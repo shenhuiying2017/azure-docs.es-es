@@ -1,11 +1,11 @@
 ---
 title: Reemplazar un nodo de la unidad de escalado en un sistema integrado de Azure Stack | Microsoft Docs
-description: "Obtenga información acerca de cómo reemplazar un nodo físico de la unidad de escalado en un sistema integrado de Azure Stack."
+description: Obtenga información acerca de cómo reemplazar un nodo físico de la unidad de escalado en un sistema integrado de Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27598780"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Reemplazar un nodo de la unidad de escalado en un sistema integrado de Azure Stack
 
@@ -65,7 +66,7 @@ Los pasos siguientes se proporcionan como una descripción general del proceso d
 3. Use el punto de conexión privilegiado para [comprobar el estado de la reparación del disco virtual](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Con las nuevas unidades de datos, un trabajo de reparación del almacenamiento completo puede tardar varias horas, según la carga del sistema y el espacio consumido.
 4. Una vez finalizada la acción de reparación, confirme que todas las alertas activas se cerraron automáticamente.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Para información sobre cómo reemplazar un disco físico intercambiable directamente, consulte [Reemplazar un disco físico en Azure Stack](azure-stack-replace-disk.md). 
 - Para obtener información acerca de cómo reemplazar un componente de hardware no intercambiable en caliente, consulte [Replace a hardware component](azure-stack-replace-component.md) (Reemplazar un componente de hardware).

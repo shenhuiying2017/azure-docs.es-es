@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure Key Vault: Uso de la eliminación temporal con PowerShell"
-description: "Ejemplos de casos de uso de eliminación temporal con fragmentos de código de PowerShell"
+ms.assetid: ''
+title: 'Azure Key Vault: Uso de la eliminación temporal con PowerShell'
+description: Ejemplos de casos de uso de eliminación temporal con fragmentos de código de PowerShell
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927998"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 

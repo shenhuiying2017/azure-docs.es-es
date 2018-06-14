@@ -1,11 +1,11 @@
 ---
-title: "Administración de registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure 1.0 | Microsoft Docs"
-description: "Esta página explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure 1.0"
+title: Administración de registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure 1.0 | Microsoft Docs
+description: Esta página explica cómo administrar registros de flujo de grupos de seguridad de red en Azure Network Watcher con la CLI de Azure 1.0
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774495"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Configuración de registros de flujo de grupos de seguridad de red con la CLI de Azure 1.0
 

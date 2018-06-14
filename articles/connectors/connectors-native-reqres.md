@@ -1,11 +1,11 @@
 ---
 title: Uso de acciones de solicitud y respuesta | Microsoft Docs
-description: "Información general del desencadenador y la acción de solicitud y respuesta en una aplicación lógica de Azure"
-services: 
-documentationcenter: 
+description: Información general del desencadenador y la acción de solicitud y respuesta en una aplicación lógica de Azure
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27960568"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introducción a los componentes de solicitud y respuesta
 Con los componentes de solicitud y respuesta de una aplicación lógica, puede responder en tiempo real a eventos.
@@ -108,6 +109,6 @@ A continuación se muestran los campos de entrada para la acción de respuesta H
 | encabezados |encabezados |Objeto JSON de cualquier encabezado de respuesta que incluir |
 | Cuerpo |Cuerpo |Cuerpo de la respuesta |
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

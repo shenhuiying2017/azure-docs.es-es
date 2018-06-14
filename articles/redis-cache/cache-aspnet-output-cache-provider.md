@@ -1,6 +1,6 @@
 ---
-title: "Proveedor de la caché de salida de ASP.NET"
-description: "Obtenga información sobre cómo almacenar en caché los resultados de página de ASP.NET con Azure Redis Cache"
+title: Proveedor de la caché de salida de ASP.NET
+description: Obtenga información sobre cómo almacenar en caché los resultados de página de ASP.NET con Azure Redis Cache
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909829"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Proveedor de caché de salida de ASP.NET para Azure Redis Cache
 El proveedor de la caché de salida de Redis es un mecanismo de almacenamiento fuera de proceso para los datos de la caché de salida. Estos datos resultan necesarios específicamente para respuestas HTTP completas (caché de resultados de la página). El proveedor se conecta al nuevo punto de extensibilidad del proveedor de caché de salida que se introdujo en ASP.NET 4.
@@ -89,6 +90,6 @@ En el ejemplo anterior, los datos de la página almacenados en la memoria caché
 
 Después de realizar estos pasos, la aplicación está configurada para usar el proveedor de la caché de salida de Redis.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Consulte el [proveedor de estado de sesión de ASP.NET para Azure Redis Cache](cache-aspnet-session-state-provider.md).
 

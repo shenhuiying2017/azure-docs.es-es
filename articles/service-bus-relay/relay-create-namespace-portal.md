@@ -1,11 +1,11 @@
 ---
-title: "Creación de un espacio de nombres de Relay mediante Azure Portal | Microsoft Docs"
-description: "Cómo crear un espacio de nombres de Relay mediante Azure Portal."
+title: Creación de un espacio de nombres de Relay mediante Azure Portal | Microsoft Docs
+description: Cómo crear un espacio de nombres de Relay mediante Azure Portal.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159898"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Relay mediante Azure Portal
 
@@ -33,7 +34,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 Felicidades. Ha creado un espacio de nombres de Relay.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Preguntas más frecuentes acerca de Relay](relay-faq.md)
 * [Introducción a .NET](relay-hybrid-connections-dotnet-get-started.md)

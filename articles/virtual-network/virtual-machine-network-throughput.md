@@ -1,13 +1,13 @@
 ---
-title: "Rendimiento de la red de máquinas virtual de Azure | Microsoft Docs"
-description: "Aprenda acerca del rendimiento de la red de máquinas virtuales de Azure."
+title: Rendimiento de la red de máquinas virtual de Azure | Microsoft Docs
+description: Aprenda acerca del rendimiento de la red de máquinas virtuales de Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27778962"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -43,7 +44,7 @@ El límite de rendimiento se aplica a la máquina virtual. El rendimiento no se 
 - **Destino del tráfico**: todos los destinos se cuentan para el límite de salida.
 - **Protocolo**: todo el tráfico saliente a través de todos los protocolos cuenta para el límite.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - [Optimización del rendimiento de red en un sistema operativo de máquina virtual](virtual-network-optimize-network-bandwidth.md)
 - [Prueba de rendimiento de red](virtual-network-bandwidth-testing.md) para una máquina virtual.
