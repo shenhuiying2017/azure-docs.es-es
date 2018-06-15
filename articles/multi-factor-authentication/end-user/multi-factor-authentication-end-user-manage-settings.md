@@ -68,5 +68,5 @@ Dependiendo de la configuración de la organización, es posible que tenga una c
 Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
+* Obtener sugerencias para solucionar problemas y ayuda en [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
 * Configure [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admiten la comprobación en dos pasos.
