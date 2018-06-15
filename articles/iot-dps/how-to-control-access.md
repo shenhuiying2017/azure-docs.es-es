@@ -1,23 +1,19 @@
 ---
-title: "Puntos de conexión de seguridad del servicio de aprovisionamiento de dispositivos IoT | Microsoft Docs"
-description: "Conceptos sobre cómo controlar el acceso de las aplicaciones back-end al servicio de aprovisionamiento de dispositivos IoT. Incluye información sobre los tokens de seguridad."
-services: iot-dps
-documentationcenter: .net
+title: Puntos de conexión de seguridad del servicio de aprovisionamiento de dispositivos IoT | Microsoft Docs
+description: Conceptos sobre cómo controlar el acceso de las aplicaciones back-end al servicio de aprovisionamiento de dispositivos IoT. Incluye información sobre los tokens de seguridad.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: dkshir
+ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629395"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Control de acceso al servicio Azure IoT Hub Device Provisioning
 
@@ -75,11 +71,11 @@ El token de seguridad tiene el formato siguiente:
 
 Estos son los valores esperados:
 
-| Valor | Description |
+| Valor | DESCRIPCIÓN |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256 con el formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: La clave se descodifica en base64 y se utiliza para realizar el cálculo de HMAC-SHA256.|
 | {expiry} |Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
-| {URL-encoded-resourceURI} | Codificación de dirección URL en minúsculas del identificador URI del recurso en minúsculas. Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede acceder con este token, que comienza por un nombre de host del servicio de aprovisionamiento de dispositivos IoT (sin protocolo). Por ejemplo: `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Codificación de dirección URL en minúsculas del identificador URI del recurso en minúsculas. Prefijo del identificador URI (por segmento) de los puntos de conexión a los que se puede acceder con este token, que comienza por un nombre de host del servicio de aprovisionamiento de dispositivos IoT (sin protocolo). Por ejemplo, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |El nombre de la directiva de acceso compartido a la que hace referencia este token. |
 
 **Nota sobre el prefijo**: el prefijo URI se calcula por segmento y no por carácter. Por ejemplo `/a/b` es un prefijo de `/a/b/c` pero `/a/bc`.
@@ -142,7 +138,7 @@ Los componentes de servicio solo pueden generar tokens de seguridad mediante dir
 
 Estas son las funciones de servicio expuestas en los puntos de conexión:
 
-| Extremo | Funcionalidad |
+| Punto de conexión | Funcionalidad |
 | --- | --- |
 | `{your-service}.azure-devices-provisioning.net/enrollments` |Ofrece operaciones de inscripción de dispositivos con el servicio de aprovisionamiento de dispositivos. |
 | `{your-service}.azure-devices-provisioning.net/enrollmentGroups` |Proporciona operaciones para administrar grupos de inscripción de dispositivos. |

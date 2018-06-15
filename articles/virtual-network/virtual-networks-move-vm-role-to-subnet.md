@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792654"
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>Mover una máquina virtual (clásica) o una instancia de rol de Cloud Services a una subred diferente mediante PowerShell
 Puede usar PowerShell para mover las máquinas virtuales (clásicas) de una subred a otra en la misma red virtual (VNet). Las instancias de rol pueden moverse si se edita el archivo CSCFG en lugar de utilizar PowerShell.

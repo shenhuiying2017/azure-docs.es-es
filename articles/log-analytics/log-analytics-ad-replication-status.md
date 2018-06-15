@@ -1,11 +1,11 @@
 ---
-title: "Supervisión del estado de replicación de Active Directory con Azure Log Analytics | Microsoft Docs"
-description: "El paquete de la solución Active Directory Replication Status supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación."
+title: Supervisión del estado de replicación de Active Directory con Azure Log Analytics | Microsoft Docs
+description: El paquete de la solución Active Directory Replication Status supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179341"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Supervisión del estado de replicación de Active Directory con Azure Log Analytics
 
@@ -152,5 +153,5 @@ Si necesita ayuda para conectarse a uno de los controladores de dominio, puede v
 
 Si no desea conectar ninguno de los controladores de dominio directamente a Log Analytics o a System Center Operations Manager, consulte [Habilitación de un controlador que no sea de dominio para enviar datos de AD a Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.

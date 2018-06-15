@@ -1,19 +1,19 @@
 ---
 title: Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#) | Microsoft Docs
 description: Como desarrollador de dispositivos, aprenda a conectar un dispositivo Raspberry Pi a su aplicación de Azure IoT Central mediante C#.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/22/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: d09d3de04f8c846eadc7367ca4d4559eb55f995b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200476"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628596"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central (C#)
 
@@ -56,7 +56,7 @@ Valores numéricos
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage (Voltaje)      | setVoltage | Voltios | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
-| Fan Speed (Velocidad del ventilador)    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 Cambiar configuración
 
@@ -68,12 +68,12 @@ Cambiar configuración
 
 | Escriba            | Nombre para mostrar | Nombre del campo | Tipo de datos |
 | --------------- | ------------ | ---------- | --------- |
-| Propiedad de dispositivo | Die number (Número de chip)   | dieNumber  | número    |
+| Propiedad de dispositivo | Die number   | dieNumber  | número    |
 | Texto            | Ubicación     | location   | N/D       |
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
 
-En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **Raspberry Pi** y tome nota de la cadena de conexión del dispositivo. Para obtener más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a su aplicación de Azure IoT Central).
+En su aplicación de Azure IoT Central, agregue un dispositivo real desde la plantilla de dispositivo **Raspberry Pi** y anote la cadena de conexión del dispositivo. Para obtener más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a su aplicación de Azure IoT Central).
 
 ## <a name="create-your-net-application"></a>Creación de su aplicación .NET
 

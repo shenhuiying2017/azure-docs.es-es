@@ -1,11 +1,11 @@
 ---
-title: "Aplicación híbrida en la nube/local (.NET) de Azure WCF Relay | Microsoft Docs"
-description: "Aprenda a crear una aplicación híbrida en la nube o local de .NET con la retransmisión de WCF de Azure."
+title: Aplicación híbrida en la nube/local (.NET) de Azure WCF Relay | Microsoft Docs
+description: Aprenda a crear una aplicación híbrida en la nube o local de .NET con la retransmisión de WCF de Azure.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus-relay
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29346449"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Aplicación híbrida en la nube o local de .NET con la retransmisión de WCF de Azure
 
@@ -451,7 +452,7 @@ Antes de ejecutar la aplicación en la nube, debe asegurarse de que **ProductsPo
 
     ![][38]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre Relay de Azure, consulte los siguientes recursos:  
 
