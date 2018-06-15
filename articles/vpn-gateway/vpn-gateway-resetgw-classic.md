@@ -1,11 +1,11 @@
 ---
-title: "Restablecimiento de una puerta de enlace de VPN de Azure para volver a establecer túneles IPsec | Microsoft Docs"
-description: "Este artículo lo guiará por el restablecimiento de Azure VPN Gateway para restablecer túneles IPsec. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager."
+title: Restablecimiento de una puerta de enlace de VPN de Azure para volver a establecer túneles IPsec | Microsoft Docs
+description: Este artículo lo guiará por el restablecimiento de Azure VPN Gateway para restablecer túneles IPsec. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125823"
 ---
 # <a name="reset-a-vpn-gateway"></a>Restablecimiento de una puerta de enlace de VPN
 

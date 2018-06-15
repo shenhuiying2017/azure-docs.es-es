@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246294"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales básico con PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecutan Windows Server 2016. Después de ejecutar el script, puede acceder a las instancias de máquina virtual mediante RDP.

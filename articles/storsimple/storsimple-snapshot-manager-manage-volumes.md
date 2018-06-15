@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager y volúmenes | Microsoft Docs"
-description: "Describe cómo usar el complemento MMC de Snapshot Manager de StorSimple para ver y administrar volúmenes y configurar copias de seguridad."
+title: StorSimple Snapshot Manager y volúmenes | Microsoft Docs
+description: Describe cómo usar el complemento MMC de Snapshot Manager de StorSimple para ver y administrar volúmenes y configurar copias de seguridad.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111723"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Uso de Administrador de instantáneas StorSimple para ver y administrar volúmenes
 ## <a name="overview"></a>Información general

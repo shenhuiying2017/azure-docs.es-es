@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292159"
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Probar el rendimiento de un servicio en la nube
 ## <a name="overview"></a>Información general

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169746"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script de PowerShell: carga de datos incremental mediante el uso de Azure Data Factory
 Este script de PowerShell de ejemplo carga solo los registros nuevos o actualizados desde un almacén de datos de origen a un almacén de datos del receptor después de la copia completa inicial de datos del origen al receptor.  
