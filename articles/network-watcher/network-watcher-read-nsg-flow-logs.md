@@ -1,11 +1,11 @@
 ---
 title: Lectura de registros de flujos de NSG | Microsoft Docs
-description: "En este artículo se muestra cómo analizar registros de flujos de NSG"
+description: En este artículo se muestra cómo analizar registros de flujos de NSG
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149641"
 ---
 # <a name="read-nsg-flow-logs"></a>Lectura de registros de flujos de NSG
 
@@ -157,7 +158,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 Este escenario es un ejemplo de cómo leer las entradas de registros de flujos de NSG sin tener que analizar todo el registro. Puede leer las entradas nuevas del registro a medida que se escriben mediante el identificador de bloque o mediante el seguimiento de la longitud de los bloques almacenados en el blob en bloques. Esto le permite leer solo las entradas nuevas.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Visite [Visualización de registros de flujo de grupo de seguridad de red de Azure Network Watcher con herramientas de código abierto](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) para obtener más información sobre otros métodos para consultar los registros de flujos de NSG.
 

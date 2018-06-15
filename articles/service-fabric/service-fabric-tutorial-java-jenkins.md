@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949844"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Tutorial: Configuración de un entorno de Jenkins con Service Fabric
 Este tutorial es la parte quinta de una serie. En ella se muestra cómo usar Jenkins para implementar actualizaciones en su aplicación. En este tutorial, el complemento Jenkins de Service Fabric se usa en combinación con el repositorio de Github que hospeda la aplicación Voting para implementar la aplicación en un clúster. 

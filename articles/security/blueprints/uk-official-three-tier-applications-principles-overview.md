@@ -1,6 +1,6 @@
 ---
-title: "UK-OFFICIAL Automatización de aplicaciones web en tres niveles: introducción"
-description: "UK-OFFICIAL Automatización de aplicaciones web en tres niveles: introducción"
+title: 'UK-OFFICIAL Automatización de aplicaciones web en tres niveles: introducción'
+description: 'UK-OFFICIAL Automatización de aplicaciones web en tres niveles: introducción'
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151385"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Introducción a los principios de seguridad en la nube del National Cyber Security Centre
 
