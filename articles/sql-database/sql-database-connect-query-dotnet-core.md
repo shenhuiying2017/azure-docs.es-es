@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31795133"
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>Uso de .NET Core (C#) para consultar una instancia de Azure SQL Database
 

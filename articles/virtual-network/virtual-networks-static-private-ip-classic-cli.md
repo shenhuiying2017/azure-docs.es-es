@@ -21,6 +21,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791814"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configuración de direcciones IP privadas para una máquina virtual (implementación clásica) mediante la CLI de Azure 1.0
 

@@ -439,7 +439,7 @@
     - name: REST de Compute
       href: /rest/api/compute
     - name: REST de Managed Disks
-      href: /rest/api/manageddisks
+      href: /rest/api/disks
 - name: Recursos
   items:
     - name: Creación de plantillas

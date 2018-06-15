@@ -32,8 +32,7 @@
 ### [Migración de implementaciones clásicas a Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
 ### [Administración de las VM con Azure PowerShell](manage-psh-classic.md)
 ### [Acerca del agente de VM y extensiones](agents-and-extensions-classic.md)
-### [Administración de extensiones de VM](manage-extensions-classic.md)
-### [Extensión Custom Script para VM](extensions-customscript-classic.md)
+### [Administración de extensiones de máquina virtual](manage-extensions-classic.md)
 
 ## Administración de cargas de trabajo
 ### [Informática de alto rendimiento (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)

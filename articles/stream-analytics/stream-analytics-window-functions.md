@@ -8,19 +8,20 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.openlocfilehash: dfc59c8d976720ddb313c2e9d29e68c56a8d49f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/07/2018
+ms.openlocfilehash: 2650058e277bc0338c779655ce381be046fb120a
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893657"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introducción a las funciones de ventana de Stream Analytics
 En los escenarios de streaming en tiempo real, realizar operaciones en los datos contenidos en ventanas temporales es un patrón común. Stream Analytics ofrece compatibilidad nativa para las funciones de ventana, lo que permite a los desarrolladores crear trabajos de procesamiento de flujo complejos con un mínimo esfuerzo.
 
-Hay cuatro tipos de ventanas temporales entre las que se puede elegir: [**saltos de tamaño constante**](https://msdn.microsoft.com/library/dn835055.aspx), [**salto**](https://msdn.microsoft.com/library/dn835041.aspx), [**deslizante**](https://msdn.microsoft.com/library/dn835051.aspx) y **sesión**.  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) de la sintaxis de consulta en los trabajos de Stream Analytics.
+Hay cuatro tipos de ventanas temporales entre las que se puede elegir: [**saltos de tamaño constante**](https://msdn.microsoft.com/azure/stream-analytics/reference/tumbling-window-azure-stream-analytics), [**salto**](https://msdn.microsoft.com/azure/stream-analytics/reference/hopping-window-azure-stream-analytics), [**deslizante**](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) y [**sesión**](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics).  Utilice las funciones de ventana en la cláusula [**GROUP BY**](https://msdn.microsoft.com/azure/stream-analytics/reference/group-by-azure-stream-analytics) de la sintaxis de consulta en los trabajos de Stream Analytics.
 
-Todas las operaciones de [ventana](https://msdn.microsoft.com/library/dn835019.aspx) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
+Todas las operaciones de [ventana](https://msdn.microsoft.com/azure/stream-analytics/reference/windowing-azure-stream-analytics) generan resultados al **final** de la ventana. La salida de la ventana será un solo evento basado en la función agregada que se usa. El evento de salida tendrá la marca de tiempo del final de la ventana y todas las funciones de ventana están definidas con una longitud fija. 
 
 ![Conceptos de las funciones de ventana de Stream Analytics](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 

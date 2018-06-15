@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/01/2018
+  ms.locfileid: "32313115"
 abstract:
   description: Aprenda a usar Azure Traffic Manager. Guías de inicio rápido, tutoriales, ejemplos, etc, para mostrarle cómo administrar el tráfico entrante para conseguir un rendimiento óptimo de la aplicación y cómo distribuir el tráfico a Azure o a los puntos de conexión de servicio externos.
 sections:

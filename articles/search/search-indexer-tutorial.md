@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799522"
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
