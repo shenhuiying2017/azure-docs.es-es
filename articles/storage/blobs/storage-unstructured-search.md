@@ -1,6 +1,6 @@
 ---
-title: "Búsqueda de datos no estructurados en almacenamiento en la nube de Azure"
-description: "Búsqueda de datos no estructurados mediante Azure Search."
+title: Búsqueda de datos no estructurados en almacenamiento en la nube de Azure
+description: Búsqueda de datos no estructurados mediante Azure Search.
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451642"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Búsqueda de datos no estructurados en almacenamiento en la nube
 

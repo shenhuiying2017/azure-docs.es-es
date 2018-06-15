@@ -1,11 +1,11 @@
 ---
-title: "Replicar una implementación de XenDesktop y XenApp de Citrix de niveles múltiples mediante Azure Site Recovery | Microsoft Docs"
-description: "En este artículo se describe cómo proteger y recuperar implementaciones de XenDesktop y XenApp de Citrix con Azure Site Recovery."
+title: Replicar una implementación de XenDesktop y XenApp de Citrix de niveles múltiples mediante Azure Site Recovery | Microsoft Docs
+description: En este artículo se describe cómo proteger y recuperar implementaciones de XenDesktop y XenApp de Citrix con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559713"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar una implementación de XenApp y XenDesktop de Citrix de niveles múltiples mediante Azure Site Recovery
 
@@ -195,6 +196,6 @@ Siga [estas directrices](site-recovery-test-failover-to-azure.md) para llevar a 
 
 Siga [estas directrices](site-recovery-failover.md) cuando realice una conmutación por error.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Puede obtener [más información](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre la replicación de implementaciones de XenApp y XenDesktop de Citrix en estas notas del producto. Consulte las instrucciones para la [replicación de otras aplicaciones](site-recovery-workload.md) mediante Site Recovery.

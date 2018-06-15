@@ -1,11 +1,11 @@
 ---
-title: "Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD | Microsoft Docs"
-description: "Obtenga información para averiguar por qué se está aprovisionando un conjunto de usuarios para una aplicación diferente del esperado."
+title: Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD | Microsoft Docs
+description: Obtenga información para averiguar por qué se está aprovisionando un conjunto de usuarios para una aplicación diferente del esperado.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383144"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD
 
@@ -108,5 +109,5 @@ Si el aprovisionamiento está configurado y ya se está ejecutando para una apli
 
 Si están habilitados los grupos de aprovisionamiento, asegúrese de revisar las asignaciones de atributos para asegurarse de que se utiliza un campo apropiado para el "identificador coincidente". Esto puede ser el nombre para mostrar o el alias de correo electrónico, ya que el grupo y sus miembros no se han aprovisionado si la propiedad coincidente está vacía o no se rellenado para un grupo en Azure AD.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)

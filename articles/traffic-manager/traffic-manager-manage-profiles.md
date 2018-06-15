@@ -1,11 +1,11 @@
 ---
 title: Administrar perfiles del Azure Traffic Manager | Microsoft Docs
-description: "La información contenida en este artículo le ayuda a crear, deshabilitar, habilitar y eliminar un perfil de Azure Traffic Manager."
+description: La información contenida en este artículo le ayuda a crear, deshabilitar, habilitar y eliminar un perfil de Azure Traffic Manager.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398063"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil del Administrador de tráfico de Azure
 
@@ -69,7 +70,7 @@ Puede deshabilitar un perfil existente para que Traffic Manager no refiera solic
 3. Haga clic en **Información general** > **Eliminar**.
 4. Confirme para eliminar el perfil de Traffic Manager.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 * [Agregación de un extremo](traffic-manager-endpoints.md)
 * [Configuración del método de enrutamiento por prioridad](traffic-manager-configure-priority-routing-method.md)

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774580"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligencia sobre amenazas de Azure Security Center
 Este artículo le ayuda a utilizar la inteligencia sobre amenazas de Azure Security Center para tratar problemas relacionados con la seguridad.

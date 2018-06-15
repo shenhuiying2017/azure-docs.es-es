@@ -1,11 +1,11 @@
 ---
-title: "Error en la página de aplicación después de iniciar sesión | Microsoft Docs"
-description: "Cómo resolver problemas con el inicio de sesión de Azure AD en cuando la propia aplicación genera un error"
+title: Error en la página de aplicación después de iniciar sesión | Microsoft Docs
+description: Cómo resolver problemas con el inicio de sesión de Azure AD en cuando la propia aplicación genera un error
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384912"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Error en la página de aplicación después de iniciar sesión
 
@@ -155,5 +156,5 @@ Para cambiar el algoritmo de firma, siga estos pasos:
 
 La próxima vez que el usuario inicie sesión en la aplicación, Azure AD firmará el token de SAML con el algoritmo SHA-1.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

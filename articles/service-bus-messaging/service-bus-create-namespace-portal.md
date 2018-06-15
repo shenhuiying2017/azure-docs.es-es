@@ -1,11 +1,11 @@
 ---
-title: "Creación de un espacio de nombres de Service Bus en Azure Portal | Microsoft Docs"
-description: "Creación de un espacio de nombres de Service Bus mediante Azure Portal."
+title: Creación de un espacio de nombres de Service Bus en Azure Portal | Microsoft Docs
+description: Creación de un espacio de nombres de Service Bus mediante Azure Portal.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29556433"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Creación de un espacio de nombres de Service Bus mediante Azure Portal
 
@@ -33,7 +34,7 @@ Un espacio de nombres es un contenedor con un ámbito para todos los componentes
 
 Felicidades. Ha creado un espacio de nombres de mensajería de Service Bus.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Consulte nuestros [ejemplos de GitHub][github-samples], que muestran algunas de las características más avanzadas de la mensajería de Service Bus.
 

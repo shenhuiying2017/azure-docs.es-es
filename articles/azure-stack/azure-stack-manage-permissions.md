@@ -2,10 +2,10 @@
 title: Administrar permisos para los recursos por usuario en Azure Stack (administrador de servicios e inquilino) | Microsoft Docs
 description: Si es administrador de servicios o inquilino, aprenda a administrar los permisos RBAC.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385643"
 ---
 # <a name="manage-role-based-access-control"></a>Administrar el control de acceso basado en roles
 
@@ -48,6 +49,6 @@ Aplicable solo a Servicios de federación de Active Directory (AD FS).
 3. En la hoja **Usuarios**, haga clic en **Roles**.
 4. En la hoja **Roles**, haga clic en **Agregar** para agregar permisos para el grupo de Active Directory del grupo universal.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Add a new Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)
 

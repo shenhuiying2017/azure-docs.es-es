@@ -1,12 +1,12 @@
 ---
-title: "Recepción de eventos desde Azure Event Hubs mediante la biblioteca de .NET Standard | Microsoft Docs"
-description: "Introducción a la recepción de mensajes con EventProcessorHost en .NET Standard"
+title: Recepción de eventos desde Azure Event Hubs mediante la biblioteca de .NET Standard | Microsoft Docs
+description: Introducción a la recepción de mensajes con EventProcessorHost en .NET Standard
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29389842"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard
 
@@ -214,7 +215,7 @@ Agregue los paquetes NuGet de la biblioteca de .NET Standard [ **Microsoft.Azure
 
 Felicidades. Recibió mensajes de un centro de eventos mediante el host de procesador de eventos.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Para más información acerca de Event Hubs, visite los vínculos siguientes:
 
 * [Información general de Event Hubs](event-hubs-what-is-event-hubs.md)
