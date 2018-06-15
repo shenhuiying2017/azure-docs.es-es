@@ -1,12 +1,12 @@
 ---
 title: Usar el kit de herramientas de Marketplace para crear y publicar elementos de Marketplace | Microsoft Docs
-description: "Aprenda a crear rápidamente elementos de Marketplace con el kit de herramientas de publicación"
+description: Aprenda a crear rápidamente elementos de Marketplace con el kit de herramientas de publicación
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386884"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Agregar elementos de Marketplace con la herramienta de publicación
 Agregar el contenido a [Azure Stack Marketplace](azure-stack-marketplace.md) hace que sus soluciones estén disponibles para implementación por su parte y la de sus inquilinos.  El kit de herramientas de Marketplace crea archivos de paquetes de Azure Marketplace (.azpkg) basados en extensiones de VM o plantillas de Azure Resource Manager de IaaS.  También puede usar el kit de herramientas de Marketplace para publicar archivos .azpkg creados con la herramienta o mediante pasos [manuales](azure-stack-create-and-publish-marketplace-item.md).  En este tema, conocerá los pasos para descargar la herramienta, crear un elemento de Marketplace basado en una plantilla de VM y, a continuación, publicar ese elemento en Azure Stack Marketplace.     

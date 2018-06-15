@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31429615"
 ---
 Ahora puede usar la herramienta Explorador de datos en Azure Portal para crear una base de datos y una tabla. 
 

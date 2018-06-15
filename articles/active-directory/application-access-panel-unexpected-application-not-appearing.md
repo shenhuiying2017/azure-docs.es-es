@@ -1,11 +1,11 @@
 ---
-title: "Una aplicación asignada no aparece en el panel de acceso | Microsoft Docs"
-description: "Solucionar por qué una aplicación no aparece en el panel de acceso"
+title: Una aplicación asignada no aparece en el panel de acceso | Microsoft Docs
+description: Solucionar por qué una aplicación no aparece en el panel de acceso
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384123"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Una aplicación asignada no aparece en el panel de acceso
 
@@ -667,6 +668,6 @@ Para asignar una licencia a un grupo, siga estos pasos:
 >
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 [Adición de nuevos usuarios a Azure Active Directory](active-directory-users-create-azure-portal.md)
 

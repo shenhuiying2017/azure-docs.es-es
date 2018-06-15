@@ -1,11 +1,11 @@
 ---
-title: "Incorporación de un script a un plan de recuperación en Azure Site Recovery | Microsoft Docs"
-description: "Obtenga información sobre los requisitos previos para agregar un script nuevo de System Center Virtual Machine Manager (VMM) a un plan de recuperación en Azure."
+title: Incorporación de un script a un plan de recuperación en Azure Site Recovery | Microsoft Docs
+description: Obtenga información sobre los requisitos previos para agregar un script nuevo de System Center Virtual Machine Manager (VMM) a un plan de recuperación en Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: shons
-editor: 
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402076"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Incorporación de un script de VMM a un plan de recuperación
 
@@ -82,6 +83,6 @@ Después de agregar las máquinas virtuales o los grupos de replicación a un pl
 6. Para asegurarse de que el script funciona según lo previsto, realice una conmutación por error de prueba del plan de recuperación.
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Aprenda más sobre la [ejecución de conmutaciones por error](site-recovery-failover.md).
 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32777186"
 abstract:
   description: Aprenda a usar Azure Network Watcher. Guías de inicio rápido, tutoriales, etc, que le muestran cómo conseguir información sobre su instancia de Azure Virtual Network con herramientas como la captura de paquetes y los registros de flujos de grupos de seguridad de red, para diagnosticar problemas con el filtrado y enrutamiento del tráfico, y para supervisar las conexiones.
 sections:

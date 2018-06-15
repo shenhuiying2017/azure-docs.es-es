@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31420743"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuración de Azure Redis Cache
 En este tema se describe la configuración disponible para las instancias de Azure Redis Cache. En este tema también se describe la configuración predeterminada del servidor Redis para las instancias de Azure Redis Cache.

@@ -1,8 +1,8 @@
 ---
-title: "Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Microsoft Docs"
+title: Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Microsoft Docs
 description: Aprenda a realizar una copia de seguridad de SQL Server en Azure Storage. Se explican las ventajas de realizar una copia de seguridad de bases de datos SQL en Azure Storage.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399056"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Uso de Azure Storage para la copia de seguridad y la restauración de SQL Server
 ## <a name="overview"></a>Información general
@@ -65,7 +66,7 @@ Se utilizan los siguientes componentes de SQL Server al realizar una copia de se
 > 
 > 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 1. Cree una cuenta de Azure si aún no tiene una. Si va a evaluar Azure, podría considerar la [evaluación gratuita](https://azure.microsoft.com/free/).
 2. A continuación, siga uno de los siguientes tutoriales para crear una cuenta de almacenamiento y realizar una restauración.
    

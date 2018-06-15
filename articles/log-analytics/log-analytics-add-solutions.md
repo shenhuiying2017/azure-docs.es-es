@@ -1,11 +1,11 @@
 ---
-title: "Adición de soluciones de administración de Azure Log Analytics | Microsoft Docs"
-description: "Las soluciones de administración de Azure son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas."
+title: Adición de soluciones de administración de Azure Log Analytics | Microsoft Docs
+description: Las soluciones de administración de Azure son una colección de reglas de lógica, visualización y adquisición de datos que proporcionan métricas que giran en torno a una determinada área de problemas.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395469"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adición de soluciones de administración de Azure Log Analytics al área de trabajo
 
@@ -277,5 +278,5 @@ Invitamos a los clientes a las vistas previas privadas de diversas maneras, depe
 * Puede registrarse conforme a la información publicada en [msopsmgmt](https://twitter.com/msopsmgmt).
 * Puede registrarse basándose en detalles compartidos en eventos comunitarios: búsquenos en encuentros, conferencias y en comunidades en línea.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * [Busque en los registros](log-analytics-log-searches.md) para ver información detallada recopilada por las soluciones de administración.

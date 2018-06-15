@@ -1,12 +1,12 @@
 ---
 title: Agregar mensajes a una cola de Azure Storage con Functions | Microsoft Docs
-description: "Use Azure Functions para crear una función sin servidor que se invoca mediante una solicitud HTTP y crea un mensaje en una cola de Azure Storage."
+description: Use Azure Functions para crear una función sin servidor que se invoca mediante una solicitud HTTP y crea un mensaje en una cola de Azure Storage.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387071"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Agregar mensajes a una cola de Azure Storage con Functions
 
@@ -153,7 +154,7 @@ Omita esta sección si ya ha instalado el Explorador de Storage y lo ha conectad
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 En esta guía de inicio rápido, ha agregado un enlace de salida a una función existente. Para obtener más información sobre los enlaces a Queue Storage, vea [Enlaces de cola de Storage en Azure Functions](functions-bindings-storage-queue.md). 
 

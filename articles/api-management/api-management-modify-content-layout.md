@@ -1,11 +1,11 @@
 ---
-title: "Modificación del contenido de una página en el portal para desarrolladores de Azure API Management | Microsoft Docs"
-description: "Aprenda a editar el contenido de una página en el portal para desarrolladores de Azure API Management."
+title: Modificación del contenido de una página en el portal para desarrolladores de Azure API Management | Microsoft Docs
+description: Aprenda a editar el contenido de una página en el portal para desarrolladores de Azure API Management.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29377806"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificación del contenido y el diseño de páginas en el portal para desarrolladores de Azure API Management
 Existen tres maneras fundamentales de personalizar el portal para desarrolladores en Azure API Management:

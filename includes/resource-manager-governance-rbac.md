@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433256"
 ---
 Desea asegurarse de que los usuarios de una organización tengan el nivel adecuado de acceso a estos recursos. No desea conceder acceso ilimitado a los usuarios, pero también es necesario garantizar que puedan realizar su trabajo. El control de acceso basado en rol (RBAC) le permite administrar los usuarios con permiso para completar acciones específicas en un ámbito. Un rol define un conjunto de acciones permitidas. Asigne el rol a un ámbito y especifique los usuarios que pertenecen a ese rol para el ámbito.
 

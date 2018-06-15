@@ -1,11 +1,11 @@
 ---
-title: "Almacenamiento en caché personalizado en Azure API Management"
-description: "Aprenda a almacenar en caché elementos por clave en Azure API Management"
+title: Almacenamiento en caché personalizado en Azure API Management
+description: Aprenda a almacenar en caché elementos por clave en Azure API Management
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29376038"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Almacenamiento en caché personalizado en Azure API Management
 El servicio Azure API Management integra compatibilidad para [el almacenamiento en caché de respuestas HTTP](api-management-howto-cache.md) mediante el uso de la dirección URL como clave. La clave se puede modificar por los encabezados de solicitud con las propiedades `vary-by` . Esto es útil para almacenar en caché las respuestas HTTP completas (también conocidas como representaciones), pero a veces resulta útil almacenar en caché solo una parte de una representación. Las nuevas directivas [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) y [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) permiten almacenar y recuperar fragmentos arbitrarios de datos desde las definiciones de directiva. Esta capacidad también agrega valor a la directiva [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) previamente introducida porque ahora se puede almacenar en caché las respuestas desde servicios externos.

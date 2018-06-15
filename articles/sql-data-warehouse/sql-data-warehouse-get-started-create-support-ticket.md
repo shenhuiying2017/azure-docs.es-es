@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523054"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Creación de una incidencia de soporte técnico para SQL Data Warehouse
 Si tiene problema con su instancia de SQL Data Warehouse, cree una incidencia de soporte técnico para que el equipo de ingenieros de soporte pueda ayudarle.

@@ -1,6 +1,6 @@
 ---
-title: "Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error con Azure Site Recovery | Microsoft Docs"
-description: "Se describe cómo configurar el direccionamiento IP para conectarse a las máquinas virtuales de un sitio secundario local tras la conmutación por error con Azure Site Recovery."
+title: Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error con Azure Site Recovery | Microsoft Docs
+description: Se describe cómo configurar el direccionamiento IP para conectarse a las máquinas virtuales de un sitio secundario local tras la conmutación por error con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378680"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error
 
@@ -125,7 +126,7 @@ En este ejemplo, tenemos diferentes direcciones IP en los sitios principal y sec
 ![Diferente dirección IP: después de la conmutación por error](./media/hyper-v-vmm-networking/network-design11.png)
 
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 [Ejecución de una conmutación por error](hyper-v-vmm-failover-failback.md)
 

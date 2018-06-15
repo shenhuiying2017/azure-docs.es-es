@@ -1,11 +1,11 @@
 ---
-title: "Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell | Microsoft Docs"
-description: "En este tutorial se usan recursos que se crearon con el modelo de implementación clásica. Se usa PowerShell para crear un grupo de disponibilidad AlwaysOn en Azure."
+title: Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell | Microsoft Docs
+description: En este tutorial se usan recursos que se crearon con el modelo de implementación clásica. Se usa PowerShell para crear un grupo de disponibilidad AlwaysOn en Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401300"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configuración de grupos de disponibilidad AlwaysOn en máquinas virtuales de Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -564,7 +565,7 @@ Finalmente, está listo para configurar el grupo de disponibilidad. Se usará el
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 Ha implementado correctamente SQL Server AlwaysOn mediante la creación de un grupo de disponibilidad en Azure. Para configurar un agente de escucha para este grupo de disponibilidad, consulte [Configuración de un agente de escucha con ILB para grupos de disponibilidad AlwaysOn en Azure](../classic/ps-sql-int-listener.md).
 
 Para más información sobre el uso de SQL Server en Azure, consulte [SQL Server en Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
