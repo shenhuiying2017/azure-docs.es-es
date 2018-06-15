@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779499"
 abstract:
   description: Aprenda a configurar, crear y administrar una instancia de Azure VPN Gateway. Cree conexiones cifradas entre entornos locales a la red virtual desde ubicaciones locales, o cree conexiones cifradas entre redes virtuales.
 sections:

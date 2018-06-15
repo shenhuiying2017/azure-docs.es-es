@@ -469,6 +469,9 @@
     - name: Resistencia
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Control de acceso basado en rol
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Service Health
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

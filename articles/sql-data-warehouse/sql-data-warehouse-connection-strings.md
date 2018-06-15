@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597156"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadenas de conexión de Azure SQL Data Warehouse
 Puede conectarse a SQL Data Warehouse con varios protocolos de aplicación diferentes, como [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] y [JDBC][JDBC]. A continuación se muestran algunos ejemplos de cadenas de conexión para cada protocolo.  También puede usar el Portal de Azure para crear la cadena de conexión.  Para generar la cadena de conexión mediante Azure Portal, vaya a la hoja de la base de datos en *Aspectos básicos* y haga clic en *Mostrar cadenas de conexión de base de datos*.

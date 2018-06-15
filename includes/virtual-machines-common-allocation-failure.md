@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901336"
 ---
 Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignadas) o se les cambia el tamaño, Microsoft Azure asigna recursos de proceso a la suscripción. Invertimos continuamente en infraestructura y características adicionales para asegurarnos de que todos los tipos de máquina virtual están disponibles para respaldar la demanda de los clientes. Sin embargo, en ocasiones, puede experimentar errores de asignación de recursos debido al crecimiento sin precedentes de la demanda de los servicios de Azure en determinadas regiones. Este problema puede producirse al intentar crear o iniciar máquinas virtuales en una región mientras estas muestran los siguientes código de error y mensaje:
 

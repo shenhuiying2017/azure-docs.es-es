@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33766667"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Restauración de una aplicación en Azure desde una instantánea
 Este artículo muestra cómo restaurar una aplicación en [Azure App Service](../app-service/app-service-web-overview.md) desde una instantánea. Puede restaurar la aplicación a un estado anterior basado en una de las instantáneas de la aplicación. No es necesario habilitar la copia de seguridad de instantáneas, la plataforma guarda automáticamente una instantánea de todas las aplicaciones para fines de recuperación de datos.

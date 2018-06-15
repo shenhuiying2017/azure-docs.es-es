@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785754"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de sustituir las claves de acceso de almacenamiento
 

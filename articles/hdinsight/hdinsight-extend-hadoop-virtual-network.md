@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700713"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Extender Azure HDInsight mediante una instancia de Azure Virtual Network
 
@@ -90,7 +91,7 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Para más información, vea el documento sobre [Solución de problemas de los grupos de seguridad de red](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
+        Para más información, vea el documento sobre [Solución de problemas de los grupos de seguridad de red](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]
         > Se aplican reglas de grupo de seguridad de red en orden según la prioridad de la regla. Se aplica la primera regla que coincide con el patrón de tráfico y no se aplica ninguna otra para el tráfico. El orden de las reglas es de más a menos permisiva. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
@@ -107,7 +108,7 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Para más información, vea el documento sobre [Solución de problemas de rutas](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+        Para más información, vea el documento sobre [Solución de problemas de rutas](../virtual-network/diagnose-network-routing-problem.md).
 
 4. Cree un clúster de HDInsight y seleccione la instancia de Azure Virtual Network durante la configuración. Para entender el proceso de creación de clúster, use los pasos descritos en los siguientes documentos:
 

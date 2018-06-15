@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814737"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generar el archivo de solicitud de firma de certificado
 El Servicio de notificaciones push de Apple (APNS) usa certificados para autenticar las notificaciones push. Siga estas instrucciones para crear el certificado de inserción necesario para enviar y recibir notificaciones. Para obtener más información sobre estos conceptos, consulte la documentación oficial de [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) (Servicio de notificaciones push de Apple).
