@@ -30,7 +30,7 @@ Las máquinas virtuales de Azure proporcionan un entorno informático completame
 > [!div class="checklist"]
 > * Crear y conectar elementos a una máquina virtual
 > * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
+> * Ver y usar tamaños de una máquina virtual específica
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales
 
@@ -283,7 +283,7 @@ En este tutorial, ha aprendido conceptos básicos sobre la creación y administr
 > [!div class="checklist"]
 > * Crear y conectar elementos a una máquina virtual
 > * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
+> * Ver y usar tamaños de una máquina virtual específica
 > * Cambiar el tamaño de una máquina virtual
 > * Ver y entender el estado de las máquinas virtuales
 
