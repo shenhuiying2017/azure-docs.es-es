@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817039"
 ---
 Antes de crear cualquier elemento, revisemos el concepto de ámbito. Azure proporciona cuatro niveles de administración: grupo de administración, suscripción, grupo de recursos y recurso. Los [grupos de administración](../articles/billing/billing-enterprise-mgmt-group-overview.md) están en versión preliminar. En la imagen siguiente se muestra un ejemplo de estos niveles:
 

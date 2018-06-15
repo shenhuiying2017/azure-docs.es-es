@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: administración
       items:
+        - name: Creación de un extremo
+          href: cdn-create-endpoint-how-to.md
         - name: Administración con Azure PowerShell
           href: cdn-manage-powershell.md
         - name: Restringir el acceso por países

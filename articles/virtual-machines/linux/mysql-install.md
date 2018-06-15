@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239181"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Instalación de MySQL en Azure
 En este artículo aprenderá a instalar y configurar MySQL en una máquina virtual de Azure con Linux.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30903482"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>¿En qué consiste Batch AI en Azure?
 Batch AI es un servicio administrado que permite a los científicos de datos y a los investigadores de la AI entrenar la inteligencia artificial y otros modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure, incluidas máquinas virtuales con compatibilidad con GPU. Puede describir los requisitos de su trabajo, dónde encontrar las entradas y almacenar las salidas, y Batch AI se encarga del resto.  

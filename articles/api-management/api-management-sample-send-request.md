@@ -1,11 +1,11 @@
 ---
-title: "Uso del servicio de administración de API para generar solicitudes HTTP"
-description: "Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API"
+title: Uso del servicio de administración de API para generar solicitudes HTTP
+description: Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714678"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.

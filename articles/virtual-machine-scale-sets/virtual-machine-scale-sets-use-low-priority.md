@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894914"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Máquinas virtuales de prioridad baja en conjuntos de escalado (versión preliminar)
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896119"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Informe de inteligencia frente a amenazas de Azure Security Center
 En este documento se explica cómo los informes de inteligencia frente a amenazas de Azure Security Center pueden ayudarle a aprender más sobre una amenaza que ha generado una alerta de seguridad.

@@ -14,23 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 88505126389f51f59cf0538da8b72139f86e58d5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e64cc232aa01a5619a55290f9b07421165a6d5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698737"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configuración de ServiceNow para el aprovisionamiento automático de usuarios con Azure Active Directory
 
 El objetivo de este tutorial es explicar los pasos que debe realizar en ServiceNow y Azure AD para aprovisionar y cancelar automáticamente el aprovisionamiento de cuentas de usuario de Azure AD para ServiceNow.
 
+> [!NOTE]
+> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>requisitos previos
 
-En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
+Para configurar la integración de Azure AD con ServiceNow, necesita los siguientes elementos:
 
-*   Un inquilino de Azure Active Directory.
-*   Debe tener un inquilino válido para ServiceNow for Work o ServiceNow for Education. Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
-*   Una cuenta de usuario de ServiceNow con permisos de administrador de equipo.
+- Una suscripción de Azure AD
+- Para ServiceNow, una instancia o inquilino de ServiceNow, versión Calgary o superior
+- Para ServiceNow Express, una instancia de ServiceNow Express, versión Helsinki o superior
+
+> [!NOTE]
+> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
+
+Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
+
+- No use el entorno de producción, salvo que sea necesario.
+- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+
 
 ## <a name="assigning-users-to-servicenow"></a>Asignación de usuarios a ServiceNow
 

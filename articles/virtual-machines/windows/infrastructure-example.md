@@ -21,6 +21,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809876"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Tutorial de la infraestructura de Azure de ejemplo para máquinas virtuales Windows
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, de hecho, la implementación de sus máquinas virtuales (VM).
@@ -53,7 +54,7 @@ Todo lo anterior seguirá estas convenciones de nomenclatura:
 
 * Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
   * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
-* Las redes virtuales usan AZOS-USE-VN**[número]**
+* Las redes virtuales usan AZOS-USE-VN **[número]**
 * Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
 * Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
 

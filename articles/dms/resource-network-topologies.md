@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235407"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologías de red para migraciones a Instancia administrada de Azure SQL Database con Azure Database Migration Service
 En este artículo obtendrá información sobre diversas topologías de red con las que Azure Database Migration Service puede trabajar para proporcionar una experiencia de migración sin problemas desde instancias locales de SQL Server a Instancia administrada de SQL Database.

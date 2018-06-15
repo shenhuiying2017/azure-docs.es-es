@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783454"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificación de un recurso mediante Estándar de codificador multimedia
 Los trabajos de Encoding son una de las operaciones de procesamiento más habituales en Media Services. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar Media Encoder, el codificador integrado de Media Services. También puede usar un codificador proporcionado por un asociado de Media Services; hay codificadores de terceros disponibles en Azure Marketplace. 

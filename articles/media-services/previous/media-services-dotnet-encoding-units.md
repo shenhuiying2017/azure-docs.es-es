@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782974"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Escalado de codificación con el SDK de .NET
 > [!div class="op_single_selector"]

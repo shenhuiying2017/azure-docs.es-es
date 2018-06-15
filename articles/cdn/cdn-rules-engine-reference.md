@@ -1,11 +1,11 @@
 ---
 title: Referencia del motor de reglas de la red CDN de Azure | Microsoft Docs
-description: "Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure."
+description: Documentación de referencia sobre las condiciones y características de coincidencia del motor de reglas de la red CDN de Azure.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733686"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Referencia del motor de reglas de Azure CDN
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
