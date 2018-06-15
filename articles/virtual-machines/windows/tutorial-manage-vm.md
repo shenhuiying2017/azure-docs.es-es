@@ -224,7 +224,7 @@ Una máquina virtual de Azure puede tener uno de muchos estados de energía. Est
 | Iniciando | Indica que se está iniciando la máquina virtual. |
 | Ejecución | Indica que la máquina virtual se está ejecutando. |
 | Deteniéndose | Indica que se está deteniendo la máquina virtual. | 
-| Stopped | Indica que la máquina virtual se ha detenido. Tenga en cuenta que las máquinas virtuales en estado detenido siguen acumulando cargos de proceso.  |
+| Detenido | Indica que la máquina virtual se ha detenido. Tenga en cuenta que las máquinas virtuales en estado detenido siguen acumulando cargos de proceso.  |
 | Desasignando | Indica que se está desasignando la máquina virtual. |
 | Desasignado | Indica que la máquina virtual se quitó completamente del hipervisor pero sigue estando disponible en el plano de control. Las máquinas virtuales en el estado Desasignado no incurren en gastos de proceso. |
 | - | Indica que se desconoce el estado de la máquina virtual. |
