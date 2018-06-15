@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528501"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Administración de proceso en Azure SQL Data Warehouse
 Aprenda sobre la administración de recursos de proceso en Azure SQL Data Warehouse. Para reducir los costos detenga el almacén de datos o escálelo para satisfacer las demandas de rendimiento. 

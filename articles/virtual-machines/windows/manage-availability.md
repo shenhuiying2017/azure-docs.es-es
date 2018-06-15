@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323192"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Administración de la disponibilidad de las máquinas virtuales Windows en Azure 
 

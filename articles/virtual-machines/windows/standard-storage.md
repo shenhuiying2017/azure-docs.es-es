@@ -1,8 +1,8 @@
 ---
-title: "Standard Storage para discos de máquinas virtuales Windows en Azure | Microsoft Docs"
-description: "Examine una instancia rentable de Standard Storage y los discos de máquina virtual Windows administrados y no administrados."
+title: Standard Storage para discos de máquinas virtuales Windows en Azure | Microsoft Docs
+description: Examine una instancia rentable de Standard Storage y los discos de máquina virtual Windows administrados y no administrados.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: aungoo-msft
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23667167"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

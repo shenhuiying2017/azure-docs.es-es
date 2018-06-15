@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431727"
 ---
 Puede aprender sobre la distribución global de Azure Cosmos DB en el siguiente vídeo, donde Andrew Liu, jefe de programas de Azure Cosmos DB, le lleva en un recorrido por la funcionalidad de distribución global.
 

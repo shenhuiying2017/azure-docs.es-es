@@ -1,6 +1,6 @@
 ---
-title: "Ejemplo de script de Azure PowerShell: implementación de una aplicación administrada | Microsoft Docs"
-description: "Ejemplo de script de Azure PowerShell: implementación de la definición de una aplicación administrada"
+title: 'Ejemplo de script de Azure PowerShell: implementación de una aplicación administrada | Microsoft Docs'
+description: 'Ejemplo de script de Azure PowerShell: implementación de la definición de una aplicación administrada'
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23637045"
 ---
 # <a name="deploy-a-managed-application-for-a-service-catalog-with-powershell"></a>Implementación de una aplicación administrada para el catálogo de servicios con PowerShell
 
