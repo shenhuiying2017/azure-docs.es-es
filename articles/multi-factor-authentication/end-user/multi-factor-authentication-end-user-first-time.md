@@ -96,7 +96,7 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 1. Seleccione **Teléfono de la oficina** en la lista desplegable  
 
     ![Configuración](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. El cuadro de número de teléfono se rellena automáticamente con la información de contacto de su empresa. Si el falta el número o es incorrecto, consulte al administrador para realizar cambios.
+2. El cuadro de número de teléfono se rellena automáticamente con la información de contacto de su empresa. Si le falta el número o es incorrecto, consulte al administrador para realizar cambios.
 3. Seleccione **Contactar** para comprobar el número de teléfono y le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
 4. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
 5. Si está usando estas aplicaciones, copie la contraseña de aplicación proporcionada y péguela en la aplicación en lugar de la contraseña normal. Puede utilizar la misma contraseña de aplicación para varias aplicaciones. Para más información, consulte [¿Cuáles son las contraseñas de aplicación?](multi-factor-authentication-end-user-app-passwords.md)
