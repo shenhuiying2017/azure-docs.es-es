@@ -16,6 +16,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202395"
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones mediante Azure Portal
 

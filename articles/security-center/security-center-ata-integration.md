@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32775928"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Conexión de Microsoft Advanced Threat Analytics con Azure Security Center
 Este documento le ayuda a configurar la integración entre Microsoft Advanced Threat Analytics y Azure Security Center.

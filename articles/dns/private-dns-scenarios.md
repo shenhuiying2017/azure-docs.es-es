@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771878"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Escenarios de Azure DNS Private Zones
 Azure DNS Private Zones proporcionan la resolución de nombres dentro de una red virtual, así como entre redes virtuales. En este artículo, echaremos un vistazo a algunos escenarios comunes que se pueden poner en funcionamiento con esta característica. 
