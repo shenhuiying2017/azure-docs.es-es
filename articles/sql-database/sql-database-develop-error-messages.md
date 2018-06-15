@@ -47,7 +47,7 @@ Una explicación del *período de bloqueo* para clientes que usan ADO.NET está 
 ### <a name="transient-fault-error-codes"></a>Códigos de errores transitorios
 Los siguientes errores son transitorios y se deben volver a probar en la lógica de aplicación: 
 
-| Código de error | Severity | DESCRIPCIÓN |
+| Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 4060 |16 |No se puede abrir la base de datos "%.&#x2a;ls" solicitada por el inicio de sesión. Error de inicio de sesión. |
 | 40197 |17 |Error en el servicio al procesar la solicitud. Vuelva a intentarlo. Código de error %d.<br/><br/>Recibirá este error cuando el servicio esté inactivo debido a actualizaciones de software o hardware, errores de hardware u otros problemas de conmutación por error. El código de error (%d) incrustado en el mensaje de error 40197 proporciona información adicional sobre el tipo de error o conmutación por error que se ha producido. Algunos ejemplos de los códigos de error que se incrustan dentro del mensaje de error 40197 son 40020, 40143, 40166 y 40540.<br/><br/>Al volver a conectarse al servidor de SQL Database se conectará automáticamente a una copia correcta de su base de datos. La aplicación debe detectar el error 40197, registrar el código de error incrustado (%d) dentro del mensaje para solucionar problemas y volver a conectarse a SQL Database hasta que los recursos estén disponibles; entonces, la conexión se establecerá de nuevo. |
@@ -61,7 +61,7 @@ Los siguientes errores son transitorios y se deben volver a probar en la lógica
 ## <a name="database-copy-errors"></a>Errores de copia de base de datos
 Pueden encontrarse los siguientes errores al copiar una base de datos en Azure SQL Database. Para más información, vea [Copiar una instancia de Azure SQL Database](sql-database-copy.md).
 
-| Código de error | Severity | DESCRIPCIÓN |
+| Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 40635 |16 |El cliente con la dirección IP '%.&#x2a;ls' está deshabilitado temporalmente. |
 | 40637 |16 |Crear copia de base de datos está deshabilitado actualmente. |
@@ -89,7 +89,7 @@ Temas relacionados:
 
 * Encontrará información más detallada aquí: [Límites de recursos de Azure SQL Database](sql-database-service-tiers-dtu.md).
 
-| Código de error | Severity | DESCRIPCIÓN |
+| Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 10928 |20 |Id. de recurso: %d. El límite %s para la base de datos es %d y se ha alcanzado. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
 | 10929 |20 |Id. de recurso: %d. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Para más información, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). De lo contrario, Inténtelo de nuevo más tarde.<br/><br/>El identificador de recurso indica el recurso que ha alcanzado el límite. Para subprocesos de trabajo, el id. de recurso = 1. Para las sesiones, Identificador de recurso = 2.<br/><br/>Para más información sobre este error y cómo solucionarlo, consulte:<br/>• [Límites de recursos de SQL Database](sql-database-service-tiers-dtu.md). |
@@ -136,7 +136,7 @@ Temas relacionados:
 ## <a name="general-errors"></a>Errores generales
 Los siguientes errores no se incluyen en ninguna categoría anterior.
 
-| Código de error | Severity | DESCRIPCIÓN |
+| Código de error | Gravedad | DESCRIPCIÓN |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) no es un nombre válido porque contiene caracteres no válidos. |
 | 18452 |14 |Error de inicio de sesión. El inicio de sesión se realiza desde un dominio que no es de confianza y no se puede utilizar con autenticación de Windows.%.&#x2a;ls (Los inicios de sesión de Windows no se admiten en esta versión de SQL Server.). |
