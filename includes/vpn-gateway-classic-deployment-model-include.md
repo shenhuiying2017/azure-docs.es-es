@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197914"
 ---
 > [!NOTE]
 > Este artículo se ha escrito para el modelo de implementación clásico. Si es la primera vez que usa Azure, se recomienda usar el modelo de implementación de Resource Manager. El modelo de implementación de Resource Manager es el modelo más reciente y ofrece más opciones y compatibilidad de características que el modelo de implementación clásica. Para conocer más sobre los modelos de implementación, consulte la [información sobre los modelos de implementación](../articles/resource-manager-deployment-model.md).

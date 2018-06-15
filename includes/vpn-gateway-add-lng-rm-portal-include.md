@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196941"
 ---
 1. En el portal, en **Todos los recursos**, haga clic en **+Agregar**.
 2. En el cuadro de búsqueda de la página **Todo**, escriba **Puerta de enlace de red local** y después haga clic para devolver una lista de recursos. Haga clic en **Puerta de enlace de red local** para abrir la página y, a continuación, haga clic en **Crear** para abrir la página **Crear puerta de enlace de red local**.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783684"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Administración de activos y entidades relacionadas con el SDK de Media Services para .NET
 > [!div class="op_single_selector"]

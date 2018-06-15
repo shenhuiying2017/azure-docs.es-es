@@ -1,19 +1,19 @@
 ---
-title: "Información sobre el entorno de ejecución de Azure IoT Edge | Microsoft Docs"
-description: "Información sobre el entorno de ejecución de Azure IoT Edge y cómo aumenta la capacidad de trabajo de los dispositivos perimetrales"
-services: iot-edge
-keywords: 
+title: Información sobre el entorno de ejecución de Azure IoT Edge | Microsoft Docs
+description: Información sobre el entorno de ejecución de Azure IoT Edge y cómo aumenta la capacidad de trabajo de los dispositivos perimetrales
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 02/15/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632081"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura (versión preliminar)
 

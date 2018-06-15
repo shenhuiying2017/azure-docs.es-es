@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887395"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Procedimientos recomendados para la creación de soluciones de administración en Azure (versión preliminar)
 > [!NOTE]

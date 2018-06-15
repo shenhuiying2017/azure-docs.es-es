@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894647"
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
 En este artículo se describe cómo se realiza la conmutación por error en máquinas virtuales y en servidores físicos protegidos con Site Recovery.
