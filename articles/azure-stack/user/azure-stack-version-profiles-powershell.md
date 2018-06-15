@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31392857"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Uso de los perfiles de la versión de la API para PowerShell en Azure Stack
 

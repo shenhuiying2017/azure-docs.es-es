@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915225"
 ---
 # <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opciones de copia de seguridad y restauración de máquinas virtuales en Azure
 Para proteger sus datos realice copias de seguridad a intervalos regulares. Hay varias opciones de copia de seguridad disponibles para máquinas virtuales, según el caso de uso.

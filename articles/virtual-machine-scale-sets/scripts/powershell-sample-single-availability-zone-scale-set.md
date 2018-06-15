@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416047"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales de zona única con Azure PowerShell
 Este script crea un conjunto de escalado de máquinas virtuales que ejecuta Windows Server 2016 en una sola zona de disponibilidad. Después de ejecutar el script, puede acceder a la máquina virtual a través de RDP.

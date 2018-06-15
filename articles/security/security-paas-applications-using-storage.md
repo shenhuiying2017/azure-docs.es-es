@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418227"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Protección de aplicaciones web y móviles PaaS con Azure Storage
 En este artículo se explican una serie de procedimientos recomendados de seguridad de Azure Storage para proteger aplicaciones web y móviles PaaS. Estos procedimientos recomendados proceden de nuestra experiencia con Azure y las experiencias de clientes como usted.

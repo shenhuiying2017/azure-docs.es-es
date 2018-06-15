@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325946"
 ---
 Entre las opciones de replicación para una cuenta de almacenamiento se incluyen las siguientes:
 

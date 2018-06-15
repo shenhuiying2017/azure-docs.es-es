@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406881"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Administración de Azure Key Vault mediante Azure Automation
 Esta guía le ofrece el servicio Azure Automation y cómo se puede usar para simplificar la administración de claves y secretos en Azure Key Vault.

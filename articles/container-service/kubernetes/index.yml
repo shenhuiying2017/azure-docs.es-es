@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394584"
 abstract:
   description: Azure Container Service le permite implementar rápidamente un clúster de Kubernetes listo para producción. Aprenda a usar Azure Container Service con Kubernetes con estos inicios rápidos, tutoriales y ejemplos.
 sections:

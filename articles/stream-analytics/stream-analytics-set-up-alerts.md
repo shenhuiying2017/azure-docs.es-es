@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412117"
 ---
 # <a name="tutorial-set-up-alerts-for-azure-stream-analytics-jobs"></a>Tutorial: configuración de alertas para los trabajos de Azure Stream Analytics
 Puede configurar alertas para desencadenar una alerta cuando una métrica alcance una condición que especifique. Por ejemplo, puede configurar una alerta para una condición similar a la siguiente:

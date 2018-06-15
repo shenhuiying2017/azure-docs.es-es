@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526002"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Vistas en Azure SQL Data Warehouse
 Sugerencias para usar las vistas T-SQL en Azure SQL Data Warehouse para desarrollar soluciones. 

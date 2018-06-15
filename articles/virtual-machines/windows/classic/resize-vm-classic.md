@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913636"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>Cambio de tamaño de una máquina virtual Windows creada en el modelo de implementación clásica
 En este artículo se muestra cómo cambiar de tamaño una máquina virtual Windows creada con el modelo de implementación clásica utilizando Azure PowerShell.

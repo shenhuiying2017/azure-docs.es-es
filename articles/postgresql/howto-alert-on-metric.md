@@ -1,6 +1,6 @@
 ---
-title: "Configuración de alertas de métricas para Azure Database for PostgreSQL en Azure Portal"
-description: "En este artículo se describe cómo configurar las alertas de métricas de Azure Database for PostgreSQL, y obtener acceso a ellas, mediante Azure Portal."
+title: Configuración de alertas de métricas para Azure Database for PostgreSQL en Azure Portal
+description: En este artículo se describe cómo configurar las alertas de métricas de Azure Database for PostgreSQL, y obtener acceso a ellas, mediante Azure Portal.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690264"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usar Azure Portal para configurar alertas de métricas para Azure Database for PostgreSQL 
 
@@ -79,6 +80,6 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 * **Editar** o **eliminar** la regla de alerta.
 * **Deshabilitar** o **habilitar** la alerta, si quiere detener temporalmente o reanudar la recepción de notificaciones.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 * Obtenga más información sobre cómo [configurar webhooks en las alertas](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 * Obtenga [información general sobre la colección de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para garantizar que el servicio está disponible y que responder adecuadamente.

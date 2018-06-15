@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31414215"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Uso de Blob Storage desde Xamarin
 

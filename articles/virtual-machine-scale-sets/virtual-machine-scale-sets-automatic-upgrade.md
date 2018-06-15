@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838230"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Actualizaciones de sistema operativo automáticas de un conjunto de escalado de máquinas virtuales de Azure
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929417"
 ---
 1. En el portal, a la izquierda, haga clic en **+ Crear un recurso** y escriba "Virtual Network Gateway" en el cuadro de búsqueda. Busque **Puerta de enlace de red virtual** en los resultados de la búsqueda y haga clic en la entrada. En la página **Puerta de enlace de red virtual**, haga clic en **Crear** en la parte inferior de la página para abrir la página **Crear puerta de enlace de red virtual**.
 2. En la página **Crear puerta de enlace de red virtual**, rellene los valores de la puerta de enlace de red virtual.

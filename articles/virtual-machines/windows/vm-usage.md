@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425187"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Descripción de uso de máquinas virtuales de Azure
 Mediante el análisis de los datos de uso de Azure, es posible obtener información importante sobre el consumo, es decir, información que puede permitirle mejorar la asignación y administración de los costos en toda la organización. En este documento se profundiza en los detalles de consumo de Azure Compute. Para más detalles sobre el uso general de Azure, navegue a [Descripción de la factura](../../billing/billing-understand-your-bill.md).

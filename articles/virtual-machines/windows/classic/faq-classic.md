@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917748"
 ---
 # <a name="frequently-asked-question-about-azure-windows-virtual-machines-created-with-the-classic-deployment-model"></a>Preguntas más frecuentes sobre Máquinas virtuales de Microsoft Azure creadas con el modelo de implementación clásica
 > [!IMPORTANT] 

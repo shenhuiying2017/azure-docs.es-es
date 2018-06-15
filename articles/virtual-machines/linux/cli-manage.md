@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840134"
 ---
 # <a name="common-azure-cli-20-commands-for-managing-azure-resources"></a>Comandos de CLI de Azure 2.0 comunes para administrar recursos de Azure
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]

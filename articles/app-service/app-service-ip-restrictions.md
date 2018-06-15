@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800116"
 ---
 # <a name="azure-app-service-static-ip-restrictions"></a>Restricciones de IP estáticas de Azure App Service #
 

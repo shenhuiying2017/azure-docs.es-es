@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391140"
 ---
 # <a name="start-and-stop-azure-stack"></a>Inicio y detención de Azure Stack
 Siga los procedimientos que se describen en este artículo para detener y reiniciar los servicios de Azure Stack correctamente. 
