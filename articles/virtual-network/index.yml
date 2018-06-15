@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32187899"
 abstract:
   description: Aprenda a usar Azure Virtual Network. Guías de inicio rápido, tutoriales, ejemplos, etc, que muestran cómo implementar una red virtual, controlar el filtrado y el enrutamiento de tráfico y conectar una red virtual a otras redes virtuales.
 sections:

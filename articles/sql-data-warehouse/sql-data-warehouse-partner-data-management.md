@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187375"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partners de administración de datos de SQL Data Warehouse
 Para crear la solución de almacenamiento de datos, elija entre una amplia variedad de herramientas líderes del sector. En este artículo se destacan las empresas asociadas de Microsoft con soluciones y herramientas de administración de datos compatibles con Azure SQL Data Warehouse.

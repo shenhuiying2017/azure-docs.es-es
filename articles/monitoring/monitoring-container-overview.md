@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207534"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Introducción a la supervisión de contenedores en Azure
 Con Azure, puede supervisar y administrar de manera efectiva las cargas de trabajo implementadas en contenedores de Azure que ejecutan Kubernetes o Docker. Es importante entender qué tal funcionan los contenedores con varias aplicaciones de microservicio a fin de proporcionar un servicio confiable a escala y respaldar el plan de supervisión. En este artículo se proporciona una breve introducción a las funcionalidades de administración y supervisión de Azure para ayudarle a entender cada una y cuáles son adecuadas para sus necesidades.

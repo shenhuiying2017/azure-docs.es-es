@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32161946"
 ---
 # <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Creación de un clúster de Azure Container Service con Kubernetes para Windows
 
