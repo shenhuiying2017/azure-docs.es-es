@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783184"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Envío de trabajos de clips desde Azure Media Clipper
 Azure Media Clipper requiere que se implemente un método **submitSubclipCallback** para gestionar el envío de trabajos de clips. Esta función sirve para implementar un método HTTP POST de la salida de Clipper en un servicio web. Este servicio web es el lugar adonde puede enviar el trabajo de codificación. La salida de Clipper es un valor preestablecido de Media Encoder Standard para trabajos representados o la carga útil de la API de REST para llamadas de filtro de manifiesto dinámico. Este modelo de paso es necesario porque las credenciales de la cuenta de servicios multimedia no son seguras en el explorador del cliente.

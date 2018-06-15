@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785894"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming sin conexión para iOS 
  Azure Media Services proporciona un conjunto de [servicios de protección de contenido](https://azure.microsoft.com/services/media-services/content-protection/) de alto diseño que abarca:
