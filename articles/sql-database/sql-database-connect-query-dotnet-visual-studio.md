@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31791110"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Uso de .NET (C#) con Visual Studio para conectarse y consultar una base de datos SQL de Azure
 

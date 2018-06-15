@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592442"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Administración de la red CDN de Azure con PowerShell
 PowerShell proporciona uno de los métodos más flexibles para administrar los perfiles y puntos de conexión de la red CDN de Azure.  Puede usar PowerShell interactivamente o mediante la escritura de scripts para automatizar tareas de administración.  Este tutorial muestra algunas de las tareas más comunes que puede realizar con PowerShell para administrar los perfiles y puntos de conexión de la red CDN de Azure.

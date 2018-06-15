@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776913"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Notification Hubs mediante PowerShell
 ## <a name="overview"></a>Información general

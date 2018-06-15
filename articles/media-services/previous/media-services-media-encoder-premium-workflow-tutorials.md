@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783954"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
 ## <a name="overview"></a>Información general

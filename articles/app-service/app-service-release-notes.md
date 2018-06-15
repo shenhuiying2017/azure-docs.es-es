@@ -1,11 +1,11 @@
 ---
-title: "Notas de la versión de SDK de Azure para .NET 2.5.1."
-description: "Notas de la versión de SDK de Azure para .NET 2.5.1."
+title: Notas de la versión de SDK de Azure para .NET 2.5.1.
+description: Notas de la versión de SDK de Azure para .NET 2.5.1.
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/03/2017
+ms.locfileid: "23957422"
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.5.1.
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.5.1. 

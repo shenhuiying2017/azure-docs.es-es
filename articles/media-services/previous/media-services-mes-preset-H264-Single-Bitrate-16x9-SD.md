@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783064"
 ---
 # <a name="h264-single-bitrate-16x9-sd"></a>H264 Single Bitrate 16x9 SD
 `Media Encoder Standard` define un conjunto de valores predeterminados de Encoding que puede usar al crear trabajos de Encoding. Puede usar `preset name` para especificar en qué formato desea codificar el archivo multimedia. O bien, puede crear sus propios valores predeterminados basados en XML o JSON (mediante la codificación UTF-8 o UTF-16). Después pasaría el valor predeterminado personalizado al codificador. Para obtener la lista de todos los nombres predeterminados admitidos por este codificador `Media Encoder Standard`, vea [Task Presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Valores predeterminados de tarea para Media Encoder Standard).  

@@ -1,24 +1,19 @@
 ---
-title: "Introducción a la administración de dispositivos de IoT Hub de Azure (Node) | Microsoft Docs"
-description: "Describe cómo usar la administración de dispositivos de IoT Hub para iniciar un reinicio del dispositivo remoto. Usará los SDK de IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo."
-services: iot-hub
-documentationcenter: .net
+title: Introducción a la administración de dispositivos de IoT Hub de Azure (Node) | Microsoft Docs
+description: Describe cómo usar la administración de dispositivos de IoT Hub para iniciar un reinicio del dispositivo remoto. Usará los SDK de IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado que incluye un método directo y un servicio que invoque el método directo.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
-ms.openlocfilehash: 0aeba8560de46ae2032304f133b66ad0a70f1354
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635957"
 ---
 # <a name="get-started-with-device-management-node"></a>Introducción a la administración de dispositivos (Node)
 

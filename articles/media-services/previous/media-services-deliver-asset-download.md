@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782804"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Entrega de un recurso mediante descarga
 En este artículo se analizan las opciones para entregar recursos multimedia cargados en Media Services. Puede entregar contenido de Media Services en diversos escenarios de aplicaciones. Después de la codificación, descargue los recursos multimedia generados, o bien acceda a ellos mediante un localizador de streaming. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una instancia de Content Delivery Network (CDN).

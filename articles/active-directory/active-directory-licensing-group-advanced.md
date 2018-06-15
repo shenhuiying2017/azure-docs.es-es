@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764390"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory
 

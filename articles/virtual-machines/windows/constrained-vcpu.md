@@ -1,11 +1,11 @@
 ---
-title: "Tamaños de vCPU restringidas de Azure: Windows | Microsoft Docs"
-description: "Enumera los tamaños VM que pueden tener un recuento de vCPU restringido."
+title: 'Tamaños de vCPU restringidas de Azure: Windows | Microsoft Docs'
+description: Enumera los tamaños VM que pueden tener un recuento de vCPU restringido.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877041"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tamaños de VM que admiten vCPU restringidas
 

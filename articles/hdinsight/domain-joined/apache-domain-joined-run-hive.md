@@ -17,6 +17,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31592682"
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar directivas de Hive en HDInsight unido a un dominio
 Aprenda a configurar las directivas de Apache Ranger para Hive. En este artículo, cree dos directivas Ranger para restringir el acceso a hivesampletable. hivesampletable viene con los clústeres de HDInsight. Una vez configuradas las directivas, utilice Excel y el controlador ODBC para conectarse a las tablas de Hive en HDInsight.

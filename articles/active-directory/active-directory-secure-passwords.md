@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31586381"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Un enfoque de varios niveles para la seguridad de contraseñas de Azure AD
 

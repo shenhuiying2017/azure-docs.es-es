@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603851"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Aumento y reducción automáticos de los recursos de clúster de HPC Pack en Azure según la carga de trabajo de clúster
 Si implementa nodos de "ráfaga" de Azure en su clúster de HPC Pack o crea un clúster de HPC Pack en máquinas virtuales de Azure, puede que quiera una manera de aumentar o reducir automáticamente recursos, como los nodos o los núcleos, según la carga de trabajo en el clúster. El escalado de los recursos del clúster de este modo le permite usar de forma más eficaz los recursos de Azure y controlar los costos.

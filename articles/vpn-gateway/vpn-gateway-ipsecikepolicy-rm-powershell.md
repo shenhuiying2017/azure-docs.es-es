@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31601158"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurar una directiva de IPsec o IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual
 

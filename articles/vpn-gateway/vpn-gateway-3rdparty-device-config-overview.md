@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599618"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Información general sobre las configuraciones de dispositivo VPN asociado
 Este artículo proporciona información general sobre configuraciones de dispositivos VPN locales para conectarse a puertas de enlace de VPN de Azure. Se usará una red virtual de Azure de ejemplo y la configuración de la puerta de enlace de VPN para conectarse a distintos dispositivos VPN locales usando los mismos parámetros.

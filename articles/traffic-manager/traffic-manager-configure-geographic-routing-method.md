@@ -1,12 +1,12 @@
 ---
-title: "Configuración del método de enrutamiento de tráfico geográfico con Azure Traffic Manager | Microsoft Docs"
-description: "En este artículo se explica cómo configurar el método de enrutamiento de tráfico geográfico con Azure Traffic Manager"
+title: Configuración del método de enrutamiento de tráfico geográfico con Azure Traffic Manager | Microsoft Docs
+description: En este artículo se explica cómo configurar el método de enrutamiento de tráfico geográfico con Azure Traffic Manager
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397810"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager
 
@@ -59,7 +60,7 @@ El método de enrutamiento de tráfico geográfico le permite dirigir el tráfic
 2. Haga clic en **Descripción general**.
 3. La hoja **Perfil de Traffic Manager** muestra el nombre DNS del perfil de Traffic Manager que acaba de crear. Cualquier cliente puede usar este perfil (por ejemplo, mediante un explorador web) para enrutar el tráfico al punto de conexión correcto según el tipo de enrutamiento.  En el caso del enrutamiento geográfico, Traffic Manager busca la dirección IP de origen de la solicitud entrante y determina la región desde la que se origina. Si esa región está asignada a un punto de conexión, el tráfico se enruta ahí. Si esta región no está asignada a un punto de conexión, Traffic Manager devuelve una respuesta de consulta NODATA.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 - Obtenga más información sobre el [método de enrutamiento del tráfico geográfico](traffic-manager-routing-methods.md#geographic).
 - Información sobre cómo [probar la configuración de Traffic Manager](traffic-manager-testing-settings.md).

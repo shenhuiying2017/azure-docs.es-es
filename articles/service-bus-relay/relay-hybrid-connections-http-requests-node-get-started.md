@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896632"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-node"></a>Introducción a las solicitudes HTTP de Conexiones híbridas de Relay en Node
 

@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: es-ES
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33778671"
 abstract:
   description: Aprenda a usar Azure HDInsight para analizar datos de streaming o históricos. Los tutoriales y otra documentación muestran cómo crear clústeres, cómo procesar y analizar macrodatos y cómo desarrollar soluciones con los entornos de código abierto más populares, como Hadoop, Spark, Hive, LLAP, Kafka, Storm y R.<p>Azure HDInsight es un servicio de análisis, de código abierto, espectro completo y totalmente administrado para empresas. HDInsight es un servicio en la nube que hace que sea fácil, rápido y rentable procesar grandes cantidades de datos. HDInsight también admite una amplia gama de escenarios, como la extracción, transformación y carga (ETL), el almacenamiento de datos, el aprendizaje automático e IoT.</p>
   aside:

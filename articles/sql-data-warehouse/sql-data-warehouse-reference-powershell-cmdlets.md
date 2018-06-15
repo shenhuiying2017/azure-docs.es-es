@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599713"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets de PowerShell y API de REST para SQL Data Warehouse
 Muchas tareas de administración de SQL Data Warehouse se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en SQL Data Warehouse.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en SQL Data Warehouse de Azure (REST)][Manage scalability with REST].

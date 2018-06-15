@@ -1,11 +1,11 @@
 ---
-title: "Entidades de mensajería de Azure Service Bus con reenvío automático | Microsoft Docs"
-description: "Encadenamiento de una cola o suscripción de Service Bus a otra cola u otro tema."
+title: Entidades de mensajería de Azure Service Bus con reenvío automático | Microsoft Docs
+description: Encadenamiento de una cola o suscripción de Service Bus a otra cola u otro tema.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558099"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadenamiento de entidades de Service Bus con reenvío automático
 
@@ -56,7 +57,7 @@ Service Bus factura una operación por cada mensaje reenviado. Por ejemplo, el e
 
 Para crear una suscripción encadenada a otra cola o a otro tema, el creador debe tener permisos de **administración** tanto en la entidad de origen como en la de destino. Para enviar mensajes al tema de origen, solo se requieren permisos de **envío** en el tema de origen.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 
 Para más información sobre el reenvío automático, consulte los siguientes temas de referencia:
 

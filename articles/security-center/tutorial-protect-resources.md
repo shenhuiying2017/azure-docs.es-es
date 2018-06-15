@@ -1,11 +1,11 @@
 ---
-title: "Tutorial de Azure Security Center: protección de los recursos con Azure Security Center | Microsoft Docs"
-description: "En este tutorial se muestra cómo configurar una directiva de acceso a VM Just-In-Time y una directiva de control de aplicaciones."
+title: 'Tutorial de Azure Security Center: protección de los recursos con Azure Security Center | Microsoft Docs'
+description: En este tutorial se muestra cómo configurar una directiva de acceso a VM Just-In-Time y una directiva de control de aplicaciones.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529421"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Tutorial: protección de los recursos con Azure Security Center
 Security Center limita la exposición a amenazas mediante controles de acceso y aplicación para bloquear actividades malintencionadas. El acceso a máquinas virtuales (VM) Just-In-Time reduce la exposición a ataques mediante la posibilidad de denegar el acceso persistente a VM. En su lugar, se proporciona acceso controlado y auditado a VM solo cuando se necesita. Los controles de aplicación adaptables ayudan a proteger las VM frente a malware controlando qué aplicaciones se pueden ejecutar en dichas VM. Security Center usa el aprendizaje automático para analizar los procesos que se ejecutan en la máquina virtual y le ayuda a aplicar reglas de inclusión en listas de permitidos con esta inteligencia.
@@ -119,7 +120,7 @@ Si desea deshabilitar el aprovisionamiento automático:
 > La deshabilitación del aprovisionamiento automático no quita Microsoft Monitoring Agent de las máquinas virtuales de Azure en las que se ha aprovisionado el agente. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.
 >
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 En este tutorial, aprendió a limitar la exposición a amenazas mediante:
 
 > [!div class="checklist"]

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783814"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913508"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Desacoplamiento de un disco de datos de una máquina virtual de Windows
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento.

@@ -1,29 +1,26 @@
 ---
-title: "Análisis de registros de sitios web mediante Azure Data Lake Analytics | Microsoft Docs"
-description: "Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake  "
+title: Análisis de registros de sitios web mediante Azure Data Lake Analytics
+description: 'Obtenga información sobre cómo analizar registros de sitios web mediante Análisis de Data Lake '
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623373"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Análisis de registros de sitios web mediante Azure Data Lake Analytics
 Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, especialmente en lo que se refiere a averiguar qué sitios de referencia presentaban errores cuando intentaron visitar el sitio web.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 * **Visual Studio 2015 o Visual Studio 2013**.
 * **[Data Lake Tools para Visual Studio](http://aka.ms/adltoolsvs)**.
 
@@ -62,7 +59,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 2. Seleccione el tipo de proyecto U-SQL.
 
     ![nuevo proyecto de Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo Script.usql.
+3. Haga clic en **OK**. Visual Studio crea una solución con un archivo Script.usql.
 4. Incluya el siguiente script en el archivo Script.usql:
 
         // Create a database for easy reuse, so you don't need to read from a file every time.
@@ -175,6 +172,6 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 ## <a name="see-also"></a>Otras referencias
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
-* [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
-* [Introducción a Análisis de Data Lake mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-* [Introducción a Análisis de Data Lake mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+* [Introducción a Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Introducción a Data Lake Analytics mediante Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+* [Introducción a Data Lake Analytics mediante .NET SDK](data-lake-analytics-get-started-net-sdk.md)

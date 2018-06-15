@@ -1,24 +1,20 @@
 ---
 title: Recepción de un correo electrónico al abrir la puerta con el servicio SendGrid y Azure Functions | Microsoft Docs
 description: Controle el sensor magnético para detectar cuándo se abre una puerta y utilice Azure Functions para enviar una notificación por correo electrónico.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80537bb817baf20831ad5020f0db775f21836f92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632142"
 ---
 # <a name="door-monitor"></a>Supervisión de puertas          
 
@@ -213,4 +209,4 @@ Si tiene algún problema, consulte las [preguntas más frecuentes](https://micro
 Ha aprendido a conectar un dispositivo de DevKit al acelerador de la solución de supervisión remota de Azure IoT y a utilizar el servicio SendGrid para enviar un correo electrónico. Estos son los siguientes pasos que le sugerimos:
 
 * [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)

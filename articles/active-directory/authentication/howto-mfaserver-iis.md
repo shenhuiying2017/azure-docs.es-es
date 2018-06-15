@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33866206"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS
 

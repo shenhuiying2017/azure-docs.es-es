@@ -1,11 +1,11 @@
 ---
 title: Uso de Docker Compose en una VM Linux en Azure | Microsoft Docs
-description: "Uso de Docker y Compose en máquinas virtuales con Linux mediante la CLI de Azure"
+description: Uso de Docker y Compose en máquinas virtuales con Linux mediante la CLI de Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848413"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Introducción a Docker y Compose para definir y ejecutar una aplicación de contenedores múltiples en Azure
 Con [Compose](http://github.com/docker/compose), usará un archivo de texto simple para definir una aplicación compuesta de varios contenedores de Docker. Después, puede poner en marcha la aplicación con un solo comando que realiza todos los pasos para implementarla en el entorno definido. Como ejemplo, en este artículo se muestra cómo configurar rápidamente un blog de WordPress con una base de datos SQL MariaDB de back-end en una máquina virtual Ubuntu. También puede utilizar Compose para configurar aplicaciones más complejas.

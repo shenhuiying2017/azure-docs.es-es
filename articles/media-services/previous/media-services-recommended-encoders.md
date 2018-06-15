@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785724"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locales recomendados
 Cuando realice streaming en directo con Azure Media Services, puede especificar cómo desea que el canal reciba la transmisión de entrada. Si elige usar un codificador local con un canal de codificación en directo, el codificador debe insertar una transmisión con velocidad de bits única de alta calidad como salida. Si elige usar un codificador local con un canal de paso a través, el codificador debe insertar una transmisión con múltiples velocidades de bits como salida con todas las cualidades de salida deseadas. Para más información, consulte el artículo sobre [streaming en directo con codificadores locales](media-services-live-streaming-with-onprem-encoders.md).

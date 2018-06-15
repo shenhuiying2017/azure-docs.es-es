@@ -1,22 +1,20 @@
 ---
 title: Configuración de un dispositivo para el servicio Azure IoT Hub Device Provisioning
 description: Configurar el dispositivo para el aprovisionamiento mediante el servicio IoT Hub Device Provisioning durante el proceso de fabricación del dispositivo
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c885e4d5d747d913eaf0b7137b240950e920e7ff
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631275"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -24,10 +22,10 @@ En el tutorial anterior, aprendió a configurar el servicio Azure IoT Hub Device
 
 > [!div class="checklist"]
 > * Compilar un SDK de cliente de los servicios Device Provisioning específico de la plataforma
-> * Extraer los artefactos de seguridad
+> * Extracción de los artefactos de seguridad
 > * Crear el software de registro del dispositivo
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de continuar, cree la instancia del servicio Device Provisioning y una instancia de IoT Hub, para lo que debe seguir las instrucciones del tutorial [1 - Configuración de los recursos de la nube](./tutorial-set-up-cloud.md).
 
@@ -189,7 +187,7 @@ En este momento, los servicios Device Provisioning e IoT Hub se ejecutan en el p
 2. Desde el menú de la izquierda en Azure Portal, haga clic en **Todos los recursos** y seleccione su centro de IoT. En la parte superior de la hoja **Todos los recursos**, haga clic en **Eliminar**.  
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * Compilar un SDK de cliente del servicio Device Provisioning específico de la plataforma

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32778434"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Comprensión de las alertas de seguridad en Azure Security Center
 Este artículo ayuda a comprender los distintos tipos de alertas de seguridad y aspectos relacionados disponibles en Azure Security Center. Para más información sobre cómo administrar las alertas y los incidentes, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).

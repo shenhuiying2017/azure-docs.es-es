@@ -1,13 +1,13 @@
 ---
-title: "Configuración de filtros de ruta para el emparejamiento de Microsoft de Azure ExpressRoute: Portal | Microsoft Docs"
-description: "En este artículo se describe cómo configurar los filtros de ruta para el emparejamiento de Microsoft mediante Azure Portal"
+title: 'Configuración de filtros de ruta para el emparejamiento de Microsoft de Azure ExpressRoute: Portal | Microsoft Docs'
+description: En este artículo se describe cómo configurar los filtros de ruta para el emparejamiento de Microsoft mediante Azure Portal
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387734"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: Azure Portal
 > [!div class="op_single_selector"]

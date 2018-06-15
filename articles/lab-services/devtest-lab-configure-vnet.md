@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781634"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configuración de una red virtual en Azure DevTest Labs
 Como se explica en el artículo [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada. Por ejemplo, puede que necesite acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio.
