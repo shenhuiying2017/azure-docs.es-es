@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153565"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configuración de PHP en Azure App Service Web Apps
 
