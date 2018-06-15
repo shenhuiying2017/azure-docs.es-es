@@ -1,6 +1,6 @@
 ---
-title: "Configuración de los parámetros del servicio en Azure Database for PostgreSQL"
-description: "En este artículo se describe cómo configurar los parámetros de servicio de Azure Database for PostgreSQL mediante la línea de comandos de la CLI de Azure."
+title: Configuración de los parámetros del servicio en Azure Database for PostgreSQL
+description: En este artículo se describe cómo configurar los parámetros de servicio de Azure Database for PostgreSQL mediante la línea de comandos de la CLI de Azure.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -15,6 +15,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691400"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Personalización de los parámetros de configuración del servidor con la CLI de Azure
 Puede enumerar, mostrar y actualizar los parámetros de configuración de un servidor Azure PostgreSQL con la interfaz de la línea de comandos (CLI de Azure). Sin embargo, en el nivel del servidor, solo se expone y se puede modificar un subconjunto de las opciones de configuración del motor. 
@@ -51,5 +52,5 @@ az postgres server configuration set --name log_min_messages --resource-group my
 ```
 La configuración de **log\_min\_messages** se restablecerá al valor predeterminado **WARNING**. Para obtener más información sobre la configuración del servidor y los valores permitidos, consulte la documentación de PostgreSQL en [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html) (Configuración del servidor).
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>pasos siguientes
 - Para configurar y obtener acceso a los registros del servidor, consulte [Registros del servidor en Azure Database for PostgreSQL](concepts-server-logs.md).

@@ -1,6 +1,6 @@
 ---
-title: "archivo de inclusión"
-description: "archivo de inclusión"
+title: archivo de inclusión
+description: archivo de inclusión
 services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29743374"
 ---
 ## <a name="terminology"></a>Terminología
 
