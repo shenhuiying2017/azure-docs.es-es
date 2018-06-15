@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169812"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Guía de inicio rápido: Creación de un registro de contenedor con Azure Portal
 
