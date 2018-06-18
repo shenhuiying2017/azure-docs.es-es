@@ -23,7 +23,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Administración de la configuración de la verificación en dos pasos
-Este artículo ofrece respuestas a preguntas acerca de cómo actualizar la configuración de verificación en dos pasos o la autenticación multifactor. Si tiene problemas para iniciar sesión en su cuenta, consulte [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener ayuda para la solución de problemas.
+Este artículo ofrece respuestas a preguntas acerca de cómo actualizar la configuración de la verificación en dos pasos o la autenticación multifactor. Si tiene problemas para iniciar sesión en su cuenta, consulte [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener ayuda para la solución de problemas.
 
 ## <a name="where-to-find-the-settings-page"></a>Dónde encontrar la página de configuración
 Según cómo su compañía configure Azure Multi-Factor Authentication, existen algunos lugares donde puede cambiar los ajustes, como su número de teléfono.
@@ -68,5 +68,5 @@ Dependiendo de la configuración de la organización, es posible que tenga una c
 Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
-* Configure [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admiten la verificación en dos pasos.
+* Obtener sugerencias para solucionar problemas y ayuda [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
+* Configure las [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones que no admitan la verificación en dos pasos.
