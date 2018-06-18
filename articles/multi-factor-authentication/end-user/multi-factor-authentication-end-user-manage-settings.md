@@ -57,7 +57,7 @@ Es importante configurar un número de teléfono de autenticación secundario.  
 2. En el cuadro de texto, escriba el número de teléfono secundario.  
 3. Seleccione **Guardar** y los cambios habrán finalizado.  
 
-## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Requerir de nueva verificación en dos pasos en un dispositivo marcado como de confianza
+## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Volver a solicitar la verificación en dos pasos en un dispositivo marcado como de confianza
 
 Dependiendo de la configuración de la organización, es posible que tenga una casilla que indica "Don't ask again for **X** days" (No volver a preguntar en X días) al realizar la verificación en dos pasos en el explorador. Si marca este cuadro y pierde el dispositivo o piensa que se ha comprometido la seguridad de su cuenta, debe restaurar la verificación en dos pasos en todos los dispositivos.
 
